@@ -61,8 +61,8 @@ void combinationUtil(vector<Edge> arr, int r,int index, vector<Edge> data, int i
         if(isThrackle(tmp)){
           thrackleCounter++;
           tmp_thrackle.edges = tmp;
-          cout<< thrackleCounter << "\n";
-          printThrackle(tmp_thrackle);
+          //cout<< thrackleCounter << "\n";
+          //printThrackle(tmp_thrackle);
 
         }
         tmp.clear();

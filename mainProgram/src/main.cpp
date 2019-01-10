@@ -2,15 +2,15 @@
 
 int main() {
     vector<Point> vPoints;
-    if(readPoints(5,"../../OT/otypes05.b08",vPoints) == 1){
+    if(readPoints(9,"../../OT/otypes09.b16",vPoints) == 1){
         fprintf(stderr,"Error de lectura\n");
         exit(-1);
     }
     //printPoints(vPoints);
     //Select first 6 points
     vector<Point> vec;
-    vec.resize(5);
-    copy(vPoints.begin()+5,vPoints.begin()+10,vec.begin());
+    vec.resize(9);
+    copy(vPoints.begin()+9,vPoints.begin()+18,vec.begin());
     printVectorPoint(vec);
     if (isConvex(vec)){
         printf("Points are in convex position.\n");
@@ -22,7 +22,7 @@ int main() {
     generateAllEdges(vec,edges);
     vector<vector<Edge>> combinations;
     int k;
-    k = 5;
+    k = 9;
     int counter,thrackleCounter;
     counter = 0;
     thrackleCounter = 0;
