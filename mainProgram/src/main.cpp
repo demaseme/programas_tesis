@@ -21,19 +21,21 @@ int main() {
     vector<Edge> edges;
     generateAllEdges(vec,edges);
     vector<vector<Edge>> combinations;
+    vector<Thrackle> foundThrackles;
     int k;
     k = 9;
     int counter,thrackleCounter;
     counter = 0;
     thrackleCounter = 0;
     std::chrono::high_resolution_clock::time_point t1 = chrono::high_resolution_clock::now();
-    k_Combination(edges,k,combinations,counter,thrackleCounter);
+    k_Combination(edges,k,combinations,counter,thrackleCounter,foundThrackles);
     printf("There are %d combinations of size %d\nFrom which %d are thrackles (%1.8f)\n",
     counter,k,thrackleCounter,(float)thrackleCounter/counter);
     std::chrono::high_resolution_clock::time_point t2 = chrono::high_resolution_clock::now();
     chrono::duration<double, std::milli> time_span = t2 - t1;
     cout << "It took me " << time_span.count() << " milliseconds.";
     cout << std::endl;
+    
 
     return 0;
 }

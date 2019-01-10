@@ -28,13 +28,14 @@ bool crossing(Edge e_1, Edge e_2){
 // The main function that prints all combinations of
 // size r in arr[] of size n. This function mainly
 // uses combinationUtil()
-void k_Combination(vector<Edge> arr, int r, vector<vector<Edge>> & combinations, int & counter, int & thrackleCounter){
+void k_Combination(vector<Edge> arr, int r, vector<vector<Edge>> & combinations,
+   int & counter, int & thrackleCounter, vector<Thrackle> foundThrackles){
     // A temporary array to store all combination
     // one by one
     vector<Edge> data;
     data.resize(r);
     // Print all combination using temprary array 'data[]'
-    combinationUtil(arr, r, 0, data, 0, combinations, counter, thrackleCounter);
+    combinationUtil(arr, r, 0, data, 0, combinations, counter, thrackleCounter, foundThrackles);
 
 }
 /* arr[]  ---> Input Array
@@ -43,8 +44,8 @@ void k_Combination(vector<Edge> arr, int r, vector<vector<Edge>> & combinations,
    index  ---> Current index in data[]
    data[] ---> Temporary array to store current combination
    i      ---> index of current element in arr[]     */
-void combinationUtil(vector<Edge> arr, int r,int index, vector<Edge> data, int i,vector<vector<Edge>> & combinations,
-  int & counter, int & thrackleCounter){
+void combinationUtil(vector<Edge> arr, int r,int index, vector<Edge> data, int i,
+  vector<vector<Edge>> & combinations, int & counter, int & thrackleCounter, vector<Thrackle> & foundThrackles){
     int n = (int) arr.size();
     // Current cobination is ready, store it
     vector<Edge> tmp;
@@ -61,6 +62,7 @@ void combinationUtil(vector<Edge> arr, int r,int index, vector<Edge> data, int i
         if(isThrackle(tmp)){
           thrackleCounter++;
           tmp_thrackle.edges = tmp;
+          foundThrackles.push_back(tmp_thrackle);
           //cout<< thrackleCounter << "\n";
           //printThrackle(tmp_thrackle);
 
@@ -81,6 +83,21 @@ void combinationUtil(vector<Edge> arr, int r,int index, vector<Edge> data, int i
 
 }
 
+void thrackle_union(vector<Thrackle> thrackles, vector<Edge> & result){
+  
+}
+//Returns true if the union of the thrackles cover the vector of edges.
+//Returns false otherwise
+bool covers(vector<Thrackle> thrackles,vector<Edge> edges){
+  //Perform the union of the thrackles.
+  //This is, a union of edges of all the thrackles
+  vector<Edge> edge_union;
+  thrackle_union(thrackles,edge_union);
+  //Check if every element of the union is in the vector of edges
+  //(or just check size [might be tricky])
+
+  return false;
+}
 bool isThrackle(vector<Edge> edges){
   //If every pair of edges cross or share an endpoint, return true.
   unsigned int k = edges.size();

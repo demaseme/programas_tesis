@@ -24,9 +24,10 @@ void findThrackle(unsigned int k, vector<Point> points, vector<Thrackle> & thrac
 //Returns true if the collection of edges 'edges' is a thackle and false otherwise.
 bool isThrackle(vector<Edge> edges);
 
-void k_Combination(vector<Edge> arr, int r, vector<vector<Edge>> & combinations, int & counter, int & thrackleCounter);
-void combinationUtil(vector<Edge> arr, int r,int index, vector<Edge> data, int i,vector<vector<Edge>> & combinations,
-  int & counter, int & thrackleCounter);
+void k_Combination(vector<Edge> arr, int r, vector<vector<Edge>> & combinations,
+  int & counter, int & thrackleCounter, vector<Thrackle> foundThrackles)
+void combinationUtil(vector<Edge> arr, int r,int index, vector<Edge> data, int i,
+  vector<vector<Edge>> & combinations, int & counter, int & thrackleCounter, vector<Thrackle> & foundThrackles)
 
 void printThrackle(Thrackle t);
 #endif
