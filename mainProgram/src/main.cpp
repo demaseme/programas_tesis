@@ -18,32 +18,6 @@ int main() {
         printf("Points are NOT in convex position.\n");
     }
 
-    //TESTING IF THRACKLE DETECTION WORKS
-    //TESTING IF CYCLE DETECTION WORKS
-    // vector<Edge> thrackleSecure;
-    // Edge tmp;
-    // tmp.v1 = vec[0];
-    // tmp.v2 = vec[2];
-    // thrackleSecure.push_back(tmp);
-    // tmp.v1 = vec[2];
-    // tmp.v2 = vec[5];
-    // thrackleSecure.push_back(tmp);
-    // tmp.v1 = vec[5];
-    // tmp.v2 = vec[1];
-    // thrackleSecure.push_back(tmp);
-    // tmp.v1 = vec[1];
-    // tmp.v2 = vec[4];
-    // thrackleSecure.push_back(tmp);
-    // tmp.v1 = vec[4];
-    // tmp.v2 = vec[0];
-    // thrackleSecure.push_back(tmp);
-    // if(isCycle(thrackleSecure)){
-    //     printf("ES UN CICLO\n");
-    //     return 0;
-    // } else{
-    //     printf("NO ES UN CICLO  \n");
-    //     return -1;
-    // }
     vector<Edge> edges;
     generateAllEdges(vec,edges);
     vector<vector<Edge>> combinations;

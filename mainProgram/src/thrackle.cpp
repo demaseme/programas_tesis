@@ -1,8 +1,14 @@
 #include "thrackle.h"
 
 bool share_ep(Edge e_1, Edge e_2){
-    
-    if( e_1.v1 == e_2.v1 || e_1.v1 == e_2.v2 || e_2.v1 == e_1.v2 || e_2.v2 == e_1.v2) return true;
+
+    if( e_1.v1 == e_2.v1 || e_1.v1 == e_2.v2 || e_2.v1 == e_1.v2 || e_2.v2 == e_1.v2) {
+        // printf("The following edges share an endpoint: \n");
+        // printEdge(e_1);
+        // printEdge(e_2);
+        // printf("===========================\n");
+    return true;
+    }
     return false;
 }
 bool crossing(Edge e_1, Edge e_2){
@@ -11,6 +17,10 @@ bool crossing(Edge e_1, Edge e_2){
   int ori1 = orientation(e_1.v1,e_1.v2,e_2.v1);
   int ori2 = orientation(e_1.v1,e_1.v2,e_2.v2);
   if (ori1 != ori2){
+      // printf("The following edges cross: \n");
+      // printEdge(e_1);
+      // printEdge(e_2);
+      // printf("===========================\n");
       return true;
   }
   return false;
@@ -18,8 +28,7 @@ bool crossing(Edge e_1, Edge e_2){
 // The main function that prints all combinations of
 // size r in arr[] of size n. This function mainly
 // uses combinationUtil()
-void k_Combination(vector<Edge> arr, int r, vector<vector<Edge>> & combinations, int & counter, int & thrackleCounter)
-{
+void k_Combination(vector<Edge> arr, int r, vector<vector<Edge>> & combinations, int & counter, int & thrackleCounter){
     // A temporary array to store all combination
     // one by one
     vector<Edge> data;
@@ -76,8 +85,8 @@ bool isThrackle(vector<Edge> edges){
   //If every pair of edges cross or share an endpoint, return true.
   unsigned int k = edges.size();
   for(unsigned int i = 0; i < k; i++){
-      for(unsigned int j = i+1; j < k; j++){
-          if (!( crossing(edges[i],edges[j]) || share_ep(edges[i],edges[j]) )) return false;
+      for(unsigned int j = 0; j < k; j++){
+          if (!( share_ep(edges[i],edges[j]) || crossing(edges[i],edges[j]) )) return false;
       }
   }
   return true;
