@@ -1,6 +1,7 @@
 #include "thrackle.h"
 
 bool share_ep(Edge e_1, Edge e_2){
+    //Check this one, I think it's mistaken!
     if( e_1.v1 == e_2.v1 || e_1.v1 == e_2.v2 || e_2.v1 == e_1.v2 || e_2.v2 == e_1.v2) return true;
     return false;
 }
