@@ -75,11 +75,11 @@ void combinationUtil(vector<Edge> arr, int r,int index, vector<Edge> data, int i
         return;
     // current is included, put next at next location
     data[index] = arr[i];
-    combinationUtil(arr, r, index + 1, data, i + 1, combinations,counter, thrackleCounter);
+    combinationUtil(arr, r, index + 1, data, i + 1, combinations,counter, thrackleCounter, foundThrackles);
     // current is excluded, replace it with next
     // (Note that i+1 is passed, but index is not
     // changed)
-    combinationUtil(arr, r, index, data, i + 1,combinations, counter, thrackleCounter);
+    combinationUtil(arr, r, index, data, i + 1,combinations, counter, thrackleCounter, foundThrackles);
 
 }
 
@@ -94,7 +94,7 @@ bool edge_in(Edge a, vector<Edge> A){
 //Performs the union of 2 sets of edges A and B
 //Stores result in A.
 void edge_set_union(vector<Edge> & A,vector<Edge> B){
-  for(unsigned int = 0; i < B.size(); i++){
+  for(unsigned int i = 0; i < B.size(); i++){
     if( !edge_in(B[i],A) ) {
       A.push_back(B[i]);
     }

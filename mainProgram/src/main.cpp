@@ -9,8 +9,8 @@ int main() {
     //printPoints(vPoints);
     //Select first 6 points
     vector<Point> vec;
-    vec.resize(9);
-    copy(vPoints.begin()+9,vPoints.begin()+18,vec.begin());
+    vec.resize(6);
+    copy(vPoints.begin()+6,vPoints.begin()+12,vec.begin());
     printVectorPoint(vec);
     if (isConvex(vec)){
         printf("Points are in convex position.\n");
@@ -23,7 +23,7 @@ int main() {
     vector<vector<Edge>> combinations;
     vector<Thrackle> foundThrackles;
     int k;
-    k = 9;
+    k = 6;
     int counter,thrackleCounter;
     counter = 0;
     thrackleCounter = 0;
@@ -35,7 +35,9 @@ int main() {
     chrono::duration<double, std::milli> time_span = t2 - t1;
     cout << "It took me " << time_span.count() << " milliseconds.";
     cout << std::endl;
-    
+    return 0;
+    vector<Edge> union_of_edges;
+    thrackle_union(foundThrackles,union_of_edges);
 
     return 0;
 }
