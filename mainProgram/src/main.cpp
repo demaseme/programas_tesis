@@ -12,7 +12,7 @@ int main() {
     //Select first 6 points
     vector<Point> vec;
     vec.resize(k);
-    copy(vPoints.begin()+0,vPoints.begin()+k,vec.begin());
+    copy(vPoints.begin()+k,vPoints.begin()+2*k,vec.begin());
     printVectorPoint(vec);
     if (isConvex(vec)){
         printf("Points are in convex position.\n");
