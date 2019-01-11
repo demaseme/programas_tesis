@@ -2,15 +2,17 @@
 
 int main() {
     vector<Point> vPoints;
-    if(readPoints(9,"../../OT/otypes09.b16",vPoints) == 1){
+    int k;
+    k = 6;
+    if(readPoints(k,"../../OT/otypes06.b08",vPoints) == 1){
         fprintf(stderr,"Error de lectura\n");
         exit(-1);
     }
     //printPoints(vPoints);
     //Select first 6 points
     vector<Point> vec;
-    vec.resize(6);
-    copy(vPoints.begin()+6,vPoints.begin()+12,vec.begin());
+    vec.resize(k);
+    copy(vPoints.begin()+0,vPoints.begin()+k,vec.begin());
     printVectorPoint(vec);
     if (isConvex(vec)){
         printf("Points are in convex position.\n");
@@ -22,8 +24,7 @@ int main() {
     generateAllEdges(vec,edges);
     vector<vector<Edge>> combinations;
     vector<Thrackle> foundThrackles;
-    int k;
-    k = 6;
+
     int counter,thrackleCounter;
     counter = 0;
     thrackleCounter = 0;
@@ -35,9 +36,13 @@ int main() {
     chrono::duration<double, std::milli> time_span = t2 - t1;
     cout << "It took me " << time_span.count() << " milliseconds.";
     cout << std::endl;
-    return 0;
+
     vector<Edge> union_of_edges;
-    thrackle_union(foundThrackles,union_of_edges);
+    if (covers(foundThrackles,edges)){
+      cout << "Found thrackles cover the whole edge set\n";
+    } else {
+      cout << "Found thrackles DO NOT cover the whole edge set\n";
+    }
 
     return 0;
 }

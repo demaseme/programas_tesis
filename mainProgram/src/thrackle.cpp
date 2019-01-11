@@ -29,7 +29,7 @@ bool crossing(Edge e_1, Edge e_2){
 // size r in arr[] of size n. This function mainly
 // uses combinationUtil()
 void k_Combination(vector<Edge> arr, int r, vector<vector<Edge>> & combinations,
-   int & counter, int & thrackleCounter, vector<Thrackle> foundThrackles){
+   int & counter, int & thrackleCounter, vector<Thrackle> & foundThrackles){
     // A temporary array to store all combination
     // one by one
     vector<Edge> data;
@@ -115,6 +115,8 @@ bool covers(vector<Thrackle> thrackles,vector<Edge> edges){
   thrackle_union(thrackles,edge_union);
   //Check if every element of the union is in the vector of edges
   //(or just check size [might be tricky])
+  cout << "Original  edge size: " << edges.size() << endl;
+  cout << "Union of edges size: " << edge_union.size() << endl;
   if (edges.size() == edge_union.size()) return true;
   return false;
 }

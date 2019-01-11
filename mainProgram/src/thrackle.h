@@ -28,7 +28,7 @@ void edge_set_union(vector<Edge> & A,vector<Edge> B);
 void thrackle_union(vector<Thrackle> thrackles, vector<Edge> & result);
 bool covers(vector<Thrackle> thrackles,vector<Edge> edges);
 void k_Combination(vector<Edge> arr, int r, vector<vector<Edge>> & combinations,
-  int & counter, int & thrackleCounter, vector<Thrackle> foundThrackles);
+  int & counter, int & thrackleCounter, vector<Thrackle> & foundThrackles);
 void combinationUtil(vector<Edge> arr, int r,int index, vector<Edge> data, int i,
   vector<vector<Edge>> & combinations, int & counter, int & thrackleCounter, vector<Thrackle> & foundThrackles);
 void printThrackle(Thrackle t);
