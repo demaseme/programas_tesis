@@ -116,6 +116,7 @@ void minimal_thrackle_intersection(vector<Thrackle> thrackles){
       if( (int) currentIntersection.size() < minimal){
         minimal = currentIntersection.size();
       }
+      currentIntersection.clear();
     }
   }
   cout << "Smaller intersection size is : " << minimal << endl;
