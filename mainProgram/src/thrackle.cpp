@@ -83,8 +83,28 @@ void combinationUtil(vector<Edge> arr, int r,int index, vector<Edge> data, int i
 
 }
 
+//Returns true if edge a is in set A.
+//Returns false otherwise
+bool edge_in(Edge a, vector<Edge> A){
+  for(auto i = A.begin(); i < A.end() ; i++) {
+    if(a == *i) return true;
+  }
+  return false;
+}
+//Performs the union of 2 sets of edges A and B
+//Stores result in A.
+void edge_set_union(vector<Edge> & A,vector<Edge> B){
+  for(unsigned int = 0; i < B.size(); i++){
+    if( !edge_in(B[i],A) ) {
+      A.push_back(B[i]);
+    }
+  }
+}
+//Performs the union of thrackles in the vector
+//Stores the result on a vector of Edge's
 void thrackle_union(vector<Thrackle> thrackles, vector<Edge> & result){
-  
+  for(unsigned int i = 0 ; i < thrackles.size(); i++)
+    edge_set_union(result,thrackles[i].edges);
 }
 //Returns true if the union of the thrackles cover the vector of edges.
 //Returns false otherwise
@@ -95,7 +115,7 @@ bool covers(vector<Thrackle> thrackles,vector<Edge> edges){
   thrackle_union(thrackles,edge_union);
   //Check if every element of the union is in the vector of edges
   //(or just check size [might be tricky])
-
+  if (edges.size() == edge_union.size()) return true;
   return false;
 }
 bool isThrackle(vector<Edge> edges){

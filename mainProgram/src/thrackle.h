@@ -23,7 +23,10 @@ bool share_ep(Edge e_1, Edge e_2);
 void findThrackle(unsigned int k, vector<Point> points, vector<Thrackle> & thrackles);
 //Returns true if the collection of edges 'edges' is a thackle and false otherwise.
 bool isThrackle(vector<Edge> edges);
-
+bool edge_in(Edge a, vector<Edge> A);
+void edge_set_union(vector<Edge> & A,vector<Edge> B);
+void thrackle_union(vector<Thrackle> thrackles, vector<Edge> & result);
+bool covers(vector<Thrackle> thrackles,vector<Edge> edges);
 void k_Combination(vector<Edge> arr, int r, vector<vector<Edge>> & combinations,
   int & counter, int & thrackleCounter, vector<Thrackle> foundThrackles)
 void combinationUtil(vector<Edge> arr, int r,int index, vector<Edge> data, int i,
