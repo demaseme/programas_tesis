@@ -44,5 +44,6 @@ int main() {
       cout << "Found thrackles DO NOT cover the whole edge set\n";
     }
 
+    minimal_thrackle_intersection(foundThrackles);
     return 0;
 }

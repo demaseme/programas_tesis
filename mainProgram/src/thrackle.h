@@ -24,6 +24,9 @@ void findThrackle(unsigned int k, vector<Point> points, vector<Thrackle> & thrac
 //Returns true if the collection of edges 'edges' is a thackle and false otherwise.
 bool isThrackle(vector<Edge> edges);
 bool edge_in(Edge a, vector<Edge> A);
+void edge_set_intersection(vector<Edge> A, vector<Edge> B, vector<Edge> & C);
+void thrackle_intersection(Thrackle A, Thrackle B, vector<Edge> & result);
+void minimal_thrackle_intersection(vector<Thrackle> thrackles);
 void edge_set_union(vector<Edge> & A,vector<Edge> B);
 void thrackle_union(vector<Thrackle> thrackles, vector<Edge> & result);
 bool covers(vector<Thrackle> thrackles,vector<Edge> edges);

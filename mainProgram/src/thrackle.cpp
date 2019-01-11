@@ -91,6 +91,35 @@ bool edge_in(Edge a, vector<Edge> A){
   }
   return false;
 }
+
+//Performs the intersection of sets of edges A and B
+//Stores the result in vector C.
+void edge_set_intersection(vector<Edge> A, vector<Edge> B, vector<Edge> & C){
+  for(unsigned int i = 0; i < A.size(); i++){
+    if( edge_in(A[i],B) ) C.push_back(A[i]);
+  }
+}
+//Performs the intersection of thracklese A and B,
+//Stores teh result in vector of edges result
+void thrackle_intersection(Thrackle A, Thrackle B, vector<Edge> & result){
+  edge_set_intersection(A.edges,B.edges,result);
+}
+void minimal_thrackle_intersection(vector<Thrackle> thrackles){
+  int minimal;
+  minimal = 9999; //This value is accepted for this project max is 10.
+  vector<Edge> currentIntersection;
+  for(unsigned int i = 0; i < thrackles.size(); i++){
+    for(unsigned int j = i+1; j < thrackles.size(); j++){
+      //Compare thrackles i and j and update minimal if their intersection is
+      //smaller than current minimal value.
+      thrackle_intersection(thrackles[i],thrackles[j],currentIntersection);
+      if( (int) currentIntersection.size() < minimal){
+        minimal = currentIntersection.size();
+      }
+    }
+  }
+  cout << "Smaller intersection size is : " << minimal << endl;
+}
 //Performs the union of 2 sets of edges A and B
 //Stores result in A.
 void edge_set_union(vector<Edge> & A,vector<Edge> B){
