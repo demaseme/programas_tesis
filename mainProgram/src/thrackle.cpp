@@ -209,6 +209,23 @@ void findThrackle(unsigned int k, vector<Point> points, vector<Thrackle> & thrac
       }
      // printf("From these, only %d are thrackles\n",(int)thrackles.size());
   }
+//Writes thrackle information to a text file, this procedure needs all thrackles to be of the same size.
+void writeThrackles(vector<Thrackle> thrackles, int set_size, int thrackle_size, int ot_number){
+    ofstream myfile;
+    string file_name = to_string(set_size) + "_" + to_string(ot_number) + "_" + to_string(thrackle_size) + ".ths";
+    myfile.open(file_name);
+    myfile << set_size << " #set size\n";
+    myfile << ot_number << " #ot number\n";
+    myfile << thrackle_size << " #thrackle size\n";
+    myfile << thrackles.size() <<" #number of thrackles\n";
+    for(auto i = 0; i < (int)thrackles.size() ; i++){
+      for(auto j = 0; j < (int)thrackles[i].edges.size(); j++){
+        myfile << "(" << thrackles[i].edges[j].v1.x << "," << thrackles[i].edges[j].v1.y << " "<< thrackles[i].edges[j].v2.x << "," << thrackles[i].edges[j].v2.y << ") ";
+      }
+      myfile << endl;
+    }
+    myfile.close();
+}
 void printThrackle(Thrackle t){
     for(unsigned int i = 0; i < t.edges.size();i++){
         printEdge(t.edges[i]);

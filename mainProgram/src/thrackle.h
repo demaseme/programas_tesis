@@ -35,4 +35,5 @@ void k_Combination(vector<Edge> arr, int r, vector<vector<Edge>> & combinations,
 void combinationUtil(vector<Edge> arr, int r,int index, vector<Edge> data, int i,
   vector<vector<Edge>> & combinations, int & counter, int & thrackleCounter, vector<Thrackle> & foundThrackles);
 void printThrackle(Thrackle t);
+void writeThrackles(vector<Thrackle> thrackles, int set_size, int thrackle_size, int ot_number);
 #endif
