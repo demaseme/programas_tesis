@@ -1,4 +1,17 @@
 #include "thrackle.h"
+
+void write_max_thrackle_count(vector<int> count, int n){
+  ofstream myfile;
+  string filename = "K_" + to_string(n) + "_statistics.dat";
+  myfile.open(filename);
+  myfile << "#OT    #Max_Thr_Count\n";
+  for(int i = 0; i < (int) count.size(); i++){
+    cout << i << "\t\t" << count[i] << endl;
+    myfile << i << "\t\t" << count[i] << endl;
+  }
+  myfile.close();
+  cout << "write max th coutn \n";
+}
 //From console the parameters will be
 //set_size thrackle_size draw? ot_number
 //./main 6 6 -d -ot 5
@@ -81,8 +94,10 @@ int main(int argc, char* argv[]) {
     vector<vector<Edge>> combinations; //Here we store the combinations of edges depending on k.
     vector<Thrackle> foundThrackles; //Here we store the thrackles of size k.
     vector<Thrackle> tbd_thrackles; //Thrackles to be drawn later.
-    vector<vector<Point>> tbd_points; //A set of points for every thrackle to be drawn.                                  
+    vector<vector<Point>> tbd_points; //A set of points for every thrackle to be drawn.
     //Select the points of the current order type.
+    vector<int> max_thrackle_count; //Vector to store how many max thrackles were found for each ot
+
     while(ot_number < otypes){
       vec.resize(setSize);
       copy(vPoints.begin()+(setSize*ot_number),vPoints.begin()+( (setSize*ot_number) + setSize ),vec.begin());
@@ -120,7 +135,11 @@ int main(int argc, char* argv[]) {
         }
       }
 
-      minimal_thrackle_intersection(foundThrackles);
+      //Count how many thrackles of size n were found for current ot.
+      //Write that information into a text file.
+      max_thrackle_count.push_back((int)foundThrackles.size());
+
+      //minimal_thrackle_intersection(foundThrackles);
 
       //Write found thrackles on text file.
       writeThrackles(foundThrackles,setSize,k,ot_number);
@@ -136,9 +155,12 @@ int main(int argc, char* argv[]) {
     }
     if(draw_flag){
       //Draw thrackles on tbd vector.
-      glutInit(&argc, argv);
-      printf("draw flag\n");
-      drawThrackles(tbd_thrackles,tbd_points);
+      // glutInit(&argc, argv);
+      // printf("draw flag\n");
+      // drawThrackles(tbd_thrackles,tbd_points);
+      ;
     }
+    //Write max thrackle count to text file
+    write_max_thrackle_count(max_thrackle_count, setSize);
     return 0;
 }
