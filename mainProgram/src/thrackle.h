@@ -7,8 +7,12 @@
 //Each element of edges is a vector of size 2.
 class Thrackle{
 public:
+    int set_size;
+    int thrackle_size;
+    int ot;
     vector<Edge> edges;
 };
+
 
 // Edge operations (line segment operations)
 
@@ -36,4 +40,7 @@ void combinationUtil(vector<Edge> arr, int r,int index, vector<Edge> data, int i
   vector<vector<Edge>> & combinations, int & counter, int & thrackleCounter, vector<Thrackle> & foundThrackles);
 void printThrackle(Thrackle t);
 void writeThrackles(vector<Thrackle> thrackles, int set_size, int thrackle_size, int ot_number);
+void drawThrackles(vector<Thrackle> thrackles, vector<vector<Point>> puntos);
+void dibuja();
+void procesa_puntos(vector<vector<Point>> points);
 #endif
