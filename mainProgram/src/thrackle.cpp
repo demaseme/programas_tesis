@@ -252,14 +252,29 @@ void drawThrackles(vector<Thrackle> thrackles, vector<vector<Point>> points){
 }
 
 //Writes thrackle information to a text file, this procedure needs all thrackles to be of the same size.
-void writeThrackles(vector<Thrackle> thrackles, int set_size, int thrackle_size, int ot_number){
+/*The format of the output:
+  <set size>
+  <point list>
+  <ot_number>
+  <thrackle size>
+  <number of thrackles found>
+  <thrackle list>
+*/
+void writeThrackles(vector<Thrackle> & thrackles, vector<Point> & points, int set_size, int thrackle_size, int ot_number ){
     ofstream myfile;
-    string file_name = "ths/" + to_string(set_size) + "_" + to_string(ot_number) + "_" + to_string(thrackle_size) + ".ths";
+    string file_name = "ths/" + to_string(set_size) + "/" + to_string(ot_number) + "_" + to_string(thrackle_size) + ".ths";
+
+    system( ("mkdir -p ths/" + to_string(set_size)).c_str() );
     myfile.open(file_name);
-    myfile << set_size << " #set size\n";
-    myfile << ot_number << " #ot number\n";
-    myfile << thrackle_size << " #thrackle size\n";
-    myfile << thrackles.size() <<" #number of thrackles\n";
+    myfile << set_size << "\n";
+    //Write the points on file.
+    for(auto i = 0; i < (int) points.size() ; i++){
+        myfile << points[i].x << "," << points[i].y<< " " ;
+    }
+    myfile << endl;
+    myfile << ot_number << "\n";
+    myfile << thrackle_size << "\n";
+    myfile << thrackles.size() <<"\n";
     for(auto i = 0; i < (int)thrackles.size() ; i++){
       for(auto j = 0; j < (int)thrackles[i].edges.size(); j++){
         myfile << "(" << thrackles[i].edges[j].v1.x << "," << thrackles[i].edges[j].v1.y << " "<< thrackles[i].edges[j].v2.x << "," << thrackles[i].edges[j].v2.y << ") ";

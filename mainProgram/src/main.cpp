@@ -6,11 +6,11 @@ void write_max_thrackle_count(vector<int> count, int n){
   myfile.open(filename);
   myfile << "#OT    #Max_Thr_Count\n";
   for(int i = 0; i < (int) count.size(); i++){
-    cout << i << "\t\t" << count[i] << endl;
+    //cout << i << "\t\t" << count[i] << endl;
     myfile << i << "\t\t" << count[i] << endl;
   }
   myfile.close();
-  cout << "write max th coutn \n";
+  //cout << "write max th coutn \n";
 }
 //From console the parameters will be
 //set_size thrackle_size draw? ot_number
@@ -109,21 +109,21 @@ int main(int argc, char* argv[]) {
       std::chrono::high_resolution_clock::time_point t1 = chrono::high_resolution_clock::now();
 
       k_Combination(edges,k,combinations,counter,thrackleCounter,foundThrackles);
-      printf("There are %d combinations of size %d\nFrom which %d are thrackles (%1.8f)\n",
-      counter,k,thrackleCounter,(float)thrackleCounter/counter);
+      //printf("There are %d combinations of size %d\nFrom which %d are thrackles (%1.8f)\n",
+      //counter,k,thrackleCounter,(float)thrackleCounter/counter);
 
       std::chrono::high_resolution_clock::time_point t2 = chrono::high_resolution_clock::now();
       chrono::duration<double, std::milli> time_span = t2 - t1;
-      cout << "It took me " << time_span.count() << " milliseconds.";
+      //cout << "It took me " << time_span.count() << " milliseconds.";
       cout << std::endl;
 
       vector<Edge> union_of_edges;
-      if (covers(foundThrackles,edges)){
-        cout << "Found thrackles cover the whole edge set\n";
-      } else {
-        cout << "Found thrackles DO NOT cover the whole edge set\n";
-      }
-      //Update information on thrackles to be displayed when drawn.
+      // if (covers(foundThrackles,edges)){
+      //   cout << "Found thrackles cover the whole edge set\n";
+      // } else {
+      //   cout << "Found thrackles DO NOT cover the whole edge set\n";
+      // }
+      // //Update information on thrackles to be displayed when drawn.
       for(int i = 0; i < (int) foundThrackles.size() ; i++){
         foundThrackles[i].set_size = setSize;
         foundThrackles[i].thrackle_size = k;
@@ -142,7 +142,7 @@ int main(int argc, char* argv[]) {
       //minimal_thrackle_intersection(foundThrackles);
 
       //Write found thrackles on text file.
-      writeThrackles(foundThrackles,setSize,k,ot_number);
+      writeThrackles(foundThrackles,vec,setSize,k,ot_number);
 
       //Clear all that.
       vec.clear();

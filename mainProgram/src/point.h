@@ -15,6 +15,8 @@
 #include <unistd.h>
 #include <GL/glut.h>
 #include "gl2ps.h"
+
+
 using namespace std;
 
 extern int setSize;
