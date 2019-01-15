@@ -40,7 +40,7 @@ void combinationUtil(vector<Edge> arr, int r,int index, vector<Edge> data, int i
   vector<vector<Edge>> & combinations, int & counter, int & thrackleCounter, vector<Thrackle> & foundThrackles);
 void printThrackle(Thrackle t);
 void writeThrackles(vector<Thrackle> & thrackles, vector<Point> & points, int set_size, int thrackle_size, int ot_number );
-void drawThrackles(vector<Thrackle> thrackles, vector<vector<Point>> puntos);
+//void drawThrackles(vector<Thrackle> thrackles, vector<vector<Point>> puntos);
 void dibuja();
 void procesa_puntos(vector<vector<Point>> points);
 #endif

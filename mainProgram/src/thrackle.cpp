@@ -1,7 +1,7 @@
 #include "thrackle.h"
-
-float alto;
-float ancho; //Used by opengl
+//
+// float alto;
+// float ancho; //Used by opengl
 
 bool share_ep(Edge e_1, Edge e_2){
 
@@ -213,43 +213,43 @@ void findThrackle(unsigned int k, vector<Point> points, vector<Thrackle> & thrac
      // printf("From these, only %d are thrackles\n",(int)thrackles.size());
   }
 
-void reshape_cb (int w, int h) {
-  	if (w==0||h==0) return;
-  	glViewport(0,0,w,h);
-  	glMatrixMode (GL_PROJECTION);
-  	glLoadIdentity ();
-  	gluOrtho2D(0,w,0,h);
-  	glMatrixMode (GL_MODELVIEW);
-  	glLoadIdentity ();
-  }
-
-void dibuja(){
-  int i;
-	glClear(GL_COLOR_BUFFER_BIT);
-}
+// void reshape_cb (int w, int h) {
+//   	if (w==0||h==0) return;
+//   	glViewport(0,0,w,h);
+//   	glMatrixMode (GL_PROJECTION);
+//   	glLoadIdentity ();
+//   	gluOrtho2D(0,w,0,h);
+//   	glMatrixMode (GL_MODELVIEW);
+//   	glLoadIdentity ();
+//   }
+//
+// void dibuja(){
+//   int i;
+// 	glClear(GL_COLOR_BUFFER_BIT);
+// }
 
 void procesa_puntos(vector<vector<Point>> points){
 
 }
 //Draws thrackles using opengl
-void drawThrackles(vector<Thrackle> thrackles, vector<vector<Point>> points){
-
-
-  alto = glutGet(GLUT_SCREEN_HEIGHT) * .8;
-	ancho = glutGet(GLUT_SCREEN_WIDTH) * .6;
-  procesa_puntos(points);
-  glutInitDisplayMode (GLUT_RGBA|GLUT_DOUBLE);
-	glutInitWindowSize (ancho,alto);
-	glutInitWindowPosition (100,100);
-	glutCreateWindow ("Thrackles");
-	// glutKeyboardFunc(keyboard);
-	// glutSpecialFunc (special);
-	glutDisplayFunc (dibuja);
-	glutReshapeFunc (reshape_cb);
-	glClearColor(1.f,1.f,1.f,1.f);
-  dibuja();
-  glutMainLoop();
-}
+// void drawThrackles(vector<Thrackle> thrackles, vector<vector<Point>> points){
+//
+//
+//   alto = glutGet(GLUT_SCREEN_HEIGHT) * .8;
+// 	ancho = glutGet(GLUT_SCREEN_WIDTH) * .6;
+//   procesa_puntos(points);
+//   glutInitDisplayMode (GLUT_RGBA|GLUT_DOUBLE);
+// 	glutInitWindowSize (ancho,alto);
+// 	glutInitWindowPosition (100,100);
+// 	glutCreateWindow ("Thrackles");
+// 	// glutKeyboardFunc(keyboard);
+// 	// glutSpecialFunc (special);
+// 	glutDisplayFunc (dibuja);
+// 	glutReshapeFunc (reshape_cb);
+// 	glClearColor(1.f,1.f,1.f,1.f);
+//   dibuja();
+//   glutMainLoop();
+// }
 
 //Writes thrackle information to a text file, this procedure needs all thrackles to be of the same size.
 /*The format of the output:
