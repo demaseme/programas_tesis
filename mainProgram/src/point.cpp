@@ -40,6 +40,7 @@ bool isCycle(vector<Edge> edges){
 //of the complete graph with n vertices, stores them on vEdges.
 void generateAllEdges(vector<Point> vPoints,vector<Edge> & vEdges){
     Edge tmp;
+    cout << "Generating all edges!\n";
     for(unsigned int i = 0; i < vPoints.size(); i++){
         for(unsigned int j = i+1; j < vPoints.size(); j++){
             tmp.v1 = vPoints[i];

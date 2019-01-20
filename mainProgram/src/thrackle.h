@@ -26,7 +26,7 @@ bool share_ep(Edge e_1, Edge e_2);
 //stores it on vector of Thrackle objects thrackles
 void findThrackle(unsigned int k, vector<Point> points, vector<Thrackle> & thrackles);
 //Returns true if the collection of edges 'edges' is a thackle and false otherwise.
-bool isThrackle(vector<Edge> edges);
+bool isThrackle(vector<Edge> & edges);
 bool edge_in(Edge a, vector<Edge> A);
 void edge_set_intersection(vector<Edge> A, vector<Edge> B, vector<Edge> & C);
 void thrackle_intersection(Thrackle A, Thrackle B, vector<Edge> & result);
