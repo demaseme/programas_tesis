@@ -7,6 +7,7 @@ vector<Thrackle> thrackles;
 int ot;
 int thrackle_size;
 int number_thrackles;
+int current_thrackle;
 
 //Loads the vectors points and edges with information
 //to be drawn later.
@@ -112,13 +113,38 @@ void process_file(string filename){
 
 
 }
+void keyboard(unsigned char key, int x, int y){
+    if (key == 39) {
+
+    }
+}
+void special(int key, int x, int y){
+    if(key == GLUT_KEY_RIGHT){
+        if(current_thrackle < number_thrackles - 1){
+            current_thrackle++;
+        } else{
+            current_thrackle = 0;
+        }
+        draw();
+        //cout << "Right arrow \n";
+    }
+    else if(key == GLUT_KEY_LEFT){
+        if(current_thrackle > 0 ){
+            current_thrackle--;
+        } else {
+            current_thrackle = number_thrackles - 1 ;
+        }
+        cout << current_thrackle << endl;
+        draw();
+    }
+}
 void initialize_opengl(){
 	glutInitDisplayMode (GLUT_RGBA|GLUT_DOUBLE);
 	glutInitWindowSize (ancho,alto);
 	glutInitWindowPosition (100,100);
 	glutCreateWindow ("Thrackles");
-	// glutKeyboardFunc(keyboard);
-	// glutSpecialFunc (special);
+	glutKeyboardFunc(keyboard);
+	glutSpecialFunc (special);
 	glutDisplayFunc (draw);
 	glutReshapeFunc (reshape_cb);
 	glClearColor(1.f,1.f,1.f,1.f);
@@ -137,14 +163,14 @@ void draw(){
 	glClear(GL_COLOR_BUFFER_BIT);
 
 	glColor3f(.5,.5,.5);
-	glLineWidth(.2);
-	gl2psLineWidth(1);
+	glLineWidth(1);
+	gl2psLineWidth(3);
     if(number_thrackles>0){
         //Draw the first thrackle.
-        for(i=0; i < (int) thrackles[0].edges.size();i++){ //for each edge of it.
+        for(i=0; i < (int) thrackles[current_thrackle].edges.size();i++){ //for each edge of it.
                 glBegin(GL_LINE_STRIP); //Draw edge
-                glVertex2i(thrackles[0].edges[i].v1.x,thrackles[0].edges[i].v1.y);
-                glVertex2i(thrackles[0].edges[i].v2.x,thrackles[0].edges[i].v2.y);
+                glVertex2i(thrackles[current_thrackle].edges[i].v1.x,thrackles[current_thrackle].edges[i].v1.y);
+                glVertex2i(thrackles[current_thrackle].edges[i].v2.x,thrackles[current_thrackle].edges[i].v2.y);
                 glEnd();
         }
     }
