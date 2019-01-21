@@ -33,6 +33,8 @@ bool crossing(Edge e_1, Edge e_2){
 // uses combinationUtil()
 void k_Combination(vector<Edge> arr, int r, vector<vector<Edge>> & combinations,
    int & counter, int & thrackleCounter, vector<Thrackle> & foundThrackles){
+    cout << "Finding combinations and thrackles!\n";
+    
     // A temporary array to store all combination
     // one by one
     vector<Edge> data;
@@ -153,7 +155,7 @@ bool covers(vector<Thrackle> thrackles,vector<Edge> edges){
   if (edges.size() == edge_union.size()) return true;
   return false;
 }
-bool isThrackle(vector<Edge> edges){
+bool isThrackle(vector<Edge> & edges){
   //If every pair of edges cross or share an endpoint, return true.
   unsigned int k = edges.size();
   for(unsigned int i = 0; i < k; i++){
