@@ -22,8 +22,8 @@ using namespace std;
 extern int setSize;
 class Point {
 public:
-    int x;
-    int y;
+    uint16_t x;
+    uint16_t y;
     bool operator==(const Point q){
         return (q.x == this->x && q.y == this->y);
     }
@@ -57,4 +57,5 @@ int findNext(vector<Edge> edges, Edge current);
 bool isCycle(vector<Edge> edges);
 void pwrsetk(int k, vector<Edge> input,vector<vector<Edge>> & output);
 void sortPoints(vector<Point> & points);
+int readPoints2(int n, string file_name, vector<Point> & vPoints, int otypes);
 #endif

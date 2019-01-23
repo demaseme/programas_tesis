@@ -80,11 +80,18 @@ int main(int argc, char* argv[]) {
         fprintf(stderr,"No existe base de datos para n>10\n"); exit(-1);
     }
 
-    if(readPoints(setSize,otfile_str,vPoints) == 1){
+    //This will fail for last ot, too many points. Must read one OT at once.
+    // if(readPoints(setSize,otfile_str,vPoints) == 1){
+    //     fprintf(stderr,"Error de lectura\n");
+    //     exit(-1);
+    // }
+
+    if(readPoints2(setSize,otfile_str,vPoints,otypes) == 1){
         fprintf(stderr,"Error de lectura\n");
         exit(-1);
     }
     cout << "Finished reading point file\n";
+    return 0;
     //If a given order type is specified, process only that one.
     //Otherwise, process all order types of a file.
 
@@ -101,6 +108,7 @@ int main(int argc, char* argv[]) {
 
     while(ot_number < otypes){
       vec.resize(setSize);
+
       copy(vPoints.begin()+(setSize*ot_number),vPoints.begin()+( (setSize*ot_number) + setSize ),vec.begin());
       sortPoints(vec);
       printVectorPoint(vec);

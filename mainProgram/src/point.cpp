@@ -195,6 +195,28 @@ void printPoints(vector<Point> v){
         if((i+1)%setSize==0) printf("\n");
     }
 }
+int readPoints2(int n, string file_name, vector<Point> & vPoints, int otypes){
+    FILE * file = fopen(file_name.c_str(), "rb");
+    if (file == NULL) {
+        return 1;
+    }
+    int npuntos,err,bytes,i;
+    npuntos = otypes*n;
+    uint16_t a, b;
+    bytes = 2;
+    //Point *points = (Point*)malloc(sizeof(Point)*npuntos);
+    vPoints.resize(npuntos);
+    for(i = 0; i < npuntos;){
+		err = fread(&a, bytes, 1, file);
+		err = fread(&b, bytes, 1, file);
+        // points[i].x = a;
+        // points[i].y = b;
+        vPoints[i].x = a;
+        vPoints[i].y = b;
+        i++;
+    }
+    return 0;
+}
 //Reads a file of binary points and stores it on vector vPoints.
 int readPoints(int n, string file_name, vector<Point> & vPoints){
     ifstream input(file_name, std::ios::binary);
@@ -202,15 +224,17 @@ int readPoints(int n, string file_name, vector<Point> & vPoints){
     // copies all data into buffer
     //Stored as unsigned int. Arithmetic operations (+-*/) can be used! :)
     //Can be treated as signed int or unsigned int.
-    vector< unsigned char> buffer(std::istreambuf_iterator<char>(input), {});
+    vector< unsigned char> buffer (std::istreambuf_iterator<char>(input), {});
     //Copying each pair of binary points to a vector of Point objects
     Point temp;
     cout << "Buffer size: " << buffer.size() << endl;
     if (n>8){
-      for( unsigned int i=0;i< buffer.size();i+=4){
+      for( long i=0;i < (long)buffer.size();i+=4){
+          //cout << i << " ";
           temp.x = (unsigned short) buffer[i+0] | (((unsigned short) buffer[i+1]) << 8);
           temp.y = (unsigned short) buffer[i+2] | (((unsigned short) buffer[i+3]) << 8);
           vPoints.push_back(temp);
+          //268435344
       }
     } else{
       for( unsigned int i=0;i< buffer.size();i+=2){
