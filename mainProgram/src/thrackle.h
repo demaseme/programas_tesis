@@ -43,4 +43,5 @@ void writeThrackles(vector<Thrackle> & thrackles, vector<Point> & points, int se
 //void drawThrackles(vector<Thrackle> thrackles, vector<vector<Point>> puntos);
 void dibuja();
 void procesa_puntos(vector<vector<Point>> points);
+void findThrackles_size(const vector<Edge> edges, int k, long & comboCtr, vector<Thrackle> & foundThrackles);
 #endif

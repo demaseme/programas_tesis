@@ -1,6 +1,14 @@
 #include "point.h"
 int setSize;
 
+
+bool lexcmp(const Point &p, const Point &q){
+     return  ( (p.x < q.x) || ( (p.x == q.x) && (p.y < q.y))  );
+}
+//Sorts vector of points P lexicographically. Uses C++ sort function.
+void sortPoints(vector<Point> & P){
+    sort(P.begin(),P.end(),lexcmp);
+}
 //Prints a vector of edges
 void printEdges(vector<Edge> vE){
     for(unsigned int i = 0; i < vE.size(); i++){

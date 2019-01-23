@@ -28,13 +28,74 @@ bool crossing(Edge e_1, Edge e_2){
   }
   return false;
 }
+
+/*
+Function that finds all thrackles of size k.
+It creates every combination of k edges for the given edge set.
+Then it evaluates whether that set of k edges is a thrackle or not.
+Combinations are found based on Knuth algorithm.
+Input:
+    vector<Edge> edge - The edges of the complete graph.
+    int k             - The size of the thrackles to be found.
+    long comboCtr     - A counter for the number of combinations of size k found.
+    vector<Thrackle> foundThrackles - A vector to store the found thrackles
+*/
+
+void findThrackles_size(const vector<Edge> edges, int k, long & comboCtr, vector<Thrackle> & foundThrackles){
+    //Find the combinations of size k for a set of size edges.size();
+    int n;
+    n = (int) edges.size();
+    //L1. Initialize.
+    std::vector<int> c;
+    int j;
+    vector<Edge> tmp_edges;
+    Thrackle tmp_thrackle;
+    //long res;
+    c.push_back(-9999); //Sentinel.
+    for(int i=0; i < k; i++){
+        c.push_back(i);
+    }
+    c.push_back(n);
+    c.push_back(0);
+    comboCtr = 0;
+
+    while(true){
+        //L2. Visit. Here we check if current combination is a thrackle or nah.
+        for(int i = k; i > 0; i--){
+            cout << c[i] << " ";
+            tmp_edges.push_back(edges[c[i]]);
+        }
+        cout << endl;
+        if(isThrackle(tmp_edges)){
+            tmp_thrackle.edges = tmp_edges;
+            foundThrackles.push_back(tmp_thrackle);
+        }
+        tmp_edges.clear(); // Clean up for next iteration.
+        comboCtr++; //Increase counter of combinations.
+
+        //L3. FIND j
+        j = 1;
+        while( (c[j] + 1) == c[j+1] ) {
+            c[j] = j - 1;
+            j = j + 1;
+        }
+        //L4. Termination condition met?
+        if (j > k) {
+            //std::cout << res << " combinations\n";
+            break;
+        }
+        //L5. Upadte and Return to L2.
+        c[j] = c[j] + 1;
+    }
+}
+
 // The main function that prints all combinations of
 // size r in arr[] of size n. This function mainly
 // uses combinationUtil()
 void k_Combination(vector<Edge> arr, int r, vector<vector<Edge>> & combinations,
    int & counter, int & thrackleCounter, vector<Thrackle> & foundThrackles){
     cout << "Finding combinations and thrackles!\n";
-    
+
     // A temporary array to store all combination
     // one by one
     vector<Edge> data;

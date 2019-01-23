@@ -56,5 +56,5 @@ void printEdges(vector<Edge> vE);
 int findNext(vector<Edge> edges, Edge current);
 bool isCycle(vector<Edge> edges);
 void pwrsetk(int k, vector<Edge> input,vector<vector<Edge>> & output);
-
+void sortPoints(vector<Point> & points);
 #endif

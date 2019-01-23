@@ -84,11 +84,12 @@ int main(int argc, char* argv[]) {
         fprintf(stderr,"Error de lectura\n");
         exit(-1);
     }
-
+    cout << "Finished reading point file\n";
     //If a given order type is specified, process only that one.
     //Otherwise, process all order types of a file.
 
-    int counter,thrackleCounter;
+    int thrackleCounter;
+    long counter;
     vector<Point> vec; //Here we store the points that will be read.
     vector<Edge> edges; //Here we store the (n take 2) edges of the complete graph
     vector<vector<Edge>> combinations; //Here we store the combinations of edges depending on k.
@@ -101,14 +102,16 @@ int main(int argc, char* argv[]) {
     while(ot_number < otypes){
       vec.resize(setSize);
       copy(vPoints.begin()+(setSize*ot_number),vPoints.begin()+( (setSize*ot_number) + setSize ),vec.begin());
+      sortPoints(vec);
+      printVectorPoint(vec);
       generateAllEdges(vec,edges);
 
       counter = 0;
       thrackleCounter = 0;
 
       std::chrono::high_resolution_clock::time_point t1 = chrono::high_resolution_clock::now();
-
-      k_Combination(edges,k,combinations,counter,thrackleCounter,foundThrackles);
+      findThrackles_size(edges,k,counter,foundThrackles);
+      //k_Combination(edges,k,combinations,counter,thrackleCounter,foundThrackles);
       //printf("There are %d combinations of size %d\nFrom which %d are thrackles (%1.8f)\n",
       //counter,k,thrackleCounter,(float)thrackleCounter/counter);
 

@@ -8,7 +8,7 @@
 Based off Art of computer programming - Volume 4a Fascicle 2 Generating all combinations
 Algorithm T (Lexicographic combinations).
 */
-//Visits all t-combinations of set {0,1,2...n-1}
+//Visits all t-combinations of set {0,1,2...n-1} APPARENTLY DOESNT WORK, NOT EVEN WITH GOTOs
 void combinations(int n, int t){
   //T1. Initialize c_j = j-1 for j in [1,t]
   std::vector<int> c;
@@ -143,7 +143,45 @@ void badcombinations2(int n, int t){
     c[j] = c[j] + 1;
     goto l2;
 }
+//works as badcombinations2 but without goto.
+void combinations2(int n,int t){
+    //L1. Initialize.
+    std::vector<int> c;
+    int j;
+    long res;
+    c.push_back(-9999); //Sentinel.
+    for(int i=0; i < t; i++){
+        c.push_back(i);
+    }
+    c.push_back(n);
+    c.push_back(0);
+    res = 0;
+    while(true){
+        //L2. Visit.
+        // for(int i = t; i > 0; i--){
+        //     std::cout << c[i] << " ";
+        // }
+        // std::cout << std::endl;
+        res++;
+        //L3. FIND j
+        j = 1;
+        while( (c[j] + 1) == c[j+1] ) {
+            c[j] = j - 1;
+            j = j + 1;
+        }
+        //L4. Termination condition met?
+        if (j > t) {
+            std::cout << res << " combinations\n";
+            break;
+        }
+        //L5. Upadte and Return to L2.
+        c[j] = c[j] + 1;
+    }
+}
 
+/* Lexicographic ordering on Knuth book. Lexicographic order, 5, 6, 70, 169, 171, 178,
+394, 420-421, 453, 567, 590, 614, 615. ART OF PROGRAMMING III
+*/
 int main(int argc,char * argv[]){
   if(argc == 1){
     fprintf(stderr,"Usage: %s n t \n",argv[0]);
@@ -155,7 +193,7 @@ int main(int argc,char * argv[]){
 //  badcombinations(n,t);
   std::cout << " ====================== \n";
   std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now();
-  badcombinations2(n,t);
+  combinations2(n,t);
   std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now();
   std::chrono::duration<double, std::milli> time_span = t2 - t1;
   std::cout << "It took me " << time_span.count() << " milliseconds.";
