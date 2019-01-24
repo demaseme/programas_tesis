@@ -62,10 +62,10 @@ void findThrackles_size(const vector<Edge> edges, int k, long & comboCtr, vector
     while(true){
         //L2. Visit. Here we check if current combination is a thrackle or nah.
         for(int i = k; i > 0; i--){
-            cout << c[i] << " ";
+            //cout << c[i] << " ";
             tmp_edges.push_back(edges[c[i]]);
         }
-        cout << endl;
+        //cout << endl;
         if(isThrackle(tmp_edges)){
             tmp_thrackle.edges = tmp_edges;
             foundThrackles.push_back(tmp_thrackle);
@@ -160,17 +160,17 @@ bool edge_in(Edge a, vector<Edge> A){
 
 //Performs the intersection of sets of edges A and B
 //Stores the result in vector C.
-void edge_set_intersection(vector<Edge> A, vector<Edge> B, vector<Edge> & C){
+void edge_set_intersection(const vector<Edge> A, const vector<Edge> B, vector<Edge> & C){
   for(unsigned int i = 0; i < A.size(); i++){
     if( edge_in(A[i],B) ) C.push_back(A[i]);
   }
 }
 //Performs the intersection of thracklese A and B,
 //Stores teh result in vector of edges result
-void thrackle_intersection(Thrackle A, Thrackle B, vector<Edge> & result){
+void thrackle_intersection(const Thrackle A, const Thrackle B, vector<Edge> & result){
   edge_set_intersection(A.edges,B.edges,result);
 }
-void minimal_thrackle_intersection(vector<Thrackle> thrackles){
+void minimal_thrackle_intersection(const vector<Thrackle> thrackles,int & result){
   int minimal;
   minimal = 9999; //This value is accepted for this project max is 10.
   vector<Edge> currentIntersection;
@@ -185,7 +185,8 @@ void minimal_thrackle_intersection(vector<Thrackle> thrackles){
       currentIntersection.clear();
     }
   }
-  cout << "Smaller intersection size is : " << minimal << endl;
+  result = minimal;
+  //cout << "Smaller intersection size is : " << minimal << endl;
 }
 //Performs the union of 2 sets of edges A and B
 //Stores result in A.
@@ -276,43 +277,6 @@ void findThrackle(unsigned int k, vector<Point> points, vector<Thrackle> & thrac
      // printf("From these, only %d are thrackles\n",(int)thrackles.size());
   }
 
-// void reshape_cb (int w, int h) {
-//   	if (w==0||h==0) return;
-//   	glViewport(0,0,w,h);
-//   	glMatrixMode (GL_PROJECTION);
-//   	glLoadIdentity ();
-//   	gluOrtho2D(0,w,0,h);
-//   	glMatrixMode (GL_MODELVIEW);
-//   	glLoadIdentity ();
-//   }
-//
-// void dibuja(){
-//   int i;
-// 	glClear(GL_COLOR_BUFFER_BIT);
-// }
-
-void procesa_puntos(vector<vector<Point>> points){
-
-}
-//Draws thrackles using opengl
-// void drawThrackles(vector<Thrackle> thrackles, vector<vector<Point>> points){
-//
-//
-//   alto = glutGet(GLUT_SCREEN_HEIGHT) * .8;
-// 	ancho = glutGet(GLUT_SCREEN_WIDTH) * .6;
-//   procesa_puntos(points);
-//   glutInitDisplayMode (GLUT_RGBA|GLUT_DOUBLE);
-// 	glutInitWindowSize (ancho,alto);
-// 	glutInitWindowPosition (100,100);
-// 	glutCreateWindow ("Thrackles");
-// 	// glutKeyboardFunc(keyboard);
-// 	// glutSpecialFunc (special);
-// 	glutDisplayFunc (dibuja);
-// 	glutReshapeFunc (reshape_cb);
-// 	glClearColor(1.f,1.f,1.f,1.f);
-//   dibuja();
-//   glutMainLoop();
-// }
 
 //Writes thrackle information to a text file, this procedure needs all thrackles to be of the same size.
 /*The format of the output:
@@ -323,7 +287,8 @@ void procesa_puntos(vector<vector<Point>> points){
   <number of thrackles found>
   <thrackle list>
 */
-void writeThrackles(vector<Thrackle> & thrackles, vector<Point> & points, int set_size, int thrackle_size, int ot_number ){
+void writeThrackles(vector<Thrackle> & thrackles, vector<Point> & points, int set_size, int thrackle_size, int ot_number,
+int minimal_intersection_counter ){
     ofstream myfile;
     string file_name = "ths/" + to_string(set_size) + "/" + to_string(ot_number) + "_" + to_string(thrackle_size) + ".ths";
 
@@ -344,6 +309,7 @@ void writeThrackles(vector<Thrackle> & thrackles, vector<Point> & points, int se
       }
       myfile << endl;
     }
+    myfile << minimal_intersection_counter;
     myfile.close();
 }
 void printThrackle(Thrackle t){

@@ -24,7 +24,7 @@ int main(int argc, char* argv[]) {
     int k;  //Thrackle size we're looking for
     int otypes; //Number of order types for a file
     string otfile_str;
-
+    int minimal_intersection_counter;
 
     draw_flag = false;
     one_ot_flag = false;
@@ -91,7 +91,7 @@ int main(int argc, char* argv[]) {
         exit(-1);
     }
     cout << "Finished reading point file\n";
-    return 0;
+
     //If a given order type is specified, process only that one.
     //Otherwise, process all order types of a file.
 
@@ -125,9 +125,9 @@ int main(int argc, char* argv[]) {
 
       std::chrono::high_resolution_clock::time_point t2 = chrono::high_resolution_clock::now();
       chrono::duration<double, std::milli> time_span = t2 - t1;
-      //cout << "It took me " << time_span.count() << " milliseconds.";
+      cout << "It took me " << time_span.count() << " milliseconds.";
       cout << std::endl;
-
+      minimal_thrackle_intersection(foundThrackles,minimal_intersection_counter);
       vector<Edge> union_of_edges;
       // if (covers(foundThrackles,edges)){
       //   cout << "Found thrackles cover the whole edge set\n";
@@ -153,7 +153,7 @@ int main(int argc, char* argv[]) {
       //minimal_thrackle_intersection(foundThrackles);
 
       //Write found thrackles on text file.
-      writeThrackles(foundThrackles,vec,setSize,k,ot_number);
+      writeThrackles(foundThrackles,vec,setSize,k,ot_number,minimal_intersection_counter);
 
       //Clear all that.
       vec.clear();
