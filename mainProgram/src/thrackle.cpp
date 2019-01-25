@@ -44,7 +44,7 @@ Input:
 void findThrackles_size(const vector<Edge> edges, int k, long & comboCtr, vector<Thrackle> & foundThrackles){
     //Find the combinations of size k for a set of size edges.size();
     int n;
-    n = (int) edges.size();
+    n = (int) edges.size(); //for 10 points this variable is equal to 45.
     //L1. Initialize.
     std::vector<int> c;
     int j;
@@ -61,11 +61,13 @@ void findThrackles_size(const vector<Edge> edges, int k, long & comboCtr, vector
 
     while(true){
         //L2. Visit. Here we check if current combination is a thrackle or nah.
+
         for(int i = k; i > 0; i--){
             //cout << c[i] << " ";
             tmp_edges.push_back(edges[c[i]]);
         }
         //cout << endl;
+
         if(isThrackle(tmp_edges)){
             tmp_thrackle.edges = tmp_edges;
             foundThrackles.push_back(tmp_thrackle);
@@ -84,7 +86,7 @@ void findThrackles_size(const vector<Edge> edges, int k, long & comboCtr, vector
             //std::cout << res << " combinations\n";
             break;
         }
-        //L5. Upadte and Return to L2.
+        //L5. Update and Return to L2.
         c[j] = c[j] + 1;
     }
 }
@@ -220,12 +222,20 @@ bool covers(vector<Thrackle> thrackles,vector<Edge> edges){
 bool isThrackle(vector<Edge> & edges){
   //If every pair of edges cross or share an endpoint, return true.
   unsigned int k = edges.size();
-  for(unsigned int i = 0; i < k; i++){
-      for(unsigned int j = 0; j < k; j++){
-          if (!( share_ep(edges[i],edges[j]) || crossing(edges[i],edges[j]) )) return false;
-      }
-  }
-  return true;
+  bool flag;
+  flag = true;
+    for(unsigned int i = 0; i < k ; i++){
+        for(unsigned int j = 0; j < k; j++){
+            if (!( share_ep(edges[i],edges[j]) || crossing(edges[i],edges[j]) )) {
+              return false;
+            }
+
+
+        }
+    }
+
+  if (flag) return true;
+  return false;
 }
 
 //From a given thrackle list, find those which contain

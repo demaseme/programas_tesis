@@ -203,7 +203,8 @@ int readPoints2(int n, string file_name, vector<Point> & vPoints, int otypes){
     int npuntos,err,bytes,i;
     npuntos = otypes*n;
     uint16_t a, b;
-    bytes = 2;
+    bytes = 1;
+    if (n > 8) bytes = 2;
     //Point *points = (Point*)malloc(sizeof(Point)*npuntos);
     vPoints.resize(npuntos);
     for(i = 0; i < npuntos;){
@@ -215,6 +216,7 @@ int readPoints2(int n, string file_name, vector<Point> & vPoints, int otypes){
         vPoints[i].y = b;
         i++;
     }
+    fclose(file);
     return 0;
 }
 //Reads a file of binary points and stores it on vector vPoints.

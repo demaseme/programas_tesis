@@ -158,14 +158,14 @@ void combinations2(int n,int t){
     res = 0;
     while(true){
         //L2. Visit.
-        // for(int i = t; i > 0; i--){
-        //     std::cout << c[i] << " ";
-        // }
-        // std::cout << std::endl;
+        for(int i = t; i > 0; i--){
+            std::cout << c[i] << " ";
+        }
+        std::cout << std::endl;
         res++;
         //L3. FIND j
         j = 1;
-        while( (c[j] + 1) == c[j+1] ) {
+        while( (c[j] + 1) == c[j+1] && (j - 1 ) != 9) {
             c[j] = j - 1;
             j = j + 1;
         }
