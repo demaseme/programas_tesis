@@ -1,5 +1,5 @@
-#include "thrackle.h"
 
+#include "disjointness.h"
 void write_max_thrackle_count(vector<int> count, int n){
   ofstream myfile;
   string filename = "K_" + to_string(n) + "_statistics.dat";
@@ -25,6 +25,8 @@ int main(int argc, char* argv[]) {
     int otypes; //Number of order types for a file
     string otfile_str;
     int minimal_intersection_counter;
+
+    int ** matrix; //matrix to store the disjointness matrix.
 
     draw_flag = false;
     one_ot_flag = false;
@@ -91,10 +93,17 @@ int main(int argc, char* argv[]) {
         exit(-1);
     }
     cout << "Finished reading point file\n";
+    //###############ALLOCATING MATRIX ####################
+    //At this point we can initialize the matrix, for we know it'll have n take 2 rows and cols.
+    //Allocate matrix.
+    int rows = (setSize*(setSize-1.0)/2.0);
+    int cols = (setSize*(setSize-1.0)/2.0);
+    cout << "There will be " << rows << " rows\n";
 
-    //If a given order type is specified, process only that one.
-    //Otherwise, process all order types of a file.
+    matrix = (int **)malloc(rows * sizeof(int*));
+    for(int i = 0; i < rows; i++) matrix[i] = (int *)malloc(cols * sizeof(int));
 
+    /*##########################################*/
     int thrackleCounter;
     long counter;
     vector<Point> vec; //Here we store the points that will be read.
@@ -105,7 +114,7 @@ int main(int argc, char* argv[]) {
     vector<vector<Point>> tbd_points; //A set of points for every thrackle to be drawn.
     //Select the points of the current order type.
     vector<int> max_thrackle_count; //Vector to store how many max thrackles were found for each ot
-
+    /*##########################################*/
     while(ot_number < otypes){
       vec.resize(setSize);
 
@@ -117,6 +126,20 @@ int main(int argc, char* argv[]) {
       counter = 0;
       thrackleCounter = 0;
 
+      //Testing disjointness matrix construction.
+      construct_disjointness_matrix(edges,matrix,rows);
+      //Find thrackles that start with edge 0
+      construct_thrackles_matrix(matrix,rows,0,k);
+      for (int i=0; i<cols; i++){
+          for(int j=0;j<cols; j++){
+              cout << matrix[i][j] << '\t';
+          }
+          cout << endl;
+      }
+      freeMatrix(matrix,rows);
+      return 0;
+
+      /*##################################*/
       std::chrono::high_resolution_clock::time_point t1 = chrono::high_resolution_clock::now();
       findThrackles_size(edges,k,counter,foundThrackles);
       //k_Combination(edges,k,combinations,counter,thrackleCounter,foundThrackles);
@@ -162,6 +185,9 @@ int main(int argc, char* argv[]) {
       foundThrackles.clear();
       cout << "=====Finished working with order type " << ot_number << "=====" << endl;
       ot_number++;
+
+      //If a given order type is specified, process only that one.
+      //Otherwise, process all order types of a file.
       if(one_ot_flag) break;
     }
     if(draw_flag){
