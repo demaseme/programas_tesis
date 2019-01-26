@@ -172,7 +172,7 @@ void edge_set_intersection(const vector<Edge> A, const vector<Edge> B, vector<Ed
 void thrackle_intersection(const Thrackle A, const Thrackle B, vector<Edge> & result){
   edge_set_intersection(A.edges,B.edges,result);
 }
-void minimal_thrackle_intersection(const vector<Thrackle> thrackles,int & result){
+void minimal_thrackle_intersection(const vector<Thrackle> thrackles,int &result){
   int minimal;
   minimal = 9999; //This value is accepted for this project max is 10.
   vector<Edge> currentIntersection;
@@ -326,4 +326,9 @@ void printThrackle(Thrackle t){
     for(unsigned int i = 0; i < t.edges.size();i++){
         printEdge(t.edges[i]);
     }
+}
+void printThrackleVector(vector<Thrackle> T){
+  for(int i = 0; i < (int) T.size(); i++){
+    printThrackle(T[i]);
+  }
 }

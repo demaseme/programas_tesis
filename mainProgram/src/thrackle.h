@@ -30,7 +30,7 @@ bool isThrackle(vector<Edge> & edges);
 bool edge_in(Edge a, vector<Edge> A);
 void edge_set_intersection(vector<Edge> A, vector<Edge> B, vector<Edge> & C);
 void thrackle_intersection(Thrackle A, Thrackle B, vector<Edge> & result);
-void minimal_thrackle_intersection(const vector<Thrackle> thrackles,int & result);
+void minimal_thrackle_intersection(const vector<Thrackle> thrackles,int &result);
 void edge_set_union(vector<Edge> & A,vector<Edge> B);
 void thrackle_union(vector<Thrackle> thrackles, vector<Edge> & result);
 bool covers(vector<Thrackle> thrackles,vector<Edge> edges);
@@ -39,6 +39,7 @@ void k_Combination(vector<Edge> arr, int r, vector<vector<Edge>> & combinations,
 void combinationUtil(vector<Edge> arr, int r,int index, vector<Edge> data, int i,
   vector<vector<Edge>> & combinations, int & counter, int & thrackleCounter, vector<Thrackle> & foundThrackles);
 void printThrackle(Thrackle t);
+void printThrackleVector(vector<Thrackle> T);
 void writeThrackles(vector<Thrackle> & thrackles, vector<Point> & points, int set_size, int thrackle_size, int ot_number,
 int minimal_intersection_counter );
 //void drawThrackles(vector<Thrackle> thrackles, vector<vector<Point>> puntos);
