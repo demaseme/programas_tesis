@@ -19,7 +19,9 @@ bool crossing(Edge e_1, Edge e_2){
   //semiplanes defined by e_1
   int ori1 = orientation(e_1.v1,e_1.v2,e_2.v1);
   int ori2 = orientation(e_1.v1,e_1.v2,e_2.v2);
-  if (ori1 != ori2){
+  int ori3 = orientation(e_2.v1,e_2.v2,e_1.v1);
+  int ori4 = orientation(e_2.v1,e_2.v2,e_1.v2);
+  if (ori1 != ori2 && ori3 != ori4){
       // printf("The following edges cross: \n");
       // printEdge(e_1);
       // printEdge(e_2);

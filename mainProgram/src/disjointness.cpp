@@ -7,15 +7,30 @@
 void construct_disjointness_matrix(const vector<Edge> edges,int ** matrix,const int rows){
     //This to write to matrix.
     int * ptr;
-
+    for(int i = 0; i < (int) edges.size() ; i ++){
+      cout << "Edge " << i << ":";
+      printEdge(edges[i]);
+    }
     for(int i = 0; i < rows; i++){
         ptr = (int * ) matrix[i];
         for(int j = 0; j < rows; j++){
             //Check if edges[i] and edges[j] are disjoint.
             //If they are, put a 1, otherwise put a 0.
-            if(i==j) *ptr++ = 0;
-            else if( crossing(edges[i],edges[j]) || share_ep(edges[i],edges[j]) ) *ptr++ = 0;
-            else *ptr++=1;
+            //cout << "Checking edges : " << i << " and " << j << endl;
+
+            if (i ==1 && j == 8){
+              cout << "Checking 1 and 8\n";
+            }
+            if(i==j){
+              *ptr++ = 0;
+              continue;
+            }else if( crossing(edges[i],edges[j]) || share_ep(edges[i],edges[j]) ){
+              *ptr++ = 0;
+              if (i ==1 && j == 8){
+                cout << "1 and 8 cross or share an endpoint \n";
+              }
+              continue;
+            }else *ptr++=1;
         }
     }
 
@@ -216,8 +231,8 @@ int get_kthrackles_of_matrix(int ** matrix, const int cols, const int desired_si
       } else {
         if ( (current_size + 1) == desired_size ) {
           thrackle_counter++;
-          //cout << "Thrackle found\n";
-          //printArray(counters,desired_size);
+          // cout << "Thrackle found\n";
+          // printArray(counters,desired_size);
           for(int p = 0; p < desired_size; p++){
             thracklePositions.push_back(counters[p]);
           }

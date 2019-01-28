@@ -57,7 +57,7 @@ void generateAllEdges(const vector<Point> vPoints,vector<Edge> & vEdges){
             tmp.v2 = vPoints[j];
             tmp.tag = tag;
             vEdges.push_back(tmp);
-
+            tag++;
         }
     }
 }
@@ -113,6 +113,7 @@ void pwrsetk(int k, vector<Edge> input,vector<vector<Edge>> & output){
         temp.clear();
     }
 }
+
 // To find orientation of ordered triplet (p, q, r).
 // The function returns following values
 // 0 --> p, q and r are colinear

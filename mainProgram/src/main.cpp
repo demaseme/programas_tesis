@@ -127,21 +127,13 @@ int main(int argc, char* argv[]) {
       //sortPoints(vec);
       printVectorPoint(vec);
       generateAllEdges(vec,edges);
-
+      
       counter = 0;
       thrackleCounter = 0;
       std::chrono::high_resolution_clock::time_point t1 = chrono::high_resolution_clock::now();
       //Testing disjointness matrix construction.
       construct_disjointness_matrix(edges,matrix,rows);
       thrackleCounter=get_kthrackles_of_matrix(matrix,rows,k,positions);
-      //Find thrackles that start with edge 0
-      // construct_thrackles_matrix(matrix,rows,0,k,thrackleCounter);
-      // for (int i=0; i<cols; i++){
-      //     for(int j=0;j<cols; j++){
-      //         cout << matrix[i][j] << '\t';
-      //     }
-      //     cout << endl;
-      // }
 
       std::chrono::high_resolution_clock::time_point t2 = chrono::high_resolution_clock::now();
       chrono::duration<double, std::milli> time_span = t2 - t1;
@@ -185,14 +177,14 @@ int main(int argc, char* argv[]) {
       // cout << "It took me " << time_span.count() << " milliseconds.";
       // cout << std::endl;
 
-      minimal_thrackle_intersection(foundThrackles,minimal_intersection_counter);
+      //minimal_thrackle_intersection(foundThrackles,minimal_intersection_counter);
 
 
-      if (union_covers(foundThrackles,rows)){
-        cout << "Found thrackles cover the whole edge set\n";
-      } else {
-        cout << "Found thrackles DO NOT cover the whole edge set\n";
-      }
+      // if (union_covers(foundThrackles,rows)){
+      //   cout << "Found thrackles cover the whole edge set\n";
+      // } else {
+      //   cout << "Found thrackles DO NOT cover the whole edge set\n";
+      // }
       //Update information on thrackles to be displayed when drawn.
       // for(int i = 0; i < (int) foundThrackles.size() ; i++){
       //   foundThrackles[i].set_size = setSize;
@@ -219,6 +211,7 @@ int main(int argc, char* argv[]) {
       edges.clear();
       combinations.clear();
       foundThrackles.clear();
+      positions.clear();
       cout << "=====Finished working with order type " << ot_number << "=====" << endl;
       ot_number++;
 
