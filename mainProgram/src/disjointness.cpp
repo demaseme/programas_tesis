@@ -49,7 +49,7 @@ void freeMatrix(int ** matrix, const int rows){
     a = (int **)matrix;
     for ( i=0; i<rows; i++ ) free( a[i] );
     free ( a );
-    free ( matrix );
+    //free ( matrix );
 }
 /*
     Stores the 0-positions of given row on vector (compatible);

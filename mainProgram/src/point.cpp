@@ -46,14 +46,18 @@ bool isCycle(vector<Edge> edges){
 
 //Given a vector of n points, it generates the edges
 //of the complete graph with n vertices, stores them on vEdges.
-void generateAllEdges(vector<Point> vPoints,vector<Edge> & vEdges){
+void generateAllEdges(const vector<Point> vPoints,vector<Edge> & vEdges){
     Edge tmp;
+    unsigned char tag;
+    tag = 0;
     cout << "Generating all edges!\n";
     for(unsigned int i = 0; i < vPoints.size(); i++){
         for(unsigned int j = i+1; j < vPoints.size(); j++){
             tmp.v1 = vPoints[i];
             tmp.v2 = vPoints[j];
+            tmp.tag = tag;
             vEdges.push_back(tmp);
+
         }
     }
 }

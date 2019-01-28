@@ -151,16 +151,21 @@ int main(int argc, char* argv[]) {
 
       //positions is loaded. We must then get their equivalent edge objects and then turn them into thrackle objects.
 
-      // cout << "Printing positions vector\n";
-      // for(int i = 0 ; i < (int)positions.size(); i++){
-      //   printVectorInt(positions[i]);
-      // }
+      /* Filling the boolean vector for in operation*/
+      tmp_thrackle.edge_bool.clear();
+      tmp_thrackle.edge_bool.resize(rows);
+      for(int i = 0 ; i < (int) tmp_thrackle.edge_bool.size() ; i ++){
+          tmp_thrackle.edge_bool[i] = false;
+      }
       for(int i = 0; i < (int)positions.size(); i++) {
+        for(int i = 0 ; i < (int) tmp_thrackle.edge_bool.size() ; i ++){
+              tmp_thrackle.edge_bool[i] = false;
+        }
         for(int j = 0 ; j < k ; j++){
-          //cout << i << " " << j << endl;
-          //printEdge(edges[positions[i][j]]);
           foundEdges.push_back(edges[positions[i][j]]);
           tmp_thrackle.edges=foundEdges;
+
+          tmp_thrackle.edge_bool[positions[i][j]] = true;
         }
         foundThrackles.push_back(tmp_thrackle);
         foundEdges.clear();
@@ -182,23 +187,23 @@ int main(int argc, char* argv[]) {
 
       minimal_thrackle_intersection(foundThrackles,minimal_intersection_counter);
 
-      vector<Edge> union_of_edges;
-      if (covers(foundThrackles,edges)){
+
+      if (union_covers(foundThrackles,rows)){
         cout << "Found thrackles cover the whole edge set\n";
       } else {
         cout << "Found thrackles DO NOT cover the whole edge set\n";
       }
       //Update information on thrackles to be displayed when drawn.
-      for(int i = 0; i < (int) foundThrackles.size() ; i++){
-        foundThrackles[i].set_size = setSize;
-        foundThrackles[i].thrackle_size = k;
-        foundThrackles[i].ot = ot_number;
-        //If draw_thrackles flag is on, save it to draw it later.
-        if(draw_flag){
-          tbd_thrackles.push_back(foundThrackles[i]);
-          tbd_points.push_back(vec);
-        }
-      }
+      // for(int i = 0; i < (int) foundThrackles.size() ; i++){
+      //   foundThrackles[i].set_size = setSize;
+      //   foundThrackles[i].thrackle_size = k;
+      //   foundThrackles[i].ot = ot_number;
+      //   //If draw_thrackles flag is on, save it to draw it later.
+      //   if(draw_flag){
+      //     tbd_thrackles.push_back(foundThrackles[i]);
+      //     tbd_points.push_back(vec);
+      //   }
+      // }
 
       //Count how many thrackles of size n were found for current ot.
       //Write that information into a text file.

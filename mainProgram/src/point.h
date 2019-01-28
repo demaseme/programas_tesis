@@ -24,6 +24,7 @@ class Point {
 public:
     uint16_t x;
     uint16_t y;
+
     bool operator==(const Point q){
         return (q.x == this->x && q.y == this->y);
     }
@@ -34,6 +35,7 @@ public:
     Point v1;
     Point v2;
     int color;
+    unsigned char tag;
     bool operator==(const Edge e){
         return  ( (this->v1 == e.v1 && this->v2 == e.v2) || (this->v1 == e.v2 && this->v2 == e.v1) );
     }

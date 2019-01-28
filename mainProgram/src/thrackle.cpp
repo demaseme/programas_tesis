@@ -39,7 +39,10 @@ Input:
     int k             - The size of the thrackles to be found.
     long comboCtr     - A counter for the number of combinations of size k found.
     vector<Thrackle> foundThrackles - A vector to store the found thrackles
+
+DEPRECATE - HORRIBLY SLOW FOR 10 POINTS
 */
+
 
 void findThrackles_size(const vector<Edge> edges, int k, long & comboCtr, vector<Thrackle> & foundThrackles){
     //Find the combinations of size k for a set of size edges.size();
@@ -94,6 +97,7 @@ void findThrackles_size(const vector<Edge> edges, int k, long & comboCtr, vector
 // The main function that prints all combinations of
 // size r in arr[] of size n. This function mainly
 // uses combinationUtil()
+//DEPRECATE - HORRIBLY SLOW FOR 10 POINTS
 void k_Combination(vector<Edge> arr, int r, vector<vector<Edge>> & combinations,
    int & counter, int & thrackleCounter, vector<Thrackle> & foundThrackles){
     cout << "Finding combinations and thrackles!\n";
@@ -151,8 +155,15 @@ void combinationUtil(vector<Edge> arr, int r,int index, vector<Edge> data, int i
 
 }
 
+/*
+    This function tells whether or not an edge belongs to a Thrackle. Should be O(1).
+    This requires the edges to have its tag initialized when building (n 2) edges.
+*/
+bool edge_in_thrackle(const Edge a, const Thrackle A){
+    return A.edge_bool[a.tag];
+}
 //Returns true if edge a is in set A.
-//Returns false otherwise
+//Returns false otherwise, it's O(E)
 bool edge_in(Edge a, vector<Edge> A){
   for(auto i = A.begin(); i < A.end() ; i++) {
     if(a == *i) return true;
@@ -162,15 +173,16 @@ bool edge_in(Edge a, vector<Edge> A){
 
 //Performs the intersection of sets of edges A and B
 //Stores the result in vector C.
-void edge_set_intersection(const vector<Edge> A, const vector<Edge> B, vector<Edge> & C){
+void edge_set_intersection(const vector<Edge> A, const Thrackle B, vector<Edge> & C){
   for(unsigned int i = 0; i < A.size(); i++){
-    if( edge_in(A[i],B) ) C.push_back(A[i]);
+    if( edge_in_thrackle(A[i],B) ) C.push_back(A[i]);
   }
 }
+
 //Performs the intersection of thracklese A and B,
 //Stores teh result in vector of edges result
 void thrackle_intersection(const Thrackle A, const Thrackle B, vector<Edge> & result){
-  edge_set_intersection(A.edges,B.edges,result);
+  edge_set_intersection(A.edges,B,result);
 }
 void minimal_thrackle_intersection(const vector<Thrackle> thrackles,int &result){
   int minimal;
@@ -190,6 +202,31 @@ void minimal_thrackle_intersection(const vector<Thrackle> thrackles,int &result)
   result = minimal;
   //cout << "Smaller intersection size is : " << minimal << endl;
 }
+
+bool union_covers(const vector<Thrackle> t,const int rows){
+    vector<unsigned char> union_positions;
+    thrackle_apply_union(t,rows,union_positions);
+    if ((int)union_positions.size() == rows) return true;
+    return false;
+}
+/*
+    Applies the union of thrackle objects in vector t.
+    Leaves the edge positions that were found [0....(n take 2 - 1)]
+    on vector union_positions.
+
+    This algorithm is O(|E|*(n take 2))
+*/
+void thrackle_apply_union(const vector<Thrackle> t,const int rows, vector<unsigned char> & union_positions){
+    bool flag;
+    for(int i = 0; i < rows; i++) {
+        flag = t[0].edge_bool[i];
+        for(int j = 1; j < (int)t.size(); j++){
+            flag |= t[j].edge_bool[i];
+        }
+        if(flag) union_positions.push_back(i);
+    }
+}
+
 //Performs the union of 2 sets of edges A and B
 //Stores result in A.
 void edge_set_union(vector<Edge> & A,vector<Edge> B){
@@ -323,9 +360,15 @@ int minimal_intersection_counter ){
     myfile.close();
 }
 void printThrackle(Thrackle t){
+    cout << "Thrackle Edges:\n";
     for(unsigned int i = 0; i < t.edges.size();i++){
         printEdge(t.edges[i]);
     }
+    cout << "Thrackle bool edges\n [ ";
+    for(int i = 0; i < (int)t.edge_bool.size();i++){
+        cout << t.edge_bool[i] << " ";
+    }
+    cout << "]\n";
 }
 void printThrackleVector(vector<Thrackle> T){
   for(int i = 0; i < (int) T.size(); i++){
