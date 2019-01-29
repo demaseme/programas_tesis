@@ -1,13 +1,14 @@
 
 #include "disjointness.h"
-void write_max_thrackle_count(const vector<int> count,const vector<int> otlist, const vector<int> min_inter, int n){
+void write_max_thrackle_count(const vector<int> count,const vector<int> otlist, const vector<int> min_inter,
+bool union_covers_bool, int n){
   ofstream myfile;
   string filename = "K_" + to_string(n) + "_statistics.dat";
   myfile.open(filename);
-  myfile << "#OT    #Max_Thr_Count   #minimal_intersection\n";
+  myfile << "#OT    #Max_Thr_Count   #minimal_intersection    #union_covers?\n";
   for(int i = 0; i < (int) count.size(); i++){
     //cout << i << "\t\t" << count[i] << endl;
-    myfile << otlist[i] << "\t\t" << count[i] << "\t\t" << min_inter[i] << endl;
+    myfile << otlist[i] << "\t\t" << count[i] << "\t\t" << min_inter[i] << "\t\t" << union_covers_bool << endl;
   }
   myfile.close();
   cout << "write max th coutn \n";
@@ -115,6 +116,7 @@ int main(int argc, char* argv[]) {
     vector<vector<int>> positions; // Each element of this vector, is a list of positions of edges which together are a thrackle.
     vector<Edge> foundEdges;
     vector<int> min_inter;
+    bool union_covers_bool = false;
     //Edge tmp_edge;
     //Select the points of the current order type.
     vector<int> max_thrackle_count; //Vector to store how many max thrackles were found for each ot
@@ -188,8 +190,10 @@ int main(int argc, char* argv[]) {
       min_inter.push_back(minimal_intersection_counter);
       if (union_covers(foundThrackles)){
         cout << "Found thrackles cover the whole edge set\n";
+        union_covers_bool = true;
       } else {
         cout << "Found thrackles DO NOT cover the whole edge set\n";
+        union_covers_bool = false;
       }
       cout << "Union calculated!\n";
       // //Update information on thrackles to be displayed when drawn.
@@ -240,6 +244,6 @@ int main(int argc, char* argv[]) {
     cout << std::endl;
 
     //Write max thrackle count to text file
-    write_max_thrackle_count(max_thrackle_count,otlist, min_inter, setSize);
+    write_max_thrackle_count(max_thrackle_count,otlist, min_inter, union_covers_bool, setSize);
     return 0;
 }
