@@ -44,8 +44,6 @@ Input:
 
 DEPRECATE - HORRIBLY SLOW FOR 10 POINTS
 */
-
-
 void findThrackles_size(const vector<Edge> edges, int k, long & comboCtr, vector<Thrackle> & foundThrackles){
     //Find the combinations of size k for a set of size edges.size();
     int n;
@@ -172,24 +170,84 @@ bool edge_in(Edge a, vector<Edge> A){
   }
   return false;
 }
-
-//Performs the intersection of sets of edges A and B
-//Stores the result in vector C.
-void edge_set_intersection(const vector<Edge> A, const Thrackle B, vector<Edge> & C){
-  for(unsigned int i = 0; i < A.size(); i++){
-    if( edge_in_thrackle(A[i],B) ) C.push_back(A[i]);
+/*
+  Performs the union of Thrackles A and B,
+  Needs the edge_bool vector initialized to work.
+  Puts the positions of the edges in result vector.
+  This algorithm is O(n)
+*/
+void thrackle_union(const Thrackle A, const Thrackle B, vector<int> result ){
+  vector<int> edgesA;
+  vector<int> edgesB;
+  int i,j,k;
+  for (i = 0; i < (int) A.edge_bool.size(); i++) if(A.edge_bool[i]) edgesA.push_back(i);
+  for (i = 0; i < (int) B.edge_bool.size(); i++) if(B.edge_bool[i]) edgesB.push_back(i);
+  while( i < (int) edgesA.size() && j < (int) edgesB.size() ){
+    if( edgesA[i] < edgesB[j] ) {
+      //Put it in result, increase only i.
+      result.push_back(edgesA[i]);
+      i++;
+      continue;
+    }
+    if( edgesA[i] == edgesB[j] ){
+      //Put in in result, increase both.
+      result.push_back(edgesA[i]);
+      i++; j++;
+      continue;
+    }
+    else {
+      result.push_back(edgesB[i]);
+      j++;
+      continue;
+    }
+  }
+  if (i < (int)edgesA.size() ){
+    //j finished but i didn't. Push the rest of A from i to end.
+    for(k = i; k < (int)edgesA.size();k++) result.push_back(edgesA[k]);
+  }
+  if (j < (int)edgesB.size() ){
+    //i finished but j didn't. Push the rest of B from j to end.
+    for(k = j; k < (int)edgesB.size();k++) result.push_back(edgesA[k]);
   }
 }
+/*
+  Performs the intersection of the edges of A and B.
+  Needs the edge_bool vector initialized to work.
+  Puts the positions of the edges in result vector.
+  This is a O(n) algorithm.
+*/
+void thrackle_intersection(const Thrackle A, const Thrackle B, vector<int> & result ){
+  vector<int> edgesA;
+  vector<int> edgesB;
+  int i,j;
+  for (i = 0; i < (int) A.edge_bool.size(); i++) if(A.edge_bool[i]) edgesA.push_back(i);
+  for (i = 0; i < (int) B.edge_bool.size(); i++) if(B.edge_bool[i]) edgesB.push_back(i);
 
-//Performs the intersection of thracklese A and B,
-//Stores teh result in vector of edges result
-void thrackle_intersection(const Thrackle A, const Thrackle B, vector<Edge> & result){
-  edge_set_intersection(A.edges,B,result);
+  i=0;
+  j=0;
+  while( i < (int)edgesA.size() && j < (int)edgesB.size() ){
+    if( edgesA[i] < edgesB[j] ) {
+      //Not in intersection, i increases.
+      i++;
+      continue;
+    }
+    if( edgesA[i] == edgesB[j] ) {
+      //In intersection, both indexes increase.
+      result.push_back(edgesA[i]);
+      i++; j++;
+      continue;
+    }
+    if( edgesA[i] > edgesB[j] ) {
+      //not in intersection, j increases.
+      j++;
+      continue;
+    }
+  }
 }
 void minimal_thrackle_intersection(const vector<Thrackle> thrackles,int &result){
   int minimal;
   minimal = 9999; //This value is accepted for this project max is 10.
-  vector<Edge> currentIntersection;
+  vector<int> currentIntersection;
   for(unsigned int i = 0; i < thrackles.size(); i++){
     for(unsigned int j = i+1; j < thrackles.size(); j++){
       //Compare thrackles i and j and update minimal if their intersection is
@@ -197,6 +255,7 @@ void minimal_thrackle_intersection(const vector<Thrackle> thrackles,int &result)
       thrackle_intersection(thrackles[i],thrackles[j],currentIntersection);
       if( (int) currentIntersection.size() < minimal){
         minimal = currentIntersection.size();
+        if (minimal == 0) { cout << "Intersection is NULL on thrackles " << i << " and " << j << endl;}
       }
       currentIntersection.clear();
     }
@@ -205,59 +264,76 @@ void minimal_thrackle_intersection(const vector<Thrackle> thrackles,int &result)
   //cout << "Smaller intersection size is : " << minimal << endl;
 }
 
-bool union_covers(const vector<Thrackle> t,const int rows){
-    vector<unsigned char> union_positions;
-    thrackle_apply_union(t,rows,union_positions);
-    if ((int)union_positions.size() == rows) return true;
-    return false;
-}
-/*
-    Applies the union of thrackle objects in vector t.
-    Leaves the edge positions that were found [0....(n take 2 - 1)]
-    on vector union_positions.
+void thrackle_intersection_all(const vector<Thrackle> T, int & result){
+  if (T.empty()) {
+    result = 0;
+    return;
+  }
+  //cout << "NUMBER OF EDGES: " << T[0].edge_bool.size() << endl;
+  vector<bool> res((int)T[0].edge_bool.size(),true);
+  int count;
+  int minimal;
+  count = 0;
+  minimal = 45;
 
-    This algorithm is O(|E|*(n take 2))
-*/
-void thrackle_apply_union(const vector<Thrackle> t,const int rows, vector<unsigned char> & union_positions){
-    bool flag;
-    for(int i = 0; i < rows; i++) {
-        flag = t[0].edge_bool[i];
-        for(int j = 1; j < (int)t.size(); j++){
-            flag |= t[j].edge_bool[i];
-        }
-        if(flag) union_positions.push_back(i);
-    }
-}
-
-//Performs the union of 2 sets of edges A and B
-//Stores result in A.
-void edge_set_union(vector<Edge> & A,vector<Edge> B){
-  for(unsigned int i = 0; i < B.size(); i++){
-    if( !edge_in(B[i],A) ) {
-      A.push_back(B[i]);
+  for(int i = 0; i < (int) T.size() ; i++){
+    for(int j = i+1; j < (int) T.size(); j++ ){
+      bool_thrackle_intersection(T[i],T[j],res);
+      for(int k = 0; k < (int)res.size() ; k++){
+        if (res[k]) count++;
+      }
+      if (count < minimal) {minimal = count;}
+      if (minimal == 0 ) { cout << "no intersection between thrackles " << i << " and " << j << endl; result =minimal; return;}
+      count = 0;
+      for(int m = 0; m < (int)res.size() ; m++){
+        res[m] = true;
+      }
     }
   }
+  result = minimal;
+//  cout << "OUTING T INTERSECTION ALL\n";
+  //Here we can choose to print it or return it. :)
 }
-//Performs the union of thrackles in the vector
-//Stores the result on a vector of Edge's
-void thrackle_union(vector<Thrackle> thrackles, vector<Edge> & result){
-  for(unsigned int i = 0 ; i < thrackles.size(); i++)
-    edge_set_union(result,thrackles[i].edges);
+/*
+  Performs intersection of edges of thrackles A and B using
+  the boolean vector in each of these. Leaves result on res vector.
+  This performs (E) operations.
+*/
+void bool_thrackle_intersection(const Thrackle A, const Thrackle B, vector<bool> & res){
+  //cout << "Size of vectors: " << A.edge_bool.size() << "," << B.edge_bool.size() << endl;
+
+  for(int i = 0; i < (int) A.edge_bool.size(); i++){
+    res[i] = res[i] && (A.edge_bool[i] && B.edge_bool[i]);
+  }
+
+
 }
-//Returns true if the union of the thrackles cover the vector of edges.
-//Returns false otherwise
-bool covers(vector<Thrackle> thrackles,vector<Edge> edges){
-  //Perform the union of the thrackles.
-  //This is, a union of edges of all the thrackles
-  vector<Edge> edge_union;
-  thrackle_union(thrackles,edge_union);
-  //Check if every element of the union is in the vector of edges
-  //(or just check size [might be tricky])
-  cout << "Original  edge size: " << edges.size() << endl;
-  cout << "Union of edges size: " << edge_union.size() << endl;
-  if (edges.size() == edge_union.size()) return true;
-  return false;
+/*
+  Performs union of edges of thrackles A and B using
+  the boolean vector in each of these. Leaves result on res vector.
+  This performs (E) operations.
+*/
+void bool_thrackle_union(Thrackle A, Thrackle B, vector<bool> res){
+  for(int i = 0; i < (int) A.edge_bool.size(); i++){
+    res[i] = res[i] || (A.edge_bool[i] || B.edge_bool[i]);
+  }
 }
+
+bool union_covers(vector<Thrackle> T){
+  if (T.size() == 0 ) return false;
+  vector<bool> res(false,T[0].edge_bool.size());
+  bool final_res;
+  final_res = true;
+  for(int i = 0 ; i < (int) T.size() - 1 ; i++){
+
+    bool_thrackle_union(T[i],T[i+1],res);
+  }
+  for(int i = 0; i < (int) res.size(); i++){
+    final_res &= res[i];
+  }
+  return final_res;
+}
+
 bool isThrackle(vector<Edge> & edges){
   //If every pair of edges cross or share an endpoint, return true.
   unsigned int k = edges.size();

@@ -28,16 +28,18 @@ bool share_ep(Edge e_1, Edge e_2);
 void findThrackle(unsigned int k, vector<Point> points, vector<Thrackle> & thrackles);
 //Returns true if the collection of edges 'edges' is a thackle and false otherwise.
 bool isThrackle(vector<Edge> & edges);
-bool edge_in(Edge a, vector<Edge> A);
-void edge_set_intersection(const vector<Edge> A, const Thrackle B, vector<Edge> & C);
-void thrackle_intersection(Thrackle A, Thrackle B, vector<Edge> & result);
-void minimal_thrackle_intersection(const vector<Thrackle> thrackles,int &result);
-void edge_set_union(vector<Edge> & A,vector<Edge> B);
-void thrackle_union(vector<Thrackle> thrackles, vector<Edge> & result);
-void thrackle_apply_union(const vector<Thrackle> t,const int rows, vector<unsigned char> & union_positions);
 
-bool covers(vector<Thrackle> thrackles,vector<Edge> edges);
-bool union_covers(const vector<Thrackle> t,const int rows);
+bool edge_in(Edge a, vector<Edge> A);
+
+void edge_set_intersection(const vector<Edge> A, const Thrackle B, vector<Edge> & C);
+void thrackle_intersection(const Thrackle A, const Thrackle B, vector<int> & result );
+void thrackle_intersection_all(const vector<Thrackle> T, int & result);
+void minimal_thrackle_intersection(const vector<Thrackle> thrackles,int &result);
+void bool_thrackle_intersection(const Thrackle A, const Thrackle B, vector<bool> & res);
+
+void bool_thrackle_union(Thrackle A, Thrackle B, vector<bool> res);
+bool union_covers(const vector<Thrackle> t);
+
 void k_Combination(vector<Edge> arr, int r, vector<vector<Edge>> & combinations,
   int & counter, int & thrackleCounter, vector<Thrackle> & foundThrackles);
 void combinationUtil(vector<Edge> arr, int r,int index, vector<Edge> data, int i,

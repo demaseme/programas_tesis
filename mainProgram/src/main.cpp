@@ -114,24 +114,28 @@ int main(int argc, char* argv[]) {
     vector<vector<Point>> tbd_points; //A set of points for every thrackle to be drawn.
     vector<vector<int>> positions; // Each element of this vector, is a list of positions of edges which together are a thrackle.
     vector<Edge> foundEdges;
-    Thrackle tmp_thrackle;
     Edge tmp_edge;
     //Select the points of the current order type.
     vector<int> max_thrackle_count; //Vector to store how many max thrackles were found for each ot
+
     /*##########################################*/
     std::chrono::high_resolution_clock::time_point totalt1 = chrono::high_resolution_clock::now();
     while(ot_number < otypes){
-      vec.resize(setSize);
+
       otlist.push_back(ot_number);
+      cout << "Starting copy\n";
+      vec.resize(setSize);
       copy(vPoints.begin()+(setSize*ot_number),vPoints.begin()+( (setSize*ot_number) + setSize ),vec.begin());
+      cout << "Copy finished\n";
       //sortPoints(vec);
       printVectorPoint(vec);
       generateAllEdges(vec,edges);
-      
+      cout << "All edges generated\n";
       counter = 0;
       thrackleCounter = 0;
       std::chrono::high_resolution_clock::time_point t1 = chrono::high_resolution_clock::now();
       //Testing disjointness matrix construction.
+      cout << "Constructing disjointness matrix\n";
       construct_disjointness_matrix(edges,matrix,rows);
       thrackleCounter=get_kthrackles_of_matrix(matrix,rows,k,positions);
 
@@ -142,61 +146,63 @@ int main(int argc, char* argv[]) {
       cout << "There are " << thrackleCounter << " thrackles of size " << k << endl;
 
       //positions is loaded. We must then get their equivalent edge objects and then turn them into thrackle objects.
-
+       cout << "FILLING BOOLEAN VECTOR FOR SET OPERATIONS!\n";
       /* Filling the boolean vector for in operation*/
-      tmp_thrackle.edge_bool.clear();
-      tmp_thrackle.edge_bool.resize(rows);
-      for(int i = 0 ; i < (int) tmp_thrackle.edge_bool.size() ; i ++){
-          tmp_thrackle.edge_bool[i] = false;
-      }
+      Thrackle tmp_thrackle;
+
+      // for(int i = 0 ; i < rows ; i ++){
+      //     tmp_thrackle.edge_bool.push_back(false);
+      // }
       for(int i = 0; i < (int)positions.size(); i++) {
-        for(int i = 0 ; i < (int) tmp_thrackle.edge_bool.size() ; i ++){
-              tmp_thrackle.edge_bool[i] = false;
-        }
-        for(int j = 0 ; j < k ; j++){
-          foundEdges.push_back(edges[positions[i][j]]);
-          tmp_thrackle.edges=foundEdges;
-
-          tmp_thrackle.edge_bool[positions[i][j]] = true;
-        }
-        foundThrackles.push_back(tmp_thrackle);
-        foundEdges.clear();
+         for(int j = 0 ; j < (int) rows ; j ++){
+               tmp_thrackle.edge_bool.push_back(false);
+         }
+         for(int j = 0 ; j < positions[i].size() ; j++){
+           foundEdges.push_back(edges[positions[i][j]]);
+           tmp_thrackle.edges=foundEdges;
+           tmp_thrackle.edge_bool[positions[i][j]] = true;
+         }
+         foundThrackles.push_back(tmp_thrackle);
+         foundEdges.clear();
+         tmp_thrackle.edge_bool.clear();
       }
-
-      //printThrackleVector(foundThrackles);
-
-      /*##################################*/
-      // std::chrono::high_resolution_clock::time_point t1 = chrono::high_resolution_clock::now();
-      // findThrackles_size(edges,k,counter,foundThrackles);
-      // //k_Combination(edges,k,combinations,counter,thrackleCounter,foundThrackles);
-      // //printf("There are %d combinations of size %d\nFrom which %d are thrackles (%1.8f)\n",
-      // //counter,k,thrackleCounter,(float)thrackleCounter/counter);
+      cout << "FILLING COMPLETED!\n";
+      // //printThrackleVector(foundThrackles);
       //
-      // std::chrono::high_resolution_clock::time_point t2 = chrono::high_resolution_clock::now();
-      // chrono::duration<double, std::milli> time_span = t2 - t1;
-      // cout << "It took me " << time_span.count() << " milliseconds.";
-      // cout << std::endl;
-
+      // /*##################################*/
+      // // std::chrono::high_resolution_clock::time_point t1 = chrono::high_resolution_clock::now();
+      // // findThrackles_size(edges,k,counter,foundThrackles);
+      // // //k_Combination(edges,k,combinations,counter,thrackleCounter,foundThrackles);
+      // // //printf("There are %d combinations of size %d\nFrom which %d are thrackles (%1.8f)\n",
+      // // //counter,k,thrackleCounter,(float)thrackleCounter/counter);
+      // //
+      // // std::chrono::high_resolution_clock::time_point t2 = chrono::high_resolution_clock::now();
+      // // chrono::duration<double, std::milli> time_span = t2 - t1;
+      // // cout << "It took me " << time_span.count() << " milliseconds.";
+      // // cout << std::endl;
+      //
       //minimal_thrackle_intersection(foundThrackles,minimal_intersection_counter);
-
-
-      // if (union_covers(foundThrackles,rows)){
-      //   cout << "Found thrackles cover the whole edge set\n";
-      // } else {
-      //   cout << "Found thrackles DO NOT cover the whole edge set\n";
-      // }
-      //Update information on thrackles to be displayed when drawn.
-      // for(int i = 0; i < (int) foundThrackles.size() ; i++){
-      //   foundThrackles[i].set_size = setSize;
-      //   foundThrackles[i].thrackle_size = k;
-      //   foundThrackles[i].ot = ot_number;
-      //   //If draw_thrackles flag is on, save it to draw it later.
-      //   if(draw_flag){
-      //     tbd_thrackles.push_back(foundThrackles[i]);
-      //     tbd_points.push_back(vec);
-      //   }
-      // }
-
+      thrackle_intersection_all(foundThrackles,minimal_intersection_counter);
+      cout << "Minimal intersection calculated!\n";
+      
+      if (union_covers(foundThrackles)){
+        cout << "Found thrackles cover the whole edge set\n";
+      } else {
+        cout << "Found thrackles DO NOT cover the whole edge set\n";
+      }
+      cout << "Union calculated!\n";
+      // //Update information on thrackles to be displayed when drawn.
+      // // for(int i = 0; i < (int) foundThrackles.size() ; i++){
+      // //   foundThrackles[i].set_size = setSize;
+      // //   foundThrackles[i].thrackle_size = k;
+      // //   foundThrackles[i].ot = ot_number;
+      // //   //If draw_thrackles flag is on, save it to draw it later.
+      // //   if(draw_flag){
+      // //     tbd_thrackles.push_back(foundThrackles[i]);
+      // //     tbd_points.push_back(vec);
+      // //   }
+      // // }
+      //
       //Count how many thrackles of size n were found for current ot.
       //Write that information into a text file.
       max_thrackle_count.push_back((int)foundThrackles.size());
@@ -205,20 +211,27 @@ int main(int argc, char* argv[]) {
 
       //Write found thrackles on text file.
       writeThrackles(foundThrackles,vec,setSize,k,ot_number,minimal_intersection_counter);
-
+      cout << "Writing finished!\n";
       //Clear all that.
       vec.clear();
+      cout << "Vec clear!\n";
       edges.clear();
+      cout << "edges clear!\n";
       combinations.clear();
+      cout << "combinations clear!\n";
       foundThrackles.clear();
+      cout << "foundThrackles clear!\n";
       positions.clear();
+      cout << "positions clear!\n";
       cout << "=====Finished working with order type " << ot_number << "=====" << endl;
       ot_number++;
 
       //If a given order type is specified, process only that one.
       //Otherwise, process all order types of a file.
       if(one_ot_flag) break;
+      cout << "Starting next order type\n";
     }
+    cout << "Freeing matrix!\n";
     freeMatrix(matrix,rows);
     std::chrono::high_resolution_clock::time_point totalt2 = chrono::high_resolution_clock::now();
     chrono::duration<double, std::milli> time_span_total = totalt2 - totalt1;

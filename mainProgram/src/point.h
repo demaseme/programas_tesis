@@ -15,7 +15,7 @@
 #include <unistd.h>
 #include <GL/glut.h>
 #include "gl2ps.h"
-
+#include <list>
 
 using namespace std;
 
