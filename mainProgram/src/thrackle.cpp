@@ -269,6 +269,10 @@ void thrackle_intersection_all(const vector<Thrackle> T, int & result){
     result = 0;
     return;
   }
+  if (T.size() == 1) {
+      result = 0;
+      return ;
+  }
   //cout << "NUMBER OF EDGES: " << T[0].edge_bool.size() << endl;
   vector<bool> res((int)T[0].edge_bool.size(),true);
   int count;

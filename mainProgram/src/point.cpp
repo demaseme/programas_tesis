@@ -214,7 +214,16 @@ int readPoints2(int n, string file_name, vector<Point> & vPoints, int otypes){
     vPoints.resize(npuntos);
     for(i = 0; i < npuntos;){
 		err = fread(&a, bytes, 1, file);
+        if ( err != 1 ){
+            cout << err << " " << bytes << endl;
+            fprintf(stderr,"Read error\n");
+            exit(3);
+        }
 		err = fread(&b, bytes, 1, file);
+        if ( err != 1 ){
+            fprintf(stderr,"Read error\n");
+            exit(3);
+        }
         // points[i].x = a;
         // points[i].y = b;
         vPoints[i].x = a;

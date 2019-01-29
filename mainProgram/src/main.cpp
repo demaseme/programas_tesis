@@ -1,13 +1,13 @@
 
 #include "disjointness.h"
-void write_max_thrackle_count(const vector<int> count,const vector<int> otlist, int n){
+void write_max_thrackle_count(const vector<int> count,const vector<int> otlist, const vector<int> min_inter, int n){
   ofstream myfile;
   string filename = "K_" + to_string(n) + "_statistics.dat";
   myfile.open(filename);
-  myfile << "#OT    #Max_Thr_Count\n";
+  myfile << "#OT    #Max_Thr_Count   #minimal_intersection\n";
   for(int i = 0; i < (int) count.size(); i++){
     //cout << i << "\t\t" << count[i] << endl;
-    myfile << otlist[i] << "\t\t" << count[i] << endl;
+    myfile << otlist[i] << "\t\t" << count[i] << "\t\t" << min_inter[i] << endl;
   }
   myfile.close();
   cout << "write max th coutn \n";
@@ -18,7 +18,7 @@ void write_max_thrackle_count(const vector<int> count,const vector<int> otlist, 
 int main(int argc, char* argv[]) {
     int opt;
     int ot_number = 0; // starting from 0.
-    bool draw_flag;
+    //bool draw_flag;
     bool one_ot_flag;
     vector<Point> vPoints;
     int k;  //Thrackle size we're looking for
@@ -28,14 +28,14 @@ int main(int argc, char* argv[]) {
     vector<int> otlist;
     int ** matrix; //matrix to store the disjointness matrix.
 
-    draw_flag = false;
+    //draw_flag = false;
     one_ot_flag = false;
 
     while ((opt = getopt(argc, argv, "dt:")) != -1) {
       switch(opt){
         case 'd':
           //We want to draw! Set drawing flag to true.
-          draw_flag = true;
+          //draw_flag = true;
           break;
         case 't':
           //Exactly 1 order type.
@@ -105,7 +105,7 @@ int main(int argc, char* argv[]) {
 
     /*##########################################*/
     int thrackleCounter;
-    long counter;
+    //long counter;
     vector<Point> vec; //Here we store the points that will be read.
     vector<Edge> edges; //Here we store the (n take 2) edges of the complete graph
     vector<vector<Edge>> combinations; //Here we store the combinations of edges depending on k.
@@ -114,7 +114,8 @@ int main(int argc, char* argv[]) {
     vector<vector<Point>> tbd_points; //A set of points for every thrackle to be drawn.
     vector<vector<int>> positions; // Each element of this vector, is a list of positions of edges which together are a thrackle.
     vector<Edge> foundEdges;
-    Edge tmp_edge;
+    vector<int> min_inter;
+    //Edge tmp_edge;
     //Select the points of the current order type.
     vector<int> max_thrackle_count; //Vector to store how many max thrackles were found for each ot
 
@@ -131,7 +132,7 @@ int main(int argc, char* argv[]) {
       printVectorPoint(vec);
       generateAllEdges(vec,edges);
       cout << "All edges generated\n";
-      counter = 0;
+      //counter = 0;
       thrackleCounter = 0;
       std::chrono::high_resolution_clock::time_point t1 = chrono::high_resolution_clock::now();
       //Testing disjointness matrix construction.
@@ -157,7 +158,7 @@ int main(int argc, char* argv[]) {
          for(int j = 0 ; j < (int) rows ; j ++){
                tmp_thrackle.edge_bool.push_back(false);
          }
-         for(int j = 0 ; j < positions[i].size() ; j++){
+         for(int j = 0 ; j < (int)positions[i].size() ; j++){
            foundEdges.push_back(edges[positions[i][j]]);
            tmp_thrackle.edges=foundEdges;
            tmp_thrackle.edge_bool[positions[i][j]] = true;
@@ -184,7 +185,7 @@ int main(int argc, char* argv[]) {
       //minimal_thrackle_intersection(foundThrackles,minimal_intersection_counter);
       thrackle_intersection_all(foundThrackles,minimal_intersection_counter);
       cout << "Minimal intersection calculated!\n";
-      
+      min_inter.push_back(minimal_intersection_counter);
       if (union_covers(foundThrackles)){
         cout << "Found thrackles cover the whole edge set\n";
       } else {
@@ -210,8 +211,8 @@ int main(int argc, char* argv[]) {
       //minimal_thrackle_intersection(foundThrackles,minimal_thrackle_intersection);
 
       //Write found thrackles on text file.
-      writeThrackles(foundThrackles,vec,setSize,k,ot_number,minimal_intersection_counter);
-      cout << "Writing finished!\n";
+      //writeThrackles(foundThrackles,vec,setSize,k,ot_number,minimal_intersection_counter);
+      //cout << "Writing finished!\n";
       //Clear all that.
       vec.clear();
       cout << "Vec clear!\n";
@@ -239,6 +240,6 @@ int main(int argc, char* argv[]) {
     cout << std::endl;
 
     //Write max thrackle count to text file
-    write_max_thrackle_count(max_thrackle_count,otlist, setSize);
+    write_max_thrackle_count(max_thrackle_count,otlist, min_inter, setSize);
     return 0;
 }
