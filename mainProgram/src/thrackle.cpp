@@ -4,32 +4,44 @@
 // float ancho; //Used by opengl
 
 bool share_ep(Edge e_1, Edge e_2){
+    return (e_1.v1 == e_2.v1 || e_1.v1 == e_2.v2 || e_1.v2 == e_2.v1 || e_1.v2 == e_2.v2);
+}
 
-    if( e_1.v1 == e_2.v1 || e_1.v1 == e_2.v2 || e_2.v1 == e_1.v2 || e_2.v2 == e_1.v2) {
-        // printf("The following edges share an endpoint: \n");
-        // printEdge(e_1);
-        // printEdge(e_2);
-        // printf("===========================\n");
-    return true;
-    }
-    return false;
+int area(Point a, Point b, Point c){
+	long r = (long)(b.x - a.x) * (long)(c.y - a.y) - (long)(c.x - a.x) * (long)(b.y - a.y);
+
+	return r > 0;
 }
-bool crossing(Edge e_1, Edge e_2){
-  //Check if endpoints of e_2 are in different
-  //semiplanes defined by e_1
-  int ori1 = orientation(e_1.v1,e_1.v2,e_2.v1);
-  int ori2 = orientation(e_1.v1,e_1.v2,e_2.v2);
-  int ori3 = orientation(e_2.v1,e_2.v2,e_1.v1);
-  int ori4 = orientation(e_2.v1,e_2.v2,e_1.v2);
-  if (ori1 != ori2 && ori3 != ori4){
-      // printf("The following edges cross: \n");
-      // printEdge(e_1);
-      // printEdge(e_2);
-      // printf("===========================\n");
-      return true;
-  }
-  return false;
+
+int izquierda(Point a, Point b, Point c){
+	return area(a, b, c) > 0;
 }
+
+int Xor(int x, int y){
+	return !x ^ !y;
+}
+
+int crossing(Edge s1, Edge s2){
+	Point a = s1.v1, b = s1.v2, c = s2.v1, d = s2.v2;
+
+	return Xor(izquierda(a, b, c), izquierda(a, b, d)) && Xor(izquierda(c,d,a), izquierda(c,d,b));
+}
+// bool crossing(Edge e_1, Edge e_2){
+//   //Check if endpoints of e_2 are in different
+//   //semiplanes defined by e_1
+//   int ori1 = orientation(e_1.v1,e_1.v2,e_2.v1);
+//   int ori2 = orientation(e_1.v1,e_1.v2,e_2.v2);
+//   int ori3 = orientation(e_2.v1,e_2.v2,e_1.v1);
+//   int ori4 = orientation(e_2.v1,e_2.v2,e_1.v2);
+//   if (ori1 != ori2 && ori3 != ori4){
+//       // printf("The following edges cross: \n");
+//       // printEdge(e_1);
+//       // printEdge(e_2);
+//       // printf("===========================\n");
+//       return true;
+//   }
+//   return false;
+// }
 
 /*
 Function that finds all thrackles of size k.

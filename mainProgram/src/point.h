@@ -13,8 +13,6 @@
 #include <ratio>
 #include <chrono>
 #include <unistd.h>
-#include <GL/glut.h>
-#include "gl2ps.h"
 #include <list>
 
 using namespace std;
@@ -24,7 +22,6 @@ class Point {
 public:
     uint16_t x;
     uint16_t y;
-
     bool operator==(const Point q){
         return (q.x == this->x && q.y == this->y);
     }

@@ -18,7 +18,7 @@ public:
 // Edge operations (line segment operations)
 
 //Returns true if line segments e_1 and e_2 cross.
-bool crossing(Edge e_1, Edge e_2);
+int crossing(Edge e_1, Edge e_2);
 //Returns true if line segments e_1 and e_2 share an endpoint.
 bool share_ep(Edge e_1, Edge e_2);
 //Thrackle operations.

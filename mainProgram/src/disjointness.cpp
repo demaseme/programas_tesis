@@ -4,7 +4,7 @@
     Fills the square matrix (matrix) with geometric information
     based on the disjointness of the graph.
 */
-void construct_disjointness_matrix(const vector<Edge> edges,int ** matrix,const int rows){
+void construct_disjointness_matrix(const vector<Edge> edges,int ** matrix,const int rows, bool printmatrix){
     //This to write to matrix.
     int * ptr;
     // for(int i = 0; i < (int) edges.size() ; i ++){
@@ -22,28 +22,28 @@ void construct_disjointness_matrix(const vector<Edge> edges,int ** matrix,const 
               continue;
             }else if( crossing(edges[i],edges[j]) || share_ep(edges[i],edges[j]) ){
               *ptr++ = 0;
-
               continue;
             }else *ptr++=1;
         }
     }
 
-    // //This to print it.
-    // cout << "    ";
-    // for(int i = 0; i < rows;i++){
-    //     if(i>=10) cout << i << "| ";
-    //     else cout << i << " | ";
-    // }
-    // cout << endl << endl;
-    // for(int i = 0; i < rows; i++){
-    //     ptr = (int * ) matrix[i];
-    //     if(i>=10) cout << i << ": ";
-    //     else cout << i << ":  ";
-    //     for(int j = 0; j < rows; j++){
-    //         cout << *ptr++ << " | ";
-    //     }
-    //     cout << "\n";
-    // }
+    //This to print it.
+    if (!printmatrix) return;
+    cout << "    ";
+    for(int i = 0; i < rows;i++){
+        if(i>=10) cout << i << "| ";
+        else cout << i << " | ";
+    }
+    cout << endl << endl;
+    for(int i = 0; i < rows; i++){
+        ptr = (int * ) matrix[i];
+        if(i>=10) cout << i << ": ";
+        else cout << i << ":  ";
+        for(int j = 0; j < rows; j++){
+            cout << *ptr++ << " | ";
+        }
+        cout << "\n";
+    }
 
 }
 
@@ -193,26 +193,36 @@ int get_kthrackles_of_matrix(int ** matrix, const int cols, const int desired_si
   int intersect;
   int i;
   int thrackle_counter = 0;
+ // int key,key2;
+ // bool tfound = false;
   vector<int> thracklePositions;
   //Start up counters with first 5 edges, not necessary. (Really only need 0 and 1 )
-  for(i = 0; i < desired_size ; i++){
+  for(i = 0; i < 2 ; i++){
     counters[i] = i;
   }
-  cout << "Starting algorithm:::::\n" << "cols:" << cols<< " desired size:" << desired_size<< "\ncounters:\n";
-  printArray(counters,desired_size);
+  for(i = 2; i <= desired_size ; i++){
+      counters[i] = 0;
+  }
+  // cout << "Starting algorithm:::::\n" << "cols:" << cols<< " desired size:" << desired_size<< "\ncounters:\n";
+  // printArray(counters,desired_size);
   current_size = 1;
-  while ( counters[0] < (cols-desired_size) ){
+  while ( counters[0] < cols ){
     //cout << "Finding thrackles starting with " << counters[0] << endl;
-
+    //cin >> key;
     while ( current_size < desired_size ){
       intersect = 1;
       thracklePositions.clear();
-      //cout << "\t Current size: " << current_size << endl;
+      //cout << "\t [211] Current size: " << current_size << endl;
       //printArray(counters,desired_size);
+
       if ( counters[current_size] >= cols ){
         current_size--;
+        if (current_size == 0) break;
         if(current_size < 0 ){
-          return thrackle_counter; // ? Finished?
+            current_size = 0;
+            continue;
+          //   cout << "####### FINISHED ON LINE 215 ##### \n";
+          // return thrackle_counter; // ? Finished?
         }
         counters[current_size]++;
         continue;
@@ -225,24 +235,32 @@ int get_kthrackles_of_matrix(int ** matrix, const int cols, const int desired_si
       } else {
         if ( (current_size + 1) == desired_size ) {
           thrackle_counter++;
-          // cout << "Thrackle found\n";
+          // cout << "Thrackle found\n\t";
           // printArray(counters,desired_size);
+          // cin >> key2;
+          // tfound = true;
           for(int p = 0; p < desired_size; p++){
             thracklePositions.push_back(counters[p]);
           }
           //thracklePositions.insert(thracklePositions.end(), counters[0], counters[desired_size]);
           positions.push_back(thracklePositions);
           counters[current_size]++;
-          //cout << "\t Current size: " << current_size << endl;
+          //cout << "\t [240] Current size: " << current_size << endl;
           continue;
         }
+        //cout << "[247] Increasing thrackle!\n";
         counters[current_size + 1] = counters[current_size] + 1;
         current_size++;
       }
     }
     //next round:
+    //nextr:
+    //cout << "Increasing counters[0]\n";
     counters[0]++;
     counters[1] = counters[0] + 1;
+    //cout << "Current size: " << current_size << endl;
   }
+  //cout << "##############################Finished##########################################\n";
   return thrackle_counter;
+
 }

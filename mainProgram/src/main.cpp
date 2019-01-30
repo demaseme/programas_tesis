@@ -139,7 +139,7 @@ int main(int argc, char* argv[]) {
       std::chrono::high_resolution_clock::time_point t1 = chrono::high_resolution_clock::now();
       //Testing disjointness matrix construction.
       cout << "Constructing disjointness matrix\n";
-      construct_disjointness_matrix(edges,matrix,rows);
+      construct_disjointness_matrix(edges,matrix,rows,false);
       thrackleCounter=get_kthrackles_of_matrix(matrix,rows,k,positions);
 
       std::chrono::high_resolution_clock::time_point t2 = chrono::high_resolution_clock::now();
