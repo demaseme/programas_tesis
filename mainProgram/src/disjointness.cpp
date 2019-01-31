@@ -217,12 +217,12 @@ int get_kthrackles_of_matrix(int ** matrix, const int cols, const int desired_si
 
       if ( counters[current_size] >= cols ){
         current_size--;
-        if (current_size == 0) break;
+        //if (current_size == 0) break;
         if(current_size < 0 ){
-            current_size = 0;
-            continue;
+        //    current_size = 0;
+        //    continue;
           //   cout << "####### FINISHED ON LINE 215 ##### \n";
-          // return thrackle_counter; // ? Finished?
+          return thrackle_counter; // ? Finished?
         }
         counters[current_size]++;
         continue;

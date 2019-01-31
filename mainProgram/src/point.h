@@ -14,7 +14,7 @@
 #include <chrono>
 #include <unistd.h>
 #include <list>
-
+#include <omp.h>    // For omp_get_cancellation, omp_get_thread_num()
 using namespace std;
 
 extern int setSize;

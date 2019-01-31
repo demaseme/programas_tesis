@@ -286,26 +286,32 @@ void thrackle_intersection_all(const vector<Thrackle> T, int & result){
       return ;
   }
   //cout << "NUMBER OF EDGES: " << T[0].edge_bool.size() << endl;
-  vector<bool> res((int)T[0].edge_bool.size(),true);
+
   int count;
   int minimal;
   count = 0;
   minimal = 45;
+  int i,k;
+  #pragma omp parallel for private(count,k) shared(minimal)
+      for(i = 0; i < (int) T.size() ; i++){
+          //printf("Thread number %d, i:%d\n",omp_get_thread_num(),i);
+          for(int j = i+1; j < (int) T.size(); j++ ){
+              //printf("Thread number %d i:%d, j:%d\n",omp_get_thread_num(),i,j);
+              vector<bool> res((int)T[0].edge_bool.size(),true);
+              bool_thrackle_intersection(T[i],T[j],res);
+              for(k = 0; k < (int)res.size() ; k++){
+            //      printf("Thread number %d i:%d, j:%d k:%d\n",omp_get_thread_num(),i,j,k);
+                  if (res[k]) count++;
+              }
+              if (count < minimal) {minimal = count;}
+              if (minimal == 0 ) { cout << "no intersection between thrackles " << i << " and " << j << endl; result =minimal;}
+              count = 0;
+              // for(int m = 0; m < (int)res.size() ; m++){
+              //     res[m] = true;
+              // }
+          }
+      }
 
-  for(int i = 0; i < (int) T.size() ; i++){
-    for(int j = i+1; j < (int) T.size(); j++ ){
-      bool_thrackle_intersection(T[i],T[j],res);
-      for(int k = 0; k < (int)res.size() ; k++){
-        if (res[k]) count++;
-      }
-      if (count < minimal) {minimal = count;}
-      if (minimal == 0 ) { cout << "no intersection between thrackles " << i << " and " << j << endl; result =minimal; return;}
-      count = 0;
-      for(int m = 0; m < (int)res.size() ; m++){
-        res[m] = true;
-      }
-    }
-  }
   result = minimal;
 //  cout << "OUTING T INTERSECTION ALL\n";
   //Here we can choose to print it or return it. :)
@@ -336,7 +342,7 @@ void bool_thrackle_union(Thrackle A, Thrackle B, vector<bool> res){
 }
 
 bool union_covers(vector<Thrackle> T){
-  if (T.size() == 0 ) return false;
+  if (T.size() <= 1 ) return false;
   vector<bool> res(false,T[0].edge_bool.size());
   bool final_res;
   final_res = true;

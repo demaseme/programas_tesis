@@ -1,14 +1,14 @@
 
 #include "disjointness.h"
 void write_max_thrackle_count(const vector<int> count,const vector<int> otlist, const vector<int> min_inter,
-bool union_covers_bool, int n){
+vector<bool> union_covers_bool, int n){
   ofstream myfile;
   string filename = "K_" + to_string(n) + "_statistics.dat";
   myfile.open(filename);
   myfile << "#OT    #Max_Thr_Count   #minimal_intersection    #union_covers?\n";
   for(int i = 0; i < (int) count.size(); i++){
     //cout << i << "\t\t" << count[i] << endl;
-    myfile << otlist[i] << "\t\t" << count[i] << "\t\t" << min_inter[i] << "\t\t" << union_covers_bool << endl;
+    myfile << otlist[i] << "\t\t" << count[i] << "\t\t" << min_inter[i] << "\t\t" << union_covers_bool[i] << endl;
   }
   myfile.close();
   cout << "write max th coutn \n";
@@ -114,9 +114,10 @@ int main(int argc, char* argv[]) {
     vector<Thrackle> tbd_thrackles; //Thrackles to be drawn later.
     vector<vector<Point>> tbd_points; //A set of points for every thrackle to be drawn.
     vector<vector<int>> positions; // Each element of this vector, is a list of positions of edges which together are a thrackle.
-    vector<Edge> foundEdges;
+
     vector<int> min_inter;
-    bool union_covers_bool = false;
+    vector<bool> union_covers_bool;
+    //bool union_covers_bool = false;
     //Edge tmp_edge;
     //Select the points of the current order type.
     vector<int> max_thrackle_count; //Vector to store how many max thrackles were found for each ot
@@ -126,19 +127,19 @@ int main(int argc, char* argv[]) {
     while(ot_number < otypes){
 
       otlist.push_back(ot_number);
-      cout << "Starting copy\n";
+      //cout << "Starting copy\n";
       vec.resize(setSize);
       copy(vPoints.begin()+(setSize*ot_number),vPoints.begin()+( (setSize*ot_number) + setSize ),vec.begin());
-      cout << "Copy finished\n";
+      //cout << "Copy finished\n";
       //sortPoints(vec);
-      printVectorPoint(vec);
+      //printVectorPoint(vec);
       generateAllEdges(vec,edges);
-      cout << "All edges generated\n";
+      //cout << "All edges generated\n";
       //counter = 0;
       thrackleCounter = 0;
       std::chrono::high_resolution_clock::time_point t1 = chrono::high_resolution_clock::now();
       //Testing disjointness matrix construction.
-      cout << "Constructing disjointness matrix\n";
+      //cout << "Constructing disjointness matrix\n";
       construct_disjointness_matrix(edges,matrix,rows,false);
       thrackleCounter=get_kthrackles_of_matrix(matrix,rows,k,positions);
 
@@ -149,27 +150,38 @@ int main(int argc, char* argv[]) {
       cout << "There are " << thrackleCounter << " thrackles of size " << k << endl;
 
       //positions is loaded. We must then get their equivalent edge objects and then turn them into thrackle objects.
-       cout << "FILLING BOOLEAN VECTOR FOR SET OPERATIONS!\n";
+      // cout << "FILLING BOOLEAN VECTOR FOR SET OPERATIONS!\n";
       /* Filling the boolean vector for in operation*/
-      Thrackle tmp_thrackle;
+
 
       // for(int i = 0 ; i < rows ; i ++){
       //     tmp_thrackle.edge_bool.push_back(false);
       // }
-      for(int i = 0; i < (int)positions.size(); i++) {
-         for(int j = 0 ; j < (int) rows ; j ++){
-               tmp_thrackle.edge_bool.push_back(false);
+
+      cout << "Position size: " << positions.size() << endl;
+      int i;
+      foundThrackles.resize(positions.size());
+      Thrackle *t_ptr = &foundThrackles[0];
+      int j,k;
+      //#pragma omp parallel for private(j,k)
+      for(i = 0; i < (int)positions.size(); i++) {
+         vector<Edge> foundEdges;
+         Thrackle tmp_thrackle;
+         for(  j = 0 ; j < (int) rows ; j ++){
+             tmp_thrackle.edge_bool.push_back(false);
          }
-         for(int j = 0 ; j < (int)positions[i].size() ; j++){
-           foundEdges.push_back(edges[positions[i][j]]);
-           tmp_thrackle.edges=foundEdges;
-           tmp_thrackle.edge_bool[positions[i][j]] = true;
+         for(  k = 0 ; k < (int)positions[i].size() ;k ++){
+             //printf("Thread number %d i:%d, j:%d \n",omp_get_thread_num(),i,k);
+             foundEdges.push_back(edges[positions[i][k]]);
+             tmp_thrackle.edges=foundEdges;
+             tmp_thrackle.edge_bool[positions[i][k]] = true;
          }
-         foundThrackles.push_back(tmp_thrackle);
+         t_ptr[i]=(tmp_thrackle);
          foundEdges.clear();
          tmp_thrackle.edge_bool.clear();
       }
-      cout << "FILLING COMPLETED!\n";
+
+      //cout << "FILLING COMPLETED!\n";
       // //printThrackleVector(foundThrackles);
       //
       // /*##################################*/
@@ -190,12 +202,12 @@ int main(int argc, char* argv[]) {
       min_inter.push_back(minimal_intersection_counter);
       if (union_covers(foundThrackles)){
         cout << "Found thrackles cover the whole edge set\n";
-        union_covers_bool = true;
+        union_covers_bool.push_back(true);
       } else {
         cout << "Found thrackles DO NOT cover the whole edge set\n";
-        union_covers_bool = false;
+        union_covers_bool.push_back(false);
       }
-      cout << "Union calculated!\n";
+      //cout << "Union calculated!\n";
       // //Update information on thrackles to be displayed when drawn.
       // // for(int i = 0; i < (int) foundThrackles.size() ; i++){
       // //   foundThrackles[i].set_size = setSize;
@@ -219,15 +231,15 @@ int main(int argc, char* argv[]) {
       //cout << "Writing finished!\n";
       //Clear all that.
       vec.clear();
-      cout << "Vec clear!\n";
+      //cout << "Vec clear!\n";
       edges.clear();
-      cout << "edges clear!\n";
+      //cout << "edges clear!\n";
       combinations.clear();
-      cout << "combinations clear!\n";
+      //cout << "combinations clear!\n";
       foundThrackles.clear();
-      cout << "foundThrackles clear!\n";
+      //cout << "foundThrackles clear!\n";
       positions.clear();
-      cout << "positions clear!\n";
+      //cout << "positions clear!\n";
       cout << "=====Finished working with order type " << ot_number << "=====" << endl;
       ot_number++;
 
