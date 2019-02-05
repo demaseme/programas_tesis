@@ -423,7 +423,57 @@ void findThrackle(unsigned int k, vector<Point> points, vector<Thrackle> & thrac
       }
      // printf("From these, only %d are thrackles\n",(int)thrackles.size());
   }
-
+void writeOne4All_bin(ofstream& myfile, const vector<Thrackle> T, const vector<Point> points, const int set_size,
+const int t_size, const int ot, const int min_inter_count){
+  int i,j;
+  myfile.write( (char*) &set_size,sizeof(char));
+  for(i = 0; i< set_size; i++){
+    myfile.write( (char*) &points[i].x,sizeof(uint16_t));
+    myfile.write( (char*) &points[i].y,sizeof(uint16_t));
+  }
+  int number_of_thrackles = (int) T.size();
+  myfile.write( (char*) &ot,sizeof(char));
+  myfile.write( (char*) &t_size,sizeof(char));
+  myfile.write( (char*) &number_of_thrackles,sizeof(char));
+  //An edge consists of a pair of Points, this is 4 uint16_t variables.
+  for(i = 0; i < number_of_thrackles; i++){
+    for(j = 0; j < t_size ; j++){
+      myfile.write( (char*) &(T[i].edges[j].v1.x),sizeof(uint16_t));
+      myfile.write( (char*) &(T[i].edges[j].v1.y),sizeof(uint16_t));
+      myfile.write( (char*) &(T[i].edges[j].v2.x),sizeof(uint16_t));
+      myfile.write( (char*) &(T[i].edges[j].v2.y),sizeof(uint16_t));
+    }
+  }
+  myfile.write( (char* ) "\0", sizeof(uint16_t));
+}
+void writeThrackles_bin(const vector<Thrackle> T, const vector<Point> points,
+  const int set_size, const int t_size, const int ot, const int min_inter_count){
+  ofstream myfile;
+  int i,j;
+  string file_name = "ths/" + to_string(set_size) + "/" + to_string(ot) + "_" + to_string(t_size) + ".ths";
+  system( ("mkdir -p ths/" + to_string(set_size)).c_str() );
+  myfile.open(file_name, ios::out | ios::binary);
+  myfile.write( (char*) &set_size,sizeof(char));
+  //Each point consists of 2 coordinates stored in uint16_t variables which are 2 bytes each.
+  for(i = 0; i< set_size; i++){
+    myfile.write( (char*) &points[i].x,sizeof(uint16_t));
+    myfile.write( (char*) &points[i].y,sizeof(uint16_t));
+  }
+  int number_of_thrackles = (int) T.size();
+  myfile.write( (char*) &ot,sizeof(char));
+  myfile.write( (char*) &t_size,sizeof(char));
+  myfile.write( (char*) &number_of_thrackles,sizeof(char));
+  //An edge consists of a pair of Points, this is 4 uint16_t variables.
+  for(i = 0; i < number_of_thrackles; i++){
+    for(j = 0; j < t_size ; j++){
+      myfile.write( (char*) &(T[i].edges[j].v1.x),sizeof(uint16_t));
+      myfile.write( (char*) &(T[i].edges[j].v1.y),sizeof(uint16_t));
+      myfile.write( (char*) &(T[i].edges[j].v2.x),sizeof(uint16_t));
+      myfile.write( (char*) &(T[i].edges[j].v2.y),sizeof(uint16_t));
+    }
+  }
+  myfile.close();
+}
 
 //Writes thrackle information to a text file, this procedure needs all thrackles to be of the same size.
 /*The format of the output:

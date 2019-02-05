@@ -10,6 +10,7 @@
 #include <sstream>
 #include "thrackle.h"
 
+void process_file_bin(string filename, int desired_ot);
 void reshape_cb (int w, int h);
 void draw();
 #endif

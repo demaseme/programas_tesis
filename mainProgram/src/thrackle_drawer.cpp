@@ -5,10 +5,39 @@ vector<Point> points;
 vector<Edge> edges;
 vector<Thrackle> thrackles;
 int ot;
+int desired_ot_g;
 int thrackle_size;
 int number_thrackles;
 int current_thrackle;
+string file_name;
 
+void process_file_bin(string filename, int desired_ot){
+  ifstream myfile;
+  int current_ot = -1;
+  uint16_t character;
+  streampos size;
+
+  myfile.open(filename, ios::in|ios::binary|ios::ate);
+
+  if(myfile.is_open()){
+    size = myfile.tellg();
+    while (current_ot != (desired_ot - 1) ) {
+      //We look for the desired ot.
+      myfile.read((char*) &character, sizeof(uint16_t));
+      cout << character << endl;
+      if ( character == '\0' ) current_ot++;
+      if ( myfile.eof() ) {
+        myfile.seekg(0,ios::beg);
+        current_ot = -1;
+      }
+    }
+    cout << "We arrived at desired OT " << desired_ot << " " << current_ot << endl;
+  } else {
+    fprintf(stderr, "Error reading file\n" );
+    exit(-3);
+  }
+  myfile.close();
+}
 //Loads the vectors points and edges with information
 //to be drawn later.
 void process_file(string filename){
@@ -137,6 +166,17 @@ void special(int key, int x, int y){
         cout << current_thrackle << endl;
         draw();
     }
+    else if(key == GLUT_KEY_DOWN){
+      desired_ot_g ++;
+      process_file_bin(file_name,desired_ot_g);
+      draw();
+    }
+    else if(key == GLUT_KEY_UP){
+      if(desired_ot_g == 0) return;
+      desired_ot_g --;
+      process_file_bin(file_name,desired_ot_g);
+      draw();
+    }
 }
 void initialize_opengl(){
 	glutInitDisplayMode (GLUT_RGBA|GLUT_DOUBLE);
@@ -200,8 +240,9 @@ int main(int argc, char* argv[]){
     alto = glutGet(GLUT_SCREEN_HEIGHT) * .8;
     ancho = glutGet(GLUT_SCREEN_WIDTH) * .6;
     initialize_opengl();
-    string file_name(argv[1]);
-    process_file(file_name);
+    file_name = argv[1];
+    desired_ot_g = 0;
+    process_file_bin(file_name,desired_ot_g);
     draw();
     glutMainLoop();
 	return 0;

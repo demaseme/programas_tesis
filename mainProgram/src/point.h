@@ -20,7 +20,7 @@ using namespace std;
 extern int setSize;
 class Point {
 public:
-    uint16_t x;
+    uint16_t x; //2 bytes
     uint16_t y;
     bool operator==(const Point q){
         return (q.x == this->x && q.y == this->y);

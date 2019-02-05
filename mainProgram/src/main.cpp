@@ -123,6 +123,10 @@ int main(int argc, char* argv[]) {
     vector<int> max_thrackle_count; //Vector to store how many max thrackles were found for each ot
 
     /*##########################################*/
+    ofstream myfile;
+    string file_name = "ths/" + to_string(setSize) + "_All" + ".ths";
+    system( "mkdir -p ths/" );
+    myfile.open(file_name, ios::out | ios::binary);
     std::chrono::high_resolution_clock::time_point totalt1 = chrono::high_resolution_clock::now();
     while(ot_number < otypes){
 
@@ -227,7 +231,8 @@ int main(int argc, char* argv[]) {
       //minimal_thrackle_intersection(foundThrackles,minimal_thrackle_intersection);
 
       //Write found thrackles on text file.
-      //writeThrackles(foundThrackles,vec,setSize,k,ot_number,minimal_intersection_counter);
+      //writeThrackles_bin(foundThrackles,vec,setSize,k,ot_number,minimal_intersection_counter);
+      writeOne4All_bin(myfile, foundThrackles,vec,setSize,k,ot_number,minimal_intersection_counter );
       //cout << "Writing finished!\n";
       //Clear all that.
       vec.clear();
@@ -250,6 +255,7 @@ int main(int argc, char* argv[]) {
     }
     cout << "Freeing matrix!\n";
     freeMatrix(matrix,rows);
+    myfile.close();
     std::chrono::high_resolution_clock::time_point totalt2 = chrono::high_resolution_clock::now();
     chrono::duration<double, std::milli> time_span_total = totalt2 - totalt1;
     cout << "It took me " << time_span_total.count() << " milliseconds.";
