@@ -426,15 +426,15 @@ void findThrackle(unsigned int k, vector<Point> points, vector<Thrackle> & thrac
 void writeOne4All_bin(ofstream& myfile, const vector<Thrackle> T, const vector<Point> points, const int set_size,
 const int t_size, const int ot, const int min_inter_count){
   int i,j;
-  myfile.write( (char*) &set_size,sizeof(char));
+  myfile.write( (char*) &set_size,sizeof(uint16_t));
   for(i = 0; i< set_size; i++){
     myfile.write( (char*) &points[i].x,sizeof(uint16_t));
     myfile.write( (char*) &points[i].y,sizeof(uint16_t));
   }
   int number_of_thrackles = (int) T.size();
-  myfile.write( (char*) &ot,sizeof(char));
-  myfile.write( (char*) &t_size,sizeof(char));
-  myfile.write( (char*) &number_of_thrackles,sizeof(char));
+  myfile.write( (char*) &ot,sizeof(uint16_t));
+  myfile.write( (char*) &t_size,sizeof(uint16_t));
+  myfile.write( (char*) &number_of_thrackles,sizeof(uint16_t));
   //An edge consists of a pair of Points, this is 4 uint16_t variables.
   for(i = 0; i < number_of_thrackles; i++){
     for(j = 0; j < t_size ; j++){
@@ -444,7 +444,7 @@ const int t_size, const int ot, const int min_inter_count){
       myfile.write( (char*) &(T[i].edges[j].v2.y),sizeof(uint16_t));
     }
   }
-  myfile.write( (char* ) "\0", sizeof(uint16_t));
+  myfile.write( (char* ) "\xFF", sizeof(uint16_t));
 }
 void writeThrackles_bin(const vector<Thrackle> T, const vector<Point> points,
   const int set_size, const int t_size, const int ot, const int min_inter_count){
