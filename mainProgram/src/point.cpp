@@ -233,6 +233,31 @@ int readPoints2(int n, string file_name, vector<Point> & vPoints, int otypes){
     fclose(file);
     return 0;
 }
+int readPoints_bin(int n, string file_name, vector<Point> & vPoints, int otypes){
+    //Reads a binary file.
+    streampos size;
+    int i;
+    ifstream myfile(file_name, ios::binary|ios::ate);
+    if(myfile.fail()) return 0;
+    Point pointtmp;
+    size = myfile.tellg();
+    myfile.seekg(0,ios::beg);
+    if(n>8){
+        for(i = 0 ; i < size; i++){
+            myfile.read( (char*) &pointtmp.x, sizeof(uint16_t));
+            myfile.read( (char*) &pointtmp.y, sizeof(uint16_t));
+            vPoints.push_back(pointtmp);
+        }
+    }else
+        {
+            for(i = 0 ; i < size; i++){
+                myfile.read( (char*) &pointtmp.x, sizeof(char));
+                myfile.read( (char*) &pointtmp.y, sizeof(char));
+                vPoints.push_back(pointtmp);
+            }
+        }
+    return 1;
+}
 //Reads a file of binary points and stores it on vector vPoints.
 int readPoints(int n, string file_name, vector<Point> & vPoints){
     ifstream input(file_name, std::ios::binary);
@@ -250,13 +275,14 @@ int readPoints(int n, string file_name, vector<Point> & vPoints){
           temp.x = (unsigned short) buffer[i+0] | (((unsigned short) buffer[i+1]) << 8);
           temp.y = (unsigned short) buffer[i+2] | (((unsigned short) buffer[i+3]) << 8);
           vPoints.push_back(temp);
-          //268435344
+
       }
     } else{
       for( unsigned int i=0;i< buffer.size();i+=2){
           temp.x = buffer[i+0];
           temp.y =  buffer[i+1];
           vPoints.push_back(temp);
+
       }
     }
     setSize = n;

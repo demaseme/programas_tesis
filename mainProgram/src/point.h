@@ -47,7 +47,11 @@ void pwrset_edges(vector<Edge> edges,vector<vector<Edge>> & result);
 void printPoints(vector<Point> v);
 void printVectorInt(vector<int> v);
 void printVectorPoint(vector<Point> v);
+
 int readPoints(int n, string file_name, vector<Point> & vPoints);
+int readPoints_bin(int n, string file_name, vector<Point> & vPoints, int otypes);
+int readPoints2(int n, string file_name, vector<Point> & vPoints, int otypes);
+
 bool isConvex(vector<Point> v);
 void generateAllEdges(vector<Point> vPoints,vector<Edge> & vEdges);
 void printEdge(Edge e);
@@ -56,5 +60,5 @@ int findNext(vector<Edge> edges, Edge current);
 bool isCycle(vector<Edge> edges);
 void pwrsetk(int k, vector<Edge> input,vector<vector<Edge>> & output);
 void sortPoints(vector<Point> & points);
-int readPoints2(int n, string file_name, vector<Point> & vPoints, int otypes);
+
 #endif

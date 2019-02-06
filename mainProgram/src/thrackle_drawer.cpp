@@ -1,6 +1,6 @@
 #include "thrackle_drawer.h"
 
-int ancho,alto;
+int ancho=1000,alto=800;
 vector<Point> points;
 vector<Edge> edges;
 vector<Thrackle> thrackles;
@@ -13,13 +13,13 @@ string file_name;
 
 int process_file_bin(string filename, int desired_ot){
   ifstream myfile;
-  int current_ot = -1;
+  int current_ot = 0;
   uint16_t character;
   streampos size;
   uint16_t set_size ;
   uint16_t a,b,x,y;
   int i,j;
-  int xmax,xmin,ymax,ymin,ancho_otype,alto_otype;
+  uint16_t xmax,xmin,ymax,ymin,ancho_otype,alto_otype;
   bool flag;
   Point pointa,pointb;
   Edge tmp_edge;
@@ -32,33 +32,40 @@ int process_file_bin(string filename, int desired_ot){
   if(myfile.is_open()){
     size = myfile.tellg();
     myfile.seekg(0,ios::beg);
-    while (current_ot != (desired_ot - 1) ) {
-      //We look for the desired ot.
-      myfile.read((char*) &character, sizeof(uint16_t));
-      //myfile.read((char*) &character, sizeof(uint16_t));
-      // cout << character << endl;
-      if ( character == 0xFF ) {
+    while (current_ot != (desired_ot) ) {
+        //cout << "Current ot : " << current_ot << endl;
+        //We read thrackle info desired_ot times.
+        myfile.read( (char*) & set_size, sizeof(uint16_t));
+        for(i = 0; i < set_size; i++){
+          myfile.read((char*) & pointa.x, sizeof(uint16_t));
+          myfile.read((char*) & pointa.y, sizeof(uint16_t));
+        }
+        myfile.read((char*) &ot,sizeof(uint16_t));
+        myfile.read((char*) &thrackle_size,sizeof(uint16_t));
+        myfile.read((char*) &number_thrackles,sizeof(uint16_t));
+        for( i = 0 ; i < number_thrackles; i++){
+          for(j = 0; j < thrackle_size ; j++){
+            myfile.read((char*) & pointa.x, sizeof(uint16_t));
+            myfile.read((char*) & pointa.y, sizeof(uint16_t));
+            myfile.read((char*) & pointb.x, sizeof(uint16_t));
+            myfile.read((char*) & pointb.y, sizeof(uint16_t));
+          }
+        }
         current_ot++;
-        cout << "End of OT REACHED\n";
-        continue;
-      }
-      if ( myfile.eof() ) {
-        cout << "EOF\n";
-        myfile.seekg(0,ios::beg);
-        current_ot = -1;
-        return 0; //false
-        //break;
-      }
+        if (myfile.eof()) { cout << "EOT\n" ; return 0;}
     }
-    cout << "We arrived at desired OT " << desired_ot << " " << current_ot << endl;
+    //cout << "We arrived at desired OT " << desired_ot << " " << current_ot << endl;
     myfile.read((char*) & set_size, sizeof(uint16_t)); //First line is size char.
-    cout << "Set size : " << set_size << endl;
+    if (myfile.eof()) { cout << "EOT\n" ; return 0;}
+    //cout << "Set size : " << set_size << endl;
     //Read Points.
     points.clear();
+    //cout << "Points read\n";
     for(i = 0; i < set_size; i++){
       myfile.read((char*) & pointa.x, sizeof(uint16_t));
       myfile.read((char*) & pointa.y, sizeof(uint16_t));
       points.push_back(pointa);
+      //printf("%d,%d\n",pointa.x,pointa.y);
     }
     //////// ADJUST POINTS TO FIT SCREEN
 
@@ -76,47 +83,48 @@ int process_file_bin(string filename, int desired_ot){
   			ymax = points[i].y;
 	  }
     ancho_otype = (xmax-xmin);
-	  alto_otype = (ymax-ymin);
-
+	alto_otype = (ymax-ymin);
+    //cout << "xmin, ymin, ancho, alto " << xmin << " " << ymin << " " << ancho_otype << " " << alto_otype << endl;
     if(alto_otype > ancho_otype){
       flag = true;
   		for(i = 0; i < set_size; i++){
   			points[i].x = (((points[i].x - xmin) * (alto-30))/alto_otype) + 10;
   			points[i].y = (((points[i].y - ymin) * (alto-30))/alto_otype) + 10;
   		}
-      }else{
+      }
+    else{
         flag = false;
-    		for(i = 0; i < set_size; i++){
-    			points[i].x = (((points[i].x - xmin) * (alto-30))/ancho_otype) + 10;
-    			points[i].y = (((points[i].y - ymin) * (alto-30))/ancho_otype) + 10;
-    		}
+    	for(i = 0; i < set_size; i++){
+            points[i].x = (((points[i].x - xmin) * (alto-30))/ancho_otype) + 10;
+            points[i].y = (((points[i].y - ymin) * (alto-30))/ancho_otype) + 10;
+    	}
   	}
 
     myfile.read((char*) &ot,sizeof(uint16_t));
     myfile.read((char*) &thrackle_size,sizeof(uint16_t));
     myfile.read((char*) &number_thrackles,sizeof(uint16_t));
-    cout << "Working with OT " << ot <<endl;
-    cout << "Working with thrackle size  " << thrackle_size <<endl;
-    cout << "Working with number_thrackles  " << number_thrackles <<endl;
+    // cout << "Working with OT " << ot <<endl;
+    // cout << "Working with thrackle size  " << thrackle_size <<endl;
+    // cout << "Working with number_thrackles  " << number_thrackles <<endl;
 
     for( i = 0 ; i < number_thrackles; i++){
       for(j = 0; j < thrackle_size ; j++){
-        myfile.read((char*) & pointa.x, sizeof(uint16_t));
-        myfile.read((char*) & pointa.y, sizeof(uint16_t));
-        myfile.read((char*) & pointb.x, sizeof(uint16_t));
-        myfile.read((char*) & pointb.y, sizeof(uint16_t));
+        myfile.read((char*) & a, sizeof(uint16_t));
+        myfile.read((char*) & b, sizeof(uint16_t));
+        myfile.read((char*) & x, sizeof(uint16_t));
+        myfile.read((char*) & y, sizeof(uint16_t));
         if(flag){
-          pointa.x = (((pointa.x - xmin) * (alto - 30))/alto_otype) + 10;
-          pointa.y = (((pointa.y - ymin) * (alto - 30))/alto_otype) + 10;
+          pointa.x = (((a - xmin) * (alto - 30))/alto_otype) + 10;
+          pointa.y = (((b - ymin) * (alto - 30))/alto_otype) + 10;
 
-          pointb.x = (((pointb.x - xmin) * (alto - 30))/alto_otype) + 10;
-          pointb.y = (((pointb.y - ymin) * (alto - 30))/alto_otype) + 10;
+          pointb.x = (((x - xmin) * (alto - 30))/alto_otype) + 10;
+          pointb.y = (((y - ymin) * (alto - 30))/alto_otype) + 10;
         }else {
-          pointa.x = (((pointa.x - xmin) * (alto - 30))/ancho_otype) + 10;
-          pointa.y = (((pointa.y - ymin) * (alto - 30))/ancho_otype) + 10;
+          pointa.x = (((a - xmin) * (alto - 30))/ancho_otype) + 10;
+          pointa.y = (((b - ymin) * (alto - 30))/ancho_otype) + 10;
 
-          pointb.x = (((pointb.x - xmin) * (alto - 30))/ancho_otype) + 10;
-          pointb.y = (((pointb.y - ymin) * (alto - 30))/ancho_otype) + 10;
+          pointb.x = (((x - xmin) * (alto - 30))/ancho_otype) + 10;
+          pointb.y = (((y - ymin) * (alto - 30))/ancho_otype) + 10;
         }
         tmp_edge.v1 = pointa;
         tmp_edge.v2 = pointb;
@@ -167,21 +175,20 @@ void process_file(string filename){
     //////// ADJUST POINTS TO FIT SCREEN
     int xmax,xmin,ymax,ymin,ancho_otype,alto_otype;
     xmin = xmax = points[0].x;
-	  ymin = ymax = points[0].y;
+	ymin = ymax = points[0].y;
 
     for(i = 1; i < set_size; i++){
   		if(points[i].x < xmin)
   			xmin = points[i].x;
   		else if(points[i].x > xmax)
   			xmax = points[i].x;
-
   		if(points[i].y < ymin)
   			ymin = points[i].y;
   		else if(points[i].y > ymax)
   			ymax = points[i].y;
 	}
     ancho_otype = (xmax-xmin);
-	  alto_otype = (ymax-ymin);
+	alto_otype = (ymax-ymin);
     bool flag;
     if(alto_otype > ancho_otype){
         flag = true;
@@ -259,9 +266,10 @@ void special(int key, int x, int y){
         if(current_thrackle > 0 ){
             current_thrackle--;
         } else {
-            current_thrackle = number_thrackles - 1 ;
+            if (number_thrackles > 0) current_thrackle = number_thrackles - 1 ;
+            current_thrackle = 0;
         }
-        cout << current_thrackle << endl;
+        cout << "Current thrackle : " << current_thrackle << endl;
         draw();
     }
     else if(key == GLUT_KEY_DOWN){

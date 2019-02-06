@@ -64,11 +64,11 @@ int main(int argc, char* argv[]) {
 
     switch(setSize){
       case 3:
-        otfile_str = "../../OT/otypes06.b08"; otypes = 1; break;
+        otfile_str = "../../OT/otypes03.b08"; otypes = 1; break;
       case 4:
-        otfile_str = "../../OT/otypes06.b08"; otypes = 2; break;
+        otfile_str = "../../OT/otypes04.b08"; otypes = 2; break;
       case 5:
-        otfile_str = "../../OT/otypes06.b08"; otypes = 3; break;
+        otfile_str = "../../OT/otypes05.b08"; otypes = 3; break;
       case 6:
         otfile_str = "../../OT/otypes06.b08"; otypes = 16; break;
       case 7:
@@ -89,7 +89,7 @@ int main(int argc, char* argv[]) {
     //     exit(-1);
     // }
 
-    if(readPoints2(setSize,otfile_str,vPoints,otypes) == 1){
+    if(!readPoints_bin(setSize,otfile_str,vPoints,otypes)){
         fprintf(stderr,"Error de lectura\n");
         exit(-1);
     }
@@ -136,7 +136,8 @@ int main(int argc, char* argv[]) {
       copy(vPoints.begin()+(setSize*ot_number),vPoints.begin()+( (setSize*ot_number) + setSize ),vec.begin());
       //cout << "Copy finished\n";
       //sortPoints(vec);
-      //printVectorPoint(vec);
+      printVectorPoint(vec);
+      
       generateAllEdges(vec,edges);
       //cout << "All edges generated\n";
       //counter = 0;
