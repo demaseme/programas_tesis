@@ -1,4 +1,4 @@
-#include "thrackle.h"
+#include "../include/thrackle.h"
 //
 // float alto;
 // float ancho; //Used by opengl

@@ -1,4 +1,4 @@
-#include "disjointness.h"
+#include "../include/disjointness.h"
 
 /*
     Fills the square matrix (matrix) with geometric information

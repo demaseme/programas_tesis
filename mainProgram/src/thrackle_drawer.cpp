@@ -1,4 +1,4 @@
-#include "thrackle_drawer.h"
+#include "../include/thrackle_drawer.h"
 
 int ancho=1000,alto=800;
 vector<Point> points;

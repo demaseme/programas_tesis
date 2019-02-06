@@ -1,5 +1,5 @@
 
-#include "disjointness.h"
+#include "../include/disjointness.h"
 void write_max_thrackle_count(const vector<int> count,const vector<int> otlist, const vector<int> min_inter,
 vector<bool> union_covers_bool, int n){
   ofstream myfile;
@@ -137,7 +137,7 @@ int main(int argc, char* argv[]) {
       //cout << "Copy finished\n";
       //sortPoints(vec);
       printVectorPoint(vec);
-      
+
       generateAllEdges(vec,edges);
       //cout << "All edges generated\n";
       //counter = 0;
