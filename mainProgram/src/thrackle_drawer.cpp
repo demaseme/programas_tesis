@@ -9,12 +9,15 @@ uint16_t desired_ot_g;
 uint16_t thrackle_size;
 uint16_t number_thrackles;
 uint16_t current_thrackle;
+uint16_t current_pair;
+bool pairwise_flag;
+
 string file_name;
 
 int process_file_bin(string filename, int desired_ot){
   ifstream myfile;
   int current_ot = 0;
-  uint16_t character;
+  // uint16_t character;
   streampos size;
   uint16_t set_size ;
   uint16_t a,b,x,y;
@@ -254,23 +257,61 @@ void keyboard(unsigned char key, int x, int y){
 }
 void special(int key, int x, int y){
     if(key == GLUT_KEY_RIGHT){
+      if(pairwise_flag){
+        if(current_pair < (number_thrackles-1)){
+          current_pair++;
+        } else{
+          current_thrackle++;
+          if ( current_thrackle >= number_thrackles) current_thrackle = 0;
+          current_pair = current_thrackle + 1;
+
+        }
+        cout << "Current thrackle: " << current_thrackle << " Current pair: " << current_pair << endl;
+        draw();
+      }
+      else{
         if(current_thrackle < number_thrackles - 1){
             current_thrackle++;
         } else{
             current_thrackle = 0;
         }
         draw();
+      }
         //cout << "Right arrow \n";
     }
     else if(key == GLUT_KEY_LEFT){
-        if(current_thrackle > 0 ){
-            current_thrackle--;
-        } else {
-            if (number_thrackles > 0) current_thrackle = number_thrackles - 1 ;
-            current_thrackle = 0;
+      if ( pairwise_flag ){
+        if ( current_pair > current_thrackle ){
+          if ( (current_pair-1) == current_thrackle ) {
+            if (current_thrackle == 0) {
+              current_thrackle = number_thrackles - 1 ;
+              current_pair = current_thrackle;
+            } else {
+            current_thrackle --;
+            current_pair = number_thrackles -1;
+          }
+          } else{
+            current_pair --;
+          }
         }
-        cout << "Current thrackle : " << current_thrackle << endl;
+        if (current_thrackle == number_thrackles - 1){
+          current_thrackle--;
+          current_pair = number_thrackles - 1;
+        }
+
+        cout << "Current thrackle: " << current_thrackle << " Current pair: " << current_pair << endl;
         draw();
+      }
+      else{
+        if(current_thrackle > 0 ){
+          current_thrackle--;
+        }else{
+          if (number_thrackles > 0) current_thrackle = number_thrackles - 1 ;
+          current_thrackle = 0;
+          }
+          cout << "Current thrackle : " << current_thrackle << endl;
+          draw();
+      }
     }
     else if(key == GLUT_KEY_DOWN){
       desired_ot_g ++;
@@ -307,10 +348,48 @@ void reshape_cb (int w, int h) {
 	glMatrixMode (GL_MODELVIEW);
 	glLoadIdentity ();
 }
-void draw(){
-    int i;
-	glClear(GL_COLOR_BUFFER_BIT);
 
+void draw(){
+  int i;
+  glClear(GL_COLOR_BUFFER_BIT);
+
+  if( pairwise_flag ){
+    glColor3f(.5,.5,.5);
+    glLineWidth(3);
+    gl2psLineWidth(3);
+    cout << "Drawing current_thrackle: " << current_thrackle << " and current pair: " << current_pair << endl;
+    if(number_thrackles>1){
+      //draw the first thrackle
+      for(i=0; i < (int) thrackles[current_thrackle].edges.size();i++){ //for each edge of it.
+              glBegin(GL_LINE_STRIP); //Draw edge
+              glVertex2i(thrackles[current_thrackle].edges[i].v1.x,thrackles[current_thrackle].edges[i].v1.y);
+              glVertex2i(thrackles[current_thrackle].edges[i].v2.x,thrackles[current_thrackle].edges[i].v2.y);
+              glEnd();
+      }
+      glColor3f(.8,.5,.2);
+      glLineWidth(1);
+      gl2psLineWidth(5);
+      //draw the pair thrackle.
+      for(i=0; i < (int) thrackles[current_pair].edges.size();i++){ //for each edge of it.
+              glBegin(GL_LINE_STRIP); //Draw edge
+              glVertex2i(thrackles[current_pair].edges[i].v1.x,thrackles[current_pair].edges[i].v1.y);
+              glVertex2i(thrackles[current_pair].edges[i].v2.x,thrackles[current_pair].edges[i].v2.y);
+              glEnd();
+              //cout << i << endl;
+      }
+    }
+    //Draw points.
+    glColor3f(0.0, 0.0, 1.0);
+
+    glPointSize(5);
+    gl2psPointSize(10);
+    glBegin(GL_POINTS);
+    for(i = 0; i < (int)points.size(); i++){
+      glVertex2i(points[i].x, points[i].y);
+    }
+    glEnd();
+    glutSwapBuffers();
+  } else{
 	glColor3f(.5,.5,.5);
 	glLineWidth(1);
 	gl2psLineWidth(3);
@@ -335,22 +414,38 @@ void draw(){
     glEnd();
 
     glutSwapBuffers();
+  }
 }
 
 //This programs takes a .ths file as argument
 //Draws its information using OpenGL.
 int main(int argc, char* argv[]){
-    if(argc == 1){
-        fprintf(stderr, "Usage: %s <.ths file>\n",argv[0]);
-        exit(-1);
+    int opt;
+    while (( opt = getopt(argc, argv, "p")) != -1){
+      switch(opt){
+        case 'p':
+          pairwise_flag = true;
+          break;
+        // default:
+        //   fprintf(stderr,"Usage %s <.ths file> [-p]",argv[0]);
+        //   exit(EXIT_FAILURE);
+      }
     }
+
+    if (optind >= argc) {
+         fprintf(stderr, "Expected argument after options\n");
+         exit(EXIT_FAILURE);
+     }
+
 
     glutInit(&argc, argv);
     alto = glutGet(GLUT_SCREEN_HEIGHT) * .8;
     ancho = glutGet(GLUT_SCREEN_WIDTH) * .6;
     initialize_opengl();
-    file_name = argv[1];
+    file_name = argv[optind];
+
     desired_ot_g = 0;
+    current_pair = 1;
     process_file_bin(file_name,desired_ot_g);
     //process_file(file_name);
     draw();
