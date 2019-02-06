@@ -1,5 +1,42 @@
 #include "../include/disjointness.h"
-
+/*
+    Finds next thrackle based on current thrackle information and the disjointness matrix.
+*/
+int find_next_thrackle(int ** matrix, vector<int> currentThrackle, vector<int> & nextThrackle){
+    int desired_size = (int)currentThrackle.size();
+    int counters[desired_size+1];
+    int current_size;
+    int intersect;
+    int i ;
+    for( i = 0; i < desired_size; i++){
+        counters[i] = currentThrackle[i];
+    }
+    counters[desired_size-1]++;
+    current_size = desired_size-1;
+    while( current_size < desired_size ){
+        if (counters[current_size] >= cols) {
+            current_size --;
+            if(current_size < 0 ){
+                return 0; //There is no next thrackle! return FALSE value
+            }
+        }
+        intersect = 1;
+        for(i = 0; i < current_size; i++){
+            intersect &= !matrix[counters[i]][counters[current_size]];
+        }
+        if (!intersect){
+            counters[current_size]++;
+        }else{
+            current_size++;
+        }
+    }
+    //Since we only go out of the while loop when we acquire a new thrackle
+    //we fill up the nextThrackle vector with the current counters info.
+    for(i = 0; i < desired_size;i++){
+        nextThrackle.push_back(counters[i]);
+    }
+    return 1; //Positive value = TRUE value, thrackle found!
+}
 /*
     Fills the square matrix (matrix) with geometric information
     based on the disjointness of the graph.
