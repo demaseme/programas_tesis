@@ -1,4 +1,25 @@
 #include "../include/disjointness.h"
+
+void find_decomposition(int ** matrix, int n){
+    //Find first thrackle of size n
+
+    //While the union of all found thrackles doesn't cover the complete n graph.
+        //Find a compatible thrackle of size (n-1).
+        //Find a compatible thrackle of size (n-2).
+        //Find a compatible thrackle of size (n-3)...
+    //Update number of thrackles found (antithickness)
+
+    //D1:
+    //Discard last found thrackle (smaller size) [reduces level to - 1]
+    //Find next thrackle q of current level.
+    //D2:
+    //If q and found thrackles cover the complete n graph. -> antithickness is less than before
+      //update antithickness.
+      //repeat D1
+    //Else:
+        //find next thrackle q of current level.
+        //repeat D2
+}
 /*
     Finds next thrackle based on current thrackle information and the disjointness matrix.
 */
