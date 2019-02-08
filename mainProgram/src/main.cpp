@@ -145,15 +145,17 @@ int main(int argc, char* argv[]) {
       std::chrono::high_resolution_clock::time_point t1 = chrono::high_resolution_clock::now();
       //Testing disjointness matrix construction.
       //cout << "Constructing disjointness matrix\n";
-      construct_disjointness_matrix(edges,matrix,rows,false);
-      thrackleCounter=get_kthrackles_of_matrix(matrix,rows,k,positions);
+      construct_disjointness_matrix(edges,matrix,rows,true);
+      //thrackleCounter=get_kthrackles_of_matrix(matrix,rows,k,positions);
 
       std::chrono::high_resolution_clock::time_point t2 = chrono::high_resolution_clock::now();
       chrono::duration<double, std::milli> time_span = t2 - t1;
       cout << "It took me " << time_span.count() << " milliseconds.";
       cout << std::endl;
-      cout << "There are " << thrackleCounter << " thrackles of size " << k << endl;
+     // cout << "There are " << thrackleCounter << " thrackles of size " << k << endl;
 
+      find_decomposition(matrix,rows,setSize);
+      return 0;
       //positions is loaded. We must then get their equivalent edge objects and then turn them into thrackle objects.
       // cout << "FILLING BOOLEAN VECTOR FOR SET OPERATIONS!\n";
       /* Filling the boolean vector for in operation*/
