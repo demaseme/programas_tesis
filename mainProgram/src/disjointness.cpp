@@ -33,20 +33,29 @@ void find_decomposition(int ** matrix, int cols, int n){
     int cat;
     cat = 1;
     k = n-1;
+    currentLevel = 0;
+
+
     while(coveredEdges.size() < cols) {
       val = find_next_compatible_thrackle(matrix,cols,coveredEdges,nextThrackle, k);
       if ( val ) {
         int_thrackle_union(coveredEdges,nextThrackle,coveredEdges);
         foundThrackles.push_back(nextThrackle);
+        currentLevel++;
         cat++;
       }
       k--;
       if(k < 1) k = 1;
     }
     cout << "Covered edges \n";
-     printVectorInt(coveredEdges);
-     cout << "convex anti thickness: " << cat << endl;
-
+    printVectorInt(coveredEdges);
+    cout << "convex anti thickness: " << cat << endl;
+    //Discard current level thrackle and update coveredEdges
+    int_thrackle_diff(coveredEdges,foundThrackles[currentLevel]);
+    foundThrackles.erase(foundThrackles.begin()+currentLevel);
+    //Go up a level.
+    currentLevel--;
+    
 
     //D1:
     //Discard last found thrackle (smaller size) [reduces level to - 1]
