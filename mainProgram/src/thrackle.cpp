@@ -317,6 +317,81 @@ void thrackle_intersection_all(const vector<Thrackle> T, int & result){
   //Here we can choose to print it or return it. :)
 }
 /*
+  Performs the union of 2 thrackle representation,
+  each thrackle is represted with a list of integers
+  lexicographically ordered.
+  Leaves result in C. O(n)
+*/
+void int_thrackle_union(vector<int> A, vector<int> B, vector<int> & C){
+  int i,j;
+  i = 0; j=0;
+  if ( A.empty() ) {C = B; return;}
+  if ( B.empty() ) {C = A; return;}
+  C.clear();
+  while(i < (int) A.size() && j < (int) B.size()){
+
+    if ( A[i] < B[j] ){
+      C.push_back(A[i]);
+      i++;
+      continue;
+    }
+    if ( A[i] == B[j] ) {
+
+      C.push_back(A[i]);
+        i++; j++;
+      continue;
+    }
+    if ( A[i] > B[j] ) {
+
+      C.push_back(B[j]);
+        j++;
+      continue;
+    }
+  }
+  // B was bigger
+  if ( j < (int)B.size() ) {
+  //  cout << "B was bigger\n";
+    while ( j < (int) B.size() ){
+
+      C.push_back(B[j]);
+      j++;
+    }
+  }
+  else if (i < (int)A.size() ) {
+    while ( i < (int)A.size() ) {
+
+      C.push_back(A[i]);
+        i++;
+    }
+  }
+
+}
+/*
+  Performs the intersection of 2 thrackle representation,
+  each thrackle is represented with a list of integers
+  lexicographically ordered.
+  Leaves the result on C.
+*/
+void int_thrackle_intersection(vector<int> A, vector<int>B, vector<int> C){
+  int i,j;
+  while( i < (int) A.size() && j < (int)B.size()) {
+    if( A[i] < B[j] ) {
+      i++;
+      continue;
+    }
+    if( A[i] == B[j] ) {
+
+      C.push_back(A[i]);
+        i++; j++;
+      continue;
+    }
+    if( A[i] > B[j] ) {
+      j++;
+      continue;
+    }
+  }
+}
+/*
   Performs intersection of edges of thrackles A and B using
   the boolean vector in each of these. Leaves result on res vector.
   This performs (E) operations.
