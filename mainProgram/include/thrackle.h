@@ -37,7 +37,7 @@ void thrackle_intersection_all(const vector<Thrackle> T, int & result);
 void minimal_thrackle_intersection(const vector<Thrackle> thrackles,int &result);
 void bool_thrackle_intersection(const Thrackle A, const Thrackle B, vector<bool> & res);
 
-void int_thrackle_intersection(vector<int> A, vector<int>B, vector<int> C);
+void int_thrackle_intersection(vector<int> A, vector<int>B, vector<int> & C);
 void int_thrackle_union(vector<int> A, vector<int> B, vector<int> & C);
 void int_thrackle_diff(vector<int>A,vector<int>B, vector<int> & C);
 

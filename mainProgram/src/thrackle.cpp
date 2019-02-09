@@ -408,9 +408,11 @@ void int_thrackle_union(vector<int> A, vector<int> B, vector<int> & C){
   lexicographically ordered.
   Leaves the result on C.
 */
-void int_thrackle_intersection(vector<int> A, vector<int>B, vector<int> C){
+void int_thrackle_intersection(vector<int> A, vector<int>B, vector<int> & C){
   int i,j;
   C.clear();
+  i = 0;
+  j = 0;
   if ( A.empty() || B.empty() ) return;
   while( i < (int) A.size() && j < (int)B.size()) {
     if( A[i] < B[j] ) {

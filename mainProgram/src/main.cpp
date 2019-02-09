@@ -114,7 +114,9 @@ int main(int argc, char* argv[]) {
     vector<Thrackle> tbd_thrackles; //Thrackles to be drawn later.
     vector<vector<Point>> tbd_points; //A set of points for every thrackle to be drawn.
     vector<vector<int>> positions; // Each element of this vector, is a list of positions of edges which together are a thrackle.
-
+    vector<int> coveredEdges;
+    vector<int> nextThrackle;
+    vector<int> startingThrackle;
     vector<int> min_inter;
     vector<bool> union_covers_bool;
     //bool union_covers_bool = false;
@@ -154,7 +156,8 @@ int main(int argc, char* argv[]) {
       cout << std::endl;
      // cout << "There are " << thrackleCounter << " thrackles of size " << k << endl;
 
-      find_decomposition(matrix,rows,setSize);
+      //find_decomposition(matrix,rows,setSize);
+      find_cat( matrix, cols, setSize, coveredEdges, nextThrackle, setSize,  startingThrackle, 0);
       return 0;
       //positions is loaded. We must then get their equivalent edge objects and then turn them into thrackle objects.
       // cout << "FILLING BOOLEAN VECTOR FOR SET OPERATIONS!\n";

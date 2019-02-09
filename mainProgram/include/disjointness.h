@@ -7,6 +7,9 @@ void construct_disjointness_matrix(const vector<Edge> edges,int ** matrix,const 
 void freeMatrix(int ** matrix, const int rows);
 
 void find_decomposition(int ** matrix,int cols, int n);
+void find_cat(int** matrix, int cols, int n, vector<int> & coveredEdges, vector<int> & nextThrackle,
+ int desired_size, vector<int> & startingThrackle, int at);
+
 int find_next_thrackle(int ** matrix, int cols, vector<int> currentThrackle, vector<int> & nextThrackle,int desired_size);
 int find_next_comptabile_thrackle(int ** matrix, int cols, vector<int> currentThrackle, vector<int> & nextThrackle,int desired_size);
 int find_next_compatible_thrackle(int **, int cols, vector<int> coveredEdges, vector<int> & nextThrackle, int desired_size,
