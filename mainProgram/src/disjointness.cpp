@@ -8,54 +8,78 @@ void find_decomposition(int ** matrix, int cols, int n){
     vector<int> nextThrackle;
     vector<int> auxiliarThrackle;
     vector<int> coveredEdges;
-    vector<Thrackle> foundThrackles;
+    vector<int> startingThrackle;
+    vector<vector<int>> foundThrackles;
     int currentLevel;
     int val;
-    int intersect,i,j;
+    int i,j;
     //Find first thrackle of size n
     //To find first thrackle of size n, initialize the current thrackle
     //With values of 0,1,2,...(n-1).
-    currentThrackle.resize(n);
-    for(i = 0; i < n ; i ++) currentThrackle[i] = i;
-    //Check if 0,1,2,... is not a thrackle just in case.
-    intersect = 1;
-    for(i = 0; i < n; i++){
-        for(j = i+1; j < n; j++){
-            intersect &= !matrix[currentThrackle[i]][currentThrackle[j]];
-        }
-    }
-    if (!intersect) find_next_thrackle(matrix, cols, currentThrackle, nextThrackle,n);
-    foundThrackles.push_back(nextThrackle);
-    cout << "Starting thrackle of size " << n  <<endl;
-    printVectorInt(nextThrackle);
-    int_thrackle_union(coveredEdges,nextThrackle,coveredEdges);
+    // currentThrackle.resize(n);
+    // for(i = 0; i < n ; i ++) currentThrackle[i] = i;
+    // //Check if 0,1,2,... is not a thrackle just in case.
+    // intersect = 1;
+    // for(i = 0; i < n; i++){
+    //     for(j = i+1; j < n; j++){
+    //         intersect &= !matrix[currentThrackle[i]][currentThrackle[j]];
+    //     }
+    // }
+    // if (!intersect) find_next_thrackle(matrix, cols, currentThrackle, nextThrackle,n);
+    // foundThrackles.push_back(nextThrackle);
+    // cout << "Starting thrackle of size " << n  <<endl;
+    // printVectorInt(nextThrackle);
+    // int_thrackle_union(coveredEdges,nextThrackle,coveredEdges);
     int k;
-    int cat;
-    cat = 1;
-    k = n-1;
-    currentLevel = 0;
+    int cat,mincat;
+    cat = 0;
+    mincat = 9999;
+    k = n;
+    currentLevel = -1;
 
 
-    while(coveredEdges.size() < cols) {
-      val = find_next_compatible_thrackle(matrix,cols,coveredEdges,nextThrackle, k);
+    while((int) coveredEdges.size() < cols) {
+      if( cat+1 >= mincat) {
+          //No use in keep searching, the results will be of same antithickness or worse
+          k++;
+          int_thrackle_diff(coveredEdges,foundThrackle[currentLevel],coveredEdges);
+          startingThrackle = foundThrackle[currentLevel];
+          foundThrackles.erase(foundThrackles.begin()+currentLevel);
+          currentLevel--;
+      }
+      val = find_next_compatible_thrackle(matrix,cols,coveredEdges,nextThrackle, k, startingThrackle);
       if ( val ) {
         int_thrackle_union(coveredEdges,nextThrackle,coveredEdges);
         foundThrackles.push_back(nextThrackle);
         currentLevel++;
-        cat++;
+        cat = (int)foundThrackles.size();
       }
       k--;
       if(k < 1) k = 1;
     }
+    if (cat < mincat) mincat=cat;
     cout << "Covered edges \n";
     printVectorInt(coveredEdges);
     cout << "convex anti thickness: " << cat << endl;
+    cout << "Current level: " << currentLevel << endl;
+    cout << "Number of thrackles : " << foundThrackles.size() << endl;
     //Discard current level thrackle and update coveredEdges
-    int_thrackle_diff(coveredEdges,foundThrackles[currentLevel]);
+    cout << "Eliminating thrackle " ; printVectorInt(foundThrackles[currentLevel]);
+    int_thrackle_diff(coveredEdges,foundThrackles[currentLevel],coveredEdges);
     foundThrackles.erase(foundThrackles.begin()+currentLevel);
+    currentLevel--;
+    //Father of current level must be erased too, because we will check with its brothers next iteration.
+    cout << "Eliminating thrackle " ; printVectorInt(foundThrackles[currentLevel]);
+    int_thrackle_diff(coveredEdges,foundThrackles[currentLevel],coveredEdges);
+    startingThrackle = foundThrackles[currentLevel]; //To check with its brothers.
+    foundThrackles.erase(foundThrackles.begin()+currentLevel); //Erased from current thrackle list.
+
+    cout << "Number of thrackles : " << foundThrackles.size() << endl;
+    cout << "Covered edges \n"; printVectorInt(coveredEdges);
+    cout << "Next iteration will start from thrackle: "; printVectorInt(startingThrackle);
     //Go up a level.
     currentLevel--;
-    
+
 
     //D1:
     //Discard last found thrackle (smaller size) [reduces level to - 1]
@@ -72,12 +96,14 @@ void find_decomposition(int ** matrix, int cols, int n){
 /*
   Given a list of already covered edges, find next thrackle of desired_size, whose intersection  with it is empty .
 */
-int find_next_compatible_thrackle(int ** matrix, int cols, vector<int> coveredEdges, vector<int> & nextThrackle, int desired_size){
+int find_next_compatible_thrackle(int ** matrix, int cols, vector<int> coveredEdges, vector<int> & nextThrackle, int desired_size,
+const vector<int> & startingThrackle ){
 
   int indexCurrentT = 0;
   int indexNextT = 0;
   int intersect;
   int val;
+  bool flag_size_achieved = false;
   vector<int> foundThrackle;
   vector<int> C;
   nextThrackle.clear();
@@ -85,17 +111,16 @@ int find_next_compatible_thrackle(int ** matrix, int cols, vector<int> coveredEd
   //Find a starting point.
   //With cols we know there are from 0 to cols-1 edges.
   for(int i = 0; i < cols ; i++){
-      //printf(" i %d | indexCurrentT %d | currentThrackle[%d]:%d\n",
-      //  i,indexCurrentT,indexCurrentT,currentThrackle[indexCurrentT]);
-      if(coveredEdges[indexCurrentT] == i) indexCurrentT++;
+      if( !coveredEdges.empty() && coveredEdges[indexCurrentT] == i) indexCurrentT++;
       else{
           //cout << "Copying " << i << " into starting point\n";
           nextThrackle[indexNextT] = i;
           indexNextT++;
           //cout << "indexNextT: " << indexNextT << endl;
-          if(indexNextT == desired_size) break;
+          if(indexNextT == desired_size) {flag_size_achieved = true; cout << "achieved size\n"; break; }
       }
   }
+  if (!flag_size_achieved) return 0; // There's no thrackle of that size with those edges.
   cout << "Starting point: \n" ;
   printVectorInt(nextThrackle);
   //Check if starting point is already a thrackle.
@@ -105,20 +130,24 @@ int find_next_compatible_thrackle(int ** matrix, int cols, vector<int> coveredEd
           intersect &= !matrix[nextThrackle[i]][nextThrackle[j]];
       }
   }
-  //If it's not a thrackle find one of the desired size starting from there.
-  if (!intersect) val = find_next_thrackle(matrix, cols, nextThrackle, foundThrackle,desired_size);
-  else foundThrackle = nextThrackle;
-  if ( !val ) return 0; //No next thrackle!
-
-  do{
-    int_thrackle_intersection(coveredEdges,foundThrackle,C);
-    if( C.empty() ) {
-      nextThrackle = foundThrackle;
-      return 1;
+  if ( startingThrackle.empty() ) {
+      cout << "No starting thrackle provided\n";
+      //If it's not a thrackle find one of the desired size starting from there.
+      if (!intersect) val = find_next_thrackle(matrix, cols, nextThrackle, foundThrackle,desired_size);
+      else foundThrackle = nextThrackle;
+  } else {
+      val  = find_next_thrackle(matrix,cols,startingThrackle,foundThrackle,desired_size);
     }
-    nextThrackle.clear();
-  }
-  while( find_next_thrackle( matrix, cols, foundThrackle, foundThrackle, desired_size ) );
+      if ( !val ) return 0; //No next thrackle!
+      do{
+        int_thrackle_intersection(coveredEdges,foundThrackle,C);
+        if( C.empty() ) {
+          nextThrackle = foundThrackle;
+          return 1;
+        }
+        nextThrackle.clear();
+      }
+      while( find_next_thrackle( matrix, cols, foundThrackle, foundThrackle, desired_size ) );
 
   return 0; // False value
 }

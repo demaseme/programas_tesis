@@ -316,6 +316,42 @@ void thrackle_intersection_all(const vector<Thrackle> T, int & result){
 //  cout << "OUTING T INTERSECTION ALL\n";
   //Here we can choose to print it or return it. :)
 }
+
+void int_thrackle_diff(vector<int>A,vector<int>B, vector<int> & C){
+    unsigned int i,j;
+    // cout << "clearing C\n";
+    C.clear();
+    i = 0; j= 0;
+    while ( i < A.size() && j < B.size() ){
+        //printf("i %d, j %d",i,j);
+        if ( A[i] < B[j] ){
+            C.push_back(A[i]);
+            i++;
+            continue;
+        }
+
+        if ( A[i] == B[j] ) {
+            i++; j++;
+            continue;
+        }
+        if ( A[i] > B[j] ){
+            // C.push_back(A[i]);
+            j++;
+            continue;
+        }
+    }
+    if ( i < A.size() ){
+        while( i < A.size() ){
+            C.push_back(A[i]);
+            i++;
+        }
+    } else if (j < B.size() ) {
+        while( j < B.size() ){
+            C.push_back(B[j]);
+            j++;
+        }
+    }
+}
 /*
   Performs the union of 2 thrackle representation,
   each thrackle is represted with a list of integers
@@ -374,6 +410,8 @@ void int_thrackle_union(vector<int> A, vector<int> B, vector<int> & C){
 */
 void int_thrackle_intersection(vector<int> A, vector<int>B, vector<int> C){
   int i,j;
+  C.clear();
+  if ( A.empty() || B.empty() ) return;
   while( i < (int) A.size() && j < (int)B.size()) {
     if( A[i] < B[j] ) {
       i++;
