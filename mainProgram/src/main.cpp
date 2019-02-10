@@ -157,7 +157,8 @@ int main(int argc, char* argv[]) {
      // cout << "There are " << thrackleCounter << " thrackles of size " << k << endl;
 
       //find_decomposition(matrix,rows,setSize);
-      find_cat( matrix, cols, setSize, coveredEdges, nextThrackle, setSize,  startingThrackle, 0);
+      //find_cat( matrix, cols, setSize, coveredEdges, nextThrackle, setSize,  startingThrackle, 0);
+      convex_antithickness(matrix,cols,setSize,coveredEdges,startingThrackle,0);
       return 0;
       //positions is loaded. We must then get their equivalent edge objects and then turn them into thrackle objects.
       // cout << "FILLING BOOLEAN VECTOR FOR SET OPERATIONS!\n";
