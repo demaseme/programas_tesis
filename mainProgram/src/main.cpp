@@ -150,17 +150,18 @@ int main(int argc, char* argv[]) {
       construct_disjointness_matrix(edges,matrix,rows,false);
       //thrackleCounter=get_kthrackles_of_matrix(matrix,rows,k,positions);
 
-      std::chrono::high_resolution_clock::time_point t2 = chrono::high_resolution_clock::now();
-      chrono::duration<double, std::milli> time_span = t2 - t1;
-      cout << "It took me " << time_span.count() << " milliseconds.";
-      cout << std::endl;
      // cout << "There are " << thrackleCounter << " thrackles of size " << k << endl;
 
       //find_decomposition(matrix,rows,setSize);
       //find_cat( matrix, cols, setSize, coveredEdges, nextThrackle, setSize,  startingThrackle, 0);
       // minAt = 999;
-      convex_antithickness(matrix,cols,setSize,coveredEdges,startingThrackle,0);
+      convex_antithickness(matrix,cols,setSize,startingThrackle,0);
       cout << "Minimal AT : " << minAt  << endl;
+
+      std::chrono::high_resolution_clock::time_point t2 = chrono::high_resolution_clock::now();
+      chrono::duration<double, std::milli> time_span = t2 - t1;
+      cout << "It took me " << time_span.count() << " milliseconds.";
+      cout << std::endl;
       return 0;
       //positions is loaded. We must then get their equivalent edge objects and then turn them into thrackle objects.
       // cout << "FILLING BOOLEAN VECTOR FOR SET OPERATIONS!\n";
