@@ -2,6 +2,7 @@
 #define DISJOINTNESS_H
 
 #include "thrackle.h"
+extern int minAt;
 
 void construct_disjointness_matrix(const vector<Edge> edges,int ** matrix,const int rows, bool printmatrix);
 void freeMatrix(int ** matrix, const int rows);

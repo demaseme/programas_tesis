@@ -1,11 +1,18 @@
 #include "../include/disjointness.h"
 #include <unistd.h>
-int minAt = 9999;
+int minAt(9999);
+
 
 void convex_antithickness(int ** matrix, int cols, int n , vector<int> & coveredEdges, vector<int> starting, int at){
+
+  // cout << " ##### Printing recursion data #####\n";
+  // cout << "Covered edges: "; printVectorInt(coveredEdges);
+  // cout << "Starting thrackle "; printVectorInt(starting);
+  // cout << "Current at " << at << " current minimal at: " << minAt << endl;
+  if( at >= minAt ) return;
   if( (int)coveredEdges.size() == cols) {
     if (at < minAt) minAt = at;
-    cout << "Current minimal at = " << minAt << endl;
+    //cout << "Current minimal at = " << minAt << endl;
     return;
   }
  while(true){
@@ -13,7 +20,8 @@ void convex_antithickness(int ** matrix, int cols, int n , vector<int> & covered
    int val = find_next_compatible_thrackle_anysize(matrix,cols,n,coveredEdges,starting, thrackle);
    if ( ! val ) break;
    int_thrackle_union(coveredEdges,thrackle,coveredEdges);
-   convex_antithickness(matrix,cols,n,coveredEdges,thrackle,at+1);
+
+   if(at+1 < minAt) convex_antithickness(matrix,cols,n,coveredEdges,thrackle,at+1);
    starting = thrackle;
    int_thrackle_diff(coveredEdges,thrackle,coveredEdges);
  }
@@ -25,11 +33,14 @@ int find_next_compatible_thrackle_anysize(int** matrix, int cols, int n, vector<
   else k = starting.size();
   bool closed_search = true;
 
+  //cout << "Searching next compatible thrackle of size " << k << endl;
   val = find_next_compatible_thrackle(matrix,cols, coveredEdges, thrackle, k, starting, closed_search);
   closed_search = false;
   while ( !val ){
+    //cout << "Thrackle of size " << k << " not found ... " ;
     k--;
-    if (k == 0 ) { return 0; }
+    if (k == 0 ) { /*cout << endl;*/ return 0; }
+    //cout << "Searching next compatible thrackle of size " << k << endl;
     val = find_next_compatible_thrackle( matrix, cols ,coveredEdges, thrackle, k, starting, closed_search );
   }
   return 1;
@@ -41,12 +52,14 @@ int find_next_compatible_thrackle(int ** matrix, int cols, vector<int> coveredEd
 const vector<int> & startingThrackle, bool openclosed){
   int i;
   vector<int> C;
+  vector<int> startinglocal;
+  startinglocal = startingThrackle;
   foundThrackle.clear();
 
   if (startingThrackle.empty()) {
     //Nowhere to start, start from the beginning.
     for(i = 0; i < desired_size; i++){
-      foundThrackle.push_back(i);
+      startinglocal.push_back(i);
     }
   }
 
@@ -54,12 +67,26 @@ const vector<int> & startingThrackle, bool openclosed){
   //if it's compatible, we're done return 1.
   //if it's not, try to find another thrackle.
   //If you don't find another thrackle, we're done return 0.
+  int c = 0;
+  // cout << "\t[find_next_compatible_thrackle] \n" ;
+  // cout << "\t" << "coveredEdges "; printVectorInt(coveredEdges);
+  // cout << "\t" << "startingThrackle "; printVectorInt(startinglocal);
+  // cout << "\t" << "foundThrackle "; printVectorInt(foundThrackle);
+  // cout << "\t" << "desired_size " << desired_size << endl;
+  // cout << "\t" << "closed search? " << openclosed << endl;
   do{
-    if( !find_next_thrackle(matrix,cols,startingThrackle,foundThrackle, desired_size,openclosed) ) return 0;
+    if( !find_next_thrackle(matrix,cols,startinglocal,foundThrackle, desired_size,openclosed) ) return 0;
 
+      // cout << "\t[find_next_compatible_thrackle] while{}\n" ;
+      // cout << "\t" << "coveredEdges "; printVectorInt(coveredEdges);
+      // cout << "\t" << "startingThrackle "; printVectorInt(startinglocal);
+      // cout << "\t" << "foundThrackle "; printVectorInt(foundThrackle);
+      // cout << "\t" << "desired_size " << desired_size << endl;
+      //usleep(1000000);
     int_thrackle_intersection(coveredEdges,foundThrackle,C);
     if(C.empty()) return 1;
-    startingThrackle = foundThrackle;
+    startinglocal = foundThrackle;
+    openclosed = true;
   }
   while(true);
   }

@@ -158,7 +158,9 @@ int main(int argc, char* argv[]) {
 
       //find_decomposition(matrix,rows,setSize);
       //find_cat( matrix, cols, setSize, coveredEdges, nextThrackle, setSize,  startingThrackle, 0);
+      // minAt = 999;
       convex_antithickness(matrix,cols,setSize,coveredEdges,startingThrackle,0);
+      cout << "Minimal AT : " << minAt  << endl;
       return 0;
       //positions is loaded. We must then get their equivalent edge objects and then turn them into thrackle objects.
       // cout << "FILLING BOOLEAN VECTOR FOR SET OPERATIONS!\n";
