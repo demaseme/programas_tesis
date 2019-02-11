@@ -21,7 +21,7 @@ void convex_antithickness(int ** matrix, int cols, int n , vector<int> & covered
    if ( ! val ) break;
    int_thrackle_union(coveredEdges,thrackle,coveredEdges);
 
-   if(at+1 < minAt) convex_antithickness(matrix,cols,n,coveredEdges,thrackle,at+1);
+   convex_antithickness(matrix,cols,n,coveredEdges,thrackle,at+1);
    starting = thrackle;
    int_thrackle_diff(coveredEdges,thrackle,coveredEdges);
  }
