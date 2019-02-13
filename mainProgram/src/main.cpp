@@ -147,22 +147,29 @@ int main(int argc, char* argv[]) {
       std::chrono::high_resolution_clock::time_point t1 = chrono::high_resolution_clock::now();
       //Testing disjointness matrix construction.
       //cout << "Constructing disjointness matrix\n";
-      construct_disjointness_matrix(edges,matrix,rows,false);
+      construct_disjointness_matrix(edges,matrix,rows,true);
+      //return 0;
       //thrackleCounter=get_kthrackles_of_matrix(matrix,rows,k,positions);
 
      // cout << "There are " << thrackleCounter << " thrackles of size " << k << endl;
 
       //find_decomposition(matrix,rows,setSize);
       //find_cat( matrix, cols, setSize, coveredEdges, nextThrackle, setSize,  startingThrackle, 0);
-      // minAt = 999;
-      // int testing[] = {5,6,8};
-      // int testing2[] = {5,6};
-      // vector<int> test (testing,testing+sizeof(testing)/sizeof(int));
-      // vector<int> test2 (testing2,testing2+sizeof(testing2)/sizeof(int));
+      // // minAt = 999;
+      int testing[] = {2,3,7,8,9};
+      int testing2[] = {7,9};
+       vector<int> test (testing,testing+sizeof(testing)/sizeof(int));
+       vector<int> test2 (testing2,testing2+sizeof(testing2)/sizeof(int));
+       vector<int> test3;
+      // cout << int_thrackle_areDifferent(test,test2); cout << endl;
+      // printVectorInt(test3);
       // find_next_thrackle(matrix,cols,test,startingThrackle,4,true);
       // printVectorInt(startingThrackle);
       //convex_antithickness(matrix,cols,setSize,startingThrackle,0);
-      // cout << int_thrackle_areDifferent(test,test2); cout << endl;
+     // cout << int_thrackle_areDifferent(test,test2); cout << endl;
+      // find_next_thrackle(matrix,cols,test,test3,5,false);
+      // printVectorInt(test3);
+      // return 0;
       exhaustive_at(matrix, cols, setSize, startingThrackle, 0);
       cout << "Minimal AT : " << minAt  << endl;
 

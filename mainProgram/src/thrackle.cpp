@@ -318,10 +318,11 @@ void thrackle_intersection_all(const vector<Thrackle> T, int & result){
 }
 // Returns true if representation of thrackles A and B are different. False otherwise
 bool int_thrackle_areDifferent(vector<int>A, vector<int> B){
-  vector<int> C;
-  int_thrackle_diff(A,B,C);
-  if (C.empty()) return false;
-  return true;
+  if( A.size() != B.size() ) return true;
+  for( int i = 0; i < (int) A.size() ; i++){
+    if (A[i] != B[i]) return true;
+  }
+  return false;
 }
 void int_thrackle_complement(vector<int> A, int maxVal, vector<int> & C){
   int pos;
