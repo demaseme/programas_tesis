@@ -11,7 +11,7 @@ vector<int> lastInsertedThrackle;
 void exhaustive_at(int** matrix, int cols, int n, vector<int> current_thrackle, int at){
   vector<vector<int>> local_desc;
   if( at == 1 ) usleep(000000);
-  // if( at >= minAt) return;
+   if( at >= minAt) return;
   // cout << " ##### Printing recursion data #####\n";
   // cout << " [core] current thrackle :"; printVectorInt(current_thrackle);
   // cout << " [core] this level at : " << at << endl;
@@ -27,7 +27,7 @@ void exhaustive_at(int** matrix, int cols, int n, vector<int> current_thrackle, 
 
       vector<int> thrackle;
       if( at == 0 ){
-        usleep(1000000);
+        //usleep(1000000);
         cout << "[core] attemping to find child of "; printVectorInt(current_thrackle);
       }
       int val = next(matrix,local_desc,thrackle,cols,n);

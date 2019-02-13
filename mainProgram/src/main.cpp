@@ -172,7 +172,7 @@ int main(int argc, char* argv[]) {
       chrono::duration<double, std::milli> time_span = t2 - t1;
       cout << "It took me " << time_span.count() << " milliseconds.";
       cout << std::endl;
-
+      //return 0;
       //positions is loaded. We must then get their equivalent edge objects and then turn them into thrackle objects.
       // cout << "FILLING BOOLEAN VECTOR FOR SET OPERATIONS!\n";
       /* Filling the boolean vector for in operation*/
