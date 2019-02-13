@@ -40,7 +40,9 @@ void bool_thrackle_intersection(const Thrackle A, const Thrackle B, vector<bool>
 void int_thrackle_intersection(vector<int> A, vector<int>B, vector<int> & C);
 void int_thrackle_union(vector<int> A, vector<int> B, vector<int> & C);
 void int_thrackle_diff(vector<int>A,vector<int>B, vector<int> & C);
+void int_thrackle_complement(vector<int> A, int maxVal, vector<int> & C);
 
+bool int_thrackle_areDifferent(vector<int>A, vector<int> B);
 
 void bool_thrackle_union(Thrackle A, Thrackle B, vector<bool> res);
 bool union_covers(const vector<Thrackle> t);

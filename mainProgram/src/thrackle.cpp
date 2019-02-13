@@ -316,7 +316,27 @@ void thrackle_intersection_all(const vector<Thrackle> T, int & result){
 //  cout << "OUTING T INTERSECTION ALL\n";
   //Here we can choose to print it or return it. :)
 }
-
+// Returns true if representation of thrackles A and B are different. False otherwise
+bool int_thrackle_areDifferent(vector<int>A, vector<int> B){
+  vector<int> C;
+  int_thrackle_diff(A,B,C);
+  if (C.empty()) return false;
+  return true;
+}
+void int_thrackle_complement(vector<int> A, int maxVal, vector<int> & C){
+  int pos;
+  bool setb[maxVal];
+  C.clear();
+  for(pos = 0; pos < maxVal ; pos++){
+    setb[pos] = false;
+  }
+  for(pos = 0 ; pos < (int)A.size() ; pos++){
+    setb[A[pos]] = true;
+  }
+  for(pos = 0; pos < maxVal ; pos++){
+    if(!setb[pos]) C.push_back(pos);
+  }
+}
 void int_thrackle_diff(vector<int>A,vector<int>B, vector<int> & C){
     unsigned int i,j;
     // cout << "clearing C\n";

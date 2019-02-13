@@ -11,7 +11,9 @@ void find_decomposition(int ** matrix,int cols, int n);
 void find_cat(int** matrix, int cols, int n, vector<int> & coveredEdges, vector<int> & nextThrackle,
  int desired_size, vector<int> & startingThrackle, int at);
 
- void convex_antithickness(int ** matrix, int cols, int n , vector<int> starting, int at);
+ void convex_antithickness(int ** matrix, int cols, int n , vector<int> thrackle, int at);
+ void exhaustive_at(int** matrix, int cols, int n, vector<int> current_thrackle, int at);
+ int next(int ** matrix, vector<vector<int>> descendants, vector<int> & thrackle, int cols, int n);
 
 int find_next_thrackle(int ** matrix, int cols, vector<int> currentThrackle, vector<int> & nextThrackle,int desired_size, bool openclosed);
 int find_next_compatible_thrackle_anysize(int** matrix, int cols, int n, vector<int> starting, vector<int> & thrackle);

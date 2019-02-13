@@ -155,7 +155,15 @@ int main(int argc, char* argv[]) {
       //find_decomposition(matrix,rows,setSize);
       //find_cat( matrix, cols, setSize, coveredEdges, nextThrackle, setSize,  startingThrackle, 0);
       // minAt = 999;
-      convex_antithickness(matrix,cols,setSize,startingThrackle,0);
+      // int testing[] = {5,6,8};
+      // int testing2[] = {5,6};
+      // vector<int> test (testing,testing+sizeof(testing)/sizeof(int));
+      // vector<int> test2 (testing2,testing2+sizeof(testing2)/sizeof(int));
+      // find_next_thrackle(matrix,cols,test,startingThrackle,4,true);
+      // printVectorInt(startingThrackle);
+      //convex_antithickness(matrix,cols,setSize,startingThrackle,0);
+      // cout << int_thrackle_areDifferent(test,test2); cout << endl;
+      exhaustive_at(matrix, cols, setSize, startingThrackle, 0);
       cout << "Minimal AT : " << minAt  << endl;
 
       std::chrono::high_resolution_clock::time_point t2 = chrono::high_resolution_clock::now();
