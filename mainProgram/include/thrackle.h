@@ -55,6 +55,8 @@ void printThrackle(Thrackle t);
 void printThrackleVector(vector<Thrackle> T);
 void writeThrackles(vector<Thrackle> & thrackles, vector<Point> & points, int set_size, int thrackle_size, int ot_number,
 int minimal_intersection_counter );
+
+void thrackle_real_intersection_wrt(const vector<Thrackle> T, int current_ot, int set_size, int t_size);
 void writeThrackles_bin(const vector<Thrackle> T, const vector<Point> points,
   const int set_size, const int t_size, const int ot, const int min_inter_count);
   void writeOne4All_bin(ofstream& myfile, const vector<Thrackle> T, const vector<Point> points, const int set_size,

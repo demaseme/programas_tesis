@@ -256,6 +256,8 @@ void thrackle_intersection(const Thrackle A, const Thrackle B, vector<int> & res
     }
   }
 }
+
+
 void minimal_thrackle_intersection(const vector<Thrackle> thrackles,int &result){
   int minimal;
   minimal = 9999; //This value is accepted for this project max is 10.
@@ -274,6 +276,41 @@ void minimal_thrackle_intersection(const vector<Thrackle> thrackles,int &result)
   }
   result = minimal;
   //cout << "Smaller intersection size is : " << minimal << endl;
+}
+
+//Performs  pairwise intersection and writes each result on a file
+void thrackle_real_intersection_wrt(const vector<Thrackle> T, int current_ot, int set_size, int t_size){
+    ofstream myfile;
+    string file_name = "ths/" + to_string(set_size) + "/" + to_string(current_ot) + "_realintersize" + ".ths";
+    system( ("mkdir -p ths/" + to_string(set_size)).c_str() );
+    myfile.open(file_name, ios::out | ios::binary);
+    int number_of_thrackles = (int)T.size();
+    int i,j;
+
+    myfile.write( (char*) &number_of_thrackles,sizeof(uint16_t));
+    myfile.write( (char*) &t_size, sizeof(uint16_t));
+
+    for(i = 0; i < number_of_thrackles; i++){
+      for(j = 0; j < t_size ; j++){
+        myfile.write( (char*) &(T[i].edges[j].v1.x),sizeof(uint16_t));
+        myfile.write( (char*) &(T[i].edges[j].v1.y),sizeof(uint16_t));
+        myfile.write( (char*) &(T[i].edges[j].v2.x),sizeof(uint16_t));
+        myfile.write( (char*) &(T[i].edges[j].v2.y),sizeof(uint16_t));
+      }
+    }
+    unsigned int current_inter_size =0;
+    vector<int> currentIntersection;
+    for(unsigned int i = 0; i < T.size(); i++){
+      for(unsigned int j = i+1; j < T.size(); j++){
+        thrackle_intersection(T[i],T[j],currentIntersection);
+        current_inter_size = currentIntersection.size();
+        // myfile.write( (char*) &i , sizeof(uint16_t));
+        // myfile.write( (char*) &j , sizeof(uint16_t));
+        myfile.write( (char*) &current_inter_size , sizeof(uint16_t));
+        currentIntersection.clear();
+      }
+    }
+    myfile.close();
 }
 
 void thrackle_intersection_all(const vector<Thrackle> T, int & result){
