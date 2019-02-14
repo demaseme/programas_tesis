@@ -1,17 +1,18 @@
 #include "../include/disjointness.h"
 #include <unistd.h>
 int minAt(9999);
-
+int lowAt(0);
 
 
 vector<int> coveredEdges;
 vector<int> lastInsertedThrackle;
 
 
-void exhaustive_at(int** matrix, int cols, int n, vector<int> current_thrackle, int at){
+void exhaustive_at(int** matrix, int cols, int n, vector<int> current_thrackle, int at, int mode){
   vector<vector<int>> local_desc;
-  if( at == 1 ) usleep(000000);
-   if( at >= minAt) return;
+  if (at > lowAt) lowAt = at;
+  //if (mode==1) if( at > 0 && (int)current_thrackle.size() != n - (at-1)) return;
+   //if( at >= minAt) return;
   // cout << " ##### Printing recursion data #####\n";
   // cout << " [core] current thrackle :"; printVectorInt(current_thrackle);
   // cout << " [core] this level at : " << at << endl;
@@ -26,16 +27,14 @@ void exhaustive_at(int** matrix, int cols, int n, vector<int> current_thrackle, 
       //cout << "\t Covered edges "; printVectorInt(coveredEdges);
 
       vector<int> thrackle;
-      if( at == 0 ){
-        //usleep(1000000);
-        cout << "[core] attemping to find child of "; printVectorInt(current_thrackle);
-      }
-      int val = next(matrix,local_desc,thrackle,cols,n);
+      if(at==1) {cout << "[core] attemping to find child of "; printVectorInt(current_thrackle);}
+      int val = next(matrix,local_desc,thrackle,cols,n,at,mode);
       if ( !val ) return;
+
       local_desc.push_back(thrackle);
-      if( at == 0 ) {cout << "[core] Found thrackle : "; printVectorInt(thrackle);}
+      //if( at == 0 ) {cout << "[core] Found thrackle : "; printVectorInt(thrackle);}
       int_thrackle_union(coveredEdges,thrackle,coveredEdges);
-      exhaustive_at(matrix, cols, n, thrackle, at+1);
+      exhaustive_at(matrix, cols, n, thrackle, at+1,1);
       //cout << "[core] Deleting thrackle from coveredEdges "; printVectorInt(thrackle);
       if (coveredEdges.size() < thrackle.size() ) cout << "ATTENTION\n";
       int_thrackle_diff(coveredEdges,thrackle,coveredEdges);
@@ -44,7 +43,7 @@ void exhaustive_at(int** matrix, int cols, int n, vector<int> current_thrackle, 
   }
 }
 
-int next(int ** matrix, vector<vector<int>> descendants, vector<int> & thrackle, int cols, int n){
+int next(int ** matrix, vector<vector<int>> descendants, vector<int> & thrackle, int cols, int n, int at, int mode){
 
   //Finds next thrackle based on the complement of covered edges
   //and the thrackles in descendants (avoiding them),
@@ -62,8 +61,14 @@ int next(int ** matrix, vector<vector<int>> descendants, vector<int> & thrackle,
   //then if its size exceeds n, we cap k to n.
   int_thrackle_complement(coveredEdges,cols,missing_edges);
   //cout << "\t [next] Missing edges size: " << missing_edges.size(); cout << endl;
-  if( (int)missing_edges.size() > n ) k = n;
-  else k = (int) missing_edges.size();
+  if (mode == 1 && at>0) {
+    k = n - (at);
+    if ( k > (int)missing_edges.size()) return 0;
+  } else{
+    if( (int)missing_edges.size() > n ) k = n;
+    else k = (int) missing_edges.size();
+  }
+
   //The only case were we want a thrackle of size n is when there are 0 covered edges. This is: there are n missing edges.
 
   // cout << "\t [next] Finding next thrackle of size " << k << endl;
@@ -73,7 +78,7 @@ int next(int ** matrix, vector<vector<int>> descendants, vector<int> & thrackle,
   // for(int j = 0; j < (int)descendants.size(); j++){
   //   cout << "\t"; printVectorInt(descendants[j]);
   // }
-  usleep(000000);
+
   //This external while will break (return) when :
   // a) we found a thrackle and it's diffeerent to all descendats and covers some missing edges.
   // b) we didn't find any thrackle of size bigger than 0 such that it's different to all descendats and covers missing_edges
@@ -81,7 +86,14 @@ int next(int ** matrix, vector<vector<int>> descendants, vector<int> & thrackle,
   while(true){
     usleep(000000);
     //Then we attemp to find a thrackle with those conditions.
+
     val = find_next_thrackle(matrix,cols,missing_edges,local_thrackle,k,flag);
+    // cout << "Result of val " << val << endl;
+    // cout << " thrackle found "; printVectorInt(local_thrackle);
+    if( !val && (mode == 1) ) {
+      //cout << "[next] No thrackle of size " << k << " found.\n";
+      return 0;
+    }
     while(!val) {
       //If we didn't find it, we attemp to find one with a smaller k;
       k--;

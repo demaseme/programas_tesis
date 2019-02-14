@@ -3,6 +3,7 @@
 
 #include "thrackle.h"
 extern int minAt;
+extern int lowAt;
 
 void construct_disjointness_matrix(const vector<Edge> edges,int ** matrix,const int rows, bool printmatrix);
 void freeMatrix(int ** matrix, const int rows);
@@ -12,8 +13,8 @@ void find_cat(int** matrix, int cols, int n, vector<int> & coveredEdges, vector<
  int desired_size, vector<int> & startingThrackle, int at);
 
  void convex_antithickness(int ** matrix, int cols, int n , vector<int> thrackle, int at);
- void exhaustive_at(int** matrix, int cols, int n, vector<int> current_thrackle, int at);
- int next(int ** matrix, vector<vector<int>> descendants, vector<int> & thrackle, int cols, int n);
+ void exhaustive_at(int** matrix, int cols, int n, vector<int> current_thrackle, int at, int mode);
+ int next(int ** matrix, vector<vector<int>> descendants, vector<int> & thrackle, int cols, int n,int at, int mode);
 
 int find_next_thrackle(int ** matrix, int cols, vector<int> currentThrackle, vector<int> & nextThrackle,int desired_size, bool openclosed);
 int find_next_compatible_thrackle_anysize(int** matrix, int cols, int n, vector<int> starting, vector<int> & thrackle);
