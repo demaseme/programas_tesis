@@ -10,6 +10,7 @@ public:
     int set_size;
     int thrackle_size;
     int ot;
+    int tag;
     vector<bool> edge_bool;
     vector<Edge> edges;
 };
@@ -44,7 +45,7 @@ void int_thrackle_complement(vector<int> A, int maxVal, vector<int> & C);
 
 bool int_thrackle_areDifferent(vector<int>A, vector<int> B);
 
-void bool_thrackle_union(Thrackle A, Thrackle B, vector<bool> res);
+void bool_thrackle_union(Thrackle A, Thrackle B, vector<bool> & res);
 bool union_covers(const vector<Thrackle> t);
 
 void k_Combination(vector<Edge> arr, int r, vector<vector<Edge>> & combinations,

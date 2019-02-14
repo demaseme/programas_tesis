@@ -11,6 +11,7 @@
 #include <math.h>
 #include <ctime>
 #include <ratio>
+#include <random>
 #include <chrono>
 #include <unistd.h>
 #include <list>

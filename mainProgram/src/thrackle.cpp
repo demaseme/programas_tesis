@@ -234,7 +234,6 @@ void thrackle_intersection(const Thrackle A, const Thrackle B, vector<int> & res
   int i,j;
   for (i = 0; i < (int) A.edge_bool.size(); i++) if(A.edge_bool[i]) edgesA.push_back(i);
   for (i = 0; i < (int) B.edge_bool.size(); i++) if(B.edge_bool[i]) edgesB.push_back(i);
-
   i=0;
   j=0;
   while( i < (int)edgesA.size() && j < (int)edgesB.size() ){
@@ -508,7 +507,7 @@ void bool_thrackle_intersection(const Thrackle A, const Thrackle B, vector<bool>
   the boolean vector in each of these. Leaves result on res vector.
   This performs (E) operations.
 */
-void bool_thrackle_union(Thrackle A, Thrackle B, vector<bool> res){
+void bool_thrackle_union(Thrackle A, Thrackle B, vector<bool> & res){
   for(int i = 0; i < (int) A.edge_bool.size(); i++){
     res[i] = res[i] || (A.edge_bool[i] || B.edge_bool[i]);
   }
@@ -683,6 +682,7 @@ int minimal_intersection_counter ){
     myfile.close();
 }
 void printThrackle(Thrackle t){
+    cout << "Thrackle tag: " << t.tag << endl;
     cout << "Thrackle Edges:\n";
     for(unsigned int i = 0; i < t.edges.size();i++){
         printEdge(t.edges[i]);
