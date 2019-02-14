@@ -40,7 +40,7 @@ int main(int argc, char* argv[]) {
       generateAllEdges(vec,edges);
       find_thrackles(rows);
       fill_found_thrackles_info(rows);
-      q_intersection_size(4);
+      q_intersection_size(3);
       clear_vectors();
       ot_number++;
     if(one_ot_flag) break;
@@ -52,6 +52,8 @@ int main(int argc, char* argv[]) {
 void q_intersection_size(int q){
   //Select p q-sets of thrackles.
   int p = (int)foundThrackles.size()/2.0;
+  if ( (int) foundThrackles.size() < 4) p = 2;
+  if (p<2) return;
   vector<Thrackle> local_foundT = foundThrackles;
   printf("Choosing %d %d-sets\n",p,q);
   //To emulate the selection, we shuffle the found thrackles vector
