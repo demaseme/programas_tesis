@@ -24,7 +24,7 @@ void fill_found_thrackles_info(int);
 void find_thrackles(int );
 void copy_points();
 void clear_vectors();
-void q_intersection_size(int);
+void q_intersection_size(int q,float & , float & );
 void read_file(int, char* argv[]);
 
 int main(int argc, char* argv[]) {
@@ -42,7 +42,19 @@ int main(int argc, char* argv[]) {
       generateAllEdges(vec,edges);
       find_thrackles(rows);
       fill_found_thrackles_info(rows);
-      q_intersection_size(g_q);
+      int number_of_exp = 100;
+      float avg_cov;
+      float avg_rep;
+      float total_cov = 0.0;
+      float total_rep = 0.0;
+      for(int i = 0; i < number_of_exp ; i++){
+        q_intersection_size(g_q,avg_cov, avg_rep);
+        total_cov += avg_cov;
+        total_rep += avg_rep;
+      }
+      total_cov /= number_of_exp;
+      total_rep /= number_of_exp;
+      printf("From %d experiments: covered edges %f\nAverage repeated edges: %f\n",number_of_exp,total_cov,total_rep);
       clear_vectors();
       ot_number++;
     if(one_ot_flag) break;
@@ -51,7 +63,7 @@ int main(int argc, char* argv[]) {
 
   }
 
-void q_intersection_size(int q){
+void q_intersection_size(int q,float & avg_cov, float & avg_rep){
   //Select p q-sets of thrackles.
   int p = (int)foundThrackles.size()/2.0;
   int p_bk = p;
@@ -59,13 +71,13 @@ void q_intersection_size(int q){
   if (p<2) return;
   float avg_covered = 0.0;
   float avg_repeated = 0.0;
-  
+
   vector<Thrackle> local_foundT = foundThrackles;
-  printf("Choosing %d %d-sets\n",p,q);
+  //printf("Choosing %d %d-sets\n",p,q);
   //To emulate the selection, we shuffle the found thrackles vector
   //and select the first k items
   unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
-  printf("Total of edges selected: %d\n",q*k);
+  //printf("Total of edges selected: %d\n",q*k);
   while ( p > 0 ){
 
     shuffle(local_foundT.begin(),local_foundT.end(),default_random_engine(seed));
@@ -86,8 +98,10 @@ void q_intersection_size(int q){
     //printf("---------------\n");
     p--;
   }
-  printf("Average covered edges : %f\nAverage repeated edges: %f\n",avg_covered/p_bk,avg_repeated/p_bk);
-
+  //printf("Average covered edges : %f\nAverage repeated edges: %f\n",avg_covered/p_bk,avg_repeated/p_bk);
+  avg_cov = avg_covered/p_bk;
+  //cout << avg_repeated << endl;
+  avg_rep = avg_repeated/p_bk;
   //the intersection size is k*n - size of union.
 
 }
