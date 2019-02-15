@@ -3,6 +3,8 @@
 #include <ctime>    // For time()
 #include <cstdlib>  // For srand() and rand()
 
+
+int g_q;
 int opt;
 int ot_number = 0; // starting from 0.
 //bool draw_flag;
@@ -40,7 +42,7 @@ int main(int argc, char* argv[]) {
       generateAllEdges(vec,edges);
       find_thrackles(rows);
       fill_found_thrackles_info(rows);
-      q_intersection_size(3);
+      q_intersection_size(g_q);
       clear_vectors();
       ot_number++;
     if(one_ot_flag) break;
@@ -52,8 +54,12 @@ int main(int argc, char* argv[]) {
 void q_intersection_size(int q){
   //Select p q-sets of thrackles.
   int p = (int)foundThrackles.size()/2.0;
+  int p_bk = p;
   if ( (int) foundThrackles.size() < 4) p = 2;
   if (p<2) return;
+  float avg_covered = 0.0;
+  float avg_repeated = 0.0;
+  
   vector<Thrackle> local_foundT = foundThrackles;
   printf("Choosing %d %d-sets\n",p,q);
   //To emulate the selection, we shuffle the found thrackles vector
@@ -61,22 +67,27 @@ void q_intersection_size(int q){
   unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
   printf("Total of edges selected: %d\n",q*k);
   while ( p > 0 ){
+
     shuffle(local_foundT.begin(),local_foundT.end(),default_random_engine(seed));
     //For each set q, do the union, and contrast with the sum of edges.
     vector<bool> res(false,k);
     int union_size = 0;
-    for(int i = 0; i < q; i++) printf(" Thrackle %d\n",local_foundT[i].tag);
+    //for(int i = 0; i < q; i++) printf(" Thrackle %d\n",local_foundT[i].tag);
     for(int i = 0; i < q - 1 ; i++){
       bool_thrackle_union(local_foundT[i],local_foundT[i+1],res);
     }
     for(auto i=0; i < k; i++) {
       if(res[i]) union_size++;
     }
-    printf("This set union' size : %d\n",union_size);
-    printf("Repeated edges amongst these thrackles: %d\n", q*k - union_size);
-    printf("---------------\n");
+    //printf("This set union' size : %d\n",union_size);
+    avg_covered += union_size;
+    avg_repeated += (q*k)-union_size;
+    //printf("Repeated edges amongst these thrackles: %d\n", q*k - union_size);
+    //printf("---------------\n");
     p--;
   }
+  printf("Average covered edges : %f\nAverage repeated edges: %f\n",avg_covered/p_bk,avg_repeated/p_bk);
+
   //the intersection size is k*n - size of union.
 
 }
@@ -113,7 +124,7 @@ void fill_found_thrackles_info(int rows){
 }
 void find_thrackles(int rows){
   thrackleCounter = 0;
-  construct_disjointness_matrix(edges,matrix,rows,true);
+  construct_disjointness_matrix(edges,matrix,rows,false);
   thrackleCounter=get_kthrackles_of_matrix(matrix,rows,k,positions);
   cout << "There are " << thrackleCounter << " thrackles of size " << k << endl;
 }
@@ -134,18 +145,20 @@ void read_file(int argc, char* argv[]){
         one_ot_flag = true;
         break;
       default: /* '?' */
-            fprintf(stderr, "Usage: %s [-t order_type_number] [-d to draw] set_size thrackle_size\n",
+            fprintf(stderr, "Usage: %s [-t order_type_number] set_size thrackle_size size_of_subsets\n",
                     argv[0]);
             exit(EXIT_FAILURE);
     }
   }
-  if (optind+1 >= argc) {
+  if (optind+2 >= argc) {
        fprintf(stderr, "Expected argument after options\n");
        exit(EXIT_FAILURE);
    }
    setSize = atoi(argv[optind]);
    optind++;
    k = atoi(argv[optind]);
+   optind++;
+   g_q = atoi(argv[optind]);
 
   switch(setSize){
     case 3:
