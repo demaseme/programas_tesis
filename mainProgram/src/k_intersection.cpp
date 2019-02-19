@@ -74,7 +74,7 @@ void q_intersection_size(int q,float & avg_cov, float & avg_rep){
   float avg_repeated = 0.0;
 
   vector<Thrackle> local_foundT = foundThrackles;
-  printf("Choosing %d %d-sets\n",p,q);
+  //printf("Choosing %d %d-sets\n",p,q);
   //To emulate the selection, we shuffle the found thrackles vector
   //and select the first k items
   unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();

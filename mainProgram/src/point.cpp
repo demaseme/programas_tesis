@@ -51,7 +51,7 @@ void generateAllEdges(const vector<Point> vec,vector<Edge> & vEdges){
     unsigned char tag;
     tag = 0;
     cout << "Generating all edges!\n";
-    
+
     for(unsigned int i = 0; i < vec.size(); i++){
         for(unsigned int j = i+1; j < vec.size(); j++){
             tmp.v1 = vec[i];
@@ -255,7 +255,7 @@ int readPoints_bin2(int n, string file_name, Point *vPoints, int otypes, int npu
     myfile.close();
     return 1;
 }
-int readPoints_bin(int n, string file_name, vector<Point> vPoints, int otypes){
+int readPoints_bin(int n, string file_name, vector<Point> & vPoints, int otypes){
     //Reads a binary file.
     streampos size;
     int i;

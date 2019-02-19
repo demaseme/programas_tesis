@@ -126,7 +126,7 @@ int main(int argc, char* argv[]) {
 
     /*##########################################*/
     ofstream myfile;
-    string file_name = "ths/" + to_string(setSize) + "_All" + ".ths";
+    string file_name = "ths/" + to_string(setSize) + "_" + to_string(k) +"_All" + ".ths";
     system( "mkdir -p ths/" );
     myfile.open(file_name, ios::out | ios::binary);
     std::chrono::high_resolution_clock::time_point totalt1 = chrono::high_resolution_clock::now();
@@ -165,15 +165,15 @@ int main(int argc, char* argv[]) {
       // find_next_thrackle(matrix,cols,test,test3,5,false);
       // printVectorInt(test3);
       // return 0;
-      exhaustive_at(matrix, cols, setSize, startingThrackle, 0,1);
+      //exhaustive_at(matrix, cols, setSize, startingThrackle, 0,1);
 
-      cout << "Anti-thickness : " << minAt  << endl;
-      cout << "Minimal number of thrackles needed " << lowAt << endl;
+      //cout << "Anti-thickness : " << minAt  << endl;
+      //cout << "Minimal number of thrackles needed " << lowAt << endl;
       std::chrono::high_resolution_clock::time_point t2 = chrono::high_resolution_clock::now();
       chrono::duration<double, std::milli> time_span = t2 - t1;
       cout << "It took me " << time_span.count() << " milliseconds.";
       cout << std::endl;
-      return 0;
+      //return 0;
       //positions is loaded. We must then get their equivalent edge objects and then turn them into thrackle objects.
       // cout << "FILLING BOOLEAN VECTOR FOR SET OPERATIONS!\n";
       /* Filling the boolean vector for in operation*/

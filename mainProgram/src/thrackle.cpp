@@ -280,7 +280,7 @@ void minimal_thrackle_intersection(const vector<Thrackle> thrackles,int &result)
 //Performs  pairwise intersection and writes each result on a file
 void thrackle_real_intersection_wrt(const vector<Thrackle> T, int current_ot, int set_size, int t_size){
     ofstream myfile;
-    string file_name = "ths/" + to_string(set_size) + "/" + to_string(current_ot) + "_realintersize" + ".ths";
+    string file_name = "ths/" + to_string(set_size) + "/" + to_string(current_ot) + "_"+to_string(t_size)+"_realintersize" + ".ths";
     system( ("mkdir -p ths/" + to_string(set_size)).c_str() );
     myfile.open(file_name, ios::out | ios::binary);
     int number_of_thrackles = (int)T.size();
