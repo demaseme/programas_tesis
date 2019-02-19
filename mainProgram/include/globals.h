@@ -4,9 +4,10 @@ extern int opt;
 extern int ot_number; // starting from 0.
 //bool draw_flag;
 extern bool one_ot_flag;
-extern vector<Point> vPoints;
+extern Point *vPoints;
 extern int k;  //Thrackle size we're looking for
 extern int otypes; //Number of order types for a file
+extern int npuntos;
 extern string otfile_str;
 extern vector<int> otlist;
 extern int ** matrix; //matrix to store the disjointness matrix.

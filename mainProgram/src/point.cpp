@@ -46,15 +46,16 @@ bool isCycle(vector<Edge> edges){
 
 //Given a vector of n points, it generates the edges
 //of the complete graph with n vertices, stores them on vEdges.
-void generateAllEdges(const vector<Point> vPoints,vector<Edge> & vEdges){
+void generateAllEdges(const vector<Point> vec,vector<Edge> & vEdges){
     Edge tmp;
     unsigned char tag;
     tag = 0;
     cout << "Generating all edges!\n";
-    for(unsigned int i = 0; i < vPoints.size(); i++){
-        for(unsigned int j = i+1; j < vPoints.size(); j++){
-            tmp.v1 = vPoints[i];
-            tmp.v2 = vPoints[j];
+    
+    for(unsigned int i = 0; i < vec.size(); i++){
+        for(unsigned int j = i+1; j < vec.size(); j++){
+            tmp.v1 = vec[i];
+            tmp.v2 = vec[j];
             tmp.tag = tag;
             vEdges.push_back(tmp);
             tag++;
@@ -233,7 +234,28 @@ int readPoints2(int n, string file_name, vector<Point> & vPoints, int otypes){
     fclose(file);
     return 0;
 }
-int readPoints_bin(int n, string file_name, vector<Point> & vPoints, int otypes){
+int readPoints_bin2(int n, string file_name, Point *vPoints, int otypes, int npuntos){
+    printf("Reading %d points\n",npuntos);
+    size_t read_size;
+    ifstream myfile(file_name, ios::binary);
+    if(myfile.fail()) return 0;
+    if (n > 8 ){
+        read_size = sizeof(uint16_t);
+    } else {
+        read_size = sizeof(char);
+    }
+    Point pointtmp;
+    for ( int i = 0; i < npuntos; i++){
+        myfile.read( (char*) &pointtmp.x, read_size);
+        myfile.read( (char*) &pointtmp.y, read_size);
+        vPoints[i] = pointtmp;
+        //cout << pointtmp.x << " " << pointtmp.y << endl;
+
+    }
+    myfile.close();
+    return 1;
+}
+int readPoints_bin(int n, string file_name, vector<Point> vPoints, int otypes){
     //Reads a binary file.
     streampos size;
     int i;
@@ -242,8 +264,11 @@ int readPoints_bin(int n, string file_name, vector<Point> & vPoints, int otypes)
     Point pointtmp;
     size = myfile.tellg();
     myfile.seekg(0,ios::beg);
+    cout << "Reading points?\n";
+    cout << "Size " << size << endl;
     if(n>8){
         for(i = 0 ; i < size; i++){
+
             myfile.read( (char*) &pointtmp.x, sizeof(uint16_t));
             myfile.read( (char*) &pointtmp.y, sizeof(uint16_t));
             vPoints.push_back(pointtmp);
@@ -256,6 +281,7 @@ int readPoints_bin(int n, string file_name, vector<Point> & vPoints, int otypes)
                 vPoints.push_back(pointtmp);
             }
         }
+    myfile.close();
     return 1;
 }
 //Reads a file of binary points and stores it on vector vPoints.

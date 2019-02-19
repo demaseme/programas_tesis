@@ -51,10 +51,11 @@ void printVectorPoint(vector<Point> v);
 
 int readPoints(int n, string file_name, vector<Point> & vPoints);
 int readPoints_bin(int n, string file_name, vector<Point> & vPoints, int otypes);
+int readPoints_bin2(int n, string file_name, Point * vPoints, int otypes, int npuntos);
 int readPoints2(int n, string file_name, vector<Point> & vPoints, int otypes);
 
 bool isConvex(vector<Point> v);
-void generateAllEdges(vector<Point> vPoints,vector<Edge> & vEdges);
+void generateAllEdges(vector<Point> vec,vector<Edge> & vEdges);
 void printEdge(Edge e);
 void printEdges(vector<Edge> vE);
 int findNext(vector<Edge> edges, Edge current);

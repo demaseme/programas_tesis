@@ -192,6 +192,7 @@ int main(int argc, char* argv[]) {
       for(i = 0; i < (int)positions.size(); i++) {
          vector<Edge> foundEdges;
          Thrackle tmp_thrackle;
+         //cout << "Processing thrackle " << i << endl;
          for(  j = 0 ; j < (int) rows ; j ++){
              tmp_thrackle.edge_bool.push_back(false);
          }

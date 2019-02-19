@@ -9,9 +9,10 @@ int opt;
 int ot_number = 0; // starting from 0.
 //bool draw_flag;
 bool one_ot_flag;
-vector<Point> vPoints;
+Point *vPoints;
 int k;  //Thrackle size we're looking for
 int otypes; //Number of order types for a file
+int npuntos;
 string otfile_str;
 vector<int> otlist;
 int ** matrix; //matrix to store the disjointness matrix.
@@ -73,7 +74,7 @@ void q_intersection_size(int q,float & avg_cov, float & avg_rep){
   float avg_repeated = 0.0;
 
   vector<Thrackle> local_foundT = foundThrackles;
-  //printf("Choosing %d %d-sets\n",p,q);
+  printf("Choosing %d %d-sets\n",p,q);
   //To emulate the selection, we shuffle the found thrackles vector
   //and select the first k items
   unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
@@ -143,8 +144,14 @@ void find_thrackles(int rows){
   cout << "There are " << thrackleCounter << " thrackles of size " << k << endl;
 }
 void copy_points(){
-  vec.resize(setSize);
-  copy(vPoints.begin()+(setSize*ot_number),vPoints.begin()+( (setSize*ot_number) + setSize ),vec.begin());
+  //vec.resize(setSize);
+  cout << "Copying points\n";
+  // copy(begin(*vPoints)+(setSize*ot_number),begin(vPoints)+( (setSize*ot_number) + setSize ),vec.begin());
+  for(int i = setSize*ot_number; i < (setSize*ot_number) + setSize ; i++){
+      vec.push_back(vPoints[i]);
+      //cout << vPoints[i].x << " " << vPoints[i].y << endl;
+  }
+
 }
 void read_file(int argc, char* argv[]){
   while ((opt = getopt(argc, argv, "dt:")) != -1) {
@@ -194,7 +201,9 @@ void read_file(int argc, char* argv[]){
     default:
       fprintf(stderr,"No existe base de datos para n>10\n"); exit(-1);
   }
-  if(!readPoints_bin(setSize,otfile_str,vPoints,otypes)){
+  npuntos = otypes*setSize;
+  vPoints = (Point*)malloc(sizeof(Point)*npuntos);
+  if(!readPoints_bin2(setSize,otfile_str,vPoints,otypes,npuntos)){
       fprintf(stderr,"Error de lectura\n");
       exit(-1);
   }
