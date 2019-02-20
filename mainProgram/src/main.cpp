@@ -151,29 +151,30 @@ int main(int argc, char* argv[]) {
       //return 0;
       thrackleCounter=get_kthrackles_of_matrix(matrix,rows,k,positions);
       cout << "There are " << thrackleCounter << " thrackles of size " << k << endl;
-      // int testing[] = {2,3,7,8,9};
+      int testing[] = {2,6,9,11,12,13};
       // int testing2[] = {7,9};
-      //  vector<int> test (testing,testing+sizeof(testing)/sizeof(int));
+      vector<int> test (testing,testing+sizeof(testing)/sizeof(int));
       //  vector<int> test2 (testing2,testing2+sizeof(testing2)/sizeof(int));
       //  vector<int> test3;
       // cout << int_thrackle_areDifferent(test,test2); cout << endl;
       // printVectorInt(test3);
       // find_next_thrackle(matrix,cols,test,startingThrackle,4,true);
       // printVectorInt(startingThrackle);
-      //convex_antithickness(matrix,cols,setSize,startingThrackle,0);
+
      // cout << int_thrackle_areDifferent(test,test2); cout << endl;
       // find_next_thrackle(matrix,cols,test,test3,5,false);
       // printVectorInt(test3);
       // return 0;
-      //exhaustive_at(matrix, cols, setSize, startingThrackle, 0,1);
+      return 0;
+      exhaustive_at(matrix, cols, setSize, startingThrackle, 0,0);
 
-      //cout << "Anti-thickness : " << minAt  << endl;
-      //cout << "Minimal number of thrackles needed " << lowAt << endl;
+      cout << "Anti-thickness : " << minAt  << endl;
+      cout << "Minimal number of thrackles needed " << lowAt << endl;
       std::chrono::high_resolution_clock::time_point t2 = chrono::high_resolution_clock::now();
       chrono::duration<double, std::milli> time_span = t2 - t1;
       cout << "It took me " << time_span.count() << " milliseconds.";
       cout << std::endl;
-      //return 0;
+      return 0;
       //positions is loaded. We must then get their equivalent edge objects and then turn them into thrackle objects.
       // cout << "FILLING BOOLEAN VECTOR FOR SET OPERATIONS!\n";
       /* Filling the boolean vector for in operation*/
