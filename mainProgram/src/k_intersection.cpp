@@ -27,7 +27,7 @@ void copy_points();
 void clear_vectors();
 void q_intersection_size(int q,float & , float & , int &);
 void read_file(int, char* argv[]);
-void write_results(int ot, int set_size, int subtset_size, int no_exp);
+void write_results(int ot, int set_size, int subset_size, int no_exp,int total_cov,int total_repeat, int max_cov);
 
 int main(int argc, char* argv[]) {
     one_ot_flag = false;
@@ -40,6 +40,8 @@ int main(int argc, char* argv[]) {
       copy_points();
       generateAllEdges(vec,edges);
       find_thrackles(rows);
+      if(thrackleCounter == 0) { ot_number++; continue; }
+      if(thrackleCounter < g_q ) { ot_number++; continue; }
       fill_found_thrackles_info(rows);
       int number_of_exp = 100;
       float avg_cov;
@@ -59,6 +61,8 @@ int main(int argc, char* argv[]) {
       printf("From %d experiments: covered edges %f\nAverage repeated edges: %f\n"
       "Max union size: %d\n",number_of_exp,total_cov,total_rep,max_cov_overall);
       clear_vectors();
+      write_results(ot_number,setSize,g_q,number_of_exp,total_cov,total_rep,max_cov_overall);
+      printf("Finished OT %d\n",ot_number);
       ot_number++;
     if(one_ot_flag) break;
     }
@@ -66,20 +70,28 @@ int main(int argc, char* argv[]) {
 
   }
 
-  void write_results(int ot, int set_size, int subtset_size, int no_exp){
-    
+  void write_results(int ot, int set_size, int subset_size, int no_exp,int total_cov,int total_repeat, int max_cov){
+    ofstream myfile;
+    string file_name = "ths/" + to_string(set_size) + "/intersection/" + to_string(ot) + "_" + to_string(subset_size) + "_" + to_string(no_exp)+".dat";
+    system( (("mkdir -p ths/" + to_string(set_size)) + "/intersection/").c_str());
+    myfile.open(file_name, ios::out | ios::binary);
+    myfile.write( (char*) & no_exp, sizeof(char));
+    myfile.write( (char*) & total_cov, sizeof(char));
+    myfile.write( (char*) & total_repeat, sizeof(char));
+    myfile.write( (char*) & max_cov, sizeof(char));
+    myfile.close();
   }
 void q_intersection_size(int q,float & avg_cov, float & avg_rep, int & max_cov){
   //Select p q-sets of thrackles.
   int p = (int)foundThrackles.size()/2.0;
-  int p_bk = p;
   if ( (int) foundThrackles.size() < 4) p = 2;
   if (p<2) return;
+  int p_bk = p;
   float avg_covered = 0.0;
   float avg_repeated = 0.0;
   int max_covered = 0;
   vector<Thrackle> local_foundT = foundThrackles;
-  //printf("Choosing %d %d-sets\n",p,q);
+  printf("Choosing %d %d-sets\n",p,q);
   //To emulate the selection, we shuffle the found thrackles vector
   //and select the first k items
   unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
@@ -105,7 +117,7 @@ void q_intersection_size(int q,float & avg_cov, float & avg_rep, int & max_cov){
     //printf("---------------\n");
     p--;
   }
-  //printf("Average covered edges : %f\nAverage repeated edges: %f\n",avg_covered/p_bk,avg_repeated/p_bk);
+  printf("Average covered edges : %f\nAverage repeated edges: %f\n",avg_covered/p_bk,avg_repeated/p_bk);
   avg_cov = avg_covered/p_bk;
   //cout << avg_repeated << endl;
   avg_rep = avg_repeated/p_bk;
