@@ -108,9 +108,9 @@ int main(int argc, char* argv[]) {
 
 /*
     The results file is written in the following order:
-    ot,number_of_diff_subsets,subset_size,(total_cov,total_rep,max_cov)*(depending on number of diff subsets)
-    ot,number_of_diff_subsets,subset_size,(total_cov,total_rep,max_cov)*(depending on number of diff subsets)
-    ot,number_of_diff_subsets,subset_size,(total_cov,total_rep,max_cov)*(depending on number of diff subsets)
+    ot,number_of_diff_subsets,(subset_size,total_cov,total_rep,max_cov)*(depending on number of diff subsets)
+    ot,number_of_diff_subsets,(subset_size,total_cov,total_rep,max_cov)*(depending on number of diff subsets)
+    ot,number_of_diff_subsets,(subset_size,total_cov,total_rep,max_cov)*(depending on number of diff subsets)
     ...
     for every ot.
     all in binary format, all in char size. The ot with unsufficent maximal thrackles are still written with 0 0 0 inforrmation

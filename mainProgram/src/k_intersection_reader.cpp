@@ -23,10 +23,51 @@ vector<Edge> edges; //Here we store the (n take 2) edges of the complete graph
 vector<Thrackle> foundThrackles; //Here we store the thrackles of size k.
 vector<vector<int>> positions; // Each element of this vector, is a list of positions of edges which together are a thrackle.
 
-int main(int argc, char* argv[){
-
+void read_results(string file_name);
+int main(int argc, char* argv[]){
+    if(argc <= 1 || argc > 2) {
+        fprintf(stderr,"Usage : %s <file_name.dat>\n",argv[0]);
+        return 0;
+    }
+    read_results(argv[1]);
+    return 1;
 }
 
-void read_results(string file-name){
+void read_results(string file_name){
+    ifstream myfile;
+    int size;
+    myfile.open(file_name, ios::binary|ios::ate);
+    if(myfile.fail()) {
+        fprintf(stderr,"Error opening file \n");
+        return;
+    }
+    size = myfile.tellg();
+    //printf("Bytes: %d\n",size);
+    myfile.seekg(0,ios::beg);
+    int ot,i;
+    int number_of_diff_subsets,subset_size,total_cov,total_rep,max_cov;
+    number_of_diff_subsets=0;
+    subset_size = 0;
+    total_cov = 0;
+    total_rep= 0;
+    max_cov = 0;
+    while(size>0){
+        if(!myfile) break;
+        myfile.read( (char*) &ot,sizeof(char));
+        myfile.read( (char*) &number_of_diff_subsets, sizeof(char));
+        size = size - 2*sizeof(char);
+        printf("ORDER TYPE %d -- Number of different subsets %d\n",ot,number_of_diff_subsets);
+        for(i = 0; i < number_of_diff_subsets; i++){
+            myfile.read( (char*) &subset_size, sizeof(char));
+            myfile.read( (char*) &total_cov, sizeof(char));
+            myfile.read( (char*) &total_rep, sizeof(char));
+            myfile.read( (char*) &max_cov, sizeof(char));
+            size=size - (4*sizeof(char));
+            printf("\t[subsets of size %d]\n\t" "Average covered :%d Average Repeated :%d Maximal covered: %d\n",
+            subset_size,total_cov,total_rep,max_cov);
+        }
 
+        //printf("%d bytes left\n",size);
+    }
+    myfile.close();
 }

@@ -8,5 +8,7 @@ intersection:
 	g++ intersection_reader.cpp point.cpp thrackle.cpp disjointness.cpp  -o intersection_reader -Wall -fopenmp
 k_inter:
 	g++ k_intersection.cpp point.cpp thrackle.cpp disjointness.cpp  -o k_intersection -Wall -fopenmp
+k_inter_reader:
+	g++ k_intersection_reader.cpp point.cpp thrackle.cpp disjointness.cpp  -o k_intersection_reader -Wall -fopenmp
 clean:
 	rm *.o frac
