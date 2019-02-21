@@ -151,11 +151,14 @@ int main(int argc, char* argv[]) {
       //return 0;
       thrackleCounter=get_kthrackles_of_matrix(matrix,rows,k,positions);
       cout << "There are " << thrackleCounter << " thrackles of size " << k << endl;
-      int testing[] = {2,6,9,11,12,13};
+      for(auto p = positions.begin(); p < positions.end(); ++p){
+        printVectorInt(*p);
+      }
+      int testing[] = {0,1,2,3,7,8};
       // int testing2[] = {7,9};
       vector<int> test (testing,testing+sizeof(testing)/sizeof(int));
       //  vector<int> test2 (testing2,testing2+sizeof(testing2)/sizeof(int));
-      //  vector<int> test3;
+      vector<int> test3;
       // cout << int_thrackle_areDifferent(test,test2); cout << endl;
       // printVectorInt(test3);
       // find_next_thrackle(matrix,cols,test,startingThrackle,4,true);
@@ -165,7 +168,8 @@ int main(int argc, char* argv[]) {
       // find_next_thrackle(matrix,cols,test,test3,5,false);
       // printVectorInt(test3);
       // return 0;
-      return 0;
+      //find_next_thrackle2(matrix,test,test3,cols,false);
+      //printVectorInt(test3);
       exhaustive_at(matrix, cols, setSize, startingThrackle, 0,0);
 
       cout << "Anti-thickness : " << minAt  << endl;

@@ -25,15 +25,13 @@ void fill_found_thrackles_info(int);
 void find_thrackles(int );
 void copy_points();
 void clear_vectors();
-void q_intersection_size(int q,float & , float & );
+void q_intersection_size(int q,float & , float & , int &);
 void read_file(int, char* argv[]);
+void write_results(int ot, int set_size, int subtset_size, int no_exp);
 
 int main(int argc, char* argv[]) {
     one_ot_flag = false;
     read_file(argc,argv);
-    //###############ALLOCATING MATRIX ####################
-    //At this point we can initialize the matrix, for we know it'll have n take 2 rows and cols.
-    //Allocate matrix.
     int rows = (setSize*(setSize-1.0)/2.0);
     int cols = (setSize*(setSize-1.0)/2.0);
     matrix = (int **)malloc(rows * sizeof(int*));
@@ -48,14 +46,18 @@ int main(int argc, char* argv[]) {
       float avg_rep;
       float total_cov = 0.0;
       float total_rep = 0.0;
+      int max_cov_overall =0 ;
+      int max_cov_curr = 0;
       for(int i = 0; i < number_of_exp ; i++){
-        q_intersection_size(g_q,avg_cov, avg_rep);
+        q_intersection_size(g_q,avg_cov, avg_rep, max_cov_curr);
         total_cov += avg_cov;
         total_rep += avg_rep;
+        if( max_cov_curr > max_cov_overall ) max_cov_overall = max_cov_curr;
       }
       total_cov /= number_of_exp;
       total_rep /= number_of_exp;
-      printf("From %d experiments: covered edges %f\nAverage repeated edges: %f\n",number_of_exp,total_cov,total_rep);
+      printf("From %d experiments: covered edges %f\nAverage repeated edges: %f\n"
+      "Max union size: %d\n",number_of_exp,total_cov,total_rep,max_cov_overall);
       clear_vectors();
       ot_number++;
     if(one_ot_flag) break;
@@ -64,7 +66,10 @@ int main(int argc, char* argv[]) {
 
   }
 
-void q_intersection_size(int q,float & avg_cov, float & avg_rep){
+  void write_results(int ot, int set_size, int subtset_size, int no_exp){
+    
+  }
+void q_intersection_size(int q,float & avg_cov, float & avg_rep, int & max_cov){
   //Select p q-sets of thrackles.
   int p = (int)foundThrackles.size()/2.0;
   int p_bk = p;
@@ -72,7 +77,7 @@ void q_intersection_size(int q,float & avg_cov, float & avg_rep){
   if (p<2) return;
   float avg_covered = 0.0;
   float avg_repeated = 0.0;
-
+  int max_covered = 0;
   vector<Thrackle> local_foundT = foundThrackles;
   //printf("Choosing %d %d-sets\n",p,q);
   //To emulate the selection, we shuffle the found thrackles vector
@@ -95,6 +100,7 @@ void q_intersection_size(int q,float & avg_cov, float & avg_rep){
     //printf("This set union' size : %d\n",union_size);
     avg_covered += union_size;
     avg_repeated += (q*k)-union_size;
+    if(max_covered < union_size) max_covered = union_size;
     //printf("Repeated edges amongst these thrackles: %d\n", q*k - union_size);
     //printf("---------------\n");
     p--;
@@ -103,6 +109,7 @@ void q_intersection_size(int q,float & avg_cov, float & avg_rep){
   avg_cov = avg_covered/p_bk;
   //cout << avg_repeated << endl;
   avg_rep = avg_repeated/p_bk;
+  max_cov = max_covered;
   //the intersection size is k*n - size of union.
 
 }
