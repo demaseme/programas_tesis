@@ -2,13 +2,14 @@
 #include "../include/globals.h"
 #include <ctime>    // For time()
 #include <cstdlib>  // For srand() and rand()
-
+#include <cmath>
+#include <cstring>
 
 int g_q;
 int opt;
 int ot_number = 0; // starting from 0.
 //bool draw_flag;
-bool one_ot_flag;
+bool one_ot_flag= false;
 Point *vPoints;
 int k;  //Thrackle size we're looking for
 int otypes; //Number of order types for a file
@@ -28,7 +29,9 @@ void clear_vectors();
 void q_intersection_size(int q,float & , float & , int &);
 void read_file(int, char* argv[]);
 void write_results(int ot, int set_size, int subset_size, int no_exp,int total_cov,int total_repeat, int max_cov);
-
+void write_results_all(ofstream & myfile, int ot, int subset_size,int total_cov,int total_repeat, int max_cov);
+void ready_dat_file(ofstream &myfile, int ot, int number_of_diff_subsets );
+void read_results(string file_name);
 int main(int argc, char* argv[]) {
     one_ot_flag = false;
     read_file(argc,argv);
@@ -36,40 +39,101 @@ int main(int argc, char* argv[]) {
     int cols = (setSize*(setSize-1.0)/2.0);
     matrix = (int **)malloc(rows * sizeof(int*));
     for(int i = 0; i < rows; i++) matrix[i] = (int *)malloc(cols * sizeof(int));
+    int convex_at =  setSize - floor(sqrt(setSize + (1/4.0)) - (1/2.0));
+
+
+    time_t t = time(0);   // get time now
+    struct tm * now = localtime( & t );
+    char buffer [90];
+    char directory[90];
+    string strr= "ths/"+to_string(setSize)+"/intersection/";
+    sprintf(directory,"ths/%d/intersection/",setSize);
+    strftime (buffer,90,"results-%Y-%m-%d-%R.dat",now);
+    strcat(directory,buffer);
+    ofstream results_file;
+    results_file.open(directory, ios::binary);
+    if(results_file.fail()){
+        fprintf(stderr,"Error opening results file.\n");
+    }
+    if(one_ot_flag) printf("Working with only 1 OT\n");
     while(ot_number < otypes){
-      copy_points();
-      generateAllEdges(vec,edges);
-      find_thrackles(rows);
-      if(thrackleCounter == 0) { ot_number++; continue; }
-      if(thrackleCounter < g_q ) { ot_number++; continue; }
-      fill_found_thrackles_info(rows);
-      int number_of_exp = 100;
-      float avg_cov;
-      float avg_rep;
-      float total_cov = 0.0;
-      float total_rep = 0.0;
-      int max_cov_overall =0 ;
-      int max_cov_curr = 0;
-      for(int i = 0; i < number_of_exp ; i++){
-        q_intersection_size(g_q,avg_cov, avg_rep, max_cov_curr);
-        total_cov += avg_cov;
-        total_rep += avg_rep;
-        if( max_cov_curr > max_cov_overall ) max_cov_overall = max_cov_curr;
-      }
-      total_cov /= number_of_exp;
-      total_rep /= number_of_exp;
-      printf("From %d experiments: covered edges %f\nAverage repeated edges: %f\n"
-      "Max union size: %d\n",number_of_exp,total_cov,total_rep,max_cov_overall);
-      clear_vectors();
-      write_results(ot_number,setSize,g_q,number_of_exp,total_cov,total_rep,max_cov_overall);
-      printf("Finished OT %d\n",ot_number);
-      ot_number++;
-    if(one_ot_flag) break;
+        ready_dat_file(results_file,ot_number,convex_at-1);
+        g_q = convex_at; //g_q is the current subset size
+        while(g_q >= 2){
+          copy_points();
+          generateAllEdges(vec,edges);
+          find_thrackles(rows);
+          if(thrackleCounter == 0) {
+              write_results_all(results_file,ot_number,g_q,0,0,0);
+              // ot_number++;
+              g_q --;
+              continue;
+          }
+          if(thrackleCounter < g_q ) {
+            write_results_all(results_file,ot_number,g_q,0,0,0);
+            // ot_number++;
+            g_q --;
+            continue;
+          }
+          fill_found_thrackles_info(rows);
+          int number_of_exp = 100;
+          float avg_cov;
+          float avg_rep;
+          float total_cov = 0.0;
+          float total_rep = 0.0;
+          int max_cov_overall =0 ;
+          int max_cov_curr = 0;
+          for(int i = 0; i < number_of_exp ; i++){
+            q_intersection_size(g_q,avg_cov, avg_rep, max_cov_curr);
+            total_cov += avg_cov;
+            total_rep += avg_rep;
+            if( max_cov_curr > max_cov_overall ) max_cov_overall = max_cov_curr;
+          }
+          total_cov /= number_of_exp;
+          total_rep /= number_of_exp;
+          printf("From %d experiments: covered edges %f\nAverage repeated edges: %f\n"
+          "Max union size: %d\n",number_of_exp,total_cov,total_rep,max_cov_overall);
+          clear_vectors();
+          write_results_all(results_file,ot_number,g_q,floor(total_cov),floor(total_rep),max_cov_overall);
+          printf("Finished OT %d\n",ot_number);
+          g_q--;
+        }
+        ot_number++;
+        printf("Next OT is : %d\n",ot_number);
+        if(one_ot_flag) break;
     }
     freeMatrix(matrix,rows);
-
+    results_file.close();
   }
 
+/*
+    The results file is written in the following order:
+    ot,number_of_diff_subsets,subset_size,(total_cov,total_rep,max_cov)*(depending on number of diff subsets)
+    ot,number_of_diff_subsets,subset_size,(total_cov,total_rep,max_cov)*(depending on number of diff subsets)
+    ot,number_of_diff_subsets,subset_size,(total_cov,total_rep,max_cov)*(depending on number of diff subsets)
+    ...
+    for every ot.
+    all in binary format, all in char size. The ot with unsufficent maximal thrackles are still written with 0 0 0 inforrmation
+    on the totalcov,total_rep,maxcov fields
+*/
+
+/*
+    Writes in dat file the ot and the number of subsets.
+*/
+void ready_dat_file(ofstream &myfile, int ot, int number_of_diff_subsets ){
+    myfile.write( (char*) & ot, sizeof(char));
+    myfile.write( (char*) & number_of_diff_subsets, sizeof(char));
+  }
+  /*
+    Writes in dat file subset_size,total-cov,total_rev,max_cov on binary char.
+  */
+  void write_results_all(ofstream & myfile, int ot, int subset_size,int total_cov,int total_repeat, int max_cov){
+
+      myfile.write( (char*) & subset_size, sizeof(char));
+      myfile.write( (char*) & total_cov, sizeof(char));
+      myfile.write( (char*) & total_repeat, sizeof(char));
+      myfile.write( (char*) & max_cov, sizeof(char));
+  }
   void write_results(int ot, int set_size, int subset_size, int no_exp,int total_cov,int total_repeat, int max_cov){
     ofstream myfile;
     string file_name = "ths/" + to_string(set_size) + "/intersection/" + to_string(ot) + "_" + to_string(subset_size) + "_" + to_string(no_exp)+".dat";
@@ -91,7 +155,7 @@ void q_intersection_size(int q,float & avg_cov, float & avg_rep, int & max_cov){
   float avg_repeated = 0.0;
   int max_covered = 0;
   vector<Thrackle> local_foundT = foundThrackles;
-  printf("Choosing %d %d-sets\n",p,q);
+  //printf("Choosing %d %d-sets\n",p,q);
   //To emulate the selection, we shuffle the found thrackles vector
   //and select the first k items
   unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
@@ -117,7 +181,7 @@ void q_intersection_size(int q,float & avg_cov, float & avg_rep, int & max_cov){
     //printf("---------------\n");
     p--;
   }
-  printf("Average covered edges : %f\nAverage repeated edges: %f\n",avg_covered/p_bk,avg_repeated/p_bk);
+  //printf("Average covered edges : %f\nAverage repeated edges: %f\n",avg_covered/p_bk,avg_repeated/p_bk);
   avg_cov = avg_covered/p_bk;
   //cout << avg_repeated << endl;
   avg_rep = avg_repeated/p_bk;
@@ -185,20 +249,20 @@ void read_file(int argc, char* argv[]){
         one_ot_flag = true;
         break;
       default: /* '?' */
-            fprintf(stderr, "Usage: %s [-t order_type_number] set_size thrackle_size size_of_subsets\n",
+            fprintf(stderr, "Usage: %s [-t order_type_number] set_size thrackle_size \n",
                     argv[0]);
             exit(EXIT_FAILURE);
     }
   }
-  if (optind+2 >= argc) {
+  if (optind+1 >= argc) {
        fprintf(stderr, "Expected argument after options\n");
        exit(EXIT_FAILURE);
    }
    setSize = atoi(argv[optind]);
    optind++;
    k = atoi(argv[optind]);
-   optind++;
-   g_q = atoi(argv[optind]);
+   // optind++;
+   // g_q = atoi(argv[optind]);
 
   switch(setSize){
     case 3:
