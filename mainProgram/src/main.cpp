@@ -125,10 +125,12 @@ int main(int argc, char* argv[]) {
     vector<int> max_thrackle_count; //Vector to store how many max thrackles were found for each ot
 
     /*##########################################*/
-    ofstream myfile;
+    ofstream myfile,myfile_bool;
     string file_name = "ths/" + to_string(setSize) + "_" + to_string(k) +"_All" + ".ths";
+    string file_name_bool = "ths/" + to_string(setSize) + "_" + to_string(k) +"_All_bool" + ".ths";
     system( "mkdir -p ths/" );
     myfile.open(file_name, ios::out | ios::binary);
+    myfile_bool.open(file_name_bool, ios::out | ios::binary );
     std::chrono::high_resolution_clock::time_point totalt1 = chrono::high_resolution_clock::now();
     while(ot_number < otypes){
 
@@ -170,7 +172,7 @@ int main(int argc, char* argv[]) {
       // return 0;
       //find_next_thrackle2(matrix,test,test3,cols,false);
       //printVectorInt(test3);
-      exhaustive_at(matrix, cols, setSize, startingThrackle, 0,0);
+      // exhaustive_at(matrix, cols, setSize, startingThrackle, 0,0);
 
       cout << "Anti-thickness : " << minAt  << endl;
       cout << "Minimal number of thrackles needed " << lowAt << endl;
@@ -178,7 +180,7 @@ int main(int argc, char* argv[]) {
       chrono::duration<double, std::milli> time_span = t2 - t1;
       cout << "It took me " << time_span.count() << " milliseconds.";
       cout << std::endl;
-      return 0;
+      //return 0;
       //positions is loaded. We must then get their equivalent edge objects and then turn them into thrackle objects.
       // cout << "FILLING BOOLEAN VECTOR FOR SET OPERATIONS!\n";
       /* Filling the boolean vector for in operation*/
@@ -235,6 +237,7 @@ int main(int argc, char* argv[]) {
       //Write found thrackles on text file.
       //writeThrackles_bin(foundThrackles,vec,setSize,k,ot_number,minimal_intersection_counter);
       writeOne4All_bin(myfile, foundThrackles,vec,setSize,k,ot_number,minimal_intersection_counter );
+      writeOne4All_bin_bool( myfile_bool, foundThrackles,k,ot_number );
       //cout << "Writing finished!\n";
       //Clear all that.
       vec.clear();
@@ -258,6 +261,7 @@ int main(int argc, char* argv[]) {
     cout << "Freeing matrix!\n";
     freeMatrix(matrix,rows);
     myfile.close();
+    myfile_bool.close();
     std::chrono::high_resolution_clock::time_point totalt2 = chrono::high_resolution_clock::now();
     chrono::duration<double, std::milli> time_span_total = totalt2 - totalt1;
     cout << "It took me " << time_span_total.count() << " milliseconds.";

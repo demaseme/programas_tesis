@@ -60,9 +60,10 @@ int minimal_intersection_counter );
 void thrackle_real_intersection_wrt(const vector<Thrackle> T, int current_ot, int set_size, int t_size);
 void writeThrackles_bin(const vector<Thrackle> T, const vector<Point> points,
   const int set_size, const int t_size, const int ot, const int min_inter_count);
-  void writeOne4All_bin(ofstream& myfile, const vector<Thrackle> T, const vector<Point> points, const int set_size,
+void writeOne4All_bin(ofstream& myfile, const vector<Thrackle> T, const vector<Point> points, const int set_size,
   const int t_size, const int ot, const int min_inter_count);
-
+void writeOne4All_bin_bool(ofstream & myfile, const vector<Thrackle> T,
+    const int t_size,const int ot_number );
 //void drawThrackles(vector<Thrackle> thrackles, vector<vector<Point>> puntos);
 void dibuja();
 void procesa_puntos(vector<vector<Point>> points);

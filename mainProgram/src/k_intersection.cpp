@@ -32,6 +32,7 @@ void write_results(int ot, int set_size, int subset_size, int no_exp,int total_c
 void write_results_all(ofstream & myfile, int ot, int subset_size,int total_cov,int total_repeat, int max_cov);
 void ready_dat_file(ofstream &myfile, int ot, int number_of_diff_subsets );
 void read_results(string file_name);
+int load_thrackles(int set_size, int t_size,int desired_ot);
 int main(int argc, char* argv[]) {
     one_ot_flag = false;
     read_file(argc,argv);
@@ -61,25 +62,27 @@ int main(int argc, char* argv[]) {
     while(ot_number < otypes){
         ready_dat_file(results_file,ot_number,convex_at-1);
         g_q = convex_at; //g_q is the current subset size
+        load_thrackles(setSize, k,ot_number);
         while(g_q >= 2){
-          copy_points();
-          generateAllEdges(vec,edges);
-          find_thrackles(rows);
+
+          // copy_points();
+          // generateAllEdges(vec,edges);
+          // find_thrackles(rows);
           if(thrackleCounter == 0) {
               write_results_all(results_file,ot_number,g_q,0,0,0);
               // ot_number++;
-              clear_vectors();
+              //clear_vectors();
               g_q --;
               continue;
           }
           if(thrackleCounter < g_q ) {
             write_results_all(results_file,ot_number,g_q,0,0,0);
             // ot_number++;
-            clear_vectors();
+            //clear_vectors();
             g_q --;
             continue;
           }
-          fill_found_thrackles_info(rows);
+          //fill_found_thrackles_info(rows);
           int number_of_exp = 100;
           float avg_cov;
           float avg_rep;
@@ -97,7 +100,7 @@ int main(int argc, char* argv[]) {
           total_rep /= number_of_exp;
           printf("From %d experiments: covered edges %f\nAverage repeated edges: %f\n"
           "Max union size: %d\n",number_of_exp,total_cov,total_rep,max_cov_overall);
-          clear_vectors();
+          //clear_vectors();
           write_results_all(results_file,ot_number,g_q,floor(total_cov),floor(total_rep),max_cov_overall);
           printf("Finished OT %d\n",ot_number);
           g_q--;
@@ -109,6 +112,56 @@ int main(int argc, char* argv[]) {
     freeMatrix(matrix,rows);
     results_file.close();
   }
+
+int load_thrackles(int set_size, int t_size,int desired_ot){
+  string file_name;
+  file_name = "ths/"+to_string(set_size)+"_"+to_string(t_size)+"_All_bool.ths";
+  ifstream myfile;
+  int current_ot = 0;
+  int i,j,c;
+  int cols = set_size*(set_size-1)/2.0;
+  cout << "Opening " << file_name << endl;
+  myfile.open(file_name, ios::binary);
+  myfile.seekg(0,myfile.beg);
+  if(!myfile.is_open()) {
+    fprintf(stderr, "%s\n", "Error opening thrackle boolean file\n");
+    return 0;
+  }
+  foundThrackles.clear();
+  int eater = 0;
+  while(current_ot != desired_ot){
+    //cout << current_ot << endl;
+    myfile.read( (char*)&eater,sizeof(char));//ot
+    myfile.read( (char*)&eater,sizeof(char)); //number_of_t
+    c = eater;
+    for(i = 0; i < c; i++){
+      for ( j = 0 ; j < cols ; j++){
+        myfile.read( (char*)&eater,sizeof(char)); //boolean
+      }
+      // list of thrackles.
+    }
+    current_ot++;
+  }
+  //When we get out of this while, we're in position to read
+  //the information that we actually care about.
+  eater = 0;
+  myfile.read( (char*)&eater,sizeof(char));//ot
+  myfile.read( (char*)&eater,sizeof(char)); //number_of_t
+  c = eater;
+  thrackleCounter = c;
+  cout << "Reading " << thrackleCounter << " thrackles\n";
+  for(i = 0; i < thrackleCounter; i++){
+    Thrackle tmp_thrackle;
+    for ( j = 0 ; j < cols ; j++){
+      myfile.read( (char*)&eater,sizeof(char)); //boolean
+      tmp_thrackle.edge_bool.push_back(eater);
+    }
+    foundThrackles.push_back(tmp_thrackle);
+
+  }
+  myfile.close();
+  return 1;
+}
 
 /*
     The results file is written in the following order:
