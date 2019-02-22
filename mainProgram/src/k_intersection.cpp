@@ -47,6 +47,7 @@ int main(int argc, char* argv[]) {
     char buffer [90];
     char directory[90];
     string strr= "ths/"+to_string(setSize)+"/intersection/";
+    system( ("mkdir -p ths/" + to_string(setSize) + "/intersection/" ).c_str() );
     sprintf(directory,"ths/%d/intersection/",setSize);
     strftime (buffer,90,"results-%Y-%m-%d-%R.dat",now);
     strcat(directory,buffer);
@@ -54,6 +55,7 @@ int main(int argc, char* argv[]) {
     results_file.open(directory, ios::binary);
     if(results_file.fail()){
         fprintf(stderr,"Error opening results file.\n");
+        return 0;
     }
     if(one_ot_flag) printf("Working with only 1 OT\n");
     while(ot_number < otypes){
@@ -66,12 +68,14 @@ int main(int argc, char* argv[]) {
           if(thrackleCounter == 0) {
               write_results_all(results_file,ot_number,g_q,0,0,0);
               // ot_number++;
+              clear_vectors();
               g_q --;
               continue;
           }
           if(thrackleCounter < g_q ) {
             write_results_all(results_file,ot_number,g_q,0,0,0);
             // ot_number++;
+            clear_vectors();
             g_q --;
             continue;
           }
@@ -199,8 +203,8 @@ void clear_vectors(){
 }
 void fill_found_thrackles_info(int rows){
   int i,j,m;
-  foundThrackles.resize(positions.size());
-  Thrackle *t_ptr = &foundThrackles[0];
+  // foundThrackles.resize(positions.size());
+  // Thrackle *t_ptr = &foundThrackles[0];
   //#pragma omp parallel for private(j,k)
   for(i = 0; i < (int)positions.size(); i++) {
      vector<Edge> foundEdges;
@@ -215,7 +219,8 @@ void fill_found_thrackles_info(int rows){
          tmp_thrackle.edges=foundEdges;
          tmp_thrackle.edge_bool[positions[i][m]] = true;
      }
-     t_ptr[i]=(tmp_thrackle);
+     //t_ptr[i]=(tmp_thrackle);
+     foundThrackles.push_back(tmp_thrackle);
      foundEdges.clear();
      tmp_thrackle.edge_bool.clear();
   }
