@@ -51,6 +51,12 @@ void read_results(string file_name){
     total_cov = 0;
     total_rep= 0;
     max_cov = 0;
+
+    int total_avg_cov = 0;
+    int total_avg_rep = 0;
+    int total_avg_max_cov = 0;
+    int counter = 0;
+
     while(size>0){
         if(!myfile) break;
         myfile.read( (char*) &ot,sizeof(char));
@@ -62,12 +68,17 @@ void read_results(string file_name){
             myfile.read( (char*) &total_cov, sizeof(char));
             myfile.read( (char*) &total_rep, sizeof(char));
             myfile.read( (char*) &max_cov, sizeof(char));
+            counter ++;
+            total_avg_cov += total_cov;
+            total_avg_rep += total_rep;
+            total_avg_max_cov += max_cov;
             size=size - (4*sizeof(char));
             printf("\t[subsets of size %d]\n\t" "Average covered :%d Average Repeated :%d Maximal covered: %d\n",
             subset_size,total_cov,total_rep,max_cov);
         }
-
         //printf("%d bytes left\n",size);
     }
+    printf("From this file: TOTALS(AVG):\n Average Covered: %d\tAverage Repeated: %d\t Average Maximum Covered: %d\n",total_avg_cov/counter,
+    total_avg_rep/counter, total_avg_max_cov/counter);
     myfile.close();
 }

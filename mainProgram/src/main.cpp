@@ -140,7 +140,7 @@ int main(int argc, char* argv[]) {
       copy(vPoints.begin()+(setSize*ot_number),vPoints.begin()+( (setSize*ot_number) + setSize ),vec.begin());
       //cout << "Copy finished\n";
       //sortPoints(vec);
-      printVectorPoint(vec);
+      //printVectorPoint(vec);
 
       generateAllEdges(vec,edges);
       //cout << "All edges generated\n";
@@ -149,13 +149,13 @@ int main(int argc, char* argv[]) {
       std::chrono::high_resolution_clock::time_point t1 = chrono::high_resolution_clock::now();
       //Testing disjointness matrix construction.
       //cout << "Constructing disjointness matrix\n";
-      construct_disjointness_matrix(edges,matrix,rows,true);
+      construct_disjointness_matrix(edges,matrix,rows,false);
       //return 0;
       thrackleCounter=get_kthrackles_of_matrix(matrix,rows,k,positions);
       cout << "There are " << thrackleCounter << " thrackles of size " << k << endl;
-      for(auto p = positions.begin(); p < positions.end(); ++p){
-        printVectorInt(*p);
-      }
+      // for(auto p = positions.begin(); p < positions.end(); ++p){
+      //   printVectorInt(*p);
+      // }
       int testing[] = {0,1,2,3,7,8};
       // int testing2[] = {7,9};
       vector<int> test (testing,testing+sizeof(testing)/sizeof(int));
