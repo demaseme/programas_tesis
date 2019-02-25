@@ -185,7 +185,7 @@ int main(int argc, char* argv[]) {
       // cout << "FILLING BOOLEAN VECTOR FOR SET OPERATIONS!\n";
       /* Filling the boolean vector for in operation*/
 
-
+      //
       // for(int i = 0 ; i < rows ; i ++){
       //     tmp_thrackle.edge_bool.push_back(false);
       // }
@@ -216,16 +216,16 @@ int main(int argc, char* argv[]) {
 
       thrackle_real_intersection_wrt(foundThrackles, ot_number, setSize,k);
 
-      // thrackle_intersection_all(foundThrackles,minimal_intersection_counter);
+      thrackle_intersection_all(foundThrackles,minimal_intersection_counter);
       // cout << "Minimal intersection calculated!\n";
       min_inter.push_back(minimal_intersection_counter);
-      // if (union_covers(foundThrackles)){
-      //   cout << "Found thrackles cover the whole edge set\n";
-      //   union_covers_bool.push_back(true);
-      // } else {
-      //   cout << "Found thrackles DO NOT cover the whole edge set\n";
-      //   union_covers_bool.push_back(false);
-      // }
+      if (union_covers(foundThrackles)){
+        //cout << "Found thrackles cover the whole edge set\n";
+        union_covers_bool.push_back(true);
+      } else {
+        //cout << "Found thrackles DO NOT cover the whole edge set\n";
+        union_covers_bool.push_back(false);
+      }
       //cout << "Union calculated!\n";
 
       //Count how many thrackles of size n were found for current ot.
