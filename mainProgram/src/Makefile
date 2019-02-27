@@ -10,5 +10,7 @@ k_inter:
 	g++ k_intersection.cpp point.cpp thrackle.cpp disjointness.cpp  -o k_intersection -Wall -fopenmp
 k_inter_reader:
 	g++ k_intersection_reader.cpp point.cpp thrackle.cpp disjointness.cpp  -o k_intersection_reader -Wall -fopenmp
+check_antithickness:
+	g++ check_at.cpp decomposition.cpp -o check_at -Wall
 clean:
 	rm *.o frac

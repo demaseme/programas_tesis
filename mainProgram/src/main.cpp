@@ -204,7 +204,6 @@ int main(int argc, char* argv[]) {
              tmp_thrackle.edge_bool.push_back(false);
          }
          for(  k = 0 ; k < (int)positions[i].size() ;k ++){
-             //printf("Thread number %d i:%d, j:%d \n",omp_get_thread_num(),i,k);
              foundEdges.push_back(edges[positions[i][k]]);
              tmp_thrackle.edges=foundEdges;
              tmp_thrackle.edge_bool[positions[i][k]] = true;
