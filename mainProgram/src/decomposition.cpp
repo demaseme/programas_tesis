@@ -115,7 +115,7 @@ bool is_atk_upper(int n_th, int setsize, int ot, int k, int ** bool_th_mat){
     //printf("Checking ");
     for(int i = k; i > 0; i--){
       c_curr[i-1] = c[i];
-    //  printf(" %d ",c[i]);
+      //printf(" %d ",c[i]);
     }
     //printf("k=%d,cols = %d\n",k,cols);
     //If one is a decomposition return true.
