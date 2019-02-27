@@ -7,7 +7,7 @@ int main(int argc, char * argv[]){
     int ot;
     int one_ot_flag = false;
     int otypes,rows,cols,n,t;
-    ot = 0;
+    ot = 1;
     while ((opt = getopt(argc,argv, "t:")) != -1 ){
         switch(opt){
             case 't':
@@ -83,13 +83,21 @@ int main(int argc, char * argv[]){
         if( is_atk_upper(rows, n, ot, t, bool_th_mat) ) {
             printf("K_%d order type %d has anti-thickness at most: %d\n",n,ot,t);
             bounded_ats[ot] = t;
+            return 1;
+
+            //Free matrix rows.
+            a = (int **)bool_th_mat;
+            for(int i = 0; i < rows; i++) free(a[i]);
+            cout << "Rows freed\n";
+            if (one_ot_flag) break;
+            ot++;
+            break;
         }
-        //Free matrix rows.
         a = (int **)bool_th_mat;
         for(int i = 0; i < rows; i++) free(a[i]);
         cout << "Rows freed\n";
         if (one_ot_flag) break;
-        ot++;
+        ot ++;
     }
   free(a);
 

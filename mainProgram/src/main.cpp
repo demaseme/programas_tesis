@@ -140,9 +140,10 @@ int main(int argc, char* argv[]) {
       copy(vPoints.begin()+(setSize*ot_number),vPoints.begin()+( (setSize*ot_number) + setSize ),vec.begin());
       //cout << "Copy finished\n";
       //sortPoints(vec);
-      //printVectorPoint(vec);
+      printVectorPoint(vec);
 
       generateAllEdges(vec,edges);
+      return 0;
       //cout << "All edges generated\n";
       //counter = 0;
       thrackleCounter = 0;
