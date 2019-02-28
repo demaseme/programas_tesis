@@ -372,7 +372,7 @@ void draw(){
   sprintf(buffer, "%d",desired_ot_g);
   strcat(order_type_number, buffer);
   print(ancho-200,alto-100,order_type_number);
-  
+
   if( pairwise_flag ){
     glColor3f(.5,.5,.5);
     glLineWidth(3);
@@ -423,6 +423,7 @@ void draw(){
 	glColor3f(.5,.5,.5);
 	glLineWidth(1);
 	gl2psLineWidth(3);
+	char tag_char[5];
     if(number_thrackles>0){
         //Draw the first thrackle.
         for(i=0; i < (int) thrackles[current_thrackle].edges.size();i++){ //for each edge of it.
@@ -430,6 +431,14 @@ void draw(){
                 glVertex2i(thrackles[current_thrackle].edges[i].v1.x,thrackles[current_thrackle].edges[i].v1.y);
                 glVertex2i(thrackles[current_thrackle].edges[i].v2.x,thrackles[current_thrackle].edges[i].v2.y);
                 glEnd();
+				cout << "hi\n";
+				glColor3f(1.0, 0.0, 0.0);
+				sprintf(tag_char,"%d",i);
+				cout << "PRINT COORD: " << (thrackles[current_thrackle].edges[i].v1.x +thrackles[current_thrackle].edges[i].v2.x)/2.0;
+				cout << " , " <<  (thrackles[current_thrackle].edges[i].v1.y + thrackles[current_thrackle].edges[i].v2.y)/2.0 << endl;
+				print( (thrackles[current_thrackle].edges[i].v1.x +thrackles[current_thrackle].edges[i].v2.x)/2.0,
+				 (thrackles[current_thrackle].edges[i].v1.y + thrackles[current_thrackle].edges[i].v2.y)/2.0,
+				 tag_char	);
         }
     }
     //Draw points.

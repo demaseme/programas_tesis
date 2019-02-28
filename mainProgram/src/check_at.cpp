@@ -79,7 +79,7 @@ int main(int argc, char * argv[]){
             ot++;
             continue;
         }
-        //printMatrix(bool_th_mat,rows,cols);
+        printMatrix(bool_th_mat,rows,cols);
         if( is_atk_upper(rows, n, ot, t, bool_th_mat) ) {
             printf("K_%d order type %d has anti-thickness at most: %d\n",n,ot,t);
             bounded_ats[ot] = t;

@@ -143,7 +143,7 @@ int main(int argc, char* argv[]) {
       printVectorPoint(vec);
 
       generateAllEdges(vec,edges);
-      return 0;
+      //return 0;
       //cout << "All edges generated\n";
       //counter = 0;
       thrackleCounter = 0;

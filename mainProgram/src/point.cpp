@@ -61,7 +61,7 @@ void generateAllEdges(const vector<Point> vec,vector<Edge> & vEdges){
             tag++;
         }
     }
-    printEdges(vEdges);
+    //printEdges(vEdges);
 }
 //Generates the powerset of a set of edges, stores it in result.
 //Could be optimized by receiving a const value ¿?
