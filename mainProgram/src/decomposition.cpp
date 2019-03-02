@@ -6,7 +6,7 @@ int count_thrackles(int set_size, int t_size,int desired_ot){
   int thrackleCounter;
   int current_ot = 0;
   int i,j,c;
-  int cols = set_size*(set_size-1)/2.0;
+  int cols = set_size*(set_size-1)/2.0; 
   cout << "Opening " << file_name << endl;
   myfile.open(file_name, ios::binary);
   myfile.seekg(0,myfile.beg);
@@ -92,6 +92,36 @@ int load_thrackles(int set_size, int t_size,int desired_ot, int ** bool_th_mat){
 }
 
 
+/*
+    Size of the set n.
+    Size of the thrackles t.
+    Number of thrackles k.
+*/
+void get_size_m(int n, int t, int k, int ot){
+    //Make the k-tuples of thrackles
+    //For each tuple count how many intersect.
+
+}
+
+/*
+    From given thrackle list count how many edges are repeated
+    pairwise.
+*/
+void count_repetitions(int ** bool_th_mat, int th_index[], int ncols, int nthrs){
+    int i,j;
+    int edge_i_count;
+    for (i = 0; i < ncols; i++){
+        edge_i_count = 0;
+        for( j = 0 ; j < nthrs; j++ ){
+            if (bool_th_mat[th_index[j]][i]){
+                edge_i_count++;
+            }
+        }
+        if (edge_i_count > 1){
+
+        }
+    }
+}
 
 bool is_atk_upper(int n_th, int setsize, int ot, int k, int ** bool_th_mat){
   //Generate the k_combinations.
