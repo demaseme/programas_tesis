@@ -7,6 +7,8 @@ Header for decomposition related functions.
 #include "thrackle.h"
 
 void t_combinations(int n, int k);
+void count_repetitions(int ** bool_th_mat, int th_index[], int ncols, int nthrs);
+
 
 int is_decomposition(int th_index[], int n_ths, int ** bool_th_mat, int cols);
 bool is_atk_upper(int n_th, int setsize, int ot, int k, int ** bool_th_mat);

@@ -58,7 +58,7 @@ int main(int argc, char * argv[]){
     int **a;
     int nexperiments = n - floor(sqrt(2*n + 0.25) - 0.5) - 2;
     int bounded_ats[nexperiments];
-
+    
     for(auto i = 0; i < otypes; i++) {
         bounded_ats[i] = 9999;
     }
@@ -68,7 +68,7 @@ int main(int argc, char * argv[]){
         //int check[4] = {25,21,10,0};
         cout << "Cols :" << cols << endl;
         cout << "Rows :" << rows << endl;
-
+        if (!rows) return 0;
         //Populate the matrix.
         bool_th_mat = (int **)malloc(rows * sizeof(int*));
         for(int i = 0; i < rows; i++) bool_th_mat[i] = (int *)malloc(cols * sizeof(int));
@@ -83,7 +83,7 @@ int main(int argc, char * argv[]){
         if( is_atk_upper(rows, n, ot, t, bool_th_mat) ) {
             printf("K_%d order type %d has anti-thickness at most: %d\n",n,ot,t);
             bounded_ats[ot] = t;
-            return 1;
+            //return 1;
 
             //Free matrix rows.
             a = (int **)bool_th_mat;

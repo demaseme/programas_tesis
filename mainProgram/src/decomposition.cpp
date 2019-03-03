@@ -6,7 +6,7 @@ int count_thrackles(int set_size, int t_size,int desired_ot){
   int thrackleCounter;
   int current_ot = 0;
   int i,j,c;
-  int cols = set_size*(set_size-1)/2.0; 
+  int cols = set_size*(set_size-1)/2.0;
   cout << "Opening " << file_name << endl;
   myfile.open(file_name, ios::binary);
   myfile.seekg(0,myfile.beg);
@@ -99,7 +99,10 @@ int load_thrackles(int set_size, int t_size,int desired_ot, int ** bool_th_mat){
 */
 void get_size_m(int n, int t, int k, int ot){
     //Make the k-tuples of thrackles
+
     //For each tuple count how many intersect.
+
+    //Return the maximum m found?
 
 }
 
@@ -107,9 +110,10 @@ void get_size_m(int n, int t, int k, int ot){
     From given thrackle list count how many edges are repeated
     pairwise.
 */
-void count_repetitions(int ** bool_th_mat, int th_index[], int ncols, int nthrs){
+void count_repetitions(int ** bool_th_mat, int th_index[], int ncols, int nthrs, int setsize){
     int i,j;
     int edge_i_count;
+    int m = 0;
     for (i = 0; i < ncols; i++){
         edge_i_count = 0;
         for( j = 0 ; j < nthrs; j++ ){
@@ -118,9 +122,11 @@ void count_repetitions(int ** bool_th_mat, int th_index[], int ncols, int nthrs)
             }
         }
         if (edge_i_count > 1){
-
+          m++;
         }
     }
+    printf("Number of repeated edges: %d\n"
+    "Total of edges in this set of thrackles %d\n", m, (nthrs*setsize - m));
 }
 
 bool is_atk_upper(int n_th, int setsize, int ot, int k, int ** bool_th_mat){
@@ -155,6 +161,8 @@ bool is_atk_upper(int n_th, int setsize, int ot, int k, int ** bool_th_mat){
         printf("%d ",c[i]);
       }
       printf("\n");
+
+      count_repetitions(bool_th_mat,c_curr,cols,k,setsize);
       return 1;
     } else {
     //  printf("It ain't.\n");
