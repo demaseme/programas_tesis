@@ -7,7 +7,7 @@ int main(int argc, char * argv[]){
     int ot;
     int one_ot_flag = false;
     int otypes,rows,cols,n,t;
-    ot = 1;
+    ot = 0;
     while ((opt = getopt(argc,argv, "t:")) != -1 ){
         switch(opt){
             case 't':
@@ -58,7 +58,7 @@ int main(int argc, char * argv[]){
     int **a;
     int nexperiments = n - floor(sqrt(2*n + 0.25) - 0.5) - 2;
     int bounded_ats[nexperiments];
-    
+
     for(auto i = 0; i < otypes; i++) {
         bounded_ats[i] = 9999;
     }
@@ -80,6 +80,9 @@ int main(int argc, char * argv[]){
             continue;
         }
         printMatrix(bool_th_mat,rows,cols);
+        if (mat_union_covers(bool_th_mat,cols,rows)){
+          printf("Union of Thrackles covers the graph\n");
+        }
         if( is_atk_upper(rows, n, ot, t, bool_th_mat) ) {
             printf("K_%d order type %d has anti-thickness at most: %d\n",n,ot,t);
             bounded_ats[ot] = t;

@@ -7,7 +7,7 @@ int count_thrackles(int set_size, int t_size,int desired_ot){
   int current_ot = 0;
   int i,j,c;
   int cols = set_size*(set_size-1)/2.0;
-  cout << "Opening " << file_name << endl;
+  //cout << "Opening " << file_name << endl;
   myfile.open(file_name, ios::binary);
   myfile.seekg(0,myfile.beg);
   if(!myfile.is_open()) {
@@ -47,7 +47,7 @@ int load_thrackles(int set_size, int t_size,int desired_ot, int ** bool_th_mat){
   int current_ot = 0;
   int i,j,c;
   int cols = set_size*(set_size-1)/2.0;
-  cout << "Opening " << file_name << endl;
+  //cout << "Opening " << file_name << endl;
   myfile.open(file_name, ios::binary);
   myfile.seekg(0,myfile.beg);
   if(!myfile.is_open()) {
@@ -76,7 +76,7 @@ int load_thrackles(int set_size, int t_size,int desired_ot, int ** bool_th_mat){
   myfile.read( (char*)&eater,sizeof(char)); //number_of_t
   c = eater;
   thrackleCounter = c;
-  cout << "Reading " << thrackleCounter << " thrackles\n";
+  //cout << "Reading " << thrackleCounter << " thrackles\n";
   for(i = 0; i < thrackleCounter; i++){
     Thrackle tmp_thrackle;
     for ( j = 0 ; j < cols ; j++){
@@ -91,26 +91,92 @@ int load_thrackles(int set_size, int t_size,int desired_ot, int ** bool_th_mat){
   return 1;
 }
 
-
-/*
-    Size of the set n.
-    Size of the thrackles t.
-    Number of thrackles k.
-*/
-void get_size_m(int n, int t, int k, int ot){
-    //Make the k-tuples of thrackles
-
-    //For each tuple count how many intersect.
-
-    //Return the maximum m found?
-
+//Returns true if union of found thrackles cover K_n graph
+bool mat_union_covers(int ** bool_th_mat, int cols, int rows){
+  int i,j;
+  for(i = 0 ; i < cols; i++) {
+    bool has_edge_i = 0;
+    for( j = 0 ; j < rows; j++){
+      has_edge_i |= bool_th_mat[j][i];
+    }
+    if (!has_edge_i) return false;
+  }
+  return true;
 }
 
+
+/*
+
+  Take all sets of thrackles of size th_set_size.
+  For each one of those that it's an actual decomposition:
+    count repetiions
+
+*/
+void count_repetitions_all(int ** bool_th_mat, int rows, int k, int setsize, int m_arr[2]){
+  //Generate the k_combinations.
+  int c[k+3];
+  int c_curr[k];
+  int j;
+  int n = rows;
+  int cols = setsize*(setsize-1)/2.0;
+  int m_min = 99;
+  int m_max = -1;
+  int m_cur = 0;
+  c[0] = 9999;
+  for(int i=1; i < k+1; i++){
+      c[i] = i-1;
+  }
+  c[k+1] = n;
+  c[k+2] = 0;
+
+  while (true) {
+
+    //L2. Visit.
+    //For each generated, check if it's a decomposition.
+    //usleep(100000);
+    //printf("Checking ");
+    for(int i = k; i > 0; i--){
+      c_curr[i-1] = c[i];
+      //printf(" %d ",c[i]);
+    }
+    //printf("k=%d,cols = %d\n",k,cols);
+    //If one is a decomposition return true.
+    if( is_decomposition(c_curr,k,bool_th_mat,cols) ){
+      // printf("Decomposition found : ");
+      // for(int i = k; i > 0; i--){
+      //   printf("%d ",c[i]);
+      // }
+      // printf("\n");
+
+      m_cur = count_repetitions(bool_th_mat,c_curr,cols,k,setsize);
+      if( m_cur > m_max) m_max = m_cur;
+      if( m_cur < m_min) m_min = m_cur;
+
+    } else {
+    //  printf("It ain't.\n");
+    }
+    //L3. FIND j
+    j = 1;
+    while( (c[j] + 1) == c[j+1] ) {
+        c[j] = j - 1;
+        j = j + 1;
+    }
+    //L4. Termination condition met?
+    if (j > k) {
+        //std::cout << res << " combinations\n";
+        break;
+    }
+    //L5. Update and Return to L2.
+    c[j] = c[j] + 1;
+  }
+  m_arr[0] = m_min;
+  m_arr[1] = m_max;
+}
 /*
     From given thrackle list count how many edges are repeated
     pairwise.
 */
-void count_repetitions(int ** bool_th_mat, int th_index[], int ncols, int nthrs, int setsize){
+int count_repetitions(int ** bool_th_mat, int th_index[], int ncols, int nthrs, int setsize){
     int i,j;
     int edge_i_count;
     int m = 0;
@@ -125,8 +191,9 @@ void count_repetitions(int ** bool_th_mat, int th_index[], int ncols, int nthrs,
           m++;
         }
     }
-    printf("Number of repeated edges: %d\n"
-    "Total of edges in this set of thrackles %d\n", m, (nthrs*setsize - m));
+    // printf("Number of repeated edges: %d\n"
+    // "Total of edges in this set of thrackles %d\n", m, (nthrs*setsize - m));
+    return m;
 }
 
 bool is_atk_upper(int n_th, int setsize, int ot, int k, int ** bool_th_mat){
@@ -162,7 +229,7 @@ bool is_atk_upper(int n_th, int setsize, int ot, int k, int ** bool_th_mat){
       }
       printf("\n");
 
-      count_repetitions(bool_th_mat,c_curr,cols,k,setsize);
+
       return 1;
     } else {
     //  printf("It ain't.\n");
@@ -252,7 +319,12 @@ void t_combinations(int n, int t){
 }
 
 
-
+void writeResults(ofstream & myfile, int ot, int th_set_size, int m_min, int m_max){
+  myfile << ot << " " ;
+  myfile << th_set_size << " ";
+  myfile << m_min << " ";
+  myfile << m_max << " " << endl;
+}
 void printMatrix(int ** matrix, int rows, int cols){
   int * ptr;
   cout << "    ";

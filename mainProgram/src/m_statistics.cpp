@@ -4,38 +4,89 @@
 //For each order type of given n.
 //And then for each decomposition of size [2,cat(K_n)] found.
 
+int ** bool_th_mat ;
+
 int main(int argc, char * argv[]){
   if (argc <= 1 || argc > 2){
     fprintf(stderr, "Usage %s <n>\n", argv[0] );
     exit(-1);
   }
 
-  int n,k,otypes,start,end;
+  int **a;
+  int m_arr[2] = {99,-1};
+  int n,k,otypes,start,end,rows,cols;
+  int ot = 0;
   n = atoi(argv[1]);
-
+  cols = n*(n-1)/2.0;
   switch(n){
-  case 3:
-      otypes = 1; break;
-  case 4:
-      otypes = 2; break;
-  case 5:
-      otypes = 3; break;
-  case 6:
-      otypes = 16; break;
-  case 7:
-      otypes = 135; break;
-  case 8:
-      otypes = 3315; break;
-  case 9:
-      otypes = 158817; break;
-  case 10:
-      otypes = 14309547; break;
-  default:
-      fprintf(stderr,"No existe base de datos para n>10\n"); exit(-1);
+    case 3:
+        otypes = 1; break;
+    case 4:
+        otypes = 2; break;
+    case 5:
+        otypes = 3; break;
+    case 6:
+        otypes = 16; break;
+    case 7:
+        otypes = 135; break;
+    case 8:
+        otypes = 3315; break;
+    case 9:
+        otypes = 158817; break;
+    case 10:
+        otypes = 14309547; break;
+    default:
+        fprintf(stderr,"No existe base de datos para n>10\n"); exit(-1);
   }
   start = 2;
   end = n - floor(sqrt(2*n + (1/4.0)) - (1/2.0));
-  cout << start << " -> " << end << endl; 
+  cout << start << " -> " << end << endl;
+  string file_name = "m_" + to_string(n) + "stats.dat";
+  ofstream myfile;
+  myfile.open(file_name);
+  while ( ot < otypes ){
+    //cout << "Working with ot " << ot << endl;
+    rows = count_thrackles(n,n,ot);
+    //int check[4] = {25,21,10,0};
+    //cout << "Cols :" << cols << endl;
+    //cout << "Rows :" << rows << endl;
+    if (!rows){
+      ot ++;
+      continue;
+    }
+    //Populate the matrix.
+    bool_th_mat = (int **)malloc(rows * sizeof(int*));
+    for(int i = 0; i < rows; i++) bool_th_mat[i] = (int *)malloc(cols * sizeof(int));
 
+    load_thrackles(n,n,ot,bool_th_mat);
+    if (!mat_union_covers(bool_th_mat,cols,rows)){
+      ot ++;
+      a = (int **)bool_th_mat;
+      for(int i = 0; i < rows; i++) free(a[i]);
+      //cout << "Rows freed\n";
+      continue;
+    }
+    cout << "OT " << ot << " max thrackles cover\n";
+
+    k = start;
+
+
+    while(k <= end){
+      count_repetitions_all(bool_th_mat, rows, k, n,m_arr);
+      if( m_arr[0] == 99 ) printf("\tNo decomposition of size %d found.\n",k);
+      else {
+        printf("\tThrackle set size : %d, min_repetitions: %d, max_repetitions: %d\n",k,m_arr[0],m_arr[1]);
+        writeResults(myfile,ot,k,m_arr[0],m_arr[1]);
+      }
+      k++;
+    }
+
+    ot++;
+    a = (int **)bool_th_mat;
+    for(int i = 0; i < rows; i++) free(a[i]);
+    //<cout << "Rows freed\n";
+  }
+  free(a);
+  myfile.close();
   return 1;
 }
