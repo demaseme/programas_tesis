@@ -15,7 +15,7 @@ int main(int argc, char * argv[]){
   int **a;
   int m_arr[2] = {99,-1};
   int n,k,otypes,start,end,rows,cols;
-  int ot = 0;
+  int ot = 1;
   n = atoi(argv[1]);
   cols = n*(n-1)/2.0;
   switch(n){
@@ -44,14 +44,27 @@ int main(int argc, char * argv[]){
   string file_name = "m_" + to_string(n) + "stats.dat";
   ofstream myfile;
   myfile.open(file_name);
-  while ( ot < otypes ){
+
+  /*
+    Use K_n_statistics.dat information to know which otypes is worth to visit.
+  */
+  vector<int> otypes_vec;
+  select_otypes(n,otypes_vec);
+  for(auto i = otypes_vec.begin(); i != otypes_vec.end(); ++i){
+    printf("%d \n",*i);
+  }
+
+  auto i = otypes_vec.begin();
+  ++i; //Avoid OT 0 - convex.
+  while ( i != otypes_vec.end() ){
     //cout << "Working with ot " << ot << endl;
+    ot = *i;
     rows = count_thrackles(n,n,ot);
     //int check[4] = {25,21,10,0};
     //cout << "Cols :" << cols << endl;
     //cout << "Rows :" << rows << endl;
     if (!rows){
-      ot ++;
+      ++i;
       continue;
     }
     //Populate the matrix.
@@ -60,7 +73,7 @@ int main(int argc, char * argv[]){
 
     load_thrackles(n,n,ot,bool_th_mat);
     if (!mat_union_covers(bool_th_mat,cols,rows)){
-      ot ++;
+      ++i;
       a = (int **)bool_th_mat;
       for(int i = 0; i < rows; i++) free(a[i]);
       //cout << "Rows freed\n";
@@ -81,7 +94,7 @@ int main(int argc, char * argv[]){
       k++;
     }
 
-    ot++;
+    ++i;
     a = (int **)bool_th_mat;
     for(int i = 0; i < rows; i++) free(a[i]);
     //<cout << "Rows freed\n";

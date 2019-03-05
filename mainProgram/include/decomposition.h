@@ -10,7 +10,7 @@ void t_combinations(int n, int k);
 int count_repetitions(int ** bool_th_mat, int th_index[], int ncols, int nthrs, int setsize);
 void count_repetitions_all(int ** bool_th_mat, int rows, int k, int setsize, int m_arr[2]);
 bool mat_union_covers(int ** bool_th_mat, int cols, int rows);
-
+void select_otypes(int n, vector<int> & otypes_vec);
 
 int is_decomposition(int th_index[], int n_ths, int ** bool_th_mat, int cols);
 bool is_atk_upper(int n_th, int setsize, int ot, int k, int ** bool_th_mat);
