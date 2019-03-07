@@ -175,8 +175,8 @@ int main(int argc, char* argv[]) {
       //printVectorInt(test3);
       // exhaustive_at(matrix, cols, setSize, startingThrackle, 0,0);
 
-      cout << "Anti-thickness : " << minAt  << endl;
-      cout << "Minimal number of thrackles needed " << lowAt << endl;
+      // cout << "Anti-thickness : " << minAt  << endl;
+      // cout << "Minimal number of thrackles needed " << lowAt << endl;
       std::chrono::high_resolution_clock::time_point t2 = chrono::high_resolution_clock::now();
       chrono::duration<double, std::milli> time_span = t2 - t1;
       cout << "It took me " << time_span.count() << " milliseconds.";
@@ -214,7 +214,7 @@ int main(int argc, char* argv[]) {
          tmp_thrackle.edge_bool.clear();
       }
 
-      thrackle_real_intersection_wrt(foundThrackles, ot_number, setSize,k);
+      //thrackle_real_intersection_wrt(foundThrackles, ot_number, setSize,k);
 
       thrackle_intersection_all(foundThrackles,minimal_intersection_counter);
       // cout << "Minimal intersection calculated!\n";

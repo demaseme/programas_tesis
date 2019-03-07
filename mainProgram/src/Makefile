@@ -14,5 +14,7 @@ check_antithickness:
 	g++ check_at.cpp decomposition.cpp -o check_at -Wall
 repetition_counter:
 	g++ m_statistics.cpp decomposition.cpp -o m_statistics -Wall
+int_partitions:
+	g++ integer_partitions.cpp decomposition.cpp -o integer_partitions -Wall
 clean:
 	rm *.o frac

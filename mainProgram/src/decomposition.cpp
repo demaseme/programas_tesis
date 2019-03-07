@@ -333,6 +333,87 @@ void t_combinations(int n, int t){
   }
 }
 
+bool is_valid_partition(int size, int a[], int max_val){
+    for (int i = 1; i < size; ++i) {
+      if (a[i] == 0 || a[i] > max_val )
+        return false;
+    }
+}
+void print_integer_partition(int size, int a[]) {
+  for (int i = 1; i < size; ++i) {
+    if (a[i] == 0)
+      break;
+    if (i != 1)
+      printf(" + ");
+    printf("%" "u", a[i]);
+  }
+  printf("\n");
+}
+void generate_integer_partitions_constrained(int size, int max_size, int max_val, int a[], void (*visit)(int, int*)) {
+    int n = size - 1;
+    if (n == 0) {
+        visit(size, a); // visit empty partition
+        return;
+    }
+    //P1
+    a[0] = 0;
+    int m = 1;
+    for ( ; ; ) { //P2
+        a[m] = n;
+        int q = m - (n == 1);
+        for ( ; ; ) {
+            if (m <= max_size && is_valid_partition(m+1,a,max_val)) visit(m+1, a); //P3
+            if (a[q] == 2) { //P4
+                a[q] = 1;
+                q -= 1;
+                m += 1;
+                a[m] = 1;
+                continue; // goto P3
+            }
+            else {
+                if (q == 0)
+                return;//P5
+                int x = a[q] - 1;
+                a[q] = x;
+                for (n = m - q + 1, m = q + 1; x < n; m += 1, n -= x) a[m] = x;//P6
+                break; // goto P2
+          }
+        }
+    }
+}
+
+void generate_integer_partitions(int size, int a[], void (*visit)(int, int*)) {
+    int n = size - 1;
+    if (n == 0) {
+        visit(size, a); // visit empty partition
+        return;
+    }
+    //P1
+    a[0] = 0;
+    int m = 1;
+    for ( ; ; ) { //P2
+        a[m] = n;
+        int q = m - (n == 1);
+        for ( ; ; ) {
+            visit(m+1, a); //P3
+            if (a[q] == 2) { //P4
+                a[q] = 1;
+                q -= 1;
+                m += 1;
+                a[m] = 1;
+                continue; // goto P3
+            }
+            else {
+                if (q == 0)
+                return;//P5
+                int x = a[q] - 1;
+                a[q] = x;
+                for (n = m - q + 1, m = q + 1; x < n; m += 1, n -= x) a[m] = x;//P6
+                break; // goto P2
+          }
+        }
+    }
+}
 
 void writeResults(ofstream & myfile, int ot, int th_set_size, int m_min, int m_max){
   myfile << ot << " " ;
