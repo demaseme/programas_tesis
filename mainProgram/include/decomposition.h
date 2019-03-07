@@ -10,6 +10,8 @@ void t_combinations(int n, int k);
 void generate_integer_partitions(int size, int a[], void (*visit)(int, int*));
 void print_integer_partition(int size, int a[]);
 void generate_integer_partitions_constrained(int size, int max_size, int max_val, int a[], void (*visit)(int, int*));
+bool is_partition_valid(int a[], int size, int max_val);
+
 int count_repetitions(int ** bool_th_mat, int th_index[], int ncols, int nthrs, int setsize);
 void count_repetitions_all(int ** bool_th_mat, int rows, int k, int setsize, int m_arr[2]);
 bool mat_union_covers(int ** bool_th_mat, int cols, int rows);

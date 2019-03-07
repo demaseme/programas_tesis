@@ -333,12 +333,20 @@ void t_combinations(int n, int t){
   }
 }
 
-bool is_valid_partition(int size, int a[], int max_val){
-    for (int i = 1; i < size; ++i) {
-      if (a[i] == 0 || a[i] > max_val )
-        return false;
+/*
+    Returns true if all items of a[] are less or equal than max_val
+    and if the occurrence of max_val is unique.
+*/
+bool is_partition_valid(int a[], int size, int max_val){
+    int c=0;
+    for( int i = 1; i < size; i++){
+        if(a[i] > max_val) return false;
+        if(a[i] == max_val) c++;
+        if (c > 1) return false;
     }
+    return true;
 }
+
 void print_integer_partition(int size, int a[]) {
   for (int i = 1; i < size; ++i) {
     if (a[i] == 0)
@@ -360,9 +368,10 @@ void generate_integer_partitions_constrained(int size, int max_size, int max_val
     int m = 1;
     for ( ; ; ) { //P2
         a[m] = n;
+        //while( a[m] > max_val) a[m]--;
         int q = m - (n == 1);
         for ( ; ; ) {
-            if (m <= max_size && is_valid_partition(m+1,a,max_val)) visit(m+1, a); //P3
+            if (m < max_size && is_partition_valid(a,m+1,max_val)) visit(m+1, a); //P3
             if (a[q] == 2) { //P4
                 a[q] = 1;
                 q -= 1;
@@ -374,6 +383,7 @@ void generate_integer_partitions_constrained(int size, int max_size, int max_val
                 if (q == 0)
                 return;//P5
                 int x = a[q] - 1;
+                // cout << "Inserting " << x << endl;
                 a[q] = x;
                 for (n = m - q + 1, m = q + 1; x < n; m += 1, n -= x) a[m] = x;//P6
                 break; // goto P2
