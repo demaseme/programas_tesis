@@ -12,5 +12,5 @@ int main(int argc, char * argv[]){
     int max_size = atoi(argv[2]);
     //generate_integer_partitions( size,  a, print_integer_partition);
     generate_integer_partitions_constrained(size,max_size,max_val, a, print_integer_partition);
-    return 1;
+    return 1; 
 }
