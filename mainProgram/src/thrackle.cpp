@@ -340,7 +340,7 @@ void thrackle_intersection_all(const vector<Thrackle> T, int & result){
                   if (res[k]) count++;
               }
               if (count < minimal) {minimal = count;}
-              if (minimal == 0 ) { cout << "no intersection between thrackles " << i << " and " << j << endl; result =minimal;}
+              if (minimal == 0 ) {  result =minimal;}
               count = 0;
               // for(int m = 0; m < (int)res.size() ; m++){
               //     res[m] = true;
@@ -522,7 +522,7 @@ bool union_covers(vector<Thrackle> T){
   for(int i = 0 ; i < (int) T.size() - 1 ; i++){
 
     bool_thrackle_union(T[i],T[i+1],res);
-  
+
   }
   for(int i = 0; i < (int) res.size(); i++){
     final_res &= res[i];

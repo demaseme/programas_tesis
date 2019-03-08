@@ -1,16 +1,17 @@
 #include "../include/disjointness.h"
 
-int print_bin_file(string file_name);
+int print_bin_file(string file_name, int );
 
 int main(int argc, char* argv[]) {
     if ( argc <= 1 ) {
         fprintf(stderr,"Usage %s <intersection-file.ths>\n",argv[0]);
         exit(-1);
     }
-    print_bin_file(argv[1]);
+    int delta = atoi(argv[2]);
+    print_bin_file(argv[1], delta);
 }
 
-int print_bin_file(string filename){
+int print_bin_file(string filename, int delta){
     uint16_t x,y,a,b;
     int i,j;
     uint16_t size;
@@ -44,12 +45,12 @@ int print_bin_file(string filename){
     for(i =0 ; i < number_of_thrackles; i++){
         for(j= i+1; j < number_of_thrackles;j++){
             myfile.read((char*) & size, sizeof(uint16_t));
+            if( size > delta) continue;
             if((i < 10) & (j < 10)) printf("%d  %d : %d\n",i,j,size);
             else if((i < 10) & (j > 10)) printf("%d %d: %d\n",i,j,size);
             else if((i > 10) & (j < 10)) printf("%d %d: %d\n",i,j,size);
             else if((i > 10) & (j > 10)) printf("%d %d: %d\n",i,j,size);
             else printf("%d %d : %d\n",i,j,size);
-
         }
     }
     myfile.close();

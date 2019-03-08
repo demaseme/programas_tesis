@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/dmerinos/Documents/CINVESTAV/Programas/mainProgram/exp/point_generator.cpp
+iostream
+-
+vector
+-
+CGAL/Cartesian_d.h
+-
+CGAL/point_generators_d.h
+-
+
