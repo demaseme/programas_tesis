@@ -6,5 +6,5 @@ CXX_FLAGS = -g -O2 -fdebug-prefix-map=/build/cgal-ZyilPF/cgal-4.11=. -fstack-pro
 
 CXX_DEFINES = -DCGAL_USE_GMP -DCGAL_USE_GMPXX -DCGAL_USE_MPFR
 
-CXX_INCLUDES = -I/home/dmerinos/Documents/CINVESTAV/Programas/mainProgram/exp/../include -isystem /usr/include/x86_64-linux-gnu -I/home/dmerinos/Documents/CINVESTAV/Programas/mainProgram/exp 
+CXX_INCLUDES = -I/home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/mainProgram/exp/../include -isystem /usr/include/x86_64-linux-gnu -I/home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/mainProgram/exp/pg_build 
 

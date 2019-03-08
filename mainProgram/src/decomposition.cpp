@@ -11,8 +11,8 @@ int count_thrackles(int set_size, int t_size,int desired_ot){
   myfile.open(file_name, ios::binary);
   myfile.seekg(0,myfile.beg);
   if(!myfile.is_open()) {
-    fprintf(stderr, "%s\n", "Error opening thrackle boolean file\n");
-    return 0;
+    fprintf(stderr, "Error opening thrackle boolean file %s\n", file_name.c_str());
+    exit(-1);
   }
   //foundThrackles.clear();
   int eater = 0;
@@ -51,8 +51,8 @@ int load_thrackles(int set_size, int t_size,int desired_ot, int ** bool_th_mat){
   myfile.open(file_name, ios::binary);
   myfile.seekg(0,myfile.beg);
   if(!myfile.is_open()) {
-    fprintf(stderr, "%s\n", "Error opening thrackle boolean file\n");
-    return 0;
+    fprintf(stderr, "%s\n", "Error loading thrackle boolean file\n");
+    exit(-1);
   }
   //foundThrackles.clear();
   int eater = 0;
@@ -91,6 +91,9 @@ int load_thrackles(int set_size, int t_size,int desired_ot, int ** bool_th_mat){
   return 1;
 }
 
+/*
+  Chooses ordertypes which union of thrackles covers the graph.
+*/
 void select_otypes(int n, vector<int> & otypes_vec){
   //Search for K_n_statistics.dat.
   ifstream myfile;
@@ -117,6 +120,56 @@ bool mat_union_covers(int ** bool_th_mat, int cols, int rows){
     if (!has_edge_i) return false;
   }
   return true;
+}
+
+
+/*
+  Forms all q-sets of [0...rows], then, for each tuple
+  calculates its intersection size, then writes it to
+  myfile.
+*/
+void calculate_q_intersection_all(int ** bool_th_mat, int rows, int q, int setsize, ofstream & myfile){
+  int c[q+3];
+  int c_curr[q];
+  int j,m;
+  int n = rows;
+  int cols = setsize*(setsize-1)/2.0;
+  c[0] = 9999;
+  for(int i=1; i < q+1; i++){
+      c[i] = i-1;
+  }
+  c[q+1] = n;
+  c[q+2] = 0;
+
+  while (true) {
+    //L2. Visit.
+    //For each generated, check if it's a decomposition.
+    //usleep(100000);
+    //printf("Checking ");
+    for(int i = q; i > 0; i--){
+
+      c_curr[i-1] = c[i];
+      myfile.write( (char*) &c[i], sizeof(char));
+    //  printf(" %d ",c[i]);
+    }
+    //printf("Couting reps\n" );
+    m = count_repetitions(bool_th_mat,c_curr,cols,q,setsize);
+    //Write to file. <c_curr> m
+    myfile.write( (char*) &m, sizeof(char));
+    //L3. FIND j
+    j = 1;
+    while( (c[j] + 1) == c[j+1] ) {
+        c[j] = j - 1;
+        j = j + 1;
+    }
+    //L4. Termination condition met?
+    if (j > q) {
+        //std::cout << res << " combinations\n";
+        break;
+    }
+    //L5. Update and Return to L2.
+    c[j] = c[j] + 1;
+  }
 }
 
 
@@ -195,9 +248,12 @@ int count_repetitions(int ** bool_th_mat, int th_index[], int ncols, int nthrs, 
     int i,j;
     int edge_i_count;
     int m = 0;
+
+    //printf("cols %d, thrs: %d, setsize: %d\n",ncols,nthrs,setsize);
     for (i = 0; i < ncols; i++){
         edge_i_count = 0;
         for( j = 0 ; j < nthrs; j++ ){
+          //printf("Checking %d,%d\n",i,j);
             if (bool_th_mat[th_index[j]][i]){
                 edge_i_count++;
             }
@@ -449,7 +505,7 @@ void printMatrix(int ** matrix, int rows, int cols){
       cout << "\n";
   }
 }
-void freeMatrix(int ** matrix, const int rows){
+void freeMatrix_dec(int ** matrix, const int rows){
   int i;
   int **a;
   a = (int **)matrix;

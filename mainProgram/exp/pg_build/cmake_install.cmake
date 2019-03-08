@@ -1,4 +1,4 @@
-# Install script for directory: /home/dmerinos/Documents/CINVESTAV/Programas/mainProgram/exp
+# Install script for directory: /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/mainProgram/exp
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/dmerinos/Documents/CINVESTAV/Programas/mainProgram/exp/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/mainProgram/exp/pg_build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

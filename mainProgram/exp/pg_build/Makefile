@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/dmerinos/Documents/CINVESTAV/Programas/mainProgram/exp
+CMAKE_SOURCE_DIR = /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/mainProgram/exp
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/dmerinos/Documents/CINVESTAV/Programas/mainProgram/exp
+CMAKE_BINARY_DIR = /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/mainProgram/exp/pg_build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/dmerinos/Documents/CINVESTAV/Programas/mainProgram/exp/CMakeFiles /home/dmerinos/Documents/CINVESTAV/Programas/mainProgram/exp/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/mainProgram/exp/pg_build/CMakeFiles /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/mainProgram/exp/pg_build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/dmerinos/Documents/CINVESTAV/Programas/mainProgram/exp/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/mainProgram/exp/pg_build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -111,17 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named executable
+# Target rules for targets named pg
 
 # Build rule for target.
-executable: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 executable
-.PHONY : executable
+pg: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 pg
+.PHONY : pg
 
 # fast build rule for target.
-executable/fast:
-	$(MAKE) -f CMakeFiles/executable.dir/build.make CMakeFiles/executable.dir/build
-.PHONY : executable/fast
+pg/fast:
+	$(MAKE) -f CMakeFiles/pg.dir/build.make CMakeFiles/pg.dir/build
+.PHONY : pg/fast
 
 point_generator.o: point_generator.cpp.o
 
@@ -129,7 +129,7 @@ point_generator.o: point_generator.cpp.o
 
 # target to build an object file
 point_generator.cpp.o:
-	$(MAKE) -f CMakeFiles/executable.dir/build.make CMakeFiles/executable.dir/point_generator.cpp.o
+	$(MAKE) -f CMakeFiles/pg.dir/build.make CMakeFiles/pg.dir/point_generator.cpp.o
 .PHONY : point_generator.cpp.o
 
 point_generator.i: point_generator.cpp.i
@@ -138,7 +138,7 @@ point_generator.i: point_generator.cpp.i
 
 # target to preprocess a source file
 point_generator.cpp.i:
-	$(MAKE) -f CMakeFiles/executable.dir/build.make CMakeFiles/executable.dir/point_generator.cpp.i
+	$(MAKE) -f CMakeFiles/pg.dir/build.make CMakeFiles/pg.dir/point_generator.cpp.i
 .PHONY : point_generator.cpp.i
 
 point_generator.s: point_generator.cpp.s
@@ -147,7 +147,7 @@ point_generator.s: point_generator.cpp.s
 
 # target to generate assembly for a file
 point_generator.cpp.s:
-	$(MAKE) -f CMakeFiles/executable.dir/build.make CMakeFiles/executable.dir/point_generator.cpp.s
+	$(MAKE) -f CMakeFiles/pg.dir/build.make CMakeFiles/pg.dir/point_generator.cpp.s
 .PHONY : point_generator.cpp.s
 
 # Help Target
@@ -157,7 +157,7 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... executable"
+	@echo "... pg"
 	@echo "... edit_cache"
 	@echo "... point_generator.o"
 	@echo "... point_generator.i"

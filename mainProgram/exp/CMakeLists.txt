@@ -1,7 +1,7 @@
 # Created by the script cgal_create_CMakeLists
 # This is the CMake script for compiling a set of CGAL applications.
 
-project( executable )
+project( pg )
 
 
 cmake_minimum_required(VERSION 2.8.11)
@@ -37,13 +37,13 @@ endif()
 include_directories( BEFORE ../include )
 
 
-# Creating entries for target: executable
+# Creating entries for target: pg
 # ############################
 
-add_executable( executable  point_generator.cpp )
+add_executable( pg  point_generator.cpp )
 
-add_to_cached_list( CGAL_EXECUTABLE_TARGETS executable )
+add_to_cached_list( CGAL_EXECUTABLE_TARGETS pg )
 
 # Link the executable to CGAL and third-party libraries
-target_link_libraries(executable   ${CGAL_LIBRARIES} ${CGAL_3RD_PARTY_LIBRARIES} )
+target_link_libraries(pg   ${CGAL_LIBRARIES} ${CGAL_3RD_PARTY_LIBRARIES} )
 

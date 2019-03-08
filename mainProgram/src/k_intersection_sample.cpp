@@ -33,6 +33,7 @@ void write_results_all(ofstream & myfile, int ot, int subset_size,int total_cov,
 void ready_dat_file(ofstream &myfile, int ot, int number_of_diff_subsets );
 void read_results(string file_name);
 int load_thrackles(int set_size, int t_size,int desired_ot);
+
 int main(int argc, char* argv[]) {
     one_ot_flag = false;
     read_file(argc,argv);
