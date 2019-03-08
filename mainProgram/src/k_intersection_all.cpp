@@ -43,10 +43,11 @@ int main(int argc, char * argv[]){
   }
   string file_name = to_string(n) + "_" + to_string(q) + "_"+ to_string(k) + "_intersections_all.dat";
   ofstream myfile;
-  myfile.open(file_name);
+  myfile.open(file_name, ios::binary);
   while (ot < otypes) {
+    //printf("Working with OT %d\n", ot);
     rows = count_thrackles(n,k,ot);
-    printf("There are %d thrackles.\n",rows);
+    //printf("There are %d thrackles.\n",rows);
     if ( !rows ) {
       ot++;
       continue;
@@ -55,15 +56,15 @@ int main(int argc, char * argv[]){
     bool_th_mat = (int **)malloc(rows * sizeof(int*));
     for(int i = 0; i < rows; i++) bool_th_mat[i] = (int *)malloc(cols * sizeof(int));
     load_thrackles(n,k,ot,bool_th_mat);
-    printf("Thrackles loaded!\n");
-    printMatrix(bool_th_mat,rows,cols);
+    //printf("Thrackles loaded!\n");
+    //printMatrix(bool_th_mat,rows,cols);
     myfile.write( (char*) &ot, sizeof(char));
     myfile.write( (char*) &rows, sizeof(char));
     calculate_q_intersection_all(bool_th_mat,rows,q,n,myfile);
     a = (int **)bool_th_mat;
     for(int i = 0; i < rows; i++) free(a[i]);
     ot++;
-    break;
+
   }
   free(a);
   myfile.close();

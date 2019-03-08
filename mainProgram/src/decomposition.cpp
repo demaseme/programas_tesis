@@ -18,8 +18,8 @@ int count_thrackles(int set_size, int t_size,int desired_ot){
   int eater = 0;
   while(current_ot != desired_ot){
     //cout << current_ot << endl;
-    myfile.read( (char*)&eater,sizeof(char));//ot
-    myfile.read( (char*)&eater,sizeof(char)); //number_of_t
+    myfile.read( (char*)&eater,sizeof(uint16_t));//ot
+    myfile.read( (char*)&eater,sizeof(uint16_t)); //number_of_t
     c = eater;
     for(i = 0; i < c; i++){
       for ( j = 0 ; j < cols ; j++){
@@ -32,8 +32,8 @@ int count_thrackles(int set_size, int t_size,int desired_ot){
   //When we get out of this while, we're in position to read
   //the information that we actually care about.
   eater = 0;
-  myfile.read( (char*)&eater,sizeof(char));//ot
-  myfile.read( (char*)&eater,sizeof(char)); //number_of_t
+  myfile.read( (char*)&eater,sizeof(uint16_t));//ot
+  myfile.read( (char*)&eater,sizeof(uint16_t)); //number_of_t
   c = eater;
   thrackleCounter = c;
   myfile.close();
@@ -58,8 +58,8 @@ int load_thrackles(int set_size, int t_size,int desired_ot, int ** bool_th_mat){
   int eater = 0;
   while(current_ot != desired_ot){
     //cout << current_ot << endl;
-    myfile.read( (char*)&eater,sizeof(char));//ot
-    myfile.read( (char*)&eater,sizeof(char)); //number_of_t
+    myfile.read( (char*)&eater,sizeof(uint16_t));//ot
+    myfile.read( (char*)&eater,sizeof(uint16_t)); //number_of_t
     c = eater;
     for(i = 0; i < c; i++){
       for ( j = 0 ; j < cols ; j++){
@@ -72,8 +72,8 @@ int load_thrackles(int set_size, int t_size,int desired_ot, int ** bool_th_mat){
   //When we get out of this while, we're in position to read
   //the information that we actually care about.
   eater = 0;
-  myfile.read( (char*)&eater,sizeof(char));//ot
-  myfile.read( (char*)&eater,sizeof(char)); //number_of_t
+  myfile.read( (char*)&eater,sizeof(uint16_t));//ot
+  myfile.read( (char*)&eater,sizeof(uint16_t)); //number_of_t
   c = eater;
   thrackleCounter = c;
   //cout << "Reading " << thrackleCounter << " thrackles\n";
@@ -149,13 +149,21 @@ void calculate_q_intersection_all(int ** bool_th_mat, int rows, int q, int setsi
     for(int i = q; i > 0; i--){
 
       c_curr[i-1] = c[i];
-      myfile.write( (char*) &c[i], sizeof(char));
+
     //  printf(" %d ",c[i]);
     }
     //printf("Couting reps\n" );
     m = count_repetitions(bool_th_mat,c_curr,cols,q,setsize);
-    //Write to file. <c_curr> m
-    myfile.write( (char*) &m, sizeof(char));
+    //Write to file if m is empty. <c_curr> m
+    if(m == 0) {
+        printf("Writing ");
+        for(int i = q; i > 0; i--){
+        //    printf(" %d ",c[i]);
+            myfile.write( (char*) &c[i], sizeof(uint16_t));
+        }
+        printf("\n");
+        myfile.write( (char*) &m, sizeof(char));
+    }
     //L3. FIND j
     j = 1;
     while( (c[j] + 1) == c[j+1] ) {
@@ -367,7 +375,7 @@ void t_combinations(int n, int t){
   c[t+1] = n;
   c[t+2] = 0;
   while (true) {
-    usleep(1000000);
+    //usleep(1000000);
     //L2. Visit. Here we check if current combination is a thrackle or nah.
     for(int i = t; i > 0; i--){
       printf(" %d ",c[i]);
