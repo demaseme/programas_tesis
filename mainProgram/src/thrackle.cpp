@@ -611,7 +611,7 @@ const int t_size,const int ot_number ){
 
   printf("Writing %d ot\n",ot_number);
   printf("Writing %d thrackles\n",t_number);
-  printf("Each thrackle is of size %d\n",T[0].edge_bool.size());
+  if(t_number > 0 ) printf("Each thrackle is of size %d\n",T[0].edge_bool.size());
   for(i= 0; i < t_number; i++){
     for(j = 0 ; j < (int)T[i].edge_bool.size(); j++){
       int val =  (T[i].edge_bool[j]);

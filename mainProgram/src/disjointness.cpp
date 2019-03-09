@@ -501,8 +501,7 @@ int get_kthrackles_of_matrix(int ** matrix, const int cols, const int desired_si
  // int key,key2;
  // bool tfound = false;
   vector<int> thracklePositions;
-  std::chrono::high_resolution_clock::time_point t1;
-  std::chrono::high_resolution_clock::time_point t2;
+  
   //Start up counters with first 5 edges, not necessary. (Really only need 0 and 1 )
   for(i = 0; i < 2 ; i++){
     counters[i] = i;
@@ -534,17 +533,11 @@ int get_kthrackles_of_matrix(int ** matrix, const int cols, const int desired_si
         counters[current_size]++;
         continue;
       }
-      if( (current_size+1) == desired_size ) {
-          t1 = chrono::high_resolution_clock::now();
-      }
+
       for(i = 0; i < current_size ; i++ ){
         intersect &= !matrix[counters[i]][counters[current_size]];
       }
-      if( (current_size+1) == desired_size ) {
-          t2 = chrono::high_resolution_clock::now();
-          chrono::duration<double, std::milli> time_span = t2 - t1;
-          cout << "It took me " << time_span.count() << " milliseconds.\n";
-      }
+
       if ( !intersect ) {
         counters[current_size]++;
       } else {

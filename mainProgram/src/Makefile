@@ -20,5 +20,7 @@ custom_experiment:
 	g++ custom_exp.cpp decomposition.cpp point.cpp thrackle.cpp disjointness.cpp -o custom_exp -Wall
 k_inter_all:
 	g++ k_intersection_all.cpp decomposition.cpp -o k_intersection -Wall
+manual_dec:
+	g++ assert_manual_decomposition.cpp decomposition.cpp -o manual_decomposition -Wall
 clean:
 	rm *.o frac
