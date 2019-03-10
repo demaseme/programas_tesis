@@ -25,9 +25,13 @@ bool look8876(int ot){
   ifstream h88, h87, h87_2, h86;
   h88.open("ths/8_8_All_bool.ths", ios::binary);
   h87.open("ths/8_7_All_bool.ths", ios::binary);
-  h87_2.open("ths/8_7_All_bool.ths", ios::binary);
+  h87_2.open("ths/8_7_All_bool2.ths", ios::binary);
   h86.open("ths/8_6_All_bool.ths", ios::binary);
   h88.seekg(0,h88.beg);
+  h87.seekg(0,h87.beg);
+  h87_2.seekg(0,h87_2.beg);
+  h86.seekg(0,h86.beg);
+
   if (!h88.good() || !h87.good() || !h86.good()) {
     fprintf(stderr, "Error opening thrackle file!!\n");
     exit(-1);
@@ -97,65 +101,83 @@ bool look8876(int ot){
   bool arr_bk3[28];
   bool arr_bk2[28];
   bool arr_bk1[28];
-  for ( i = 0; i < 28; i++) arr[i] = false;
 
-  for( i = 0; i < 28; i++) arr_bk1[i] = arr[i];
-  for( i = 0 ; i < nt88; i++){
-    int val = 0;
-    if ( i== 0 ) printf("i=%d>1   ",i);
-    for ( int c = 0; c < nedges; c++){
-      h88.read( (char*)&val,sizeof(char));
-      arr[c] = val;
-      if(i == 0) printf("%d ",val);
-    }
-    if(i == 0) printf("\n");
-    for ( int c = 0; c < 28; c++) arr_bk2[c] = arr[i];
-    for( j = 0; j < nt87; j++){
-      int val2 = 0;
-      if ( j== 0 ) printf("j=%d>2   ",j);
-      for ( int c = 0; c < nedges; c++){
-        h87.read( (char*)&val2,sizeof(char));
-        arr[c] |= val2;
-        if(j == 0) printf("%d ",val2);
-      }
-      if(j == 0) printf("\n");
-      for ( int c = 0; c < nedges; c++) arr_bk3[c] = arr[c];
-      for ( k = 0 ; k < nt87_2; k++){
-        int val3 = 0;
-        if(k==518) printf("m=%d>3 ", k);
-        for ( int c = 0; c < nedges; c++){
-          h87_2.read( (char*)&val3,sizeof(char));
-          arr[c] |= val3;
-          if(k==518) printf("%d ",val3);
-        }
-        if(k==518) printf("\n");
-        for ( int c = 0; c < nedges; c++) arr_bk4[c] = arr[c];
-        for (m = 0 ; m < nt86; m++){
-          int val4 = 0;
-          if(k==518 && m == 933) printf("m=%d>4 ",m);
-          for ( int p = 0; p < nedges; p++){
-            h86.read( (char*)&val4,sizeof(char));
-            arr[p] |= val4;
-            if(k==518 &&  m==933) {
-              printf("%d ",val4);
-            }
-          }
-          if(k==518 &&  m==933) printf("\n");
-          bool cover = 1;
-          for( int c = 0; c < nedges; c++) cover &= arr[c];
-          if (cover) {
-            printf("COVERED \n");
-            printf("Thrackles (%d %d %d %d)\n", i,j,k,m);
-            return 1;
-          }
-          for ( int c = 0; c < nedges; c++) arr[c] = arr_bk4[c];
-        }
-        for( int c = 0; c < nedges; c++) arr[c] = arr_bk3[c];
-      }
-      for( int c = 0; c < nedges; c++) arr[c] = arr_bk2[c];
-    }
-    for( int c = 0; c < nedges; c++) arr[c] = arr_bk1[c];
-  }
+  for ( i = 0; i < 28; i++) arr[i] = false;
+  //
+  // for( i = 0; i < 28; i++) arr_bk1[i] = arr[i];
+  // for( i = 0 ; i < nt88; i++){
+  //   int val = 0;
+  //   printf("Level 1 : Reading ");
+  //   for ( int c = 0; c < nedges; c++){
+  //     h88.read( (char*)&val,sizeof(char));
+  //     arr[c] |= val;
+  //     printf("%d ", val);
+  //   }
+  //   printf("\n");
+  //   printf("Level 1 : Result  ");
+  //   for ( int c = 0; c < nedges; c++){
+  //     printf("%d ", arr[c]);
+  //   }
+  //   printf("\n");
+  //   for( int i2 = 0; i2 < 28; i2++) arr_bk2[i2] = arr[i2];
+  //   for( j = 0 ; j < nt87; j++){
+  //     usleep(2000000);
+  //     int val2 = 0;
+  //     printf("Level 2 : Reading ");
+  //     for( int c2 = 0; c2 < nedges; c2++){
+  //       h87.read( (char*)&val2,sizeof(char));
+  //       arr[c2] |= val2;
+  //       printf("%d ", val2);
+  //     }
+  //     printf("\n");
+  //     printf("Level 2 : Result  ");
+  //     for ( int c = 0; c < nedges; c++){
+  //       printf("%d ", arr[c]);
+  //     }
+  //     printf("\n");
+  //     for( int i3 = 0; i3 < 28; i3++) arr_bk3[i3] = arr[i3];
+  //     for( k = 0; k < nt87_2; k++){
+  //       int val3 = 0;
+  //       printf("Level 3 : Reading ");
+  //       for( int c3 = 0; c3 < nedges; c3++){
+  //         h87_2.read( (char*)&val3,sizeof(char));
+  //         arr[c3] |= val3;
+  //         printf("%d ", val3);
+  //       }
+  //       printf("\n");
+  //       printf("Level 3 : Result  ");
+  //       for ( int c = 0; c < nedges; c++){
+  //         printf("%d ", arr[c]);
+  //       }
+  //       printf("\n");
+  //       for( int i4 = 0; i4 < 28; i4++) arr_bk3[i4] = arr[i4];
+  //       for( m = 0; m < nt86; m++){
+  //         //usleep(1000000);
+  //
+  //         printf("Level 4 : Reading ");
+  //         for( int c4 = 0; c4 < nedges; c4++){
+  //           int val4=0;
+  //           h86.read( (char*)&val4,sizeof(char));
+  //           arr[c4] |= val4;
+  //           printf("%d ", val4);
+  //
+  //           if (val4 > 1) {cout << m << endl; return 1; }
+  //         }
+  //         printf("\n");
+  //         printf("Level 4 : Result  ");
+  //         for ( int c = 0; c < nedges; c++){
+  //           printf("%d ", arr[c]);
+  //         }
+  //         printf("\n");
+  //         for( int c4 = 0; c4 < nedges; c4++) arr[c4] = arr_bk4[c4];
+  //       }
+  //       for( int c3 = 0; c3 < nedges; c3++) arr[c3] = arr_bk3[c3];
+  //     }
+  //     for( int c2 = 0; c2 < nedges; c2++) arr[c2] = arr_bk2[c2];
+  //   }
+  //
+  //   for( int c = 0; c < nedges; c++) arr[c] = arr_bk1[c];
+  // }
   // printf("Displaying %d thrackles. \n", nt88 );
   // eater = 0;
   // for(i = 0; i < nt88; i++){
