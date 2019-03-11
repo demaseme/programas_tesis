@@ -18,9 +18,10 @@ int main(){
 bool look8876(int ot){
   int current_ot = 0;
   int eater = 0;
-  int i,j,k,m,c;
+  int i,j,k,l,m,c;
   int nedges = 28;
   int nt88,nt87,nt87_2,nt86;
+
   //Open all files.
   ifstream h88, h87, h87_2, h86;
   h88.open("ths/8_8_All_bool.ths", ios::binary);
@@ -101,96 +102,67 @@ bool look8876(int ot){
   bool arr_bk3[28];
   bool arr_bk2[28];
   bool arr_bk1[28];
+  bool arr88[nt88][28];
+  bool arr87[nt87][28];
+  bool arr86[nt86][28];
 
   for ( i = 0; i < 28; i++) arr[i] = false;
-  //
-  // for( i = 0; i < 28; i++) arr_bk1[i] = arr[i];
-  // for( i = 0 ; i < nt88; i++){
-  //   int val = 0;
-  //   printf("Level 1 : Reading ");
-  //   for ( int c = 0; c < nedges; c++){
-  //     h88.read( (char*)&val,sizeof(char));
-  //     arr[c] |= val;
-  //     printf("%d ", val);
-  //   }
-  //   printf("\n");
-  //   printf("Level 1 : Result  ");
-  //   for ( int c = 0; c < nedges; c++){
-  //     printf("%d ", arr[c]);
-  //   }
-  //   printf("\n");
-  //   for( int i2 = 0; i2 < 28; i2++) arr_bk2[i2] = arr[i2];
-  //   for( j = 0 ; j < nt87; j++){
-  //     usleep(2000000);
-  //     int val2 = 0;
-  //     printf("Level 2 : Reading ");
-  //     for( int c2 = 0; c2 < nedges; c2++){
-  //       h87.read( (char*)&val2,sizeof(char));
-  //       arr[c2] |= val2;
-  //       printf("%d ", val2);
-  //     }
-  //     printf("\n");
-  //     printf("Level 2 : Result  ");
-  //     for ( int c = 0; c < nedges; c++){
-  //       printf("%d ", arr[c]);
-  //     }
-  //     printf("\n");
-  //     for( int i3 = 0; i3 < 28; i3++) arr_bk3[i3] = arr[i3];
-  //     for( k = 0; k < nt87_2; k++){
-  //       int val3 = 0;
-  //       printf("Level 3 : Reading ");
-  //       for( int c3 = 0; c3 < nedges; c3++){
-  //         h87_2.read( (char*)&val3,sizeof(char));
-  //         arr[c3] |= val3;
-  //         printf("%d ", val3);
-  //       }
-  //       printf("\n");
-  //       printf("Level 3 : Result  ");
-  //       for ( int c = 0; c < nedges; c++){
-  //         printf("%d ", arr[c]);
-  //       }
-  //       printf("\n");
-  //       for( int i4 = 0; i4 < 28; i4++) arr_bk3[i4] = arr[i4];
-  //       for( m = 0; m < nt86; m++){
-  //         //usleep(1000000);
-  //
-  //         printf("Level 4 : Reading ");
-  //         for( int c4 = 0; c4 < nedges; c4++){
-  //           int val4=0;
-  //           h86.read( (char*)&val4,sizeof(char));
-  //           arr[c4] |= val4;
-  //           printf("%d ", val4);
-  //
-  //           if (val4 > 1) {cout << m << endl; return 1; }
-  //         }
-  //         printf("\n");
-  //         printf("Level 4 : Result  ");
-  //         for ( int c = 0; c < nedges; c++){
-  //           printf("%d ", arr[c]);
-  //         }
-  //         printf("\n");
-  //         for( int c4 = 0; c4 < nedges; c4++) arr[c4] = arr_bk4[c4];
-  //       }
-  //       for( int c3 = 0; c3 < nedges; c3++) arr[c3] = arr_bk3[c3];
-  //     }
-  //     for( int c2 = 0; c2 < nedges; c2++) arr[c2] = arr_bk2[c2];
-  //   }
-  //
-  //   for( int c = 0; c < nedges; c++) arr[c] = arr_bk1[c];
-  // }
-  // printf("Displaying %d thrackles. \n", nt88 );
-  // eater = 0;
-  // for(i = 0; i < nt88; i++){
-  //   printf("Thrackle %d : (", i);
-  //   for(j = 0; j < nedges; j++ ){
-  //     h88.read( (char*)&eater,sizeof(char));
-  //     printf("%d ",eater);
-  //   }
-  //   printf(")\n");
-  // }
+  //Fill the matrices of thrackles.
+  bool val;
+  for (j = 0 ; j < nt88 ; j++ ) {
+    for( i = 0 ; i < 28 ; i++){
+      h88.read( (char*) & val, sizeof(char));
+      arr88[j][i] = val;
+    }
+  }
+  for (j = 0 ; j < nt87 ; j++ ) {
+    for( i = 0 ; i < 28 ; i++){
+      h87.read( (char*) & val, sizeof(char));
+      arr87[j][i] = val;
+    }
+  }
+  for (j = 0 ; j < nt86 ; j++ ) {
+    for( i = 0 ; i < 28 ; i++){
+      h86.read( (char*) & val, sizeof(char));
+      arr86[j][i] = val;
+    }
+  }
   h88.close();
   h87.close();
   h87_2.close();
   h86.close();
-  return 1;
+
+  for(i=0; i < 28 ; i ++) arr_bk1[i] = arr[i];
+  for( int l1 = 0; l1 < nt88 ; l1++) {
+    for( i = 0 ; i < 28 ; i++) arr[i] |= arr88[l1][i];
+    for( i = 0 ; i < 28 ; i++) arr_bk2[i] = arr[i];
+    for( int l2 = 0; l2 < nt87 ; l2++) {
+      for( j = 0 ; j < 28 ; j++) {
+        if ( arr[j] == arr87[l2][j] ) avoid_flag = true;
+        arr[j] |= arr87[l2][j];
+      }
+      if (!avoid_flag) {
+        for( j = 0 ; j < 28 ; j++) arr_bk3[j] = arr[j];
+        for( int l3 = 0 ; l3 < nt87 ; l3++) {
+          for( k = 0 ; k < 28 ; k++) arr[i] |= arr87[l3][k];
+          for( k = 0 ; k < 28 ; k++) arr_bk4[k] = arr[k];
+          for( int l4 = 0 ; l4 < nt86 ; l4++ ){
+            for( l = 0 ; l < 28 ; l++) arr[l] |= arr86[l4][l];
+            //Check if arr[l] cotains only 1s.
+            bool covering = true;
+            for( l = 0 ; l < 28 ; l++) covering &= arr[l];
+            if ( covering ) {
+              printf("Covers \n");
+              return 1;
+            }
+            for( l = 0 ; l < 28 ; l++) arr[l] = arr_bk4[l];
+          }
+          for( k = 0 ; k < 28 ; k++) arr[k] = arr_bk3[k];
+        }
+      }
+      for( j = 0 ; j < 28 ; j++) arr[j] = arr_bk2[j];
+    }
+    for( i = 0 ; i < 28 ; i++) arr[i] = arr_bk1[i];
+  }
+  return 0;
 }
