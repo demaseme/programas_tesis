@@ -225,7 +225,13 @@ void count_repetitions_all(int ** bool_th_mat, int rows, int k, int setsize, int
       // printf("\n");
 
       m_cur = count_repetitions(bool_th_mat,c_curr,cols,k,setsize);
-      if( m_cur > m_max) m_max = m_cur;
+      if( m_cur > m_max) {
+        m_max = m_cur;
+        for(int i = k; i > 0; i--){
+          printf(" %d ",c[i]);
+        }
+        printf("\n");
+      }
       if( m_cur < m_min) m_min = m_cur;
 
     } else {

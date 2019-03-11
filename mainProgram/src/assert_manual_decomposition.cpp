@@ -2,7 +2,12 @@
 
 bool look8876(int );
 int main(){
-  look8876(1);
+  int ot = 1; // 3315
+  while(ot < 3315) {
+    bool state = look8876(ot);
+    ot++;
+    if (state) break;
+  }
 }
 
 /*
@@ -131,31 +136,38 @@ bool look8876(int ot){
   h87.close();
   h87_2.close();
   h86.close();
-
+  bool avoid_flag,avoid_flag2;
   for(i=0; i < 28 ; i ++) arr_bk1[i] = arr[i];
   for( int l1 = 0; l1 < nt88 ; l1++) {
     for( i = 0 ; i < 28 ; i++) arr[i] |= arr88[l1][i];
     for( i = 0 ; i < 28 ; i++) arr_bk2[i] = arr[i];
     for( int l2 = 0; l2 < nt87 ; l2++) {
+      avoid_flag = false;
       for( j = 0 ; j < 28 ; j++) {
-        if ( arr[j] == arr87[l2][j] ) avoid_flag = true;
+        if ( arr[j] == arr87[l2][j] && arr[j]  ) avoid_flag = true;
         arr[j] |= arr87[l2][j];
       }
       if (!avoid_flag) {
         for( j = 0 ; j < 28 ; j++) arr_bk3[j] = arr[j];
         for( int l3 = 0 ; l3 < nt87 ; l3++) {
-          for( k = 0 ; k < 28 ; k++) arr[i] |= arr87[l3][k];
-          for( k = 0 ; k < 28 ; k++) arr_bk4[k] = arr[k];
-          for( int l4 = 0 ; l4 < nt86 ; l4++ ){
-            for( l = 0 ; l < 28 ; l++) arr[l] |= arr86[l4][l];
-            //Check if arr[l] cotains only 1s.
-            bool covering = true;
-            for( l = 0 ; l < 28 ; l++) covering &= arr[l];
-            if ( covering ) {
-              printf("Covers \n");
-              return 1;
+          avoid_flag2 = false;
+          for( k = 0 ; k < 28 ; k++) {
+            if ( arr[k] == arr87[l3][k] && arr[k] ) avoid_flag2 = true;
+            arr[k] |= arr87[l3][k];
+          }
+          if (!avoid_flag2) {
+            for( k = 0 ; k < 28 ; k++) arr_bk4[k] = arr[k];
+            for( int l4 = 0 ; l4 < nt86 ; l4++ ){
+              for( l = 0 ; l < 28 ; l++) arr[l] |= arr86[l4][l];
+              //Check if arr[l] cotains only 1s.
+              bool covering = true;
+              for( l = 0 ; l < 28 ; l++) covering &= arr[l];
+              if ( covering ) {
+                printf("Covers \n");
+                return 1;
+              }
+              for( l = 0 ; l < 28 ; l++) arr[l] = arr_bk4[l];
             }
-            for( l = 0 ; l < 28 ; l++) arr[l] = arr_bk4[l];
           }
           for( k = 0 ; k < 28 ; k++) arr[k] = arr_bk3[k];
         }
