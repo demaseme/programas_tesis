@@ -58,8 +58,8 @@ int main(int argc, char * argv[]){
 
   ++i; //Avoid OT 0 - convex.
   while ( i != otypes_vec.end() ){
-    //cout << "Working with ot " << ot << endl;
     ot = *i;
+    cout << "Working with ot " << ot << endl;
     rows = count_thrackles(n,n,ot);
     //int check[4] = {25,21,10,0};
     //cout << "Cols :" << cols << endl;
@@ -86,8 +86,12 @@ int main(int argc, char * argv[]){
 
 
     while(k <= end){
+      printf("Looking for a decomposition of size %d\n",k);
       count_repetitions_all(bool_th_mat, rows, k, n,m_arr);
-      if( m_arr[0] == 99 ) printf("\tNo decomposition of size %d found.\n",k);
+      if( m_arr[0] == 99 ) {
+          printf("\tNo decomposition of size %d found.\n",k);
+          
+      }
       else {
         printf("\tThrackle set size : %d, min_repetitions: %d, max_repetitions: %d\n",k,m_arr[0],m_arr[1]);
         writeResults(myfile,ot,k,m_arr[0],m_arr[1]);

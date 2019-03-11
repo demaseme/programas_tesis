@@ -11,7 +11,10 @@ uint16_t number_thrackles;
 uint16_t current_thrackle;
 uint16_t current_pair;
 bool pairwise_flag;
-
+bool dec_flag;
+int dec_size = 0;
+int dec_index[10];
+string dec_string;
 string file_name;
 
 void print(int x, int y, char *string){
@@ -361,11 +364,14 @@ void reshape_cb (int w, int h) {
 }
 
 void draw(){
-  int i;
+  int i,j;
   glClear(GL_COLOR_BUFFER_BIT);
   char thrackle_number[50] ;
   char order_type_number[10];
   char buffer[20];
+  float r_colors[6] = {1,0,0,1,1,1};
+  float g_colors[6] = {0,1,0,0,0.55,0.48};
+  float b_colors[6] = {0,0,1,1,0,0.09};
 
   strcpy(order_type_number,"OT: ");
   cout << "desired ot g: " << desired_ot_g << endl;
@@ -419,7 +425,35 @@ void draw(){
     }
     glEnd();
     glutSwapBuffers();
-  } else{
+  }
+  else if (dec_flag){
+	printf("DECOMPOSITION DRAW\n");
+	glColor3f(1,0,0);
+  	glLineWidth(1);
+  	gl2psLineWidth(3);
+	for (i = 0; i < dec_size ; i++ ){
+		glColor3f(r_colors[i],g_colors[i],b_colors[i]);
+		for( j = 0; j < (int)thrackles[dec_index[i]].edges.size(); j++ ){
+			glBegin(GL_LINE_STRIP);
+			glVertex2i(thrackles[dec_index[i]].edges[j].v1.x,thrackles[dec_index[i]].edges[j].v1.y);
+			glVertex2i(thrackles[dec_index[i]].edges[j].v2.x,thrackles[dec_index[i]].edges[j].v2.y);
+			glEnd();
+		}
+	}
+	//Draw points.
+	glColor3f(0.0, 0.0, 1.0);
+
+	glPointSize(5);
+	gl2psPointSize(10);
+	glBegin(GL_POINTS);
+	for(i = 0; i < (int)points.size(); i++){
+		glVertex2i(points[i].x, points[i].y);
+	}
+	glEnd();
+
+	glutSwapBuffers();
+  }
+  else{
 	glColor3f(.5,.5,.5);
 	glLineWidth(1);
 	gl2psLineWidth(3);
@@ -434,8 +468,8 @@ void draw(){
 				cout << "hi\n";
 				glColor3f(1.0, 0.0, 0.0);
 				sprintf(tag_char,"%d",i);
-				cout << "PRINT COORD: " << (thrackles[current_thrackle].edges[i].v1.x +thrackles[current_thrackle].edges[i].v2.x)/2.0;
-				cout << " , " <<  (thrackles[current_thrackle].edges[i].v1.y + thrackles[current_thrackle].edges[i].v2.y)/2.0 << endl;
+				//cout << "PRINT COORD: " << (thrackles[current_thrackle].edges[i].v1.x +thrackles[current_thrackle].edges[i].v2.x)/2.0;
+				//cout << " , " <<  (thrackles[current_thrackle].edges[i].v1.y + thrackles[current_thrackle].edges[i].v2.y)/2.0 << endl;
 				print( (thrackles[current_thrackle].edges[i].v1.x +thrackles[current_thrackle].edges[i].v2.x)/2.0,
 				 (thrackles[current_thrackle].edges[i].v1.y + thrackles[current_thrackle].edges[i].v2.y)/2.0,
 				 tag_char	);
@@ -461,17 +495,35 @@ void draw(){
 //Draws its information using OpenGL.
 int main(int argc, char* argv[]){
     int opt;
-    while (( opt = getopt(argc, argv, "p")) != -1){
+    while (( opt = getopt(argc, argv, "pd:")) != -1){
       switch(opt){
         case 'p':
           pairwise_flag = true;
           break;
-        // default:
-        //   fprintf(stderr,"Usage %s <.ths file> [-p]",argv[0]);
-        //   exit(EXIT_FAILURE);
+	  	case 'd':
+		  dec_string = optarg;
+		  pairwise_flag = false;
+		  dec_flag = true;
+		  break;
+        default:
+          fprintf(stderr,"Usage %s <.ths file> [-pAIRWISE] [-dECOMPOSITION \"OT decomposition\"]\n",argv[0]);
+          exit(EXIT_FAILURE);
       }
     }
 
+	int ot_draw;
+	int tmp_val;
+	stringstream sstr(dec_string);
+	if( dec_flag ) {
+		sstr >> ot_draw;
+		while (sstr >> 	tmp_val ){
+			dec_index[dec_size] = tmp_val;
+			dec_size++;
+		}
+		cout << ot_draw << endl;
+		for( int i = 0; i < dec_size; i++) printf(" %d ",dec_index[i]);
+		printf("\n");
+	}
     if (optind >= argc) {
          fprintf(stderr, "Expected argument after options\n");
          exit(EXIT_FAILURE);
@@ -484,7 +536,7 @@ int main(int argc, char* argv[]){
     initialize_opengl();
     file_name = argv[optind];
 
-    desired_ot_g = 0;
+    desired_ot_g = ot_draw;
     current_pair = 1;
     process_file_bin(file_name,desired_ot_g);
     //process_file(file_name);
