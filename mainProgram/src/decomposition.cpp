@@ -6,7 +6,7 @@ int count_thrackles(int set_size, int t_size,int desired_ot){
   int thrackleCounter;
   int current_ot = 0;
   int i,j,c;
-  int cols = set_size*(set_size-1)/2.0;
+  int cols = set_size*(set_size-1)/2.0; //COMMENTARIO
   //cout << "Opening " << file_name << endl;
   myfile.open(file_name, ios::binary);
   myfile.seekg(0,myfile.beg);
