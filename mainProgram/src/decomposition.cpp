@@ -17,10 +17,11 @@ int count_thrackles(int set_size, int t_size,int desired_ot){
   //foundThrackles.clear();
   int eater = 0;
   while(current_ot != desired_ot){
-    //cout << current_ot << endl;
+  //  cout << current_ot << endl;
     myfile.read( (char*)&eater,sizeof(uint16_t));//ot
     myfile.read( (char*)&eater,sizeof(uint16_t)); //number_of_t
     c = eater;
+    //cout << "Skipping " << c << " thrackles\n";
     for(i = 0; i < c; i++){
       for ( j = 0 ; j < cols ; j++){
         myfile.read( (char*)&eater,sizeof(char)); //boolean
@@ -32,10 +33,12 @@ int count_thrackles(int set_size, int t_size,int desired_ot){
   //When we get out of this while, we're in position to read
   //the information that we actually care about.
   eater = 0;
+  //cout << "Arrived at ot " << desired_ot << endl;
   myfile.read( (char*)&eater,sizeof(uint16_t));//ot
   myfile.read( (char*)&eater,sizeof(uint16_t)); //number_of_t
   c = eater;
   thrackleCounter = c;
+  //printf("There are %d thrackles.\n", thrackleCounter );
   myfile.close();
   return thrackleCounter;
 }

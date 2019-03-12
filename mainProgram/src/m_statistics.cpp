@@ -38,8 +38,8 @@ int main(int argc, char * argv[]){
     default:
         fprintf(stderr,"No existe base de datos para n>10\n"); exit(-1);
   }
-  start = 2;
-  end = n - floor(sqrt(2*n + (1/4.0)) - (1/2.0));
+  start = n - floor(sqrt(2*n + (1/4.0)) - (1/2.0));
+  end = 2;
   cout << start << " -> " << end << endl;
   string file_name = "m_" + to_string(n) + "stats.dat";
   ofstream myfile;
@@ -57,6 +57,7 @@ int main(int argc, char * argv[]){
   auto i = otypes_vec.begin();
 
   ++i; //Avoid OT 0 - convex.
+
   while ( i != otypes_vec.end() ){
     ot = *i;
     cout << "Working with ot " << ot << endl;
@@ -73,30 +74,31 @@ int main(int argc, char * argv[]){
     for(int i = 0; i < rows; i++) bool_th_mat[i] = (int *)malloc(cols * sizeof(int));
 
     load_thrackles(n,n,ot,bool_th_mat);
-    if (!mat_union_covers(bool_th_mat,cols,rows)){
-      ++i;
-      a = (int **)bool_th_mat;
-      for(int i = 0; i < rows; i++) free(a[i]);
-      //cout << "Rows freed\n";
-      continue;
-    }
-    cout << "OT " << ot << " max thrackles cover\n";
+    // if (!mat_union_covers(bool_th_mat,cols,rows)){
+    //   ++i;
+    //   a = (int **)bool_th_mat;
+    //   for(int i = 0; i < rows; i++) free(a[i]);
+    //   //cout << "Rows freed\n";
+    //   continue;
+    // }
+    //cout << "OT " << ot << " max thrackles cover\n";
 
     k = start;
 
-
-    while(k <= end){
+    printf("Number of Thrackles: %d\n",rows );
+    while(k > 2){
       printf("Looking for a decomposition of size %d\n",k);
+
       count_repetitions_all(bool_th_mat, rows, k, n,m_arr);
       if( m_arr[0] == 99 ) {
           printf("\tNo decomposition of size %d found.\n",k);
-          
+
       }
       else {
         printf("\tThrackle set size : %d, min_repetitions: %d, max_repetitions: %d\n",k,m_arr[0],m_arr[1]);
         writeResults(myfile,ot,k,m_arr[0],m_arr[1]);
       }
-      k++;
+      k--;
     }
 
     ++i;

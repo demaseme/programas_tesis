@@ -369,9 +369,9 @@ void draw(){
   char thrackle_number[50] ;
   char order_type_number[10];
   char buffer[20];
-  float r_colors[6] = {1,0,0,1,1,1};
-  float g_colors[6] = {0,1,0,0,0.55,0.48};
-  float b_colors[6] = {0,0,1,1,0,0.09};
+  float r_colors[6] = {1,0,0,1,0.7,1};
+  float g_colors[6] = {0,1,0,0,0.6,0.48};
+  float b_colors[6] = {0,0,1,1,0.7,0.09};
 
   strcpy(order_type_number,"OT: ");
   cout << "desired ot g: " << desired_ot_g << endl;
