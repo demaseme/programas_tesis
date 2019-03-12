@@ -1,13 +1,18 @@
 #include "../include/decomposition.h"
 
-bool look8876(int );
+bool look8876(int, int &);
 int main(){
   int ot = 1; // 3315
+  int level = 0;
+  int highest = 0;
   while(ot < 3315) {
-    bool state = look8876(ot);
+    bool state = look8876(ot,level);
     ot++;
+    if (highest < level) highest = level;
     if (state) break;
   }
+  printf("Highest level was %d\n", highest );
+  return 1;
 }
 
 /*
@@ -20,7 +25,7 @@ int main(){
   We also know that for K_8 there are 3315 order types.
 */
 
-bool look8876(int ot){
+bool look8876(int ot, int & highest_level){
   int current_ot = 0;
   int eater = 0;
   int i,j,k,l,m,c;
@@ -148,6 +153,7 @@ bool look8876(int ot){
         arr[j] |= arr87[l2][j];
       }
       if (!avoid_flag) {
+          if (highest_level < 2) highest_level = 2;
         for( j = 0 ; j < 28 ; j++) arr_bk3[j] = arr[j];
         for( int l3 = 0 ; l3 < nt87 ; l3++) {
           avoid_flag2 = false;
@@ -156,6 +162,7 @@ bool look8876(int ot){
             arr[k] |= arr87[l3][k];
           }
           if (!avoid_flag2) {
+             if( highest_level < 3 ) highest_level = 3;
             for( k = 0 ; k < 28 ; k++) arr_bk4[k] = arr[k];
             for( int l4 = 0 ; l4 < nt86 ; l4++ ){
               for( l = 0 ; l < 28 ; l++) arr[l] |= arr86[l4][l];
@@ -163,6 +170,7 @@ bool look8876(int ot){
               bool covering = true;
               for( l = 0 ; l < 28 ; l++) covering &= arr[l];
               if ( covering ) {
+                if( highest_level < 4) highest_level = 4;
                 printf("Covers \n");
                 return 1;
               }
@@ -176,5 +184,6 @@ bool look8876(int ot){
     }
     for( i = 0 ; i < 28 ; i++) arr[i] = arr_bk1[i];
   }
+
   return 0;
 }
