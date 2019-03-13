@@ -55,6 +55,7 @@ int readPoints_bin2(int n, string file_name, Point * vPoints, int otypes, int np
 int readPoints2(int n, string file_name, vector<Point> & vPoints, int otypes);
 
 bool isConvex(vector<Point> v);
+int pointsInsideConvex(vector<Point> points);
 void generateAllEdges(vector<Point> vec,vector<Edge> & vEdges);
 void printEdge(Edge e);
 void printEdges(vector<Edge> vE);
