@@ -1,0 +1,41 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage[utf8]{inputenc}
+
+\begin{document}
+\section{Completar un thrackle no máximo a un thrackle máximo.}
+\subsection{Posición convexa}
+Un thrackle $t$ no máximo siempre puede ser completado a un thrackle máximo.
+Sea $n$ el número de puntos en la gráfica, entonces un thrackle $h$ necesita $n$ aristas para ser máximo.
+Sea $|t| = k < n$ puede pasar una de las siguientes:
+\begin{enumerate}
+  \item $t$ tenga un ciclo impar $C_t$.
+  \item $t$ no contenga un ciclo impar.
+\end{enumerate}
+
+Si sucede 1), entonces simplemente agregamos las aritas que salen de los vérices ápice de cada cuña definida por $C_t$.
+Si sucede 2), entonces para cada vértice $v$ de $t$ añadimos una arista saliente de $v$ que cruce a las demás aristas de $t$ incluidas
+las nuevas hasta que el grado de $v$ sea exáctamente $2$. Al final estaremos en el caso 1).
+
+\subsection{Posición general}
+No todos los thrackles no maximos pueden ser completados a un thrackle máximo.
+Observemos el tipo de orden 3 para $n=5$, en este caso no hay ningún thrackle maximo, el thrackle de mayor tamaño tiene 4 aristas.
+Tomemos cualquiera de estos thrackles de 4 aristas, y no es posible agregar una arista de tal manera que la condición de thrackle se
+mantenga.
+
+En un caso más general: para que un thrackle sea maximo necesita contener un ciclo impar, un ciclo impar de tamaño $k$ requiere $k$
+vértices en posición convexa.
+
+Tomemos un thrackle $t$ que no sea máximo, entonces sucede una de las siguientes:
+\begin{enumerate}
+  \item $t$ tiene un ciclo impar de tamaño $k$
+  \item $t$ no tiene un ciclo impar.
+\end{enumerate}
+Si sucede 1) y los $n-k$ vértices restantes están en posición convexa entonces puede suceder una de las siguientes:
+\begin{enumerate}
+  \item Los vértices restantes están contenidos en cuñas definidas por los vértices ápice del ciclo. En este caso $t$ puede ser
+  completado a un thrackle máximo.
+  \item No todos los vértices restantes están contenidos en cuñas definidas por los vértices del ápice del ciclo. En este caso $t$ no
+  puede ser completado a un thrackle máximo
+\end{enumerate}
+Si sucede 2) podemos intentar completar el ciclo impar de manera similar al caso en posición convexa, esto nos dejaría en el caso 1) de posición general.
+\end{document}

@@ -1,0 +1,26 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\begin{document}
+\section{Verificando si \texttt{gat}$(K_9) < 6$}
+Podemos verificar que \texttt{gat}$(K_9) > 4$ obteniendo todas las particiones de $\binom{9}{2} = 36$ cuyo
+número de términos sea menor que $6$ y que ninguno de sus términos sea mayor a $9$.
+Observamos que todas las particiones que cumplen estas condiciones son de longitud mayor a $4$.
+\begin{itemize}
+  \item 9 + 8 + 8 + 8 + 3
+  \item 9 + 8 + 8 + 7 + 4
+  \item 9 + 8 + 8 + 6 + 5
+  \item 9 + 8 + 7 + 7 + 5
+  \item 9 + 8 + 7 + 6 + 6
+  \item 9 + 7 + 7 + 7 + 6
+  \item 8 + 8 + 8 + 8 + 4
+  \item 8 + 8 + 8 + 7 + 5
+  \item 8 + 8 + 8 + 6 + 6
+  \item 8 + 8 + 7 + 7 + 6
+  \item 8 + 7 + 7 + 7 + 7
+\end{itemize}
+
+Es posible descartar alguna de estas particiones si pasa que no existen dos thrackles de tamaño $8$ que sean disjuntos
+para $K_9$ en alguno de sus tipos de orden. Podemos repetir este analisis para los casos en donde haya dos o más thrackles
+de tamaño $7$.
+\end{document}
