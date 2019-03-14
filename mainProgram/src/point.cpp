@@ -1,6 +1,9 @@
 #include "../include/point.h"
 int setSize;
 
+double cross(const Point &O, const Point &A, const Point &B){
+	return (A.x - O.x) * (B.y - O.y) - (A.y - O.y) * (B.x - O.x);
+}
 
 bool lexcmp(const Point &p, const Point &q){
      return  ( (p.x < q.x) || ( (p.x == q.x) && (p.y < q.y))  );
@@ -116,15 +119,23 @@ void pwrsetk(int k, vector<Edge> input,vector<vector<Edge>> & output){
     }
 }
 
+
+// A utility function to return square of distance
+// between p1 and p2
+int distSq(Point p1, Point p2){
+    return (p1.x - p2.x)*(p1.x - p2.x) +
+          (p1.y - p2.y)*(p1.y - p2.y);
+}
+
 // To find orientation of ordered triplet (p, q, r).
 // The function returns following values
 // 0 --> p, q and r are colinear
 // 1 --> Clockwise
 // 2 --> Counterclockwise
 int orientation(Point p, Point q, Point r){
-    int val = (q.y - p.y) * (r.x - q.x) -
+    long val = (q.y - p.y) * (r.x - q.x) -
               (q.x - p.x) * (r.y - q.y);
-
+    printf("%ld\n", val);
     if (val == 0) return 0;  // colinear
     return (val > 0)? 1: 2; // clock or counterclock wise
 }
@@ -133,8 +144,9 @@ int orientation(Point p, Point q, Point r){
     Returns how many points are inside the convex hull (not on it) of the
     given point set.
 */
-int pointsInsideConvex(vector<Point> points){
+int pointsInsideConvex(vector<Point> & points){
     int n = (int) points.size();
+    printf(" Convex : working with %d points\n",n);
     // There must be at least 3 points
     if (n < 3) return -1;
     // Initialize Result
@@ -146,10 +158,12 @@ int pointsInsideConvex(vector<Point> points){
         if (points[i].x < points[l].x)
             l = i;
     int p = l, q;
+    printf("First point is %d\n",l );
     do
     {
         // Add current point to result
         hull.push_back(points[p]);
+        //printf("Current hull size %d\n", (int)hull.size());
         q = (p+1)%n;
         for (int i = 0; i < n; i++)
         {
@@ -212,6 +226,43 @@ bool isConvex(vector<Point> points){
     //           << hull[i].y << ")\n";
     if(hull.size() == points.size()) return true;
     return false;
+}
+
+
+// A utility function to find next to top in a stack
+Point nextToTop(stack<Point> &S){
+    Point p = S.top();
+    S.pop();
+    Point res = S.top();
+    S.push(p);
+    return res;
+}
+
+// Returns a list of points on the convex hull in counter-clockwise order.
+// Note: the last point in the returned list is the same as the first one.
+vector<Point> convex_hull(vector<Point> P)
+{
+	size_t n = P.size(), k = 0;
+	if (n <= 3) return P;
+	vector<Point> H(2*n);
+
+	// Sort points lexicographically
+	sort(P.begin(), P.end());
+
+	// Build lower hull
+	for (size_t i = 0; i < n; ++i) {
+		while (k >= 2 && cross(H[k-2], H[k-1], P[i]) <= 0) k--;
+		H[k++] = P[i];
+	}
+
+	// Build upper hull
+	for (size_t i = n-1, t = k+1; i > 0; --i) {
+		while (k >= t && cross(H[k-2], H[k-1], P[i-1]) <= 0) k--;
+		H[k++] = P[i-1];
+	}
+
+	H.resize(k-1);
+	return H;
 }
 //Prints all content of vector v.
 void printVectorInt(vector<int> v){
@@ -289,6 +340,35 @@ int readPoints_bin2(int n, string file_name, Point *vPoints, int otypes, int npu
     myfile.close();
     return 1;
 }
+int readPoints_bin_arr(int n,string file_name, Point vA[],int npuntos){
+	//Reads a binary file.
+
+    int i;
+    ifstream myfile(file_name, ios::binary);
+    if(myfile.fail()) return 0;
+    Point pointtmp;
+    cout << "Reading points...\n";
+    if(n>8){
+        for(i = 0 ; i < npuntos; i++){
+
+            myfile.read( (char*) &pointtmp.x, sizeof(uint16_t));
+            myfile.read( (char*) &pointtmp.y, sizeof(uint16_t));
+            vA[i].x = pointtmp.x;
+			vA[i].y = pointtmp.y;
+        }
+    }else
+        {
+            for(i = 0 ; i < npuntos; i++){
+                myfile.read( (char*) &pointtmp.x, sizeof(char));
+                myfile.read( (char*) &pointtmp.y, sizeof(char));
+				vA[i].x = pointtmp.x;
+				vA[i].y = pointtmp.y;
+            }
+        }
+    myfile.close();
+    return 1;
+}
+
 int readPoints_bin(int n, string file_name, vector<Point> & vPoints, int otypes){
     //Reads a binary file.
     streampos size;

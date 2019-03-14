@@ -14,6 +14,7 @@
 #include <random>
 #include <chrono>
 #include <unistd.h>
+#include <stack>
 #include <list>
 #include <omp.h>    // For omp_get_cancellation, omp_get_thread_num()
 using namespace std;
@@ -26,6 +27,9 @@ public:
     bool operator==(const Point q){
         return (q.x == this->x && q.y == this->y);
     }
+    bool operator <(const Point &p) const {
+		return x < p.x || (x == p.x && y < p.y);
+	}
 };
 
 class Edge {
@@ -53,9 +57,11 @@ int readPoints(int n, string file_name, vector<Point> & vPoints);
 int readPoints_bin(int n, string file_name, vector<Point> & vPoints, int otypes);
 int readPoints_bin2(int n, string file_name, Point * vPoints, int otypes, int npuntos);
 int readPoints2(int n, string file_name, vector<Point> & vPoints, int otypes);
+int readPoints_bin_arr(int n,string file_name, Point vA[],int otypes);
 
+vector<Point> convex_hull(vector<Point> P);
 bool isConvex(vector<Point> v);
-int pointsInsideConvex(vector<Point> points);
+int pointsInsideConvex(vector<Point> & points);
 void generateAllEdges(vector<Point> vec,vector<Edge> & vEdges);
 void printEdge(Edge e);
 void printEdges(vector<Edge> vE);
