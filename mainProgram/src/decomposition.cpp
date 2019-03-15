@@ -125,7 +125,57 @@ bool mat_union_covers(int ** bool_th_mat, int cols, int rows){
   return true;
 }
 
+bool check_empty_q_intersection_all(int ** bool_th_mat, int rows, int q, int setsize){
+  int c[q+3];
+  int c_curr[q];
+  int j,m;
+  int n = rows;
+  int cols = setsize*(setsize-1)/2.0;
+  c[0] = 9999;
+  for(int i=1; i < q+1; i++){
+      c[i] = i-1;
+  }
+  c[q+1] = n;
+  c[q+2] = 0;
 
+  while (true) {
+    //L2. Visit.
+    //For each generated, check if it's a decomposition.
+    //usleep(100000);
+    //printf("Checking ");
+    for(int i = q; i > 0; i--){
+
+      c_curr[i-1] = c[i];
+
+    //  printf(" %d ",c[i]);
+    }
+    //printf("Couting reps\n" );
+    m = count_repetitions(bool_th_mat,c_curr,cols,q,setsize);
+    //Write to file if m is empty. <c_curr> m
+    if(m == 0) {
+        for(int i = q; i > 0; i--){
+          printf(" %d ",c[i]);
+        }
+        printf("\n");
+        return true;
+    }
+    //L3. FIND j
+    j = 1;
+    while( (c[j] + 1) == c[j+1] ) {
+        c[j] = j - 1;
+        j = j + 1;
+    }
+    //L4. Termination condition met?
+    if (j > q) {
+        //std::cout << res << " combinations\n";
+        break;
+    }
+    //L5. Update and Return to L2.
+    c[j] = c[j] + 1;
+  }
+  printf("No %d-intersection empty\n",q);
+  return false;
+}
 /*
   Forms all q-sets of [0...rows], then, for each tuple
   calculates its intersection size, then writes it to
@@ -159,12 +209,12 @@ void calculate_q_intersection_all(int ** bool_th_mat, int rows, int q, int setsi
     m = count_repetitions(bool_th_mat,c_curr,cols,q,setsize);
     //Write to file if m is empty. <c_curr> m
     if(m == 0) {
-        printf("Writing ");
+        //printf("Writing ");
         for(int i = q; i > 0; i--){
         //    printf(" %d ",c[i]);
             myfile.write( (char*) &c[i], sizeof(uint16_t));
         }
-        printf("\n");
+        //printf("\n");
         myfile.write( (char*) &m, sizeof(char));
     }
     //L3. FIND j

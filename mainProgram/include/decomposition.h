@@ -15,6 +15,8 @@ bool is_partition_valid(int a[], int size, int max_val);
 int count_repetitions(int ** bool_th_mat, int th_index[], int ncols, int nthrs, int setsize);
 void count_repetitions_all(int ** bool_th_mat, int rows, int k, int setsize, int m_arr[2]);
 void calculate_q_intersection_all(int ** bool_th_mat, int rows, int q, int setsize, ofstream & myfile);
+bool check_empty_q_intersection_all(int ** bool_th_mat, int rows, int q, int setsize);
+
 bool mat_union_covers(int ** bool_th_mat, int cols, int rows);
 void select_otypes(int n, vector<int> & otypes_vec);
 

@@ -60,6 +60,7 @@ int main(int argc, char * argv[]){
     //printMatrix(bool_th_mat,rows,cols);
     myfile.write( (char*) &ot, sizeof(char));
     myfile.write( (char*) &rows, sizeof(char));
+    printf("Working with OT %d\n",ot);
     calculate_q_intersection_all(bool_th_mat,rows,q,n,myfile);
     a = (int **)bool_th_mat;
     for(int i = 0; i < rows; i++) free(a[i]);
