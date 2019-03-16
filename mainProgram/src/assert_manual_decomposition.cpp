@@ -1,15 +1,21 @@
 #include "../include/decomposition.h"
 
 bool look8876(int, int &);
+bool look98(int ot, int & highest_level);
 int main(){
   int ot = 1; // 3315
   int level = 0;
   int highest = 0;
-  while(ot < 3315) {
-    bool state = look8876(ot,level);
-    ot++;
-    if (highest < level) highest = level;
-    if (state) break;
+  // while(ot < 3315) {
+  //   bool state = look8876(ot,level);
+  //   ot++;
+  //   if (highest < level) highest = level;
+  //   if (state) break;
+  // }
+  int dec[5] = {9,8,8,8,3};
+  while ( ot < 158817 ){
+      look98(ot,level);
+      ot ++;
   }
   printf("Highest level was %d\n", highest );
   return 1;
@@ -90,22 +96,22 @@ bool look8876(int ot, int & highest_level){
   h88.read( (char*)&eater,sizeof(uint16_t));//ot
   h88.read( (char*)&eater,sizeof(uint16_t)); //number_of_t
   nt88 = eater;
-  printf("For OT %d there are %d thracklese of size 8.\n",ot, nt88 );
+  //printf("For OT %d there are %d thracklese of size 8.\n",ot, nt88 );
   eater = 0;
   h87.read( (char*)&eater,sizeof(uint16_t));//ot
   h87.read( (char*)&eater,sizeof(uint16_t)); //number_of_t
   nt87 = eater;
-  printf("For OT %d there are %d thracklese of size 7.\n",ot, nt87 );
+  //printf("For OT %d there are %d thracklese of size 7.\n",ot, nt87 );
   eater = 0;
   h87_2.read( (char*)&eater,sizeof(uint16_t));//ot
   h87_2.read( (char*)&eater,sizeof(uint16_t)); //number_of_t
   nt87_2 = eater;
-  printf("For OT %d there are %d thracklese of size 7.\n",ot, nt87_2 );
+  //printf("For OT %d there are %d thracklese of size 7.\n",ot, nt87_2 );
   eater = 0;
   h86.read( (char*)&eater,sizeof(uint16_t));//ot
   h86.read( (char*)&eater,sizeof(uint16_t)); //number_of_t
   nt86 = eater;
-  printf("For OT %d there are %d thracklese of size 6.\n",ot, nt86 );
+  //printf("For OT %d there are %d thracklese of size 6.\n",ot, nt86 );
   eater = 0;
   bool arr[28];
   bool arr_bk4[28];
@@ -186,4 +192,114 @@ bool look8876(int ot, int & highest_level){
   }
 
   return 0;
+}
+/*
+    This is for K9 decompositions of integer 36.
+    9 + 8 + 8 + 8 + 3
+    9 + 8 + 8 + 7 + 4
+    9 + 8 + 8 + 6 + 5
+    9 + 8 + 7 + 7 + 5
+    9 + 8 + 7 + 6 + 6
+
+    Returns true if there is a pair of thrackles of size
+    9 and 8 such that their intersection is empty.
+*/
+bool look98(int ot, int & highest_level) {
+    int current_ot =0;
+    int eater = 0;
+    int i,j,k;
+    int nedges =36;
+    int nt99, nt98;
+    int c = 0;
+    ifstream h99, h98;
+
+    h99.open("ths/9_9_All_bool.ths",ios::binary);
+    h98.open("ths/9_8_All_bool.ths",ios::binary);
+    if ( !h99.good() || !h98.good()){
+        fprintf(stderr, "Error opening thrackle file!\n");
+        exit(-1);
+    }
+    while ( current_ot != ot ){
+        h99.read ( (char* ) & eater, sizeof(uint16_t));
+        h99.read ( (char* ) & eater, sizeof(uint16_t));
+        c = eater;
+        for ( i = 0; i < c ; i++ ) {
+            for ( j = 0; j < nedges; j++){
+                h99.read( (char*) &eater, sizeof(char));
+            }
+        }
+        h98.read ( (char* ) & eater, sizeof(uint16_t));
+        h98.read ( (char* ) & eater, sizeof(uint16_t));
+        c = eater;
+        for ( i = 0; i < c ; i++ ) {
+            for ( j = 0; j < nedges; j++){
+                h98.read( (char*) &eater, sizeof(char));
+            }
+        }
+        current_ot++;
+    }
+    eater = 0;
+    h99.read ( (char* ) & eater, sizeof(uint16_t));
+    h99.read ( (char* ) & eater, sizeof(uint16_t));
+    nt99 = eater;
+    eater = 0;
+    h98.read ( (char* ) & eater, sizeof(uint16_t));
+    h98.read ( (char* ) & eater, sizeof(uint16_t));
+    nt98 = eater;
+    bool arr[36];
+    bool arr_bk1[36];
+    bool arr_bk2[36];
+    bool arr_bk3[36];
+    bool arr99[nt99][36];
+    bool arr98[nt98][36];
+    for ( i = 0; i < 28; i++) arr[i] = false;
+    //Fill the matrices of thrackles.
+    bool val;
+    for (j = 0 ; j < nt99 ; j++ ) {
+      for( i = 0 ; i < 36 ; i++){
+        h99.read( (char*) & val, sizeof(char));
+        arr99[j][i] = val;
+      }
+    }
+    for (j = 0 ; j < nt98 ; j++ ) {
+      for( i = 0 ; i < 36 ; i++){
+        h98.read( (char*) & val, sizeof(char));
+        arr98[j][i] = val;
+      }
+    }
+    h99.close();
+    h98.close();
+    bool avoid_flag, avoid_flag2;
+    printf("Working with ot %d \n", ot);
+    for( i = 0; i < 36; i++) arr_bk1[i] = arr[i];
+    for ( int l1 = 0 ; l1 < nt99 ; l1 ++){
+        for( i = 0; i < 36; i++) arr[i] |= arr99[l1][i];
+        for( i = 0; i < 36; i++) arr_bk2[i] = arr[i];
+        for( int l2 = 0; l2 < nt98 ; l2 ++){
+            avoid_flag = false;
+            for (j = 0 ; j < 36 ; j++){
+                if( arr[j] == arr98[l2][j] && arr[j] ) avoid_flag = true;
+                arr[j] |= arr98[l2][j];
+            }
+            if ( !avoid_flag ){
+                for( j = 0; j < 36; j++) arr_bk3[i] = arr[i];
+                for ( int l3 = 0 ; l3 < nt98; l3++){
+                    avoid_flag2 = false;
+                    for ( k = 0; k < 36; k++){
+                        if( arr[k] == arr98[l3][k] && arr[k]) avoid_flag2 = true;
+                        arr[k] |= arr98[l3][k];
+                    }
+                    if ( !avoid_flag2 ){
+                        printf(" There is a triad of thrackles of size 9 and 8 and 8"
+                        " that are disjoint. %d %d %d\n", l1,l2,l3);
+                        return true;
+                    }
+                for ( int l3bk = 0; l3bk < 36; l3bk++) arr[l3bk] = arr_bk3[l3bk];
+                }
+            }
+            for ( int l2bk = 0; l2bk < 36; l2bk++) arr[l2bk] = arr_bk2[l2bk];
+        }
+        for ( int l1bk = 0; l1bk < 36; l1bk++) arr[l1bk] = arr_bk1[l1bk];
+    }
+    return false;
 }
