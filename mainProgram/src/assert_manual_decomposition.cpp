@@ -216,8 +216,8 @@ bool look8876(int ot, int & highest_level){
     9 + 8 + 7 + 7 + 5
     9 + 8 + 7 + 6 + 6
 
-    Returns true if there is a pair of thrackles of size
-    9 and 8 such that their intersection is empty.
+    Returns false if there is a pair of thrackles of size
+    9 and 8 and 8 such that their intersection is empty.
 */
 bool look988(int ot, int & highest_level) {
     int current_ot =0;
