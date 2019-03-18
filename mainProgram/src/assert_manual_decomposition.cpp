@@ -292,7 +292,7 @@ bool look988(int ot, int & highest_level) {
                 //Back up current arr.
                 for( i = 0; i < 36; i++) arr_bk3[i] = arr[i];
                 //Copy i-th thrackle of size 8.
-                for( int l3 = 0; l3 < nt98; l3++){
+                for( int l3 = l2+1; l3 < nt98; l3++){
                     avoid_flag2 = false;
                     for( i = 0 ; i < 36; i++){
                         if ( arr[i] && arr98[l3][i] ) avoid_flag2 = true;
@@ -300,6 +300,7 @@ bool look988(int ot, int & highest_level) {
                     }
                     if ( !avoid_flag2 ) {
                         printf("There is a triad of thrackles 9,8,8 disjoint %d %d %d\n",l1,l2,l3);
+                        return false;
                     }
                     //Prepare arr for next iteration.
                     for( i = 0; i < 36; i++) arr[i] = arr_bk3[i];
