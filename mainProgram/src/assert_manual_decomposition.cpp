@@ -6,6 +6,7 @@ int main(){
   int ot = 1; // 3315
   int level = 0;
   int highest = 0;
+  bool canceled = false;
   // while(ot < 3315) {
   //   bool state = look8876(ot,level);
   //   ot++;
@@ -13,11 +14,25 @@ int main(){
   //   if (state) break;
   // }
   int dec[5] = {9,8,8,8,3};
-  while ( ot < 158817 ){
-      look988(ot,level);
-      ot ++;
+  omp_set_num_threads(4);
+  if (!omp_get_cancellation()) {
+    printf("Cancellation variable not correctly set!\n");
+    exit(-1);
   }
-  printf("Highest level was %d\n", highest );
+  #pragma omp parallel
+  {
+    #pragma omp for nowait
+    for ( ot = 1; ot < 158817; ot++) {
+        printf("Thread %d working with ot %d\n",omp_get_thread_num(),ot);
+        if (canceled){
+        #pragma omp cancel for
+      }
+        if (!look988(ot,level)) {
+          canceled = true;
+        }
+    }
+  }
+  //printf("Highest level was %d\n", highest );
   return 1;
 }
 
@@ -271,7 +286,7 @@ bool look988(int ot, int & highest_level) {
     h98.close();
     bool avoid_flag, avoid_flag2;
 
-    printf("Working with ot %d \n", ot);
+    //printf("Working with ot %d \n", ot);
     for( i = 0; i < 36; i++) arr_bk1[i] = arr[i];
     //Copy i-th thrackle of size 9.
     for ( int l1 = 0; l1 < nt99; l1++) {
@@ -312,5 +327,5 @@ bool look988(int ot, int & highest_level) {
         //Prepare arr for next iteration.
         for( i = 0; i < 36; i++) arr[i] = arr_bk1[i];
     }
-    return false;
+    return true;
 }

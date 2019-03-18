@@ -23,7 +23,7 @@ custom_experiment:
 k_inter_all:
 	g++ k_intersection_all.cpp decomposition.cpp -o k_intersection -Wall
 manual_dec:
-	g++ assert_manual_decomposition.cpp decomposition.cpp -o manual_decomposition -Wall
+	g++ assert_manual_decomposition.cpp decomposition.cpp -o manual_decomposition -Wall -fopenmp
 count_points_inside:
 	g++ semiConvexCount.cpp decomposition.cpp point.cpp -o countPointsInside -Wall
 check_empty_intersections:
