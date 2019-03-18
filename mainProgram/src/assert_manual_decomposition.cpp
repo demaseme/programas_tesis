@@ -1,7 +1,7 @@
 #include "../include/decomposition.h"
 
 bool look8876(int, int &);
-bool look98(int ot, int & highest_level);
+bool look988(int ot, int & highest_level);
 int main(){
   int ot = 1; // 3315
   int level = 0;
@@ -14,7 +14,7 @@ int main(){
   // }
   int dec[5] = {9,8,8,8,3};
   while ( ot < 158817 ){
-      look98(ot,level);
+      look988(ot,level);
       ot ++;
   }
   printf("Highest level was %d\n", highest );
@@ -204,7 +204,7 @@ bool look8876(int ot, int & highest_level){
     Returns true if there is a pair of thrackles of size
     9 and 8 such that their intersection is empty.
 */
-bool look98(int ot, int & highest_level) {
+bool look988(int ot, int & highest_level) {
     int current_ot =0;
     int eater = 0;
     int i,j,k;
@@ -270,36 +270,46 @@ bool look98(int ot, int & highest_level) {
     h99.close();
     h98.close();
     bool avoid_flag, avoid_flag2;
+
     printf("Working with ot %d \n", ot);
     for( i = 0; i < 36; i++) arr_bk1[i] = arr[i];
-    for ( int l1 = 0 ; l1 < nt99 ; l1 ++){
-        for( i = 0; i < 36; i++) arr[i] |= arr99[l1][i];
+    //Copy i-th thrackle of size 9.
+    for ( int l1 = 0; l1 < nt99; l1++) {
+        for( i = 0; i < 36; i++){
+            arr[i] |= arr99[l1][i];
+        }
+        //Back up current arr.
         for( i = 0; i < 36; i++) arr_bk2[i] = arr[i];
-        for( int l2 = 0; l2 < nt98 ; l2 ++){
+        //Copy i-th thrackle of size 8.
+        for( int l2 = 0; l2 < nt98; l2++){
             avoid_flag = false;
-            for (j = 0 ; j < 36 ; j++){
-                if( arr[j] == arr98[l2][j] && arr[j] ) avoid_flag = true;
-                arr[j] |= arr98[l2][j];
+            for( i = 0; i < 36; i++) {
+                if( arr[i] && arr98[l2][i]) avoid_flag = true;
+                arr[i] |= arr98[l2][i];
             }
-            if ( !avoid_flag ){
-                for( j = 0; j < 36; j++) arr_bk3[i] = arr[i];
-                for ( int l3 = 0 ; l3 < nt98; l3++){
+            if( !avoid_flag ){
+                //Go down one level.
+                //Back up current arr.
+                for( i = 0; i < 36; i++) arr_bk3[i] = arr[i];
+                //Copy i-th thrackle of size 8.
+                for( int l3 = 0; l3 < nt98; l3++){
                     avoid_flag2 = false;
-                    for ( k = 0; k < 36; k++){
-                        if( arr[k] == arr98[l3][k] && arr[k]) avoid_flag2 = true;
-                        arr[k] |= arr98[l3][k];
+                    for( i = 0 ; i < 36; i++){
+                        if ( arr[i] && arr98[l3][i] ) avoid_flag2 = true;
+                        arr[i] |= arr98[l3][i];
                     }
-                    if ( !avoid_flag2 ){
-                        printf(" There is a triad of thrackles of size 9 and 8 and 8"
-                        " that are disjoint. %d %d %d\n", l1,l2,l3);
-                        return true;
+                    if ( !avoid_flag2 ) {
+                        printf("There is a triad of thrackles 9,8,8 disjoint %d %d %d\n",l1,l2,l3);
                     }
-                for ( int l3bk = 0; l3bk < 36; l3bk++) arr[l3bk] = arr_bk3[l3bk];
+                    //Prepare arr for next iteration.
+                    for( i = 0; i < 36; i++) arr[i] = arr_bk3[i];
                 }
             }
-            for ( int l2bk = 0; l2bk < 36; l2bk++) arr[l2bk] = arr_bk2[l2bk];
+            //Prepare arr for next iteration.
+            for( i = 0; i < 36; i++) arr[i] = arr_bk2[i];
         }
-        for ( int l1bk = 0; l1bk < 36; l1bk++) arr[l1bk] = arr_bk1[l1bk];
+        //Prepare arr for next iteration.
+        for( i = 0; i < 36; i++) arr[i] = arr_bk1[i];
     }
     return false;
 }
