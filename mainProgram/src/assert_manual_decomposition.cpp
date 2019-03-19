@@ -2,36 +2,61 @@
 
 bool look8876(int, int &);
 bool look988(int ot, int & highest_level);
+bool look888(int ot, int & highest_level);
+void store98();
+void free98();
+bool ** mat98;
+int rows98;
+int ot_thackles[158817];
 int main(){
   int ot = 1; // 3315
   int level = 0;
   int highest = 0;
   bool canceled = false;
+  omp_set_num_threads(2);
+  if (!omp_get_cancellation()) {
+    printf("Cancellation variable not correctly set!\n");
+    exit(-1);
+  }
+  store98();
+  std::chrono::high_resolution_clock::time_point t1 = chrono::high_resolution_clock::now();
+
+  #pragma omp parallel
+  {
+    #pragma omp for
+    for(ot = 1; ot < 158817; ot++) if( !look888(ot,highest) ) {
+        #pragma omp cancel for
+    };
+  }
+  std::chrono::high_resolution_clock::time_point t2 = chrono::high_resolution_clock::now();
+  chrono::duration<double, std::milli> time_span = t2 - t1;
+  cout << "It took me " << time_span.count() << " milliseconds.";
+  free98();
   // while(ot < 3315) {
   //   bool state = look8876(ot,level);
   //   ot++;
   //   if (highest < level) highest = level;
   //   if (state) break;
   // }
-  int dec[5] = {9,8,8,8,3};
-  omp_set_num_threads(4);
-  if (!omp_get_cancellation()) {
-    printf("Cancellation variable not correctly set!\n");
-    exit(-1);
-  }
-  #pragma omp parallel
-  {
-    #pragma omp for nowait
-    for ( ot = 1; ot < 158817; ot++) {
-        printf("Thread %d working with ot %d\n",omp_get_thread_num(),ot);
-        if (canceled){
-        #pragma omp cancel for
-      }
-        if (!look988(ot,level)) {
-          canceled = true;
-        }
-    }
-  }
+  // int dec[5] = {9,8,8,8,3};
+  // omp_set_num_threads(4);
+  // if (!omp_get_cancellation()) {
+  //   printf("Cancellation variable not correctly set!\n");
+  //   exit(-1);
+  // }
+  // #pragma omp parallel
+  // {
+  //   #pragma omp for nowait
+  //   for ( ot = 1; ot < 158817; ot++) {
+  //       printf("Thread %d working with ot %d\n",omp_get_thread_num(),ot);
+  //       if (canceled){
+  //       #pragma omp cancel for
+  //     }
+  //       if (!look988(ot,level)) {
+  //         canceled = true;
+  //       }
+  //   }
+  //}
   //printf("Highest level was %d\n", highest );
   return 1;
 }
@@ -208,18 +233,137 @@ bool look8876(int ot, int & highest_level){
 
   return 0;
 }
-bool look987(int ot, int & highest_level){
+/*
+    For this we try to store a matrix of 36 cols and K rows where
+    K is the number of thrackles of size 8 for all OT
+*/
+void free98(){
+    int i;
+    int **a;
+
+    a = (int **)mat98;
+    for ( i=0; i<rows98; i++ ) free( a[i] );
+    free ( a );
+    printf("Matrix 98 deleted!\n");
+
+}
+void store98(){
+    string file_name = "ths/9_8_All_bool.ths";
+    ifstream file_h;
+    file_h.open(file_name, ios::binary);
+    int eater=0;
+    int data = 0;
+    int c = 0;
+    int total_rows = 0;
+    int total_rows_count = 0;
+    int current_row = 0;
+    int otypes = 158817;
+    if (!file_h.good()) {
+        fprintf(stderr, "Error opening file %s\n", file_name.c_str() );
+        exit(-1);
+    }
+    for( int i = 0; i < otypes; i++){
+        eater = 0;
+        //Determine how many thrackles for ot=i.
+        file_h.read( (char*)&eater,sizeof(uint16_t));
+        eater = 0;
+        file_h.read( (char*)&eater,sizeof(uint16_t));
+        ot_thackles[i] = eater;
+        total_rows_count += eater;
+        for ( c = 0; c < eater; c++){
+            data = 0;
+            for ( int e = 0;  e < 36 ; e ++) file_h.read( (char*)&data,sizeof(char));
+            total_rows++;
+        }
+    }
+    printf("%d = %d\n",total_rows,total_rows_count );
+    rows98 = total_rows;
+    mat98 = (bool ** ) malloc( total_rows * sizeof(bool*));
+    for(int i = 0; i < total_rows; i++) mat98[i] = (bool *)malloc(36 * sizeof(bool));
+    file_h.seekg(0,file_h.beg);
+
+    for( int i = 0; i < otypes; i++){
+        eater = 0;
+        //Determine how many thrackles for ot=i.
+        file_h.read( (char*)&eater,sizeof(uint16_t));
+        eater = 0;
+        file_h.read( (char*)&eater,sizeof(uint16_t));
+        //printf("For OT %d there are %d thrackles of size 8.\n",i,eater);
+        total_rows_count += eater;
+        for ( c = 0; c < eater; c++){
+            data = 0;
+            for ( int e = 0;  e < 36 ; e ++){
+                file_h.read( (char*)&data,sizeof(char));
+                mat98[current_row][e] = data;
+            }
+            current_row++;
+        }
+    }
+    file_h.close();
+    printf("Matrix succesfully created and filled!\n");
+    // for( int i = 36; i < 36*2; i++){
+    //     for (int j = 0; j < 36; j++){
+    //         printf("%d ", mat98[i][j]);
+    //     }
+    //     printf("\n");
+    // }
+}
+bool look888(int ot, int & highest_level){
   int current_ot =0;
   int eater = 0;
   int i,j,k;
   int nedges =36;
-  int nt99, nt98, nt97;
-  int c = 0;
-  ifstream h99, h98, h97;
+  int nt98;
+  int starting_row = 0;
+  bool avoid_flag,avoid_flag2;
+  bool arr[36];
+  bool arr_bk1[36],arr_bk2[36],arr_bk3[36];
+  nt98 = ot_thackles[ot];
+  while(current_ot != ot) {
+      //printf("For OT %d there are %d thrackles.\n", current_ot, ot_thackles[current_ot]);
+      starting_row += ot_thackles[current_ot];
+      current_ot++;
+  }
+  printf("Thrackles of ot %d start at row %d\n",ot, starting_row );
+  for ( i = 0; i < 36; i ++) arr[i] = false;
 
-  h99.open("ths/9_9_All_bool.ths",ios::binary);
-  h98.open("ths/9_8_All_bool.ths",ios::binary);
-  h97.open("ths/9_7_All_bool.ths",ios::binary);
+  for ( i = 0; i < 36; i++) arr_bk1[i] = arr[i];
+  for( int l1 = 0; l1 < nt98; l1++ ){
+      for ( i = 0; i < 36; i++) arr[i] |= mat98[starting_row+l1][i];
+      for ( i = 0; i < 36; i++) arr_bk2[i] = arr[i];
+      for ( int l2 = l1+1; l2 < nt98 ; l2 ++){
+          for ( i = 0; i < 36; i++) {
+              avoid_flag = false;
+              if ( arr[i] && mat98[starting_row+l2][i] ) {
+                  avoid_flag= true;
+                  break;
+              };
+              arr[i] |= mat98[starting_row+l2][i];
+          }
+          if ( !avoid_flag ) {
+              for ( i = 0; i < 36; i++) arr_bk3[i] = arr[i];
+              for( int l3 = l2+1; l3 < nt98 ; l3 ++){
+                  avoid_flag = false;
+                  for ( i = 0; i < 36; i++){
+                      if ( arr[i] && mat98[starting_row+l3][i]){
+                          avoid_flag2 = true;
+                          break; //avoid
+                      }
+                      arr[i] |= mat98[starting_row+l3][i];
+                  }
+                  if (!avoid_flag2 ){
+                      printf("There are 3 thrackles of size 8 disjoint! %d %d %d\n",l1,l2,l3 );
+                      return false;
+                  }
+                  for (i = 0; i < 36; i++) arr[i] = arr_bk3[i];
+              }
+          }
+          for (i = 0; i < 36; i++) arr[i] = arr_bk2[i];
+      }
+      for (i = 0; i < 36; i++) arr[i] = arr_bk1[i];
+  }
+  return true;
+
 }
 /*
     This is for K9 decompositions of integer 36.
