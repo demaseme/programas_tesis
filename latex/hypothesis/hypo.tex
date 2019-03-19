@@ -1,0 +1,70 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage[spanish]{babel}
+
+\newtheorem{definition}{Definición}[section]
+\begin{document}
+\section{Problema}
+Determinar el anti-thickness geométrico de las gráficas completas de hasta 10 vértices.
+
+\begin{definition}{Anti-thickness geométrico.}
+El anti-thickness geométrico de una gráfica $G$ es la mínima $k$ tal que existe un encaje geométrico de $G$ que tiene una descomposición en $k$ thrackles.
+\end{definition}
+\section{Hipótesis}
+\begin{enumerate}
+  \item El anti-thickness geométrico para gráficas completas de hasta 10
+   vértices, coincide con el valor del anti-thickness del encaje en el que
+   los vértices están en posición convexa.
+  \item El número de aristas de una descomposición en $k$ thrackles es a lo más
+  $n - \binom{k}{2}$.
+  \item El anti-thickness geométrico para gráficas completas de $n$ vértices
+  en posición general,  coincide con el valor del anti-thickness
+  para gráficas completas en posición convexa.
+\end{enumerate}
+\section{Preguntas de investigación}
+\begin{enumerate}
+  \item ¿Cuál  es el anti-thickness geométrico para las gráficas completas
+  de hasta 10 vértices?
+  \item ¿Cuál es el anti-thickness geométrico para cada tipo de orden de
+  tamaño a lo sumo 10?
+  \item ¿Cuál es el $\alpha$-anti-thickness geométrico para cada gráfica
+  completa de hasta 10 vértices?
+  \item ¿Existe siempre una descomposición en thrackles máximos para cada tipo
+  de orden?
+  \item ¿Cuál es el mínimo número de aristas que comparten cuales quiera 2
+  thrackles máximos?
+  \item ¿Cuál  es el mínimo número de aristas que comparten cuales quiera $k$
+  thrackles máximos?
+  \item ¿Cuál es el anti-thickness para los tipos de orden que no tienen una
+  cubierta por thrackles máximos?
+  \item ¿Existe un conjunto de $k$ thrackles de $m$ aristas cuya intersección
+  sea vacía? Donde $m =[1,n]$.
+  \item ¿Cuál es la configuración de vértices que maximiza el número
+  de thrackles máximos?
+\end{enumerate}
+\section{Evidencias}
+\subsection{Hipótesis 1}
+\begin{itemize}
+  \item Para analizar todos los encajes geométricos de alguna gráfica completa
+  de $n$ vértices, se usan los tipos de orden para conjuntos de tamaño $n$.
+  \item Se realizó una búsqueda exhaustiva para cada tipo de orden de cada $n$
+  para buscar una descomposición cuyo tamaño sea menor a la dada para encajes
+  en posición convexa; se encontró que el anti-thickness mínimo coincide con el
+  anti-thickness de posición convexa.
+\end{itemize}
+\subsection{Hipótesis 2}
+\begin{itemize}
+  \item Es necesario determinar el mínimo número de aristas que
+  comparten 2 thrackles máximos en posición general de manera geométrica y combinatoria.
+\end{itemize}
+\subsection{Hipótesis 3}
+\begin{itemize}
+  \item Si se determina que el mínimo número de aristas que comparten $k$ thrackles maximales se puede probar para los conjuntos en los que existe
+  una cubierta por thrackles máximos. Para los otros conjuntos
+  necesitamos probar que los conjuntos que minimizan el número de thrackles
+  en la descomposición necesariamente están en posición convexa o quasi-convexa, ya que esta configuración maximiza
+  el número de thrackles máximos.
+\end{itemize}
+
+\end{document}

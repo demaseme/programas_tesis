@@ -208,6 +208,19 @@ bool look8876(int ot, int & highest_level){
 
   return 0;
 }
+bool look987(int ot, int & highest_level){
+  int current_ot =0;
+  int eater = 0;
+  int i,j,k;
+  int nedges =36;
+  int nt99, nt98, nt97;
+  int c = 0;
+  ifstream h99, h98, h97;
+
+  h99.open("ths/9_9_All_bool.ths",ios::binary);
+  h98.open("ths/9_8_All_bool.ths",ios::binary);
+  h97.open("ths/9_7_All_bool.ths",ios::binary);
+}
 /*
     This is for K9 decompositions of integer 36.
     9 + 8 + 8 + 8 + 3
