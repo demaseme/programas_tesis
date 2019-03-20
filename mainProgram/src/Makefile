@@ -28,5 +28,7 @@ count_points_inside:
 	g++ semiConvexCount.cpp decomposition.cpp point.cpp -o countPointsInside -Wall
 check_empty_intersections:
 	g++ study_empty_intersections.cpp decomposition.cpp -o check_empty_inters_all -Wall -fopenmp
+check_crossn:
+	g++ check_cn.cpp decomposition.cpp -o check_cn -Wall
 clean:
 	rm *.o frac
