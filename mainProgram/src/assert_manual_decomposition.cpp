@@ -17,7 +17,7 @@ int ot_thrackles[158817];//98
 int ot_thrackles99[158817];
 int ot_thrackles97[158817];
 int main(){
-  int ot = 1; // 3315
+  int ot = 0; // 3315
   int level = 0;
   int highest = 0;
 
@@ -28,7 +28,7 @@ int main(){
   }
   //store97();
    store98();
-   store99();
+   //store99();
   std::chrono::high_resolution_clock::time_point t1 = chrono::high_resolution_clock::now();
 
   // #pragma omp parallel
@@ -38,14 +38,14 @@ int main(){
   //       #pragma omp cancel for
   //   };
   // }
-  for(ot = 1; ot < 158817; ot++) {
-      if( !look988_2(ot,highest) ) return 0;
+  for(ot = 0; ot < 158817; ot++) {
+      if( !look888(ot,highest) ) return 0;
   }
   std::chrono::high_resolution_clock::time_point t2 = chrono::high_resolution_clock::now();
   chrono::duration<double, std::milli> time_span = t2 - t1;
   cout << "It took me " << time_span.count() << " milliseconds.";
    free98();
-   free99();
+   //free99();
   //free97();
   // while(ot < 3315) {
   //   bool state = look8876(ot,level);
