@@ -6,14 +6,18 @@ int max_cn();
 int min_cn();
 
 int main(){
-  int k = 10;
-  int ot_interest[k] = {0,12,52,54,80,103,134,696,1080,1287};
+
+  int ot_convexat[8] = {0,12,52,54,80,696,1080,1287};
+  int ot_higherat[11] = {8,1074,1268,4777,4888,17539,17967,17977,17982,18601,74934 };
   load_cn();
   printf("Max CN is : %d\nMin CN is: %d\n",max_cn(),min_cn());
-  for ( int i = 0; i < k;  i++) {
-    printf("For OT %d, its crossing-number is %d\n",ot_interest[i], cn_arr[ot_interest[i]]);
+  for ( int i = 0; i < 8;  i++) {
+    printf("For OT %d, its crossing-number is %d\n",ot_convexat[i], cn_arr[ot_convexat[i]]);
   }
-
+  printf("Now printing the ones that cover but don't acquire minimal at.\n");
+  for ( int i = 0; i < 11;  i++) {
+    printf("For OT %d, its crossing-number is %d\n",ot_higherat[i], cn_arr[ot_higherat[i]]);
+  }
   return 1;
 }
 int max_cn(){
