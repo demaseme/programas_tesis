@@ -6,6 +6,7 @@ bool look8876(int, int &);
   This is all for K9.
 */
 bool look9876(int ot, int & highest_level);
+bool look9877(int ot, int & highest_level);
 bool look988(int ot, int & highest_level);
 bool look988_2(int ot, int & highest_level);
 bool look888(int ot, int & highest_level);
@@ -36,7 +37,7 @@ int main(){
   //   exit(-1);
   // }
   //store96();
-  //store97();
+  store97();
   store98();
   store99();
   std::chrono::high_resolution_clock::time_point t1 = chrono::high_resolution_clock::now();
@@ -48,15 +49,16 @@ int main(){
   //       #pragma omp cancel for
   //   };
   // }
-  for(ot = 1; ot < 158817; ot++) {
-      if( !look988_2(ot,highest) ) return 0;
+  for(ot = 833; ot < 158817; ot++) {
+      printf("Working with OT %d\n",ot);
+      if( !look9877(ot,highest) ) return 0;
   }
   std::chrono::high_resolution_clock::time_point t2 = chrono::high_resolution_clock::now();
   chrono::duration<double, std::milli> time_span = t2 - t1;
   cout << "It took me " << time_span.count() << " milliseconds.";
    free98();
    free99();
-   //free97();
+   free97();
   //free96();
   // while(ot < 3315) {
   //   bool state = look8876(ot,level);
@@ -335,6 +337,10 @@ void store97(){
     }
     file_h.close();
     file_h.open(file_name,ios::binary);
+    if (!file_h.good()) {
+        fprintf(stderr, "Error processing file %s\n", file_name.c_str() );
+        exit(-1);
+    }
     printf("%d = %d\n",total_rows,total_rows_count );
     rows97 = total_rows;
     mat97 = (bool ** ) malloc( total_rows * sizeof(bool*));
@@ -363,12 +369,13 @@ void store97(){
     }
     file_h.close();
     printf("Matrix 97 succesfully created and filled!\n");
-    // for( int i = 0; i < 36; i++){
-    //     for (int j = 0; j < 36; j++){
-    //         printf("%d ", mat97[i][j]);
-    //     }
-    //     printf("\n");
-    // }
+    int start=1123469;
+    for( int i = start + 879; i < start + 884; i++){
+        for (int j = 0; j < 36; j++){
+            printf("%d ", mat97[i][j]);
+        }
+        printf("\n");
+    }
 }
 /*
     Reads the file of thrackles of size 9 for K_9.
@@ -506,6 +513,7 @@ void store98(){
 /*
     Reads the file of thrackles of size 6 for K_9.
     Loads its info into a big matrix called mat96.
+    9_6 File is 5.6 GB, not able to load into ram (laptop)
 */
 void store96(){
   string file_name = "ths/9_6_All_bool.ths";
@@ -832,6 +840,120 @@ bool look8877(int ot, int & highest_level){
             for (i = 0; i < 36; i++) arr[i] = arr_bk2[i];
         }
         for (i = 0; i < 36; i++) arr[i] = arr_bk1[i];
+    }
+    return true;
+}
+bool look9877(int ot, int & highest_level){
+    int current_ot =0;
+    int i;
+    int nt98,nt99,nt97;
+    int starting_row97 = 0;
+    int starting_row98 = 0;
+    int starting_row99 = 0;
+    bool avoid_flag,avoid_flag2,avoid_flag3;
+    bool arr[36];
+    bool arr_bk1[36],arr_bk2[36],arr_bk3[36],arr_bk4[36];
+    nt99 = ot_thrackles99[ot];
+    nt98 = ot_thrackles[ot];
+    nt97 = ot_thrackles97[ot];
+    printf("There are %d thrackles of size 7\n",nt97);
+    while(current_ot != ot) {
+        //printf("For OT %d there are %d thrackles.\n", current_ot, ot_thrackles[current_ot]);
+        starting_row99 += ot_thrackles99[current_ot];
+        starting_row98 += ot_thrackles[current_ot];
+        starting_row97 += ot_thrackles97[current_ot];
+        current_ot++;
+    }
+    printf("97 thrackles of ot %d start at row %d\n",ot, starting_row97);
+
+    for ( i = 0; i < 36; i++) arr[i] = false;
+    for ( i = 0; i < 36; i++) arr_bk1[i] = arr[i];
+    for ( int l1 = 0; l1 < nt99 ; l1++ ){
+        //Copy l1-th thrackle of size 9.
+        printf("%d   L1:",l1);
+        for ( int j = 0; j < 36; j++){
+            arr[j] |= mat99[starting_row99+l1][j];
+            printf("%d ",arr[j]);
+        }
+        printf("\n");
+        for( int j = 0; j < 36; j++) arr_bk2[j] = arr[j];
+        for (int l2 = 0; l2 < nt98; l2++ ){
+            //Copy l2-th thrackle of size 8.
+            if( l2 == 243){
+                printf("%d L2:",l2);
+                for ( int k = 0; k < 36; k++){
+                    printf("%d ",mat98[starting_row98+l2][k]);
+                }
+                printf("\n");
+            }
+            avoid_flag = false;
+            for (int j = 0; j < 36; j++){
+                if ( arr[j] && mat98[starting_row98+l2][j] ) {
+                    avoid_flag = true;
+                    break;
+                }
+                arr[j] |= mat98[starting_row98+l2][j];
+            }
+            if (!avoid_flag) {
+                for( int j = 0; j < 36; j++) arr_bk3[j] = arr[j];
+                for (int l3 = 0; l3 < nt97 ; l3++){
+                    //Copy l3-th thrackle of size 7.
+                    if( l2 == 243 && l3 == 881){
+                        printf("%d L3:",l3);
+                        for ( int k = 0; k < 36; k++){
+                            printf("%d ",mat97[starting_row97+l3][k]);
+                        }
+                        printf("\n");
+                    }
+                    avoid_flag2 = false;
+                    for (int j = 0; j < 36; j++){
+                        if ( arr[j] && mat97[starting_row97+l3][j] ) {
+                            avoid_flag2 = true;
+                            break;
+                        }
+                        arr[j] |= mat97[starting_row97+l3][j];
+                    }
+                    if( !avoid_flag2 ){
+                        for( int j = 0; j < 36; j++) arr_bk4[j] = arr[j];
+                        for (int l4 = 0; l4 < nt97 ; l4++){
+                            //Copy l4-th thrackle of size 7
+                            if( l2 == 243 && l3 == 881 && l4==881){
+                                printf("%d L4:",l4);
+                                for ( int k = 0; k < 36; k++){
+                                    printf("%d ",mat97[starting_row97+l4][k]);
+                                }
+                                printf("\n");
+                            }
+                            avoid_flag3 = false;
+                            for( int j = 0; j < 36; j++){
+                                if ( arr[j] && mat97[starting_row97+l4][j]){
+                                    avoid_flag3 = true;
+                                    break;
+                                }
+                                arr[j] |= mat97[starting_row97+l4][j];
+                            }
+                            if (!avoid_flag3) {
+                                int onecount=0;
+                                printf("       ");
+                                for( int q = 0; q < 36; q++ ) {
+                                    if (arr[q]) onecount++;
+                                    printf("%d ",arr[q]);
+                                }
+                                printf("\n");
+                                printf("Disjoint thrackles 9 8 7 7. %d %d %d %d\n",l1,l2,l3,l4);
+
+                                printf("%d=%d\n",onecount,9+8+7+7);
+                                return false;
+                            }
+                            for ( int j = 0; j < 36; j++) arr[j] = arr_bk4[j];
+                        }
+                    }
+                    for ( int j = 0; j < 36; j++) arr[j] = arr_bk3[j];
+                }
+            }
+            for ( int j = 0; j < 36; j++) arr[j] = arr_bk2[j];
+        }
+        for ( int j = 0; j < 36; j++) arr[j] = arr_bk1[j];
     }
     return true;
 }
