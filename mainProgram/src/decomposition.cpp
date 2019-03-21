@@ -182,6 +182,7 @@ bool check_empty_q_intersection_all(int ** bool_th_mat, int rows, int q, int set
   myfile.
 */
 void calculate_q_intersection_all(int ** bool_th_mat, int rows, int q, int setsize, ofstream & myfile){
+  int counter =0;
   int c[q+3];
   int c_curr[q];
   int j,m;
@@ -199,6 +200,8 @@ void calculate_q_intersection_all(int ** bool_th_mat, int rows, int q, int setsi
     //For each generated, check if it's a decomposition.
     //usleep(100000);
     //printf("Checking ");
+    counter++;
+    printf("Analyzing set number %d\n",counter);
     for(int i = q; i > 0; i--){
 
       c_curr[i-1] = c[i];
@@ -209,13 +212,14 @@ void calculate_q_intersection_all(int ** bool_th_mat, int rows, int q, int setsi
     m = count_repetitions(bool_th_mat,c_curr,cols,q,setsize);
     //Write to file if m is empty. <c_curr> m
     if(m == 0) {
-        //printf("Writing ");
+        printf("Writing ");
         for(int i = q; i > 0; i--){
-        //    printf(" %d ",c[i]);
-            myfile.write( (char*) &c[i], sizeof(uint16_t));
+            printf(" %d ",c[i]);
+            //myfile.write( (char*) &c[i], sizeof(uint16_t));
         }
-        //printf("\n");
-        myfile.write( (char*) &m, sizeof(char));
+        printf("\n");
+        //myfile.write( (char*) &m, sizeof(char));
+        exit(-1);
     }
     //L3. FIND j
     j = 1;
@@ -243,6 +247,7 @@ void calculate_q_intersection_all(int ** bool_th_mat, int rows, int q, int setsi
 */
 void count_repetitions_all(int ** bool_th_mat, int rows, int k, int setsize, int m_arr[2]){
   //Generate the k_combinations.
+  //int counter =0;
   int c[k+3];
   int c_curr[k];
   int j;
@@ -268,6 +273,7 @@ void count_repetitions_all(int ** bool_th_mat, int rows, int k, int setsize, int
       c_curr[i-1] = c[i];
       //printf(" %d ",c[i]);
     }
+
     //printf("k=%d,cols = %d\n",k,cols);
     //If one is a decomposition return true.
     if( is_decomposition(c_curr,k,bool_th_mat,cols) ){
