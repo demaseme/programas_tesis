@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1552445993 "testingK9.tex" "/home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/manual_tests_at/testingK9.pdf" "testingK9" 1552445993
+["pdflatex"] 1553229407 "testingK9.tex" "/home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/manual_tests_at/testingK9.pdf" "testingK9" 1553229407
   "/etc/texmf/web2c/texmf.cnf" 1536076478 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/manual_tests_at/testingK9.aux" 1552445993 110 8faa4157f06d40efb1cc013f60497297 ""
+  "/home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/manual_tests_at/testingK9.aux" 1553229407 110 8faa4157f06d40efb1cc013f60497297 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1480098698 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1480098698 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -43,11 +43,11 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1520210507 32485 c64754543d8ac501bea6e75e209ea521 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1536076603 2700761 ac0584cc9514ab21918550a6948c4ee2 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1539727128 4128046 7aefb843daa767d2c70b3ec63a1d5062 ""
-  "testingK9.aux" 1552445993 110 8faa4157f06d40efb1cc013f60497297 ""
-  "testingK9.tex" 1552445982 1040 9e0e5155ccc42913d40671620a1b1f9f ""
+  "testingK9.aux" 1553229407 110 8faa4157f06d40efb1cc013f60497297 ""
+  "testingK9.tex" 1553228961 1400 d51a7e9b5b833b8cd2f1fd23d02be5ba ""
   (generated)
   "testingK9.log"
-  "/home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/manual_tests_at/testingK9.pdf"
-  "testingK9.pdf"
   "testingK9.aux"
   "/home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/manual_tests_at/testingK9.log"
+  "testingK9.pdf"
+  "/home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/manual_tests_at/testingK9.pdf"
