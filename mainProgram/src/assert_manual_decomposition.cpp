@@ -36,7 +36,7 @@ int main(){
   //   printf("Cancellation variable not correctly set!\n");
   //   exit(-1);
   // }
-  //store96();
+  store96();
   store97();
   store98();
   store99();
@@ -49,9 +49,9 @@ int main(){
   //       #pragma omp cancel for
   //   };
   // }
-  for(ot = 833; ot < 158817; ot++) {
+  for(ot = 1; ot < 158817; ot++) {
       printf("Working with OT %d\n",ot);
-      if( !look9877(ot,highest) ) return 0;
+      if( !look9876(ot,highest) ) break;
   }
   std::chrono::high_resolution_clock::time_point t2 = chrono::high_resolution_clock::now();
   chrono::duration<double, std::milli> time_span = t2 - t1;
@@ -59,7 +59,7 @@ int main(){
    free98();
    free99();
    free97();
-  //free96();
+   free96();
   // while(ot < 3315) {
   //   bool state = look8876(ot,level);
   //   ot++;
@@ -870,22 +870,22 @@ bool look9877(int ot, int & highest_level){
     for ( i = 0; i < 36; i++) arr_bk1[i] = arr[i];
     for ( int l1 = 0; l1 < nt99 ; l1++ ){
         //Copy l1-th thrackle of size 9.
-        printf("%d   L1:",l1);
+      //  printf("%d   L1:",l1);
         for ( int j = 0; j < 36; j++){
             arr[j] |= mat99[starting_row99+l1][j];
-            printf("%d ",arr[j]);
+        //   printf("%d ",arr[j]);
         }
-        printf("\n");
+       // printf("\n");
         for( int j = 0; j < 36; j++) arr_bk2[j] = arr[j];
         for (int l2 = 0; l2 < nt98; l2++ ){
             //Copy l2-th thrackle of size 8.
-            if( l2 == 243){
+          /*  if( l2 == 243){
                 printf("%d L2:",l2);
                 for ( int k = 0; k < 36; k++){
                     printf("%d ",mat98[starting_row98+l2][k]);
                 }
                 printf("\n");
-            }
+            }*/
             avoid_flag = false;
             for (int j = 0; j < 36; j++){
                 if ( arr[j] && mat98[starting_row98+l2][j] ) {
@@ -898,13 +898,14 @@ bool look9877(int ot, int & highest_level){
                 for( int j = 0; j < 36; j++) arr_bk3[j] = arr[j];
                 for (int l3 = 0; l3 < nt97 ; l3++){
                     //Copy l3-th thrackle of size 7.
-                    if( l2 == 243 && l3 == 881){
+               /*     if( l2 == 243 && l3 == 881){
                         printf("%d L3:",l3);
                         for ( int k = 0; k < 36; k++){
                             printf("%d ",mat97[starting_row97+l3][k]);
                         }
                         printf("\n");
                     }
+		*/
                     avoid_flag2 = false;
                     for (int j = 0; j < 36; j++){
                         if ( arr[j] && mat97[starting_row97+l3][j] ) {
@@ -917,13 +918,14 @@ bool look9877(int ot, int & highest_level){
                         for( int j = 0; j < 36; j++) arr_bk4[j] = arr[j];
                         for (int l4 = 0; l4 < nt97 ; l4++){
                             //Copy l4-th thrackle of size 7
-                            if( l2 == 243 && l3 == 881 && l4==881){
+                  /*          if( l2 == 243 && l3 == 881 && l4==881){
                                 printf("%d L4:",l4);
                                 for ( int k = 0; k < 36; k++){
                                     printf("%d ",mat97[starting_row97+l4][k]);
                                 }
                                 printf("\n");
                             }
+		*/
                             avoid_flag3 = false;
                             for( int j = 0; j < 36; j++){
                                 if ( arr[j] && mat97[starting_row97+l4][j]){
