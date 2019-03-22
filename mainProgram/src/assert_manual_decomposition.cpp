@@ -796,9 +796,9 @@ bool look7777(int ot, int & highest_level){
     int i,j;
     int nt97;
     int starting_row = 0;
-    bool avoid_flag,avoid_flag2;
+    bool avoid_flag,avoid_flag2,avoid_flag3;
     bool arr[36];
-    bool arr_bk1[36],arr_bk2[36],arr_bk3[36];
+    bool arr_bk1[36],arr_bk2[36],arr_bk3[36],arr_bk4[36];
     nt97 = ot_thrackles97[ot];
     printf("For OT %d there are %d thrackles.\n", ot, nt97);
 
