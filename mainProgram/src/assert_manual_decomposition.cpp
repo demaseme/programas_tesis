@@ -11,6 +11,9 @@ bool look988(int ot, int & highest_level);
 bool look988_2(int ot, int & highest_level);
 bool look8888(int ot, int & highest_level);
 bool look8886(int ot, int & highest_level);
+bool look87777(int ot, int & highest_level);
+bool look88866(int ot, int & highest_level);
+bool look88776(int ot, int & highest_level);
 bool look8877(int ot, int & highest_level);
 bool look7777(int ot, int & highest_level);
 bool look777(int ot, int & highest_level);
@@ -40,8 +43,8 @@ int main(){
   //   printf("Cancellation variable not correctly set!\n");
   //   exit(-1);
   // }
-  // store96();
-  // store97();
+  //store96();
+  store97();
   store98();
   //store99();
   std::chrono::high_resolution_clock::time_point t1 = chrono::high_resolution_clock::now();
@@ -55,15 +58,15 @@ int main(){
   // }
   for(ot = 1; ot < 158817; ot++) {
       printf("Working with OT %d\n",ot);
-      if( !look97776(ot,highest) ) break;
+      if( !look87777(ot,highest) ) break;
   }
   std::chrono::high_resolution_clock::time_point t2 = chrono::high_resolution_clock::now();
   chrono::duration<double, std::milli> time_span = t2 - t1;
   cout << "It took me " << time_span.count() << " milliseconds.";
   free98();
   //free99();
-  // free97();
-  // free96();
+  free97();
+  //free96();
   // while(ot < 3315) {
   //   bool state = look8876(ot,level);
   //   ot++;
@@ -579,6 +582,102 @@ void store96(){
   file_h.close();
   printf("Matrix 96 succesfully created and filled!\n");
 }
+
+
+bool look88776(int ot, int &highest_level){
+    int current_ot =0;
+    int i;
+    int nt98,nt99,nt97,nt96;
+    int starting_row96 = 0;
+    int starting_row97 = 0;
+    int starting_row98 = 0;
+    int starting_row99 = 0;
+    bool avoid_flag,avoid_flag2,avoid_flag3,avoid_flag4;
+    bool arr[36];
+    bool arr_bk1[36],arr_bk2[36],arr_bk3[36],arr_bk4[36],arr_bk5[36];
+    nt99 = ot_thrackles99[ot];
+    nt98 = ot_thrackles[ot];
+    nt97 = ot_thrackles97[ot];
+
+    while(current_ot != ot) {
+        //printf("For OT %d there are %d thrackles.\n", current_ot, ot_thrackles[current_ot]);
+        starting_row99 += ot_thrackles99[current_ot];
+        starting_row98 += ot_thrackles[current_ot];
+        starting_row97 += ot_thrackles97[current_ot];
+        starting_row96 += ot_thrackles96[current_ot];
+        current_ot++;
+    }
+    for ( i = 0; i < 36; i ++) arr[i] = false;
+    for ( i = 0; i < 36; i++) arr_bk1[i] = arr[i];
+    for( int l1 = 0; l1 < nt98; l1++ ){
+      for ( i = 0; i < 36; i++) arr[i] |= mat98[starting_row98+l1][i];
+      for ( i = 0; i < 36; i++) arr_bk2[i] = arr[i];
+      for ( int l2 = l1+1; l2 < nt98 ; l2 ++){
+          for ( i = 0; i < 36; i++) {
+              avoid_flag = false;
+              if ( arr[i] && mat98[starting_row98+l2][i] ) {
+                  avoid_flag= true;
+                  break;
+              }
+              arr[i] |= mat98[starting_row98+l2][i];
+          }
+          if ( !avoid_flag ){
+              for ( i = 0; i < 36; i++) arr_bk3[i] = arr[i];
+              for( int l3 = 0; l3 < nt97 ; l3 ++){
+                  avoid_flag2 = false;
+                  for ( i = 0; i < 36; i++){
+                      if ( arr[i] && mat97[starting_row97+l3][i]){
+                          avoid_flag2 = true;
+                          break; //avoid
+                      }
+                      arr[i] |= mat97[starting_row97+l3][i];
+                  }
+                  if (!avoid_flag2 ){
+                      for ( i = 0; i < 36; i++) arr_bk4[i] = arr[i];
+                      for( int l4 = l3+1; l4 < nt97 ; l4 ++){
+                        avoid_flag3 = false;
+                        for ( i = 0; i < 36; i++){
+                            if ( arr[i] && mat97[starting_row97+l4][i]){
+                                avoid_flag3 = true;
+                                break; //avoid
+                            }
+                            arr[i] |= mat97[starting_row96+l4][i];
+                        }
+                        if (!avoid_flag3){
+                          for ( i = 0; i < 36 ; i++) arr_bk5[i] = arr[i];
+                          for(int l5 = 0; l5 < nt96; l5++){
+                            avoid_flag4 = false;
+                            for( i = 0; i < 36 ; i++){
+                              if ( arr[i] && mat96[starting_row96+l5][i]){
+                                avoid_flag4 = true;
+                                break; //avoid
+                              }
+                              arr[i] |= mat96[starting_row96+l5][i];
+                            }
+                            if ( !avoid_flag4 ){
+                              printf("There is a set of thrackles 8,8,7,7,6 disjoint. %d %d %d %d %d\n",l1,l2,l3,l4,l5);
+                              int onecount=0;
+                              for(int k = 0; k < 36;k++) {
+                                      if (arr[k]) onecount++;
+                              }
+                              printf("%d=%d\n",onecount,8+8+7+7+6);
+                              return false;
+                            }
+                            for (i = 0; i < 36; i++) arr[i] = arr_bk5[i];
+                          }
+                        }
+                        for (i = 0; i < 36; i++) arr[i] = arr_bk4[i];
+                      }
+                  }
+                  for (i = 0; i < 36; i++) arr[i] = arr_bk3[i];
+              }
+          }
+          for (i = 0; i < 36; i++) arr[i] = arr_bk2[i];
+        }
+        for (i = 0; i < 36; i++) arr[i] = arr_bk1[i];
+    }
+    return true;
+}
 /*
     There is no combination of 8 8 8 8 thrackles disjoint!
 */
@@ -730,13 +829,102 @@ bool look8886(int ot, int & highest_level){
   }
   return true;
 }
+bool look88866(int ot, int & highest_level){
+    int current_ot =0;
+    int i;
+    int nt98,nt96;
+    int starting_row = 0;
+    int starting_row96 = 0;
+    bool avoid_flag,avoid_flag2,avoid_flag3,avoid_flag4;
+    bool arr[36];
+    bool arr_bk1[36],arr_bk2[36],arr_bk3[36],arr_bk4[36],arr_bk5[36];
+    nt98 = ot_thrackles[ot];
+    nt96 = ot_thrackles96[ot];
+    while(current_ot != ot) {
+        starting_row += ot_thrackles[current_ot];
+        starting_row96 += ot_thrackles96[current_ot];
+        current_ot++;
+    }
+    printf("Thrackles of ot %d start at row %d\n",ot, starting_row );
+    for ( i = 0; i < 36; i ++) arr[i] = false;
+
+    for ( i = 0; i < 36; i++) arr_bk1[i] = arr[i];
+    for( int l1 = 0; l1 < nt98; l1++ ){
+        for ( i = 0; i < 36; i++) arr[i] |= mat98[starting_row+l1][i];
+        for ( i = 0; i < 36; i++) arr_bk2[i] = arr[i];
+        for ( int l2 = l1+1; l2 < nt98 ; l2 ++){
+            for ( i = 0; i < 36; i++) {
+                avoid_flag = false;
+                if ( arr[i] && mat98[starting_row+l2][i] ) {
+                    avoid_flag= true;
+                    break;
+                };
+                arr[i] |= mat98[starting_row+l2][i];
+            }
+            if ( !avoid_flag ) {
+                for ( i = 0; i < 36; i++) arr_bk3[i] = arr[i];
+                for( int l3 = l2+1; l3 < nt98 ; l3 ++){
+                    avoid_flag2 = false;
+                    for ( i = 0; i < 36; i++){
+                        if ( arr[i] && mat98[starting_row+l3][i]){
+                            avoid_flag2 = true;
+                            break; //avoid
+                        }
+                        arr[i] |= mat98[starting_row+l3][i];
+                    }
+                    if (!avoid_flag2 ){
+                      for ( i = 0; i < 36; i++) arr_bk4[i] = arr[i];
+                      for( int l4 = 0; l4 < nt96 ; l4 ++){
+                        avoid_flag3 = false;
+                        for ( i = 0; i < 36; i++){
+                          if ( arr[i] && mat96[starting_row96+l4][i]){
+                              avoid_flag3 = true;
+                              break; //avoid
+                          }
+                          arr[i] |= mat96[starting_row96+l4][i];
+                        }
+                        if ( !avoid_flag3) {
+                            for ( i = 0; i < 36; i++) arr_bk5[i] = arr[i];
+                            for( int l5 = l4+1; l5 < nt96 ; l5 ++){
+                                avoid_flag4 = false;
+                                for ( i = 0; i < 36; i++){
+                                    if ( arr[i] && mat96[starting_row96+l5][i]){
+                                        avoid_flag4 = true;
+                                        break;
+                                    }
+                                    arr[i]|= mat96[starting_row96+l5][i];
+                                }
+                                if(!avoid_flag4){
+                                    printf("There are thrackles 8 8 8 6 6 disjoint! %d %d %d %d %d\n",l1,l2,l3,l4,l5);
+                                    int onecount=0;
+                                    for( int jk = 0; jk < 36; jk++) {
+                                        if ( arr[jk] ) onecount++;
+                                    }
+                                    printf("%d=%d\n",onecount,8+8+8+6+6);
+                                    return false;
+                                }
+                                for (i = 0; i < 36; i++) arr[i] = arr_bk5[i];
+                            }
+                        }
+                        for (i = 0; i < 36; i++) arr[i] = arr_bk4[i];
+                      }
+                    }
+                    for (i = 0; i < 36; i++) arr[i] = arr_bk3[i];
+                }
+            }
+            for (i = 0; i < 36; i++) arr[i] = arr_bk2[i];
+        }
+        for (i = 0; i < 36; i++) arr[i] = arr_bk1[i];
+    }
+    return true;
+}
 /*
     Already tested for K9.
     There are 3 thrackles of size 7 disjoint! 0 3658 3666
 */
 bool look777(int ot, int & highest_level){
     int current_ot =0;
-    int i,j;
+    int i;
     int nt97;
     int starting_row = 0;
     bool avoid_flag,avoid_flag2;
@@ -791,9 +979,12 @@ bool look777(int ot, int & highest_level){
     }
     return true;
 }
+/*
+    There exist 7777 disjoint..
+*/
 bool look7777(int ot, int & highest_level){
     int current_ot =0;
-    int i,j;
+    int i;
     int nt97;
     int starting_row = 0;
     bool avoid_flag,avoid_flag2,avoid_flag3;
@@ -846,13 +1037,106 @@ bool look7777(int ot, int & highest_level){
                               arr[i] |= mat97[starting_row+l4][i];
                           }
                           if (!avoid_flag3){
-                            printf("There are 4 thrackles of size 7 disjoint! %d %d %d\n",l1,l2,l3,l4 );
+                            printf("There are 4 thrackles of size 7 disjoint! %d %d %d %d\n",l1,l2,l3,l4 );
                             int onecount=0;
                             for( int q = 0; q < 36; q++){
                               if ( arr[q] ) onecount++;
                             }
                             printf("%d=%d\n",onecount,7*4);
                             return false;
+                          }
+                          for (i = 0; i < 36; i++) arr[i] = arr_bk4[i];
+                        }
+                    }
+                    for (i = 0; i < 36; i++) arr[i] = arr_bk3[i];
+                }
+            }
+            for (i = 0; i < 36; i++) arr[i] = arr_bk2[i];
+        }
+        for (i = 0; i < 36; i++) arr[i] = arr_bk1[i];
+    }
+    return true;
+}
+
+bool look87777(int ot, int & highest_level){
+    int current_ot =0;
+    int i;
+    int nt97,nt98;
+    int starting_row = 0;
+    int starting_row98 = 0;
+    bool avoid_flag,avoid_flag2,avoid_flag3,avoid_flag4;
+    bool arr[36];
+    bool arr_bk1[36],arr_bk2[36],arr_bk3[36],arr_bk4[36],arr_bk5[36];
+    nt97 = ot_thrackles97[ot];
+    nt98 = ot_thrackles[ot];
+    printf("For OT %d there are %d thrackles.\n", ot, nt97);
+
+    while(current_ot != ot) {
+    //    printf(">>Looking<< For OT %d there are %d thrackles.\n", current_ot, ot_thrackles97[current_ot]);
+        starting_row += ot_thrackles97[current_ot];
+        starting_row98 += ot_thrackles[current_ot];
+        current_ot++;
+    }
+    //printf("Thrackles of ot %d start at row %d\n",ot, starting_row );
+    for ( i = 0; i < 36; i++) arr[i] = false;
+    for ( i = 0; i < 36; i++) arr_bk1[i] = arr[i];
+    for( int l1 = 0; l1 < nt97; l1++ ){
+        for ( i = 0; i < 36; i++) arr[i] |= mat97[starting_row+l1][i];
+        for ( i = 0; i < 36; i++) arr_bk2[i] = arr[i];
+        for ( int l2 = l1+1; l2 < nt97 ; l2 ++){
+            for ( i = 0; i < 36; i++) {
+                avoid_flag = false;
+                if ( arr[i] && mat97[starting_row+l2][i] ) {
+                    avoid_flag= true;
+
+                    break;
+                }
+                arr[i] |= mat97[starting_row+l2][i];
+            }
+            if ( !avoid_flag ) {
+                for ( i = 0; i < 36; i++) arr_bk3[i] = arr[i];
+                for( int l3 = l2+1; l3 < nt97 ; l3 ++){
+                    avoid_flag2 = false;
+                    for ( i = 0; i < 36; i++){
+                        if ( arr[i] && mat97[starting_row+l3][i]){
+                            avoid_flag2 = true;
+                            break; //avoid
+                        }
+                        arr[i] |= mat97[starting_row+l3][i];
+                    }
+                    if (!avoid_flag2 ){
+                        for ( i = 0; i < 36; i++) arr_bk4[i] = arr[i];
+                        for( int l4 = l3+1; l4 < nt97 ; l4 ++){
+                          avoid_flag3 = false;
+                          for ( i = 0; i < 36; i++){
+                              if ( arr[i] && mat97[starting_row+l4][i]){
+                                  avoid_flag3 = true;
+                                  break; //avoid
+                              }
+                              arr[i] |= mat97[starting_row+l4][i];
+                          }
+                          if (!avoid_flag3){
+                              for ( i = 0; i < 36; i++) arr_bk5[i]=arr[i];
+                              for (int l5 = 0 ; l5 < nt98; l5 ++){
+                                  for ( i = 0; i < 36; i++){
+                                      avoid_flag4=false;
+                                      if ( arr[i] && mat98[starting_row98+l5][i]){
+                                          avoid_flag4 = true;
+                                          break;
+                                      }
+                                      arr[i] |= mat98[starting_row98+l5][i];
+                                  }
+                                  if (!avoid_flag4){
+                                      printf("There is a dec 8 7 7 7 7. %d %d %d %d %d\n",l1,l2,l3,l4,l5 );
+                                      int onecount=0;
+                                      for( int q = 0; q < 36; q++){
+                                        if ( arr[q] ) onecount++;
+                                      }
+                                      printf("%d=%d\n",onecount,8+(7*4));
+                                      return false;
+                                  }
+                                  for (i = 0; i < 36; i++) arr[i] = arr_bk5[i];
+                              }
                           }
                           for (i = 0; i < 36; i++) arr[i] = arr_bk4[i];
                         }
@@ -931,7 +1215,7 @@ bool look988_2(int ot, int & highest_level){
 
 bool look8877(int ot, int & highest_level){
     int current_ot =0;
-    int i,j;
+    int i;
     int nt97,nt98;
     int starting_row = 0;
     int starting_row98=0;
