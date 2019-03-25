@@ -30,5 +30,7 @@ check_empty_intersections:
 	g++ study_empty_intersections.cpp decomposition.cpp -o check_empty_inters_all -Wall -fopenmp
 check_crossn:
 	g++ check_cn.cpp decomposition.cpp -o check_cn -Wall
+crossn_thrackle:
+	g++ thrackle_cn.cpp decomposition.cpp -o crossn_th -Wall
 clean:
 	rm *.o frac
