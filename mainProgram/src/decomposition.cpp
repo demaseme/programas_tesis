@@ -277,19 +277,19 @@ void count_repetitions_all(int ** bool_th_mat, int rows, int k, int setsize, int
     //printf("k=%d,cols = %d\n",k,cols);
     //If one is a decomposition return true.
     if( is_decomposition(c_curr,k,bool_th_mat,cols) ){
-      // printf("Decomposition found : ");
-      // for(int i = k; i > 0; i--){
-      //   printf("%d ",c[i]);
-      // }
-      // printf("\n");
+      printf("Decomposition found : ");
+      for(int i = k; i > 0; i--){
+        printf("%d ",c[i]);
+      }
+      printf("\n");
 
       m_cur = count_repetitions(bool_th_mat,c_curr,cols,k,setsize);
       if( m_cur > m_max) {
         m_max = m_cur;
-        for(int i = k; i > 0; i--){
-          printf(" %d ",c[i]);
-        }
-        printf("\n");
+        // for(int i = k; i > 0; i--){
+        //   printf(" %d ",c[i]);
+        // }
+        // printf("\n");
       }
       if( m_cur < m_min) m_min = m_cur;
 
