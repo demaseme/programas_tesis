@@ -88,8 +88,9 @@ int main(int argc, char * argv[]){
     printf("Number of Thrackles: %d\n",rows );
     while(k > 2){
       printf("Looking for a decomposition of size %d\n",k);
-
+      if (rows < k){ k--; continue;}
       count_repetitions_all(bool_th_mat, rows, k, n,m_arr);
+
       if( m_arr[0] == 99 ) {
           printf("\tNo decomposition of size %d found.\n",k);
           k = 2;

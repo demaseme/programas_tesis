@@ -1,36 +1,31 @@
 #include "../include/decomposition.h"
 #include <sstream>
 int get_bool_ot(bool E[], int n, int k, int th_number,int desired_ot);
+void analyze_list(string file_name);
 int cn_th(bool E[], int n);
 
 int main(int argc, char * argv[]){
     if ( argc < 2 ){
-         fprintf(stderr, "Error, usage %s n ot <t_decomposition>\n", argv[0]);
+         //fprintf(stderr, "Error, usage %s n ot <t_decomposition>\n", argv[0]);
+         fprintf(stderr, "Error, usage %s data_file\n", argv[0]);
          return 0;
     }
-    int des_ot = atoi(argv[2]);
-    int i,dec_size,j;
-    int n = atoi(argv[1]);
-    dec_size = argc - 3;
-    int dec[dec_size];
-    for( i = 0; i < dec_size ; i++){
-      dec[i] = atoi(argv[i+3]);
-    }
-    bool X[n*(n-1)/2];
-//    73  68  59  58  33  2 - ot 80
-//   79  76  73  40  22  2 - 696
-//  37  33  32  29  15  2 - ot 1080
-//  57  55  44  35  24  3 - ot 1287
-//  101  96  93  68  33  2  - ot 12
-//  100  97  96  92  33  2  - ot 52
-    for( j = 0; j < dec_size ; j++){
-      get_bool_ot(X,n,n,dec[j],des_ot);
-      // for ( int i = 0; i < n*(n-1)/2 ; i++){
-      //     printf("%d ",X[i]);
-      // }
-      // printf("\n");
-      cn_th(X,n);
-    }
+    string file_name(argv[1]);
+    analyze_list(file_name);
+    // int des_ot = atoi(argv[2]);
+    // int i,dec_size,j;
+    // int n = atoi(argv[1]);
+    // dec_size = argc - 3;
+    // int dec[dec_size];
+    // for( i = 0; i < dec_size ; i++){
+    //   dec[i] = atoi(argv[i+3]);
+    // }
+    // bool X[n*(n-1)/2];
+    //
+    // for( j = 0; j < dec_size ; j++){
+    //   get_bool_ot(X,n,n,dec[j],des_ot);
+    //   cn_th(X,n);
+    // }
     return 0;
 }
 /*
@@ -39,7 +34,7 @@ int main(int argc, char * argv[]){
 */
 int get_bool_ot(bool E[], int n, int k, int th_number,int desired_ot){
     ifstream myfile;
-    int i,j,c,thrackleCounter;
+    int i,j,c;
     int eater = 0;
     int cols = n*(n-1)/2;
     int current_ot = 0;
@@ -68,7 +63,7 @@ int get_bool_ot(bool E[], int n, int k, int th_number,int desired_ot){
     myfile.read( (char*)&eater,sizeof(uint16_t));//ot
     myfile.read( (char*)&eater,sizeof(uint16_t)); //number_of_t
     c = eater;
-    thrackleCounter = c;
+    //thrackleCounter = c;
     //Go to the desired thrackle.
     for(i = 0; i < th_number; i++){
       for ( j = 0 ; j < cols ; j++){
@@ -124,6 +119,43 @@ int cn_th(bool E[], int n){
         sum+= degs[i]*(degs[i]-1)/2;
     }
     //printf("%d,%d,%d\n",th_size,ans,sum);
-    printf("Crossing number of given thrackle : %d\n",ans-sum);
+    printf("%d ",ans-sum);
     return ans - sum;
+}
+void analyze_list(string file_name){
+    ifstream file;
+    int desired_ot,n,k,i;
+    string dec;
+
+
+    file.open(file_name);
+    if (file.bad()) {
+        fprintf(stderr, "Error opening file %s\n", file_name.c_str());
+        exit(-1);
+    }
+    file >> n;
+    file >> desired_ot;
+    file >> k;
+    file.ignore(10000,'\n');
+    //printf("%d %d %d\n",n,desired_ot,k);
+    bool X[n];
+    int dec_arr[k];
+    int tmp;
+
+    while ( getline(file,dec) ){
+        stringstream sstr(dec);
+        i = 0;
+        while (sstr >> tmp ){
+            dec_arr[i] = tmp;
+            i++;
+        }
+        //for( i = 0; i < k ; i++) printf("%d ",dec_arr[i]);
+        //printf("\n");
+        for(int j = 0; j < k; j++){
+            get_bool_ot(X,n,n,dec_arr[j],desired_ot);
+            cn_th(X,n);
+        }
+        printf("\n");
+    }
+
 }

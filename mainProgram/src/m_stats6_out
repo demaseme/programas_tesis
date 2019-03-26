@@ -1,0 +1,13 @@
+3 -> 2
+0 
+7 
+Working with ot 0
+Number of Thrackles: 26
+Looking for a decomposition of size 3
+22 21 3 
+25 12 0 
+	Thrackle set size : 3, min_repetitions: 3, max_repetitions: 3
+Working with ot 7
+Number of Thrackles: 5
+Looking for a decomposition of size 3
+	No decomposition of size 3 found.

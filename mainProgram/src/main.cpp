@@ -268,6 +268,6 @@ int main(int argc, char* argv[]) {
     cout << std::endl;
 
     //Write max thrackle count to text file
-    write_max_thrackle_count(max_thrackle_count,otlist, min_inter, union_covers_bool, setSize,k);
+    //write_max_thrackle_count(max_thrackle_count,otlist, min_inter, union_covers_bool, setSize,k);
     return 0;
 }
