@@ -23,4 +23,13 @@ Observamos que todas las particiones que cumplen estas condiciones son de longit
 Es posible descartar alguna de estas particiones si pasa que no existen dos thrackles de tamaño $8$ que sean disjuntos
 para $K_9$ en alguno de sus tipos de orden. Podemos repetir este analisis para los casos en donde haya dos o más thrackles
 de tamaño $7$.
+
+\section{Verificando si \texttt{gat}$(K_8) < 5$}
+De la misma manera podemos verificar las particiones de $\binom{8}{2} = 28$ cuyo número de términos sea menor que $5$ y
+que ninguno de sus términos sea mayor a $8$.
+Las particiones que cumplen son las siguientes:
+\begin{itemize}
+  \item 8+7+7+6 - Probado con 8+7+7+6. 549.629 ms.
+  \item 7+7+7+7 - Probado con 7+7+7+7. 2340.32 ms.
+\end{itemize}
 \end{document}
