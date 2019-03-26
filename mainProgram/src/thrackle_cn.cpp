@@ -1,16 +1,21 @@
 #include "../include/decomposition.h"
-
+#include <sstream>
 int get_bool_ot(bool E[], int n, int k, int th_number,int desired_ot);
 int cn_th(bool E[], int n);
 
 int main(int argc, char * argv[]){
-    // if ( argc < 2 ){
-    //     fprintf(stderr, "Error, usage %s ot <t_decomposition>\n", argv[0]);
-    //     return 0;
-    // }
-    int n = 5;
-    //bool E[n*(n-1)/2] = { 0,1,0,0,1,1,0,1,1,0};
-    n = 9;
+    if ( argc < 2 ){
+         fprintf(stderr, "Error, usage %s n ot <t_decomposition>\n", argv[0]);
+         return 0;
+    }
+    int des_ot = atoi(argv[2]);
+    int i,dec_size,j;
+    int n = atoi(argv[1]);
+    dec_size = argc - 3;
+    int dec[dec_size];
+    for( i = 0; i < dec_size ; i++){
+      dec[i] = atoi(argv[i+3]);
+    }
     bool X[n*(n-1)/2];
 //    73  68  59  58  33  2 - ot 80
 //   79  76  73  40  22  2 - 696
@@ -18,13 +23,14 @@ int main(int argc, char * argv[]){
 //  57  55  44  35  24  3 - ot 1287
 //  101  96  93  68  33  2  - ot 12
 //  100  97  96  92  33  2  - ot 52
-
-    get_bool_ot(X,n,n,100,52);
-    for ( int i = 0; i < n*(n-1)/2 ; i++){
-        printf("%d ",X[i]);
+    for( j = 0; j < dec_size ; j++){
+      get_bool_ot(X,n,n,dec[j],des_ot);
+      // for ( int i = 0; i < n*(n-1)/2 ; i++){
+      //     printf("%d ",X[i]);
+      // }
+      // printf("\n");
+      cn_th(X,n);
     }
-    printf("\n");
-    cn_th(X,n);
     return 0;
 }
 /*
@@ -108,16 +114,16 @@ int cn_th(bool E[], int n){
             c++;
         }
     }
-    printf("Degree array: ");
-    for( i = 0 ; i<n;i++) printf("%d ",degs[i]);
-    printf("\n");
+    // printf("Degree array: ");
+    // for( i = 0 ; i<n;i++) printf("%d ",degs[i]);
+    // printf("\n");
     ans = th_size*(th_size-1)/2;
 
     sum = 0;
     for ( i = 0; i < n; i++){
         sum+= degs[i]*(degs[i]-1)/2;
     }
-    printf("%d,%d,%d\n",th_size,ans,sum);
+    //printf("%d,%d,%d\n",th_size,ans,sum);
     printf("Crossing number of given thrackle : %d\n",ans-sum);
     return ans - sum;
 }
