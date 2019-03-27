@@ -1,6 +1,6 @@
 #include "../include/thrackle_drawer.h"
 
-int ancho=1000,alto=800;
+int ancho=1600,alto=1024;
 vector<Point> points;
 vector<Edge> edges;
 vector<Thrackle> thrackles;
@@ -369,9 +369,9 @@ void draw(){
   char thrackle_number[50] ;
   char order_type_number[10];
   char buffer[20];
-  float r_colors[6] = {1,0,0,1,0.7,1};
-  float g_colors[6] = {0,1,0,0,0.6,0.48};
-  float b_colors[6] = {0,0,1,1,0.7,0.09};
+  float r_colors[6] = {1,0,0,0,1,0};
+  float g_colors[6] = {0,1,0,1,0,0};
+  float b_colors[6] = {0,0,1,1,1,0};
 
   strcpy(order_type_number,"OT: ");
   cout << "desired ot g: " << desired_ot_g << endl;
@@ -427,12 +427,17 @@ void draw(){
     glutSwapBuffers();
   }
   else if (dec_flag){
+		float lw = 4;
+		float lw2 = 6;
 	printf("DECOMPOSITION DRAW\n");
 	glColor3f(1,0,0);
-  	glLineWidth(1);
-  	gl2psLineWidth(3);
+  	glLineWidth(lw);
+  	gl2psLineWidth(lw2);
 	for (i = 0; i < dec_size ; i++ ){
 		glColor3f(r_colors[i],g_colors[i],b_colors[i]);
+		lw-=0.7; lw2-=0.7;
+		glLineWidth(lw);
+  	gl2psLineWidth(lw2);
 		for( j = 0; j < (int)thrackles[dec_index[i]].edges.size(); j++ ){
 			glBegin(GL_LINE_STRIP);
 			glVertex2i(thrackles[dec_index[i]].edges[j].v1.x,thrackles[dec_index[i]].edges[j].v1.y);
@@ -531,8 +536,8 @@ int main(int argc, char* argv[]){
 
 
     glutInit(&argc, argv);
-    alto = glutGet(GLUT_SCREEN_HEIGHT) * .8;
-    ancho = glutGet(GLUT_SCREEN_WIDTH) * .6;
+    alto = glutGet(GLUT_SCREEN_HEIGHT) * 1.2;
+    ancho = glutGet(GLUT_SCREEN_WIDTH) * .8;
     initialize_opengl();
     file_name = argv[optind];
 
