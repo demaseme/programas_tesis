@@ -270,6 +270,10 @@ void keyboard(unsigned char key, int x, int y){
     }
 }
 void special(int key, int x, int y){
+	if( dec_flag ) {
+		draw();
+		return;
+	}
     if(key == GLUT_KEY_RIGHT){
       if(pairwise_flag){
         if(current_pair < (number_thrackles-1)){
@@ -427,7 +431,7 @@ void draw(){
     glutSwapBuffers();
   }
   else if (dec_flag){
-		float lw = 4;
+		float lw = 6;
 		float lw2 = 6;
 	printf("DECOMPOSITION DRAW\n");
 	glColor3f(1,0,0);
@@ -435,28 +439,29 @@ void draw(){
   	gl2psLineWidth(lw2);
 	for (i = 0; i < dec_size ; i++ ){
 		glColor3f(r_colors[i],g_colors[i],b_colors[i]);
-		lw-=0.7; lw2-=0.7;
+		lw-=1; lw2-=0.7;
 		glLineWidth(lw);
-  	gl2psLineWidth(lw2);
+  		gl2psLineWidth(lw2);
 		for( j = 0; j < (int)thrackles[dec_index[i]].edges.size(); j++ ){
 			glBegin(GL_LINE_STRIP);
 			glVertex2i(thrackles[dec_index[i]].edges[j].v1.x,thrackles[dec_index[i]].edges[j].v1.y);
 			glVertex2i(thrackles[dec_index[i]].edges[j].v2.x,thrackles[dec_index[i]].edges[j].v2.y);
 			glEnd();
 		}
+		glutSwapBuffers();
+		usleep(1000000);
 	}
 	//Draw points.
-	glColor3f(0.0, 0.0, 1.0);
-
-	glPointSize(5);
+	glColor3f(0.0, 0.0, 0.0);
+	glPointSize(8);
 	gl2psPointSize(10);
 	glBegin(GL_POINTS);
 	for(i = 0; i < (int)points.size(); i++){
 		glVertex2i(points[i].x, points[i].y);
 	}
 	glEnd();
-
 	glutSwapBuffers();
+
   }
   else{
 	glColor3f(.5,.5,.5);
