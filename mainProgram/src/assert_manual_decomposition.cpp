@@ -1,5 +1,13 @@
 #include "../include/decomposition.h"
 
+/*
+K10  Use on cluster (file is 3.8 GB).
+*/
+
+bool look1010(int);
+void store1010();
+void free1010();
+
 /*This one is for K8*/
 bool look8776_8(int, int &);
 bool look7777_8(int, int &);
@@ -36,7 +44,10 @@ void free97();
 void free98();
 void free99();
 bool ** mat98, ** mat99, ** mat97, **mat96, **mat87, **mat88, **mat86;
-int rows98,rows99,rows97,rows96,rows87,rows88,rows86;
+bool ** mat1010;
+int rows98,rows99,rows97,rows96,rows87,rows88,rows86,rows1010;
+int ot_thrackles1010[14309547];
+
 int ot_thrackles[158817];//98
 int ot_thrackles99[158817];
 int ot_thrackles97[158817];
@@ -59,9 +70,10 @@ int main(){
   //store97();
   //store98();
   //store99();
-  store87();
-  store86();
-  store88();
+  // store87();
+  // store86();
+  // store88();
+  store1010();
   std::chrono::high_resolution_clock::time_point t1 = chrono::high_resolution_clock::now();
 
   // #pragma omp parallel
@@ -73,14 +85,15 @@ int main(){
   // }
   for(ot = 1; ot < 3315; ot++) {
       printf("Working with OT %d\n",ot);
-      if( !look8776_8(ot,highest) ) break;
+      if( !look1010(ot) ) break;
   }
   std::chrono::high_resolution_clock::time_point t2 = chrono::high_resolution_clock::now();
   chrono::duration<double, std::milli> time_span = t2 - t1;
   cout << "It took me " << time_span.count() << " milliseconds.";
-  free87();
-  free88();
-  free86();
+  free1010();
+  // free87();
+  // free88();
+  // free86();
   //free98();
   //free99();
   //free97();
@@ -206,6 +219,15 @@ bool look8776_8(int ot, int & highest_level){
     return true;
 }
 
+void free1010(){
+    int i;
+    int **a;
+
+    a = (int **)mat1010;
+    for ( i=0; i<rows1010; i++ ) free( a[i] );
+    free ( a );
+    printf("Matrix 1010 deleted!\n");
+}
 void free97(){
     int i;
     int **a;
@@ -747,7 +769,65 @@ void store96(){
   printf("Matrix 96 succesfully created and filled!\n");
 }
 
-
+void store1010(){
+    string file_name = "ths/10_10_All_bool.ths";
+    ifstream file_h;
+    file_h.open(file_name, ios::binary);
+    int eater=0;
+    int data = 0;
+    int c = 0;
+    int total_rows = 0;
+    int total_rows_count = 0;
+    int current_row = 0;
+    int otypes = 14309547;
+    if (!file_h.good()) {
+        fprintf(stderr, "Error opening file %s\n", file_name.c_str() );
+        exit(-1);
+    }
+    for( int i = 0; i < otypes; i++){
+        eater = 0;
+        //Determine how many thrackles for ot=i.
+        file_h.read( (char*)&eater,sizeof(uint16_t));
+        eater = 0;
+        file_h.read( (char*)&eater,sizeof(uint16_t));
+        ot_thrackles1010[i] = eater;
+        total_rows_count += eater;
+        for ( c = 0; c < eater; c++){
+            data = 0;
+            for ( int e = 0;  e < 45 ; e ++) file_h.read( (char*)&data,sizeof(char));
+            total_rows++;
+        }
+    }
+    printf("%d = %d\n",total_rows,total_rows_count );
+    rows1010 = total_rows;
+    mat1010 = (bool ** ) malloc( total_rows * sizeof(bool*));
+    for(int i = 0; i < total_rows; i++) mat1010[i] = (bool *)malloc(45 * sizeof(bool));
+    file_h.close();
+    file_h.open(file_name,ios::binary);
+    if (!file_h.good()) {
+        fprintf(stderr, "Error processing file %s\n",file_name.c_str() );
+        exit(-2);
+    }
+    for( int i = 0; i < otypes; i++){
+        eater = 0;
+        //Determine how many thrackles for ot=i.
+        file_h.read( (char*)&eater,sizeof(uint16_t));
+        eater = 0;
+        file_h.read( (char*)&eater,sizeof(uint16_t));
+        //printf("For OT %d there are %d thrackles of size 8.\n",i,eater);
+        total_rows_count += eater;
+        for ( c = 0; c < eater; c++){
+            data = 0;
+            for ( int e = 0;  e < 45 ; e ++){
+                file_h.read( (char*)&data,sizeof(char));
+                mat1010[current_row][e] = data;
+            }
+            current_row++;
+        }
+    }
+    file_h.close();
+    printf("Matrix 1010 succesfully created and filled!\n");
+}
 bool look88776(int ot, int &highest_level){
     int current_ot =0;
     int i;
@@ -1940,3 +2020,41 @@ bool look7777_8(int ot, int & highest_level){
   }
   return true;
   }
+bool look1010(int ot){
+    int current_ot = 0;
+    int i;
+    int nt1010;
+    int starting_row = 0;
+    bool avoid_flag;
+    bool arr[45];
+    bool arr_bk1[45],arr_bk2[45];
+    nt1010 = ot_thrackles1010[ot];
+    printf("For OT %d there are %d thrackles. \n",ot,nt1010);
+    while (current_ot != ot){
+        starting_row += ot_thrackles1010[current_ot];
+        current_ot++;
+    }
+    for ( i = 0; i < 45; i++) arr[i] = false;
+    for ( i = 0; i < 45; i++) arr_bk1[i] = arr[i];
+    for (int l1 = 0; l1 < nt1010; l1++){
+        for ( i = 0; i < 45; i++) arr[i] |= mat1010[starting_row+l1][i];
+        for ( i = 0; i < 45; i++) arr_bk2[i] = arr[i];
+        for (int l2 = l1+1; l2 < nt1010; l2++){
+            for ( i = 0; i < 45; i++) {
+                avoid_flag = false;
+                if ( arr[i] && mat1010[starting_row+l2][i] ) {
+                    avoid_flag= true;
+                    break;
+                }
+                arr[i] |= mat1010[starting_row+l2][i];
+            }
+            if (!avoid_flag){
+                printf("There is a pair of thrackles of size 10 disjoint ??? %d %d\n",l1,l2);
+                return false;
+            }
+            for ( i = 0; i < 45 ; i++) arr[i] = arr_bk2[i];
+        }
+        for ( i = 0; i < 45; i++) arr[i] = arr_bk1[i];
+    }
+    return true;
+}
