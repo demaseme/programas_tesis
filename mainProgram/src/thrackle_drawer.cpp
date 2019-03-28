@@ -541,7 +541,7 @@ int main(int argc, char* argv[]){
 
 
     glutInit(&argc, argv);
-    alto = glutGet(GLUT_SCREEN_HEIGHT) * 1.2;
+    alto = glutGet(GLUT_SCREEN_HEIGHT) * .8;
     ancho = glutGet(GLUT_SCREEN_WIDTH) * .8;
     initialize_opengl();
     file_name = argv[optind];
