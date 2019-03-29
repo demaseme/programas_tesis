@@ -82,7 +82,7 @@ int cn_th(bool E[], int n){
         sum+= degs[i]*(degs[i]-1)/2;
     }
     //printf("%d,%d,%d\n",th_size,ans,sum);
-    printf("%d ",ans-sum);
+    //printf("%d ",ans-sum);
     return ans - sum;
 }
 
@@ -95,7 +95,7 @@ int print_cn(int n){
     for( int i = 0; i < nt ; i++){
       for ( int j = 0; j < cols ; j++) E[j] = false;
       for ( int j = 0; j < cols ; j++) E[j] = thrackle_mat[i][j];
-      cn_th(E,n);
+      printf("%d %d\n",i,cn_th(E,n));
 
     }
     return 1;
