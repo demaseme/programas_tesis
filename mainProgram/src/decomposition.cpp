@@ -279,7 +279,7 @@ void count_repetitions_all(int ** bool_th_mat, int rows, int k, int setsize, int
     if( is_decomposition(c_curr,k,bool_th_mat,cols) ){
       //printf("Decomposition found : ");
       for(int i = k; i > 0; i--){
-        printf("%d ",c[i]);
+        printf("%d ",c_curr[i-1]);
       }
       printf("\n");
       //usleep(1000000);
@@ -368,6 +368,7 @@ bool is_atk_upper(int n_th, int setsize, int ot, int k, int ** bool_th_mat){
     //printf("k=%d,cols = %d\n",k,cols);
     //If one is a decomposition return true.
     if( is_decomposition(c_curr,k,bool_th_mat,cols) ){
+      usleep(1000000);
       //printf("Decomposition found : ");
       for(int i = k; i > 0; i--){
         printf("%d ",c[i]);
@@ -413,16 +414,18 @@ int is_decomposition(int th_index[], int n_ths, int ** bool_th_mat, int cols){
   // }
   int has_edge_i = 0;
   int has_all_edges = 1;
+  int edgecounter = 0;
   for( i = 0; i < cols ; i++){
     has_edge_i = 0;
     for( j = 0; j < n_ths ; j++) {
       //cout << "Checking matrix position " << th_index[j] << "," << i << endl;
       has_edge_i |= bool_th_mat[th_index[j]][i];
     }
-    //printf("\t Has edge %d\n",i);
     has_all_edges &= has_edge_i;
     if (!has_all_edges) return 0;
+    edgecounter++;
   }
+  printf("Has %d / %d edges.",cols,edgecounter);
   return 1;
 }
 

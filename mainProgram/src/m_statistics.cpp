@@ -49,7 +49,8 @@ int main(int argc, char * argv[]){
     Use K_n_statistics.dat information to know which otypes is worth to visit.
   */
   vector<int> otypes_vec;
-  select_otypes(n,otypes_vec);
+  otypes_vec.push_back(1287);
+  //select_otypes(n,otypes_vec);
   for(auto i = otypes_vec.begin(); i != otypes_vec.end(); ++i){
     printf("%d \n",*i);
   }
@@ -63,8 +64,8 @@ int main(int argc, char * argv[]){
     cout << "Working with ot " << ot << endl;
     rows = count_thrackles(n,n,ot);
     //int check[4] = {25,21,10,0};
-    //cout << "Cols :" << cols << endl;
-    //cout << "Rows :" << rows << endl;
+    cout << "Cols :" << cols << endl;
+    cout << "Rows :" << rows << endl;
     if (!rows){
       ++i;
       continue;
