@@ -32,5 +32,7 @@ check_crossn:
 	g++ check_cn.cpp decomposition.cpp -o check_cn -Wall
 crossn_thrackle:
 	g++ thrackle_cn.cpp decomposition.cpp -o crossn_th -Wall
+crossn_thrackle_all:
+		g++ thrackle_cn_all.cpp decomposition.cpp -o crossn_th_all -Wall
 clean:
 	rm *.o frac

@@ -44,6 +44,10 @@ void read_results(string file_name){
     size = myfile.tellg();
     //printf("Bytes: %d\n",size);
     myfile.seekg(0,ios::beg);
+    if( myfile.bad() ){
+      fprintf(stderr, "Error processing file %s\n", file_name.c_str());
+      exit(-1);
+    }
     int ot,i;
     int number_of_diff_subsets,subset_size,total_cov,total_rep,max_cov;
     number_of_diff_subsets=0;
@@ -56,6 +60,7 @@ void read_results(string file_name){
     int total_avg_rep = 0;
     int total_avg_max_cov = 0;
     int counter = 0;
+    ot = 0;
 
     while(size>0){
         if(!myfile) break;

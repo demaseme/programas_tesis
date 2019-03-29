@@ -48,7 +48,7 @@ int main(int argc, char * argv[]){
     //printf("Working with OT %d\n", ot);
     rows = count_thrackles(n,k,ot);
     //printf("There are %d thrackles.\n",rows);
-    if ( !rows ) {
+    if ( !rows || rows < 2) {
       ot++;
       continue;
     }
@@ -65,9 +65,8 @@ int main(int argc, char * argv[]){
     a = (int **)bool_th_mat;
     for(int i = 0; i < rows; i++) free(a[i]);
     ot++;
-
   }
-  free(a);
+  //free(a);
   myfile.close();
   return 1;
 }

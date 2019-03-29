@@ -201,7 +201,7 @@ void calculate_q_intersection_all(int ** bool_th_mat, int rows, int q, int setsi
     //usleep(100000);
     //printf("Checking ");
     counter++;
-    printf("Analyzing set number %d\n",counter);
+    //printf("Analyzing set number %d\n",counter);
     for(int i = q; i > 0; i--){
 
       c_curr[i-1] = c[i];
@@ -215,10 +215,10 @@ void calculate_q_intersection_all(int ** bool_th_mat, int rows, int q, int setsi
         printf("Writing ");
         for(int i = q; i > 0; i--){
             printf(" %d ",c[i]);
-            //myfile.write( (char*) &c[i], sizeof(uint16_t));
+            myfile.write( (char*) &c[i], sizeof(uint16_t));
         }
         printf("\n");
-        //myfile.write( (char*) &m, sizeof(char));
+        myfile.write( (char*) &m, sizeof(char));
         exit(-1);
     }
     //L3. FIND j
