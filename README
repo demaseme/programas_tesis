@@ -1,1 +1,3 @@
-Testing 
+## Generar Thrackles de tamaño _k_.
+El programa para generar los thrackles de tamaño k para todos los tipos de orden de n:
+`./main n k`.
