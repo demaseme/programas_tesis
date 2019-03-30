@@ -19,11 +19,11 @@ El programa para generar las particiones de un entero dado:
 - Los elementos de la particion son igual o menores que _n_.
 - La longitud de la partición es menor o igual a n - floor( sqrt( 2*n + (1/2)) - 1/4).
 - No existen dos elementos iguales a _n_.
-##Compilar:
+## Compilar:
 `make integer_partitions`
 # Comprobar descomposición manual.
 Este programa tiene escritos procedimientos para verificar descomposiciones de manera manual, basandose en las particiones mencionadas anteriormente.
 Carga a memoria todos los thrackles encontrados para todos los ordertypes de las _n_ necesarias. Es decir sí la descomposición es 9+8+7+7+7, se cargan todos los thrackles de todos los OT para _n=9,8,7_
 
-##Compilar:
+## Compilar:
 `make manual_dec`
