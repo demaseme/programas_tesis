@@ -27,3 +27,10 @@ Carga a memoria todos los thrackles encontrados para todos los ordertypes de las
 
 ## Compilar:
 `make manual_dec`
+
+# Contar repeticiones y verificar si hay descomposición menor a la del caso convexo.
+Este programa busca para cada OT si existe o no una descomposición de tamaño menor o igual a la del caso convexo, usando solo
+thrackles máximos.
+`./m_statistics n`
+
+Genera el archivo de texto **m_nstats.dat** con información acerca de cuáles tipos de orden lograron ser descompuestos de la manera antes mencionada y cuál fue el número de aristas repetidas como máximo.
