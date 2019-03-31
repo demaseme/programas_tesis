@@ -210,17 +210,8 @@ void calculate_q_intersection_all(int ** bool_th_mat, int rows, int q, int setsi
     }
     //printf("Couting reps\n" );
     m = count_repetitions(bool_th_mat,c_curr,cols,q,setsize);
-    //Write to file if m is empty. <c_curr> m
-    if(m == 0) {
-        printf("Writing ");
-        for(int i = q; i > 0; i--){
-            printf(" %d ",c[i]);
-            myfile.write( (char*) &c[i], sizeof(uint16_t));
-        }
-        printf("\n");
-        myfile.write( (char*) &m, sizeof(char));
-        exit(-1);
-    }
+    myfile.write( (char*) &m,sizeof(char)); // Write only the size of the intersection.
+
     //L3. FIND j
     j = 1;
     while( (c[j] + 1) == c[j+1] ) {
