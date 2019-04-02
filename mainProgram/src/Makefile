@@ -34,5 +34,7 @@ crossn_thrackle:
 	g++ thrackle_cn.cpp decomposition.cpp -o crossn_th -Wall
 crossn_thrackle_all:
 		g++ thrackle_cn_all.cpp decomposition.cpp -o crossn_th_all -Wall
+crossn_ot:
+		g++ cn_ot.cpp decomposition.cpp -o cn_ot -Wall
 clean:
 	rm *.o frac
