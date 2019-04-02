@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.16)  25 MAR 2019 22:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.12)  1 APR 2019 10:29
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
 **testingK9.tex
-(/home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/manual_tests_at/testingK9.tex
+(/home/dmerinos/Documents/CINVESTAV/Programas/latex/manual_tests_at/testingK9.tex
 LaTeX2e <2017-04-15>
 Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
@@ -390,7 +390,7 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
 \mathdisplay@stack=\toks20
 LaTeX Info: Redefining \[ on input line 2817.
 LaTeX Info: Redefining \] on input line 2818.
-) (/home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/manual_tests_at/testingK9.aux)
+) (/home/dmerinos/Documents/CINVESTAV/Programas/latex/manual_tests_at/testingK9.aux)
 \openout1 = `testingK9.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
@@ -415,17 +415,17 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 10.
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] (/home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/manual_tests_at/testingK9.aux) ) 
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] (/home/dmerinos/Documents/CINVESTAV/Programas/latex/manual_tests_at/testingK9.aux) ) 
 Here is how much of TeX's memory you used:
- 1173 strings out of 492982
- 12972 string characters out of 6134895
- 71002 words of memory out of 5000000
- 4776 multiletter control sequences out of 15000+600000
+ 1174 strings out of 492982
+ 12872 string characters out of 6134895
+ 71001 words of memory out of 5000000
+ 4777 multiletter control sequences out of 15000+600000
  8833 words of font info for 33 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  27i,4n,20p,221b,173s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/manual_tests_at/testingK9.pdf (2 pages, 68062 bytes).
+Output written on /home/dmerinos/Documents/CINVESTAV/Programas/latex/manual_tests_at/testingK9.pdf (2 pages, 69290 bytes).
 PDF statistics:
  43 PDF objects out of 1000 (max. 8388607)
  30 compressed objects within 1 object stream
