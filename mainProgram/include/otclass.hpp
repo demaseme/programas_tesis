@@ -8,7 +8,7 @@ public:
   unsigned char cn;
 
   bool operator<(const OrderType x){
-    return (x.nthrackles <= this->nthrackles);
+    return (x.nthrackles < this->nthrackles);
   }
 };
 #endif

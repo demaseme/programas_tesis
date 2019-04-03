@@ -16,7 +16,9 @@ int main(int argc, char * argv[]){
   load_ordertypes(n,n);
   //Sort them by number of thrackles.
   vector<OrderType> vots (ots,ots+ots_size);
+  printf("There are %d ots\n",(int)vots.size());
   std::sort(std::begin(vots), std::end(vots));
+  printf("Sorted by #thr max\n");
   for ( int i = 0; i < ots_size; i++){
     printf("%d %d %d\n",vots[i].number,vots[i].nthrackles,vots[i].cn);
   }
@@ -56,7 +58,7 @@ void load_ordertypes(const int n, const int k){
     ots[i].cn = cn_arr[i];
 
   }
-
+  printf("Order Types Analyzed!\n");
 }
 
 int load_cn(int n, int total_ots){
