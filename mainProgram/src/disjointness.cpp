@@ -22,7 +22,6 @@ void exhaustive_at(int** matrix, int cols, int n, vector<int> current_thrackle, 
     cout << "[core] Current minimal AT: " << minAt << endl;
     cout << "RET\n";
     cout << "Last thrackle: "; printVectorInt(current_thrackle);
-    if (minAt == 3) exit(-1);
     return;
   }
   else {
@@ -501,7 +500,7 @@ int get_kthrackles_of_matrix(int ** matrix, const int cols, const int desired_si
  // int key,key2;
  // bool tfound = false;
   vector<int> thracklePositions;
-  
+
   //Start up counters with first 5 edges, not necessary. (Really only need 0 and 1 )
   for(i = 0; i < 2 ; i++){
     counters[i] = i;
