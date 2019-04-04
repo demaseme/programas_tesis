@@ -8,7 +8,7 @@ vector<bool> union_covers_bool, int n, int k){
   myfile << "#OT    #Max_Thr_Count   #minimal_intersection    #union_covers?\n";
   for(int i = 0; i < (int) count.size(); i++){
     //cout << i << "\t\t" << count[i] << endl;
-    myfile << otlist[i] << "\t\t" << count[i] << "\t\t" << 1 << "\t\t" << union_covers_bool[i] << endl;
+    myfile << otlist[i] << "\t\t" << count[i] << "\t\t" << min_inter[i] << "\t\t" << union_covers_bool[i] << endl;
   }
   myfile.close();
   cout << "write max th coutn \n";
@@ -216,9 +216,9 @@ int main(int argc, char* argv[]) {
 
       //thrackle_real_intersection_wrt(foundThrackles, ot_number, setSize,k);
 
-      //thrackle_intersection_all(foundThrackles,minimal_intersection_counter);
+      thrackle_intersection_all(foundThrackles,minimal_intersection_counter);
       // cout << "Minimal intersection calculated!\n";
-      // min_inter.push_back(minimal_intersection_counter);
+      min_inter.push_back(minimal_intersection_counter);
       if (union_covers(foundThrackles)){
       //   //cout << "Found thrackles cover the whole edge set\n";
        union_covers_bool.push_back(true);
@@ -236,7 +236,7 @@ int main(int argc, char* argv[]) {
 
       //Write found thrackles on text file.
       //writeThrackles_bin(foundThrackles,vec,setSize,k,ot_number,minimal_intersection_counter);
-      writeOne4All_bin(myfile, foundThrackles,vec,setSize,k,ot_number,0 );
+      writeOne4All_bin(myfile, foundThrackles,vec,setSize,k,ot_number, minimal_intersection_counter );
       writeOne4All_bin_bool( myfile_bool, foundThrackles,k,ot_number );
       //cout << "Writing finished!\n";
       //Clear all that.

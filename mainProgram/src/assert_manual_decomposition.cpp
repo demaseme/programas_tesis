@@ -26,6 +26,7 @@ bool look88776(int ot, int & highest_level);
 bool look8877(int ot, int & highest_level);
 bool look7777(int ot, int & highest_level);
 bool look777(int ot, int & highest_level);
+bool look888(int ot, int& highest_level);
 
 bool look8877(int ot, int & highest_level);
 void store87();
@@ -69,11 +70,11 @@ int main(){
   //store96();
   //store97();
   //store98();
-  //store99();
+  store99();
   // store87();
   // store86();
   // store88();
-  store1010();
+  //store1010();
   std::chrono::high_resolution_clock::time_point t1 = chrono::high_resolution_clock::now();
 
   // #pragma omp parallel
@@ -90,12 +91,12 @@ int main(){
   std::chrono::high_resolution_clock::time_point t2 = chrono::high_resolution_clock::now();
   chrono::duration<double, std::milli> time_span = t2 - t1;
   cout << "It took me " << time_span.count() << " milliseconds.";
-  free1010();
+  //free1010();
   // free87();
   // free88();
   // free86();
   //free98();
-  //free99();
+  free99();
   //free97();
   //free96();
   // while(ot < 3315) {
