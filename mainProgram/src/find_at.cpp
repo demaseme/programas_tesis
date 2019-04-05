@@ -36,6 +36,7 @@ int main( int argc, char * argv[]){
   //find_next_thrackle(dmatrix,cols,startingThrackle,startingThrackle,n,false);
   //printVectorInt(startingThrackle);
   exhaustive_at(dmatrix, cols, n, startingThrackle, 0,0);
+  printf("AT: %d\n",minAt);
   return 1;
 }
 

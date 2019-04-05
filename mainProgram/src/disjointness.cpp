@@ -14,8 +14,9 @@ void exhaustive_at(int** matrix, int cols, int n, vector<int> current_thrackle, 
   //if (mode==1) if( at > 0 && (int)current_thrackle.size() != n - (at-1)) return;
    if( at >= minAt) return;
    //if(at == 1 && (int) current_thrackle.size() < n) return;
-   // cout << " ##### Printing recursion data #####\n";
-   //cout << " [core] current thrackle :"; printVectorInt(current_thrackle);
+   //cout << " ##### Printing recursion data #####\n";
+   //cout << "[core] current thrackle :"; printVectorInt(current_thrackle);
+   usleep(000000);
    //cout << " [core] this level at : " << at << endl;
   if ( (int) coveredEdges.size() == cols ) {
     if (at < minAt) minAt = at;
@@ -27,7 +28,7 @@ void exhaustive_at(int** matrix, int cols, int n, vector<int> current_thrackle, 
       //cout << "\t Covered edges "; printVectorInt(coveredEdges);
 
       vector<int> thrackle;
-      if(at==1) {
+      if(at<=1) {
         cout << "[core] attemping to find child of ";
         printVectorInt(current_thrackle);
       }
@@ -35,11 +36,11 @@ void exhaustive_at(int** matrix, int cols, int n, vector<int> current_thrackle, 
       if ( !val ) return;
 
       local_desc.push_back(thrackle);
-      if( at == 1 ) {cout << "[core] Found thrackle : "; printVectorInt(thrackle);}
+      if( at <= 1 ) {cout << "[core] Found thrackle : "; printVectorInt(thrackle);}
       int_thrackle_union(coveredEdges,thrackle,coveredEdges);
       exhaustive_at(matrix, cols, n, thrackle, at+1,mode);
       //cout << "[core] Deleting thrackle from coveredEdges "; printVectorInt(thrackle);
-      if (coveredEdges.size() < thrackle.size() ) cout << "ATTENTION\n";
+      //if (coveredEdges.size() < thrackle.size() ) cout << "ATTENTION\n";
       int_thrackle_diff(coveredEdges,thrackle,coveredEdges);
 
     }
@@ -66,19 +67,34 @@ int next(int ** matrix, vector<vector<int>> descendants, vector<int> & thrackle,
   //then if its size exceeds n, we cap k to n.
   int_thrackle_complement(coveredEdges,cols,missing_edges);
   //cout << "\t [next] Missing edges size: " << missing_edges.size(); cout << endl;
-  if (mode == 1 && at>0) {
-    k = n - (at);
-    if ( k > (int)missing_edges.size()) return 0;
-  } else{
-
-      if( (int)missing_edges.size() > n ) k = n;
-      else k = (int) missing_edges.size();
-     if ( ((int)missing_edges.size() - k >= 0 ) && ((at+1) >= minAt )) {
-       //cout << "\t [next] skipping \n";
-       return 0;
-     }
-    }
-  vector<int> starting_thrackle(missing_edges.begin(),missing_edges.begin()+k);
+  // if (mode == 1 && at>0) {
+  //   k = n - (at);
+  //   if ( k > (int)missing_edges.size()) return 0;
+  // }else{
+  //     if( (int)missing_edges.size() > n ) k = n;
+  //     else k = (int) missing_edges.size();
+  //    if ( ((int)missing_edges.size() - k >= 0 ) && ((at+1) >= minAt )) {
+  //      //cout << "\t [next] skipping \n";
+  //      return 0;
+  //    }
+  //   }
+  k = (int) missing_edges.size();
+  if ( k > n && at==0) k = n;
+  if ( k > n && at > 0 ) k = n - 1;
+ //Before looking for next, we ask if it's worth to keep going down that branch.
+ // Current covered edges = {0,1,2,3,4,5,6}, looking for a thrackle of size k.
+ // In the best case we'll find p other k-thrackles until we cover all the edges.
+ // if at+p > minAt, it's not worth to explore that branch so we return 0.
+ int p=1;
+ int ce=coveredEdges.size(); //Size of covered edges.
+ //int best_case_at = at;
+ printf("\t [next] Value of k: %d\n",k);
+ while ( k*p + ce < cols ) p++;
+ if ( (at + p) >= minAt ){
+    printf("\t [next] Would find %d thrackles of size %d. At would be %d. Return 0.\n",p,k,at+p);
+    return 0;
+ }
+ vector<int> starting_thrackle(missing_edges.begin(),missing_edges.begin()+k);
 
   //The only case were we want a thrackle of size n is when there are 0 covered edges. This is: there are n missing edges.
 
@@ -110,6 +126,14 @@ int next(int ** matrix, vector<vector<int>> descendants, vector<int> & thrackle,
       //If we didn't find it, we attemp to find one with a smaller k;
       k--;
       if(k == 0) break;
+      p=1;
+      printf("\t [next-while] Value of k: %d\n",k);
+      while ( k*p + ce <= cols ) p++;
+      if ( (at + p) >= minAt ){
+         printf("\t [next-while] Would find %d thrackles of size %d. At would be %d. Return 0.\n",p,k,at+p);
+         return 0;
+      }
+
       //If we reduce the size we must start from the original missing edges.
       int_thrackle_complement(coveredEdges,cols,missing_edges);
       // cout << "in next() \n";
