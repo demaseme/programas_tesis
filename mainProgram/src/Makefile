@@ -36,5 +36,7 @@ crossn_thrackle_all:
 		g++ thrackle_cn_all.cpp decomposition.cpp -o crossn_th_all -Wall
 crossn_ot:
 		g++ cn_ot.cpp decomposition.cpp -o cn_ot -Wall
+find_at_ot:
+		g++ find_at.cpp disjointness.cpp point.cpp thrackle.cpp -o find_atot -Wall
 clean:
 	rm *.o frac
