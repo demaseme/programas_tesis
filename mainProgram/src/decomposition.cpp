@@ -96,14 +96,15 @@ int load_thrackles(int set_size, int t_size,int desired_ot, int ** bool_th_mat){
 
 /*
   Chooses ordertypes which union of thrackles covers the graph.
+  Used by m_statistics.cpp
 */
 void select_otypes(int n, vector<int> & otypes_vec){
   //Search for K_n_statistics.dat.
   ifstream myfile;
-  string file_name = "K_" + to_string(n) + "_statistics.dat";
+  string file_name = "K_" + to_string(n) + "_"+ to_string(n) +"_statistics.dat";
   myfile.open(file_name);
   if (!myfile.good()){
-    fprintf(stderr, "Unable to open statistics file\n");
+    fprintf(stderr, "Unable to open statistics file %s\n",file_name.c_str());
     exit(-1);
   }
   int i, eat, cover;
@@ -416,7 +417,7 @@ int is_decomposition(int th_index[], int n_ths, int ** bool_th_mat, int cols){
     if (!has_all_edges) return 0;
     edgecounter++;
   }
-  printf("Has %d / %d edges.",cols,edgecounter);
+  //printf("Has %d / %d edges.",cols,edgecounter);
   return 1;
 }
 

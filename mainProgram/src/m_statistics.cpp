@@ -49,8 +49,8 @@ int main(int argc, char * argv[]){
     Use K_n_statistics.dat information to know which otypes is worth to visit.
   */
   vector<int> otypes_vec;
-  otypes_vec.push_back(1287);
-  //select_otypes(n,otypes_vec);
+  //otypes_vec.push_back(1287);
+  select_otypes(n,otypes_vec);
   for(auto i = otypes_vec.begin(); i != otypes_vec.end(); ++i){
     printf("%d \n",*i);
   }
