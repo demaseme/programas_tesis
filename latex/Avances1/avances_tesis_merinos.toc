@@ -1,0 +1,5 @@
+\babel@toc {spanish}{}
+\beamer@sectionintoc {1}{Datos de la tesis.}{2}{0}{1}
+\beamer@sectionintoc {2}{Antecedentes}{3}{0}{2}
+\beamer@sectionintoc {3}{Descomponiendo $K_9$}{8}{0}{3}
+\beamer@sectionintoc {4}{Extra}{18}{0}{4}
