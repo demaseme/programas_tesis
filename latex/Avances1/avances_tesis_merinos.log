@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.12)  6 APR 2019 17:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.12)  7 APR 2019 15:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
 **avances_tesis_merinos.tex
-(/home/dmerinos/Documents/CINVESTAV/Seminario/Seminario/Avances1/avances_tesis_merinos.tex
+(/home/dmerinos/Documents/CINVESTAV/Programas/latex/Avances1/avances_tesis_merinos.tex
 LaTeX2e <2017-04-15>
 Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamer.cls
@@ -894,7 +894,7 @@ Package: multicol 2017/04/11 v1.8q multicolumn formatting (FMi)
 \mult@nat@firstbox=\box77
 \colbreak@box=\box78
 \mc@col@check@num=\count165
-) (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerthemeAntibes.sty (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerouterthemetree.sty) (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamercolorthemewhale.sty) (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamercolorthemeorchid.sty) (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerinnerthemerectangles.sty)) (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamercolorthemeseahorse.sty) (/home/dmerinos/Documents/CINVESTAV/Seminario/Seminario/Avances1/avances_tesis_merinos.aux
+) (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerthemeAntibes.sty (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerouterthemetree.sty) (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamercolorthemewhale.sty) (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamercolorthemeorchid.sty) (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerinnerthemerectangles.sty)) (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamercolorthemeseahorse.sty) (/home/dmerinos/Documents/CINVESTAV/Programas/latex/Avances1/avances_tesis_merinos.aux
 LaTeX Info: Redefining \. on input line 23.
 LaTeX Info: Redefining \% on input line 23.
 )
@@ -986,7 +986,7 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 9.
 LaTeX Info: Redefining \pageref on input line 9.
 LaTeX Info: Redefining \nameref on input line 9.
- (/home/dmerinos/Documents/CINVESTAV/Seminario/Seminario/Avances1/avances_tesis_merinos.out) (/home/dmerinos/Documents/CINVESTAV/Seminario/Seminario/Avances1/avances_tesis_merinos.out)
+ (/home/dmerinos/Documents/CINVESTAV/Programas/latex/Avances1/avances_tesis_merinos.out) (/home/dmerinos/Documents/CINVESTAV/Programas/latex/Avances1/avances_tesis_merinos.out)
 \@outlinefile=\write5
 \openout5 = `avances_tesis_merinos.out'.
 
@@ -1055,7 +1055,7 @@ Dictionary: translator-theorem-dictionary, Language: English
 )
 LaTeX Info: Redefining \. on input line 9.
 LaTeX Info: Redefining \% on input line 9.
- (/home/dmerinos/Documents/CINVESTAV/Seminario/Seminario/Avances1/avances_tesis_merinos.nav)
+ (/home/dmerinos/Documents/CINVESTAV/Programas/latex/Avances1/avances_tesis_merinos.nav)
 
 Package hyperref Warning: Option `pdfauthor' has already been used,
 (hyperref)                setting the option has no effect on input line 11.
@@ -1084,7 +1084,7 @@ Package pdftex.def Info: imagenes/knex.png  used on input line 37.
 (pdftex.def)             Requested size: 227.62204pt x 63.63156pt.
  [3
 
- </home/dmerinos/Documents/CINVESTAV/Seminario/Seminario/Avances1/imagenes/knex.png>]
+ </home/dmerinos/Documents/CINVESTAV/Programas/latex/Avances1/imagenes/knex.png>]
 <imagenes/drawings.png, id=126, 1687.30376pt x 470.75874pt>
 File: imagenes/drawings.png Graphic file (type png)
 <use imagenes/drawings.png>
@@ -1092,7 +1092,7 @@ Package pdftex.def Info: imagenes/drawings.png  used on input line 49.
 (pdftex.def)             Requested size: 256.0748pt x 71.44402pt.
  [4
 
- </home/dmerinos/Documents/CINVESTAV/Seminario/Seminario/Avances1/imagenes/drawings.png>] [5
+ </home/dmerinos/Documents/CINVESTAV/Programas/latex/Avances1/imagenes/drawings.png>] [5
 
 ]
 <imagenes/thrackle.png, id=187, 585.18625pt x 715.67375pt>
@@ -1106,24 +1106,30 @@ Overfull \vbox (13.4592pt too high) detected at line 69
 
 [6
 
- </home/dmerinos/Documents/CINVESTAV/Seminario/Seminario/Avances1/imagenes/thrackle.png>] [7
+ </home/dmerinos/Documents/CINVESTAV/Programas/latex/Avances1/imagenes/thrackle.png>] [7
 
 ]
+<imagenes/decomposition.png, id=245, 878.28125pt x 282.05376pt>
+File: imagenes/decomposition.png Graphic file (type png)
+<use imagenes/decomposition.png>
+Package pdftex.def Info: imagenes/decomposition.png  used on input line 86.
+(pdftex.def)             Requested size: 284.52756pt x 91.37372pt.
+ [8
+
+ </home/dmerinos/Documents/CINVESTAV/Programas/latex/Avances1/imagenes/decomposition.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 80.
+(hyperref)                removing `math shift' on input line 87.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 80.
+(hyperref)                removing `subscript' on input line 87.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 80.
+(hyperref)                removing `math shift' on input line 87.
 
-[8
-
-] [9
+[9
 
 ] [10
 
@@ -1139,11 +1145,93 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 
 ] [16
 
-] [17
+]
+<imagenes/k9_dec1.png, id=506, 756.8275pt x 665.48625pt>
+File: imagenes/k9_dec1.png Graphic file (type png)
+<use imagenes/k9_dec1.png>
+Package pdftex.def Info: imagenes/k9_dec1.png  used on input line 151.
+(pdftex.def)             Requested size: 227.62204pt x 200.14497pt.
+ [17
 
-] [18
+ </home/dmerinos/Documents/CINVESTAV/Programas/latex/Avances1/imagenes/k9_dec1.png>]
+<imagenes/k9_dec2.png, id=536, 582.175pt x 511.9125pt>
+File: imagenes/k9_dec2.png Graphic file (type png)
+<use imagenes/k9_dec2.png>
+Package pdftex.def Info: imagenes/k9_dec2.png  used on input line 155.
+(pdftex.def)             Requested size: 227.62204pt x 200.14499pt.
+ [18
 
-] [19
+ </home/dmerinos/Documents/CINVESTAV/Programas/latex/Avances1/imagenes/k9_dec2.png>]
+<imagenes/k9_dec3.png, id=566, 983.675pt x 865.2325pt>
+File: imagenes/k9_dec3.png Graphic file (type png)
+<use imagenes/k9_dec3.png>
+Package pdftex.def Info: imagenes/k9_dec3.png  used on input line 159.
+(pdftex.def)             Requested size: 227.62204pt x 200.2139pt.
+ [19
+
+ </home/dmerinos/Documents/CINVESTAV/Programas/latex/Avances1/imagenes/k9_dec3.png>]
+<imagenes/k9_dec4.png, id=598, 756.8275pt x 665.48625pt>
+File: imagenes/k9_dec4.png Graphic file (type png)
+<use imagenes/k9_dec4.png>
+Package pdftex.def Info: imagenes/k9_dec4.png  used on input line 163.
+(pdftex.def)             Requested size: 227.62204pt x 200.14497pt.
+ [20
+
+ </home/dmerinos/Documents/CINVESTAV/Programas/latex/Avances1/imagenes/k9_dec4.png>]
+<imagenes/k9_dec5.png, id=628, 983.675pt x 865.2325pt>
+File: imagenes/k9_dec5.png Graphic file (type png)
+<use imagenes/k9_dec5.png>
+Package pdftex.def Info: imagenes/k9_dec5.png  used on input line 167.
+(pdftex.def)             Requested size: 227.62204pt x 200.2139pt.
+ [21
+
+ </home/dmerinos/Documents/CINVESTAV/Programas/latex/Avances1/imagenes/k9_dec5.png>]
+<imagenes/k9_dec6.png, id=658, 1662.21pt x 1462.46375pt>
+File: imagenes/k9_dec6.png Graphic file (type png)
+<use imagenes/k9_dec6.png>
+Package pdftex.def Info: imagenes/k9_dec6.png  used on input line 172.
+(pdftex.def)             Requested size: 227.62204pt x 200.25813pt.
+ [22
+
+ </home/dmerinos/Documents/CINVESTAV/Programas/latex/Avances1/imagenes/k9_dec6.png>]
+<imagenes/k9_dec6_2.png, id=688, 756.8275pt x 665.48625pt>
+File: imagenes/k9_dec6_2.png Graphic file (type png)
+<use imagenes/k9_dec6_2.png>
+Package pdftex.def Info: imagenes/k9_dec6_2.png  used on input line 176.
+(pdftex.def)             Requested size: 227.62204pt x 200.14497pt.
+ [23
+
+ </home/dmerinos/Documents/CINVESTAV/Programas/latex/Avances1/imagenes/k9_dec6_2.png>]
+<imagenes/k9_dec7.png, id=719, 983.675pt x 865.2325pt>
+File: imagenes/k9_dec7.png Graphic file (type png)
+<use imagenes/k9_dec7.png>
+Package pdftex.def Info: imagenes/k9_dec7.png  used on input line 180.
+(pdftex.def)             Requested size: 227.62204pt x 200.2139pt.
+ [24
+
+ </home/dmerinos/Documents/CINVESTAV/Programas/latex/Avances1/imagenes/k9_dec7.png>]
+<imagenes/k9_dec8.png, id=749, 756.8275pt x 665.48625pt>
+File: imagenes/k9_dec8.png Graphic file (type png)
+<use imagenes/k9_dec8.png>
+Package pdftex.def Info: imagenes/k9_dec8.png  used on input line 184.
+(pdftex.def)             Requested size: 227.62204pt x 200.14497pt.
+ [25
+
+ </home/dmerinos/Documents/CINVESTAV/Programas/latex/Avances1/imagenes/k9_dec8.png>]
+<imagenes/k9_dec9.png, id=780, 756.8275pt x 665.48625pt>
+File: imagenes/k9_dec9.png Graphic file (type png)
+<use imagenes/k9_dec9.png>
+Package pdftex.def Info: imagenes/k9_dec9.png  used on input line 188.
+(pdftex.def)             Requested size: 227.62204pt x 200.14497pt.
+ [26
+
+ </home/dmerinos/Documents/CINVESTAV/Programas/latex/Avances1/imagenes/k9_dec9.png>] [27
+
+] [28
+
+] [29
+
+] [30
 
 ]
 \tf@nav=\write6
@@ -1155,30 +1243,31 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 \tf@snm=\write8
 \openout8 = `avances_tesis_merinos.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 196.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 196.
- (/home/dmerinos/Documents/CINVESTAV/Seminario/Seminario/Avances1/avances_tesis_merinos.aux
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 244.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 244.
+
+(/home/dmerinos/Documents/CINVESTAV/Programas/latex/Avances1/avances_tesis_merinos.aux
 LaTeX Info: Redefining \. on input line 23.
 LaTeX Info: Redefining \% on input line 23.
 )
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 196.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 196.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 244.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 244.
 Package rerunfilecheck Info: File `avances_tesis_merinos.out' has not changed.
 (rerunfilecheck)             Checksum: 82646C23CBE5DC4BE0DF7CAC3A161ABE;192.
  ) 
 Here is how much of TeX's memory you used:
- 18389 strings out of 492982
- 342931 string characters out of 6134895
+ 18488 strings out of 492982
+ 344506 string characters out of 6134895
  433648 words of memory out of 5000000
- 21481 multiletter control sequences out of 15000+600000
+ 21547 multiletter control sequences out of 15000+600000
  16193 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,17n,55p,815b,597s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on /home/dmerinos/Documents/CINVESTAV/Seminario/Seminario/Avances1/avances_tesis_merinos.pdf (19 pages, 187348 bytes).
+Output written on /home/dmerinos/Documents/CINVESTAV/Programas/latex/Avances1/avances_tesis_merinos.pdf (30 pages, 505312 bytes).
 PDF statistics:
- 634 PDF objects out of 1000 (max. 8388607)
- 566 compressed objects within 6 object streams
- 43 named destinations out of 1000 (max. 500000)
- 90 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 971 PDF objects out of 1000 (max. 8388607)
+ 856 compressed objects within 9 object streams
+ 65 named destinations out of 1000 (max. 500000)
+ 145 words of extra memory for PDF output out of 10000 (max. 10000000)
 
