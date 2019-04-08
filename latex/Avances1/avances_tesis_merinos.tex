@@ -24,29 +24,19 @@
   \end{block}
 }
 \section{Antecedentes}
-\frame{\frametitle{Algunas definiciones}
-\begin{block}{Gráfica completa de $n$ vértices. ($K_n$)}
-  Una gráfica es completa cuando existe una arista entre cada par de vértices. La gráfica completa de $n$ vértices tiene
-  $\binom{n}{2}$ aristas.
-  \begin{figure}[h]
-    \caption{De izquierda a derecha se muestran gráficas completas de 3, 4 y 5 vértices respectivamente}
-    \centering
-    \includegraphics[width=8cm]{imagenes/knex.png}
-  \end{figure}
-  \end{block}
-}
-\frame{\frametitle{Algunas definiciones}
-\begin{block}{Gráfica geométrica}
-  Es la representación de una gráfica en el plano, donde cada vértice es representado por un punto en el plano y cada arista
-  es representada por un segmento de recta que une dos puntos.\\[2mm]
+% \frame{\frametitle{Algunas definiciones}
+% \begin{block}{Gráfica completa de $n$ vértices. ($K_n$)}
+%   Una gráfica es completa cuando existe una arista entre cada par de vértices. La gráfica completa de $n$ vértices tiene
+%   $\binom{n}{2}$ aristas.
+%   \begin{figure}[h]
+%     \caption{De izquierda a derecha se muestran gráficas completas de 3, 4 y 5 vértices respectivamente}
+%     \centering
+%     \includegraphics[width=8cm]{imagenes/knex.png}
+%   \end{figure}
+%   \end{block}
+% }
+% \frame{\frametitle{Algunas definiciones}
 
-  \begin{figure}[h]
-    \caption{$K_4$ y gráficas geométricas de $K_4$ distintos.}
-    \centering
-    \includegraphics[width=9cm]{imagenes/drawings.png}
-  \end{figure}
-\end{block}
-}
 \frame{\frametitle{Algunas definiciones}
   \begin{block}{Descomposición de una gráfica.}
     Una descomposición de una gráfica $G$ es una colección $D=\{G_1,G_2,\dots,G_k\}$ de subgráficas de $G$ tal que se cumplan:
@@ -54,7 +44,13 @@
       \item Ninguna subgráfica $G_i$ tiene vértices aislados.
       \item Cada arista de $G$ pertenece a exactamente un elemento de $D$.
     \end{enumerate}
+    \begin{figure}
+      \centering
+      \caption{Un dibujo de $K_5$ descompuesto en 10 y en 3 subgráficas.}
+      \includegraphics[width=8cm]{imagenes/decomposition.png}
+    \end{figure}
   \end{block}
+
 }
 
 \frame{\frametitle{Algunas definiciones}
@@ -74,7 +70,7 @@
     de las aristas de $\mathsf{G}$ en $k$ thrackles.
   \end{block}
   \begin{block}{Anti-thickness geométrico}
-    El anti-thickness geométrico de una gráfica $G$, $\mathsf{at_g}(G)$ es la $k$ más pequeña tal que $G$ tiene un gráfica geométrica con anti-thickness $k$.
+    El anti-thickness geométrico de una gráfica $G$, $\mathsf{at_g}(G)$ es la $k$ más pequeña tal que $G$ tiene una representación en el plano con anti-thickness $k$.
   \end{block}
 }
 \frame{\frametitle{Ejemplo de anti-thickness}
@@ -107,6 +103,19 @@
 \end{block}
 }
 \frame{}
+\frame{
+\begin{figure}
+  \centering
+  \includegraphics[width=7cm]{imagenes/thmax.png}
+  \caption{Dos thrackles máximos comparten una arista.}
+\end{figure}
+}
+\frame{
+\begin{figure}
+  \centering
+  \includegraphics[width=8cm]{imagenes/dec_explanation.png}
+\end{figure}
+}
 
 \frame{\frametitle{El anti-thickness geométrico de $K_9$ es 6.}
 \begin{block}{Buscando una descomposición de tamaño 5.}
@@ -200,6 +209,18 @@
   \emph{Fin,¿preguntas?}
 }
 \section{Extra}
+\frame{
+\begin{block}{Dibujo de una gráfica}
+  Es la representación de una gráfica en el plano, donde cada vértice es representado por un punto en el plano y cada arista
+  es representada por un segmento de recta que une dos puntos.\\[2mm]
+
+  \begin{figure}[h]
+    \caption{$K_4$ y dos dibujos de $K_4$ distintos.}
+    \centering
+    \includegraphics[width=9cm]{imagenes/drawings.png}
+  \end{figure}
+\end{block}
+}
 \frame{
   \begin{block}{Analizar todos los dibujos geométricos de $K_n$}
     Hay un número infinito de dibujos geométricos para cualquier conjunto de puntos en el plano.
