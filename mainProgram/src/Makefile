@@ -38,5 +38,7 @@ crossn_ot:
 		g++ cn_ot.cpp decomposition.cpp -o cn_ot -Wall
 find_at_ot:
 		g++ find_at.cpp disjointness.cpp point.cpp thrackle.cpp -o find_atot -Wall
+find_at_ot_all:
+		g++ find_at_all.cpp disjointness.cpp point.cpp thrackle.cpp -o find_atot_all -Wall
 clean:
 	rm *.o frac

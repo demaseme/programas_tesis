@@ -36,7 +36,7 @@ void exhaustive_at(int** matrix, int cols, int n, vector<int> current_thrackle, 
       if ( !val ) return;
 
       local_desc.push_back(thrackle);
-      if( at <= 1 ) {cout << "[core] Found thrackle : "; printVectorInt(thrackle);}
+      if( at >= 0 ) {printf("[core %d] Found thrackle : ",at); printVectorInt(thrackle);}
       int_thrackle_union(coveredEdges,thrackle,coveredEdges);
       exhaustive_at(matrix, cols, n, thrackle, at+1,mode);
       //cout << "[core] Deleting thrackle from coveredEdges "; printVectorInt(thrackle);
