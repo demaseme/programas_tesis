@@ -28,10 +28,10 @@ void exhaustive_at(int** matrix, int cols, int n, vector<int> current_thrackle, 
       //cout << "\t Covered edges "; printVectorInt(coveredEdges);
 
       vector<int> thrackle;
-      if(at<=1) {
-        cout << "[core] attemping to find child of ";
-        printVectorInt(current_thrackle);
-      }
+      //if(at<=1) {
+        //cout << "[core] attemping to find child of ";
+        //printVectorInt(current_thrackle);
+      //}
       int val = next(matrix,local_desc,thrackle,cols,n,at,mode);
       if ( !val ) return;
 
@@ -88,10 +88,10 @@ int next(int ** matrix, vector<vector<int>> descendants, vector<int> & thrackle,
  int p=1;
  int ce=coveredEdges.size(); //Size of covered edges.
  //int best_case_at = at;
- printf("\t [next] Value of k: %d\n",k);
+ //printf("\t [next] Value of k: %d\n",k);
  while ( k*p + ce < cols ) p++;
  if ( (at + p) >= minAt ){
-    printf("\t [next] Would find %d thrackles of size %d. At would be %d. Return 0.\n",p,k,at+p);
+    //printf("\t [next] Would find %d thrackles of size %d. At would be %d. Return 0.\n",p,k,at+p);
     return 0;
  }
  vector<int> starting_thrackle(missing_edges.begin(),missing_edges.begin()+k);
@@ -127,10 +127,10 @@ int next(int ** matrix, vector<vector<int>> descendants, vector<int> & thrackle,
       k--;
       if(k == 0) break;
       p=1;
-      printf("\t [next-while] Value of k: %d\n",k);
+     //printf("\t [next-while] Value of k: %d\n",k);
       while ( k*p + ce <= cols ) p++;
       if ( (at + p) >= minAt ){
-         printf("\t [next-while] Would find %d thrackles of size %d. At would be %d. Return 0.\n",p,k,at+p);
+    //     printf("\t [next-while] Would find %d thrackles of size %d. At would be %d. Return 0.\n",p,k,at+p);
          return 0;
       }
 

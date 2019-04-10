@@ -28,9 +28,11 @@ int main( int argc, char * argv[]){
   loadPoints(n,desired_ot,points);
   //Load edges.
   generateAllEdges(points,edges);
+  printf("There are %d points and %d edges.\n",(int)points.size(),(int)edges.size());
   //Create disjointnes matrix
   construct_disjointness_matrix(edges,dmatrix,rows,true);
   printf("Matrix constructed!\n");
+  
   //exhaustive_at
   //for(int i = 0; i < n;i++) startingThrackle.push_back(i);
   //find_next_thrackle(dmatrix,cols,startingThrackle,startingThrackle,n,false);
@@ -47,7 +49,7 @@ void loadPoints(const int n, const int desired_ot, vector<Point> & P){
   int ot = 0;
   if ( n == 9 ) file_name = "../../OT/otypes09.b16";
   if ( n == 10) file_name = "../../OT/otypes10.b16";
-  else file_name = "../../OT/otypes0"+to_string(n)+".b08";
+  if ( n < 9  ) file_name = "../../OT/otypes0"+to_string(n)+".b08";
   file_h.open(file_name,ios::binary);
   if ( file_h.bad() ){
     fprintf(stderr, "Error opening file %s\n", file_name.c_str());
