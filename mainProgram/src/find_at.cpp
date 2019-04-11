@@ -16,7 +16,7 @@ int main( int argc, char * argv[]){
   int desired_ot = atoi(argv[2]);
   vector<Point> points;
   vector<Edge> edges;
-  vector<int> startingThrackle;
+
   int ** dmatrix; //matrix to store the disjointness matrix. Squared matrix.
   int cols,rows;
   rows = n*(n-1)/2.0;
@@ -32,13 +32,14 @@ int main( int argc, char * argv[]){
   //Create disjointnes matrix
   construct_disjointness_matrix(edges,dmatrix,rows,true);
   printf("Matrix constructed!\n");
-  
-  //exhaustive_at
-  //for(int i = 0; i < n;i++) startingThrackle.push_back(i);
-  //find_next_thrackle(dmatrix,cols,startingThrackle,startingThrackle,n,false);
-  //printVectorInt(startingThrackle);
+
+  vector<int> startingThrackle;
+  std::chrono::high_resolution_clock::time_point totalt1 = chrono::high_resolution_clock::now();
   exhaustive_at(dmatrix, cols, n, startingThrackle, 0,0);
   printf("AT: %d\n",minAt);
+  std::chrono::high_resolution_clock::time_point totalt2 = chrono::high_resolution_clock::now();
+  chrono::duration<double, std::milli> time_span_total = totalt2 - totalt1;
+  cout << "It took me " << time_span_total.count() << " milliseconds.\n";
   return 1;
 }
 

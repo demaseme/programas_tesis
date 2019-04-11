@@ -36,10 +36,10 @@ void exhaustive_at(int** matrix, int cols, int n, vector<int> current_thrackle, 
       if ( !val ) return;
 
       local_desc.push_back(thrackle);
-      if( at >= 0 ) {printf("[core %d] Found thrackle : ",at); printVectorInt(thrackle);}
+      //if( at >= 0 ) {printf("[core %d] Found thrackle : ",at); printVectorInt(thrackle);}
       int_thrackle_union(coveredEdges,thrackle,coveredEdges);
       exhaustive_at(matrix, cols, n, thrackle, at+1,mode);
-      cout << "[core] Deleting thrackle from coveredEdges "; printVectorInt(thrackle);
+      //cout << "[core] Deleting thrackle from coveredEdges "; printVectorInt(thrackle);
       //if (coveredEdges.size() < thrackle.size() ) cout << "ATTENTION\n";
       int_thrackle_diff(coveredEdges,thrackle,coveredEdges);
 
@@ -91,20 +91,20 @@ int next(int ** matrix, vector<vector<int>> descendants, vector<int> & thrackle,
  //printf("\t [next] Value of k: %d\n",k);
  while ( k*p + ce < cols ) p++;
  if ( (at + p) >= minAt ){
-    printf("\t [next] Would find %d thrackles of size %d. At would be %d. Return 0.\n",p,k,at+p);
+  //  printf("\t [next] Would find %d thrackles of size %d. At would be %d. Return 0.\n",p,k,at+p);
     return 0;
  }
  vector<int> starting_thrackle(missing_edges.begin(),missing_edges.begin()+k);
 
   //The only case were we want a thrackle of size n is when there are 0 covered edges. This is: there are n missing edges.
 
-  cout << "\t [next] Missing edges "; printVectorInt(missing_edges);
-  cout << "\t [next] Covered edges "; printVectorInt(coveredEdges);
-  cout << "\t [next] Finding next thrackle of size " << k << endl;
-  cout << "\t [next] Descendants : \n";
-  for(int j = 0; j < (int)descendants.size(); j++){
-    cout << "\t"; printVectorInt(descendants[j]);
-  }
+  // cout << "\t [next] Missing edges "; printVectorInt(missing_edges);
+  // cout << "\t [next] Covered edges "; printVectorInt(coveredEdges);
+  // cout << "\t [next] Finding next thrackle of size " << k << endl;
+  // cout << "\t [next] Descendants : \n";
+  // for(int j = 0; j < (int)descendants.size(); j++){
+  //   cout << "\t"; printVectorInt(descendants[j]);
+  // }
 
   //This external while will break (return) when :
   // a) we found a thrackle and it's diffeerent to all descendats and covers some missing edges.
@@ -113,16 +113,16 @@ int next(int ** matrix, vector<vector<int>> descendants, vector<int> & thrackle,
   while(true){
     usleep(000000);
     //Then we attemp to find a thrackle with those conditions.
-    
-    printf("missing: ");
-    printVectorInt(missing_edges);
-    printf(" local_thrackle: ");
-    printVectorInt(local_thrackle);
-    printf(" k: %d \n",k);
-   val = find_next_thrackle(matrix,cols,missing_edges,local_thrackle,k,flag);
-   //val = find_next_thrackle2(matrix,starting_thrackle,local_thrackle,cols,flag);
-    cout << "Result of val " << val << endl;
-    cout << " \t [next] thrackle found "; printVectorInt(local_thrackle);
+
+    // printf("missing: ");
+    // printVectorInt(missing_edges);
+    // printf(" local_thrackle: ");
+    // printVectorInt(local_thrackle);
+    // printf(" k: %d \n",k);
+   //val = find_next_thrackle(matrix,cols,missing_edges,local_thrackle,k,flag);
+    val = find_next_thrackle2(matrix,starting_thrackle,local_thrackle,cols,flag);
+    //cout << "Result of val " << val << endl;
+    //cout << " \t [next] thrackle found "; printVectorInt(local_thrackle);
     if( !val && (mode == 1) ) {
       //cout << "[next] No thrackle of size " << k << " found.\n";
       return 0;
@@ -144,10 +144,10 @@ int next(int ** matrix, vector<vector<int>> descendants, vector<int> & thrackle,
       // cout << "in next() \n";
     // cout << "\t\t[next] in while - Finding next thrackle of size " << k << endl;
      //cout << "\t\t[next] in while - Missing edges "; printVectorInt(missing_edges);
-     val = find_next_thrackle(matrix,cols,missing_edges,local_thrackle,k,true);
+     //val = find_next_thrackle(matrix,cols,missing_edges,local_thrackle,k,true);
      starting_thrackle.clear();
      starting_thrackle.insert(starting_thrackle.begin(),missing_edges.begin(),missing_edges.begin()+k);
-     //val = find_next_thrackle2(matrix,starting_thrackle,local_thrackle,cols,true);
+     val = find_next_thrackle2(matrix,starting_thrackle,local_thrackle,cols,true);
 
     }
     //The while will break either when we find a thrackle or k = 0 (so we didn't find a thrackle).
@@ -212,16 +212,21 @@ int find_next_thrackle2(int ** matrix, vector<int> current, vector<int> & answer
     }
   }
   i = 0; intersect = 1;
-  while ( i < size && intersect ){
+  //Find the smallest j that must be increased.
+  int minj = 9999;
+  while ( i < size ){
     j = i+1;
     while ( j < size && intersect ){
       intersect &= !matrix[start[i]][start[j]];
-      //printf("Compared %d,%d: %d\n",start[i],start[j],intersect);
+    //  printf("Compared %d,%d: %d\n",start[i],start[j],intersect);
       if ( intersect ) j++;
     }
+    intersect = true;
+    if (j < minj) minj = j;
     i++;
   }
-
+//  printf("Smallest j : %d\n",minj);
+  j = minj;
   if (j == size ) {
     //This means that starting sequence current is a thrackle, but we're in open interval mode.
     j--;
