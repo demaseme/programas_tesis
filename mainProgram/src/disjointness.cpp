@@ -7,7 +7,12 @@ int lowAt(0);
 vector<int> coveredEdges;
 vector<int> lastInsertedThrackle;
 vector<vector<int>> thrackle_list;
-
+void printThrackleList(vector<vector<int>> t){
+    int i;
+    for(i = 0; i < (int)t.size(); i++){
+        printVectorInt(t[i]);
+    }
+}
 void exhaustive_at(int** matrix, int cols, int n, vector<int> current_thrackle, int at, int mode){
   vector<vector<int>> local_desc;
   //if (at > lowAt) lowAt = at;
@@ -21,6 +26,7 @@ void exhaustive_at(int** matrix, int cols, int n, vector<int> current_thrackle, 
   if ( (int) coveredEdges.size() == cols ) {
     if (at < minAt) minAt = at;
     cout << "[core] Current minimal AT: " << minAt << endl;
+    printThrackleList(thrackle_list);
     return;
   }
   else {
@@ -38,11 +44,12 @@ void exhaustive_at(int** matrix, int cols, int n, vector<int> current_thrackle, 
       local_desc.push_back(thrackle);
       //if( at >= 0 ) {printf("[core %d] Found thrackle : ",at); printVectorInt(thrackle);}
       int_thrackle_union(coveredEdges,thrackle,coveredEdges);
+      thrackle_list.push_back(thrackle);
       exhaustive_at(matrix, cols, n, thrackle, at+1,mode);
       //cout << "[core] Deleting thrackle from coveredEdges "; printVectorInt(thrackle);
       //if (coveredEdges.size() < thrackle.size() ) cout << "ATTENTION\n";
       int_thrackle_diff(coveredEdges,thrackle,coveredEdges);
-
+      thrackle_list.pop_back();
     }
   }
 }
