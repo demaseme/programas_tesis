@@ -40,5 +40,7 @@ find_at_ot:
 		g++ find_at.cpp disjointness.cpp point.cpp thrackle.cpp -o find_atot -Wall
 find_at_ot_all:
 		g++ find_at_all.cpp disjointness.cpp point.cpp thrackle.cpp -o find_atot_all -Wall
+find_at_ot_file:
+		g++ find_at_ot_file.cpp disjointness.cpp point.cpp thrackle.cpp -o find_atot_file -Wall
 clean:
 	rm *.o frac
