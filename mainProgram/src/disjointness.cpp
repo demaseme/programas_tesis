@@ -44,12 +44,12 @@ void exhaustive_at(int** matrix, int cols, int n, vector<int> current_thrackle, 
       local_desc.push_back(thrackle);
       //if( at >= 0 ) {printf("[core %d] Found thrackle : ",at); printVectorInt(thrackle);}
       int_thrackle_union(coveredEdges,thrackle,coveredEdges);
-      thrackle_list.push_back(thrackle);
+      //thrackle_list.push_back(thrackle);
       exhaustive_at(matrix, cols, n, thrackle, at+1,mode);
       //cout << "[core] Deleting thrackle from coveredEdges "; printVectorInt(thrackle);
       //if (coveredEdges.size() < thrackle.size() ) cout << "ATTENTION\n";
       int_thrackle_diff(coveredEdges,thrackle,coveredEdges);
-      thrackle_list.pop_back();
+      //thrackle_list.pop_back();
     }
   }
 }
@@ -114,7 +114,7 @@ int next(int ** matrix, vector<vector<int>> descendants, vector<int> & thrackle,
    vector<int> starting_thrackle(missing_edges.begin(),missing_edges.begin()+k);
    int p=1;
    int ce=coveredEdges.size(); //Size of covered edges.
-   //int best_case_at = at;
+
    //printf("\t [next] Value of k: %d\n",k);
    while ( k*p + ce < cols ) p++;
    if ( (at + p) >= minAt ){
@@ -134,7 +134,7 @@ int next(int ** matrix, vector<vector<int>> descendants, vector<int> & thrackle,
     // printf(" local_thrackle: ");
     // printVectorInt(local_thrackle);
     // printf(" k: %d \n",k);
-   //val = find_next_thrackle(matrix,cols,missing_edges,local_thrackle,k,flag);
+    //val = find_next_thrackle(matrix,cols,missing_edges,local_thrackle,k,flag);
     val = find_next_thrackle2(matrix,starting_thrackle,local_thrackle,cols,flag);
     //cout << "Result of val " << val << endl;
     //cout << " \t [next] thrackle found "; printVectorInt(local_thrackle);
@@ -240,7 +240,7 @@ int find_next_thrackle2(int ** matrix, vector<int> current, vector<int> & answer
     if (j < minj) minj = j;
     i++;
   }
-//  printf("Smallest j : %d\n",minj);
+  //  printf("Smallest j : %d\n",minj);
   j = minj;
   if (j == size ) {
     //This means that starting sequence current is a thrackle, but we're in open interval mode.

@@ -40,6 +40,7 @@ int main( int argc, char * argv[]){
   std::chrono::high_resolution_clock::time_point totalt2 = chrono::high_resolution_clock::now();
   chrono::duration<double, std::milli> time_span_total = totalt2 - totalt1;
   cout << "It took me " << time_span_total.count() << " milliseconds.\n";
+  freeMatrix(dmatrix,rows);
   return 1;
 }
 

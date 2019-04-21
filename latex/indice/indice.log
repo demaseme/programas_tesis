@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.12)  19 APR 2019 19:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.12)  19 APR 2019 19:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -446,13 +446,13 @@ LaTeX Info: Redefining \% on input line 6.
 Here is how much of TeX's memory you used:
  2063 strings out of 492982
  24381 string characters out of 6134895
- 95156 words of memory out of 5000000
+ 96156 words of memory out of 5000000
  5651 multiletter control sequences out of 15000+600000
  7050 words of font info for 26 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  27i,4n,30p,229b,359s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on /home/dmerinos/Documents/CINVESTAV/Programas/latex/indice/indice.pdf (1 page, 31101 bytes).
+Output written on /home/dmerinos/Documents/CINVESTAV/Programas/latex/indice/indice.pdf (1 page, 31106 bytes).
 PDF statistics:
  20 PDF objects out of 1000 (max. 8388607)
  13 compressed objects within 1 object stream
