@@ -30,7 +30,7 @@ int main( int argc, char * argv[]){
   generateAllEdges(points,edges);
   printf("There are %d points and %d edges.\n",(int)points.size(),(int)edges.size());
   //Create disjointnes matrix
-  construct_disjointness_matrix(edges,dmatrix,rows,true);
+  construct_disjointness_matrix(edges,dmatrix,rows,false);
   printf("Matrix constructed!\n");
 
   vector<int> startingThrackle;

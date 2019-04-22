@@ -53,7 +53,7 @@ void generateAllEdges(const vector<Point> vec,vector<Edge> & vEdges){
     Edge tmp;
     unsigned char tag;
     tag = 0;
-    cout << "Generating all edges!\n";
+    //cout << "Generating all edges!\n";
 
     for(unsigned int i = 0; i < vec.size(); i++){
         for(unsigned int j = i+1; j < vec.size(); j++){

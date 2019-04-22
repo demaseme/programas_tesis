@@ -14,7 +14,7 @@ void find_cat(int** matrix, int cols, int n, vector<int> & coveredEdges, vector<
 
  void convex_antithickness(int ** matrix, int cols, int n , vector<int> thrackle, int at);
  void exhaustive_at(int** matrix, int cols, int n, vector<int> current_thrackle, int at, int mode);
- int next(int ** matrix, vector<vector<int>> descendants, vector<int> & thrackle, int cols, int n,int at, int mode);
+ int next(int ** matrix, vector<vector<int>> descendants, vector<int> & thrackle, const vector<int> subroot, int cols, int n,int at, int mode);
 
 int find_next_thrackle2(int ** matrix, vector<int> current, vector<int> & answer, int cols, bool closed);
 int find_next_thrackle(int ** matrix, int cols, vector<int> currentThrackle, vector<int> & nextThrackle,int desired_size, bool openclosed);
