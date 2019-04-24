@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.12)  24 APR 2019 12:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.12)  24 APR 2019 18:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -442,12 +442,16 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
 LaTeX Font Info:    ... okay on input line 11.
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 17.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 18.
  (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 17.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 18.
+
+Overfull \hbox (18.61206pt too wide) in paragraph at lines 20--21
+[]\OT1/cmr/m/n/12 N^^Sume-ro crom^^Sati-co de una gr^^Safi-ca. [re-sul-ta-dos del n^^Sume-ro crom^^Sati-
+ []
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -457,23 +461,28 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
-] (/home/dmerinos/Documents/CINVESTAV/Programas/latex/indice/indice.aux
+]
+Overfull \hbox (7.63333pt too wide) in paragraph at lines 48--49
+[]\OT1/cmr/m/n/12 Establecer re-la-ci^^Son di-rec-ta con el n^^Sume-ro de cru-ce y el anti-thickness
+ []
+
+[2] (/home/dmerinos/Documents/CINVESTAV/Programas/latex/indice/indice.aux
 LaTeX Info: Redefining \. on input line 6.
 LaTeX Info: Redefining \% on input line 6.
 ) ) 
 Here is how much of TeX's memory you used:
  2195 strings out of 492982
  25912 string characters out of 6134895
- 96156 words of memory out of 5000000
+ 97156 words of memory out of 5000000
  5779 multiletter control sequences out of 15000+600000
  7050 words of font info for 26 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  27i,11n,43p,229b,359s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on /home/dmerinos/Documents/CINVESTAV/Programas/latex/indice/indice.pdf (1 page, 32067 bytes).
+Output written on /home/dmerinos/Documents/CINVESTAV/Programas/latex/indice/indice.pdf (2 pages, 33917 bytes).
 PDF statistics:
- 20 PDF objects out of 1000 (max. 8388607)
- 13 compressed objects within 1 object stream
+ 23 PDF objects out of 1000 (max. 8388607)
+ 15 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1556127390 "indice.tex" "/home/dmerinos/Documents/CINVESTAV/Programas/latex/indice/indice.pdf" "indice" 1556127390
+["pdflatex"] 1556147903 "indice.tex" "/home/dmerinos/Documents/CINVESTAV/Programas/latex/indice/indice.pdf" "indice" 1556147903
   "/etc/texmf/web2c/texmf.cnf" 1530222550 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/dmerinos/Documents/CINVESTAV/Programas/latex/indice/indice.aux" 1556127390 112 e1f9d66d8ef9afcbeb5c456c0a391ffb ""
+  "/home/dmerinos/Documents/CINVESTAV/Programas/latex/indice/indice.aux" 1556147903 112 e1f9d66d8ef9afcbeb5c456c0a391ffb ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1480098698 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1480098698 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -41,11 +41,11 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1520210507 32485 c64754543d8ac501bea6e75e209ea521 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1530222630 2700761 ac0584cc9514ab21918550a6948c4ee2 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1539381145 4140334 f5a73767bfe11a548b988f0178facaa8 ""
-  "indice.aux" 1556127390 112 e1f9d66d8ef9afcbeb5c456c0a391ffb ""
-  "indice.tex" 1556127387 1698 fe8311d4654d918caac3b9b23e672eb4 ""
+  "indice.aux" 1556147903 112 e1f9d66d8ef9afcbeb5c456c0a391ffb ""
+  "indice.tex" 1556147901 2266 30e7d60cc0c9c1122954aadd3bf6a629 ""
   (generated)
-  "indice.log"
   "/home/dmerinos/Documents/CINVESTAV/Programas/latex/indice/indice.log"
+  "indice.log"
   "/home/dmerinos/Documents/CINVESTAV/Programas/latex/indice/indice.pdf"
-  "indice.pdf"
   "indice.aux"
+  "indice.pdf"
