@@ -37,6 +37,7 @@ int main( int argc, char * argv[]){
   dmatrix = (int **)malloc(rows * sizeof(int*));
   for(int i = 0; i < rows; i++) dmatrix[i] = (int *)malloc(cols * sizeof(int));
   load_ot_file(ot_file_name,ordertypes);
+  std::chrono::high_resolution_clock::time_point totalt1 = chrono::high_resolution_clock::now();
   while ( ot_ind < (int)ordertypes.size() ){
       points.resize(n);
       loadPoints(n,ordertypes[ot_ind],points);
@@ -57,7 +58,11 @@ int main( int argc, char * argv[]){
       points.clear();
       ot_ind++;
       minAt = 9999;
+      freeMatrix(dmatrix,rows);
   }
+  std::chrono::high_resolution_clock::time_point totalt2 = chrono::high_resolution_clock::now();
+  chrono::duration<double, std::milli> time_span_total = totalt2 - totalt1;
+  cout << "It took me " << time_span_total.count() << " milliseconds.\n";
   return 1;
 }
 

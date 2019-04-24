@@ -38,6 +38,8 @@ INPUT /usr/share/texlive/texmf-dist/tex/generic/babel-spanish/spanish.ldf
 INPUT /usr/share/texlive/texmf-dist/tex/generic/babel-spanish/spanish.ldf
 INPUT /usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
 INPUT /usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def
+INPUT /usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 INPUT /home/dmerinos/Documents/CINVESTAV/Programas/latex/indice/indice.aux
 INPUT /home/dmerinos/Documents/CINVESTAV/Programas/latex/indice/indice.aux
 OUTPUT /home/dmerinos/Documents/CINVESTAV/Programas/latex/indice/indice.aux
