@@ -35,11 +35,12 @@ int main( int argc, char * argv[]){
 
   vector<int> startingThrackle;
   std::chrono::high_resolution_clock::time_point totalt1 = chrono::high_resolution_clock::now();
+
   exhaustive_at(dmatrix, cols, n, startingThrackle, 0,0);
   printf("AT: %d\n",minAt);
   std::chrono::high_resolution_clock::time_point totalt2 = chrono::high_resolution_clock::now();
-  chrono::duration<double, std::milli> time_span_total = totalt2 - totalt1;
-  cout << "It took me " << time_span_total.count() << " milliseconds.\n";
+   chrono::duration<double, std::milli> time_span_total = totalt2 - totalt1;
+   cout << "It took me " << time_span_total.count() << " milliseconds.\n";
   freeMatrix(dmatrix,rows);
   return 1;
 }
