@@ -11,7 +11,7 @@ intersection:
 k_inter_samp:
 	g++ k_intersection_sample.cpp point.cpp thrackle.cpp disjointness.cpp  -o k_intersection_samp -Wall -fopenmp
 k_inter_reader:
-	g++ k_intersection_reader.cpp point.cpp thrackle.cpp disjointness.cpp  -o k_intersection_reader -Wall -fopenmp
+	g++ k_intersection_reader.cpp point.cpp thrackle.cpp decomposition.cpp disjointness.cpp  -o k_intersection_reader -Wall -fopenmp
 check_antithickness:
 	g++ check_at.cpp decomposition.cpp -o check_at -Wall
 repetition_counter:

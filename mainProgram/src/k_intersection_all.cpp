@@ -36,7 +36,7 @@ int main(int argc, char * argv[]){
         otypes = 3315; break;
     case 9:
         otypes = 158817; break;
-    case 10:  
+    case 10:
         otypes = 14309547; break;
     default:
         fprintf(stderr,"No existe base de datos para n>10\n"); exit(-1);
@@ -44,6 +44,10 @@ int main(int argc, char * argv[]){
   string file_name = to_string(n) + "_" + to_string(q) + "_"+ to_string(k) + "_intersections_all.dat";
   ofstream myfile;
   myfile.open(file_name, ios::binary);
+  if (!myfile.good()){
+    fprintf(stderr, "Error creating file %s\n",file_name.c_str() );
+    exit(-1);
+  }
   while (ot < otypes) {
 
     rows = count_thrackles(n,k,ot);
