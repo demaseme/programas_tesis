@@ -1,0 +1,795 @@
+6 -> 2
+0 
+8 
+12 
+53 
+55 
+81 
+702 
+704 
+719 
+1093 
+1100 
+1291 
+1309 
+1328 
+1908 
+2243 
+5001 
+5149 
+5279 
+19037 
+19044 
+19552 
+19582 
+19616 
+19621 
+19632 
+19888 
+20349 
+20408 
+20448 
+28458 
+28464 
+28768 
+28773 
+28784 
+28913 
+28916 
+28924 
+29029 
+29037 
+29165 
+29182 
+33248 
+33266 
+33442 
+33450 
+48616 
+48621 
+56541 
+56546 
+113692 
+116105 
+120844 
+122272 
+123217 
+123293 
+123309 
+123536 
+127891 
+127904 
+127919 
+128066 
+128572 
+128599 
+128644 
+128680 
+130225 
+130306 
+130642 
+130660 
+238415 
+238432 
+240096 
+896690 
+896695 
+896706 
+896822 
+896830 
+896919 
+897011 
+907183 
+907188 
+907199 
+908727 
+908735 
+908770 
+922098 
+922237 
+922648 
+922664 
+922865 
+923275 
+923293 
+934953 
+951659 
+952959 
+956305 
+956319 
+956858 
+957897 
+1506757 
+1511216 
+1527020 
+1527306 
+1538109 
+1553715 
+1554753 
+1557274 
+2559747 
+6524915 
+Working with ot 0
+Cols :45
+Rows :502
+Number of Thrackles: 502
+Looking for a decomposition of size 6
+494 479 458 195 125 7 
+494 484 458 250 42 4 
+494 493 306 250 121 7 
+494 493 375 153 125 7 
+494 493 375 247 42 3 
+497 493 341 250 42 0 
+498 493 375 125 39 0 
+501 424 375 246 42 0 
+501 439 375 126 125 7 
+501 458 251 250 122 7 
+501 458 316 250 42 0 
+501 458 372 125 38 0 
+	Thrackle set size : 6, min_repetitions: 45, max_repetitions: 45
+Looking for a decomposition of size 5
+	No decomposition of size 5 found.
+Working with ot 8
+Cols :45
+Rows :333
+Number of Thrackles: 333
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 12
+Cols :45
+Rows :267
+Number of Thrackles: 267
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 53
+Cols :45
+Rows :258
+Number of Thrackles: 258
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 55
+Cols :45
+Rows :218
+Number of Thrackles: 218
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 81
+Cols :45
+Rows :177
+Number of Thrackles: 177
+Looking for a decomposition of size 6
+176 168 156 125 38 0 
+	Thrackle set size : 6, min_repetitions: 15, max_repetitions: 15
+Looking for a decomposition of size 5
+	No decomposition of size 5 found.
+Working with ot 702
+Cols :45
+Rows :221
+Number of Thrackles: 221
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 704
+Cols :45
+Rows :183
+Number of Thrackles: 183
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 719
+Cols :45
+Rows :167
+Number of Thrackles: 167
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 1093
+Cols :45
+Rows :104
+Number of Thrackles: 104
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 1100
+Cols :45
+Rows :93
+Number of Thrackles: 93
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 1291
+Cols :45
+Rows :205
+Number of Thrackles: 205
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 1309
+Cols :45
+Rows :178
+Number of Thrackles: 178
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 1328
+Cols :45
+Rows :151
+Number of Thrackles: 151
+Looking for a decomposition of size 6
+150 142 113 100 39 0 
+	Thrackle set size : 6, min_repetitions: 15, max_repetitions: 15
+Looking for a decomposition of size 5
+	No decomposition of size 5 found.
+Working with ot 1908
+Cols :45
+Rows :135
+Number of Thrackles: 135
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 2243
+Cols :45
+Rows :129
+Number of Thrackles: 129
+Looking for a decomposition of size 6
+121 119 85 67 42 3 
+128 115 82 51 39 0 
+	Thrackle set size : 6, min_repetitions: 15, max_repetitions: 15
+Looking for a decomposition of size 5
+	No decomposition of size 5 found.
+Working with ot 5001
+Cols :45
+Rows :78
+Number of Thrackles: 78
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 5149
+Cols :45
+Rows :57
+Number of Thrackles: 57
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 5279
+Cols :45
+Rows :60
+Number of Thrackles: 60
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 19037
+Cols :45
+Rows :119
+Number of Thrackles: 119
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 19044
+Cols :45
+Rows :98
+Number of Thrackles: 98
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 19552
+Cols :45
+Rows :140
+Number of Thrackles: 140
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 19582
+Cols :45
+Rows :85
+Number of Thrackles: 85
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 19616
+Cols :45
+Rows :77
+Number of Thrackles: 77
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 19621
+Cols :45
+Rows :67
+Number of Thrackles: 67
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 19632
+Cols :45
+Rows :63
+Number of Thrackles: 63
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 19888
+Cols :45
+Rows :113
+Number of Thrackles: 113
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 20349
+Cols :45
+Rows :73
+Number of Thrackles: 73
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 20408
+Cols :45
+Rows :44
+Number of Thrackles: 44
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 20448
+Cols :45
+Rows :46
+Number of Thrackles: 46
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 28458
+Cols :45
+Rows :163
+Number of Thrackles: 163
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 28464
+Cols :45
+Rows :132
+Number of Thrackles: 132
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 28768
+Cols :45
+Rows :126
+Number of Thrackles: 126
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 28773
+Cols :45
+Rows :102
+Number of Thrackles: 102
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 28784
+Cols :45
+Rows :82
+Number of Thrackles: 82
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 28913
+Cols :45
+Rows :94
+Number of Thrackles: 94
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 28916
+Cols :45
+Rows :83
+Number of Thrackles: 83
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 28924
+Cols :45
+Rows :70
+Number of Thrackles: 70
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 29029
+Cols :45
+Rows :72
+Number of Thrackles: 72
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 29037
+Cols :45
+Rows :71
+Number of Thrackles: 71
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 29165
+Cols :45
+Rows :41
+Number of Thrackles: 41
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 29182
+Cols :45
+Rows :42
+Number of Thrackles: 42
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 33248
+Cols :45
+Rows :154
+Number of Thrackles: 154
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 33266
+Cols :45
+Rows :135
+Number of Thrackles: 135
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 33442
+Cols :45
+Rows :140
+Number of Thrackles: 140
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 33450
+Cols :45
+Rows :127
+Number of Thrackles: 127
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 48616
+Cols :45
+Rows :62
+Number of Thrackles: 62
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 48621
+Cols :45
+Rows :67
+Number of Thrackles: 67
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 56541
+Cols :45
+Rows :88
+Number of Thrackles: 88
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 56546
+Cols :45
+Rows :88
+Number of Thrackles: 88
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 113692
+Cols :45
+Rows :46
+Number of Thrackles: 46
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 116105
+Cols :45
+Rows :52
+Number of Thrackles: 52
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 120844
+Cols :45
+Rows :206
+Number of Thrackles: 206
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 122272
+Cols :45
+Rows :114
+Number of Thrackles: 114
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 123217
+Cols :45
+Rows :103
+Number of Thrackles: 103
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 123293
+Cols :45
+Rows :86
+Number of Thrackles: 86
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 123309
+Cols :45
+Rows :82
+Number of Thrackles: 82
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 123536
+Cols :45
+Rows :51
+Number of Thrackles: 51
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 127891
+Cols :45
+Rows :85
+Number of Thrackles: 85
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 127904
+Cols :45
+Rows :72
+Number of Thrackles: 72
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 127919
+Cols :45
+Rows :72
+Number of Thrackles: 72
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 128066
+Cols :45
+Rows :82
+Number of Thrackles: 82
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 128572
+Cols :45
+Rows :80
+Number of Thrackles: 80
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 128599
+Cols :45
+Rows :95
+Number of Thrackles: 95
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 128644
+Cols :45
+Rows :42
+Number of Thrackles: 42
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 128680
+Cols :45
+Rows :40
+Number of Thrackles: 40
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 130225
+Cols :45
+Rows :98
+Number of Thrackles: 98
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 130306
+Cols :45
+Rows :76
+Number of Thrackles: 76
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 130642
+Cols :45
+Rows :45
+Number of Thrackles: 45
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 130660
+Cols :45
+Rows :40
+Number of Thrackles: 40
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 238415
+Cols :45
+Rows :52
+Number of Thrackles: 52
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 238432
+Cols :45
+Rows :42
+Number of Thrackles: 42
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 240096
+Cols :45
+Rows :37
+Number of Thrackles: 37
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 896690
+Cols :45
+Rows :178
+Number of Thrackles: 178
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 896695
+Cols :45
+Rows :138
+Number of Thrackles: 138
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 896706
+Cols :45
+Rows :110
+Number of Thrackles: 110
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 896822
+Cols :45
+Rows :107
+Number of Thrackles: 107
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 896830
+Cols :45
+Rows :87
+Number of Thrackles: 87
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 896919
+Cols :45
+Rows :86
+Number of Thrackles: 86
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 897011
+Cols :45
+Rows :47
+Number of Thrackles: 47
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 907183
+Cols :45
+Rows :74
+Number of Thrackles: 74
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 907188
+Cols :45
+Rows :66
+Number of Thrackles: 66
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 907199
+Cols :45
+Rows :63
+Number of Thrackles: 63
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 908727
+Cols :45
+Rows :67
+Number of Thrackles: 67
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 908735
+Cols :45
+Rows :58
+Number of Thrackles: 58
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 908770
+Cols :45
+Rows :59
+Number of Thrackles: 59
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 922098
+Cols :45
+Rows :112
+Number of Thrackles: 112
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 922237
+Cols :45
+Rows :122
+Number of Thrackles: 122
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 922648
+Cols :45
+Rows :53
+Number of Thrackles: 53
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 922664
+Cols :45
+Rows :48
+Number of Thrackles: 48
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 922865
+Cols :45
+Rows :164
+Number of Thrackles: 164
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 923275
+Cols :45
+Rows :61
+Number of Thrackles: 61
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 923293
+Cols :45
+Rows :50
+Number of Thrackles: 50
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 934953
+Cols :45
+Rows :82
+Number of Thrackles: 82
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 951659
+Cols :45
+Rows :48
+Number of Thrackles: 48
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 952959
+Cols :45
+Rows :42
+Number of Thrackles: 42
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 956305
+Cols :45
+Rows :63
+Number of Thrackles: 63
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 956319
+Cols :45
+Rows :47
+Number of Thrackles: 47
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 956858
+Cols :45
+Rows :39
+Number of Thrackles: 39
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 957897
+Cols :45
+Rows :72
+Number of Thrackles: 72
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 1506757
+Cols :45
+Rows :64
+Number of Thrackles: 64
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 1511216
+Cols :45
+Rows :78
+Number of Thrackles: 78
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 1527020
+Cols :45
+Rows :55
+Number of Thrackles: 55
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 1527306
+Cols :45
+Rows :58
+Number of Thrackles: 58
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 1538109
+Cols :45
+Rows :67
+Number of Thrackles: 67
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 1553715
+Cols :45
+Rows :37
+Number of Thrackles: 37
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 1554753
+Cols :45
+Rows :37
+Number of Thrackles: 37
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 1557274
+Cols :45
+Rows :63
+Number of Thrackles: 63
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 2559747
+Cols :45
+Rows :117
+Number of Thrackles: 117
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
+Working with ot 6524915
+Cols :45
+Rows :93
+Number of Thrackles: 93
+Looking for a decomposition of size 6
+	No decomposition of size 6 found.
