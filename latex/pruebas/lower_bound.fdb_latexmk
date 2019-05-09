@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1551817046 "lower_bound.tex" "/home/dmerinos/Documents/CINVESTAV/Tesis/pruebas/lower_bound.pdf" "lower_bound" 1551817049
+["pdflatex"] 1557424639 "lower_bound.tex" "/home/dmerinos/Documents/CINVESTAV/Programas/latex/pruebas/lower_bound.pdf" "lower_bound" 1557424641
   "/etc/texmf/web2c/texmf.cnf" 1530222550 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/dmerinos/Documents/CINVESTAV/Tesis/pruebas/lower_bound.aux" 1551817049 437 8cc63328b27134776db897e5fd1bdfb1 ""
+  "/home/dmerinos/Documents/CINVESTAV/Programas/latex/pruebas/lower_bound.aux" 1557424640 505 9cf2a6a595f424fb3820e762f84a833a ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1480098698 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1480098698 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -43,6 +43,7 @@
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1480098733 35752 024fb6c41858982481f6968b5fc26508 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1480098733 32722 d7379af29a190c3f453aba36302ff5a9 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb" 1480098733 32362 179c33bbf43f19adbb3825bb4e36e57a ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb" 1480098733 32734 69e00a6b65cedb993666e42eedb3d48f ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1480098733 32726 0a1aea6fcd6468ee2cf64d891f5c43c8 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb" 1480098733 24457 5cbb7bdf209d5d1ce9892a9b80a307cc ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb" 1480098733 24393 3b7eb51a67a0a62aec5849271bdb9c2e ""
@@ -164,11 +165,14 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1520210507 32485 c64754543d8ac501bea6e75e209ea521 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1530222630 2700761 ac0584cc9514ab21918550a6948c4ee2 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1539381145 4140334 f5a73767bfe11a548b988f0178facaa8 ""
-  "lower_bound.aux" 1551817049 437 8cc63328b27134776db897e5fd1bdfb1 ""
-  "lower_bound.tex" 1551817044 5428 1433a0dd41044a0273de8a8cc7389ba4 ""
+  "lemathrackles.png" 1557424635 108037 21f3f1d8e7257ad5e897eeabd4836940 ""
+  "lower_bound.aux" 1557424640 505 9cf2a6a595f424fb3820e762f84a833a ""
+  "lower_bound.tex" 1557424520 6824 a9b1d8921d1f685484818bbdf6ab24db ""
   (generated)
-  "lower_bound.aux"
+  "/home/dmerinos/Documents/CINVESTAV/Programas/latex/pruebas/lower_bound.pdf"
   "lower_bound.pdf"
+  "lower_bound.aux"
   "lower_bound.log"
   "/home/dmerinos/Documents/CINVESTAV/Tesis/pruebas/lower_bound.pdf"
+  "/home/dmerinos/Documents/CINVESTAV/Programas/latex/pruebas/lower_bound.log"
   "/home/dmerinos/Documents/CINVESTAV/Tesis/pruebas/lower_bound.log"

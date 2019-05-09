@@ -126,5 +126,30 @@ Supongamos \ateq{K_n}{k} con $n>6$. Esto implica que existen $k$ thrackles $T_1,
    9 & 1080      & 6  & 16  & 16\\
    9 & 1287      & 6  & 15  & 17\\}
  \end{matrixtable}
- \end{center}
+ \end{center}\leavevmode\\
+ \section{ Lema }
+ \begin{theorem}
+   Dados dos thrackles máximos $T_1$ y $T_2$, su intersección en aristas es no vacía.
+ \end{theorem}
+ \begin{proof}
+ Sea $T_1$ un thrackle máximo con $C_1=V(C(T_1))$, seleccionamos $k$ vértices tales que no estén en $C_1$ y con $k$ impar
+ para formar un ciclo impar $C_2$, cuyas cuñas contengan a $P-\{C_2\}= C_1$ y que además $C_1 \cap C_2 = \emptyset$. Necesariamente
+ todo $v \in C_2$ es un vértice de grado 1 de $T_1$.
+
+ Entonces existen aristas de $T_1$ tales que inciden en vértices de $C_2$, o lo que es igual,
+ aristas salientes de $C_1$ que acaban en $C_2$. Como las cuñas generadas por vértices de $C_2$ contienen a todo $C_1$ y las
+ cuñas generadas por vértices de $C_1$ contienen a todo $C_2$, entonces existe una arista $e\in T_1$
+ tal que $e\in W_{T_1}(u) \cap W_{T_2}(v)$ con $u\in C_1, v\in C_2$. Notese que esta arista equivalentemente sale de algún vértice
+ $v \in C_2$ y acaba en algún vértice $u \in C_2$.
+
+ Finalmente si decimos que $T_2 = C_2$ y luego agregamos todas las aristas que salgan de cuñas generadas por vértices de $C_2$
+ y acaban en vértices de $C_1$, lo cual es posible por construcción, tenemos que \[T_2 \ni  e, \Rightarrow T_2 \cap T_1 \ni e \Rightarrow T_2 \cap T_1 \neq \emptyset\]
+\end{proof}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=8cm]{lemathrackles}
+
+\end{figure}
+
 \end{document}
