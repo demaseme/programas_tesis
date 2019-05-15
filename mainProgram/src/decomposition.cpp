@@ -113,6 +113,21 @@ void select_otypes(int n, vector<int> & otypes_vec){
     if ( cover == 1) otypes_vec.push_back(i);
   }
 }
+void select_otypes_withmax_rnd(int n, vector<int> & otypes_vec){
+  //Search for K_n_statistics.dat.
+  ifstream myfile;
+  string file_name = "K_" + to_string(n) + "_"+ to_string(n) +"_statistics.dat";
+  myfile.open(file_name);
+  if (!myfile.good()){
+    fprintf(stderr, "Unable to open statistics file %s\n",file_name.c_str());
+    exit(-1);
+  }
+  int i, eat, cover;
+  myfile.ignore(10000,'\n');
+  while(myfile >> i >> eat >> eat >> cover){
+    if ( cover == 1) otypes_vec.push_back(i);
+  }
+}
 //Returns true if union of found thrackles cover K_n graph
 bool mat_union_covers(int ** bool_th_mat, int cols, int rows){
   int i,j;

@@ -42,5 +42,7 @@ find_at_ot_all:
 		g++ find_at_all.cpp disjointness.cpp point.cpp thrackle.cpp -o find_atot_all -Wall
 find_at_ot_file:
 		g++ find_at_ot_file.cpp disjointness.cpp point.cpp thrackle.cpp -o find_atot_file -Wall
+generate_random_ot:
+		g++ selectRndOt.cpp decomposition.cpp -o gen_rand_ot -Wall
 clean:
 	rm *.o frac
