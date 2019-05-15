@@ -151,5 +151,18 @@ Supongamos \ateq{K_n}{k} con $n>6$. Esto implica que existen $k$ thrackles $T_1,
   \includegraphics[width=8cm]{lemathrackles}
 
 \end{figure}
+\newpage
+\section{Doble contención}
+Caso en el que $C_2$ está contenido en la unión de exactamente 2 cuñas de $C_1$.\\
+Sean $u,u'$ vértices de $C_1$ cuyos ápices cubren a todo $C_2$:
+\[ \exists! v\in C_2: v \text{ ve a } u \]
+\[ \exists! v'\in C_2: v' \text{ ve a } u' \]
+Si $v=v'$ entonces $v$ ve a $u$ y $v$ ve a $u'$, luego $u$ ve a $v$ o $u'$ ve a $v$ y hay doble contención.\\
+Si $v\neq v$ entonces $u$ ve a $v'$ y $u'$ ve a $v$, obviando la doble contención tenemos que suponer además que
+$u$ no ve a $v$ y $u'$ no ve a $v'$.
 
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=12cm]{doble_contencion}
+\end{figure}
 \end{document}

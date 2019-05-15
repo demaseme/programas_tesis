@@ -250,6 +250,9 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx6.tfm
 INPUT /home/dmerinos/Documents/CINVESTAV/Programas/latex/pruebas/lemathrackles.png
 INPUT /home/dmerinos/Documents/CINVESTAV/Programas/latex/pruebas/lemathrackles.png
 INPUT /home/dmerinos/Documents/CINVESTAV/Programas/latex/pruebas/lemathrackles.png
+INPUT /home/dmerinos/Documents/CINVESTAV/Programas/latex/pruebas/doble_contencion.png
+INPUT /home/dmerinos/Documents/CINVESTAV/Programas/latex/pruebas/doble_contencion.png
+INPUT /home/dmerinos/Documents/CINVESTAV/Programas/latex/pruebas/doble_contencion.png
 INPUT /home/dmerinos/Documents/CINVESTAV/Programas/latex/pruebas/lower_bound.aux
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
@@ -266,5 +269,6 @@ INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/wasy2-ps/wasy10.pfb
