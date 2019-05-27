@@ -20,12 +20,12 @@ void exhaustive_at(int** matrix, int cols, int n, vector<int> current_thrackle, 
   if( at >= minAt) return;
   //if(at == 1 && (int) current_thrackle.size() < n) return;
   //cout << " ##### Printing recursion data #####\n";
-  cout << "[core] current thrackle :"; printVectorInt(current_thrackle);
+  //cout << "[core] current thrackle :"; printVectorInt(current_thrackle);
   usleep(000000);
   //cout << " [core] this level at : " << at << endl;
   if ( (int) coveredEdges.size() == cols ) {
     if (at < minAt) minAt = at;
-    cout << "[core] Current minimal AT: " << minAt << endl;
+    //cout << "[core] Current minimal AT: " << minAt << endl;
     //printThrackleList(thrackle_list);
     return;
   }
