@@ -1,0 +1,25 @@
+\begin{thebibliography}{1}
+
+\bibitem{Araujo2005}
+Gabriela Araujo, Adrian Dumitrescu, Ferran Hurtado, Marc Noy, and Jorge
+  Urrutia.
+\newblock On the chromatic number of some geometric type kneser graphs.
+\newblock {\em Comput. Geom.}, 32(1):59--69, 2005.
+
+\bibitem{Dillencourt2004}
+Michael~B Dillencourt, David Eppstein, and Daniel~S Hirschberg.
+\newblock Geometric thickness of complete graphs.
+\newblock In {\em Graph Algorithms And Applications 2}, pages 39--51. World
+  Scientific, 2004.
+
+\bibitem{Dujmovic2017}
+Vida Dujmovic and David~R. Wood.
+\newblock Thickness and antithickness of graphs.
+\newblock {\em CoRR}, abs/1708.04773, 2017.
+
+\bibitem{Fabila-Monroy2018}
+Ruy Fabila-Monroy, Jakob Jonsson, Pavel Valtr, and David~R Wood.
+\newblock The exact chromatic number of the convex segment disjointness graph.
+\newblock {\em arXiv preprint arXiv:1804.01057}, 2018.
+
+\end{thebibliography}
