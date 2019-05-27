@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.12)  27 MAY 2019 14:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.16)  27 MAY 2019 17:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
 **main.tex
-(/home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/main.tex
+(/home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/main.tex
 LaTeX2e <2017-04-15>
 Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/report.cls
@@ -409,7 +409,7 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
 \mathdisplay@stack=\toks21
 LaTeX Info: Redefining \[ on input line 2817.
 LaTeX Info: Redefining \] on input line 2818.
-) (/home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/main.aux)
+) (/home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
@@ -487,7 +487,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 
 ] [4
 
-] (/home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/main.toc)
+] (/home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/main.toc)
 \tf@toc=\write3
 \openout3 = `main.toc'.
 
@@ -499,7 +499,7 @@ Chapter 1.
 
 ]
 Chapter 2.
-(/home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/chapters/antecedentes.tex
+(/home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/chapters/antecedentes.tex
 Overfull \hbox (7.9218pt too wide) in paragraph at lines 5--5
 []\OT1/cmr/bx/n/17.28 Anti-thickness y anti-thickness geom^^Setrico 
  []
@@ -508,32 +508,32 @@ Overfull \hbox (7.9218pt too wide) in paragraph at lines 5--5
 
 ]
 Chapter 3.
-(/home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/chapters/estado.tex [8
+(/home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/chapters/estado.tex [8
 
-] [9]) [10]
+] [9] [10]) [11]
 Chapter 4.
-[11
+[12
 
 ]
 Chapter 5.
-(/home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/main.bbl [12
+(/home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/main.bbl [13
 
-]) [13
+]) [14
 
-] (/home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/main.aux) ) 
+] (/home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/main.aux) ) 
 Here is how much of TeX's memory you used:
- 2411 strings out of 492982
- 31601 string characters out of 6134895
- 93050 words of memory out of 5000000
- 5935 multiletter control sequences out of 15000+600000
+ 2412 strings out of 492982
+ 31829 string characters out of 6134895
+ 95054 words of memory out of 5000000
+ 5936 multiletter control sequences out of 15000+600000
  12107 words of font info for 43 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,6n,25p,271b,178s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on /home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/main.pdf (14 pages, 120047 bytes).
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/main.pdf (15 pages, 130535 bytes).
 PDF statistics:
- 90 PDF objects out of 1000 (max. 8388607)
- 63 compressed objects within 1 object stream
+ 97 PDF objects out of 1000 (max. 8388607)
+ 68 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

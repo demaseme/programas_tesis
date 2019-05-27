@@ -2,4 +2,12 @@
 *.b16
 *.b08
 *.[oa]
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.toc
+*.synctex.gz
 *~
