@@ -4,15 +4,19 @@ relacionada con el anti-thickness. En el artículo de Eppstein y otros
 \cite{Dillencourt2004} se recupera la definición de thickness teórico y thickness
 geométrico, además proporciona cotas para éste último. Podemos definir el
 thickness de una gráfica en términos del índice crómático de una gráfica y
-mantenerlo coherente con la definición de Eppstein: $\Theta(G):$ Mínimo $k$
+mantenerlo coherente con la definición de Eppstein: $\theta(G):$ Mínimo $k$
 tal que existe una partición de las aristas de $G$, de tamaño $k$ en gráficas planares.
 
-Por otro lado el thickness geométrico $\bar{\Theta}(G)$: Mínimo $k$ tal que
+Por otro lado el thickness geométrico $\bar{\theta}(G)$: Mínimo $k$ tal que
 existe un dibujo geométrico $\mathsf{G}$ de $G$ cuyas aristas pueden ser
 particionadas en $k$ gráficas planas. Eppstein prueba que:
-\[ \bar{\Theta}(G) \in [\lceil n/5.646 + 0.342 \rceil, \lceil\frac{n}{4}\rceil] \]
-y encuentra el valor exacto para $K_n$ con $n\leq 12$ y $n\in\{15,16\}$.
-
+\[ \bar{\theta}(G) \in [\lceil n/5.646 + 0.342 \rceil, \lceil\frac{n}{4}\rceil] \]
+y encuentra el valor exacto para $K_n$ con $n\leq 12$ y $n\in\{15,16\}$. También
+estudia el anti-thickness geométrico para gráficas completas bipartitas y demuestra:
+\[
+  \lceil \frac{ab}{2a+2b-4} \rceil \leq \theta(K_{a,b}) \leq \bar{\theta}(K_{a,b})
+  \leq \lceil \frac{min(a,b)}{2} \rceil
+\]
 Es natural pensar que si una gráfica puede ser descompuesta en sub-gráficas donde
 no existe ningún cruce entre dos aristas, es quizás posible descomponer la
 gráfica en sub-gráficas donde siempre ocurran cruces entre dos aristas, es decir
