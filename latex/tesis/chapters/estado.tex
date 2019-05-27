@@ -1,0 +1,87 @@
+Antes de hablar del anti-thickness y los resultados, es sensato hablar de otro
+concepto llamado \textbf{thickness} pues su definición está estrechamente
+relacionada con el anti-thickness. En el artículo de Eppstein y otros
+\cite{Dillencourt2004} se recupera la definición de thickness teórico y thickness
+geométrico, además proporciona cotas para éste último. Podemos definir el
+thickness de una gráfica en términos del índice crómático de una gráfica y
+mantenerlo coherente con la definición de Eppstein: $\Theta(G):$ Mínimo $k$
+tal que existe una partición de las aristas de $G$, de tamaño $k$ en gráficas planares.
+
+Por otro lado el thickness geométrico $\bar{\Theta}(G)$: Mínimo $k$ tal que
+existe un dibujo geométrico $\mathsf{G}$ de $G$ cuyas aristas pueden ser
+particionadas en $k$ gráficas planas. Eppstein prueba que:
+\[ \bar{\Theta}(G) \in [\lceil n/5.646 + 0.342 \rceil, \lceil\frac{n}{4}\rceil] \]
+y encuentra el valor exacto para $K_n$ con $n\leq 12$ y $n\in\{15,16\}$.
+
+Es natural pensar que si una gráfica puede ser descompuesta en sub-gráficas donde
+no existe ningún cruce entre dos aristas, es quizás posible descomponer la
+gráfica en sub-gráficas donde siempre ocurran cruces entre dos aristas, es decir
+en thrackles; este concepto es conocido como el anti-thickness.
+
+Antes de examinar los resultados del anti-thickness, resulta interesante verificar
+el trabajo de Araujo y Urrutia \cite{Araujo2005}; aquí se define la gráfica de
+disyunción $D(S)$ de un conjunto $S$ de puntos en el plano, donde considerando
+todos los segmentos de recta entre pares de vértices de $S$ como los vértices
+de $D(S)$, existe una arista entre dos vértices si los dos segmentos
+de recta correspondientes se cruzan o comparten un vértice.
+
+Si asignamos un color a cada vértices de $D(S)$ de tal manera que dos
+vértices adyacentes no compartan color y además minimizamos el número de colores
+usados, obtenemos el número cromático de $\chi(D(S))$. Es fácil ver que una
+clase cromática de $D(S)$ es un conjunto independiente y además un thrackle. Si
+ahora consideramos todos los posibles encajes de $S$ en el plano y para cada uno
+encontramos $\chi(D(S))$, tendremos una lista de enteros que representa el tamaño
+mínimo de la descomposición en thrackles de una gráfica completa cuyos
+vértices están dados por $S$ en el plano. Si de esta lista consideramos ahora
+el valor mínimo encontraremos el anti-thickness para la gráfica completa geométrica de
+$n$ vértices. Sin embargo, en este trabajo se considera el máximo valor de dicha lista;
+definiendo entonces :
+\[ d(n) = \max\{\chi(D(S)): S \subset \mathbf{R}^2 \text{ en posición general }, |S|=n\}\]
+
+De manera concreta, el trabajo presenta cotas para $d(n)$, y $d_c(n)$ que se define
+de manera similar pero con $S$ en posición convexa.
+
+La diferencia entre $d(n)$ y el anti-thickness reside en que el último nos quedamos
+con el mínimo de la lista de números cromáticos de $D(S)$, podriamos definir el
+anti-thickness geométrico de la gráfica completa de n vértices $at(n)$ como sigue :
+\[ at(n) = \min\{\chi(D(S)): S \subset \mathbf{R}^2 \text{ en posición general }, |S|=n\}\]
+
+Sin embargo, debido a que cuando $K_n$ es encajado en el plano en posición convexa
+los dibujos posibles no presentan diferencias combinatorias, se tiene que el
+anti-thickness geométrico convexo de la gráfica completa de $n$ vértices ($cat(n)$) :
+\[ d_c(n) = cat(n)\]
+
+Como se mencionó anteriormente el anti-thickness está relacionado con la descomposición
+de una gráfica en sub-gráficas donde siempre ocurren cruces, podemos verlo como
+el lado opuesto del thickness. Dujmovic y Wood \cite{Dujmovic2017} presentan resultados
+para casos especiales del anti-thickness. Por ejemplo, en árboles, 2-tracks, books, gráficas
+outerplanar, k-queues, entre otros haciendo observaciones de resultados anteriores.
+Además se prueba la relación entre thickness y anti-thickness, concretamente prueban que
+para toda gráfica con anti-thickness $k$ y thickness $t$
+: \[ k \leq t \leq \lceil \frac{3k}{2}\rceil \]
+
+Los resultados presentados en ese trabajo que tienen que ver con el anti-thickness se enfocan
+en el caso específico de puntos en posición convexa. El principal resultado para
+posición convexa lo presenta Wood y Fabila \cite{Fabila-Monroy2018}.
+Aquí se prueba que cuando los puntos están en posición convexa dos thrackles máximos
+comparten al menos una arista y por lo tanto la unión de $k$ thrackles máximos tiene
+a lo más $kn - \binom{k}{2}$ aristas. Luego, como una gráfica completa de $n$
+vértices tiene $\binom{n}{2}$ aristas la resolución de la desigualdad
+\[ \binom{n}{2} \leq kn - \binom{k}{2} \]
+otorga el resultado de la cota inferior para el anti-thickness geométrico convexo que es
+\[ n - \lfloor \sqrt{2n + \frac{1}{4}} - \frac{1}{2} \rfloor \]
+
+La cota superior se obtiene dando una coloración propia de los vértices de la gráfica
+de disyunción $D(S)$. La coloración es lograda consiguiendo trazar caminos en una
+estructura conocida como polyomino en la que los vértices de $D(S)$ son las filas
+y las columnas de dicha estructura. En este trabajo cada camino representa un
+conjunto independiente de vértices en $D(S)$ y por lo tanto un thrackle. Concluyen
+dando el número máximo de caminos posibles en el polyomino, dicho número coincide con
+el de la cota inferior y luego se tiene que el anti-thickness geométrico convexo ($cat(n)$) es:
+\[ n - \lfloor \sqrt{2n + \frac{1}{4}} - \frac{1}{2} \rfloor \]
+
+Es importante notar que el anti-thickness geométrico convexo es acotado examinando el número mínimo
+y máximo de aristas aportadas por una colección de thrackles máximos, dicho de
+otra manera se basa en descomponer la gráfica completa convexa en thrackles máximos.
+Esta idea fue retomada en este trabajo para intentar ajustar las cotas del anti-thickness
+en posición general.
