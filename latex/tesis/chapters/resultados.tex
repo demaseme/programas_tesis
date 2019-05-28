@@ -1,0 +1,67 @@
+\section{Descomposiciones por thrackles máximos.}
+Inspirado en el método usado por~\cite{Fabila-Monroy2018} para posición convexa
+decidimos buscar para $n \leq 10$ descomposiciones de $K_n$ en la que los thrackles
+sean todos maximos y se alcance el anti-thickness establecido por el tipo de orden
+en posición convexa. Para esto buscamos para cada tipo de orden de cada $n \leq 10$
+todos los thrackles máximos y evaluamos cada combinación de tamaño $k_n$ con
+$k_n$ el anti-thickness convexo para conjuntos de tamaño $n$. Encontramos que
+sí existen tipos de orden que no corresponden al de posición convexa que también
+alcanzan el anti-thickness convexo. Los resultados se muestran en la tabla \ref{table:res_desc_th_max}.
+\begin{table}[t]
+  \centering
+  \begin{tabular}{|c|c|c|}
+    \hline
+    $n$   & Tipo de Orden & $k_n$ \\ \hline\hline
+    8 & 12   & 5  \\
+    8 & 54   & 5  \\ \hline
+    9 & 12   & 6  \\
+    9 & 52   & 6  \\
+    9 & 54   & 6  \\
+    9 & 80   & 6  \\
+    9 & 696  & 6  \\
+    9 & 1080 & 6  \\
+    9 & 1287 & 6  \\ \hline
+   10 & 81   & 6  \\
+   10 & 1328 & 6  \\
+   10 & 2243 & 6  \\ \hline
+  \end{tabular}
+
+  \caption{Tipos de orden para los que existe al menos una descomposición en thrackles máximos
+  de tamaño igual al anti-thickness del tipo de orden convexo.}
+  \label{table:res_desc_th_max}
+\end{table}
+
+Para los casos de $n \in [3,7]$ no existen tipos de orden que puedan ser descompuestos
+de esta manera. Los resultados fueron obtenidos con un algoritmo que primero evalúa
+cuáles son los tipos de orden que podrían tener una descomposición por thrackles máximos;
+se seleccionan aquellos que tengan suficientes thrackles máximos para cubrir todas las
+aristas de la gráfica completa, en otras palabras que la unión de los thrackles
+máximos en determinado tipo de orden cubran las $\binom{n}{2}$ aristas.
+
+El algoritmo fue ejecutado en el cluster, para $n=8$ el resultado es obtenido en menos
+de un segundo mientras que para $n=9$ y $n=10$ se necesitaron al rededor de
+1 día y 6 días respectivamente. Las decomposiciones encontradas pueden verse con
+más detalle en el apéndice XXXXX.
+
+También se calculó, para las descomposiciones obtenidas mediante este método, el
+número de cruce de cada uno de los thrackles de la descomposición. Se observa que
+en la mayoría de los casos la mitad de los thrackles de las descomposiciones
+tienen el número de cruce mínimo para $n$ vértices y la otra mitad es más
+cercano al mayor número de cruce para $n$ vértices.
+
+\section{Ajustando la cota inferior para $K_n$ con $n\leq 9$}
+
+Dado que la cota superior está dada por el anti-thickness convexo decidimos tratar
+de ajustar la cota inferior ya que creemos que el anti-thickness geométrico es igual
+al anti-thickness convexo. Un enfoque para ajustar la cota inferior es obtener el
+anti-thickness de cada dibujo de $K_n$, esto es, obtener el anti-thickness de cada
+tipo de orden para $K_n$ y seleccionar el menor de todos. Sin embargo, el algoritmo
+exhaustivo para encontrar el anti-thickness tarda al rededor de 7 horas para un solo
+tipo de orden cuando $n=8$, si para $n=8$ hay 3315 tipos de orden requeririamos
+cerca de 960 días para acabar dicha tarea.
+
+Por esta razón decidimos analizar la estructura de las posibles descomposiciones;
+como $K_n$ tiene $\binom{n}{2}$ aristas y los thrackles de la descomposición deben
+cubrirlas todas podemos buscar particiones de enteros de la forma $a_1 + a_2 + \dots +
+a_k = \binom{n}{2}$ por ejemplo para $K_5$ existen 10 aristas. Las siguientes son
+particiones del entero 10:

@@ -57,7 +57,7 @@ int main(int argc, char * argv[]){
 
   auto i = otypes_vec.begin();
 
-  //++i; //Avoid OT 0 - convex.
+  ++i; //Avoid OT 0 - convex.
 
   while ( i != otypes_vec.end() ){
     ot = *i;
