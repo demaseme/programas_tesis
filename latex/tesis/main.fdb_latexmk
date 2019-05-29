@@ -1,15 +1,15 @@
 # Fdb version 3
-["bibtex main"] 1559079040 "main.aux" "main.bbl" "main" 1559079042
+["bibtex main"] 1559162191 "main.aux" "main.bbl" "main" 1559162192
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/plain.bst" 1480098433 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
   "bibliografia.bib" 1559069804 7224 8d2467d339357ab7019c6cd045ed858c ""
-  "main.aux" 1559079041 2184 59f35fc40bea82d9d3541f3de3d8b977 ""
+  "main.aux" 1559162192 2231 bd359bc6a089a801cd351c97be8c9622 ""
   "main.bcf" 0 -1 0 ""
   (generated)
   "main.bbl"
   "main.blg"
-["pdflatex"] 1559079041 "main.tex" "/home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/main.pdf" "main" 1559079042
+["pdflatex"] 1559162191 "main.tex" "/home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/main.pdf" "main" 1559162192
   "/etc/texmf/web2c/texmf.cnf" 1530222550 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/main.aux" 1559079041 2184 59f35fc40bea82d9d3541f3de3d8b977 ""
+  "/home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/main.aux" 1559162192 2231 bd359bc6a089a801cd351c97be8c9622 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1480098698 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1480098698 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -88,17 +88,17 @@
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1539381145 4140334 f5a73767bfe11a548b988f0178facaa8 ""
   "chapters/antecedentes.tex" 1557253470 148 3d3d76063247d68cb8680848e3f79005 ""
   "chapters/estado.tex" 1559070027 7804 db8f2d9880f48bd3cf6ea5f5ac79db76 ""
-  "chapters/resultados.tex" 1559079035 2581 8587ef5dcd35a85bc6a5b636dd58dcb9 ""
-  "main.aux" 1559079041 2184 59f35fc40bea82d9d3541f3de3d8b977 ""
-  "main.bbl" 1559079040 1143 67011285178c9053ded702f3eab5763b "bibtex main"
+  "chapters/resultados.tex" 1559162177 11806 b6df51cd94852f7c0d7a988fe14b01cb ""
+  "main.aux" 1559162192 2231 bd359bc6a089a801cd351c97be8c9622 ""
+  "main.bbl" 1559162191 1143 67011285178c9053ded702f3eab5763b "bibtex main"
   "main.tex" 1559076238 746 616e78db2f2e3cf1193f095a72c7fffc ""
-  "main.toc" 1559079041 888 03327b763e3e3782027a2abcbdc82be0 ""
+  "main.toc" 1559162192 935 1af01ce5d4b2e6ba36c561e2d2403a17 ""
   (generated)
+  "main.toc"
   "/home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/main.log"
   "/home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/main.pdf"
   "main.aux"
-  "main.pdf"
   "main.log"
+  "main.pdf"
   "/home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/main.pdf"
   "/home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/main.log"
-  "main.toc"

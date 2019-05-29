@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.12)  28 MAY 2019 16:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.12)  29 MAY 2019 15:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -560,35 +560,57 @@ Overfull \hbox (9.20984pt too wide) in paragraph at lines 1--1
 
 [21
 
-])
+]
+LaTeX Info: Redefining \. on input line 67.
+LaTeX Info: Redefining \% on input line 67.
+ [22]
+LaTeX Info: Redefining \. on input line 107.
+LaTeX Info: Redefining \% on input line 107.
+
+Overfull \hbox (220.26456pt too wide) has occurred while \output is active
+\OT1/cmr/m/sl/12 4.2.  EL ANTI-THICKNESS GEOM[]ETRICO DE $\OML/cmm/m/it/12 K[]$ \OT1/cmr/m/sl/12 CON $\OML/cmm/m/it/12 N \OMS/cmsy/m/n/12 2 \OT1/cmr/m/n/12 [3\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 9]$ \OT1/cmr/m/sl/12 ES IGUAL AL ANTI-THICKNESS CONVEXO \OT1/cmr/m/n/12 23
+ []
+
+[23]
+LaTeX Info: Redefining \. on input line 152.
+LaTeX Info: Redefining \% on input line 152.
+ [24]
+LaTeX Info: Redefining \. on input line 197.
+LaTeX Info: Redefining \% on input line 197.
+
+Overfull \hbox (220.26456pt too wide) has occurred while \output is active
+\OT1/cmr/m/sl/12 4.2.  EL ANTI-THICKNESS GEOM[]ETRICO DE $\OML/cmm/m/it/12 K[]$ \OT1/cmr/m/sl/12 CON $\OML/cmm/m/it/12 N \OMS/cmsy/m/n/12 2 \OT1/cmr/m/n/12 [3\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 9]$ \OT1/cmr/m/sl/12 ES IGUAL AL ANTI-THICKNESS CONVEXO \OT1/cmr/m/n/12 25
+ []
+
+[25])
 LaTeX Info: Redefining \. on input line 29.
 LaTeX Info: Redefining \% on input line 29.
- [22]
+ [26]
 Cap\'{\i }tulo 5.
-(/home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/main.bbl [23
+(/home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/main.bbl [27
 
 ]
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
- [24
+ [28
 
-]) [25] (/home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/main.aux
+]) [29] (/home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/main.aux
 LaTeX Info: Redefining \. on input line 3.
 LaTeX Info: Redefining \% on input line 3.
 ) ) 
 Here is how much of TeX's memory you used:
- 3254 strings out of 492982
- 42737 string characters out of 6134895
- 115377 words of memory out of 5000000
- 6754 multiletter control sequences out of 15000+600000
+ 3256 strings out of 492982
+ 42750 string characters out of 6134895
+ 116377 words of memory out of 5000000
+ 6756 multiletter control sequences out of 15000+600000
  14217 words of font info for 50 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,9n,30p,282b,359s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,9n,30p,282b,383s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on /home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/main.pdf (25 pages, 148493 bytes).
+Output written on /home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/main.pdf (29 pages, 160316 bytes).
 PDF statistics:
- 133 PDF objects out of 1000 (max. 8388607)
- 93 compressed objects within 1 object stream
+ 146 PDF objects out of 1000 (max. 8388607)
+ 101 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

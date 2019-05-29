@@ -9,5 +9,5 @@
 \contentsline {chapter}{\numberline {3}Estado del arte}{17}
 \contentsline {chapter}{\numberline {4}Resultados}{21}
 \contentsline {section}{\numberline {4.1}Descomposiciones por thrackles m\IeC {\'a}ximos.}{21}
-\contentsline {section}{\numberline {4.2}Ajustando la cota inferior para $K_n$ con $n\leq 9$}{22}
-\contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{23}
+\contentsline {section}{\numberline {4.2}El anti-thickness geom\IeC {\'e}trico de $K_n$ con $n\in [3,9]$ es igual al anti-thickness convexo}{22}
+\contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{27}
