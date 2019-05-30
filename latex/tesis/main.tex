@@ -3,7 +3,13 @@
 \usepackage[spanish, mexico]{babel}
 \usepackage{graphicx}
 \usepackage{amsmath}
+\usepackage{natbib}
+\usepackage{amsthm}
 \graphicspath{ {images/} }
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definición}
+
 \title{
 {Thesis Title}\\
 {\large Centro de Investigación y Estudios Avanzados del IPN}
@@ -27,6 +33,6 @@
 \chapter{Resultados}
 \input{chapters/resultados.tex}
 \chapter{Conclusiones y trabajo futuro}
-\bibliographystyle{plain}
+\bibliographystyle{apa-good.bst}
 \bibliography{bibliografia.bib}
 \end{document}

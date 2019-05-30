@@ -1,31 +1,38 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{5}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{{\tt #1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
 
-\bibitem{Araujo2005}
-Gabriela Araujo, Adrian Dumitrescu, Ferran Hurtado, Marc Noy, and Jorge
-  Urrutia.
+\bibitem[{Araujo et~al.(2005)Araujo, Dumitrescu, Hurtado, Noy, \&
+  Urrutia}]{Araujo2005}
+Araujo, G., Dumitrescu, A., Hurtado, F., Noy, M., \& Urrutia, J. (2005).
 \newblock On the chromatic number of some geometric type kneser graphs.
-\newblock {\em Comput. Geom.}, 32(1):59--69, 2005.
+\newblock {\em Comput. Geom.\/}, {\em 32\/}(1), 59--69.
 
-\bibitem{Dillencourt2004}
-Michael~B Dillencourt, David Eppstein, and Daniel~S Hirschberg.
+\bibitem[{Dillencourt et~al.(2004)Dillencourt, Eppstein, \&
+  Hirschberg}]{Dillencourt2004}
+Dillencourt, M.~B., Eppstein, D., \& Hirschberg, D.~S. (2004).
 \newblock Geometric thickness of complete graphs.
-\newblock In {\em Graph Algorithms And Applications 2}, pages 39--51. World
-  Scientific, 2004.
+\newblock In {\em Graph Algorithms And Applications 2\/}, (pp. 39--51). World
+  Scientific.
 
-\bibitem{Dujmovic2017}
-Vida Dujmovic and David~R. Wood.
+\bibitem[{Dujmovic \& Wood(2017)}]{Dujmovic2017}
+Dujmovic, V., \& Wood, D.~R. (2017).
 \newblock Thickness and antithickness of graphs.
-\newblock {\em CoRR}, abs/1708.04773, 2017.
+\newblock {\em CoRR\/}, {\em abs/1708.04773\/}.
 
-\bibitem{Lomeli2018}
-Ruy Fabila-Monroy, Carlos Hidalgo-Toscano, Jes{\'u}s Lea{\~n}os, and Mario
-  Lomel{\'\i}-Haro.
+\bibitem[{Fabila-Monroy et~al.(2017)Fabila-Monroy, Hidalgo-Toscano, Lea{\~n}os,
+  \& Lomel{\'\i}-Haro}]{Lomeli2018}
+Fabila-Monroy, R., Hidalgo-Toscano, C., Lea{\~n}os, J., \& Lomel{\'\i}-Haro, M.
+  (2017).
 \newblock The chromatic number of the disjointness graph of the double chain.
-\newblock {\em arXiv preprint arXiv:1711.05425}, 2017.
+\newblock {\em arXiv preprint arXiv:1711.05425\/}.
 
-\bibitem{Fabila-Monroy2018}
-Ruy Fabila-Monroy, Jakob Jonsson, Pavel Valtr, and David~R Wood.
+\bibitem[{Fabila-Monroy et~al.(2018)Fabila-Monroy, Jonsson, Valtr, \&
+  Wood}]{Fabila-Monroy2018}
+Fabila-Monroy, R., Jonsson, J., Valtr, P., \& Wood, D.~R. (2018).
 \newblock The exact chromatic number of the convex segment disjointness graph.
-\newblock {\em arXiv preprint arXiv:1804.01057}, 2018.
+\newblock {\em arXiv preprint arXiv:1804.01057\/}.
 
 \end{thebibliography}

@@ -1,46 +1,46 @@
 This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: main.aux
-The style file: plain.bst
+The style file: apa-good.bst.bst
 Database file #1: bibliografia.bib.bib
 You've used 5 entries,
-            2118 wiz_defined-function locations,
-            531 strings with 4929 characters,
-and the built_in function-call counts, 1739 in all, are:
-= -- 166
-> -- 105
-< -- 1
-+ -- 43
-- -- 36
-* -- 122
-:= -- 308
+            2804 wiz_defined-function locations,
+            616 strings with 5551 characters,
+and the built_in function-call counts, 3135 in all, are:
+= -- 242
+> -- 159
+< -- 2
++ -- 63
+- -- 54
+* -- 249
+:= -- 497
 add.period$ -- 16
 call.type$ -- 5
-change.case$ -- 33
-chr.to.int$ -- 0
+change.case$ -- 45
+chr.to.int$ -- 5
 cite$ -- 5
-duplicate$ -- 63
-empty$ -- 115
-format.name$ -- 36
-if$ -- 351
-int.to.chr$ -- 0
-int.to.str$ -- 5
-missing$ -- 5
-newline$ -- 28
-num.names$ -- 10
-pop$ -- 32
+duplicate$ -- 227
+empty$ -- 211
+format.name$ -- 71
+if$ -- 598
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 48
+newline$ -- 32
+num.names$ -- 20
+pop$ -- 105
 preamble$ -- 1
-purify$ -- 28
+purify$ -- 38
 quote$ -- 0
-skip$ -- 45
+skip$ -- 83
 stack$ -- 0
-substring$ -- 70
-swap$ -- 12
+substring$ -- 102
+swap$ -- 119
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 20
+type$ -- 45
 warning$ -- 0
-while$ -- 15
-width$ -- 6
-write$ -- 56
+while$ -- 20
+width$ -- 0
+write$ -- 70

@@ -50,6 +50,10 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty
 INPUT /home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/main.aux
 INPUT /home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/main.aux
 OUTPUT /home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/main.aux
@@ -111,6 +115,7 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/chapters/estado.tex
 INPUT /home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/chapters/estado.tex
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti12.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss12.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
@@ -126,7 +131,6 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss17.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss10.tfm
 INPUT /home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/main.bbl
 INPUT /home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/main.bbl
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti12.tfm
 INPUT /home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/main.aux
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
