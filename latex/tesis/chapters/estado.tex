@@ -243,42 +243,51 @@ exactamente $\lceil \frac{n-1}{2} \rceil$.
 % Los resultados presentados en ese trabajo que tienen que ver con el anti-thickness
 % geométrico de una gráfica completa se enfocan  en el caso específico de puntos en posición convexa.
 
-
-El principal resultado para posición convexa es presentado en \cite{Fabila-Monroy2018}.
+El principal resultado para puntos en posición convexa es presentado en \cite{Fabila-Monroy2018}.
 Aquí se prueba que cuando los puntos están en posición convexa dos thrackles máximos
 comparten al menos una arista y por lo tanto la unión de $k$ thrackles máximos tiene
 a lo más $kn - \binom{k}{2}$ aristas. Luego, como una gráfica completa de $n$
 vértices tiene $\binom{n}{2}$ aristas la resolución de la desigualdad
 \[ \binom{n}{2} \leq kn - \binom{k}{2} \]
-otorga el resultado de la cota inferior para el anti-thickness geométrico convexo que es
-\[ n - \Bigl\lfloor \sqrt{2n + \frac{1}{4}} - \frac{1}{2} \Bigr\rfloor \]
+otorga el resultado de la cota inferior para el anti-thickness convexo mostrado
+a continuación:
+\[ cat \geq n - \Bigl\lfloor \sqrt{2n + \frac{1}{4}} - \frac{1}{2} \Bigr\rfloor \]
 
 La cota superior se obtiene dando una coloración propia de los vértices de la gráfica
-de disyunción $D(S)$. La coloración es lograda consiguiendo trazar caminos en una
+$D(S)$. La coloración es lograda consiguiendo trazar caminos en una
 estructura conocida como polyomino en la que los vértices de $D(S)$ son las filas
 y las columnas de dicha estructura. En este trabajo cada camino representa un
-conjunto independiente de vértices en $D(S)$ y por lo tanto un thrackle. Concluyen
-dando el número máximo de caminos posibles en el polyomino, dicho número coincide con
-el de la cota inferior y luego se tiene que el anti-thickness geométrico convexo ($cat(n)$) es:
-\[ n - \Bigl\lfloor \sqrt{2n + \frac{1}{4}} - \frac{1}{2} \Bigr\rfloor \]
+conjunto independiente de vértices en $D(S)$ y como se mencionó antes, respresenta
+un thrackle en $K_n$. Concluyen dando el número máximo de caminos posibles en el
+polyomino, dicho número coincide con el de la cota inferior y luego se tiene
+que el anti-thickness convexo tiene exactamente el siguiente valor:
+\[ cat(n) = n - \Bigl\lfloor \sqrt{2n + \frac{1}{4}} - \frac{1}{2} \Bigr\rfloor \]
 
-Es importante notar que el anti-thickness geométrico convexo es acotado examinando el número mínimo
+Con respecto a puntos que no están estrictamente en posición convexa, \cite{Lomeli2018}
+examinan el número cromático de la gráfica de disyunción de una familia de puntos
+conocida como la doble cadena convexa; al igual que la posición convexa la doble cadena
+solamente tiene un dibujo en el plano. El resultado al que se llega en este artículo es que
+el anti-thickness geométrico de la doble cadena convexa con $k$ puntos en la cadena convexa superior
+y $l \geq k$ puntos en la cadea convexa inferior es:
+ \[gat(K_{l,k}) = k+l-\Bigl\lfloor \sqrt{2l+\frac{1}{4}} - \frac{1}{2} \Bigr\rfloor\]
+
+ Como es mencionado en~\cite{Dujmovic2017}, encontrar el anti-thickness geométrico de gráficas
+ completas en posición general es un problema abierto se tiene que las mejores cotas conocidas
+ son :
+ \[\Bigl\lfloor\frac{n-1}{2}\Bigr\rfloor \leq gat(K_n) \leq n - \Bigl\lfloor \sqrt{2n + \frac{1}{4}} - \frac{1}{2} \Bigr\rfloor \]
+ La cota superior se sigue del caso convexo y la cota inferior se sigue del hecho de que una gráfica de $n$ vértices
+con anti-thickness geométrico $k$ tiene a lo más $kn$ aristas.
+
+Los trabajos mencionados en este capítulo muestran cómo el problema original del
+thickness da origen al problema del anti-thickness, más aún, explicamos el proceso
+por el cual un problema de descomposición de gráficas geométricas se convirtió
+a un problema de coloración de gráficas. Los autores más recientes tratan al
+anti-thickness como un problema de coloración. En este trabajo no construimos la
+gráfica $D(S)$ y no coloreamos ninguna gráfica. Nuestro enfoque es más geométrico
+y computacional.
+
+Es importante notar que el anti-thickness convexo es acotado examinando el número mínimo
 y máximo de aristas aportadas por una colección de thrackles máximos, dicho de
 otra manera se basa en descomponer la gráfica completa convexa en thrackles máximos.
 Esta idea fue retomada en este trabajo para intentar ajustar las cotas del anti-thickness
 en posición general.
-
-Con respecto a puntos que no están estrictamente en posición convexa Leaños y Lomelí~\cite{Lomeli2018}
-examinan el número cromático de la gráfica de disyunción de una familia de puntos
-conocida como la doble cadena convexa; al igual que la posición convexa la doble cadena
-solamente tiene un dibujo en el plano. El resultado al que se llega en este artículo es que
-el anti-thickness de la doble cadena convexa con $k$ puntos en la cadena convexa superior
-y $l \geq k$ puntos en la cadea convexa inferior es:
- \[k+l-\Bigl\lfloor \sqrt{2l+\frac{1}{4}} - \frac{1}{2} \Bigr\rfloor\]
-
- Como es mencionado en~\cite{Dujmovic2017}, encontrar el anti-thickness de gráficas
- completas en posición general es un problema abierto y la mejor cota superior
- conocida es $ n - \lfloor \sqrt{2n + \frac{1}{4}} - \frac{1}{2} \rfloor $
-la cual se sigue del caso convexo y la mejor cota inferior conocida es solamente
-$\lfloor\frac{n-1}{2}\rfloor$ que se sigue del hecho de que una gráfica de $n$ vértices
-con anti-thickness geométrico $k$ tiene a lo más $kn$ aristas.
