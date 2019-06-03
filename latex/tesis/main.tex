@@ -7,11 +7,15 @@
 \usepackage{amsthm}
 \usepackage{amsfonts}
 \usepackage{subcaption}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
 
 \graphicspath{ {images/} }
-
 \theoremstyle{definition}
 \newtheorem{definition}{Definición}
+
+\algnewcommand\algorithmicforeach{\textbf{for each}}
+\algdef{S}[FOR]{ForEach}[1]{\algorithmicforeach\ #1\ \algorithmicdo}
 
 \title{
 {Thesis Title}\\

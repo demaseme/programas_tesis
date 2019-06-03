@@ -1,11 +1,45 @@
 \section{Descomposiciones por thrackles máximos.}
-Inspirado en el método usado por~\cite{Fabila-Monroy2018} para posición convexa
-decidimos buscar para $n \leq 10$ descomposiciones de $K_n$ en la que los thrackles
-sean todos maximos y se alcance el anti-thickness establecido por el tipo de orden
-en posición convexa. Para esto buscamos para cada tipo de orden de cada $n \leq 10$
-todos los thrackles máximos y evaluamos cada combinación de tamaño $k_n$ con
-$k_n$ el anti-thickness convexo para conjuntos de tamaño $n$. Encontramos que
-sí existen tipos de orden que no corresponden al de posición convexa que también
+
+En este capítulo reportaremos el pseudocódigo de algoritmos usados durante el desarrollo
+del proyecto así como los resultados que obtuvimos con dichos algoritmos.
+Asímismo presentamos la prueba de que un thrackle que no es máximo no siempre
+puede ser completado a uno máximo en posición general, mientras que en posición
+convexa sí es posible.
+
+% Inspirado en el método usado por~\cite{Fabila-Monroy2018} para posición convexa
+% decidimos buscar para $n \leq 10$ descomposiciones de $K_n$ en la que los thrackles
+% sean todos maximos y se alcance el anti-thickness establecido por el tipo de orden
+% en posición convexa. Para esto buscamos para cada tipo de orden de cada $n \leq 10$
+% todos los thrackles máximos y evaluamos cada combinación de tamaño $k_n$ con
+% $k_n$ el anti-thickness convexo para conjuntos de tamaño $n$.
+En el trabajo de~\cite{Fabila-Monroy2018} se encuentran descomposiciones de gráficas
+geométricas en posición convexa usando thrackles máximos que comparten aristas a pares.
+Usando esta idea y los datos de la tabla \ref{table:atconvexo} decidimos
+buscar descomposiciones de $K_n$ para $n \leq 10$ en las que los thrackles
+son todos máximos y cuyo tamaño sea el mismo del anti-thickness convexo para $K_n$.
+
+\begin{table}[t]
+  \centering
+  \begin{tabular}{|c|c|}
+    \hline
+    $n$ & Anti-thickness convexo de $K_n$ ($cat(n)$) \\ \hline\hline
+    3   & 1  \\
+    4   & 2  \\
+    5   & 3  \\
+    6   & 3  \\
+    7   & 4  \\
+    8   & 5  \\
+    9   & 6  \\
+    10  & 6  \\ \hline
+  \end{tabular}
+  \caption{ Anti-thickness convexo para $n\leq 10$ basado en el resultado de ~\cite{Fabila-Monroy2018}.}
+  \label{table:atconvexo}
+\end{table}
+
+En resumen: para cada $n$ tomamos las combinaciones de $cat(n)$ thrackles máximos y
+verificamos si alguna de estas combinaciones es una descomposición de $K_n$. Este proceso
+lo repetimos para cada uno de los tipos de orden que hay para cada $n$.
+Encontramos que sí existen tipos de orden que no corresponden al de posición convexa que también
 alcanzan el anti-thickness convexo. Los resultados se muestran en la tabla \ref{table:res_desc_th_max}.
 \begin{table}[t]
   \centering
@@ -31,17 +65,52 @@ alcanzan el anti-thickness convexo. Los resultados se muestran en la tabla \ref{
   \label{table:res_desc_th_max}
 \end{table}
 
-Para los casos de $n \in [3,7]$ no existen tipos de orden que puedan ser descompuestos
-de esta manera. Los resultados fueron obtenidos con un algoritmo que primero evalúa
+Para los casos de $n \in \{3,4,\dots,7\}$ no pudimos encontrar una descomposición que cumpliera
+con las caracteristicas antes descritas, esto es porque existen pocos tipos de orden
+cuya unión de thrackles máximos cubran las aristas de la gráfica completa.
+Los resultados fueron obtenidos con un algoritmo que primero evalúa
 cuáles son los tipos de orden que podrían tener una descomposición por thrackles máximos;
 se seleccionan aquellos que tengan suficientes thrackles máximos para cubrir todas las
 aristas de la gráfica completa, en otras palabras que la unión de los thrackles
-máximos en determinado tipo de orden cubran las $\binom{n}{2}$ aristas.
+máximos en determinado tipo de orden cubran las $\binom{n}{2}$ aristas. Los pseudocódigos
+de los algoritmos usados se encuentra en el algoritmo \ref{algo:maxthrackledecom} y
+el algoritmo \ref{algo:finddecompositions}.
 
-El algoritmo fue ejecutado en el cluster, para $n=8$ el resultado es obtenido en menos
-de un segundo mientras que para $n=9$ y $n=10$ se necesitaron al rededor de
-1 día y 6 días respectivamente. Las decomposiciones encontradas pueden verse con
-más detalle en el apéndice XXXXX.
+\begin{algorithm}
+  \begin{algorithmic}[1]
+    \Procedure{MaxThrackleDecom}{$n$}
+    \State $vectorOT \gets \textit{valid-thrackles()}$
+    \State $k \gets convexAt(n)$
+    \ForEach {$ot \in vectorOT $}
+        \State $n_{thr} \gets \textit{number of max thrackles on order type ot}$
+        \State \textit{find-all-decomposition-of-size($n_{thr}$,k)}
+    \EndFor
+    \EndProcedure
+  \end{algorithmic}
+  \caption{Pseudocódigo del algoritmo que encuentra descomposiciones por thrackles
+  máximos para todos los tipos de orden de una $n$ dada.}
+  \label{algo:maxthrackledecom}
+\end{algorithm}
+
+\begin{algorithm}
+  \begin{algorithmic}[1]
+    \Procedure{find-all-decomposition-of-size}{$n_{thr},k$}
+    \While{There is a combination $c$ of size $k$ from $\{0,1,\dots,n_{thr}\}$}
+      \If{$c$ is a decomposition}
+        \State visit $c$
+      \EndIf
+    \EndWhile
+    \EndProcedure
+    \caption{Pseudocódigo del algoritmo que encuentra combinaciones de $k$ thrackles
+    máximos, si la combinación es una descomposición se visita.}
+    \label{algo:finddecompositions}
+  \end{algorithmic}
+\end{algorithm}
+
+Ejecutamos la implementación del algoritmo en el cluster:
+para $n=8$ el resultado es obtenido en menos de un segundo mientras que para
+$n=9$ y $n=10$ se necesitaron al rededor de 1 día y 6 días respectivamente.
+Las decomposiciones encontradas pueden verse con más detalle en el apéndice XXXXX.
 
 También se calculó, para las descomposiciones obtenidas mediante este método, el
 número de cruce de cada uno de los thrackles de la descomposición. Se observa que
