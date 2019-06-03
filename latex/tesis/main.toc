@@ -9,5 +9,5 @@
 \contentsline {chapter}{\numberline {3}Estado del arte}{17}
 \contentsline {chapter}{\numberline {4}Resultados}{25}
 \contentsline {section}{\numberline {4.1}Descomposiciones por thrackles m\IeC {\'a}ximos.}{25}
-\contentsline {section}{\numberline {4.2}Ajustando el anti-thickness geom\IeC {\'e}trico de $K_n$ con $n\in [3,9]$.}{27}
+\contentsline {section}{\numberline {4.2}Anti-thickness geom\IeC {\'e}trico exacto de $K_n$ con $3\leq n \leq 9$.}{28}
 \contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{33}

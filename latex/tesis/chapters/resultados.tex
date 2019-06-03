@@ -76,7 +76,7 @@ máximos en determinado tipo de orden cubran las $\binom{n}{2}$ aristas. Los pse
 de los algoritmos usados se encuentra en el algoritmo \ref{algo:maxthrackledecom} y
 el algoritmo \ref{algo:finddecompositions}.
 
-\begin{algorithm}
+\begin{algorithm}[h!]
   \begin{algorithmic}[1]
     \Procedure{MaxThrackleDecom}{$n$}
     \State $vectorOT \gets \textit{valid-thrackles()}$
@@ -92,7 +92,7 @@ el algoritmo \ref{algo:finddecompositions}.
   \label{algo:maxthrackledecom}
 \end{algorithm}
 
-\begin{algorithm}
+\begin{algorithm}[h!]
   \begin{algorithmic}[1]
     \Procedure{find-all-decomposition-of-size}{$n_{thr},k$}
     \While{There is a combination $c$ of size $k$ from $\{0,1,\dots,n_{thr}\}$}
@@ -112,13 +112,19 @@ para $n=8$ el resultado es obtenido en menos de un segundo mientras que para
 $n=9$ y $n=10$ se necesitaron al rededor de 1 día y 6 días respectivamente.
 Las decomposiciones encontradas pueden verse con más detalle en el apéndice XXXXX.
 
-También se calculó, para las descomposiciones obtenidas mediante este método, el
-número de cruce de cada uno de los thrackles de la descomposición. Se observa que
-en la mayoría de los casos la mitad de los thrackles de las descomposiciones
+En el desarrollo del trabajo nos preguntamos por qué existen
+otros tipos de orden diferente del convexo que tienen el mismo anti-thickness.
+Algo en lo que pensamos fue en analizar de alguna manera la estructura de los
+thrackles en dichos tipos de orden y por ello calculamos, para las descomposiciones
+obtenidas mediante el método anteriormente descrito, el número de cruce de cada
+uno de los thrackles de la descomposición. Se observa que en la mayoría de los
+casos la mitad de los thrackles de las descomposiciones
 tienen el número de cruce mínimo para $n$ vértices y la otra mitad es más
-cercano al mayor número de cruce para $n$ vértices.
+cercano al mayor número de cruce para $n$ vértices. Estos resultados pueden
+estudiarse con más detalle een el apéndice XXXXXX.
 
-\section{Ajustando el anti-thickness geométrico de $K_n$ con $n\in[3,9]$.}
+\section{Anti-thickness geométrico exacto de $K_n$ con $3\leq n \leq 9$.}
+\chaptermark{$gat(n)$ exacto para $3\leq n \leq 9$.}
 Dado que la cota superior está dada por el anti-thickness convexo decidimos tratar
 de ajustar la cota inferior ya que creemos que el anti-thickness geométrico es igual
 al anti-thickness convexo. Un enfoque para ajustar la cota inferior es obtener el
