@@ -5,31 +5,33 @@
 % resultados del anti-thickness geométrico para el caso específico de puntos
 % en posición convexa.
 
-En este capítulo hablaremos de un concepto que históricamente fue definido antes
-del anti-thickness y de cómo se relacionan. Mencionamos algunos resultados acerca
+En este capítulo hablaremos de un concepto que cronologicamente fue definido antes
+que el anti-thickness y de cómo se relacionan. Mencionamos algunos resultados acerca
 de dicho concepto. Explicaremos de qué manera el número cromático de una
 gráfica puede otorgar una descomposición de una gráfica geométrica basándonos
 en trabajos en los que se busca obtener una descomposición de una gráfica geométrica.
 
 Un concepto que está estrechamente relacionado con el de anti-thickness es el
-de thickness que esta definido como sigue:
+de thickness, que se define como sigue:
 \begin{definition}{\emph{Thickness}.}
-  El thickness de una gráfica $G$, denotado como $\theta(G)$, es la mínima $k$ tal que existe
-  una partición de las aristas de $G$, cuyo tamaño es $k$ y cada elemento
+  Sea $G$ una gráfica, el thickness $\theta(G)$ de $G$ es la mínima $k$ tal que existe
+  una partición de $E(G)$ de tamaño $k$ y en la que cada elemento de la partición
   induce una gráfica planar.
 \end{definition}
-Este concepto también puede ser aplicado a gráficas que están encajadas en el plano,
+Este concepto también puede ser extendido a dibujos rectilineos,
 en cuyo caso estaremos hablando del thickess geométrico, definido a continuación:
 \begin{definition}{\emph{Thickness geométrico}.}
-  El thickness geométrico de una gráfica $G$, denotado como $\bar{\theta}(G)$,
-  es la mínima $k$ tal que existe un dibujo geométrico $\mathsf{G}$ de $G$
-  el cuál tiene una partición de sus aristas, cuyo tamaño es $k$ y cada
-  elemento es una gráfica plana.
+  Sea $G$ una gráfica, el anti-thickness $\bar{\theta}(G)$ de $G$
+  es la mínima $k$ para la cual existe un dibujo geométrico $\mathsf{G}$ de $G$
+  que tiene una partición de $E(\mathsf{G})$, de tamaño $k$ y en la que cada
+  elemento de la partición es una gráfica plana.
 \end{definition}
 
-A través de este capítulo nos referimos a la gráfica completa de $n$ vértices
-como $K_n$ ya que los trabajos citados utilizan gráficas completas y además
-es también nuestro objeto de estudio.
+% A través de este capítulo nos referimos a la gráfica completa de $n$ vértices
+% como $K_n$ ya que los trabajos citados utilizan gráficas completas y además
+% es también nuestro objeto de estudio.
+
+
 % Antes de hablar del anti-thickness y los resultados, es sensato hablar de otro
 % concepto llamado \textbf{thickness} pues su definición está estrechamente
 % relacionada con el anti-thickness. En el artículo de Eppstein y otros
@@ -44,28 +46,35 @@ es también nuestro objeto de estudio.
 % particionadas en $k$ gráficas planas.
 Respecto a este parámetro \cite{Dillencourt2004} demuestran que el thickness
 geométrico está acotado por:
-\[ \Bigl\lceil n/5.646 + 0.342 \Bigr\rceil \leq  \bar{\theta}(G) \leq \Bigl\lceil\frac{n}{4}\Bigr\rceil \]
+\[ \Bigl\lceil \frac{n}{5.646} + 0.342 \Bigr\rceil \leq  \bar{\theta}(G) \leq \Bigl\lceil\frac{n}{4}\Bigr\rceil \]
 
 En el mismo artículo encuentran el valor exacto del thicknes geométrico
-de $K_n$ con $n\leq 12$ así como para $K_{15}$ y $K_{16}$. También
-estudian el thickness geométrico para gráficas completas bipartitas $K_{a,b}$ y demuestran la
+de cada gráfica completa con $n$ vértices para $n\leq 12$ así como para $K_{15}$ y $K_{16}$. También
+estudian el thickness geométrico para gráficas completas bipartitas y demuestran la
 siguiente cota:
 \[
   \Bigl\lceil \frac{ab}{2a+2b-4} \Bigr\rceil \leq \theta(K_{a,b}) \leq \bar{\theta}(K_{a,b})
   \leq \Bigl\lceil \frac{min(a,b)}{2} \Bigr\rceil
 \]
 
-A continuación citaremos dos trabajos asociados al anti-thickness cuyo núcleo
-se basa en obtener el número cromático de una gráfica cuyos vértices y aristas
-son abstraidas de una gráfica geométrica definida sobre un conjunto de puntos
-en el plano. Empezaremos por definir la gráfica de cruce $E_{pp}(S)$ de un conjunto
-de puntos $S$ en posición general. Consideremos que existe un dibujo geométrico
-de $K_n$ cuyo conjunto de vértices es $S$.
+% A continuación citaremos dos trabajos asociados al anti-thickness cuyo núcleo
+% se basa en obtener el número cromático de una gráfica cuyos vértices y aristas
+% son abstraidas de una gráfica geométrica definida sobre un conjunto de puntos
+% en el plano. Empezaremos por definir la gráfica de cruce $E_{pp}(S)$ de un conjunto
+% de puntos $S$ en posición general. Consideremos que existe un dibujo geométrico
+% de $K_n$ cuyo conjunto de vértices es $S$.
+
+A continuación discutimos dos trabajos que están relacionados con el anti-thickness.
+En ambos artículos los autores obtienen el número cromático de una gráfica cuyos vértices
+y aristas abstraen las relaciones de adyacencia de una gráfica geométrica.
+Empezaremos por definir una gráfica a la que llamaremos gráfica de cruce.
+
+Sea $S$ un conjunto de puntos en posición general con $|S|=n$ y sea $K_n(S)$ la gráfica completa
+asociada a $S$.
 \begin{definition}{\emph{Gráfica de cruce}.}
-  La gráfica de cruce $E_{pp}(S)$ de un conjunto de puntos $S$ en el plano, es
-  la gráfica cuyo conjunto de vértices está compuesto por todos los pares de puntos
-  de $S$. Existe una arista entre dos vértices de $E_{pp}(S)$ si las aristas correspondientes
-  se cruzan propiamente en $K_n$.
+  La gráfica de cruce $E_{pp}(S)$ de $S$ es la gráfica que tiene como conjunto de vértices
+  a las aristas de $K_n(S)$ y dos vértices de $E_{pp}(S)$ son adyacentes las aristas correspondientes
+  se cruzan propiamente en $K_n(S)$.
 \end{definition}
 
 \begin{figure}
@@ -85,36 +94,46 @@ de $K_n$ cuyo conjunto de vértices es $S$.
 \label{fig:ejemploeppk5}
 \end{figure}
 
-En la figura \ref{fig:ejemploeppk5} observamos un ejemplo de la gráfica de cruce $E_{pp}(S)$.
+En la figura \ref{fig:ejemploeppk5} aparece un ejemplo de la gráfica de cruce $E_{pp}(S)$.
 Podemos notar que dado que en el dibujo de $K_5$ existen 3 cruces, la gráfica $E_{pp}(S)$
 tiene 3 aristas.
+% Los conjuntos independientes de $E_{pp}(S)$ corresponden a conjuntos de aristas
+% que las aristas correspondientes en el dibujo de $K_n$ son en efecto gráficas planas.
+% Cuando asignamos un color a cada conjunto independiente, tenemos una clase
+% cromática por cada conjunto independiente y si minimizamos el número de clases cromáticas
+% habremos encontrado una coloración propia de $E_{pp}(S)$ y por consiguiente una descomposición
+% en gráficas planas de un dibujo de $K_n$ cuyo tamaño es mínimo, en otras palabras obtenemos
+% el thickness de un dibujo en particular de $K_n$.
 
-Si analizamos los conjuntos independientes de $E_{pp}(S)$ podemos verificar
-que las aristas correspondientes en el dibujo de $K_n$ son en efecto gráficas planas.
-Cuando asignamos un color a cada conjunto independiente, tenemos una clase
-cromática por cada conjunto independiente y si minimizamos el número de clases cromáticas
-habremos encontrado una coloración propia de $E_{pp}(S)$ y por consiguiente una descomposición
-en gráficas planas de un dibujo de $K_n$ cuyo tamaño es mínimo, en otras palabras obtenemos
-el thickness de un dibujo en particular de $K_n$. La figura \ref{fig:k5coloring}
-ilustra este concepto con un dibujo de $K_5$.
+Los conjuntos independientes de $E_{pp}(S)$ corresponden a aristas de $K_n(S)$
+que inducen gráficas planas. Una coloración propia de los vértices de $E_{pp}(S)$
+corresponde a una descomposición de $K_n(S)$ en gráficas planas.
+La figura \ref{fig:k5coloring} ilustra esta relación.
 
 \begin{figure}
   \centering
   \includegraphics[width=.8\linewidth]{k5coloring}
-  \caption{De izquierda a derecha: Una coloración propia de $E_{pp}(S)$ con dos
-  clases cromáticas; Una descomposición de un dibujo de $K_5$ en dos gráficas planas
+  \caption{De izquierda a derecha: Una coloración propia de los vértices de $E_{pp}(S)$ con dos
+  clases cromáticas. Una descomposición de un dibujo de $K_5$ en dos gráficas planas
   cuyas aristas corresponden a cada una de las clases cromáticas de la coloración
   de $E_{pp}(S)$.}
   \label{fig:k5coloring}
 \end{figure}
 
-De esta manera encontrar el número cromático de la gráfica $E_{pp}(S)$ implica
-encontrar el thickness geométrico de $K_n$. Lo que nos permite replantear el thickness
-geométrico de un dibujo de la siguiente manera:
-\begin{definition}{\emph{Thickness geométrico de un dibujo de una gráfica}.}
-  El thickness geométrico $th_g(G)$ de un dibujo geométrico de $G$ es el número cromático
-  $\chi(E_{pp}(S))$ de la gráfica $E_{pp}(S)$ donde $S$ es el conjunto de vértices de $K_n$.
+De esta manera encontrar el número cromático $\chi(E_{pp}(S))$ de la gráfica
+$E_{pp}(S)$ es igual a encontrar el thickness geométrico de $K_n(S)$.
+Lo que nos permite replantear el thickness geométrico de un dibujo.
+% \begin{definition}{\emph{Thickness geométrico de un dibujo de una gráfica}.}
+%   El thickness geométrico $th_g(G)$ de un dibujo geométrico de $G$ es el número cromático
+%   $\chi(E_{pp}(S))$ de la gráfica $E_{pp}(S)$ donde $S$ es el conjunto de vértices de $K_n$.
+% \end{definition}
+
+\begin{definition}{\emph{Thickness geométrico de una gráfica geométrica}.}
+Sea $\mathsf{G}$ una gráfica geométrica completa definida sobre un conjunto de puntos $S$,
+el thickness geométrico $th(\mathsf{G})$ de $\mathsf{G}$ es el número cromático
+$\chi(E_{pp}(S))$ de la gráfica $E_{pp}(S)$.
 \end{definition}
+
 Y luego, siguiendo la definición de \cite{Dillencourt2004} redefinimos el thickness
 geométrico de una gráfica completa de $n$ vértices como el thickness geométrico
 más pequeño de de todos los dibujos posibles de la gráfica.
