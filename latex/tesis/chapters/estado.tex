@@ -13,14 +13,14 @@ en trabajos en los que se busca obtener una descomposición de una gráfica geom
 
 Un concepto que está estrechamente relacionado con el de anti-thickness es el
 de thickness, que se define como sigue:
-\begin{definition}{\emph{Thickness}.}
+\begin{definition}{\cite{Dillencourt2004} \emph{Thickness}.}
   Sea $G$ una gráfica, el thickness $\theta(G)$ de $G$ es la mínima $k$ tal que existe
   una partición de $E(G)$ de tamaño $k$ y en la que cada elemento de la partición
   induce una gráfica planar.
 \end{definition}
 Este concepto también puede ser extendido a dibujos rectilineos,
 en cuyo caso estaremos hablando del thickess geométrico, definido a continuación:
-\begin{definition}{\emph{Thickness geométrico}.}
+\begin{definition}{\cite{Dillencourt2004} \emph{Thickness geométrico}.}
   Sea $G$ una gráfica, el anti-thickness $\bar{\theta}(G)$ de $G$
   es la mínima $k$ para la cual existe un dibujo geométrico $\mathsf{G}$ de $G$
   que tiene una partición de $E(\mathsf{G})$, de tamaño $k$ y en la que cada
@@ -49,8 +49,12 @@ geométrico está acotado por:
 \[ \Bigl\lceil \frac{n}{5.646} + 0.342 \Bigr\rceil \leq  \bar{\theta}(G) \leq \Bigl\lceil\frac{n}{4}\Bigr\rceil \]
 
 En el mismo artículo encuentran el valor exacto del thicknes geométrico
-de cada gráfica completa con $n$ vértices para $n\leq 12$ así como para $K_{15}$ y $K_{16}$. También
-estudian el thickness geométrico para gráficas completas bipartitas y demuestran la
+de cada gráfica completa con $n$ vértices para $n\leq 12$ así como para $K_{15}$ y $K_{16}$.
+Para el caso de $n=15$ encuentran el thickness geométrico exacto probando
+que no existen un conjunto de tres triangulaciones del conjunto de puntos que
+cubran las $\binom{15}{2} = 105$ aristas. Para el caso de $n=16$ el resultado
+es exacto usando las cotas dadas.
+También estudian el thickness geométrico para gráficas completas bipartitas y demuestran la
 siguiente cota:
 \[
   \Bigl\lceil \frac{ab}{2a+2b-4} \Bigr\rceil \leq \theta(K_{a,b}) \leq \bar{\theta}(K_{a,b})
@@ -188,6 +192,8 @@ en posición convexa como $w_c(n)$, $i_c(n)$ y $d_c(n)$ y demuestran las siguien
   \item $2\lfloor \frac{n+1}{3}\rfloor -1 \leq d_c(n) \leq \min\left( n-2, n - \frac{\lfloor{\log n}\rfloor}{2}\right)$.
   \item $5\lfloor \frac{n}{7}\rfloor \leq d(n) \leq \min\left(n-2,n+\frac{1}{2}- \frac{\lfloor{\log \log n}\rfloor}{n}\right)$.
 \end{itemize}
+
+
 Es importante notar que la definición $d(n)$ no es equivalente a la de anti-thickness
 ya que en este último se busca el mínimo número de thrackles en una descomposición.
 Entonces podemos dar una definición del anti-thickness geométrico basándonos en la gráfica $D(S)$,

@@ -2,10 +2,10 @@
 \contentsline {chapter}{\numberline {1}Introducci\IeC {\'o}n}{13}
 \contentsline {chapter}{\numberline {2}Antecedentes}{15}
 \contentsline {section}{\numberline {2.1}Gr\IeC {\'a}fica}{15}
-\contentsline {section}{\numberline {2.2}Gr\IeC {\'a}fica geom\IeC {\'e}trica}{15}
-\contentsline {section}{\numberline {2.3}Thrackles}{15}
-\contentsline {section}{\numberline {2.4}Tipo de Orden}{15}
-\contentsline {section}{\numberline {2.5}Anti-thickness y anti-thickness geom\IeC {\'e}trico}{15}
+\contentsline {section}{\numberline {2.2}Gr\IeC {\'a}fica geom\IeC {\'e}trica}{16}
+\contentsline {section}{\numberline {2.3}Thrackles}{16}
+\contentsline {section}{\numberline {2.4}Tipo de Orden}{16}
+\contentsline {section}{\numberline {2.5}Anti-thickness y anti-thickness geom\IeC {\'e}trico}{16}
 \contentsline {chapter}{\numberline {3}Estado del arte}{17}
 \contentsline {chapter}{\numberline {4}Resultados}{25}
 \contentsline {section}{\numberline {4.1}Descomposiciones por thrackles m\IeC {\'a}ximos.}{25}
