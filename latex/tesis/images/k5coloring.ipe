@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70206" creator="Ipe 7.2.7">
-<info created="D:20190531130134" modified="D:20190531135811"/>
+<info created="D:20190531130134" modified="D:20190604201525"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -254,35 +254,35 @@ h
 <page>
 <layer name="alpha"/>
 <view layers="alpha" active="alpha"/>
-<path layer="alpha" matrix="1 0 0 1 301.81 -4.55166" stroke="red">
+<path layer="alpha" matrix="1 0 0 1 301.81 -4.55166" stroke="red" pen="heavier">
 112 704 m
 144 768 l
 </path>
-<path matrix="1 0 0 1 301.81 -4.55166" stroke="red">
+<path matrix="1 0 0 1 301.81 -4.55166" stroke="red" pen="heavier">
 112 704 m
 185.941 743.02 l
 </path>
-<path matrix="1 0 0 1 301.81 -4.55166" stroke="red">
+<path matrix="1 0 0 1 301.81 -4.55166" stroke="red" pen="heavier">
 112 704 m
 145.697 732.253 l
 </path>
-<path matrix="1 0 0 1 301.81 -4.55166" stroke="red">
+<path matrix="1 0 0 1 301.81 -4.55166" stroke="red" pen="heavier">
 112 704 m
 174.644 707.012 l
 </path>
-<path matrix="1 0 0 1 301.81 -4.55166" stroke="red">
+<path matrix="1 0 0 1 301.81 -4.55166" stroke="red" pen="heavier">
 144 768 m
 185.941 743.02 l
 </path>
-<path matrix="1 0 0 1 301.81 -4.55166" stroke="red">
+<path matrix="1 0 0 1 301.81 -4.55166" stroke="red" pen="heavier">
 144 768 m
 145.697 732.253 l
 </path>
-<path matrix="1 0 0 1 301.81 -4.55166" stroke="blue">
+<path matrix="1 0 0 1 301.81 -4.55166" stroke="blue" dash="dashed">
 144 768 m
 174.644 707.012 l
 </path>
-<path matrix="1 0 0 1 301.81 -4.55166" stroke="red">
+<path matrix="1 0 0 1 301.81 -4.55166" stroke="red" pen="heavier">
 185.941 743.02 m
 145.697 732.253 l
 </path>
@@ -290,7 +290,7 @@ h
 185.941 743.02 m
 174.644 707.012 l
 </path>
-<path matrix="1 0 0 1 301.81 -4.55166" stroke="blue">
+<path matrix="1 0 0 1 301.81 -4.55166" stroke="blue" dash="dashed">
 145.697 732.253 m
 174.644 707.012 l
 </path>
@@ -333,9 +333,9 @@ h
 <use matrix="1 0 0 1 284.455 14.4603" name="mark/disk(sx)" pos="192 688" size="normal" stroke="black"/>
 <use matrix="1 0 0 1 287.507 23.7009" name="mark/disk(sx)" pos="160 704" size="normal" stroke="black"/>
 <use matrix="1 0 0 1 301.81 -4.55166" name="mark/disk(sx)" pos="112 704" size="normal" stroke="black"/>
-<use matrix="1 0 0 1 196.189 301.011" name="mark/disk(sx)" pos="64 448" size="large" stroke="blue"/>
+<use matrix="1 0 0 1 196.189 301.011" name="mark/square(sx)" pos="64 448" size="large" stroke="blue"/>
 <use matrix="1 0 0 1 196.189 317.011" name="mark/disk(sx)" pos="64 400" size="large" stroke="red"/>
-<use matrix="1 0 0 1 196.189 333.011" name="mark/disk(sx)" pos="80 368" size="large" stroke="blue"/>
+<use matrix="1 0 0 1 196.189 333.011" name="mark/square(sx)" pos="80 368" size="large" stroke="blue"/>
 <use matrix="1 0 0 1 196.189 301.011" name="mark/disk(sx)" pos="160 448" size="large" stroke="red"/>
 </page>
 </ipe>
