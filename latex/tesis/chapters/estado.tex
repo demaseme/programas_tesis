@@ -5,26 +5,31 @@
 % resultados del anti-thickness geométrico para el caso específico de puntos
 % en posición convexa.
 
-En este capítulo hablaremos de un concepto que cronologicamente fue definido antes
-que el anti-thickness y de cómo se relacionan. Mencionamos algunos resultados acerca
+En este capítulo hablaremos de un concepto que cronológicamente fue definido antes
+que el anti-thickness además discutirmos su relación. Mencionamos algunos resultados acerca
 de dicho concepto. Explicaremos de qué manera el número cromático de una
-gráfica puede otorgar una descomposición de una gráfica geométrica basándonos
-en trabajos en los que se busca obtener una descomposición de una gráfica geométrica.
+gráfica puede otorgar una descomposición de una gráfica geométrica. Finalmente
+discutimos los resultados actuales para el anti-thickness.
 
 Un concepto que está estrechamente relacionado con el de anti-thickness es el
 de thickness, que se define como sigue:
-\begin{definition}{\cite{Dillencourt2004} \emph{Thickness}.}
-  Sea $G$ una gráfica, el thickness $\theta(G)$ de $G$ es la mínima $k$ tal que existe
-  una partición de $E(G)$ de tamaño $k$ y en la que cada elemento de la partición
-  induce una gráfica planar.
+\begin{definition}{[\cite{Dillencourt2004}] \emph{Thickness}.}
+  Sea $G$ una gráfica, el thickness $\theta(G)$ de $G$ es el mínimo entero $k$
+  para el cual existe una partición de $E(G)$ de tamaño $k$ en la que cada
+  elemento de la partición induce una gráfica planar.
 \end{definition}
-Este concepto también puede ser extendido a dibujos rectilineos,
-en cuyo caso estaremos hablando del thickess geométrico, definido a continuación:
-\begin{definition}{\cite{Dillencourt2004} \emph{Thickness geométrico}.}
-  Sea $G$ una gráfica, el anti-thickness $\bar{\theta}(G)$ de $G$
-  es la mínima $k$ para la cual existe un dibujo geométrico $\mathsf{G}$ de $G$
-  que tiene una partición de $E(\mathsf{G})$, de tamaño $k$ y en la que cada
-  elemento de la partición es una gráfica plana.
+Este concepto también puede ser extendido a gráficas geométricas, en cuyo caso
+estaremos hablando del thickess de una gráfica geométrica, definido a continuación:
+\begin{definition}{\emph{Thickness de una gráfica geométrica}.}
+  Sea $\mathsf{G}$ una gráfica geométrica, el thickness $th(\mathsf{G})$
+  de $\mathsf{G}$ es el mínimo entero $k$ tal que existe una partición de $E(\mathsf{G})$
+  de tamaño $k$ donde cada elemento de la partición induce una
+  gráfica (geométrica) plana.
+\end{definition}
+Finalmente podemos definir el thickness geométrico de una gráfica $G$.
+\begin{definition}{[\cite{Dillencourt2004}] \emph{Thickness geométrico}.}
+  Sea $G$ una gráfica, el thickness geométrico $\bar{\theta}(G)$ de $G$
+  es : \[ \bar{\theta(G)} = \min\{th(\mathsf{G}): \mathsf{G} \text{ es una gráfica geométrica de G.} \} \]
 \end{definition}
 
 % A través de este capítulo nos referimos a la gráfica completa de $n$ vértices
@@ -46,10 +51,10 @@ en cuyo caso estaremos hablando del thickess geométrico, definido a continuaci�
 % particionadas en $k$ gráficas planas.
 Respecto a este parámetro \cite{Dillencourt2004} demuestran que el thickness
 geométrico está acotado por:
-\[ \Bigl\lceil \frac{n}{5.646} + 0.342 \Bigr\rceil \leq  \bar{\theta}(G) \leq \Bigl\lceil\frac{n}{4}\Bigr\rceil \]
+\[ \left\lceil \frac{n}{5.646} + 0.342 \right\rceil \leq  \bar{\theta}(G) \leq \left\lceil\frac{n}{4}\right\rceil \]
 
 En el mismo artículo encuentran el valor exacto del thicknes geométrico
-de cada gráfica completa con $n$ vértices para $n\leq 12$ así como para $K_{15}$ y $K_{16}$.
+de cada gráfica completa con $n$ vértices, para $n\leq 12$, así como para $K_{15}$ y $K_{16}$.
 Para el caso de $n=15$ encuentran el thickness geométrico exacto probando
 que no existen un conjunto de tres triangulaciones del conjunto de puntos que
 cubran las $\binom{15}{2} = 105$ aristas. Para el caso de $n=16$ el resultado
@@ -57,8 +62,8 @@ es exacto usando las cotas dadas.
 También estudian el thickness geométrico para gráficas completas bipartitas y demuestran la
 siguiente cota:
 \[
-  \Bigl\lceil \frac{ab}{2a+2b-4} \Bigr\rceil \leq \theta(K_{a,b}) \leq \bar{\theta}(K_{a,b})
-  \leq \Bigl\lceil \frac{min(a,b)}{2} \Bigr\rceil
+  \left\lceil \frac{ab}{2a+2b-4} \right\rceil \leq \theta(K_{a,b}) \leq \bar{\theta}(K_{a,b})
+  \leq \left\lceil \frac{min(a,b)}{2} \right\rceil.
 \]
 
 % A continuación citaremos dos trabajos asociados al anti-thickness cuyo núcleo
@@ -68,17 +73,19 @@ siguiente cota:
 % de puntos $S$ en posición general. Consideremos que existe un dibujo geométrico
 % de $K_n$ cuyo conjunto de vértices es $S$.
 
-A continuación discutimos dos trabajos que están relacionados con el anti-thickness.
-En ambos artículos los autores obtienen el número cromático de una gráfica cuyos vértices
-y aristas abstraen las relaciones de adyacencia de una gráfica geométrica.
-Empezaremos por definir una gráfica a la que llamaremos gráfica de cruce.
+% A continuación discutimos dos trabajos que están relacionados con el anti-thickness.
+% En ambos artículos los autores obtienen el número cromático de una gráfica cuyos vértices
+% y aristas abstraen las relaciones de adyacencia de una gráfica geométrica.
+Para explicar la relación entre thickness y anti-thickness es necesario hablar
+de coloraciones de vértices de gráficas de incidencia. Dada una gráfica geométrica
+su gráfica de incidencia es construida a partir de las incidencias de aristas de la gráfica geométrica.
+Empezaremos por definir una gráfica a la que llamaremos \emph{gráfica de cruce}.
 
-Sea $S$ un conjunto de puntos en posición general con $|S|=n$ y sea $K_n(S)$ la gráfica completa
-asociada a $S$.
 \begin{definition}{\emph{Gráfica de cruce}.}
-  La gráfica de cruce $E_{pp}(S)$ de $S$ es la gráfica que tiene como conjunto de vértices
-  a las aristas de $K_n(S)$ y dos vértices de $E_{pp}(S)$ son adyacentes las aristas correspondientes
-  se cruzan propiamente en $K_n(S)$.
+  Sea $S$ un conjunto de $n$ puntos en posición general y sea $K_n(S)$ la gráfica completa
+  asociada a $S$. La gráfica de cruce $E_{pp}(S)$ de $S$ es la gráfica que tiene un vértice
+  por cada arista de $K_n(S)$ y una arista entre dos vértices de $E_{pp}(S)$ por cada par de aristas
+  que se crucen en $K_n(S)$.
 \end{definition}
 
 \begin{figure}
@@ -109,23 +116,24 @@ tiene 3 aristas.
 % en gráficas planas de un dibujo de $K_n$ cuyo tamaño es mínimo, en otras palabras obtenemos
 % el thickness de un dibujo en particular de $K_n$.
 
-Los conjuntos independientes de $E_{pp}(S)$ corresponden a aristas de $K_n(S)$
-que inducen gráficas planas. Una coloración propia de los vértices de $E_{pp}(S)$
+Los conjuntos independientes de $E_{pp}(S)$ corresponden a conjuntos de aristas de $K_n(S)$
+que inducen gráficas planas. Luego, una coloración propia de los vértices de $E_{pp}(S)$
 corresponde a una descomposición de $K_n(S)$ en gráficas planas.
+Por lo tanto encontrar el número cromático $\chi(E_{pp}(S))$ de la gráfica
+$E_{pp}(S)$ es equivalente a encontrar el thickness geométrico de $K_n(S)$.
 La figura \ref{fig:k5coloring} ilustra esta relación.
 
 \begin{figure}
   \centering
   \includegraphics[width=.8\linewidth]{k5coloring}
   \caption{De izquierda a derecha: Una coloración propia de los vértices de $E_{pp}(S)$ con dos
-  clases cromáticas. Una descomposición de un dibujo de $K_5$ en dos gráficas planas
+  clases cromáticas indicadas como círculos y cuadros.
+  Una descomposición de un dibujo de $K_5$ en dos gráficas planas
   cuyas aristas corresponden a cada una de las clases cromáticas de la coloración
   de $E_{pp}(S)$.}
   \label{fig:k5coloring}
 \end{figure}
 
-De esta manera encontrar el número cromático $\chi(E_{pp}(S))$ de la gráfica
-$E_{pp}(S)$ es igual a encontrar el thickness geométrico de $K_n(S)$.
 % \begin{definition}{\emph{Thickness geométrico de un dibujo de una gráfica}.}
 %   El thickness geométrico $th_g(G)$ de un dibujo geométrico de $G$ es el número cromático
 %   $\chi(E_{pp}(S))$ de la gráfica $E_{pp}(S)$ donde $S$ es el conjunto de vértices de $K_n$.
@@ -137,53 +145,89 @@ $E_{pp}(S)$ es igual a encontrar el thickness geométrico de $K_n(S)$.
 % $\chi(E_{pp}(S))$ de la gráfica $E_{pp}(S)$.
 % \end{definition}
 
-Y luego, siguiendo la definición de \cite{Dillencourt2004} redefinimos el thickness
-geométrico de la gráfica completa de $n$ vértices $K_n$, como el thickness geométrico
-más pequeño de de todos los dibujos posibles de la gráfica.
-A este número le llamaremos $epp(n)$ y lo definimos formalmente como:
+% Y luego, siguiendo la definición de \cite{Dillencourt2004} redefinimos el thickness
+% geométrico de la gráfica completa de $n$ vértices $K_n$, como el thickness geométrico
+% más pequeño de de todos los dibujos posibles de la gráfica.
+% A este número le llamaremos $epp(n)$ y lo definimos formalmente como:
+El thickness geométrico de la gráfica completa de $n$ vértices $K_n$ se puede
+definir en estos términos como:
 \begin{definition}{\emph{Thickness geométrico de una gráfica}.}
   % Considerese $K_n=(S,E)$ la gráfica completa cuyo conjunto de vértices es $S$.
-  \[epp(n) = \min\{ \chi(E_{pp}(S)): S \subset \mathbb{R}^2 \text{ está en posición general }, |S|=n \}\]
+  \[\bar{\theta}(n) = \min\{ \chi(E_{pp}(S)): S \subset \mathbb{R}^2 \text{ está en posición general }, |S|=n \}\]
 \end{definition}
+%
+% De la misma manera que definimos la gráfica de cruce $E_{pp}(S)$ podemos definir
+% otras gráficas si cambiamos la condición bajo la cual existen aristas entre vértices
+% de $E_{pp}(S)$. En este sentido, en el trabajo de \cite{Araujo2005}, se definen
+% varias gráficas que se listan en seguida. Para todas existe una gráfica geométrica
+% completa $K_n$ cuyo conjunto de vértices es $S$.
 
-De la misma manera que definimos la gráfica de cruce $E_{pp}(S)$ podemos definir
-otras gráficas si cambiamos la condición bajo la cual existen aristas entre vértices
-de $E_{pp}(S)$. En este sentido, en el trabajo de \cite{Araujo2005}, se definen
-varias gráficas que se listan en seguida. Para todas existe una gráfica geométrica
-completa $K_n$ cuyo conjunto de vértices es $S$.
+De la misma manera que definimos la gráfica de cruce podemos definir otras
+gráficas. Para esto basta com cainbiar la condición bajo la cual se asignan
+aristas entre los vértices de la gráfica de incidencia. En este sentido, en el
+trabajo de~\cite{Araujo2005} se definen las gráficas de incidencia que se listan
+en seguida. Sea $S$ un conjunto de $n$ puntos en posición general y $K_n(S)$
+la gráfica completa asociada a $S$:
+
+% Sea $S$ un conjunto de puntos en posición general con $|S|=n$ y sea $K_n(S)$ la gráfica completa
+% asociada a $S$. La gráfica de cruce $E_{pp}(S)$ de $S$ es la gráfica que tiene un vértice
+% por cada arista de $K_n(S)$ y una arista entre dos vértices de $E_{pp}(S)$ por cada par de aristas
+% que se crucen en $K_n(S)$.
 \begin{itemize}
-  \item $W(S)$ la gráfica en la que existe una arista entre sus vértices
-  cuando las aristas correspondientes en $K_n$ no se cruzan propiamente.
-  \item $I(S)$ es la gráfica en la que existe una arista entre sus vértices
-  cuando las aristas correspondientes en $K_n$ se cruzan propiamente o son adyacentes.
-  \item $D(S)$ es la gráfica en la que existe una arista entre sus vértices
-  cuando las aristas correspondientes en $K_n$ no se cruzan propiamente ni son adyacentes.
+  \item $W(S):$ Es la gráfica que tiene un vértice por cada arista de $K_n(S)$ y
+  una arista entre dos vértices de $W(S)$ por cada par de aristas que no se
+  crucen en $K_n(S)$. %crossing matchings
+  \item $I(S):$ Es la gráfica que tiene un vértice por cada arista de $K_n(S)$ y
+  una arista entre dos vértices de $I(S)$ por cada par de aristas que
+  se cruzan propiamente o son adyacentes en $K_n(S)$. %non crossing matchings
+  \item $D(S)$ Es la gráfica que tiene un vértice por cada arista de $K_n(S)$ y
+  una arista entre dos vértices de $D(S)$ por cada par de aristas que
+  no se cruzan ni son adyacentes. % thrackles
 \end{itemize}
 
-Es fácil darse cuenta que la condición de existencia de aristas de $W(S)$ es opuesta
-o complementaria a la condición establecida en $E_{pp}(S)$ y viceversa. De la misma
-forma, las condiciones de $I(S)$ y $D(S)$ son opuestas entre sí.
+Es fácil darse cuenta que la condición de existencia de aristas de $W(S)$ es
+complementaria a la condición establecida en $E_{pp}(S)$ y viceversa. De la misma
+forma, las condiciones de $I(S)$ y $D(S)$ son complementarias entre sí. En la tabla
+~\ref{table:graficasincidencia} mostramos esta relación y las estructuras geométricas
+que representan, en $K_n(S)$, los conjuntos independientes para cada alternativa.
 
+% En el aporte de \cite{Araujo2005} buscan el número cromático de cada una de las
+% gráficas listadas anteriormente por lo que creemos sensato decir a qué estructuras
+% geométricas en el dibujo de $K_n$ equivale una clase cromática de cada alternativa.
+% Para $W(S)$ una clase cromática equivale a un emparejamiento de cruce (\emph{crossing matching}),
+% para $I(S)$ equivale a un emparejamiento sin cruce (\emph{non-crossing matching})
+% y para $D(S)$ equivale a un thrackle.
+%
+% El hecho de que la coloración de $D(S)$ otorgue una descomposición en thrackles es la
+% principal razón por la cual el trabajo es de importancia para nosotros. Sin embargo,
+% en \cite{Araujo2005} se busca el máximo número cromático para cada dibujo posible
+% de $K_n$ para cada una de las tres gráficas listadas anteriormente. Concretamente
+% ellos definen los siguiente:
+\begin{table}
+  \centering
+  \begin{tabular}{|l|l|}
+    \hline
+    Gráfica   & Conjuntos independientes en $K_n(S)$    \\ \hline \hline
+    $W(S)$    & \emph{Emparejamientos de cruces}        \\ \hline
+    $I(S)$    & \emph{Emparejamientos planos}           \\ \hline
+    $D(S)$    & \emph{Thrackles}                        \\ \hline
+    $E_pp(S)$ & \emph{Gráfica planar}                   \\ \hline
+  \end{tabular}
+  \caption{Esta tabla muestra qué representan los conjuntos independientes en $K_n(S)$
+  para cada una de las gráficas definidas en \cite{Araujo2005} y para $E_pp(S)$.}
+  \label{table:graficasincidencia}
+\end{table}
 En el aporte de \cite{Araujo2005} buscan el número cromático de cada una de las
-gráficas listadas anteriormente por lo que creemos sensato decir a qué estructuras
-geométricas en el dibujo de $K_n$ equivale una clase cromática de cada alternativa.
-Para $W(S)$ una clase cromática equivale a un emparejamiento de cruce (\emph{crossing matching}),
-para $I(S)$ equivale a un emparejamiento sin cruce (\emph{non-crossing matching})
-y para $D(S)$ equivale a un thrackle.
-
-El hecho de que la coloración de $D(S)$ otorgue una descomposición en thrackles es la
-principal razón por la cual el trabajo es de importancia para nosotros. Sin embargo,
-en \cite{Araujo2005} se busca el máximo número cromático para cada dibujo posible
-de $K_n$ para cada una de las tres gráficas listadas anteriormente. Concretamente
-ellos definen los siguiente:
-
+gráficas listadas, los autores estudian los siguientes parámetros:
   \begin{align*}
     w(n) &= \max\{\chi(W(S)): S\subset \mathbb{R}^2 \text{ está en posición general }, |S|=n\} \\
     i(n) &= \max\{\chi(I(S)): S\subset \mathbb{R}^2 \text{ está en posición general }, |S|=n\} \\
     d(n) &= \max\{\chi(D(S)): S\subset \mathbb{R}^2 \text{ está en posición general }, |S|=n\} \\
   \end{align*}
-Para cada uno también definen el caso en el que $S \subset \mathbb{R}^2$ está
-en posición convexa como $w_c(n)$, $i_c(n)$ y $d_c(n)$ y demuestran las siguientes cotas:
+% Para cada uno también definen el caso en el que $S \subset \mathbb{R}^2$ está
+% en posición convexa como $w_c(n)$, $i_c(n)$ y $d_c(n)$ y demuestran las siguientes cotas:
+Para el caso en el que $S$ está en posición convexa se denotan a estos valores como
+$w_c(n)$, $i_c(n)$ y $d_c(n)$. Los autores demuestran las siguientes cotas:
 \begin{itemize}
   \item $w_c(n) = \Theta(n\log n)$.
   \item $c_1n\log n \leq w(n) \leq c_2 n^2 \frac{\log\log n}{\log n}, \text{ para } c_1,c_2 > 0$.
@@ -193,27 +237,33 @@ en posición convexa como $w_c(n)$, $i_c(n)$ y $d_c(n)$ y demuestran las siguien
   \item $5\lfloor \frac{n}{7}\rfloor \leq d(n) \leq \min\left(n-2,n+\frac{1}{2}- \frac{\lfloor{\log \log n}\rfloor}{n}\right)$.
 \end{itemize}
 
+A pesar de que en el trabajo de~\cite{Araujo2005} se busca el número cromático
+de la gráfica $D(S)$ y esto significa buscar el anti-thickness de una gráfica
+geométrica asociada a $S$, es importante notar que la definición $d(n)$ no es
+equivalente a la de anti-thickness. Pues $d(n)$ busca el máximo de todos los
+números cromáticos para todos las gráficas geométricas posibles de una gráfica
+dada mientras que el anti-thickness busca el mínimo de este mismo parámetro.
 
-Es importante notar que la definición $d(n)$ no es equivalente a la de anti-thickness
-ya que en este último se busca el mínimo número de thrackles en una descomposición.
-Entonces podemos dar una definición del anti-thickness geométrico basándonos en la gráfica $D(S)$,
-considerando que existe una gráfica completa $K_n = (S,E)$, como sigue a continuación:
+Podemos dar una definición del anti-thickness geométrico usando la gráfica $D(S)$
+como sigue:
 \begin{definition}{\emph{Anti-thickness geométrico de una gráfica}.}
   \[gat(n) = \min\{\chi(D(S)): S\subset \mathbb{R}^2 \text{ está en posición general }, |S|=n\}\]
 \end{definition}
 
-Y de manera análoga definimos el caso en el que los puntos de $S$ están en posición convexa como
-anti-thickness convexo.
+De manera análoga si los puntos de $S$ están en posición convexa definimos el
+anti-thickness convexo:
 
 \begin{definition}{\emph{Anti-thickness convexo de una gráfica}.}
   \[cat(n) = \min\{\chi(D(S)): S\subset \mathbb{R}^2 \text{ está en posición convexa }, |S|=n\}\]
 \end{definition}
 
-Por otro lado, debido a que cuando $K_n$ es dibujado en el plano en posición convexa
-los dibujos posibles no presentan diferencias combinatorias se tiene que el
-anti-thickness convexo de la gráfica completa de $n$ vértices es equivalente a la definición
-de $d_c(n)$ de \cite{Araujo2005}, dicho de otra forma:
-\[ d_c(n) = cat(n)\]
+El anti-thickness convexo de la gráfica completa de $n$ vértices es equivalente
+a $d_c(n)$.
+% Por otro lado, debido a que cuando $K_n$ es dibujado en el plano en posición convexa
+% los dibujos posibles no presentan diferencias combinatorias se tiene que el
+% anti-thickness convexo de la gráfica completa de $n$ vértices es equivalente a la definición
+% de $d_c(n)$ de \cite{Araujo2005}, dicho de otra forma:
+% \[ d_c(n) = cat(n)\]
 % Es natural pensar que si una gráfica puede ser descompuesta en sub-gráficas donde
 % no existe ningún cruce entre dos aristas, es quizás posible descomponer la
 % gráfica en sub-gráficas donde siempre ocurran cruces entre dos aristas, es decir
