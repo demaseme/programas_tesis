@@ -201,4 +201,12 @@
   isbn      = {9780130144003,0130144002,8178088304},
 }
 
+@Misc{OpenGarden2009,
+  author       = {Ferran Hurtado},
+  title        = {Edge Colouring Geometric Complete Graphs},
+  howpublished = {\url{http://www.openproblemgarden.org/op/edge_colouring_geometric_complete_graphs}},
+  month        = {Octubre},
+  year         = {2009},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

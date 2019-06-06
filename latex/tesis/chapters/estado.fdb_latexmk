@@ -1,21 +1,21 @@
 # Fdb version 3
-["pdflatex"] 1559327772 "estado.tex" "/home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/chapters/estado.pdf" "estado" 1559327773
+["pdflatex"] 1559841247 "estado.tex" "/home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/chapters/estado.pdf" "estado" 1559841248
   "/etc/texmf/web2c/texmf.cnf" 1530222550 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/chapters/estado.aux" 1558983421 8 a94a2480d3289e625eea47cd1b285758 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1480098701 1328 c834bbb027764024c09d3d2bf908b5f0 ""
-  "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm" 1480098701 1332 f817c21a1ba54560425663374f1b651a ""
-  "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm" 1480098701 1336 3125ccb448c1a09074e3aa4a9832f130 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss10.tfm" 1480098701 1316 b636689f1933f24d1294acdf6041daaa ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss8.tfm" 1480098701 1296 d77f431d10d47c8ea2cc18cf45346274 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti10.tfm" 1480098701 1480 aa8e34af0eb6a2941b776984cf1dfdc4 ""
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1520210507 32485 c64754543d8ac501bea6e75e209ea521 ""
   "/usr/share/texmf/web2c/texmf.cnf" 1520210507 32485 c64754543d8ac501bea6e75e209ea521 ""
+  "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1530222630 2700761 ac0584cc9514ab21918550a6948c4ee2 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1539381145 4140334 f5a73767bfe11a548b988f0178facaa8 ""
-  "estado.tex" 1559327768 12062 b311a59fa17206ea763ef8d59539dd16 ""
+  "estado.tex" 1559841211 22683 66d03748e3641140d269b4cdabb8c2ba ""
   (generated)
   "/home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/chapters/estado.log"
+  "estado.pdf"
   "/home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/chapters/estado.pdf"
-  "/home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/chapters/estado.log"
   "/home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/chapters/estado.pdf"
   "estado.log"
+  "/home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/chapters/estado.log"

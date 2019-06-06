@@ -176,14 +176,37 @@
   isbn      = {978-3-540-70904-6},
 }
 
-@incollection{Eppstein2004,
-  title={Geometric thickness of complete graphs},
-  author={Dillencourt, Michael B and Eppstein, David and Hirschberg, Daniel S},
-  booktitle={Graph Algorithms And Applications 2},
-  pages={39--51},
-  year={2004},
-  publisher={World Scientific}
+@InCollection{Dillencourt2004,
+  author    = {Dillencourt, Michael B and Eppstein, David and Hirschberg, Daniel S},
+  title     = {Geometric thickness of complete graphs},
+  booktitle = {Graph Algorithms And Applications 2},
+  publisher = {World Scientific},
+  year      = {2004},
+  pages     = {39--51},
 }
 
+@article{Lomeli2018,
+  title={The Chromatic Number of the Disjointness Graph of the Double Chain},
+  author={Fabila-Monroy, Ruy and Hidalgo-Toscano, Carlos and Lea{\~n}os, Jes{\'u}s and Lomel{\'\i}-Haro, Mario},
+  journal={arXiv preprint arXiv:1711.05425},
+  year={2017}
+}
+
+@Book{DBWest2001,
+  title     = {Introduction to graph theory},
+  publisher = {Prentice Hall},
+  year      = {2001},
+  author    = {Douglas B. West},
+  edition   = {2nd ed},
+  isbn      = {9780130144003,0130144002,8178088304},
+}
+
+@Misc{OpenGarden2009,
+  author = {Ferran Hurtado},
+  title  = {Edge Colouring Geometric Complete Graphs},
+  month  = {Octubre},
+  year   = {2009},
+  url    = {"http://www.openproblemgarden.org/op/edge_colouring_geometric_complete_graphs"},
+}
 
 @Comment{jabref-meta: databaseType:bibtex;}

@@ -6,10 +6,10 @@ INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
 INPUT /home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/chapters/estado.tex
 OUTPUT /home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/chapters/estado.log
 INPUT /usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm
+OUTPUT /home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/chapters/estado.pdf
+INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
