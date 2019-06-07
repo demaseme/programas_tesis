@@ -22,18 +22,27 @@ en la gráfica es adyacente. Para referirnos a la gráfica completa de $n$ vért
 escribimos $K_n$. Decimos que dos aristas $e_1,e_2 \in E(G)$ son adyacentes
 si inciden en el mismo vértice. Una gráfica $G$ es \emph{bipartita} si es posible
 dar una partición de $V(G)$ en dos subcojuntos $U$ y $W$ de tal manera que cada
-arista de $G$ tiene un extremo en $U$ y otro extremo en $W$. 
+arista de $G$ tiene un extremo en $U$ y otro extremo en $W$.
 \section{Gráfica geométrica}
-La siguiente definición fue tomada de~\cite{Pach2013}.
-Un \emph{dibujo} de una gráfica es una representación de la gráfica en el plano de
-tal manera que los vértices son representados por puntos en posición general
-y las aristas como curvas simples continuas que conectan pares de vértices.
+La siguiente definición fue tomada de~\cite{Pach2013} y de~\cite{Lara2019}.
+Un \emph{dibujo} $\mathsf{G}$ de una gráfica $G$ es una representación de la
+gráfica $G$ en el plano. El conjunto $V(\mathsf{G})$ está representado por puntos
+en posición general y el conjunto $E(\mathsf{G})$ está representado como curvas
+simples continuas que conectan pares de vértices.
 
 Cuando restringimos dichas curvas a segmentos de recta el dibujo de la gráfica
-adquiere el nombre de \emph{gráfica geométrica}. Sin perdida de generalidad
-representamos a una gráfica geométrica como $\mathsf{G}$ y nos referimos a su
-conjunto de vértices como $V(\mathsf{G})$ y a su conjunto de aristas como
-$E(\mathsf{G})$.
+adquiere el nombre de \emph{gráfica geométrica}. Una gráfica
+geométrica es completa si existen segmentos de recta entre cada par de vértices
+de $V(\mathsf{G})$. Podemos notar que cualquier conjunto de puntos $S$ en posición
+general induce una gráfica completa.
+
+Sea $S$ un conjunto de $n$ puntos en el plano en posición general y sea $\mathsf{G}$
+una gráfica geométrica. Decimos que $S$ está definida sobre $S$ si $V(\mathsf{G}) = S$.
+
+% Sin perdida de generalidad
+% representamos a una gráfica geométrica como $\mathsf{G}$ y nos referimos a su
+% conjunto de vértices como $V(\mathsf{G})$ y a su conjunto de aristas como
+% $E(\mathsf{G})$.
 
 \section{Thrackles}
 \section{Tipo de Orden}

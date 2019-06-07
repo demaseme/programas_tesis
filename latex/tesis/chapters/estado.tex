@@ -51,7 +51,7 @@ Finalmente podemos definir el thickness geométrico de una gráfica $G$.
 % particionadas en $k$ gráficas planas.
 Respecto a este parámetro \cite{Dillencourt2004} demuestran que el thickness
 geométrico está acotado por:
-\[ \left\lceil \frac{n}{5.646} + 0.342 \right\rceil \leq  \bar{\theta}(G) \leq \left\lceil\frac{n}{4}\right\rceil \]
+\[ \left\lceil \frac{n}{5.646} + 0.342 \right\rceil \leq  \bar{\theta}(G) \leq \left\lceil\frac{n}{4}\right\rceil .\]
 
 En el mismo artículo encuentran el valor exacto del thicknes geométrico
 de cada gráfica completa con $n$ vértices, para $n\leq 12$, así como para $K_{15}$ y $K_{16}$.
@@ -153,7 +153,7 @@ El thickness geométrico de la gráfica completa de $n$ vértices $K_n$ se puede
 definir en estos términos como:
 \begin{definition}{\emph{Thickness geométrico de una gráfica}.}
   % Considerese $K_n=(S,E)$ la gráfica completa cuyo conjunto de vértices es $S$.
-  \[\bar{\theta}(n) = \min\{ \chi(E_{pp}(S)): S \subset \mathbb{R}^2 \text{ está en posición general }, |S|=n \}\]
+  \[\bar{\theta}(n) = \min\{ \chi(E_{pp}(S)): S \subset \mathbb{R}^2 \text{ está en posición general }, |S|=n \}.\]
 \end{definition}
 %
 % De la misma manera que definimos la gráfica de cruce $E_{pp}(S)$ podemos definir
@@ -223,9 +223,9 @@ variantes que se presentan en la tabla~\ref{table:graficasincidencia}.
 En el aporte de \cite{Araujo2005} buscan el número cromático de cada una de las
 gráficas listadas, los autores estudian los siguientes parámetros:
   \begin{align*}
-    w(n) &= \max\{\chi(W(S)): S\subset \mathbb{R}^2 \text{ está en posición general }, |S|=n\} \\
-    i(n) &= \max\{\chi(I(S)): S\subset \mathbb{R}^2 \text{ está en posición general }, |S|=n\} \\
-    d(n) &= \max\{\chi(D(S)): S\subset \mathbb{R}^2 \text{ está en posición general }, |S|=n\} \\
+    w(n) &= \max\{\chi(W(S)): S\subset \mathbb{R}^2 \text{ está en posición general }, |S|=n\}. \\
+    i(n) &= \max\{\chi(I(S)): S\subset \mathbb{R}^2 \text{ está en posición general }, |S|=n\}. \\
+    d(n) &= \max\{\chi(D(S)): S\subset \mathbb{R}^2 \text{ está en posición general }, |S|=n\}. \\
   \end{align*}
 % Para cada uno también definen el caso en el que $S \subset \mathbb{R}^2$ está
 % en posición convexa como $w_c(n)$, $i_c(n)$ y $d_c(n)$ y demuestran las siguientes cotas:
@@ -250,14 +250,14 @@ dada mientras que el anti-thickness busca el mínimo de este mismo parámetro.
 Podemos dar una definición del anti-thickness geométrico usando la gráfica $D(S)$
 como sigue:
 \begin{definition}{\emph{Anti-thickness geométrico de una gráfica}.}
-  \[gat(n) = \min\{\chi(D(S)): S\subset \mathbb{R}^2 \text{ está en posición general }, |S|=n\}\]
+  \[At_g(n) = \min\{\chi(D(S)): S\subset \mathbb{R}^2 \text{ está en posición general }, |S|=n\}.\]
 \end{definition}
 
 De manera análoga si los puntos de $S$ están en posición convexa definimos el
 anti-thickness convexo:
 
 \begin{definition}{\emph{Anti-thickness convexo de una gráfica}.}
-  \[cat(n) = \min\{\chi(D(S)): S\subset \mathbb{R}^2 \text{ está en posición convexa }, |S|=n\}\]
+  \[At_c(n) = \min\{\chi(D(S)): S\subset \mathbb{R}^2 \text{ está en posición convexa }, |S|=n\}.\]
 \end{definition}
 
 El anti-thickness convexo de la gráfica completa de $n$ vértices es equivalente
@@ -306,65 +306,97 @@ a $d_c(n)$.
 % Como se mencionó anteriormente el anti-thickness está relacionado con la descomposición
 % de una gráfica en sub-gráficas donde siempre ocurren cruces, podemos ver el
 % anti-thickness como el lado opuesto del thickness.
-Los autores de \cite{Dujmovic2017} presentan resultados
-del anti-thickness para familias específicas de gráficas, por ejemplo árboles, 2-tracks, books, gráficas
-outerplanar, k-queues, entre otros haciendo observaciones de resultados anteriores.
-Además se prueba la relación entre thickness y anti-thickness, concretamente prueban
-la siguiente cota para toda gráfica con anti-thickness $k$ y thickness $t$
-: \[ k \leq t \leq \Bigl\lceil \frac{3k}{2}\Bigr\rceil \]
+Los autores de \cite{Dujmovic2017} presentan resultados respecto a el
+anti-thickness para familias específicas de gráficas como árboles, gráficas
+outerplanar, y algunos dibujos como 2-tracks, books, k-queues, entre otros.
 
-Acerca del anti-thickness (teórico) de gráficas completas, en~\cite{Dujmovic2017}
-se prueba que es al menos $\frac{n}{3}$ y a lo más $\lceil \frac{n-1}{2} \rceil$.
-Sin embargo ellos conjeturan que el anti-thickness de una gráfica completa es
-exactamente $\lceil \frac{n-1}{2} \rceil$.
+En su trabajo definen en anti-thickness como sigue:
+\begin{definition}{\emph{Anti-thickness de una gráfica.}}
+Sea $G$ una gráfica el anti-thickness $At(G)$ de $G$ es el mínimo entero $k$
+para el cual existe una partición de $E(G)$ de tamaño $k$
+en la que cada elemento de la partición induce una gráfica thrackleable.
+\end{definition}
+
+Además dan una relación entre el thickness y anti-thickness de cualquier
+gráfica. Concretamente los autores prueban la siguiente cota para toda gráfica
+con anti-thickness $k$ y thickness $t$:
+\[ k \leq t \leq \left\lceil \frac{3k}{2}\right\rceil .\]
+
+Acerca del anti-thickness de gráficas completas, en el mismo artículo
+prueban que \[ \frac{n}{3} \leq  At(K_n) \leq \left\lceil \frac{n-1}{2} \right\rceil . \]
+
+Ellos conjeturan que el anti-thickness de una gráfica completa es
+exactamente $\left\lceil \frac{n-1}{2} \right\rceil$.
 % Los resultados presentados en ese trabajo que tienen que ver con el anti-thickness
 % geométrico de una gráfica completa se enfocan  en el caso específico de puntos en posición convexa.
 
-El principal resultado para puntos en posición convexa es presentado en \cite{Fabila-Monroy2018}.
-Aquí se prueba que cuando los puntos están en posición convexa dos thrackles máximos
-comparten al menos una arista y por lo tanto la unión de $k$ thrackles máximos tiene
-a lo más $kn - \binom{k}{2}$ aristas. Luego, como una gráfica completa de $n$
+En los siguientes párrafos describimos cómo los autores de~\cite{Fabila-Monroy2018}
+encuentran el anti-thickness geométrico exacto para gráficas cuyo conjunto
+de vértices está en posición convexa.
+
+Los autores prueban que bajo esta condición dos thrackles máximos siempre
+comparten al menos una arista. Por lo anterior la unión de $k$ thrackles máximos tiene
+a lo sumo $kn - \binom{k}{2}$ aristas. Entonces, como una gráfica completa de $n$
 vértices tiene $\binom{n}{2}$ aristas la resolución de la desigualdad
-\[ \binom{n}{2} \leq kn - \binom{k}{2} \]
-otorga el resultado de la cota inferior para el anti-thickness convexo mostrado
-a continuación:
-\[ cat \geq n - \Bigl\lfloor \sqrt{2n + \frac{1}{4}} - \frac{1}{2} \Bigr\rfloor \]
+\[ \binom{n}{2} \leq kn - \binom{k}{2} .\]
+otorga el resultado de la cota inferior para el anti-thickness convexo. Esta cota es:
+\[ At_c(K_n) \geq n - \Bigl\lfloor \sqrt{2n + \frac{1}{4}} - \frac{1}{2} \Bigr\rfloor. \]
 
 La cota superior se obtiene dando una coloración propia de los vértices de la gráfica
-$D(S)$. La coloración es lograda consiguiendo trazar caminos en una
-estructura conocida como polyomino en la que los vértices de $D(S)$ son las filas
-y las columnas de dicha estructura. En este trabajo cada camino representa un
-conjunto independiente de vértices en $D(S)$ y como se mencionó antes, respresenta
-un thrackle en $K_n$. Concluyen dando el número máximo de caminos posibles en el
+$D(S)$. Recordemos que una coloración propia de $D(S)$ equivale a encontrar el
+antithickness de la gráfica completa asociada a $S$.
+En el articulo logran la coloración trazando caminos en una
+estructura conocida como poliominó~\cite{Fabila-Monroy2018-poly}
+en la que los vértices de $D(S)$ son las filas y las columnas de dicha estructura.
+En dicho trabajo cada camino representa un conjunto independiente de vértices en
+ $D(S)$ y por lo tanto, respresenta un thrackle en $K_n$.
+Los autores concluyen dando el número máximo de caminos posibles en el
 polyomino, dicho número coincide con el de la cota inferior y luego se tiene
 que el anti-thickness convexo tiene exactamente el siguiente valor:
-\[ cat(n) = n - \Bigl\lfloor \sqrt{2n + \frac{1}{4}} - \frac{1}{2} \Bigr\rfloor \]
+\[ At_c(n) = n - \Bigl\lfloor \sqrt{2n + \frac{1}{4}} - \frac{1}{2} \Bigr\rfloor \]
 
-Con respecto a puntos que no están estrictamente en posición convexa, \cite{Lomeli2018}
-examinan el número cromático de la gráfica de disyunción de una familia de puntos
-conocida como la doble cadena convexa; al igual que la posición convexa la doble cadena
-solamente tiene un dibujo en el plano. El resultado al que se llega en este artículo es que
+A continuación hablamos del trabajo de~\cite{Lomeli2018} en donde encuentran el
+anti-thickness geométrico de la doble cadena convexa. La doble cadena convexa
+es una configuración de puntos conformada por una $k-cup$ y una $l-cap$. La $k-cup$
+es una cadena de $k$ puntos en posición convexa donde la parte superior de su
+cubierta está delimitada por un solo segmento. La $l-cap$ es una cadena
+de $l$ puntos en posición convexa donde la parte inferior de su cubierta está delimitada
+por un solo segmento. En el artículo la doble cadena convexa $C_{k,l}$ que definen tiene
+las siguientes características:
+\begin{itemize}
+  \item Para $l\geq k$ la doble cadena convexa es la unión una $k-cup$ $U$ y una $l-cap$ $L$.
+  \item Cada punto de $L$ está por debajo de cada segmento de recta definido por dos puntos de $U$.
+  \item Cada punto de $U$ está por arriba de cada segmento de recta definido por dos puntos de $L$.
+\end{itemize}
+
+El resultado al que se llega en el trabjo es que
 el anti-thickness geométrico de la doble cadena convexa con $k$ puntos en la cadena convexa superior
-y $l \geq k$ puntos en la cadea convexa inferior es:
- \[gat(K_{l,k}) = k+l-\Bigl\lfloor \sqrt{2l+\frac{1}{4}} - \frac{1}{2} \Bigr\rfloor\]
+y $l$ puntos en la cadea convexa inferior es:
+ \[At_g(K_{l,k}) = k+l-\Bigl\lfloor \sqrt{2l+\frac{1}{4}} - \frac{1}{2} \Bigr\rfloor\]
 
- Como es mencionado en~\cite{Dujmovic2017}, encontrar el anti-thickness geométrico de gráficas
- completas en posición general es un problema abierto se tiene que las mejores cotas conocidas
+ ~\cite{Dujmovic2017} mencionan que encontrar el anti-thickness geométrico de gráficas
+ completas en posición general es un problema abierto. Hasta ahora las mejores cotas conocidas
  son :
- \[\Bigl\lfloor\frac{n-1}{2}\Bigr\rfloor \leq gat(K_n) \leq n - \Bigl\lfloor \sqrt{2n + \frac{1}{4}} - \frac{1}{2} \Bigr\rfloor \]
- La cota superior se sigue del caso convexo y la cota inferior se sigue del hecho de que una gráfica de $n$ vértices
-con anti-thickness geométrico $k$ tiene a lo más $kn$ aristas.
+ \[\Bigl\lfloor\frac{n-1}{2}\Bigr\rfloor \leq At_g(K_n) \leq n - \Bigl\lfloor \sqrt{2n + \frac{1}{4}} - \frac{1}{2} \Bigr\rfloor \]
+ La cota superior se sigue del caso convexo y la cota inferior
+ se sigue del hecho de que una gráfica de $n$ vértices
+con anti-thickness geométrico $k$ tiene a lo sumo $kn$ aristas.
 
 Los trabajos mencionados en este capítulo muestran cómo el problema original del
-thickness da origen al problema del anti-thickness, más aún, explicamos el proceso
-por el cual un problema de descomposición de gráficas geométricas se convirtió
-a un problema de coloración de gráficas. Los autores más recientes tratan al
+thickness está relacionado con problema del anti-thickness. Mostramos de qué manera
+un problema de descomposición de gráficas geométricas equivale
+a un problema de coloración de gráficas. Los artículos más recientes tratan al
 anti-thickness como un problema de coloración. En este trabajo no construimos la
 gráfica $D(S)$ y no coloreamos ninguna gráfica. Nuestro enfoque es más geométrico
 y computacional.
 
-Es importante notar que el anti-thickness convexo es acotado examinando el número mínimo
-y máximo de aristas aportadas por una colección de thrackles máximos, dicho de
-otra manera se basa en descomponer la gráfica completa convexa en thrackles máximos.
-Esta idea fue retomada en este trabajo para intentar ajustar las cotas del anti-thickness
-en posición general.
+% Es importante notar que el anti-thickness convexo es acotado examinando el número mínimo
+% y máximo de aristas aportadas por una colección de thrackles máximos, dicho de
+% otra manera se basa en descomponer la gráfica completa convexa en thrackles máximos.
+% Esta idea fue retomada en este trabajo para intentar ajustar las cotas del anti-thickness
+% en posición general.
+
+Es importante notar que en el trabajo de~\cite{Fabila-Monroy2018} las descomposiciones
+de la gráfica completa están conformadas por thrackles máximos. Esta es una de las ideas que
+usamos en este trabajo para intentar ajustar las cotas del anti-thickness en posición
+general.

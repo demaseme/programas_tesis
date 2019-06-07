@@ -1,4 +1,4 @@
-\begin{thebibliography}{8}
+\begin{thebibliography}{10}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname url\endcsname\relax
   \def\url#1{{\tt #1}}\fi
@@ -34,17 +34,28 @@ Fabila-Monroy, R., Hidalgo-Toscano, C., Lea{\~n}os, J., \& Lomel{\'\i}-Haro, M.
 \newblock The chromatic number of the disjointness graph of the double chain.
 \newblock {\em arXiv preprint arXiv:1711.05425\/}.
 
-\bibitem[{Fabila-Monroy et~al.(2018)Fabila-Monroy, Jonsson, Valtr, \&
-  Wood}]{Fabila-Monroy2018}
-Fabila-Monroy, R., Jonsson, J., Valtr, P., \& Wood, D.~R. (2018).
+\bibitem[{Fabila-Monroy et~al.(2018{\natexlab{a}})Fabila-Monroy, Jonsson,
+  Valtr, \& Wood}]{Fabila-Monroy2018}
+Fabila-Monroy, R., Jonsson, J., Valtr, P., \& Wood, D.~R. (2018{\natexlab{a}}).
 \newblock The exact chromatic number of the convex segment disjointness graph.
 \newblock {\em arXiv preprint arXiv:1804.01057\/}.
+
+\bibitem[{Fabila-Monroy et~al.(2018{\natexlab{b}})Fabila-Monroy, Jonsson,
+  Valtr, \& Wood}]{Fabila-Monroy2018-poly}
+Fabila-Monroy, R., Jonsson, J., Valtr, P., \& Wood, D.~R. (2018{\natexlab{b}}).
+\newblock The exact chromatic number of the convex segment disjointness graph.
+\newblock {\em arXiv preprint arXiv:1804.01057\/}, (p.~6).
 
 \bibitem[{Hurtado(2009)}]{OpenGarden2009}
 Hurtado, F. (2009).
 \newblock Edge colouring geometric complete graphs.
 \newblock
   \url{http://www.openproblemgarden.org/op/edge_colouring_geometric_complete_graphs}.
+
+\bibitem[{Lara \& Rubio-Montiel(2019)}]{Lara2019}
+Lara, D., \& Rubio-Montiel, C. (2019).
+\newblock On crossing families of complete geometric graphs.
+\newblock {\em Acta Mathematica Hungarica\/}, {\em 157\/}(2), 301--311.
 
 \bibitem[{Pach(2013)}]{Pach2013}
 Pach, J. (2013).

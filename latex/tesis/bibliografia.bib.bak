@@ -202,11 +202,19 @@
 }
 
 @Misc{OpenGarden2009,
-  author = {Ferran Hurtado},
-  title  = {Edge Colouring Geometric Complete Graphs},
-  month  = {Octubre},
-  year   = {2009},
-  url    = {"http://www.openproblemgarden.org/op/edge_colouring_geometric_complete_graphs"},
+  author       = {Ferran Hurtado},
+  title        = {Edge Colouring Geometric Complete Graphs},
+  howpublished = {\url{http://www.openproblemgarden.org/op/edge_colouring_geometric_complete_graphs}},
+  month        = {Octubre},
+  year         = {2009},
+}
+
+@Article{Fabila-Monroy2018-6,
+  author  = {Fabila-Monroy, Ruy and Jonsson, Jakob and Valtr, Pavel and Wood, David R},
+  title   = {The exact chromatic number of the convex segment disjointness graph},
+  journal = {arXiv preprint arXiv:1804.01057},
+  year    = {2018},
+  pages   = {6},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}

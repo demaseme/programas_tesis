@@ -209,4 +209,23 @@
   year         = {2009},
 }
 
+@Article{Fabila-Monroy2018-poly,
+  author  = {Fabila-Monroy, Ruy and Jonsson, Jakob and Valtr, Pavel and Wood, David R},
+  title   = {The exact chromatic number of the convex segment disjointness graph},
+  journal = {arXiv preprint arXiv:1804.01057},
+  year    = {2018},
+  pages   = {6},
+}
+
+@Article{Lara2019,
+  author    = {Lara, Dolores and Rubio-Montiel, Christian},
+  title     = {On crossing families of complete geometric graphs},
+  journal   = {Acta Mathematica Hungarica},
+  year      = {2019},
+  volume    = {157},
+  number    = {2},
+  pages     = {301--311},
+  publisher = {Springer},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}
