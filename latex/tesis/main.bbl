@@ -1,4 +1,4 @@
-\begin{thebibliography}{10}
+\begin{thebibliography}{11}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname url\endcsname\relax
   \def\url#1{{\tt #1}}\fi
@@ -62,5 +62,11 @@ Pach, J. (2013).
 \newblock {\em The Beginnings of Geometric Graph Theory\/}, (pp. 465--484).
 \newblock Berlin, Heidelberg: Springer Berlin Heidelberg.
 \newline\urlprefix\url{https://doi.org/10.1007/978-3-642-39286-3_17}
+
+\bibitem[{Pach \& Sterling(2011)}]{Pach2011}
+Pach, J., \& Sterling, E. (2011).
+\newblock Conway's conjecture for monotone thrackles.
+\newblock {\em The American Mathematical Monthly\/}, {\em 118\/}(6), 544--548.
+\newline\urlprefix\url{https://www.tandfonline.com/doi/abs/10.4169/amer.math.monthly.118.06.544}
 
 \end{thebibliography}

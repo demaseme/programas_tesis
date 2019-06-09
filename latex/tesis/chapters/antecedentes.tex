@@ -7,43 +7,89 @@ y del anti-thickness geométrico.
 La estructura más básica que se utiliza en nuestro trabajo son las gráficas abstractas
 a las que llamaremos solamente gráficas. La definición se sigue:
 \section{Gráfica}
-La siguiente definición fue tomada de~\cite{Chartrand2008}.
+Las siguientes definicies fueron tomadas de~\cite{Chartrand2008}.
 
-Una gráfica $G$ está compuesta por un conjunto $V$ no vacío de objetos a los que llamamos vértices
-y un conjunto $E$ de parejas de elementos de $V$ a los que llamamos aristas. Denotamos
+Una \emph{gráfica} $G$ está compuesta por un conjunto $V$ no vacío de objetos a los que llamamos \emph{vértices}
+y un conjunto $E$ de parejas de elementos de $V$ a los que llamamos \emph{aristas}. Denotamos
 a la arista $e$ compuesta por los vértices $u$ y $v$ como $(u,v)$. Para describir a la gráfica $G$
 compuesta por el conjunto $V$ de vértices y el conjunto $E$ de aristas escribimos $G=(V,E)$.
 Para referirnos al conjunto de vértices de $G$ escribimos $V(G)$ y para referirnos
 al conjunto de aristas de $G$ escribimos $E(G)$.
 
 Decimos que dos vértices $u,v\in V(G)$ son \emph{adyacentes} si existe una arista
-$(u,v)\in E(G)$. Una gráfica es \emph{completa} si cada pareja de vértices
+$(u,v)\in E(G)$. Decimos que dos aristas $e_1,e_2 \in E(G)$ son adyacentes
+si inciden en el mismo vértice. Una gráfica es \emph{completa} si cada pareja de vértices
 en la gráfica es adyacente. Para referirnos a la gráfica completa de $n$ vértices
-escribimos $K_n$. Decimos que dos aristas $e_1,e_2 \in E(G)$ son adyacentes
-si inciden en el mismo vértice. Una gráfica $G$ es \emph{bipartita} si es posible
+escribimos $K_n$. Una gráfica $G$ es \emph{bipartita} si es posible
 dar una partición de $V(G)$ en dos subcojuntos $U$ y $W$ de tal manera que cada
-arista de $G$ tiene un extremo en $U$ y otro extremo en $W$.
+arista de $G$ tenga un extremo en $U$ y otro extremo en $W$.
+
+Una \emph{descomposición} $D$ de una gráfica $G$ es una colección $D=\{G_1,G_2,\dots,G_k\}$ de
+subgráficas de $G$ tal que cumple con dos condiciones:
+\begin{enumerate}
+  \item Ninguna subrgáfica $G_i$ contiene vértices aislados.
+  \item Cada arista de $G$ pertenece a exactamente una subráfica $G_i$ de $D$.
+\end{enumerate}
 \section{Gráfica geométrica}
-La siguiente definición fue tomada de~\cite{Pach2013} y de~\cite{Lara2019}.
-Un \emph{dibujo} $\mathsf{G}$ de una gráfica $G$ es una representación de la
-gráfica $G$ en el plano. El conjunto $V(\mathsf{G})$ está representado por puntos
-en posición general y el conjunto $E(\mathsf{G})$ está representado como curvas
-simples continuas que conectan pares de vértices.
+Los primeros dos párrafos de esta sección fueron tomados de de~\cite{Pach2013}. El tercer párrafo
+fue extraido de~\cite{Lara2019}. El cuarto párrafo fue tomado de~\cite{Pach2011}.
+Un \emph{dibujo} $\mathsf{G}=(V,E)$ de una gráfica $G$ es una representación de la
+gráfica $G$ en el plano. Cada vértice de $G$ es representado por un punto en el plano
+y cada arista de $G$ es representada como una curva simple continua que conecta un par de vértices.
+El conjunto de vértices y el conjunto de aristas de $\mathsf{G}$
+son los puntos y las curvas respectivamente. Sin perdida de generalidad nos referimos al
+conjunto de puntos de $\mathsf{G}$ como $V(\mathsf{G})$ y les llamamos vértices y nos
+referimos al conjunto de curvas de $\mathsf{G}$ como $E(\mathsf{G})$ y les llamamos aristas.
 
 Cuando restringimos dichas curvas a segmentos de recta el dibujo de la gráfica
 adquiere el nombre de \emph{gráfica geométrica}. Una gráfica
 geométrica es completa si existen segmentos de recta entre cada par de vértices
-de $V(\mathsf{G})$. Podemos notar que cualquier conjunto de puntos $S$ en posición
-general induce una gráfica completa.
+de $V(\mathsf{G})$.
 
 Sea $S$ un conjunto de $n$ puntos en el plano en posición general y sea $\mathsf{G}$
 una gráfica geométrica. Decimos que $S$ está definida sobre $S$ si $V(\mathsf{G}) = S$.
+Podemos notar que cualquier conjunto de puntos $S$ en posición
+general induce una gráfica completa.
 
+Decimos que dos aristas $e_1,e_2 \in E(\mathsf{G})$ se \emph{cruzan} si existe un punto $p$
+en alguna de las aristas tal que en $p$ la arista $e_1$ pasa de un lado de la arista
+$e_2$ hacia el otro lado.
+
+En este trabajo decimos que dos aristas de una gráfica geométrica se \emph{intersectan}
+si son adyacentes o si se cruzan.
 % Sin perdida de generalidad
 % representamos a una gráfica geométrica como $\mathsf{G}$ y nos referimos a su
 % conjunto de vértices como $V(\mathsf{G})$ y a su conjunto de aristas como
 % $E(\mathsf{G})$.
 
 \section{Thrackles}
+Dado un dibujo $\mathsf{G}$. $\mathsf{G}$ es un \emph{thrackle} si cada par de aristas
+se intersecta exactamente una vez. Un thrackle de $n$ vértices
+es \emph{máximo} si tiene exactamente $n$ aristas.
+
+Un thrackle en el que todas sus aristas son segmentos de recta es conocido como
+\emph{thrackle geométrico}. En este trabajo nos referimos a los thrackles geométricos
+como thrackles.
+
+Una descomposición por thrackles $D$ de una gráfica geométrica
+$\mathsf{G}$ es una colección $D=\{\mathsf{G}_1,\mathsf{G}_2,\dots,\mathsf{G}_k\}$
+de subgráficas que cumple con tres condiciones:
+\begin{enumerate}
+  \item Cada subgráfica $\mathsf{G}_i$ es un thrackle.
+  \item Ninguna subrgáfica $\mathsf{G}_i$ contiene vértices aislados.
+  \item Cada arista de $\mathsf{G}$ pertenece a exactamente una subráfica $\mathsf{G}_i$ de $D$.
+\end{enumerate}
+
+Una gráfica $G$ es \emph{thrackleable} si puede ser dibujada en el plano como un thrackle.
 \section{Tipo de Orden}
 \section{Anti-thickness y anti-thickness geométrico}
+Las siguientes definiciones fueron tomadas de~\cite{Dujmovic2017}.
+
+El anti-thickness de una gráfica $G$ es el entero $k$ más pequeño tal que existe una
+partición de $E(G)$ de tamaño $k$ en la que cada elemento de la partición
+es una gráfica thrackleable.
+
+El anti-thickness de una gráfica $G$ es el entero $k$ más pequeño tal que existe un
+dibujo $\mathsf{G}$ de $G$ para el cual hay una partición de $E(\mathsf{G})$ de tamaño $k$
+en la que cada elemento de la partición es un thrackle.
+\section{Número cromático}
