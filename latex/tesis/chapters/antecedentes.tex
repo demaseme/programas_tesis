@@ -133,9 +133,17 @@ si son adyacentes o si se cruzan. La figura~\ref{fig:exintersection} explica un 
 \section{Thrackles}
 Dado un dibujo $\mathsf{G}$. $\mathsf{G}$ es un \emph{thrackle} si cada par de aristas
 se intersecta exactamente una vez. Un thrackle de $n$ vértices
-es \emph{máximo} si tiene exactamente $n$ aristas.
+es \emph{máximo} si tiene exactamente $n$ aristas. La figura~\ref{fig:exmaxth} muestra un
+thrackle máximo.
 
-Un thrackle en el que sus aristas son curvas es conocido como thrackle topológico.
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=0.35\linewidth]{exmaxth}
+  \caption{Un thrackle máximo sobre un conjunto de 5 vértices.}
+  \label{fig:exmaxth}
+\end{figure}
+
+Un thrackle en el que sus aristas son curvas es conocido como \emph{thrackle topológico}.
 Un thrackle en el que todas sus aristas son segmentos de recta es conocido como
 \emph{thrackle geométrico}. En este trabajo nos referimos a los thrackles geométricos
 como thrackles. En la figura tal podemos notar un ejemplo de thrackle topológico y
@@ -145,20 +153,19 @@ un ejemplo de thrackle geométrico.
   \centering
 \begin{subfigure}[h]{.4\textwidth}
   \centering
-  \includegraphics[width=.6\linewidth]{exadyedge}
-  \caption{La arista $(1,2)$ es adyacente con las aristas $(2,4)$ y $(1,4)$ pero
-  no es adyacente con la arista $(3,4)$.}
-  \label{fig:exadyedge}
+  \includegraphics[width=.6\linewidth]{exthtop}
+  \caption{Un thrackle topológico sobre conjunto de 5 vértices.}
+  \label{fig:exthtop}
 \end{subfigure}\hfill%
 \begin{subfigure}[h]{.4\textwidth}
   \centering
-  \includegraphics[width=.6\linewidth]{excomplete}
-  \caption{La gráfica completa de 6 vértices tiene una arista por cada par de vértices.}
-  \label{fig:excomplete}
+  \includegraphics[width=.6\linewidth]{exthgeo}
+  \caption{Un thrackle geométrico sobre el mismo conjunto de 5 vértices.}
+  \label{fig:exthgeo}
 \end{subfigure}
-\caption{Un ejemplo de adyacencia y de una gráfica completa, en la gráfica completa
-ocurren todas las adyacencias posibles entre pares de vértices.}
-\label{fig:exadycomplete}
+\caption{Ambas figuras ilustran thracklese definidos sobre el mismo conjunto de
+puntos. En los dos casos el thrackle dibujado es máximo.}
+\label{fig:exthgeotop}
 \end{figure}
 
 Una descomposición por thrackles $D$ de una gráfica geométrica
@@ -175,11 +182,22 @@ Una gráfica $G$ es \emph{thrackleable} si puede ser dibujada en el plano como u
 \section{Anti-thickness y anti-thickness geométrico}
 Las siguientes definiciones fueron tomadas de~\cite{Dujmovic2017}.
 
-El anti-thickness de una gráfica $G$ es el entero $k$ más pequeño tal que existe una
+El \emph{anti-thickness} de una gráfica $G$ es el entero $k$ más pequeño tal que existe una
 partición de $E(G)$ de tamaño $k$ en la que cada elemento de la partición
-es una gráfica thrackleable.
+es una gráfica thrackleable. La figura~\ref{fig:exantithickness} ilustra un ejemplo del
+anti-thickness de $K_5$.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.9\linewidth]{exantithickness}
+  \caption{Las aristas de la gráfica completa inducida por los vértices $1,2,3,4$
+  inducen un thrackle topológico (dibujado con lineas continuas)
+  mientras que las aristas con un extremo en el vértice $5$ inducen un thrackle geométrico
+  (dibujado con lineas punteadas).
+  El anti-thickness de $K_5$ es precisamente igual a dos.}
+  \label{fig:exantithickness}
+\end{figure}
 
-El anti-thickness de una gráfica $G$ es el entero $k$ más pequeño tal que existe un
+El \emph{anti-thickness} geométrico de una gráfica $G$ es el entero $k$ más pequeño tal que existe un
 dibujo $\mathsf{G}$ de $G$ para el cual hay una partición de $E(\mathsf{G})$ de tamaño $k$
 en la que cada elemento de la partición es un thrackle.
 \section{Número cromático}
