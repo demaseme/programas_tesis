@@ -5,10 +5,10 @@
 \contentsline {section}{\numberline {2.2}Gr\IeC {\'a}fica geom\IeC {\'e}trica}{17}{section.2.2}
 \contentsline {section}{\numberline {2.3}Thrackles}{18}{section.2.3}
 \contentsline {section}{\numberline {2.4}Tipo de Orden}{20}{section.2.4}
-\contentsline {section}{\numberline {2.5}Anti-thickness y anti-thickness geom\IeC {\'e}trico}{20}{section.2.5}
-\contentsline {section}{\numberline {2.6}N\IeC {\'u}mero crom\IeC {\'a}tico}{21}{section.2.6}
-\contentsline {chapter}{\numberline {3}Estado del arte}{23}{chapter.3}
-\contentsline {chapter}{\numberline {4}Resultados}{33}{chapter.4}
-\contentsline {section}{\numberline {4.1}Descomposiciones por thrackles m\IeC {\'a}ximos.}{33}{section.4.1}
-\contentsline {section}{\numberline {4.2}Anti-thickness geom\IeC {\'e}trico exacto de $K_n$ con $3\leq n \leq 9$.}{36}{section.4.2}
-\contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{41}{chapter.5}
+\contentsline {section}{\numberline {2.5}Anti-thickness y anti-thickness geom\IeC {\'e}trico}{21}{section.2.5}
+\contentsline {section}{\numberline {2.6}N\IeC {\'u}mero crom\IeC {\'a}tico}{22}{section.2.6}
+\contentsline {chapter}{\numberline {3}Estado del arte}{25}{chapter.3}
+\contentsline {chapter}{\numberline {4}Resultados}{35}{chapter.4}
+\contentsline {section}{\numberline {4.1}Descomposiciones por thrackles m\IeC {\'a}ximos.}{35}{section.4.1}
+\contentsline {section}{\numberline {4.2}Anti-thickness geom\IeC {\'e}trico exacto de $K_n$ con $3\leq n \leq 9$.}{38}{section.4.2}
+\contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{43}{chapter.5}

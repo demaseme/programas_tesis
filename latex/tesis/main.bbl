@@ -1,8 +1,14 @@
-\begin{thebibliography}{11}
+\begin{thebibliography}{12}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname url\endcsname\relax
   \def\url#1{{\tt #1}}\fi
 \expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+
+\bibitem[{Aichholzer et~al.(2002)Aichholzer, Aurenhammer, \&
+  Krasser}]{Aichholzer2002}
+Aichholzer, O., Aurenhammer, F., \& Krasser, H. (2002).
+\newblock Enumerating order types for small point sets with applications.
+\newblock {\em Order\/}, {\em 19\/}(3), 265--281.
 
 \bibitem[{Araujo et~al.(2005)Araujo, Dumitrescu, Hurtado, Noy, \&
   Urrutia}]{Araujo2005}

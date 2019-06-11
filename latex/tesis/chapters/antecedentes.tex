@@ -146,8 +146,8 @@ thrackle máximo.
 Un thrackle en el que sus aristas son curvas es conocido como \emph{thrackle topológico}.
 Un thrackle en el que todas sus aristas son segmentos de recta es conocido como
 \emph{thrackle geométrico}. En este trabajo nos referimos a los thrackles geométricos
-como thrackles. En la figura tal podemos notar un ejemplo de thrackle topológico y
-un ejemplo de thrackle geométrico.
+como thrackles de manera indistinta. En la figura tal podemos notar un ejemplo de thrackle
+topológico y un ejemplo de thrackle geométrico.
 
 \begin{figure}[htb]
   \centering
@@ -179,6 +179,29 @@ de subgráficas que cumple con tres condiciones:
 
 Una gráfica $G$ es \emph{thrackleable} si puede ser dibujada en el plano como un thrackle.
 \section{Tipo de Orden}
+Las definiciones de esta sección fueron tomadas de~\cite{Aichholzer2002}.
+El tipo de orden de un conjunto $S$ de $n$ puntos en posición general, digamos
+$S={p_1,p_2,\dots,p_n}$ es una función que asigna a cada tripleta ordenada
+$i,j,k \in \{1,2,\dots,n\}$ la orientación de la tripleta de puntos $\{p_i,p_j,p_k\}$.
+Decimos que dos conjuntos $S_1$ y $S_2$ son \emph{combinatoriamente equivalentes} si
+tienen los mismos tipos de orden. En la figura~\ref{fig:exotk5} observamos conjuntos
+combinatoriamente equivalentes de 5 puntos. En la figura~\ref{fig:ot5}
+plasmamos los diferentes tipos de orden para un conjunto de 5 puntos.
+
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=0.6\linewidth]{exotk5}
+  \caption{Estos dos conjuntos de puntos tienen el mismo tipo de orden.}
+  \label{fig:exotk5}
+\end{figure}
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=0.8\linewidth]{ot5}
+  \caption{Las tres maneras diferentes de distribuir 5 puntos en el plano. Cualquier
+  otra configuración es equivalente a alguna de estas tres configuraciones.}
+  \label{fig:ot5}
+\end{figure}
+
 \section{Anti-thickness y anti-thickness geométrico}
 Las siguientes definiciones fueron tomadas de~\cite{Dujmovic2017}.
 
@@ -186,7 +209,7 @@ El \emph{anti-thickness} de una gráfica $G$ es el entero $k$ más pequeño tal 
 partición de $E(G)$ de tamaño $k$ en la que cada elemento de la partición
 es una gráfica thrackleable. La figura~\ref{fig:exantithickness} ilustra un ejemplo del
 anti-thickness de $K_5$.
-\begin{figure}
+\begin{figure}[htpb]
   \centering
   \includegraphics[width=0.9\linewidth]{exantithickness}
   \caption{Las aristas de la gráfica completa inducida por los vértices $1,2,3,4$
@@ -197,7 +220,46 @@ anti-thickness de $K_5$.
   \label{fig:exantithickness}
 \end{figure}
 
-El \emph{anti-thickness} geométrico de una gráfica $G$ es el entero $k$ más pequeño tal que existe un
-dibujo $\mathsf{G}$ de $G$ para el cual hay una partición de $E(\mathsf{G})$ de tamaño $k$
-en la que cada elemento de la partición es un thrackle.
+El \emph{anti-thickness} geométrico de una gráfica $G$ es el entero $k$ más pequeño tal que
+existe un dibujo $\mathsf{G}$ de $G$ para el cual hay una partición de $E(\mathsf{G})$
+de tamaño $k$ en la que cada elemento de la partición es un thrackle. En la
+figura~\ref{fig:exantithicknessgeo} analizamos un ejemplo del anti-thickness geométrico de $K_5$.
+
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=0.9\linewidth]{exantithicknessgeo}
+  \caption{En esta figura podemos observar una descomposición de $K_5$ en 3 thrackles
+  geométricos. Esta descomposición se muestra en la figura del lado derecho, cada
+  thrackle está identificado con diferentes patrones de línea.}
+  \label{fig:exantithicknessgeo}
+\end{figure}
 \section{Número cromático}
+Las siguientes definiciones fueron tomadas de~\cite{Chartrand2008}.
+
+Una \emph{coloración propia} de los vértices de una gráfica $G$ es la asignación
+de colores a los vértices de $G$. En esta asignación cada vértice tiene un solo color
+asignado y dos vértices adyacentes tienen diferentes colores. Si asignamos $k$ colores
+diferentes de esta manera decimos que tenemos una \emph{k-coloración} de la gráfica $G$.
+Dada una $k$-coloración $c$ de una gráfica $G$ donde cada color es un entero en $1,2,\dots,k$
+y sea $V_i$ el conjunto de vértices de $G$ que tienen el color $i$ asignado. Entonces
+llamamos a $V_i$ una \emph{clase cromática}. Los elementos de $V_i$ otorgan una \emph{partición}
+de los vértices de $G$.
+
+Una gráfica $G$ es \emph{k-colorable} si existe una coloración de $G$ de tamaño $k$.
+El entero positivo $k$ más pequeño para el cual $G$ es $k$-colorable recibe el nombre
+de \emph{número cromático} de $G$. Lo denotamos como $\chi(G)$. El número cromático
+de $G$ es mínimo número de conjuntos independientes que pueden existir en una partición
+de $V(G)$.
+
+La figura~\ref{fig:excoloring} muestra un ejemplo de una coloración propia de una gráfica $G$.
+En este ejemplo ilustramos cada clase cromática dibujando los vértices con diferentes formas,
+en total hay 3 diferentes formas, una cruz, un circulo y un cuadrado.
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=0.5\linewidth]{excoloring}
+  \caption{Una coloración propia de una gráfica $G$. Esta coloración es de tamaño 3, por
+  lo tanto decimos que es una 3-coloración de $G$. Para esta gráfica en particular
+  no existe una coloración más pequeña, decimos que para esta gráfica su número
+  cromático es 3.}
+  \label{fig:excoloring}
+\end{figure}
