@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70206" creator="Ipe 7.2.7">
-<info created="D:20190610160109" modified="D:20190610160109"/>
+<info created="D:20190610160109" modified="D:20190612154834"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -255,44 +255,44 @@ h
 <layer name="alpha"/>
 <view layers="alpha" active="alpha"/>
 <use layer="alpha" name="mark/disk(sx)" pos="240 384" size="normal" stroke="black"/>
-<path stroke="red">
+<path stroke="black">
 192 432 m
 208 384 l
 208 384 l
 </path>
-<path stroke="black" dash="dash dotted">
+<path stroke="black">
 192 432 m
 240 384 l
 </path>
-<path stroke="red">
+<path stroke="black">
 192 432 m
 224 448 l
 </path>
-<path stroke="red">
+<path stroke="black">
 192 432 m
 256 432 l
 </path>
-<path stroke="red">
+<path stroke="black">
 224 448 m
 208 384 l
 </path>
-<path stroke="black" dash="dash dotted">
+<path stroke="black">
 224 448 m
 240 384 l
 </path>
-<path stroke="red">
+<path stroke="black">
 224 448 m
 256 432 l
 </path>
-<path stroke="black" dash="dash dotted">
+<path stroke="black">
 256 432 m
 240 384 l
 </path>
-<path stroke="red">
+<path stroke="black">
 256 432 m
 208 384 l
 </path>
-<path stroke="black" dash="dash dotted">
+<path stroke="black">
 208 384 m
 240 384 l
 </path>
@@ -301,27 +301,27 @@ h
 <text matrix="1 0 0 1 2.48611 -3.10764" transformations="translations" pos="256 432" stroke="black" type="label" width="4.981" height="6.42" depth="0" valign="baseline">3</text>
 <text matrix="1 0 0 1 -5.04602 -8.46947" transformations="translations" pos="208 384" stroke="black" type="label" width="4.981" height="6.42" depth="0" valign="baseline">4</text>
 <text matrix="1 0 0 1 2.27894 -7.66552" transformations="translations" pos="240 384" stroke="black" type="label" width="4.981" height="6.42" depth="0" valign="baseline">5</text>
-<text matrix="1 0 0 1 -6.42246 9.94446" transformations="translations" pos="278.78 403.834" stroke="black" type="label" width="9.963" height="3.655" depth="0" valign="baseline">$\mapsto$</text>
-<path stroke="red">
+<text matrix="1 0 0 1 -6.42246 9.94446" transformations="translations" pos="278.78 403.834" stroke="black" type="label" width="9.963" height="3.655" depth="0" valign="baseline" style="math">\mapsto</text>
+<path stroke="black">
 320 432 m
 288 384 l
 </path>
-<path stroke="red">
+<path stroke="black">
 320 432 m
 331.405 402.524 l
 </path>
-<path stroke="red">
+<path stroke="black">
 331.405 402.524 m
 288 384 l
 </path>
-<path stroke="red">
+<path stroke="black">
 315.746 405.601 m
 328.372 392.607
 339.651 397.388
 339.16 420.557
 320 432 c
 </path>
-<path stroke="red">
+<path stroke="black">
 315.746 405.601 m
 338.302 425.706
 352.768 405.969
@@ -337,7 +337,7 @@ h
 324.853 446.57
 331.405 402.524 c
 </path>
-<path stroke="red">
+<path stroke="black">
 315.746 405.601 m
 311.463 446.759
 318.818 449.022
@@ -351,19 +351,19 @@ h
 <use name="mark/disk(sx)" pos="352 416" size="normal" stroke="black"/>
 <use name="mark/disk(sx)" pos="368 432" size="normal" stroke="black"/>
 <use name="mark/disk(sx)" pos="384 432" size="normal" stroke="black"/>
-<path stroke="black" dash="dash dotted">
+<path stroke="black">
 352 384 m
 384 384 l
 </path>
-<path stroke="black" dash="dash dotted">
+<path stroke="black">
 352 416 m
 384 384 l
 </path>
-<path stroke="black" dash="dash dotted">
+<path stroke="black">
 368 432 m
 384 384 l
 </path>
-<path stroke="black" dash="dash dotted">
+<path stroke="black">
 384 432 m
 384 384 l
 </path>

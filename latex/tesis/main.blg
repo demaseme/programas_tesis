@@ -5,45 +5,45 @@ The style file: apa-good.bst.bst
 Database file #1: bibliografia.bib.bib
 Warning--can't use both author and editor fields in Chartrand2008
 Warning--can't use both author and editor fields in Pach2013
-You've used 12 entries,
+You've used 14 entries,
             2804 wiz_defined-function locations,
-            671 strings with 6696 characters,
-and the built_in function-call counts, 7044 in all, are:
-= -- 564
-> -- 298
-< -- 9
-+ -- 120
-- -- 99
-* -- 548
-:= -- 1098
-add.period$ -- 37
-call.type$ -- 12
-change.case$ -- 94
-chr.to.int$ -- 11
-cite$ -- 14
-duplicate$ -- 516
-empty$ -- 509
-format.name$ -- 139
-if$ -- 1368
+            683 strings with 6962 characters,
+and the built_in function-call counts, 7970 in all, are:
+= -- 636
+> -- 335
+< -- 10
++ -- 134
+- -- 111
+* -- 610
+:= -- 1255
+add.period$ -- 44
+call.type$ -- 14
+change.case$ -- 106
+chr.to.int$ -- 13
+cite$ -- 16
+duplicate$ -- 582
+empty$ -- 585
+format.name$ -- 155
+if$ -- 1552
 int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 107
-newline$ -- 69
-num.names$ -- 48
-pop$ -- 219
+missing$ -- 123
+newline$ -- 79
+num.names$ -- 56
+pop$ -- 253
 preamble$ -- 1
-purify$ -- 81
+purify$ -- 93
 quote$ -- 0
-skip$ -- 192
+skip$ -- 223
 stack$ -- 0
-substring$ -- 288
-swap$ -- 281
+substring$ -- 310
+swap$ -- 309
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 102
+type$ -- 114
 warning$ -- 2
-while$ -- 50
+while$ -- 56
 width$ -- 0
-write$ -- 162
+write$ -- 187
 (There were 2 warnings)

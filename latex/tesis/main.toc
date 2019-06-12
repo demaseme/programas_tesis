@@ -2,8 +2,8 @@
 \contentsline {chapter}{\numberline {1}Introducci\IeC {\'o}n}{13}{chapter.1}
 \contentsline {chapter}{\numberline {2}Antecedentes}{15}{chapter.2}
 \contentsline {section}{\numberline {2.1}Gr\IeC {\'a}fica}{15}{section.2.1}
-\contentsline {section}{\numberline {2.2}Gr\IeC {\'a}fica geom\IeC {\'e}trica}{17}{section.2.2}
-\contentsline {section}{\numberline {2.3}Thrackles}{18}{section.2.3}
+\contentsline {section}{\numberline {2.2}Gr\IeC {\'a}fica geom\IeC {\'e}trica}{18}{section.2.2}
+\contentsline {section}{\numberline {2.3}Thrackles}{19}{section.2.3}
 \contentsline {section}{\numberline {2.4}Tipo de Orden}{20}{section.2.4}
 \contentsline {section}{\numberline {2.5}Anti-thickness y anti-thickness geom\IeC {\'e}trico}{21}{section.2.5}
 \contentsline {section}{\numberline {2.6}N\IeC {\'u}mero crom\IeC {\'a}tico}{22}{section.2.6}

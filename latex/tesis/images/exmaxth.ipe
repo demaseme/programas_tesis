@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70206" creator="Ipe 7.2.7">
-<info created="D:20190610152816" modified="D:20190610152816"/>
+<info created="D:20190610152816" modified="D:20190612143526"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -254,24 +254,51 @@ h
 <page>
 <layer name="alpha"/>
 <view layers="alpha" active="alpha"/>
-<use layer="alpha" name="mark/disk(sx)" pos="288 768" size="normal" stroke="black"/>
-<use name="mark/disk(sx)" pos="240 736" size="normal" stroke="black"/>
-<use name="mark/disk(sx)" pos="272 704" size="normal" stroke="black"/>
-<use matrix="1 0 0 1 -16 16" name="mark/disk(sx)" pos="336 704" size="normal" stroke="black"/>
-<use matrix="1 0 0 1 -32 -16" name="mark/disk(sx)" pos="320 752" size="normal" stroke="black"/>
+<use layer="alpha" name="mark/disk(sx)" pos="400 768" size="normal" stroke="black"/>
+<use name="mark/disk(sx)" pos="400 736" size="normal" stroke="black"/>
+<use name="mark/disk(sx)" pos="400 704" size="normal" stroke="black"/>
+<use name="mark/disk(sx)" pos="448 768" size="normal" stroke="black"/>
+<use name="mark/disk(sx)" pos="448 736" size="normal" stroke="black"/>
+<use name="mark/disk(sx)" pos="448 704" size="normal" stroke="black"/>
 <path stroke="black">
-288 768 m
-240 736 l
-272 704 l
-288 768 l
+400 768 m
+480.428 735.912
+480.635 719.752
+448 704 c
 </path>
 <path stroke="black">
-240 736 m
-288 736 l
+448 704 m
+384.298 687.433
+367.724 702.764
+367.932 720.167
+400 736 c
 </path>
 <path stroke="black">
-240 736 m
-320 720 l
+400 736 m
+480.428 719.752
+481.05 734.876
+480.221 751.658
+448 768 c
+</path>
+<path stroke="black">
+448 768 m
+372.697 731.561
+372.697 725.553
+400 704 c
+</path>
+<path stroke="black">
+400 704 m
+463.44 692.405
+492.237 705.872
+489.958 724.31
+448 736 c
+</path>
+<path stroke="black">
+448 736 m
+401.701 722.86
+379.326 735.912
+381.191 755.801
+400 768 c
 </path>
 </page>
 </ipe>

@@ -228,4 +228,14 @@
   publisher = {Springer},
 }
 
+@Book{Schaefer2018,
+  title     = {Crossing numbers of graphs},
+  publisher = {CRC Press},
+  year      = {2018},
+  author    = {Schaefer, Marcus},
+  series    = {Discrete Mathematics and Its Applications},
+  isbn      = {9781315152394,1315152398,9781498750509,1498750508,978-1-4987-5049-3},
+  pages     = {279},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}
