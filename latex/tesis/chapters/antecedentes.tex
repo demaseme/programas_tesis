@@ -179,17 +179,30 @@ de subgráficas que cumple con tres condiciones:
 Una gráfica (abstracta) $G$ es \emph{thrackleable} si puede ser dibujada en el plano como un thrackle.
 \section{Tipo de Orden}
 Las definiciones de esta sección fueron tomadas de~\cite{Aichholzer2002}.
+
 El tipo de orden de un conjunto $S$ de $n$ puntos en posición general, digamos
 $S=\{p_1,p_2,\dots,p_n\}$ es una función que asigna a cada tripleta ordenada
 $i,j,k \in \{1,2,\dots,n\}$ la orientación de la tripleta de puntos $\{p_i,p_j,p_k\}$\footnote{
 Tres puntos en el plano en posición general pueden tener una orientación en sentido horario
-o una orientación en sentido anti-horario.}. En la figura X mostramos un ejemplo de
+o una orientación en sentido anti-horario.}. En la figura~\ref{fig:triplet} mostramos un ejemplo de
 cada orientación posible para una tripleta.
 Decimos que dos conjuntos $S_1$ y $S_2$ son \emph{combinatoriamente equivalentes} si
-tienen el mismo tipo de orden. En la figura~\ref{fig:exotk5} presentamos conjuntos
+tienen el mismo tipo de orden. Si $S_1$ y $S_2$ son combinatoriamente equivalentes
+dos segmentos en $S_1$ se cruzan si y solo si los segmentos correspondientes en $S_2$
+se cruzan. Solo hay una manera (combinatoriamente equivalente) de acomodar 3 puntos,
+dos maneras de acomodar 4 puntos y tres maneras de acomodar 5 puntos.
+En la figura~\ref{fig:exotk5} presentamos conjuntos
 combinatoriamente equivalentes de 5 puntos. En la figura~\ref{fig:ot5}
 mostramos los diferentes tipos de orden para un conjunto de 5 puntos.
-
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=0.36\linewidth]{triplet}
+  \caption{Esta figura muestra las posibles orientaciones de una tripleta de puntos. La tripleta $\{p,q,w\}$ tiene
+  una orientación de $-1$ porque $w$ está a la derecha del segmento formado por los puntos $p,q$. La tripleta $\{p,q,u\}$ tiene
+  una orientación de $1$  porque $u$ está a la izquierda del mismo segmento. La tripleta $\{q,p,x\}$ tiene una orientación
+  con un valor de $1$.}
+  \label{fig:triplet}
+\end{figure}
 \begin{figure}[htpb]
   \centering
   \includegraphics[width=0.6\linewidth]{exotk5}
@@ -203,6 +216,40 @@ mostramos los diferentes tipos de orden para un conjunto de 5 puntos.
   otra configuración es equivalente a alguna de estas tres configuraciones.}
   \label{fig:ot5}
 \end{figure}
+
+No es trivial enumerar o contar los conjuntos combinatoriamente diferentes, por ejemplo,
+para 10 puntos el número de conjuntos combinatoriamente diferentes es $14,309,547$.
+
+En el trabajo de~\cite{Aichholzer2002} ofrecen una base de datos que contiene los conjuntos
+combiantoriamente diferentes para $n\leq 10$. En la tabla~\ref{tab:ots} se presenta el número
+de conjuntos diferentes para cada $n$ y el tamaño en bytes de la base de datos.
+
+En este trabajo buscamos descomposiciones de gráficas
+geométricas completas en thrackles. Es imposible analizar todos los posibles conjuntos de $n$ puntos en el plano
+ya que existe un número infinito de ellos, es por esta razón que usamos el tipo de orden.
+El tipo de orden nos otorga un número contable de conjuntos de $n$ puntos combinatoriamente diferentes
+para $n\leq 10$ y nos garantiza que cualquier otra configuración de puntos es combinatoriamente equivalente
+a algun tipo de orden para alguna $n$ en particular. Como se mencionó antes, un conjunto de puntos en posición general
+induce una gráfica completa en el plano. Analizamos cada tipo de orden para cada $n\leq 10$
+y de esta forma podemos obtener resultados computacionales del anti-thickness geométrico
+que aplican para cualquier conjunto de $n$ puntos con $n\leq 10$.
+\begin{table}[ht]
+  \centering
+  \begin{tabular}{|c|c|r|}
+  \hline
+  $n$ & Número de conjuntos & Tamaño    \\ \hline
+  3     & 1                   & 6       \\ \hline
+  4     & 2                   & 16      \\ \hline
+  5     & 3                   & 30      \\ \hline
+  6     & 16                  & 192     \\ \hline
+  7     & 135                 & 1890    \\ \hline
+  8     & 3315                & 53040   \\ \hline
+  9     & 158817              &	5 717 412   \\\hline
+  10    & 14309547            & 572 381 880 \\ \hline
+  \end{tabular}
+  \caption{Tipos de orden para cada $n\leq10$.}
+  \label{tab:ots}
+\end{table}
 
 \section{Anti-thickness y anti-thickness geométrico}
 Las siguientes definiciones fueron tomadas de~\cite{Dujmovic2017}.
