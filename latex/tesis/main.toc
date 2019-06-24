@@ -1,12 +1,12 @@
 \babel@toc {spanish}{}
 \contentsline {chapter}{\numberline {1}Introducci\IeC {\'o}n}{13}{chapter.1}
 \contentsline {chapter}{\numberline {2}Antecedentes}{15}{chapter.2}
-\contentsline {section}{\numberline {2.1}Gr\IeC {\'a}fica}{15}{section.2.1}
-\contentsline {section}{\numberline {2.2}Gr\IeC {\'a}fica geom\IeC {\'e}trica}{18}{section.2.2}
-\contentsline {section}{\numberline {2.3}Thrackles}{19}{section.2.3}
-\contentsline {section}{\numberline {2.4}Tipo de Orden}{20}{section.2.4}
-\contentsline {section}{\numberline {2.5}Anti-thickness y anti-thickness geom\IeC {\'e}trico}{22}{section.2.5}
-\contentsline {section}{\numberline {2.6}N\IeC {\'u}mero crom\IeC {\'a}tico}{24}{section.2.6}
+\contentsline {section}{\numberline {2.1}Gr\IeC {\'a}ficas}{15}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Gr\IeC {\'a}fica geom\IeC {\'e}trica}{18}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Thrackles}{19}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.3}Tipo de Orden}{21}{subsection.2.1.3}
+\contentsline {section}{\numberline {2.2}Anti-thickness y anti-thickness geom\IeC {\'e}trico}{23}{section.2.2}
+\contentsline {section}{\numberline {2.3}N\IeC {\'u}mero crom\IeC {\'a}tico}{25}{section.2.3}
 \contentsline {chapter}{\numberline {3}Estado del arte}{27}{chapter.3}
 \contentsline {chapter}{\numberline {4}Resultados}{37}{chapter.4}
 \contentsline {section}{\numberline {4.1}Descomposiciones por thrackles m\IeC {\'a}ximos.}{37}{section.4.1}

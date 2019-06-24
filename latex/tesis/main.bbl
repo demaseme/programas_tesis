@@ -16,11 +16,6 @@ Araujo, G., Dumitrescu, A., Hurtado, F., Noy, M., \& Urrutia, J. (2005).
 \newblock On the chromatic number of some geometric type kneser graphs.
 \newblock {\em Comput. Geom.\/}, {\em 32\/}(1), 59--69.
 
-\bibitem[{Brass et~al.(2006)Brass, Moser, \& Pach}]{brass2006research}
-Brass, P., Moser, W.~O., \& Pach, J. (2006).
-\newblock {\em Research problems in discrete geometry\/}.
-\newblock Springer Science \& Business Media.
-
 \bibitem[{Chartrand \& Zhang(2008)}]{Chartrand2008}
 Chartrand, G., \& Zhang, P. (2008).
 \newblock {\em Chromatic Graph Theory\/}.
@@ -56,6 +51,11 @@ Fabila-Monroy, R., Jonsson, J., Valtr, P., \& Wood, D.~R. (2018{\natexlab{a}}).
 Fabila-Monroy, R., Jonsson, J., Valtr, P., \& Wood, D.~R. (2018{\natexlab{b}}).
 \newblock The exact chromatic number of the convex segment disjointness graph.
 \newblock {\em arXiv preprint arXiv:1804.01057\/}, (p.~6).
+
+\bibitem[{Fulek \& Pach(2011)}]{Fulek2011}
+Fulek, R., \& Pach, J. (2011).
+\newblock A computational approach to conway's thrackle conjecture.
+\newblock {\em Computational Geometry\/}, {\em 44\/}(6-7), 345--355.
 
 \bibitem[{Hurtado(2009)}]{OpenGarden2009}
 Hurtado, F. (2009).

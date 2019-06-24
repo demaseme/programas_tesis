@@ -7,43 +7,43 @@ Warning--can't use both author and editor fields in Chartrand2008
 Warning--can't use both author and editor fields in Pach2013
 You've used 14 entries,
             2804 wiz_defined-function locations,
-            683 strings with 6962 characters,
-and the built_in function-call counts, 7970 in all, are:
-= -- 636
-> -- 335
-< -- 10
-+ -- 134
-- -- 111
-* -- 610
-:= -- 1255
+            687 strings with 6967 characters,
+and the built_in function-call counts, 8043 in all, are:
+= -- 649
+> -- 327
+< -- 11
++ -- 133
+- -- 108
+* -- 616
+:= -- 1257
 add.period$ -- 44
 call.type$ -- 14
 change.case$ -- 106
 chr.to.int$ -- 13
 cite$ -- 16
-duplicate$ -- 582
-empty$ -- 585
-format.name$ -- 155
-if$ -- 1552
+duplicate$ -- 590
+empty$ -- 592
+format.name$ -- 154
+if$ -- 1566
 int.to.chr$ -- 2
 int.to.str$ -- 1
 missing$ -- 123
 newline$ -- 79
 num.names$ -- 56
-pop$ -- 253
+pop$ -- 247
 preamble$ -- 1
-purify$ -- 93
+purify$ -- 92
 quote$ -- 0
 skip$ -- 223
 stack$ -- 0
-substring$ -- 310
-swap$ -- 309
+substring$ -- 337
+swap$ -- 318
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 114
+type$ -- 117
 warning$ -- 2
-while$ -- 56
+while$ -- 58
 width$ -- 0
-write$ -- 187
+write$ -- 188
 (There were 2 warnings)

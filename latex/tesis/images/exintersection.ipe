@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70206" creator="Ipe 7.2.7">
-<info created="D:20190610135448" modified="D:20190610135448"/>
+<info created="D:20190610135448" modified="D:20190624132232"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -275,10 +275,10 @@ h
 112 752 l
 </path>
 <use name="mark/disk(sx)" pos="112 752" size="normal" stroke="black"/>
-<text matrix="1 0 0 1 -7.23682 -2.11809" transformations="translations" pos="80 768" stroke="black" type="label" width="4.981" height="6.42" depth="0" valign="baseline">1</text>
-<text matrix="1 0 0 1 3.88317 -4.76571" transformations="translations" pos="64 704" stroke="black" type="label" width="4.981" height="6.42" depth="0" valign="baseline">2</text>
-<text matrix="1 0 0 1 2.47111 -3.88317" transformations="translations" pos="112 704" stroke="black" type="label" width="4.981" height="6.42" depth="0" valign="baseline">3</text>
-<text matrix="1 0 0 1 -0.353016 3.00063" transformations="translations" pos="80 736" stroke="black" type="label" width="4.981" height="6.42" depth="0" valign="baseline">4</text>
-<text matrix="1 0 0 1 3.00063 0.529523" transformations="translations" pos="112 752" stroke="black" type="label" width="4.981" height="6.42" depth="0" valign="baseline">5</text>
+<text matrix="1 0 0 1 -4.36823 4.25656" transformations="translations" pos="80 768" stroke="black" type="label" width="9.298" height="4.294" depth="1.49" valign="baseline" style="math">v_1</text>
+<text matrix="1 0 0 1 3.88317 -2.85331" transformations="translations" pos="64 704" stroke="black" type="label" width="9.298" height="4.294" depth="1.49" valign="baseline" style="math">v_2</text>
+<text matrix="1 0 0 1 1.83364 3.12895" transformations="translations" pos="112 704" stroke="black" type="label" width="9.298" height="4.294" depth="1.49" valign="baseline" style="math">v_3</text>
+<text matrix="1 0 0 1 -4.65591 3.6381" transformations="translations" pos="80 736" stroke="black" type="label" width="9.298" height="4.294" depth="1.49" valign="baseline" style="math">v_4</text>
+<text matrix="1 0 0 1 2.52253 2.12319" transformations="translations" pos="112 752" stroke="black" type="label" width="9.298" height="4.294" depth="1.49" valign="baseline" style="math">v_5</text>
 </page>
 </ipe>
