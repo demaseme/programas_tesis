@@ -1,0 +1,35 @@
+En el área de geométria combinatoria existe un problema en el cual se busca
+obtener una descomposición de una gráfica completa con tamaño mínimo y en el
+que cada uno de sus elementos sea un thrackle. En este trabajo exploramos
+soluciones de este problema para gráficas completas de hasta diez vértices
+utilizando herramientas de la geometría computacional.
+Este problema, que recibe el nombre de anti-thickness de una gráfica completa $K_n$ ($At_g(K_n)$), ha sido estudiado con anterioridad %citar?%
+para gráficas geométricas cuyos vértices están en posición convexa ($At_c(K_n)$)
+y se sabe que \[At_c(K_n) = n - \left\lfloor\sqrt{2n + \frac{1}{4}}- \frac{1}{2}\right\rfloor\].
+Dichos resultados fueron encontrados usando técnicas combinatorias y geométricas.
+Para el caso en el que los puntos de la gráfica completa están
+en posición general existen las siguientes cotas:
+\[ \frac{n-1}{2} \leq At_g(K_n) \leq n - \left\lfloor\sqrt{2n + \frac{1}{4}}- \frac{1}{2}\right\rfloor.\]
+
+La cota superior proviene del caso en el que los puntos están en posición convexa
+mientras que la cota inferior proviene del hecho de que un thrackle máximo tiene
+a lo más $n$ aristas. Sin embargo, esto significaría que cuando los puntos
+están en posición general los thrackles máximos son disjuntos en aristas. Esto
+no es verdad en posición convexa, esto nos da lugar para cuestionarnos si en realidad
+esta cota es justa para posición general.
+
+En esta tesis encontramos que en efecto $At_g(K_n) = n - \left\lfloor\sqrt{2n + \frac{1}{4}}- \frac{1}{2}\right\rfloor$ para $n\leq 10$.
+Nosotros usamos la información que proveen los tipos de orden para conjuntos de hasta diez puntos para inducir una
+gráfica completa y obtener descomposiciones en thrackles usando algoritmos exhaustivos. Además buscamos información
+acerca del número de cruce de las descomposiciones para tratar de explicar las características de los conjuntos
+de puntos en posición general que alcanzan el anti-thickness geométrico de la posición convexa.
+
+En el siguiente capítulo se explican a detalle y de manera más formal las definiciones que usamos en este trabajo y que
+son necesarias para entender el desarrollo de la tesis, después hacemos un recuento de los resultados
+obtenidos acerca del anti-thickness geométrico y tratamos de explicar el origen del concepto tomando en cuenta
+un problema propuesto con anterioridad, luego, en la sección de resultados, explicaremos los resultados del trabajo y cómo fueron
+obtenidos. En esta sección exponemos los algoritmos usados para las búsquedas exhaustivas. Finalmente
+mencionaremos las conclusiones y posible trabajo futuro.
+
+% De manera sencilla observamos que la cota no es justa para $K_5$, si consideramos todos los tipos de orden para $K_5$, ninguno
+% tiene una descomposición por thrackles cuyo tamaño sea menor a tres.

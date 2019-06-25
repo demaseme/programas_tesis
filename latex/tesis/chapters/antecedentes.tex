@@ -156,7 +156,7 @@ $n$ aristas. La figura~\ref{fig:exmaxth} muestra un thrackle máximo.
 
 \begin{figure}[htpb]
   \centering
-  \includegraphics[width=0.35\linewidth]{exmaxth}
+  \includegraphics[width=0.45\linewidth]{exmaxth}
   \caption{Un thrackle máximo sobre un conjunto de seis vértices.}
   \label{fig:exmaxth}
 \end{figure}
@@ -219,7 +219,7 @@ asignamos a esa tripleta un valor positivo. En la figura~\ref{fig:triplet} mostr
 cada orientación posible para una tripleta.
 \begin{figure}[htpb]
   \centering
-  \includegraphics[width=0.36\linewidth]{triplet}
+  \includegraphics[width=0.30\linewidth]{triplet}
   \caption{Esta figura muestra las posibles orientaciones de una tripleta de puntos. La tripleta $\{p,q,w\}$ tiene
   asignado el valor de $(-)$ porque $w$ está a la derecha del segmento formado por los puntos $p,q$. La tripleta $\{p,q,u\}$ tiene
   asignado el valor de $(+)$  porque $u$ está a la izquierda del mismo segmento.}
@@ -261,16 +261,15 @@ mostramos los diferentes tipos de orden para un conjunto de 5 puntos.
 No es trivial enumerar o contar los conjuntos combinatoriamente diferentes, por ejemplo,
 dados $n$ puntos podemos colocarlos en posición convexa y obtener el primer tipo de orden
 para $n$ puntos, luego podemos colocar $n-1$ puntos en posición convexa y un punto dentro
-del $n-1$-gono y evaluar de cuántas maneras combinatoriamente distintas es posible colocar
+del $(n-1)$-gono y evaluar de cuántas maneras combinatoriamente distintas es posible colocar
 un punto dentro del polígono. Posteriormente podemos ver que pasa con $n-2$ puntos
-en posición convexa y dos dentro y así sucesivamente hasta que tengamos 3 puntos en posición
+en posición convexa y dos dentro del $(n-2)-gono$ y así sucesivamente hasta que tengamos 3 puntos en posición
 convexa y $n-(n-3)$ dentro del triángulo. Usando una técnica parecida se sabe que para $n=10$
-hay más de 10 millones de tipos de orden.
+hay más de 14 millones de tipos de orden.
 
-En el trabajo de~\cite{Aichholzer2002} ofrecen una base de datos que contiene los conjuntos
+En el trabajo de~\cite{Aichholzer2002} se ofrece una base de datos que contiene los conjuntos
 combinatoriamente diferentes para $n\leq 10$. En la tabla~\ref{tab:ots} se presenta el número
 de conjuntos diferentes para cada $n$ y el tamaño en bytes de la base de datos.
-
 
 Es imposible analizar todos los posibles conjuntos de $n$ puntos en el plano
 ya que existe un número infinito de ellos. Sin embargo, para $n\leq 10$, el trabajo de~\cite{Aichholzer2002}
@@ -290,7 +289,7 @@ formalmente en seguida.
   \centering
   \begin{tabular}{|c|c|r|}
   \hline
-  $n$ & Número de conjuntos & Tamaño    \\ \hline
+  $n$ & Número de tipos de orden & Tamaño (bytes)   \\ \hline
   3     & 1                   & 6       \\ \hline
   4     & 2                   & 16      \\ \hline
   5     & 3                   & 30      \\ \hline
@@ -363,9 +362,9 @@ Un color puede ser un color como rojo, verde, amarillo, etc. cuando el número
 de colores a usar es pequeño, de otra forma se usan enteros $1,2,\dots,k$
 para algún entero positivo $k$. Si la coloración propia usa $k$ colores
 diferentes de esta manera decimos que tenemos una \emph{k-coloración} de la gráfica $G$.
-Dada una $k$-coloración de una gráfica $G$, sea $V_i$ el conjunto de vértices
-de $G$ que tienen el color $i$ asignado llamamos a $V_i$
-una \emph{clase cromática}. El conjunto $\{V_1,V_2,\dots,V_k\}$ genera una \emph{partición}
+Dada una $k$-coloración de una gráfica $G$, si $V_i$ es el conjunto de vértices
+de $G$ que tienen el color $i$ asignado, entonces llamamos a $V_i$
+una \emph{clase cromática}. El conjunto $\{V_1,V_2,\dots,V_k\}$ genera una partición
 en conjuntos independientes de los vértices de $G$.
 
 Una gráfica $G$ es \emph{k-colorable} si existe una coloración propia de $G$ de tamaño $k$.
@@ -390,3 +389,17 @@ representados por una cruz, un círculo y un cuadrado.
   color asignado y no son adyacentes entre sí.}
   \label{fig:excoloring}
 \end{figure}
+
+%%RESUMEN DE CAPITULO
+En este capítulo explicamos los conceptos necesarios para entender el trabajo realizado
+en esta tesis. Empezamos hablando de gráficas abstractas y después de su representación en
+el plano usando aristas que son curvas y usando aristas que son segmentos de recta a las cuales
+llamamos gráficas geométricas. Continuamos definiendo un tipo especial de gráfica geométrica
+en la cual cada par de aristas se intersecta, este tipo de gráfica geométrica recibe el nombre de thrackle.
+Después hablamos del anti-thickness geométrico de una gráfica como el mínimo número de thrackles que existen
+en una descomposición de un dibujo de una gráfica. Finalmente mencionamos el número cromático
+como el mínimo número de conjuntos independientes que existen en una partición de los vértices de una
+gráfica. Este último punto es de importancia para el siguiente capítulo pues explicamos cómo
+el problema de encontrar el anti-thickness geométrico de una gráfica puede ser visto como
+un problema de encontrar el número cromático. Además hablaremos de cuáles son los aportes
+más recientes acerca del problema del anti-thickness geométrico. 
