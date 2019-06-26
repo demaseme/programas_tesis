@@ -1,11 +1,23 @@
+Este trabajo está ubicado en el área de la geometría combinatoria y en el área de
+geometría computacional.
+
+Una gráfica es un conjunto de vértices junto con un conjunto de aristas
+que unen pares de vértices. Cuando la gráfica tiene todas las aristas posibles
+decimos que es una gráfica completa. Cuando representamos la gráfica
+en el plano, es decir, cuando sus vértices son puntos en $\mathbf{R}^2$ y sus
+aristas son curvas que unen dos puntos, decimos que tenemos un dibujo de la gráfica.
+Cuando las aristas son todas segmentos de recta, decimos que la gráfica es geométrica.
+Cuando las aristas del dibujo de la gráfica se intersectan a pares la gráfica es un thrackle.
+
 En el área de geométria combinatoria existe un problema en el cual se busca
 obtener una descomposición de una gráfica completa con tamaño mínimo y en el
-que cada uno de sus elementos sea un thrackle. En este trabajo exploramos
-soluciones de este problema para gráficas completas de hasta diez vértices
+que cada uno de los elementos de la partición sea un thrackle. En este trabajo exploramos
+una solución a este problema para gráficas completas de hasta diez vértices
 utilizando herramientas de la geometría computacional.
-Este problema, que recibe el nombre de anti-thickness de una gráfica completa $K_n$ ($At_g(K_n)$), ha sido estudiado con anterioridad %citar?%
-para gráficas geométricas cuyos vértices están en posición convexa ($At_c(K_n)$)
-y se sabe que \[At_c(K_n) = n - \left\lfloor\sqrt{2n + \frac{1}{4}}- \frac{1}{2}\right\rfloor\].
+Este problema, que recibe el nombre de anti-thickness de una gráfica completa $K_n$ y se denota como $At_g(K_n)$
+ha sido estudiado con anterioridad para gráficas geométricas cuyos vértices están en posición convexa~(\cite{Fabila-Monroy2018}).
+A esta variación del problema la denotamos como $At_c(K_n)$.
+Se sabe que \[At_c(K_n) = n - \left\lfloor\sqrt{2n + \frac{1}{4}}- \frac{1}{2}\right\rfloor.\]
 Dichos resultados fueron encontrados usando técnicas combinatorias y geométricas.
 Para el caso en el que los puntos de la gráfica completa están
 en posición general existen las siguientes cotas:
@@ -15,7 +27,7 @@ La cota superior proviene del caso en el que los puntos están en posición conv
 mientras que la cota inferior proviene del hecho de que un thrackle máximo tiene
 a lo más $n$ aristas. Sin embargo, esto significaría que cuando los puntos
 están en posición general los thrackles máximos son disjuntos en aristas. Esto
-no es verdad en posición convexa, esto nos da lugar para cuestionarnos si en realidad
+no es verdad en posición convexa, lo cual da lugar para cuestionarnos si en realidad
 esta cota es justa para posición general.
 
 En esta tesis encontramos que en efecto $At_g(K_n) = n - \left\lfloor\sqrt{2n + \frac{1}{4}}- \frac{1}{2}\right\rfloor$ para $n\leq 10$.
@@ -24,7 +36,8 @@ gráfica completa y obtener descomposiciones en thrackles usando algoritmos exha
 acerca del número de cruce de las descomposiciones para tratar de explicar las características de los conjuntos
 de puntos en posición general que alcanzan el anti-thickness geométrico de la posición convexa.
 
-En el siguiente capítulo se explican a detalle y de manera más formal las definiciones que usamos en este trabajo y que
+La tesis está organizada de la siguiente manera: en el siguiente capítulo se explican
+ a detalle y de manera más formal las definiciones que usamos en este trabajo y que
 son necesarias para entender el desarrollo de la tesis, después hacemos un recuento de los resultados
 obtenidos acerca del anti-thickness geométrico y tratamos de explicar el origen del concepto tomando en cuenta
 un problema propuesto con anterioridad, luego, en la sección de resultados, explicaremos los resultados del trabajo y cómo fueron
