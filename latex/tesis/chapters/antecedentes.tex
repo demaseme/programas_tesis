@@ -221,8 +221,8 @@ cada orientación posible para una tripleta.
   \centering
   \includegraphics[width=0.30\linewidth]{triplet}
   \caption{Esta figura muestra las posibles orientaciones de una tripleta de puntos. La tripleta $\{p,q,w\}$ tiene
-  asignado el valor de $(-)$ porque $w$ está a la derecha del segmento formado por los puntos $p,q$. La tripleta $\{p,q,u\}$ tiene
-  asignado el valor de $(+)$  porque $u$ está a la izquierda del mismo segmento.}
+  asignado el valor de $(-)$ porque $w$ orientado en sentido horario con respecto del segmento $\overline{pq}$. La tripleta $\{p,q,u\}$
+  tiene asignado el valor de $(+)$  porque $u$ orientado en sentido anti-horario con respecto del mismo segmento.}
   \label{fig:triplet}
 \end{figure}
 
@@ -274,13 +274,12 @@ de conjuntos diferentes para cada $n$ y el tamaño en bytes de la base de datos.
 Es imposible analizar todos los posibles conjuntos de $n$ puntos en el plano
 ya que existe un número infinito de ellos. Sin embargo, para $n\leq 10$, el trabajo de~\cite{Aichholzer2002}
 nos otorga un número finito de conjuntos de $n$ puntos combinatoriamente diferentes.
-Analizar los tipos de orden proveidos es equivalente a analizar todos los conjuntos de $n$ puntos
-en el plano para $n\leq 10$.
+Analizar los tipos de orden proveidos es equivalente a analizar todos los conjuntos de hasta diez puntos.
 
 En este trabajo buscamos descomposiciones de gráficas geométricas completas en thrackles.
-Y como se mencionó antes, un conjunto de $n$ puntos en posición general
+Como se mencionó antes, un conjunto de $n$ puntos en posición general
 induce una gráfica completa de $n$ vértices en el plano. Nosotros analizamos
-cada tipo de orden para cada $n\leq 10$: inducimos la gráfica completa de $n$ vértices,
+cada tipo de orden para cada $n\leq 10$ induciendo la gráfica completa de $n$ vértices depués
 examinamos sus thrackles y luego buscamos una descomposición. Cuando buscamos
 una descomposición por thrackles de una gráfica minimizando el número de thrackles utilizados
 estamos buscando el anti-thickness de la gráfica. Dicho concepto será explicado
@@ -396,10 +395,12 @@ en esta tesis. Empezamos hablando de gráficas abstractas y después de su repre
 el plano usando aristas que son curvas y usando aristas que son segmentos de recta a las cuales
 llamamos gráficas geométricas. Continuamos definiendo un tipo especial de gráfica geométrica
 en la cual cada par de aristas se intersecta, este tipo de gráfica geométrica recibe el nombre de thrackle.
+Luego explicamos el tipo de orden como herramienta para discretizar el número de dibujos
+posibles de una gráfica en el plano.
 Después hablamos del anti-thickness geométrico de una gráfica como el mínimo número de thrackles que existen
-en una descomposición de un dibujo de una gráfica. Finalmente mencionamos el número cromático
+en una descomposición para todos los dibujos de una gráfica. Finalmente mencionamos el número cromático
 como el mínimo número de conjuntos independientes que existen en una partición de los vértices de una
 gráfica. Este último punto es de importancia para el siguiente capítulo pues explicamos cómo
 el problema de encontrar el anti-thickness geométrico de una gráfica puede ser visto como
 un problema de encontrar el número cromático. Además hablaremos de cuáles son los aportes
-más recientes acerca del problema del anti-thickness geométrico. 
+más recientes acerca del problema del anti-thickness geométrico.
