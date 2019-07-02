@@ -209,12 +209,33 @@
   year         = {2009},
 }
 
-@Article{Fabila-Monroy2018-6,
+@Article{Fabila-Monroy2018-poly,
   author  = {Fabila-Monroy, Ruy and Jonsson, Jakob and Valtr, Pavel and Wood, David R},
   title   = {The exact chromatic number of the convex segment disjointness graph},
   journal = {arXiv preprint arXiv:1804.01057},
   year    = {2018},
   pages   = {6},
+}
+
+@Article{Lara2019,
+  author    = {Lara, Dolores and Rubio-Montiel, Christian},
+  title     = {On crossing families of complete geometric graphs},
+  journal   = {Acta Mathematica Hungarica},
+  year      = {2019},
+  volume    = {157},
+  number    = {2},
+  pages     = {301--311},
+  publisher = {Springer},
+}
+
+@Book{Schaefer2018,
+  title     = {Crossing numbers of graphs},
+  publisher = {CRC Press},
+  year      = {2018},
+  author    = {Schaefer, Marcus},
+  series    = {Discrete Mathematics and Its Applications},
+  isbn      = {9781315152394,1315152398,9781498750509,1498750508,978-1-4987-5049-3},
+  pages     = {279},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}

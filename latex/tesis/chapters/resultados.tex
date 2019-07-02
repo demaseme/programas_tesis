@@ -1,3 +1,111 @@
+El principal resultado de este trabajo es que encontramos el valor exacto del
+anti-thickness geométrico para la gráfica completa de hasta diez vértices en posición general.
+Dicho valor exacto fue obtenido encontrando una cota inferior y una cota superior
+cuyo valor es el mismo.
+Empezaremos explicando el proceso para encontrar la cota inferior.
+\section{Cota inferior del anti-thickness geométrico de $K_n$.}
+Un conjunto de $n$ puntos en el plano induce una gráfica completa de $n$ vértices
+a la que podemos llamar $K_n$. Como es completa $|E(K_n)|= \binom{n}{2}$. Si queremos
+dar una descomposición en thrackles resulta intuitivo que los thrackles tengan el
+mayor número posible de aristas. De acuerdo al teorema 9 de ~\cite{Pach2013b}
+un thrackle (geométrico) con $n$ vértices tiene a lo más $n$ aristas. Llamamos
+a estos thrackles maximos. Para que la descomposición sea válida es necesario
+cubrir todas las aristas de la gráfica completa. Si suponemos que existen $k$
+thrackles máximos en la descomposición y cada uno cubre $n$ aristas es necesario
+resolver la siguiente desigualdad:
+\[ kn \geq \binom{n}{2}. \]
+Recordando que $\binom{n}{2} = \frac{n(n-1)}{2}$ es sencillo encontrar que $k=\frac{n-1}{2}$
+y por motivos de paridad tomamos el techo de dicha cantidad. Necesitamos al menos
+$k=\left\lceil\frac{n-1}{2}\right\rceil$ thrackles máximos para dar una descomposición
+de $K_n$. En otras palabras \[At_g(K_n) \geq  \left\lceil\frac{n-1}{2}\right\rceil.\]
+
+La tabla~\ref{table:attrivialinf} ilustra el valor de la cota inferior del anti-thickness
+geométrico obtenida anteriormente para $K_n$ con $n\leq 10$.
+\begin{table}[t]
+  \centering
+  \begin{tabular}{|c|c|}
+    \hline
+    $n$ & $\left\lceil\frac{n-1}{2}\right\rceil$ \\[5pt] \hline\hline
+    3   & 1  \\
+    4   & 2  \\
+    5   & 2  \\
+    6   & 3  \\
+    7   & 3  \\
+    8   & 4  \\
+    9   & 4  \\
+    10  & 5  \\ \hline
+  \end{tabular}
+  \caption{ Valor de la cota inferior del anti-thickness geométrico usando la cota trivial. }
+  \label{table:attrivialinf}
+\end{table}
+Esta cota es trivial ya que usa el hecho de que cada thrackle máximo tiene a lo
+sumo tantas aristas como vértices. En el trabajo de~\cite{Fabila-Monroy2018}
+encuentran que dados dos thrackles máximos en posición convexa estos comparten
+una arista y esto se cumple para cada par de thrackles de la descomposición.
+En este trabajo decidimos verificar si este resultado también es válido en
+posición general. Para ello usamos los tipos de orden para conjuntos
+de hasta diez puntos en posición general. Para cada tipo de orden para $n\leq 10$
+inducimos la gráfica completa y luego buscamos todos los thrackles de tamaño $n$.
+Una vez encontrados verificamos los thrackles a pares y encontramos:
+\begin{itemize}
+  \item No existe, para ningún tipo de orden con más de dos thrackles máximos, dos thrackles máximos disjuntos.
+  \item Existen tipos de orden con solo un thrackle máximo.
+  \item Existen tipos de orden en los que no hay thrackles máximos.
+\end{itemize}
+
+% Es fácil ver que la cota inferior trivial anteriormente dada no es aplicable para los
+% tipos de orden que no tienen thrackles máximos.
+
+Podemos contar cuántas aristas serán cubiertas si la descomposición es de thrackles
+máximos y tiene tamaño $\left\lceil\frac{n-1}{2}\right\rceil$. El primer thrackle
+cubre $n$ aristas, el siguiente cubre $n-1$ aristas, el próximo cubre $n-2$ aristas
+y así sucesivamente tantas veces como thrackles tenga la descomposición, en este caso
+existen $\left\lceil\frac{n-1}{2}\right\rceil$ thrackles máximos en la descomposición.
+Entonces el número de aristas cubiertas de esta manera es:
+\[\displaystyle \sum^n_{i=\left(n-\left\lceil\frac{n-1}{2}\right\rceil\right) + 1}i.\]
+De esta manera es sencillo observar que la cota no es justa para toda $n\leq 10$.
+Explicamos este hecho en la tabla~\ref{table:attrivialtight}. Es importante
+notar que este resultado es aplicable solamente cuando el dibujo de $K_n$ tiene al menos
+$\left\lceil\frac{n-1}{2}\right\rceil$ thrackles máximos.
+\begin{table}[t]
+  \centering
+  \begin{tabular}{|c|c|c|c|}
+    \hline
+    $n$ & $\left\lceil\frac{n-1}{2}\right\rceil$ & $\sum^n_{i=\left(n-\left\lceil\frac{n-1}{2}\right\rceil\right) + 1}i$ & $\binom{n}{2}$\\[5pt] \hline\hline
+    3   & 1  & 3 & 3 \\ \hline
+    4   & 2  & 7 & 6 \\ \hline
+    5   & 2  & \cellcolor{red!25}9 & 10 \\ \hline
+    6   & 3  & 15 & 15 \\ \hline
+    7   & 3  & \cellcolor{red!25}18 & 21 \\ \hline
+    8   & 4  & \cellcolor{red!25}26 & 28 \\ \hline
+    9   & 4  & \cellcolor{red!25}30 & 36 \\ \hline
+    10  & 5  & \cellcolor{red!25}40 & 45 \\ \hline
+  \end{tabular}
+  \caption{ Mostramos cuántas aristas son cubiertas con una descomposición de $\left\lceil\frac{n-1}{2}\right\rceil$  thrackles
+  máximos. Se rellenan los casos en los que la descomposición no es válida ya que no cubre todas las aristas. }
+  \label{table:attrivialtight}
+\end{table}
+
+Finalmente usando el hecho de que no existen dos thrackles máximos disjuntos en
+ningún dibujo de $K_n$ para $n\leq 10$ podemos ajustar la cota inferior. Suponiendo
+que existe una descomposición de $k$ thrackles máximos entonces la descomposición
+cubre $kn - \binom{k}{2}$ aristas. Esto es exactamente igual que en el caso convexo.
+Decimos entonces que para $n\leq 10$: \[ At_g(K_n) \geq  n - \Bigl\lfloor \sqrt{2n + \frac{1}{4}} - \frac{1}{2} \Bigr\rfloor. \]
+
+% Podemos observar que esta cota inferior no es justa para toda $n\leq 10$. Por ejemplo
+% si tomamos $n=5$, sabemos que la gráfica completa $K_5$ tiene $\binom{n}{2}=10$ aristas.
+% Sabemos también que en $K_5$ los thrackles máximos tienen a lo sumo cinco aristas.
+% Si es posible usar dos thrackles máximos para cubrir las diez aristas de $K_5$ significa que
+% cada uno aporta exactamente cinco aristas y por lo tanto estos dos thrackles son disjuntos.
+% Sin embargo nuestros resultados muestran que no existen dos thrackles máximos disjuntos
+% para ningún dibujo de $K_5$. Entonces un thrackle máximo aporta cinco aristas y otro
+% thrackle máximo aporta cuatro aristas, esto quiere decir que con dos thrackles máximos
+% podemos cubrir nueve de las diez aristas de $K_5$, luego necesitamos un thrackle más
+% para cubrir la arista restante. Decimos que el anti-thickness geométrico de $K_5$
+% es al menos tres.
+
+
+
 \section{Descomposiciones por thrackles máximos.}
 
 En este capítulo reportaremos el pseudocódigo de algoritmos usados durante el desarrollo
@@ -22,7 +130,7 @@ son todos máximos y cuyo tamaño sea el mismo del anti-thickness convexo para $
   \centering
   \begin{tabular}{|c|c|}
     \hline
-    $n$ & Anti-thickness convexo de $K_n$ ($cat(n)$) \\ \hline\hline
+    $n$ & Anti-thickness convexo de $K_n$ ($At_c(n)$) \\ \hline\hline
     3   & 1  \\
     4   & 2  \\
     5   & 3  \\
