@@ -5,13 +5,13 @@ cuyo valor es el mismo.
 Empezaremos explicando el proceso para encontrar la cota inferior.
 \section{Cota inferior del anti-thickness geométrico de $K_n$.}
 Un conjunto de $n$ puntos en el plano induce una gráfica completa de $n$ vértices
-a la que podemos llamar $K_n$. Como es completa $|E(K_n)|= \binom{n}{2}$. Si queremos
-dar una descomposición en thrackles resulta intuitivo que los thrackles tengan el
+a la que podemos llamar $K_n$. Como es completa $|E(K_n)|= \binom{n}{2}$. Caundo se quiere
+encontrar una descomposición en thrackles resulta intuitivo que los thrackles tengan el
 mayor número posible de aristas. De acuerdo al teorema 9 de ~\cite{Pach2013b}
 un thrackle (geométrico) con $n$ vértices tiene a lo más $n$ aristas. Llamamos
 a estos thrackles maximos. Para que la descomposición sea válida es necesario
 cubrir todas las aristas de la gráfica completa. Si suponemos que existen $k$
-thrackles máximos en la descomposición y cada uno cubre $n$ aristas es necesario
+thrackles máximos en la descomposición y cada uno cubre $n$ aristas entonces es necesario
 resolver la siguiente desigualdad:
 \[ kn \geq \binom{n}{2}. \]
 Recordando que $\binom{n}{2} = \frac{n(n-1)}{2}$ es sencillo encontrar que $k=\frac{n-1}{2}$
@@ -39,34 +39,56 @@ geométrico obtenida anteriormente para $K_n$ con $n\leq 10$.
   \label{table:attrivialinf}
 \end{table}
 Esta cota es trivial ya que usa el hecho de que cada thrackle máximo tiene a lo
-sumo tantas aristas como vértices. En el trabajo de~\cite{Fabila-Monroy2018}
+sumo tantas aristas como vértices.
+
+En el trabajo de~\cite{Fabila-Monroy2018}
 encuentran que dados dos thrackles máximos en posición convexa estos comparten
 una arista y esto se cumple para cada par de thrackles de la descomposición.
 En este trabajo decidimos verificar si este resultado también es válido en
-posición general. Para ello usamos los tipos de orden para conjuntos
-de hasta diez puntos en posición general. Para cada tipo de orden para $n\leq 10$
-inducimos la gráfica completa y luego buscamos todos los thrackles de tamaño $n$.
-Una vez encontrados verificamos los thrackles a pares y encontramos:
+posición general usando los tipos de orden de los conjuntos
+con hasta diez puntos en posición general. Para cada uno
+inducimos la gráfica completa y luego buscamos todos los thrackles máximos.
+Después comparamos los thrackles máximos a pares y encontramos:
 \begin{itemize}
   \item No existe, para ningún tipo de orden con más de dos thrackles máximos, dos thrackles máximos disjuntos.
   \item Existen tipos de orden con solo un thrackle máximo.
   \item Existen tipos de orden en los que no hay thrackles máximos.
 \end{itemize}
 
-% Es fácil ver que la cota inferior trivial anteriormente dada no es aplicable para los
-% tipos de orden que no tienen thrackles máximos.
+Gracias a estos resultados podemos derivar el siguiente lema.
+\begin{lemma}\label{lema:thdisjuntos}
+  Sean $T_1$ y $T_2$ thrakles máximos en posición general con $|V(T_1)|\leq 10$
+  y $|V(T_2)|\leq 10$. $T_1$ y $T_2$ tienen al menos una arista en común.
+\end{lemma}
 
-Podemos contar cuántas aristas serán cubiertas si la descomposición es de thrackles
-máximos y tiene tamaño $\left\lceil\frac{n-1}{2}\right\rceil$. El primer thrackle
-cubre $n$ aristas, el siguiente cubre $n-1$ aristas, el próximo cubre $n-2$ aristas
+Por consecuencia es posible contar cuántas aristas serán cubiertas si la descomposición es de thrackles
+máximos y tiene tamaño $\left\lceil\frac{n-1}{2}\right\rceil$ como sigue: el primer thrackle
+cubre $n$ aristas, el siguiente $n-1$ aristas, el próximo $n-2$ aristas
 y así sucesivamente tantas veces como thrackles tenga la descomposición, en este caso
 existen $\left\lceil\frac{n-1}{2}\right\rceil$ thrackles máximos en la descomposición.
-Entonces el número de aristas cubiertas de esta manera es:
+
+Entonces el número de aristas cubiertas es:
 \[\displaystyle \sum^n_{i=\left(n-\left\lceil\frac{n-1}{2}\right\rceil\right) + 1}i.\]
-De esta manera es sencillo observar que la cota no es justa para toda $n\leq 10$.
-Explicamos este hecho en la tabla~\ref{table:attrivialtight}. Es importante
+
+Con el lema anterior y el número de aristas cubiertas por
+una descomposición de ese tipo es posible probar que la cota no es justa
+para toda $n$. El siguiente teorema establece esta afirmación.
+\begin{theorem}
+Sea $D=\{T_1,T_2,\dots,T_{\left\lceil\frac{n-1}{2}\right\rceil}\}$ una descomposición
+de la gráfica completa en $\left\lceil\frac{n-1}{2}\right\rceil$ thrackles máximos.
+$\left\lceil\frac{n-1}{2}\right\rceil$ thrackles
+máximos no son suficientes para cubrir las aristas de $K_n$ para toda $3 \leq n \leq 10$.
+\end{theorem}
+\begin{proof}
+  Es suficiente probar un caso para el cual la cota no sea justa. Tomemos $n=5$:
+  \[\displaystyle \sum^5_{i=4}i = 9 < \binom{5}{2}=10.\]
+\end{proof}
+
+En la tabla~\ref{table:attrivialtight} se visualizan los casos para los que la cota
+inferior del anti-thickness geométrico no es justa. Es importante
 notar que este resultado es aplicable solamente cuando el dibujo de $K_n$ tiene al menos
 $\left\lceil\frac{n-1}{2}\right\rceil$ thrackles máximos.
+
 \begin{table}[t]
   \centering
   \begin{tabular}{|c|c|c|c|}
@@ -85,12 +107,12 @@ $\left\lceil\frac{n-1}{2}\right\rceil$ thrackles máximos.
   máximos. Se rellenan los casos en los que la descomposición no es válida ya que no cubre todas las aristas. }
   \label{table:attrivialtight}
 \end{table}
-
-Finalmente usando el hecho de que no existen dos thrackles máximos disjuntos en
-ningún dibujo de $K_n$ para $n\leq 10$ podemos ajustar la cota inferior. Suponiendo
-que existe una descomposición de $k$ thrackles máximos entonces la descomposición
-cubre $kn - \binom{k}{2}$ aristas. Esto es exactamente igual que en el caso convexo.
-Decimos entonces que para $n\leq 10$: \[ At_g(K_n) \geq  n - \Bigl\lfloor \sqrt{2n + \frac{1}{4}} - \frac{1}{2} \Bigr\rfloor. \]
+%
+% Finalmente, usando el lema~\ref{lema:thdisjuntos} podemos ajustar la cota inferior.
+%
+% existe una descomposición de $k$ thrackles máximos entonces la descomposición
+% cubre $kn - \binom{k}{2}$ aristas. Esto es exactamente igual que en el caso convexo.
+% Podemos decir que para $n\leq 10$: \[ At_g(K_n) \geq  n - \Bigl\lfloor \sqrt{2n + \frac{1}{4}} - \frac{1}{2} \Bigr\rfloor. \]
 
 % Podemos observar que esta cota inferior no es justa para toda $n\leq 10$. Por ejemplo
 % si tomamos $n=5$, sabemos que la gráfica completa $K_5$ tiene $\binom{n}{2}=10$ aristas.
