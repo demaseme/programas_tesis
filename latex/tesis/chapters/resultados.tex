@@ -114,7 +114,7 @@ este proceso en el siguiente lema:
 \end{proof}
 Ahora procedemos a contar el número de aristas que pueden ser cubiertas por una descomposición
 inducida por una colección de thrackles máximos.
-\begin{lemma}
+\begin{lemma}\label{lema:numaristascubiertas}
   Sea \[T'_i = \{\text{El thrackle inducido por } \{E(T_i) - \bigcup_{k=1}^{i-1} E(T_i)\cap E(T_k)\} \}\]
   y sea  $\mathcal{D}=\{T'_1,T'_2,\dots,T'_{\left\lceil\frac{n-1}{2}\right\rceil}\}.$
 
@@ -140,7 +140,7 @@ inducida por una colección de thrackles máximos.
 
 Con los lemas anteriores es posible probar que la cota inferior del anti-thickness geométrico
 de $K_n$ no es justa para toda $n$. El siguiente teorema establece esta afirmación.
-\begin{theorem}
+\begin{theorem}\label{teo:cotainf}
 Sea $\mathcal{D}=\{T'_1,T'_2,\dots,T'_{\left\lceil\frac{n-1}{2}\right\rceil}\}$ una descomposición
 de la gráfica completa inducida por una colección de $\left\lceil\frac{n-1}{2}\right\rceil$ thrackles máximos.
 $\left\lceil\frac{n-1}{2}\right\rceil$ thrackles máximos no son
@@ -151,9 +151,9 @@ suficientes para inducir una descomposición de $K_n$ para toda $3 \leq n \leq 1
   no es posible cubrir todas las aristas usando una descomposición inducida por una colección
   de thrackles máximos.
 \end{proof}
-En la tabla~\ref{table:attrivialtight} se visualizan los casos para los que la cota
-inferior del anti-thickness geométrico no es justa. Es importante
-notar que este resultado es aplicable solamente cuando el dibujo de $K_n$ tiene al menos
+En la tabla~\ref{table:attrivialtight} mostramos los casos para los que la cota
+inferior del anti-thickness geométrico no es justa usando el lema~\ref{lema:numaristascubiertas}.
+Es importante notar que este resultado es válido solamente cuando el dibujo de $K_n$ tiene al menos
 $\left\lceil\frac{n-1}{2}\right\rceil$ thrackles máximos.
 
 \begin{table}[t]
@@ -174,6 +174,11 @@ $\left\lceil\frac{n-1}{2}\right\rceil$ thrackles máximos.
   máximos. Se rellenan los casos en los que la descomposición no es válida ya que no cubre todas las aristas. }
   \label{table:attrivialtight}
 \end{table}
+
+Gracias al lema~\ref{lema:numaristascubiertas} y al teorema~\ref{teo:cotainf} podemos
+dar el valor exacto del número de thrackles máximos necesarios para inducir una
+descomposición por thrackles de $K_n$ con $ 3\leq n \leq 10$.
+
 %
 % Finalmente, usando el lema~\ref{lema:thdisjuntos} podemos ajustar la cota inferior.
 %
