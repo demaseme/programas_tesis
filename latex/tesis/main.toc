@@ -10,6 +10,6 @@
 \contentsline {chapter}{\numberline {3}Estado del arte}{29}{chapter.3}
 \contentsline {chapter}{\numberline {4}Resultados}{39}{chapter.4}
 \contentsline {section}{\numberline {4.1}Cota inferior del anti-thickness geom\IeC {\'e}trico de $K_n$.}{39}{section.4.1}
-\contentsline {section}{\numberline {4.2}Descomposiciones por thrackles m\IeC {\'a}ximos.}{42}{section.4.2}
-\contentsline {section}{\numberline {4.3}Anti-thickness geom\IeC {\'e}trico exacto de $K_n$ con $3\leq n \leq 9$.}{45}{section.4.3}
+\contentsline {section}{\numberline {4.2}Descomposiciones por thrackles m\IeC {\'a}ximos.}{43}{section.4.2}
+\contentsline {section}{\numberline {4.3}Anti-thickness geom\IeC {\'e}trico exacto de $K_n$ con $3\leq n \leq 9$.}{46}{section.4.3}
 \contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{51}{chapter.5}

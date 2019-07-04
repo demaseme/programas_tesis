@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.12)  3 JUL 2019 13:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.12)  3 JUL 2019 19:29
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -936,114 +936,106 @@ LaTeX Info: Redefining \% on input line 46.
 ]
 Cap\'{\i }tulo 4.
 (/home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/chapters/resultados.tex
-Overfull \hbox (1.84576pt too wide) in paragraph at lines 5--5
+Overfull \hbox (1.84576pt too wide) in paragraph at lines 1--1
 []\OT1/cmr/bx/n/17.28 Cota in-fe-rior del anti-thickness geom^^Setri-
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 5.
+(hyperref)                removing `math shift' on input line 1.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 5.
+(hyperref)                removing `subscript' on input line 1.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 5.
+(hyperref)                removing `math shift' on input line 1.
 
-
-Underfull \vbox (badness 1418) has occurred while \output is active []
-
- [39]
-LaTeX Info: Redefining \. on input line 59.
-LaTeX Info: Redefining \% on input line 59.
+[39]
+LaTeX Info: Redefining \. on input line 62.
+LaTeX Info: Redefining \% on input line 62.
  [40]
-Overfull \hbox (3.63397pt too wide) in paragraph at lines 60--62
-[][]\OT1/cmr/bx/n/12 Lema 4.1.1. []\OT1/cmr/m/n/12 Sean $\OML/cmm/m/it/12 T[]$ \OT1/cmr/m/n/12 y $\OML/cmm/m/it/12 T[]$ \OT1/cmr/m/n/12 th-ra-kles m^^Saxi-mos en po-si-ci^^Son ge-ne-ral con $\OMS/cmsy/m/n/12 j\OML/cmm/m/it/12 V\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 T[]\OT1/cmr/m/n/12 )\OMS/cmsy/m/n/12 j ^^T
+Overfull \hbox (3.63397pt too wide) in paragraph at lines 75--77
+[][]\OT1/cmr/bx/n/12 Lema 4.1.2. []\OT1/cmr/m/n/12 Sean $\OML/cmm/m/it/12 T[]$ \OT1/cmr/m/n/12 y $\OML/cmm/m/it/12 T[]$ \OT1/cmr/m/n/12 th-ra-kles m^^Saxi-mos en po-si-ci^^Son ge-ne-ral con $\OMS/cmsy/m/n/12 j\OML/cmm/m/it/12 V\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 T[]\OT1/cmr/m/n/12 )\OMS/cmsy/m/n/12 j ^^T
  []
 
-LaTeX Info: Redefining \. on input line 105.
-LaTeX Info: Redefining \% on input line 105.
+LaTeX Info: Redefining \. on input line 111.
+LaTeX Info: Redefining \% on input line 111.
 
 Overfull \hbox (4.25389pt too wide) has occurred while \output is active
 \OT1/cmr/m/sl/12 4.1.  COTA INFERIOR DEL ANTI-THICKNESS GEOM[]ETRICO DE $\OML/cmm/m/it/12 K[]$\OT1/cmr/m/sl/12 . \OT1/cmr/m/n/12 41
  []
 
 [41]
-Overfull \hbox (9.20984pt too wide) in paragraph at lines 152--152
+LaTeX Info: Redefining \. on input line 148.
+LaTeX Info: Redefining \% on input line 148.
+ [42]
+Overfull \hbox (9.20984pt too wide) in paragraph at lines 198--198
 []\OT1/cmr/bx/n/17.28 Descomposiciones por th-rac-kles m^^Saxi-mos. 
  []
 
-LaTeX Info: Redefining \. on input line 171.
-LaTeX Info: Redefining \% on input line 171.
-[42]
-Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 242.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-LaTeX Info: Redefining \. on input line 276.
-LaTeX Info: Redefining \% on input line 276.
+LaTeX Info: Redefining \. on input line 212.
+LaTeX Info: Redefining \% on input line 212.
 [43]
-LaTeX Info: Redefining \. on input line 276.
-LaTeX Info: Redefining \% on input line 276.
- [44]
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 288.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+LaTeX Info: Redefining \. on input line 311.
+LaTeX Info: Redefining \% on input line 311.
+[44]
+LaTeX Info: Redefining \. on input line 311.
+LaTeX Info: Redefining \% on input line 311.
+ [45]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 277.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 277.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 277.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 277.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\leq' on input line 277.
+(hyperref)                removing `math shift' on input line 323.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\leq' on input line 277.
+(hyperref)                removing `subscript' on input line 323.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 277.
+(hyperref)                removing `math shift' on input line 323.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 323.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\leq' on input line 323.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\leq' on input line 323.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 323.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 320.
-LaTeX Info: Redefining \% on input line 320.
-
-Overfull \hbox (18.86494pt too wide) has occurred while \output is active
-\OT1/cmr/m/sl/12 4.3.  ANTI-THICKNESS GEOM[]ETRICO EXACTO DE $\OML/cmm/m/it/12 K[]$ \OT1/cmr/m/sl/12 CON $\OT1/cmr/m/n/12 3 \OMS/cmsy/m/n/12 ^^T \OML/cmm/m/it/12 N \OMS/cmsy/m/n/12 ^^T \OT1/cmr/m/n/12 9$\OT1/cmr/m/sl/12 . \OT1/cmr/m/n/12 45
- []
-
-[45]
-LaTeX Info: Redefining \. on input line 352.
-LaTeX Info: Redefining \% on input line 352.
+LaTeX Info: Redefining \. on input line 366.
+LaTeX Info: Redefining \% on input line 366.
  [46] [47]
-LaTeX Info: Redefining \. on input line 425.
-LaTeX Info: Redefining \% on input line 425.
- [48]) [49]
+LaTeX Info: Redefining \. on input line 424.
+LaTeX Info: Redefining \% on input line 424.
+ [48] [49])
 LaTeX Info: Redefining \. on input line 48.
 LaTeX Info: Redefining \% on input line 48.
- [50
+ [50]
+Cap\'{\i }tulo 5.
+(/home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/main.bbl [51
 
 ]
-Cap\'{\i }tulo 5.
-(/home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/main.bbl [51]
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
  [52
@@ -1080,19 +1072,19 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 51.
  ) 
 Here is how much of TeX's memory you used:
- 9867 strings out of 492982
- 143223 string characters out of 6134895
- 258908 words of memory out of 5000000
+ 9869 strings out of 492982
+ 143247 string characters out of 6134895
+ 257908 words of memory out of 5000000
  13116 multiletter control sequences out of 15000+600000
  21998 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  42i,14n,43p,631b,529s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmsl12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/main.pdf (54 pages, 1419447 bytes).
+Output written on /home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/main.pdf (54 pages, 1422631 bytes).
 PDF statistics:
- 641 PDF objects out of 1000 (max. 8388607)
- 514 compressed objects within 6 object streams
- 138 named destinations out of 1000 (max. 500000)
+ 643 PDF objects out of 1000 (max. 8388607)
+ 516 compressed objects within 6 object streams
+ 140 named destinations out of 1000 (max. 500000)
  213 words of extra memory for PDF output out of 10000 (max. 10000000)
 

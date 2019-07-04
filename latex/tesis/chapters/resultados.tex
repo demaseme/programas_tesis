@@ -1,21 +1,29 @@
+\section{Cota inferior del anti-thickness geométrico de $K_n$.}
 El principal resultado de este trabajo es que encontramos el valor exacto del
 anti-thickness geométrico para la gráfica completa de hasta diez vértices en posición general.
-Dicho valor exacto fue obtenido mejorando la cota inferior y usando la cota superior actual.
-Empezaremos explicando el proceso para encontrar la cota inferior.
-\section{Cota inferior del anti-thickness geométrico de $K_n$.}
+Dicho valor exacto fue obtenido mejorando la cota inferior mencionada en el estado del arte
+y usando la cota superior actual. Empezaremos explicando el proceso para encontrar la cota inferior.
+
 Un conjunto de $n$ puntos en el plano induce una gráfica completa de $n$ vértices
-a la que podemos llamar $K_n$. Como es completa $|E(K_n)|= \binom{n}{2}$. Caundo se quiere
-encontrar una descomposición en thrackles resulta intuitivo que los thrackles tengan el
-mayor número posible de aristas. De acuerdo al teorema 9 de ~\cite{Pach2013b}
-un thrackle (geométrico) con $n$ vértices tiene a lo más $n$ aristas. Llamamos
-a estos thrackles maximos. Para que la descomposición sea válida es necesario
-cubrir todas las aristas de la gráfica completa. Si suponemos que existen $k$
-thrackles máximos en la descomposición y cada uno cubre $n$ aristas entonces es necesario
-resolver la siguiente desigualdad para saber cuántos thrackles máximos son necesarios
-para cubrir las $\binom{n}{2}$ aristas de la gráfica completa:
+a la que denotamos $K_n$. Como es completa $|E(K_n)|= \binom{n}{2}$. Cuando se quiere
+encontrar una descomposición en thrackles es intuitivo que los thrackles tengan el
+mayor número posible de aristas. El siguiente teorema es útil para nosotros ya que
+establece el número máximo de aristas que puede tener un thrackle (geométrico).
+\begin{theorem}(\cite{Pach2013b})Toda gráfica geométrica de $n$ vértices en la
+  que no existen dos aristas disjuntas tiene a lo más $n$ aristas. Esto se cumple
+  para toda $n>2$.
+\end{theorem}
+Como se mencionó en el capítulo de antecedentes, llamamos a estos thrackles máximos.
+
+Toda descomposición de la gráfica completa cubre sus aristas. Si suponemos que existen $k$
+thrackles máximos en la descomposición entonces la siguiente desigualdad expresa el número de
+thrackles máximos son necesarios para cubrir las $\binom{n}{2}$ aristas de la gráfica completa:
 \[ kn \geq \binom{n}{2}. \]
-Recordando que $\binom{n}{2} = \frac{n(n-1)}{2}$ es sencillo encontrar que $k=\frac{n-1}{2}$
-y por motivos de paridad tomamos el techo de dicha cantidad. Necesitamos al menos
+
+Como los thrackles de la descomposición son geométricos, si buscamos la $k$ más pequeña
+para la cual se cumple la desigualdad entonces $k$ es el anti-thickness geométrico de la gráfica completa.
+
+Resolviendo para $k$ la desigualdad anterior tenemos que necesitamos al menos
 $k=\left\lceil\frac{n-1}{2}\right\rceil$ thrackles máximos para dar una descomposición
 de $K_n$. En otras palabras \[At_g(K_n) \geq  \left\lceil\frac{n-1}{2}\right\rceil.\]
 
@@ -38,48 +46,86 @@ geométrico obtenida anteriormente para $K_n$ con $n\leq 10$.
   \caption{ Valor de la cota inferior del anti-thickness geométrico usando la cota trivial. }
   \label{table:attrivialinf}
 \end{table}
-Esta cota es trivial ya que usa el hecho de que cada thrackle máximo tiene a lo
-sumo tantas aristas como vértices.
+Esta cota es la más inmediata ya que usa el hecho de que cada thrackle máximo tiene a lo
+sumo tantas aristas como vértices. También es la cota actual para el anti-thickness geométrico.
 
-En el trabajo de~\cite{Fabila-Monroy2018}
-encuentran que dados dos thrackles máximos en posición convexa estos comparten
-una arista y esto se cumple para cada par de thrackles de la descomposición.
-En este trabajo decidimos verificar si este resultado también es válido en
-posición general usando los tipos de orden de los conjuntos
-con hasta diez puntos en posición general. Para cada uno
-inducimos la gráfica completa y luego buscamos todos los thrackles máximos.
-Después comparamos los thrackles máximos a pares y encontramos:
+En el trabajo de~\cite{Fabila-Monroy2018} encuentran que dados dos thrackles
+máximos en posición convexa estos comparten una arista y esto se cumple para
+cada par de thrackles de la descomposición.
+En este trabajo verificamos que este resultado también es válido para conjuntos de
+hasta diez puntos en posición general. Usando los tipos de orden de los conjuntos
+con hasta diez puntos inducimos la gráfica completa, luego buscamos, para
+cada uno de los tipos de orden, todos los thrackles máximos y
+finlamente comparamos dichos thrackles a pares y encontramos que:
 \begin{itemize}
   \item No existe, para ningún tipo de orden con más de dos thrackles máximos, dos thrackles máximos disjuntos.
   \item Existen tipos de orden con solo un thrackle máximo.
   \item Existen tipos de orden en los que no hay thrackles máximos.
 \end{itemize}
 
+Para buscar los thrackles máximos usamos el algoritmo X descrito en la sección Y.
+Para comparar los thrackles a pares utilizamos el algoritmo XX descrito también en la sección Y.
+El número de los tipos de orden para los cuales existe solamente un thrackle máximo está
+en el apéndice XX, la información también puede ser descargada de la siguiente liga: HTTPXX.
+El número de los tipos de orden para los cuales no existe un thrackle máximo está en la
+siguiente liga: HTTPXX.
+
 Gracias a estos resultados podemos derivar el siguiente lema.
 \begin{lemma}\label{lema:thdisjuntos}
   Sean $T_1$ y $T_2$ thrakles máximos en posición general con $|V(T_1)|\leq 10$
   y $|V(T_2)|\leq 10$. $T_1$ y $T_2$ tienen al menos una arista en común.
 \end{lemma}
+\begin{proof}
+  Esto fue probado computacionalmente verificando a pares los thrackles
+  encontrados para cada tipo de orden de cada conjunto de hasta diez puntos.
+  Para todos los tipos de orden donde existen más de dos thrackles
+  máximos encontramos que comparten al menos una arista. Para comparar
+  si dos thrackles $T_i,$ y $T_j$ comparten una arista se realiza la intersección
+  del conjunto de aristas de los thrackles. Si esta es no vacía entonces hay al menos una arista
+  que está en $T_i$ y $T_j$.
+\end{proof}
+Esto implica que para $n\leq 10$ no es posible encontrar una descomposición
+de $\left\lceil\frac{n-1}{2}\right\rceil$ thrackles máximos ya que los thrackles
+máximos no son disjuntos a pares y esto infringe las condiciones de una descomposición.
+Esto significa que una descomposición por thrackles solo podría contener un thrackle máximo.
 
-Por consecuencia es posible contar cuántas aristas son cubiertas
-por una descomposición de thrackles máximos cuyo tamaño es $\left\lceil\frac{n-1}{2}\right\rceil$.
-\begin{lemma}\label{lema:numerocubiertas}
-  Sea $D=\{T_1,T_2,\dots,T_{\left\lceil\frac{n-1}{2}\right\rceil}\}$ una descomposición
-  de $K_n$, donde $T_i$ es un thrackle máximo. El número de aristas cubiertas por $D$
-  es exactamente :
+Sin embargo es posible encontrar una descomposición a partir de una colección de thrackles
+máximos y contar cuántas aristas es posible cubrir con dicha descomposición. Describimos
+este proceso en el siguiente lema:
+% Por consecuencia es posible contar cuántas aristas son cubiertas
+% por una descomposición de thrackles máximos cuyo tamaño es $\left\lceil\frac{n-1}{2}\right\rceil$.
+\begin{lemma}\label{lema:existedescomp}
+  Sea $\mathcal{C}=\{T_1,T_2,\dots,T_{\left\lceil\frac{n-1}{2}\right\rceil}\}$ una colección
+  de thrackles máximos de $K_n$, donde $\bigcup\mathcal{C}$ induce a $K_n$ y $|E(T_i)\cap E(T_j)| = 1$.
+  Existe una descomposición $\mathcal{D}$ de $K_n$ inducida por $\mathcal{C}$.
+\end{lemma}
+\begin{proof}
+  % Sea $\mathcal{D}=\emptyset$. Agregar el thrackle $T_1$ a $D$, luego agregar el thrackle compuesto de las aristas de $T_2$
+  % excepto aquella que comparte con $T_1$, este thrackle tiene $n-1$ aristas. De manera similar agregar el thrackle compuesto
+  % de las aristas de $T_3$ excepto aquella que comparte con $T_1$ y la que comparte con $T_2$, este thrackle tiene $n-2$ aristas.
+  % Si se continua agregando los thrackles restantes de $\mathcal{C}$ de la misma manera entonces $\mathcal{D}$ es una descomposición de $K_n$
+  % ya que por construcción cada arista de $K_n$ está en exactamente un thrackle de $D$.
+  Sea \[T'_i = \{\text{El thrackle inducido por } \{E(T_i) - \bigcup_{k=1}^{i-1} E(T_i)\cap E(T_k)\} \}\]
+  es decir $T'_i$ es el thrackle que tiene todas las aristas de $T_i$
+  a excepción de aquellas que $T_i$ comparte con $T_{i-1},T_{i-2},\dots,T_{1}$.
+
+  Si $\mathcal{D}=\{T'_1,T'_2,\dots,T'_{\left\lceil\frac{n-1}{2}\right\rceil}\}$ por construcción todas las aristas de $K_n$ están en
+  exactamente un elemento de $\mathcal{D}$. Por lo tanto $\mathcal{D}$ es una descomposición de $K_n$.
+\end{proof}
+Ahora procedemos a contar el número de aristas que pueden ser cubiertas por una descomposición
+inducida por una colección de thrackles máximos.
+\begin{lemma}
+  Sea \[T'_i = \{\text{El thrackle inducido por } \{E(T_i) - \bigcup_{k=1}^{i-1} E(T_i)\cap E(T_k)\} \}\]
+  y sea  $\mathcal{D}=\{T'_1,T'_2,\dots,T'_{\left\lceil\frac{n-1}{2}\right\rceil}\}.$
+
+  El número de aristas cubiertas por $\mathcal{D}$ es exactamente :
    \[\displaystyle \sum^n_{i=\left(n-\left\lceil\frac{n-1}{2}\right\rceil\right) + 1}i\]
  \end{lemma}
  \begin{proof}
-   Como existen $\left\lceil\frac{n-1}{2}\right\rceil$ thrackles máximos, por el lema
-   \ref{lema:thdisjuntos} podemos asignar $n$ aristas al thrackle $T_1$, luego el thrackle
-   $T_2$ comparte una de sus aristas con $T_1$, por lo tanto asignamos $n-1$ aristas a $T_2$,
-   el thrackle $T_3$ comparte una arista con $T_1$ y una arista con $T_2$ por lo que asignamos
-   $n-2$ aristas a $T_3$. Siguiendo con esta asignación de aristas a thrackles, el thrackle
-   $T_{\left\lceil\frac{n-1}{2}\right\rceil-1}$ tiene $n-\left\lceil\frac{n-1}{2}\right\rceil$
-   aristas asignadas y finalmente el thrackle $T_{\left\lceil\frac{n-1}{2}\right\rceil}$ tiene
-   $n-\left\lceil\frac{n-1}{2}\right\rceil+1$ aristas asignadas. En total $\left\lceil\frac{n-1}{2}\right\rceil$
-   thrackles máximos cubren: \[ n+(n-1)+(n-2)+\dots+(n-\left\lceil\frac{n-1}{2}\right\rceil) + (n-\left\lceil\frac{n-1}{2}\right\rceil+1)\] aristas.
-
+   Por construcción: $T'_1$ tiene $n$ aristas, luego $T'_2$ tiene $n-1$ aristas, en general $T'_i$ tiene
+   $n-(i-1) = n-i+1$ aristas. Como $\mathcal{D}$ tiene $\left\lceil\frac{n-1}{2}\right\rceil$ thrackles
+   el número de aristas cubiertas por $\mathcal{D}$ es \[ n + (n-1) + (n-2) + \cdots + (n-\left\lceil\frac{n-1}{2}\right\rceil) +
+   (n - \left\lceil\frac{n-1}{2}\right\rceil + 1)\]
    Podemos escribir esta suma como:
    \[\displaystyle \sum^n_{i=\left(n-\left\lceil\frac{n-1}{2}\right\rceil\right) + 1}i\]
  \end{proof}
@@ -92,19 +138,19 @@ por una descomposición de thrackles máximos cuyo tamaño es $\left\lceil\frac{
 % Entonces el número de aristas cubiertas es:
 % \[\displaystyle \sum^n_{i=\left(n-\left\lceil\frac{n-1}{2}\right\rceil\right) + 1}i.\]
 
-Con los dos lemas anteriores es posible probar que la cota no es justa
-para toda $n$. El siguiente teorema establece esta afirmación.
+Con los lemas anteriores es posible probar que la cota inferior del anti-thickness geométrico
+de $K_n$ no es justa para toda $n$. El siguiente teorema establece esta afirmación.
 \begin{theorem}
-Sea $D=\{T_1,T_2,\dots,T_{\left\lceil\frac{n-1}{2}\right\rceil}\}$ una descomposición
-de la gráfica completa en $\left\lceil\frac{n-1}{2}\right\rceil$ thrackles máximos.
-$\left\lceil\frac{n-1}{2}\right\rceil$ thrackles
-máximos no son suficientes para cubrir las aristas de $K_n$ para toda $3 \leq n \leq 10$.
+Sea $\mathcal{D}=\{T'_1,T'_2,\dots,T'_{\left\lceil\frac{n-1}{2}\right\rceil}\}$ una descomposición
+de la gráfica completa inducida por una colección de $\left\lceil\frac{n-1}{2}\right\rceil$ thrackles máximos.
+$\left\lceil\frac{n-1}{2}\right\rceil$ thrackles máximos no son
+suficientes para inducir una descomposición de $K_n$ para toda $3 \leq n \leq 10$.
 \end{theorem}
 \begin{proof}
-  Es suficiente probar un caso para el cual la cota no sea justa. Tomemos $n=5$:
-  \[\displaystyle \sum^5_{i=4}i = 9 < \binom{5}{2}=10.\]
+  La cota inferior solamente es justa para $n\in\{3,4,5\}$. Mientras que para $n\in \{5,7,8,9,10\}$
+  no es posible cubrir todas las aristas usando una descomposición inducida por una colección
+  de thrackles máximos.
 \end{proof}
-
 En la tabla~\ref{table:attrivialtight} se visualizan los casos para los que la cota
 inferior del anti-thickness geométrico no es justa. Es importante
 notar que este resultado es aplicable solamente cuando el dibujo de $K_n$ tiene al menos
