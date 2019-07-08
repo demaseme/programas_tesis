@@ -5,21 +5,21 @@
 % resultados del anti-thickness geométrico para el caso específico de puntos
 % en posición convexa.
 
-En este capítulo hablaremos de un concepto que cronológicamente fue definido antes
-que el anti-thickness además discutirmos su relación. Mencionamos algunos resultados acerca
-de dicho concepto. Explicaremos de qué manera el número cromático de una
+Comenzamos este capítulo hablando del thickness de una gráfica, concepto que
+cronológicamente fue definido antes que el anti-thickness, y discutimos su
+relación con este. Luego, mencionamos algunos resultados acerca
+del thickness. Después, explicaremos de qué manera el número cromático de una
 gráfica puede otorgar una descomposición de una gráfica geométrica. Finalmente
 discutimos los resultados actuales para el anti-thickness.
 
-Un concepto que está estrechamente relacionado con el de anti-thickness es el
-de thickness, que se define como sigue:
+El thickness de una gráfica se define como sigue:
 \begin{definition}{[\cite{Dillencourt2004}] \emph{Thickness}.}
   Sea $G$ una gráfica, el thickness $\theta(G)$ de $G$ es el mínimo entero $k$
   para el cual existe una partición de $E(G)$, de tamaño $k$, en la que cada
   elemento de la partición induce una gráfica planar.
 \end{definition}
-Este concepto también puede extenderse a gráficas geométricas, en cuyo caso
-estaremos hablando del thickess de una gráfica geométrica, definido a continuación:
+Este concepto también puede extenderse a gráficas geométricas, en este caso
+estaremos hablando del thickess de una gráfica geométrica:
 \begin{definition}{\emph{Thickness de una gráfica geométrica}.}
   Sea $\mathsf{G}$ una gráfica geométrica, el thickness $th(\mathsf{G})$
   de $\mathsf{G}$ es el mínimo entero $k$ para el cual existe una partición de $E(\mathsf{G})$,
@@ -32,24 +32,25 @@ Finalmente podemos definir el thickness geométrico de una gráfica $G$.
   es : \[ \bar{\theta}(G) = \min\{th(\mathsf{G}): \mathsf{G} \text{ es una gráfica geométrica de G} \} .\]
 \end{definition}
 
-En la figura~\ref{fig:thicknessexample} ilustramos un ejemplo del thickness teórico de
-la gráfica completa de 6 vértices
+En la figura~\ref{fig:thicknessexample} ilustramos un ejemplo del thickness de
+la gráfica completa de 6 vértices.
 \begin{figure}[htb]
   \centering
 \begin{subfigure}[h]{.5\textwidth}
   \centering
   \includegraphics[width=1.4\linewidth]{K6_thicknes2}
-  \caption{La gráfica $K_6$ con una descomposición de tamaño 2 de sus aristas. Cada una induce una gráfica plana.}
+  \caption{Una descomposición de tamaño 2 de $K_6$.}
   \label{fig:thk6}
 \end{subfigure}%
 \\
 \begin{subfigure}[h]{.5\textwidth}
   \centering
   \includegraphics[width=.8\linewidth]{K6_gthicknes2}
-  \caption{La gráfica $K_6$ con una descomposición en dos gráficas geométricas planas.}
+  \caption{UN ddibujo geométrico de $K_6$ y su descomposición
+  en dos gráficas geométricas planas.}
   \label{fig:gthk6}
 \end{subfigure}
-\caption{La figura (a) muestra que el thickness teórico de $K_6$ es 2. La figura (b) muestra que el thickness geométrico de $K_6$ es 2.}
+\caption{La figura (a) muestra que el thickness de $K_6$ es menor o igual a dos. La figura (b) muestra que el thickness geométrico de $K_6$ es menor o igual a dos.}
 \label{fig:thicknessexample}
 \end{figure}
 
@@ -96,19 +97,38 @@ siguiente cota:
 % A continuación discutimos dos trabajos que están relacionados con el anti-thickness.
 % En ambos artículos los autores obtienen el número cromático de una gráfica cuyos vértices
 % y aristas abstraen las relaciones de adyacencia de una gráfica geométrica.
-Para explicar la relación entre el thickness y el anti-thickness es necesario hablar
-de coloraciones de vértices de gráficas de adyacencia. La gráfica de adyacencia de una gráfica geométrica dada
-es construida a partir de la información de adyacencia de las aristas de la gráfica geométrica.
-Existen 4 criterios de adyacencia para dos aristas en el plano. Estos se enlistan a continuación:
+Para explicar la relación entre el thickness y el anti-thickness es necesario
+hablar de coloraciones de vértices de gráficas de adyacencia. Recordemos que
+dadas dos aristas de una gráfica geométrica $\mathsf{G}$, decimos que estas
+se intersectan si comparten un vértice o si se cruzan y que son disjuntas
+si no se intersectan. La gráfica de adyacencia de una gráfica geométrica
+$\mathsf{G}$ tiene como conjunto de vértices a todas las aristas de
+$\mathsf{G}$. Dependiendo del tipo de adyacencia que consideremos
+podemos definir cuatro diferentes gráficas de adyacencia, estas se listan
+a continuación:
 \begin{enumerate}
-  \item \label{itm:epp} Dos aristas se cruzan.
-  \item \label{itm:W} Dos aristas no se cruzan.
-  \item \label{itm:I} Dos aristas se cruzan o comparten un vértice.
-  \item \label{itm:D} Dos aristas son totalmente disjuntas.
+  \item \label{itm:epp}La gráfica de adyacencia en la que existe una arista
+  entre dos vértices si las aristas correspondientes en $\mathsf{G}$ se cruzan.
+  \item  \label{itm:W} La gráfica de adyacencia en la que existe una arista
+  entre dos vértices si las aristas correspondientes en $\mathsf{G}$ comparten
+  un vértice o son disjuntas.
+  \item  \label{itm:I} La gráfica de adyacencia en la que existe una arista
+  entre dos vértices si las aristas correspondientes en $\mathsf{G}$ se
+  intersectan.
+  \item \label{itm:D}  La gráfica de adyacencia en la que existe una arista
+  entre dos vértices si las aristas correspondientes en $\mathsf{G}$ son
+  disjuntas.
 \end{enumerate}
+
+% \begin{enumerate}
+%   \item } Dos aristas se cruzan.
+%   \item Dos aristas no se cruzan.
+%   \item Dos aristas se cruzan o comparten un vértice.
+%   \item Dos aristas son totalmente disjuntas.
+% \end{enumerate}
 % Dada una gráfica geométrica
 % su gráfica de incidencia es construida a partir de las incidencias de aristas de la gráfica geométrica.
-Ahora definimos una gráfica de adyacencia a la que llamamos \emph{gráfica de cruce}.
+Ahora definimos una gráfica a la que llamamos \emph{gráfica de cruce}.
 
 \begin{definition}{\emph{Gráfica de cruce}.}
   Sea $S$ un conjunto de $n$ puntos en posición general en el plano y sea $K_n(S)$ la gráfica completa
@@ -117,7 +137,7 @@ Ahora definimos una gráfica de adyacencia a la que llamamos \emph{gráfica de c
   se cruzan en $K_n(S)$.
 \end{definition}
 
-La gráfica $E_{pp}(S)$ es construida a partir del criterio \ref{itm:epp}.
+La gráfica $E_{pp}(S)$ corresponde a la gráfica de adyacencia \ref{itm:epp}.
 \begin{figure}
 \begin{subfigure}{.5\textwidth}
   \centering
@@ -193,9 +213,10 @@ definir en estos términos como sigue:
 % completa $K_n$ cuyo conjunto de vértices es $S$.
 
 De la misma manera que definimos la gráfica de cruce podemos definir otras
-gráficas de adyacencia. Para esto basta con usar un criterio de adyacencia diferente
-para construir la gráfica. En este sentido, en el trabajo de~\cite{Araujo2005}
-se definen las gráficas de incidencia que se listan en seguida.
+gráficas de adyacencia. Para esto basta con considerar alguno de los otros
+tipos de adyacencia. En este sentido, en el trabajo de~\cite{Araujo2005} se
+definen las gráficas que se listan en seguida, cada una corresponde
+a una de las cuatro gráficas de adyacencia mencionadas anteriormente.
 Sea $S$ un conjunto de $n$ puntos en posición general y $K_n(S)$
 la gráfica completa asociada a $S$:
 
@@ -204,16 +225,26 @@ la gráfica completa asociada a $S$:
 % por cada arista de $K_n(S)$ y una arista entre dos vértices de $E_{pp}(S)$ por cada par de aristas
 % que se crucen en $K_n(S)$.
 \begin{itemize}
-  \item $W(S):$ Es la gráfica que tiene un vértice por cada arista de $K_n(S)$ y
-  una arista entre dos vértices de $W(S)$ si sus aristas correspondientes en $K_n(S)$
-  cumplen con el criterio \ref{itm:W}.
-  \item $I(S):$ Es la gráfica que tiene un vértice por cada arista de $K_n(S)$ y
-  una arista entre dos vértices de $I(S)$ si sus aristas correspondientes en $K_n(S)$
-  cumplen con el criterio \ref{itm:I}.
-  \item $D(S)$ Es la gráfica que tiene un vértice por cada arista de $K_n(S)$ y
-  una arista entre dos vértices de $D(S)$ si sus aristas correspondientes en $K_n(S)$
-  cumplen con el criterio \ref{itm:D}.
+  \item $W(S):$ Es la gráfica correspondiente a la gráfica de adyacencia
+  \ref{itm:W}.
+  \item $I(S):$ Es la gráfica correspondiente a la gráfica de adyacencia
+  \ref{itm:I}.
+  \item $D(S)$  Es la gráfica correspondiente a la gráfica de adyacencia
+  \ref{itm:D}.
 \end{itemize}
+A partir de aquí, nos referimos a las gráficas de adyacencia 1,2,3 y 4 como
+$E_{pp}(S),W(S),I(S)$ y $D(S)$ respectivamente.
+% \begin{itemize}
+%   \item $W(S):$ Es la gráfica que tiene un vértice por cada arista de $K_n(S)$ y
+%   una arista entre dos vértices de $W(S)$ si sus aristas correspondientes en $K_n(S)$
+%   cumplen con el criterio \ref{itm:W}.
+%   \item $I(S):$ Es la gráfica que tiene un vértice por cada arista de $K_n(S)$ y
+%   una arista entre dos vértices de $I(S)$ si sus aristas correspondientes en $K_n(S)$
+%   cumplen con el criterio \ref{itm:I}.
+%   \item $D(S)$ Es la gráfica que tiene un vértice por cada arista de $K_n(S)$ y
+%   una arista entre dos vértices de $D(S)$ si sus aristas correspondientes en $K_n(S)$
+%   cumplen con el criterio \ref{itm:D}.
+% \end{itemize}
 
 Es fácil darse cuenta que la condición de existencia de aristas de $W(S)$ es
 complementaria a la condición en $E_{pp}(S)$ y viceversa. De la misma
@@ -392,37 +423,50 @@ que el anti-thickness convexo tiene exactamente el siguiente valor:
 
 A continuación hablamos del trabajo de~\cite{Lomeli2018} en donde encuentran el
 anti-thickness geométrico de la doble cadena convexa. La doble cadena convexa
-es una configuración de puntos conformada por una $k-cup$ y una $l-cap$. La $k-cup$
-es una cadena de $k$ puntos en posición convexa donde la parte superior de su
-cubierta está delimitada por un solo segmento. La $l-cap$ es una cadena
-de $l$ puntos en posición convexa donde la parte inferior de su cubierta está delimitada
-por un solo segmento. En el artículo la doble cadena convexa $C_{k,l}$ que definen tiene
-las siguientes características:
+es una configuración de puntos conformada por una $k\text{-}cup$ y una
+$l\text{-}cap$. La $k\text{-}cup$ es una cadena de $k$ puntos en posición
+convexa donde la parte superior de su cubierta está delimitada por un solo
+segmento. La $l\text{-}cap$ es una cadena de $l$ puntos en posición convexa
+donde la parte inferior de su cubierta está delimitada por un solo segmento. En
+el artículo la doble cadena convexa $C_{k,l}$ que definen tiene las siguientes
+características:
 \begin{itemize}
-  \item Para $l\geq k$ la doble cadena convexa es la unión una $k-cup$ $U$ y una $l-cap$ $L$.
+  \item Para $l\geq k$ la doble cadena convexa es la unión una $k\text{-}cup$ $U$ y una $l\text{-}cap$ $L$.
   \item Cada punto de $L$ está por debajo de cada segmento de recta definido por dos puntos de $U$.
   \item Cada punto de $U$ está por arriba de cada segmento de recta definido por dos puntos de $L$.
 \end{itemize}
 
-El resultado al que se llega en el trabjo es que
-el anti-thickness geométrico de la doble cadena convexa con $k$ puntos en la cadena convexa superior
+La figura \ref{fig:exdoblecadena} muestra un ejemplo de una doble cadena
+convexa.
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=0.2\linewidth]{exdoblecadena}
+  \caption{Una doble cadena convexa con 5 vértices en su $k\text{-}cup$ y 5 vértices en su $l\text{-}cap$.}
+  \label{fig:exdoblecadena}
+\end{figure}
+
+El resultado al que se llega en ese trabajo es que el anti-thickness geométrico
+de la doble cadena convexa con $k$ puntos en la cadena convexa superior
 y $l$ puntos en la cadea convexa inferior es:
  \[At_g(K_{l,k}) = k+l-\Bigl\lfloor \sqrt{2l+\frac{1}{4}} - \frac{1}{2} \Bigr\rfloor\]
 
- ~\cite{Dujmovic2017} mencionan que encontrar el anti-thickness geométrico de gráficas
- completas en posición general es un problema abierto. Hasta ahora las mejores cotas conocidas
- son :
- \[\Bigl\lfloor\frac{n-1}{2}\Bigr\rfloor \leq At_g(K_n) \leq n - \Bigl\lfloor \sqrt{2n + \frac{1}{4}} - \frac{1}{2} \Bigr\rfloor \]
+ ~\cite{Dujmovic2017} mencionan que encontrar el anti-thickness geométrico de
+ gráficas completas en posición general es un problema abierto. En esta tesis
+ abordamos este problema para $n\leq 10$.
+
+ Hasta ahora las mejores cotas conocidas para el anti-thickness geométrico son :
+ \[\Bigl\lfloor\frac{n-1}{2}\Bigr\rfloor \leq At_g(K_n) \leq n - \Bigl\lfloor
+ \sqrt{2n + \frac{1}{4}} - \frac{1}{2} \Bigr\rfloor \]
  La cota superior se sigue del caso convexo y la cota inferior
  se sigue del hecho de que una gráfica de $n$ vértices
-con anti-thickness geométrico $k$ tiene a lo sumo $kn$ aristas.
+ con anti-thickness geométrico $k$ tiene a lo sumo $kn$ aristas.
 
 Los trabajos mencionados en este capítulo muestran cómo el problema original del
-thickness está relacionado con problema del anti-thickness. Mostramos de qué manera
-un problema de descomposición de gráficas geométricas equivale
+thickness está relacionado con problema del anti-thickness. Mostramos de qué
+manera un problema de descomposición de gráficas geométricas equivale
 a un problema de coloración de gráficas. Los artículos más recientes tratan al
 anti-thickness como un problema de coloración. En este trabajo no construimos la
-gráfica $D(S)$ y no coloreamos ninguna gráfica. Nuestro enfoque es más geométrico
+gráfica $D(S)$ y no coloreamos ninguna gráfica. Nuestro enfoque es geométrico
 y computacional.
 
 % Es importante notar que el anti-thickness convexo es acotado examinando el número mínimo
