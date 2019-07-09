@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70206" creator="Ipe 7.2.7">
-<info created="D:20190531130658" modified="D:20190531130658"/>
+<info created="D:20190531130658" modified="D:20190708180625"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -254,17 +254,17 @@ h
 <page>
 <layer name="alpha"/>
 <view layers="alpha" active="alpha"/>
-<use layer="alpha" matrix="1 0 0 1 16 -16" name="mark/disk(sx)" pos="64 448" size="large" stroke="black"/>
-<use matrix="1 0 0 1 16 0" name="mark/disk(sx)" pos="64 400" size="large" stroke="black"/>
-<use matrix="1 0 0 1 16 0" name="mark/disk(sx)" pos="112 368" size="large" stroke="black"/>
-<use matrix="1 0 0 1 16 -16" name="mark/disk(sx)" pos="112 480" size="large" stroke="black"/>
-<use matrix="1 0 0 1 16 -16" name="mark/disk(sx)" pos="160 448" size="large" stroke="black"/>
-<use matrix="1 0 0 1 16 0" name="mark/disk(sx)" pos="160 400" size="large" stroke="black"/>
-<use matrix="1 0 0 1 16 16" name="mark/disk(sx)" pos="80 368" size="large" stroke="black"/>
-<use matrix="1 0 0 1 0 16" name="mark/disk(sx)" pos="160 368" size="large" stroke="black"/>
-<use matrix="1 0 0 1 16 -16" name="mark/disk(sx)" pos="80 464" size="large" stroke="black"/>
-<use matrix="1 0 0 1 16 -16" name="mark/disk(sx)" pos="144 464" size="large" stroke="black"/>
-<text matrix="1 0 0 1 -9.11575 7.04399" transformations="translations" pos="128 464" stroke="black" type="label" width="18.943" height="6.726" depth="2.24" valign="baseline" size="small">(1,2)</text>
+<use layer="alpha" matrix="1 0 0 1 16 -16" name="mark/disk(sx)" pos="64 448" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 16 0" name="mark/disk(sx)" pos="64 400" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 16 0" name="mark/disk(sx)" pos="112 368" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 16 -16" name="mark/disk(sx)" pos="112 480" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 16 -16" name="mark/disk(sx)" pos="160 448" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 16 0" name="mark/disk(sx)" pos="160 400" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 16 16" name="mark/disk(sx)" pos="80 368" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 0 16" name="mark/disk(sx)" pos="160 368" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 16 -16" name="mark/disk(sx)" pos="80 464" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 16 -16" name="mark/disk(sx)" pos="144 464" size="normal" stroke="black"/>
+<text matrix="1 0 0 1 -9.11575 7.04399" transformations="translations" pos="128 464" stroke="black" type="label" width="20.479" height="7.473" depth="2.49" valign="baseline">(1,2)</text>
 <text matrix="1 0 0 1 3.10764 2.69329" transformations="translations" pos="160 448" stroke="black" type="label" width="20.479" height="7.473" depth="2.49" valign="baseline">(1,3)</text>
 <text matrix="1 0 0 1 3.522 2.90047" transformations="translations" pos="176 432" stroke="black" type="label" width="20.479" height="7.473" depth="2.49" valign="baseline">(1,4)</text>
 <text matrix="1 0 0 1 4.3507 2.69329" transformations="translations" pos="176 400" stroke="black" type="label" width="20.479" height="7.473" depth="2.49" valign="baseline">(1,5)</text>

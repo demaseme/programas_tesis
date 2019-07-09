@@ -7,7 +7,7 @@
 
 Comenzamos este capítulo hablando del thickness de una gráfica, concepto que
 cronológicamente fue definido antes que el anti-thickness, y discutimos su
-relación con este. Luego, mencionamos algunos resultados acerca
+relación con éste. Luego, mencionamos algunos resultados acerca
 del thickness. Después, explicaremos de qué manera el número cromático de una
 gráfica puede otorgar una descomposición de una gráfica geométrica. Finalmente
 discutimos los resultados actuales para el anti-thickness.
@@ -50,7 +50,7 @@ la gráfica completa de 6 vértices.
   en dos gráficas geométricas planas.}
   \label{fig:gthk6}
 \end{subfigure}
-\caption{La figura (a) muestra que el thickness de $K_6$ es menor o igual a dos. La figura (b) muestra que el thickness geométrico de $K_6$ es menor o igual a dos.}
+\caption{La figura (a) muestra que el thickness de $K_6$ es menor o igual a dos. La figura (b) muestra que el thickness geométrico de $K_6$ es menor o igual a dos. Sin embargo, en general, estos parámetros no coinciden.}
 \label{fig:thicknessexample}
 \end{figure}
 
@@ -100,12 +100,13 @@ siguiente cota:
 Para explicar la relación entre el thickness y el anti-thickness es necesario
 hablar de coloraciones de vértices de gráficas de adyacencia. Recordemos que
 dadas dos aristas de una gráfica geométrica $\mathsf{G}$, decimos que estas
-se intersectan si comparten un vértice o si se cruzan y que son disjuntas
-si no se intersectan. La gráfica de adyacencia de una gráfica geométrica
-$\mathsf{G}$ tiene como conjunto de vértices a todas las aristas de
-$\mathsf{G}$. Dependiendo del tipo de adyacencia que consideremos
-podemos definir cuatro diferentes gráficas de adyacencia, estas se listan
-a continuación:
+se \emph{intersectan} si comparten un vértice (son adyacentes) o si se cruzan,
+y que son \emph{disjuntas} si no se intersectan. La \emph{gráfica de
+adyacencia} de una gráfica geométrica $\mathsf{G}$ tiene como conjunto de
+vértices a todas las aristas de $\mathsf{G}$ y sus aristas se definen a partir
+del tipo de adyacencia que se considere; se puede definir cuatro diferentes
+gráficas de adyacencia, estas se listan a continuación y se ilustran en la
+figura~\ref{fig:ejemploeppk5}:
 \begin{enumerate}
   \item \label{itm:epp}La gráfica de adyacencia en la que existe una arista
   entre dos vértices si las aristas correspondientes en $\mathsf{G}$ se cruzan.
@@ -131,33 +132,56 @@ a continuación:
 Ahora definimos una gráfica a la que llamamos \emph{gráfica de cruce}.
 
 \begin{definition}{\emph{Gráfica de cruce}.}
-  Sea $S$ un conjunto de $n$ puntos en posición general en el plano y sea $K_n(S)$ la gráfica completa
-  asociada a $S$. La gráfica de cruce $E_{pp}(S)$ de $S$ es la gráfica que tiene un vértice
-  por cada arista de $K_n(S)$ y una arista entre dos vértices de $E_{pp}(S)$ si sus aristas correspondientes
-  se cruzan en $K_n(S)$.
+  Sea $S$ un conjunto de $n$ puntos en posición general en el plano y sea
+  $K_n(S)$ la gráfica completa  asociada a $S$. La gráfica de cruce $E_{pp}(S)$
+  de $S$ es la gráfica que tiene un vértice por cada arista de $K_n(S)$ y una
+  arista entre dos vértices de $E_{pp}(S)$ si sus aristas correspondientes se
+  cruzan en $K_n(S)$.
 \end{definition}
 
 La gráfica $E_{pp}(S)$ corresponde a la gráfica de adyacencia \ref{itm:epp}.
 \begin{figure}
 \begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=.8\linewidth]{K5}
+  \includegraphics[width=.55\linewidth]{K5}
   \caption{Un dibujo geométrico de $K_5$ cuyo conjunto de vértices es $S=\{1,2,3,4,5\}$.}
   \label{fig:k5}
 \end{subfigure}%
+~
 \begin{subfigure}{.5\textwidth}
   \centering
   \includegraphics[width=.8\linewidth]{EppK5}
-  \caption{La gráfica $E_{pp}(S)$.}
+  \caption{La gráfica de adyacencia 1.}
   \label{fig:eppk5}
 \end{subfigure}
-\caption{Una instancia de $K_5$ y su respectiva gráfica de cruce $E_{pp}(S)$.}
+~
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{grafica2k5}
+  \caption{La gráfica de adyacencia 2.}
+  \label{fig:2k5}
+\end{subfigure}
+~
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{grafica3k5}
+  \caption{La gráfica de adyacencia 3.}
+  \label{fig:3k5}
+\end{subfigure}
+~
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{grafica4k5}
+  \caption{La gráfica de adyacencia 4.}
+  \label{fig:4k5}
+\end{subfigure}
+\caption{Una dibujo de $K_5$ y sus respectivas gráficas de adyacencia.}
 \label{fig:ejemploeppk5}
 \end{figure}
 
-En la figura \ref{fig:ejemploeppk5} aparece un ejemplo de la gráfica de cruce $E_{pp}(S)$.
-Podemos notar que dado que en el dibujo de $K_5$ hay 3 cruces, en la gráfica $E_{pp}(S)$
-hay 3 aristas.
+En la figura \ref{fig:eppk5} aparece un ejemplo de la gráfica de cruce
+$E_{pp}(S)$. Podemos notar que dado que en el dibujo de $K_5$ hay 3 cruces, en
+la gráfica $E_{pp}(S)$ hay 3 aristas.
 % Los conjuntos independientes de $E_{pp}(S)$ corresponden a conjuntos de aristas
 % que las aristas correspondientes en el dibujo de $K_n$ son en efecto gráficas planas.
 % Cuando asignamos un color a cada conjunto independiente, tenemos una clase
@@ -166,10 +190,11 @@ hay 3 aristas.
 % en gráficas planas de un dibujo de $K_n$ cuyo tamaño es mínimo, en otras palabras obtenemos
 % el thickness de un dibujo en particular de $K_n$.
 
-Los conjuntos independientes de $E_{pp}(S)$ corresponden a conjuntos de aristas de $K_n(S)$
-que inducen gráficas planas. Luego, una coloración propia de los vértices de $E_{pp}(S)$
-corresponde a una descomposición de $K_n(S)$ en gráficas planas.
-Por lo tanto encontrar el número cromático $\chi(E_{pp}(S))$ de la gráfica
+Los conjuntos independientes de $E_{pp}(S)$ corresponden a conjuntos de aristas
+de $K_n(S)$ que inducen gráficas planas. Luego, una coloración propia de los
+vértices de $E_{pp}(S)$ corresponde a una descomposición de $K_n(S)$ en
+gráficas planas.
+Por lo tanto encontrar el número cromático de la gráfica
 $E_{pp}(S)$ es equivalente a encontrar el thickness geométrico de $K_n(S)$.
 La figura \ref{fig:k5coloring} ilustra esta relación.
 El thickness geométrico de la gráfica completa de $n$ vértices $K_n$ se puede
@@ -233,7 +258,7 @@ la gráfica completa asociada a $S$:
   \ref{itm:D}.
 \end{itemize}
 A partir de aquí, nos referimos a las gráficas de adyacencia 1,2,3 y 4 como
-$E_{pp}(S),W(S),I(S)$ y $D(S)$ respectivamente.
+$E_{pp}(S),W(S),I(S)$ y $D(S)$, respectivamente.
 % \begin{itemize}
 %   \item $W(S):$ Es la gráfica que tiene un vértice por cada arista de $K_n(S)$ y
 %   una arista entre dos vértices de $W(S)$ si sus aristas correspondientes en $K_n(S)$
@@ -250,14 +275,15 @@ Es fácil darse cuenta que la condición de existencia de aristas de $W(S)$ es
 complementaria a la condición en $E_{pp}(S)$ y viceversa. De la misma
 forma, las condiciones de $I(S)$ y $D(S)$ son complementarias entre sí. En la tabla~\ref{table:graficasincidencia}
 mostramos esta relación y las estructuras geométricas
-que representan, en $K_n(S)$, los conjuntos independientes para cada gráfica de adyacencia.
+que inducen, en $K_n(S)$, los conjuntos independientes para cada gráfica de adyacencia.
 
-\emph{Open problem garden} es un sitio web en el que investigadores de diferentes áreas
-de las matemáticas como algebra, combinatoria, teoría de números o teoría de gráficas
-publican problemas abiertos para que la comunidad pueda leerlos libremente.
-En este sitio web~\cite{OpenGarden2009} presenta un problema en el que se requiere asignar un
-color a cada arista de una gráfica geométrica completa bajo cada una de los cuatro
-criterios de adyacencia mencionados antes.
+\emph{Open problem garden} es un sitio web en el que investigadores de
+diferentes áreas de las matemáticas, como algebra, combinatoria, teoría de
+números o teoría de gráficas, publican problemas abiertos para que la comunidad
+pueda leerlos libremente. En este sitio web~\cite{OpenGarden2009} presenta un
+problema en el que se requiere asignar un color a cada arista de una gráfica
+geométrica completa usando, de manera implicita, cada una de las cuatro
+gráficas de adyacencia mencionadas antes.
 
 % En el aporte de \cite{Araujo2005} buscan el número cromático de cada una de las
 % gráficas listadas anteriormente por lo que creemos sensato decir a qué estructuras
@@ -276,17 +302,20 @@ criterios de adyacencia mencionados antes.
   \begin{tabular}{|l|l|}
     \hline
     Gráfica   & Conjuntos independientes en $K_n(S)$    \\ \hline \hline
-    $W(S)$    & \emph{Emparejamientos de cruces}        \\ \hline
+    $W(S)$    & \emph{Crossing families}        \\ \hline
     $I(S)$    & \emph{Emparejamientos planos}           \\ \hline
     $D(S)$    & \emph{Thrackles}                        \\ \hline
-    $E_pp(S)$ & \emph{Gráfica planar}                   \\ \hline
+    $E_{pp}(S)$ & \emph{Gráficas planares}                   \\ \hline
   \end{tabular}
-  \caption{Esta tabla muestra qué representan los conjuntos independientes en $K_n(S)$
-  para cada una de las gráficas definidas en \cite{Araujo2005} y para $E_pp(S)$.}
+  \caption{Esta tabla muestra qué representan los conjuntos independientes en
+  $K_n(S)$ para cada una de las gráficas definidas en \cite{Araujo2005} y para
+  $E_pp(S)$. Una \emph{crossing familie} es una colección de segmentos
+  que se cruzan a pares~\cite{Lara2019}. }
   \label{table:graficasincidencia}
 \end{table}
-En el artículo de \cite{Araujo2005} buscan el número cromático de cada una de las
-gráficas de adyacencia mencionadas anteriormente, los autores estudian los siguientes parámetros:
+En el artículo de \cite{Araujo2005} buscan el número cromático de cada una de
+las gráficas de adyacencia mencionadas anteriormente, los autores estudian los
+siguientes parámetros:
   \begin{align*}
     w(n) &= \max\{\chi(W(S)): S\subset \mathbb{R}^2 \text{ está en posición general}, |S|=n\}. \\
     i(n) &= \max\{\chi(I(S)): S\subset \mathbb{R}^2 \text{ está en posición general}, |S|=n\}. \\
@@ -294,8 +323,16 @@ gráficas de adyacencia mencionadas anteriormente, los autores estudian los sigu
   \end{align*}
 % Para cada uno también definen el caso en el que $S \subset \mathbb{R}^2$ está
 % en posición convexa como $w_c(n)$, $i_c(n)$ y $d_c(n)$ y demuestran las siguientes cotas:
-Para el caso en el que $S$ está en posición convexa se denotan a estos valores como
-$w_c(n)$, $i_c(n)$ y $d_c(n)$. Los autores demuestran las siguientes cotas:
+Es usual estudiar el dibujo en posición convexa de una gráfica completa ya que
+se pueden explotar ciertas propiedades geométricas cuando se trabaja con un
+conjunto de puntos en posición convexa. Esta configuración es representada por
+un solo tipo de orden para cada $n$. Para el caso en el que $S$ está en
+posición convexa se denotan a estos valores como $w_c(n)$, $i_c(n)$ y $d_c(n)$.
+Es importante notar que, por consecuencia de la posición convexa, estos valores
+están definidos para un único tipo de orden. Nótese que $d_c(n)=\chi(D(S))$ para
+el caso en el que $S$ está en posición convexa.
+
+Los autores demuestran las siguientes cotas:
 \begin{itemize}
   \item $w_c(n) = \Theta(n\log n)$.
   \item $c_1n\log n \leq w(n) \leq c_2 n^2 \frac{\log\log n}{\log n}, \text{ para } c_1,c_2 > 0$.
@@ -305,16 +342,9 @@ $w_c(n)$, $i_c(n)$ y $d_c(n)$. Los autores demuestran las siguientes cotas:
   \item $5\lfloor \frac{n}{7}\rfloor \leq d(n) \leq \min\left(n-2,n+\frac{1}{2}- \frac{\lfloor{\log \log n}\rfloor}{n}\right)$.
 \end{itemize}
 
-A pesar de que en el trabajo de~\cite{Araujo2005} se busca el número cromático
-de la gráfica $D(S)$ y con ello, de manera implicita, buscar el anti-thickness de una gráfica
-geométrica asociada a $S$, es importante notar que la definición $d(n)$ no es
-equivalente a la de anti-thickness. Dada una gráfica $G$: en $d(n)$ se busca el máximo de todos los
-números cromáticos para todas las gráficas geométricas de $G$
-mientras que en el anti-thickness se busca el mínimo de todos los números cromáticos para todas
-las gráficas geométricas de $G$.
-
-Podemos dar una definición del anti-thickness geométrico usando la gráfica $D(S)$
-como sigue:
+Ahora bien, como los conjuntos independientes de la gráfica $D(S)$ son
+thrackles, es posible definir el anti-thickness geométrico usando la gráfica
+$D(S)$ como sigue:
 \begin{definition}{\emph{Anti-thickness geométrico de una gráfica}.}
   \[At_g(n) = \min\{\chi(D(S)): S\subset \mathbb{R}^2 \text{ está en posición general}, |S|=n\}.\]
 \end{definition}
@@ -323,11 +353,30 @@ De manera análoga si los puntos de $S$ están en posición convexa definimos el
 anti-thickness convexo:
 
 \begin{definition}{\emph{Anti-thickness convexo de una gráfica}.}
-  \[At_c(n) = \min\{\chi(D(S)): S\subset \mathbb{R}^2 \text{ está en posición convexa}, |S|=n\}.\]
+  \[At_c(n) = \chi(D(S)): S\subset \mathbb{R}^2 \text{ está en posición convexa}, |S|=n.\]
 \end{definition}
 
-El anti-thickness convexo de la gráfica completa de $n$ vértices es equivalente
-a $d_c(n)$.
+Como ya mencionamos antes, el anti-thickness convexo de la gráfica completa de $n$ vértices es equivalente a $d_c(n)$. En otras palabras, sea $S$ un conjunto
+de $n$ puntos en posición convexa:
+\begin{align*}
+  At_c(n) &= d_c(n) \\
+  \Rightarrow \chi(D(S)) &= \max\{\chi(D(S))\}
+\end{align*}
+Pero como solamente existe un solo dibujo cuando $S$ está en posición convexa,
+entonces:
+\[
+\max\{\chi(D(S))\} = \chi(D(S)).
+\]
+
+A pesar de que en el trabajo de~\cite{Araujo2005} se busca el número cromático
+de la gráfica $D(S)$ y con ello, como mencionamos antes, se busca el
+anti-thickness de una gráfica geométrica asociada a $S$, es importante notar
+que la definición $d(n)$ no es equivalente a la de anti-thickness. Dada una
+gráfica $G$: en $d(n)$ se busca el máximo de todos los números cromáticos para
+todas las gráficas geométricas de $G$ mientras que en el anti-thickness se
+busca el mínimo de todos los números cromáticos para todas las gráficas
+geométricas de $G$.
+
 % Por otro lado, debido a que cuando $K_n$ es dibujado en el plano en posición convexa
 % los dibujos posibles no presentan diferencias combinatorias se tiene que el
 % anti-thickness convexo de la gráfica completa de $n$ vértices es equivalente a la definición
@@ -388,7 +437,7 @@ gráfica. Concretamente los autores prueban la siguiente cota para toda gráfica
 con anti-thickness $k$ y thickness $t$:
 \[ k \leq t \leq \left\lceil \frac{3k}{2}\right\rceil .\]
 
-Acerca del anti-thickness de gráficas completas, en el mismo artículo
+Acerca del anti-thickness de gráficas completas en el mismo artículo
 prueban que \[ \frac{n}{3} \leq  At(K_n) \leq \left\lceil \frac{n-1}{2} \right\rceil . \]
 
 Ellos conjeturan que el anti-thickness de una gráfica completa es
@@ -396,40 +445,46 @@ exactamente $\left\lceil \frac{n-1}{2} \right\rceil$.
 % Los resultados presentados en ese trabajo que tienen que ver con el anti-thickness
 % geométrico de una gráfica completa se enfocan  en el caso específico de puntos en posición convexa.
 
-En los siguientes párrafos describimos cómo los autores de~\cite{Fabila-Monroy2018}
-encuentran el anti-thickness geométrico exacto para gráficas cuyo conjunto
-de vértices está en posición convexa.
+Respecto al anti-thickness geométrico, en los siguientes párrafos describimos
+cómo los autores de~\cite{Fabila-Monroy2018} encuentran el anti-thickness
+geométrico exacto para gráficas cuyo conjunto de vértices está en posición
+convexa.
 
-Los autores prueban que bajo esta condición dos thrackles máximos siempre
-comparten al menos una arista. Por lo anterior la unión de $k$ thrackles máximos tiene
-a lo sumo $kn - \binom{k}{2}$ aristas. Entonces, como una gráfica completa de $n$
-vértices tiene $\binom{n}{2}$ aristas la resolución de la desigualdad
+Los autores prueban que cuando los vértices de la gráfica geométrica están en
+posición convexa dos thrackles máximos siempre comparten al menos una arista.
+Por lo anterior la unión de $k$ thrackles máximos tiene a lo sumo $kn -
+\binom{k}{2}$ aristas. Entonces, como una gráfica completa de $n$
+vértices tiene $\binom{n}{2}$ aristas la resolución de la siguiente desigualdad
+otorga el resultado de la cota inferior para el anti-thickness convexo.
 \[ \binom{n}{2} \leq kn - \binom{k}{2} .\]
-otorga el resultado de la cota inferior para el anti-thickness convexo. Esta cota es:
-\[ At_c(K_n) \geq n - \Bigl\lfloor \sqrt{2n + \frac{1}{4}} - \frac{1}{2} \Bigr\rfloor. \]
+Esta cota es:
+\[ At_c(K_n) \geq n - \left\lfloor \sqrt{2n + \frac{1}{4}} - \frac{1}{2} \right\rfloor. \]
 
-La cota superior se obtiene dando una coloración propia de los vértices de la gráfica
-$D(S)$. Recordemos que una coloración propia de $D(S)$ equivale a encontrar el
-antithickness de la gráfica completa asociada a $S$.
+La cota superior se obtiene dando una coloración propia de los vértices de la
+gráfica $D(S)$. Puesto que como explicamos anteriormente este problema es
+equivalente a encontrar el número cromático de la gráfica.
 En el articulo logran la coloración trazando caminos en una
 estructura conocida como poliominó~\cite{Fabila-Monroy2018-poly}
-en la que los vértices de $D(S)$ son las filas y las columnas de dicha estructura.
+en la que los vértices de $D(S)$ son las filas y las columnas de dicha
+estructura.
 En dicho trabajo cada camino representa un conjunto independiente de vértices en
- $D(S)$ y por lo tanto, respresenta un thrackle en $K_n$.
+ $D(S)$ y por lo tanto respresenta un thrackle en $K_n$.
 Los autores concluyen dando el número máximo de caminos posibles en el
-polyomino, dicho número coincide con el de la cota inferior y luego se tiene
+poliominó, dicho número coincide con el de la cota inferior y luego se tiene
 que el anti-thickness convexo tiene exactamente el siguiente valor:
-\[ At_c(n) = n - \Bigl\lfloor \sqrt{2n + \frac{1}{4}} - \frac{1}{2} \Bigr\rfloor \]
+\[ At_c(n) = n - \left\lfloor \sqrt{2n + \frac{1}{4}} - \frac{1}{2} \right\rfloor. \]
 
 A continuación hablamos del trabajo de~\cite{Lomeli2018} en donde encuentran el
-anti-thickness geométrico de la doble cadena convexa. La doble cadena convexa
-es una configuración de puntos conformada por una $k\text{-}cup$ y una
-$l\text{-}cap$. La $k\text{-}cup$ es una cadena de $k$ puntos en posición
-convexa donde la parte superior de su cubierta está delimitada por un solo
-segmento. La $l\text{-}cap$ es una cadena de $l$ puntos en posición convexa
-donde la parte inferior de su cubierta está delimitada por un solo segmento. En
-el artículo la doble cadena convexa $C_{k,l}$ que definen tiene las siguientes
-características:
+anti-thickness geométrico de una familia de conjuntos conocidos como doble
+cadena convexa. Una doble cadena convexa
+es la configuración de puntos conformada por una $k\text{-}cup$ y una
+$l\text{-}cap$. Una $k\text{-}cup$ es una cadena de $k$ puntos en posición
+convexa donde la parte superior de su \emph{cierre convexo}\footnote{El cierre
+convexo de un conjunto de puntos es el polígono con área más pequeña que
+contenga a todos los puntos del conjunto.} está delimitado por un solo
+segmento. Una $l\text{-}cap$ es una cadena de $l$ puntos en posición convexa
+donde la parte inferior de su cierre convexo está delimitado por un solo
+segmento. La doble cadena convexa $C_{k,l}$ tiene las siguientes propiedades:
 \begin{itemize}
   \item Para $l\geq k$ la doble cadena convexa es la unión una $k\text{-}cup$ $U$ y una $l\text{-}cap$ $L$.
   \item Cada punto de $L$ está por debajo de cada segmento de recta definido por dos puntos de $U$.
@@ -445,28 +500,30 @@ convexa.
   \label{fig:exdoblecadena}
 \end{figure}
 
-El resultado al que se llega en ese trabajo es que el anti-thickness geométrico
-de la doble cadena convexa con $k$ puntos en la cadena convexa superior
-y $l$ puntos en la cadea convexa inferior es:
- \[At_g(K_{l,k}) = k+l-\Bigl\lfloor \sqrt{2l+\frac{1}{4}} - \frac{1}{2} \Bigr\rfloor\]
+El resultado al que se llega en ese trabajo es el siguiente: el anti-thickness
+geométrico de la gráfica completa inducida por una doble cadena convexa con $k$
+puntos en la cadena convexa superior y $l$ puntos en la cadea convexa inferior,
+$K_{l,k}$, es:
+ \[At_g(K_{l,k}) = k+l-\left\lfloor \sqrt{2l+\frac{1}{4}} - \frac{1}{2} \right\rfloor\]
 
  ~\cite{Dujmovic2017} mencionan que encontrar el anti-thickness geométrico de
  gráficas completas en posición general es un problema abierto. En esta tesis
  abordamos este problema para $n\leq 10$.
 
  Hasta ahora las mejores cotas conocidas para el anti-thickness geométrico son :
- \[\Bigl\lfloor\frac{n-1}{2}\Bigr\rfloor \leq At_g(K_n) \leq n - \Bigl\lfloor
- \sqrt{2n + \frac{1}{4}} - \frac{1}{2} \Bigr\rfloor \]
+ \[\left\lfloor\frac{n-1}{2}\right\rfloor \leq At_g(K_n) \leq n - \left\lfloor
+ \sqrt{2n + \frac{1}{4}} - \frac{1}{2} \right\rfloor. \]
  La cota superior se sigue del caso convexo y la cota inferior
- se sigue del hecho de que una gráfica de $n$ vértices
- con anti-thickness geométrico $k$ tiene a lo sumo $kn$ aristas.
+ se sigue del hecho de que una gráfica con $n$ vértices
+ con anti-thickness geométrico $k$ tiene a lo sumo $kn$ aristas. Discutimos
+ estas ideas con más detalle en la sección~\ref{sec:cota_inf} del capítulo~\ref{cap4}.
 
 Los trabajos mencionados en este capítulo muestran cómo el problema original del
 thickness está relacionado con problema del anti-thickness. Mostramos de qué
 manera un problema de descomposición de gráficas geométricas equivale
 a un problema de coloración de gráficas. Los artículos más recientes tratan al
 anti-thickness como un problema de coloración. En este trabajo no construimos la
-gráfica $D(S)$ y no coloreamos ninguna gráfica. Nuestro enfoque es geométrico
+gráfica $D(S)$ y no coloreamos ninguna gráfica, uestro enfoque es geométrico
 y computacional.
 
 % Es importante notar que el anti-thickness convexo es acotado examinando el número mínimo
@@ -475,7 +532,5 @@ y computacional.
 % Esta idea fue retomada en este trabajo para intentar ajustar las cotas del anti-thickness
 % en posición general.
 
-Es importante notar que en el trabajo de~\cite{Fabila-Monroy2018} las descomposiciones
-de la gráfica completa están conformadas por thrackles máximos. Esta es una de las ideas que
-usamos en este trabajo para intentar ajustar las cotas del anti-thickness en posición
-general.
+Es importante notar que en el trabajo de~\cite{Fabila-Monroy2018} las
+descomposiciones de la gráfica completa están conformadas por thrackles máximos. Esta es una de las ideas que usamos en este trabajo para intentar ajustar las cotas del anti-thickness en posición general.
