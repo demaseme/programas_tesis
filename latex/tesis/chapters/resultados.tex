@@ -115,19 +115,24 @@ este proceso en el siguiente lema:
 Ahora procedemos a contar el número de aristas que pueden ser cubiertas por una descomposición
 inducida por una colección de thrackles máximos.
 \begin{lemma}\label{lema:numaristascubiertas}
-  Sea \[T'_i = \{\text{El thrackle inducido por } \{E(T_i) - \bigcup_{k=1}^{i-1} E(T_i)\cap E(T_k)\} \}\]
-  y sea  $\mathcal{D}=\{T'_1,T'_2,\dots,T'_{\left\lceil\frac{n-1}{2}\right\rceil}\}.$
+  Sea \[\mathcal{C}=\{T_1,T_2,\dots,T_m\}\] una colección de thrackles máximos.
+  Sea
+  \[T'_i = \{\text{El thrackle inducido por } \{E(T_i) - \bigcup_{k=1}^{i-1} E(T_i)\cap E(T_k)\} \}\]
+  y sea %\left\lceil\frac{n-1}{2}\right\rceil
+  $\mathcal{D}=\{T'_1,T'_2,\dots,T'_{m}\}.$
 
   El número de aristas cubiertas por $\mathcal{D}$ es exactamente :
-   \[\displaystyle \sum^n_{i=\left(n-\left\lceil\frac{n-1}{2}\right\rceil\right) + 1}i\]
+   \[\displaystyle \sum^n_{i=\left(n-m\right) + 1}i\]
  \end{lemma}
  \begin{proof}
-   Por construcción: $T'_1$ tiene $n$ aristas, luego $T'_2$ tiene $n-1$ aristas, en general $T'_i$ tiene
-   $n-(i-1) = n-i+1$ aristas. Como $\mathcal{D}$ tiene $\left\lceil\frac{n-1}{2}\right\rceil$ thrackles
-   el número de aristas cubiertas por $\mathcal{D}$ es \[ n + (n-1) + (n-2) + \cdots + (n-\left\lceil\frac{n-1}{2}\right\rceil) +
-   (n - \left\lceil\frac{n-1}{2}\right\rceil + 1)\]
+   Por construcción y por el lema~\ref{lema:thdisjuntos}: $T'_1$ tiene $n$
+   aristas, luego $T'_2$ tiene $n-1$
+   aristas, en general $T'_i$ tiene $n-(i-1) = n-i+1$ aristas. Como
+   $\mathcal{D}$ tiene $m$ thrackles el número de aristas cubiertas por
+   $\mathcal{D}$ es
+   \[ n + (n-1) + (n-2) + \cdots + (n-m) + (n - m + 1)\]
    Podemos escribir esta suma como:
-   \[\displaystyle \sum^n_{i=\left(n-\left\lceil\frac{n-1}{2}\right\rceil\right) + 1}i\]
+   \[\displaystyle \sum^n_{i=(n-m) + 1}i\]
  \end{proof}
 % Por consecuencia es posible contar cuántas aristas serán cubiertas si la descomposición es de thrackles
 % máximos y tiene tamaño $\left\lceil\frac{n-1}{2}\right\rceil$ como sigue: el primer thrackle
@@ -180,20 +185,45 @@ dar el valor exacto del número de thrackles máximos necesarios para inducir un
 descomposición por thrackles de $K_n$ con $ 3\leq n \leq 10$.
 
 \begin{theorem}\label{teo:nuevacotainf}
-  Si $\mathcal{D}$ una descomposición de $K_n$ inducida por $k$ thrackles máximos
-  entonces :
+  Si $\mathcal{D}$ es una descomposición de $K_n$ inducida por $k$ thrackles
+  máximos entonces :
   \[
     k = \left\{ \begin{array}{lr}
-      \left\lceil\frac{n-1}{2}\right\rceil,     & \text{para } n=\{3,4,6\}\\
-      \left\lceil\frac{n-1}{2}\right\rceil + 1, & \text{para } n=\{5,7,8,10\}\\
+      \left\lceil\frac{n-1}{2}\right\rceil,     & \text{para } n\in\{3,4,6\}\\
+    \left\lceil\frac{n-1}{2}\right\rceil + 1, & \text{para } n\in\{5,7,8,10\}\\
       \left\lceil\frac{n-1}{2}\right\rceil + 2, & \text{para } n=9
     \end{array} \right\}
   \]
 \end{theorem}
 \begin{proof}
-  La prueba consiste en
+  La prueba consiste en evaluar el número de aristas cubiertas por $k$
+  thrackles usando el resultado del lema~\ref{lema:numaristascubiertas}
+  hasta encontrar $k$ suficientemente grande para que la descomposición
+  cubra las $\binom{n}{2}$ aristas de $K_n$.
 \end{proof}
+Los resultados del teorema~\ref{teo:nuevacotainf} se presentan en la tabla~\ref{table:atnuevacota}.
+\begin{table}[t]
+  \centering
+  \begin{tabular}{|c|c|c|c|}
+    \hline
+    $n$ & $k$ & $\sum^n_{i=(n-k) + 1}i$ & $\binom{n}{2}$\\[5pt] \hline\hline
+    3   & 1  & 3 & 3 \\ \hline
+    4   & 2  & 7 & 6 \\ \hline
+    5   & 3  & 12 & 10 \\ \hline
+    6   & 3  & 15 & 15 \\ \hline
+    7   & 4  & 22 & 21 \\ \hline
+    8   & 5  & 30 & 28 \\ \hline
+    9   & 6  & 39 & 36 \\ \hline
+    10  & 6  & 45 & 45 \\ \hline
+  \end{tabular}
+  \caption{Usando la cota del teorema~\ref{teo:nuevacotainf} para el número de
+  thrackles máximos necesarios para inducir una descomposición es posible
+  cubrir, para toda $n\leq 10$, las aristas de $K_n$.}
+  \label{table:atnuevacota}
+\end{table}
+
 %
+
 % Finalmente, usando el lema~\ref{lema:thdisjuntos} podemos ajustar la cota inferior.
 %
 % existe una descomposición de $k$ thrackles máximos entonces la descomposición
