@@ -18,6 +18,7 @@
 \theoremstyle{definition}
 \newtheorem{definition}{Definición}
 \newtheorem{theorem}{Teorema}[section]
+\newtheorem{corollary}{Corolario}[theorem]
 \newtheorem{lemma}[theorem]{Lema}
 \algnewcommand\algorithmicforeach{\textbf{for each}}
 \algdef{S}[FOR]{ForEach}[1]{\algorithmicforeach\ #1\ \algorithmicdo}
@@ -42,7 +43,7 @@
 \chapter{Antecedentes}
 \input{chapters/antecedentes.tex}
 \chapter{Estado del arte}
-\input{chapters/estado.tex}
+\input{chapters/estado.tex}\label{cap3}
 \chapter{Resultados}\label{cap4}
 \input{chapters/resultados.tex}
 \chapter{Conclusiones y trabajo futuro}
