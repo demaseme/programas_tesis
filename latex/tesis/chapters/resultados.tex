@@ -72,13 +72,13 @@ finalmente comparamos dichos thrackles a pares y encontramos que:
   \item Existen tipos de orden en los que no hay thrackles máximos.
 \end{itemize}
 
-Para buscar los thrackles máximos usamos el algoritmo X descrito en la sección
-Y.Para comparar los thrackles a pares utilizamos el algoritmo XX descrito
-también en la sección Y. Describimos los algoritmos usados en otra sección para
-no romper con el flujo matemático de esta sección.
-El número de los tipos de orden para los cuales existe solamente un thrackle
-máximo está en el apéndice XX, la información también puede ser descargada de
-la siguiente liga: HTTPXX.
+Para buscar los thrackles máximos usamos el algoritmo~\ref{algo_kthrackles}
+descrito en la sección~\ref{seccion_algoritmo_kthrackles}.Para comparar los
+thrackles a pares utilizamos el algoritmo~\ref{algo_interseccion} descrito en
+la misma sección. Describimos los algoritmos usados en otra sección para no
+romper con el flujo matemático de esta sección. El número de los tipos de orden
+para los cuales existe solamente un thrackle máximo está en el apéndice XX, la
+información también puede ser descargada de la siguiente liga: HTTPXX.
 El número de los tipos de orden para los cuales no existe un thrackle máximo
 está en la siguiente liga: HTTPXX.
 
@@ -280,7 +280,156 @@ Los resultados del teorema~\ref{teo:nuevacotainf} se presentan en la tabla~\ref{
 % para cubrir la arista restante. Decimos que el anti-thickness geométrico de $K_5$
 % es al menos tres.
 
+\section{Algoritmos usados}
+\subsection{Algoritmo para encontrar thrackles con $k$
+  aristas}\label{seccion_algoritmo_kthrackles}
+  A continuación presentamos el algoritmo para encontrar thrackles de tamaño
+  $k$. Para este algoritmo creamos una matriz con información de adyacencia a
+  la que llamamos \emph{matriz de disyunción} (o \emph{disjointness matrix} en inglés).
+  \begin{enumerate}
+    \item Leer archivo de $n$ puntos para el tipo de orden deseado.
+    \item Generar las aristas de la gráfica completa.
+    \item Construir la matriz de disyunción.
+    \item Obtener thrackles de tamaño $k$.
+  \end{enumerate}
 
+  El paso 2 consiste en generar y almacenar las $\binom{n}{2}$ combinaciones de
+  pares de puntos leídos en el paso 1. En el paso 3 se construye una matriz
+  cuadrada de $\binom{n}{2}$ filas, cada fila y cada columna representa una de
+  las aristas de $K_n$. La matriz tiene un $0$ en la entrada $i,j$ si las
+  aristas $i$ y $j$ se cruzan o comparten un vértice, de otra manera la entrada
+  $i,j$ tiene un 1. En el paso 4 usamos la información de la matriz de
+  disyunción previamente construida: Almacenamos un vector de enteros que tiene
+  $k$ entradas dicho vector es inicializado con 0 en la primer entrada y 1 en
+  la segunda entrada. Este vector representa un thrackle de tamaño $k$ que
+  actualmente está compuesto por la arista 0 y cuyo tamaño se incrementará con
+  el tiempo cuando se encuentre otra arista que también intersecte a la arista
+  0. En general, supongamos que el vector actualmente tiene $i$ posiciones y
+  deseamos saber si la arista $i+1$ puede formar parte del thrackle (con el
+  objetivo de incrementar el tamaño del thrackle). Para ello, verificamos la
+  intersección de la arista $i+1$ con las aristas del conjunto
+  $\{0,1,2,\dots,i\}$. Puede ocurrir uno de dos casos :
+  \begin{itemize}
+    \item[a)] La arista $i+1$ no intersecta a alguno de las aristas en
+    $\{0,1,2,\dots,i\}$. En este caso la arista $i+1$ no forma parte delel
+    thrackle y debemos verificar con la siguiente arista, esta es, la arista
+    $i+2$.
+    \item[b)] La arista $i+1$ intersecta a todas las aristas en
+    $\{0,1,2,\dots,i\}$. En este caso $i+1$ forma parte del thrackle y ahora el
+    thrackle tiene $i+1$ aristas.
+  \end{itemize}
+
+  Repetimos esto hasta que el thrackle tenga $k$ aristas. Cuando el thrackle
+  tiene $k$ aristas, almacenamos los valores del vector en una lista de
+  vectores. Después, incrementamos el valor de la $k$-ésima entrada del vector
+  en uno, si el valor nuevo es menor a $\binom{n}{2}$ la verificiación se hace
+  como se describió antes.
+
+  Si en algún momento la entrada $j$ del vector tiene un valor mayor o igual a
+  $\binom{n}{2}$, esto es, que ya agotó los valores posibles para representar
+  alguna arista en $K_n$, incrementamos el valor de la entrada $j-1$ y
+  continuamos la verificación a partir de esta entrada como se describió
+  anteriormente.
+
+  El algoritmo descrito es un algoritmo de \emph{backtracking} que avanza
+  mientras encuentre aristas que se intersecten a pares y regresa cuando se
+  agotan las aristas posibles para incrementar el tamaño del thrackle. Debido a
+  que los valores de las entradas del vector nunca se decrementan, el algoritmo
+  agota los posibles valores para cada una de las entradas. Esto permite que
+  regrese hasta la posición 0, cuando agote los $\binom{n}{2}$ valores para esta
+  posición, intentará regresar a la posición -1 para continuar la verificación
+  desde esa posición. Esta es una posición inválida para un vector, por ello
+  usamos esta caracteristica como condición de paro de nuestro algoritmo.
+
+  Los thrackles encontrados por este algoritmo están codificados como cademas de
+  enteros, cada entero representa una de las aristas de $K_n$. Es posible
+  inducir un thrackle a partir de un conjunto de aristas y después realizar
+  operaciones sobre ellos.
+
+  Debido a la construcción de la matriz de disyunción, y al algoritmo de
+  backtracking, los thrackles encontrados están ordenados lexicograficamente. De
+  tal manera que para el thrackle codificado como $i_1,i_2,\dots,i_k$ se tiene
+  que $i_i < i_2 < \cdots < i_k$.
+
+  El motivo por el que buscamos agotar las $\binom{n}{2}$ posibilidades para
+  cada posición en el vector es que el algoritmo entrege todos los thrackles
+  posibles con $k$ aristas.
+
+  El pseudocódigo~\ref{algo_kthrackles} muestra el proceso del paso 4.
+  \algblockdefx[NAME]{}{OTHEREND}%
+  [1]{Until (#1)}
+  \begin{algorithm}[htpb]
+    \begin{algorithmic}[1]
+      \Procedure{EncontrarThrackleK}{$n,k$}
+      \State Sea $C$ un vector de tamaño $k+1$.
+      \State $C[0]\gets 0$
+      \State $C[1]\gets 1$
+      \State \texttt{inters\_flag} $\gets$ \texttt{true}
+      \State \texttt{curr\_size} $\gets 1$
+      \While{$C[0] < \binom{n}{2}$}
+      \While{\texttt{curr\_size}$<k$}
+      \State \texttt{inters\_flag} $=$ \texttt{true}
+      \If{$C[\text{\texttt{curr\_size}}] \geq \binom{n}{2}$}
+        \State \texttt{curr\_size} $\gets$  \texttt{curr\_size} $-1$
+        \If{\texttt{curr\_size} $<0$}
+        \State \Return \texttt{thrackle\_counter}
+        \EndIf
+        \State $C[\text{\texttt{curr\_size}}]\gets C[\text{\texttt{curr\_size}}]+1$
+        \State \textbf{continue}
+      \EndIf
+      \For{$i\gets 0 \dots \text{\texttt{curr\_size}}-1$}
+        \State \texttt{inters\_flag}=\texttt{inters\_flag} $\&\&$ \texttt{matrix}$[C[i]][C\text{\texttt{curr\_size}}]$
+      \EndFor
+      \If{\texttt{inters\_flag} $==$ \texttt{False}}
+        \State $C[\text{\texttt{curr\_size}}] \gets C[\text{\texttt{curr\_size}}] + 1$
+      \Else
+        \If{\texttt{curr\_size}$+1==k$}
+          \State \texttt{thrackle\_counter} $\gets$ \texttt{thrackle\_counter} + 1
+          \State Almacenar $C$ en una lista de vectores.
+          \State \textbf{continue}
+        \EndIf
+      \EndIf
+      \EndWhile
+      \State $C[\text{\texttt{curr\_size}}+1] \gets C[\text{\texttt{curr\_size}}] + 1$
+      \State \texttt{curr\_size} $\gets$ \texttt{curr\_size} $+1$
+      \EndWhile
+      \EndProcedure
+    \end{algorithmic}
+    \caption{Algoritmo para encontrar todos los thrackles de tamaño $k$.}
+    \label{algo_kthrackles}
+  \end{algorithm}
+\subsection{Intersección de dos thrackles}
+  Dados dos thrackles con el mismo número de aristas, codificados como cadenas
+  de enteros, aprovechamos el ordenamiento lexicográfico para hacer la
+  operación de intersección de thrackles en tiempo lineal.
+  Sea $A$ y $B$ dos vectores que representan las aristas de dos thrackles, con
+  $|A|=|B|=k$. El algoritmo~\ref{algo_interseccion} entrega la intersección de $A$ y $B$ y la almacena en un conjunto $C$.
+  \begin{algorithm}[htpb]
+    \begin{algorithmic}[1]
+      \Procedure{ThrackleIntersection}{$A,B,C$}
+      \State $i\gets 0$
+      \State $j\gets 0$
+      \While{$i<k$ and $j<k$}
+        \If{$A[i] < B[j]$}
+          \State $i\gets i+1$
+          \State \textbf{continue}
+        \EndIf
+        \If{$A[i]==B[j]$}
+          \State $C\gets C\cup \{A[i]\}$
+          \State $i\gets i+1$
+          \State $j\gets j+1$
+          \State \textbf{continue}
+        \EndIf
+        \If{$A[i]>B[j]$}
+          \State $j\gets j+1$
+          \State \textbf{continue}
+        \EndIf
+      \EndWhile
+      \EndProcedure
+    \end{algorithmic}
+    \caption{Intersección de dos conjuntos ordenados en tiempo lineal.}
+    \label{algo_interseccion}
+  \end{algorithm}
 
 \section{Descomposiciones por thrackles máximos.}
 

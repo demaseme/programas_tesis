@@ -9,6 +9,9 @@
 \BOOKMARK [0][-]{chapter.3}{Estado del arte}{}% 9
 \BOOKMARK [0][-]{chapter.4}{Resultados}{}% 10
 \BOOKMARK [1][-]{section.4.1}{Cota inferior del anti-thickness geom\351trico de Kn}{chapter.4}% 11
-\BOOKMARK [1][-]{section.4.2}{Descomposiciones por thrackles m\341ximos.}{chapter.4}% 12
-\BOOKMARK [1][-]{section.4.3}{Anti-thickness geom\351trico exacto de Kn con 3n 9.}{chapter.4}% 13
-\BOOKMARK [0][-]{chapter.5}{Conclusiones y trabajo futuro}{}% 14
+\BOOKMARK [1][-]{section.4.2}{Algoritmos usados}{chapter.4}% 12
+\BOOKMARK [2][-]{subsection.4.2.1}{Algoritmo para encontrar thrackles con k aristas}{section.4.2}% 13
+\BOOKMARK [2][-]{subsection.4.2.2}{Intersecci\363n de dos thrackles}{section.4.2}% 14
+\BOOKMARK [1][-]{section.4.3}{Descomposiciones por thrackles m\341ximos.}{chapter.4}% 15
+\BOOKMARK [1][-]{section.4.4}{Anti-thickness geom\351trico exacto de Kn con 3n 9.}{chapter.4}% 16
+\BOOKMARK [0][-]{chapter.5}{Conclusiones y trabajo futuro}{}% 17

@@ -552,8 +552,7 @@ int get_kthrackles_of_matrix(int ** matrix, const int cols, const int desired_si
   int intersect;
   int i;
   int thrackle_counter = 0;
-  // int key,key2;
-  // bool tfound = false;
+
   vector<int> thracklePositions;
 
   //Start up counters with first 5 edges, not necessary. (Really only need 0 and 1 )
@@ -563,35 +562,25 @@ int get_kthrackles_of_matrix(int ** matrix, const int cols, const int desired_si
   for(i = 2; i <= desired_size ; i++){
     counters[i] = 0;
   }
-  // cout << "Starting algorithm:::::\n" << "cols:" << cols<< " desired size:" << desired_size<< "\ncounters:\n";
-  // printArray(counters,desired_size);
   current_size = 1;
   while ( counters[0] < cols ){
-    //cout << "Finding thrackles starting with " << counters[0] << endl;
-    //cin >> key;
+    //Finding thrackles starting with counters[0];
     while ( current_size < desired_size ){
       intersect = 1;
       thracklePositions.clear();
-      //cout << "\t [211] Current size: " << current_size << endl;
-      //printArray(counters,desired_size);
-
       if ( counters[current_size] >= cols ){
         current_size--;
-        //if (current_size == 0) break;
+
         if(current_size < 0 ){
-          //    current_size = 0;
-          //    continue;
-          //   cout << "####### FINISHED ON LINE 215 ##### \n";
-          return thrackle_counter; // ? Finished?
+          return thrackle_counter; //  Finished
         }
         counters[current_size]++;
         continue;
       }
-
+      //Check that current edge intersects all other edges.
       for(i = 0; i < current_size ; i++ ){
         intersect &= !matrix[counters[i]][counters[current_size]];
       }
-
       if ( !intersect ) {
         counters[current_size]++;
       } else {
@@ -599,32 +588,23 @@ int get_kthrackles_of_matrix(int ** matrix, const int cols, const int desired_si
 
           thrackle_counter++;
           // cout << "Thrackle found\n\t";
-          // printArray(counters,desired_size);
-          // cin >> key2;
-          // tfound = true;
           for(int p = 0; p < desired_size; p++){
             thracklePositions.push_back(counters[p]);
           }
-          //thracklePositions.insert(thracklePositions.end(), counters[0], counters[desired_size]);
           positions.push_back(thracklePositions);
           counters[current_size]++;
-          //cout << "\t [240] Current size: " << current_size << endl;
           continue;
         }
-        //cout << "[247] Increasing thrackle!\n";
+        //Increasing thrackle;
         counters[current_size + 1] = counters[current_size] + 1;
         current_size++;
       }
     }
     //next round:
-    //nextr:
-    //cout << "Increasing counters[0]\n";
+    //"Increasing counters";
     counters[0]++;
     counters[1] = counters[0] + 1;
-    //cout << "Current size: " << current_size << endl;
+
   }
-  //cout << "##############################Finished##########################################\n";
-
   return thrackle_counter;
-
 }
