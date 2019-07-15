@@ -1,7 +1,5 @@
 #include "../include/thrackle.h"
-//
-// float alto;
-// float ancho; //Used by opengl
+
 
 bool share_ep(Edge e_1, Edge e_2){
     return (e_1.v1 == e_2.v1 || e_1.v1 == e_2.v2 || e_1.v2 == e_2.v1 || e_1.v2 == e_2.v2);
@@ -54,7 +52,7 @@ Input:
     long comboCtr     - A counter for the number of combinations of size k found.
     vector<Thrackle> foundThrackles - A vector to store the found thrackles
 
-DEPRECATE - HORRIBLY SLOW FOR 10 POINTS
+DEPRECATE - HORRIBLY SLOW FOR 10 POINTS - CHECK disjointness.cpp
 */
 void findThrackles_size(const vector<Edge> edges, int k, long & comboCtr, vector<Thrackle> & foundThrackles){
     //Find the combinations of size k for a set of size edges.size();
@@ -550,7 +548,7 @@ bool isThrackle(vector<Edge> & edges){
 }
 
 //From a given thrackle list, find those which contain
-//a cycle of size k.
+//a cycle of size k. NOT PROPERLY TESTED.
 void findThrackle_withCycleK(int k, vector<Thrackle> thrackles, vector<Thrackle> & result){
     //For each thrackle, calculate all the subsets of size k
     vector<vector<Edge>> buff;

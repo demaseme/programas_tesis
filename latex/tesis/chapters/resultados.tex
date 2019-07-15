@@ -76,11 +76,12 @@ Para buscar los thrackles máximos usamos el algoritmo~\ref{algo_kthrackles}
 descrito en la sección~\ref{seccion_algoritmo_kthrackles}.Para comparar los
 thrackles a pares utilizamos el algoritmo~\ref{algo_interseccion} descrito en
 la misma sección. Describimos los algoritmos usados en otra sección para no
-romper con el flujo matemático de esta sección. El número de los tipos de orden
-para los cuales existe solamente un thrackle máximo está en el apéndice XX, la
-información también puede ser descargada de la siguiente liga: HTTPXX.
-El número de los tipos de orden para los cuales no existe un thrackle máximo
-está en la siguiente liga: HTTPXX.
+romper con el flujo matemático de esta sección. La lista de tipos de orden
+con un solo thrackle máximo puede ser descargada de la siguiente liga:
+\url{http://computacion.cs.cinvestav.mx/~dmerinos/site/archivos_tesis/withone_max.tar.gz}.
+La lista de tipos de orden para los cuales no existe un thrackle máximo
+está en la siguiente liga:
+\url{http://computacion.cs.cinvestav.mx/~dmerinos/site/archivos_tesis/without_max.tar.gz}.
 
 Gracias a estos resultados podemos derivar el siguiente lema.
 \begin{lemma}\label{lema:thdisjuntos}
@@ -280,7 +281,14 @@ Los resultados del teorema~\ref{teo:nuevacotainf} se presentan en la tabla~\ref{
 % para cubrir la arista restante. Decimos que el anti-thickness geométrico de $K_5$
 % es al menos tres.
 
-\section{Algoritmos usados}
+\section{Algoritmos}
+En esta sección presentamos los algoritmos usados en el trabajo. Empezamos
+describiendo el algoritmo para encontar thrackles de cualquier tamaño dado
+un conjunto de puntos en posición general. Después hablamos del algoritmo
+usado para encontrar la intersección de dos thrackles con el mismo número de
+aristas. Luego...Finalmente...
+
+
 \subsection{Algoritmo para encontrar thrackles con $k$
   aristas}\label{seccion_algoritmo_kthrackles}
   A continuación presentamos el algoritmo para encontrar thrackles de tamaño
@@ -398,6 +406,45 @@ Los resultados del teorema~\ref{teo:nuevacotainf} se presentan en la tabla~\ref{
     \caption{Algoritmo para encontrar todos los thrackles de tamaño $k$.}
     \label{algo_kthrackles}
   \end{algorithm}
+
+  La información de los thrackles encontrados para cada $3\leq n \leq 10$ es
+  almacenada en archivos binarios de nombre \texttt{n\_k\_All\_bool.ths}
+  donde \texttt{k} es el número de aristas para cada thrackle. El archivo binario
+  tiene la siguiente estructura:
+  \begin{enumerate}
+    \item Tipo de orden escrito como caracter binario de tipo \texttt{uint16\_t}.
+    \item Número de thrackles de tamaño $k$ para determinado tipo de orden
+    escrito como caracter binario de tipo \texttt{uint16\_t}.
+    \item Para cada thrackle, se escribe una lista de $\binom{n}{2}$ caracteres
+    binarios que representan cada una de las aristas, si el $j$-ésimo elemento de
+    la lista tiene un $0$ en el $i$-ésimo caracter entonces el thrackle $j$
+    tiene la arista $i$. Cada caracter de la lista está escrito con un caracter
+    de tipo \texttt{char}.
+  \end{enumerate}
+
+  La figura~\ref{fig:binaryfile} muestra un ejemplo de la sintaxis
+  descrita anteriormente.
+  \begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.4\linewidth]{binaryfile}
+    \caption{Un segmento de un archivo binario, en este ejemplo $n=6$ y $k=6$.
+    La primera línea indica que para el tipo de orden $4$ existen $3$ thrackles
+    con $6$ aristas. Las siguientes 3 lineas indican las aristas de cada uno
+    de los thrackles con un $1$. Después, para el tipo de orden 5, existe un
+    thrackle, para el tipo de orden 6 no existen thrackles con 6 aristas. El
+    archivo binario continua de esta manera para cada uno de los tipos de orden
+    para $n=6$. Este ejemplo no representa necesariamente los datos reales
+    encontrados en este trabajo para $n=6$.}
+    \label{fig:binaryfile}
+  \end{figure}
+
+  Los datos de los thrackles máximos encontrados para cada $ 3\leq n \leq 9$
+  pueden ser descargados de la siguiente liga:
+  \url{http://computacion.cs.cinvestav.mx/~dmerinos/site/archivos_tesis/3to9.tar.gz}
+  el archivo para $n=10$, separado debido a su tamaño,
+   puede ser descargado de la siguiente liga:
+  \url{http://computacion.cs.cinvestav.mx/~dmerinos/site/archivos_tesis/10.tar.gz}
+
 \subsection{Intersección de dos thrackles}
   Dados dos thrackles con el mismo número de aristas, codificados como cadenas
   de enteros, aprovechamos el ordenamiento lexicográfico para hacer la

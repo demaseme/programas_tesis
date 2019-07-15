@@ -13,32 +13,25 @@ void printThrackleList(vector<vector<int>> t){
     printVectorInt(t[i]);
   }
 }
+/*
+This is a (very)-brute force algorithm to find the anti-thickness
+of complete graph. Requires the disjointness matrix to be loaded.
+It might take a while to end even for small set of points.
+*/
 void exhaustive_at(int** matrix, int cols, int n, vector<int> current_thrackle, int at, int mode){
   vector<vector<int>> local_desc;
-  //if (at > lowAt) lowAt = at;
-  //if (mode==1) if( at > 0 && (int)current_thrackle.size() != n - (at-1)) return;
+
   if( at >= minAt) return;
-  //if(at == 1 && (int) current_thrackle.size() < n) return;
-  //cout << " ##### Printing recursion data #####\n";
-  //cout << "[core] current thrackle :"; printVectorInt(current_thrackle);
-  usleep(000000);
-  //cout << " [core] this level at : " << at << endl;
+
   if ( (int) coveredEdges.size() == cols ) {
     if (at < minAt) minAt = at;
-    //cout << "[core] Current minimal AT: " << minAt << endl;
-    //printThrackleList(thrackle_list);
     return;
   }
   else {
     while(true){
-      //cout << "\t Covered edges "; printVectorInt(coveredEdges);
-      // printf("Local Desc: \n");
-      // printThrackleList(local_desc);
+
       vector<int> thrackle;
-      //if(at<=1) {
-      //     cout << "[core] attemping to find child of ";
-      //     printVectorInt(current_thrackle);
-      // //}
+
       int val = next(matrix,local_desc,thrackle,current_thrackle,cols,n,at,mode);
       if ( !val ) return;
 
@@ -543,6 +536,7 @@ void printArray(int array[],const int size) {
 }
 
 /*
+This is the algorithm to find all thrackles of size k.
 Uses matrix information to visit all thrackles of size desired_size.
 cols - column number of matrix, it's also the number of segments on the complete graph.
 */
