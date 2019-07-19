@@ -550,13 +550,13 @@ int get_kthrackles_of_matrix(int ** matrix, const int cols, const int desired_si
   vector<int> thracklePositions;
 
   //Start up counters with first 5 edges, not necessary. (Really only need 0 and 1 )
-  for(i = 0; i < 2 ; i++){
+  for(i = 0; i < 1 ; i++){
     counters[i] = i;
   }
-  for(i = 2; i <= desired_size ; i++){
+  for(i = 1; i <= desired_size ; i++){
     counters[i] = 0;
   }
-  current_size = 1;
+  current_size = 0;
   while ( counters[0] < cols ){
     //Finding thrackles starting with counters[0];
     while ( current_size < desired_size ){
