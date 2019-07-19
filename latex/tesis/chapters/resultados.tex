@@ -319,29 +319,36 @@ aristas. Luego...Finalmente...
 
   \begin{figure}[htpb]
     \centering
-    \begin{tikzpicture}
-    % size of each node
-    \def\sz{8mm}
-    % node style definition
-    \tikzstyle{block} = [
-    	draw, fill=black!10, rectangle,
-    	minimum height=\sz, minimum width=\sz ];
-    \tikzstyle{plain} = [draw=none,fill=none];
-    % array element definition
-    \def\arr{-1,-1,-1,-1};
-    \def\arrb{0,-1,-1,-1};
-    %\def\x{0}; % x pos of arr
-    %\def\y{0}; % y pos of arr
-    \newcounter{ind};
-    \setcounter{ind}{0};
-    \node[plain] { C };
-    \foreach \item in \arr
-    {
-    	\node[block] at (\theind*\sz,0) { \item };
-    	\node[plain] at (\theind*\sz,0.7) { \theind };
-      \addtocounter{ind}{1};
-    }
-  \end{tikzpicture}
+    \begin{tikzpicture}[
+     node distance = 13mm and 1mm,
+       start chain = A going right,
+       nd/.style = {draw=none, fill=none, on chain=A, minimum width =15mm},
+       mpn/.style args = {#1/#2/#3/#4}{draw,
+       rectangle split, rectangle split horizontal,
+       rectangle split parts=4,
+       on chain=A,
+       node contents={ \nodepart{one}    $#1$
+                       \nodepart{two}    $#2$
+                       \nodepart{three}  $#3$
+                       \nodepart{four}   $#4$}
+                                   },
+                           ]
+
+
+       \node[mpn=0/NIL/NIL/NIL]; %A1
+       \node[mpn=1/NIL/NIL/NIL]; %A2
+       \node[mpn=2/NIL/NIL/NIL]; %A3
+       \node[nd]{...};           %A4
+       %\draw{...}
+       %
+       \node[mpn=NIL/NIL/NIL/NIL, %A5.
+             above=of $(A-1.north west)!0.5!(A-4.north east)$];
+       \foreach \i in {1,...,3}
+       \draw[-Stealth, semithick, shorten >=1mm, shorten <=1mm]
+           (A-5.south) -- (A-\i.north);
+       \draw[-Stealth, semithick, shorten >=1mm, shorten <=1mm]
+           (A-5.south) -- (A-4.north);
+    \end{tikzpicture}
 \end{figure}
   % Debido a que los valores de las entradas del vector nunca se decrementan, el algoritmo agota los posibles valores para cada una de las entradas. Esto permite que regrese hasta la posición 0, cuando agote los $\binom{n}{2}$ valores para esta posición, intentará regresar a la posición -1 para continuar la verificación desde esa posición. Esta es una posición inválida para un vector, por ello usamos esta caracteristica como condición de paro de nuestro algoritmo.
   %
