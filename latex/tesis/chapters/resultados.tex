@@ -357,19 +357,29 @@ aristas. Luego...Finalmente...
   $C[0]$, se toman los valores en el rango $\left[ 0, \binom{n}{2}\right]$. Las
   combinaciones que no se evalúan son aquellas que no hace sentido evaluar,
   estas son las combinaciones que contienen al menos una arista disjunta de
-  alguna de las otras aristas de la combinación.
+  alguna de las otras aristas de la combinación. Es posible observar un ejemplo de cómo se llena el vector $C$ en una ejecución del algoritmo en la figura~\ref{fig:ejemplo_backtracking}.
 
 
   \begin{figure}[htpb]
     \centering
     \begin{tikzpicture}[
-     node distance = 13mm and 1mm,
+     node distance = 15mm and 1mm,
        start chain = A going right,
-       nd/.style = {draw=none, fill=none, on chain=A, minimum width =15mm},
+       start chain = R going right,
+       nd/.style = {draw=none, fill=none, on chain=A, minimum width =10mm},
        mpn/.style args = {#1/#2/#3/#4}{draw,
        rectangle split, rectangle split horizontal,
        rectangle split parts=4,
        on chain=A,
+       node contents={ \nodepart{one}    $#1$
+                       \nodepart{two}    $#2$
+                       \nodepart{three}  $#3$
+                       \nodepart{four}   $#4$}
+                                   },
+       root/.style args = {#1/#2/#3/#4}{draw,
+       rectangle split, rectangle split horizontal,
+       rectangle split parts=4,
+       on chain=R,
        node contents={ \nodepart{one}    $#1$
                        \nodepart{two}    $#2$
                        \nodepart{three}  $#3$
@@ -382,16 +392,50 @@ aristas. Luego...Finalmente...
        \node[mpn=1/NIL/NIL/NIL]; %A2
        \node[mpn=2/NIL/NIL/NIL]; %A3
        \node[nd]{...};           %A4
+       \node[mpn=0/1/NIL/NIL, below=of A-1];   %A5
+       \node[mpn=0/2/NIL/NIL, right=of A-5]; %A6
+       \node[mpn=0/1/2/NIL, below=of A-5 ]; %A7
+       \node[nd,right=of A-6]{...}; %A8
+       \node[mpn=0/1/3/NIL, right=of A-7];  %A9
+       \node[mpn=0/1/3/4, below=of A-9, fill=gray]; %A10
+       \node[mpn=0/1/3/5, right=of A-10, fill=gray]; %A11
+       \node[nd,right=of A-11]{...}; %A12
+       \node[nd, right=of A-6]{...}; %A13
+        \node[nd, right=of A-9]{...}; %A14
        %\draw{...}
        %
-       \node[mpn=NIL/NIL/NIL/NIL, %A5.
+       \node[root=NIL/NIL/NIL/NIL, %ROOT.
              above=of $(A-1.north west)!0.5!(A-4.north east)$];
+
        \foreach \i in {1,...,3}
        \draw[-Stealth, semithick, shorten >=1mm, shorten <=1mm]
-           (A-5.south) -- (A-\i.north);
+           (R-1.south) -- (A-\i.north);
        \draw[-Stealth, semithick, shorten >=1mm, shorten <=1mm]
-           (A-5.south) -- (A-4.north);
+           (R-1.south) -- (A-4.north);
+       \draw[-Stealth, semithick, shorten >=1mm, shorten <=1mm]
+           (A-1.south) -- (A-5.north);
+       \draw[-Stealth, semithick, shorten >=1mm, shorten <=1mm]
+           (A-1.south) -- (A-6.north);
+       \draw[-Stealth, semithick, shorten >=1mm, shorten <=1mm]
+           (A-1.south) -- (A-8.north);
+       \draw[-Stealth, semithick, shorten >=1mm, shorten <=1mm]
+           (A-5.south) -- (A-7.north);
+       \draw[-Stealth, semithick, shorten >=1mm, shorten <=1mm]
+           (A-5.south) -- (A-9.north);
+       \draw[-Stealth, semithick, shorten >=1mm, shorten <=1mm]
+           (A-5.south) -- (A-14.north);
+       \draw[-Stealth, semithick, shorten >=1mm, shorten <=1mm]
+           (A-9.south) -- (A-10.north);
+       \draw[-Stealth, semithick, shorten >=1mm, shorten <=1mm]
+           (A-9.south) -- (A-11.north);
+       \draw[-Stealth, semithick, shorten >=1mm, shorten <=1mm]
+           (A-9.south) -- (A-12.north);
     \end{tikzpicture}
+    \caption{La figura muestra un ejemplo de cómo cambia el vector $C$ cuando se busca un thrackle con 4 aristas para alguna $n>5$. Solamente se representan algunas instancias del vector $C$.
+    En este ejemplo suponemos que las aristas con etiqueta 1 y 2 no se
+    intersectan.
+    Es posible observar que cuando $C=[0,1,2,NIL]$ no se generan, debajo de ese nivel, combinaciones con las etiquetas 1 y 2. Se marcan de fondo gris las soluciones encontradas.}
+    \label{fig:ejemplo_backtracking}
 \end{figure}
   % Debido a que los valores de las entradas del vector nunca se decrementan, el algoritmo agota los posibles valores para cada una de las entradas. Esto permite que regrese hasta la posición 0, cuando agote los $\binom{n}{2}$ valores para esta posición, intentará regresar a la posición -1 para continuar la verificación desde esa posición. Esta es una posición inválida para un vector, por ello usamos esta caracteristica como condición de paro de nuestro algoritmo.
   %
