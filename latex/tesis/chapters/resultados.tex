@@ -1,7 +1,7 @@
 \section{Cota inferior del anti-thickness geométrico de $K_n$}\label{sec:cota_inf}
 El principal resultado de este trabajo es que encontramos el valor exacto del
 anti-thickness geométrico para la gráfica completa con hasta diez vértices en
-posición general. Obtuvimos dicho valor mejorando la cota inferior y usando la cota superior actual las cuales siguen a continuación:
+posición general. Obtuvimos dicho valor mejorando la cota inferior y usando la cota superior actual, las cuales siguen a continuación:
 \begin{equation}
 \left\lfloor\frac{n-1}{2}\right\rfloor \leq At_g(K_n) \leq n - \left\lfloor
 \sqrt{2n + \frac{1}{4}} - \frac{1}{2} \right\rfloor.
@@ -16,13 +16,16 @@ $K_n$ es un thrackle. Si se desea encontrar una cota inferior es necesario
 demostrar, para todo dibujo de $K_n$, cuántos thrackles son necesarios para dar
 una descomposición en thrackles.
 
-Empezamos explicando porqué la cota inferior del anti-thickness geométrica es
-trivial y después diremos cómo la mejoramos para $n\leq 10$.
+Empezamos explicando la cota inferior conocida para el anti-thickness
+geométrico y después diremos cómo la mejoramos para $n\leq 10$.
 
 Un conjunto de $n$ puntos en el plano induce una gráfica completa con $n$
 vértices a la que denotamos como $K_n$. Como es completa $|E(K_n)|=
 \binom{n}{2}$.
-Cuando se quiere encontrar una descomposición de tamaño mínimo en thrackles una idea intuitiva es buscar que los thrackles tengan el mayor número posible de aristas. El siguiente teorema es útil para nosotros ya que establece el número máximo de aristas que puede tener un thrackle geométrico.
+Cuando se quiere encontrar una descomposición de tamaño mínimo en thrackles una
+idea que resulta intuitiva es buscar que los thrackles tengan el mayor número
+posible de aristas. El siguiente teorema es útil para nosotros ya que establece
+el número máximo de aristas que puede tener un thrackle geométrico.
 \begin{theorem}(\cite{Pach2013b})
   Toda gráfica geométrica de $n$ vértices en la
   que no existen dos aristas disjuntas tiene a lo más $n$ aristas. Esto se
@@ -30,8 +33,9 @@ Cuando se quiere encontrar una descomposición de tamaño mínimo en thrackles u
 \end{theorem}
 
 Omitimos la demostración del teorema anterior ya que las ideas de la
-demostración no son retomadas en este trabajo. El teorema es importante para
-nosotros ya que indica el número máximo de aristas posibles para un thrackle.
+demostración no son retomadas en este trabajo.
+% El teorema es importante para
+% nosotros ya que indica el número máximo de aristas posibles para un thrackle.
 
 Como mencionamos en el capítulo de antecedentes, un thrackle de $n$ vértices
 con exactamente $n$ aristas es un thrackle máximo. Por definición, toda
@@ -78,15 +82,41 @@ En el trabajo de~\cite{Fabila-Monroy2018} encuentran que, dados dos thrackles
 máximos en posición convexa, estos comparten una arista, y que esto se cumple
 para cada par de thrackles de la descomposición. En este trabajo verificamos
 que este resultado también es válido para conjuntos de hasta diez puntos en
-posición general. Usando los tipos de orden de los conjuntos
+posición general (no convexa). Usando los tipos de orden de los conjuntos
 con hasta diez puntos inducimos la gráfica completa, luego buscamos, para
 cada uno de los tipos de orden, todos los thrackles máximos y
 finalmente comparamos dichos thrackles a pares y encontramos que:
 \begin{itemize}
-  \item Para todo tipo de orden con al menos dos thrackles máximos, cada par de thrackles máximos tienen intersección no vacía en aristas,
+  \item Para todo tipo de orden con al menos dos thrackles máximos, cada par de thrackles máximos tienen intersección no vacía en aristas.
   \item Existen tipos de orden con solo un thrackle máximo.
   \item Existen tipos de orden en los que no hay thrackles máximos.
 \end{itemize}
+
+En la tabla~\ref{tabla_relacion_ot} mostramos cuántos tipos de orden tienen
+thrackles máximos, cuántos tienen solamente un thrackle máximo y cuántos no
+tienen ningún thrackle máximo. La figura X muestra un ejemplo de un tipo de
+orden para $n=9$ en el cual no existe ningún thrackle máximo. Una pregunta
+interesante es ¿cómo caracterizamos a los tipos de orden que no tienen
+thrackles máximos?
+
+\begin{table}
+  \centering
+  \setlength\extrarowheight{2pt}
+  \begin{tabularx}{\textwidth}{|C|C|C|C|}
+    \hline
+    $n$ & Tipos de orden(T.O.) & T.O. con solo un thrackle máximo & T.O. sin thrackles máximos \\\hline
+    3 & 1 & 1 & 0 \\
+    4 & 2 & 1 & 1 \\
+    5 & 0 & 0 & 0 \\
+    6 & 0 & 0 & 0 \\
+    7 & 0 & 0 & 0 \\
+    8 & 0 & 0 & 0 \\
+    9 & 0 & 0 & 0 \\
+    10 & 0 & 0 & 0 \\ \hline
+  \end{tabularx}
+  \caption{Mostramos, para cada $3\leq n \leq 10$, la relación de los tipos de orden con solamente un thrackle máximo y los tipos de orden sin thrackles máximos.}
+  \label{tabla_relacion_ot}
+\end{table}
 
 Los algoritmos que diseñamos para dar los resultados anteriores son descritos
 en la sección \ref{seccion_algoritmos} para no romper con el flujo de esta
@@ -101,7 +131,7 @@ está en la siguiente liga:
 \url{http://computacion.cs.cinvestav.mx/~dmerinos/site/archivos_tesis/without_ma
 x.tar.gz}.
 
-Usando a estos resultados podemos derivar el siguiente lema.
+Usando estos resultados podemos derivar el siguiente lema.
 \begin{lemma}\label{lema:thdisjuntos}
   Sea $S$ un conjunto de puntos en posición general y sean $T_1$ y $T_2$ thrakles máximos en $K_n(S)$ con $|V(T_1)|\leq 10$
   y $|V(T_2)|\leq 10$. $T_1$ y $T_2$ tienen al menos una arista en común.
@@ -118,16 +148,16 @@ thrackles máximos no son disjuntos a pares pero esto infringiría las
 condiciones de una descomposición.
 En otras palabras una descomposición por thrackles solo podría contener un
 thrackle máximo. Sin embargo, es posible encontrar, a partir de una colección
-de thrackles máximos, una colección de thrackles que son disjuntos en aristas.
+de thrackles máximos, una colección de thrackles que son disjuntos.
 Describimos este proceso en el siguiente lema:
 % Por consecuencia es posible contar cuántas aristas son cubiertas
 % por una descomposición de thrackles máximos cuyo tamaño es $\left\lceil\frac{n-1}{2}\right\rceil$.
 \begin{lemma}\label{lema:existedescomp}
   Sea $\mathcal{C}=\{T_1,T_2,\dots,T_m\}$ una colección de thrackles máximos
-  de $K_n$ con $|E(T_i)\cap E(T_j)| = 1$.
-  Existe una colección $\mathcal{D}$ de $K_n$ inducida por $\mathcal{C}$ donde
-  para cada par de thrackles en $\mathcal{D}$ su intersección en aristas es
-  vacía y que cubre el siguiente número de aristas:
+  de $K_n$ con $|E(T_i)\cap E(T_j)| = 1$ y $ i,j \in \{1,2,\dots,m\}$.
+  Existe una colección  de thrackles $\mathcal{D}$ de $K_n$ inducida por
+  $\mathcal{C}$ en la que cada par de thrackles tienen intersección vacía y que
+  cubre el siguiente número de aristas:
   \[\displaystyle \sum^n_{i=(n-m) + 1}i.\]
 \end{lemma}
 \begin{proof}
@@ -140,7 +170,7 @@ Describimos este proceso en el siguiente lema:
   en la colección.
 
   Sea $\mathcal{D}=\{T'_1,T'_2,\dots,T'_m\}$. Por construcción, la intersección
-  en aristas de cualesquiera dos thrackles de $\mathcal{D}$ es vacía.
+  de cualesquiera dos thrackles de $\mathcal{D}$ es vacía.
 
   Nótese que si una arista $e$ aparece en dos thrackles de $\mathcal{C}$,
   entonces en $\mathcal{D}$, $e$ aparecerá únicamente en el thrackle con menor
@@ -148,11 +178,12 @@ Describimos este proceso en el siguiente lema:
   De hecho $T_1'$ tiene $n$ aristas, $T_2'$ tiene $n-1$ aristas, $T_3'$ tiene
   $n-2$ aristas y, en general, $T_i'$ tiene $n-i+1$ aristas. Como $\mathcal{D}$
   tiene $m$ thrackles el número de aristas cubiertas por $\mathcal{D}$ es
-  \[ n + (n-1) + (n-2) + \cdots + (n-m) + (n - m + 1).\]
+  \[ n + (n-1) + (n-2) + \cdots + (n- m + 2) + (n - m + 1).\]
   Podemos escribir esta suma como :
   \[\displaystyle \sum^n_{i=(n-m) + 1}i.\]
 \end{proof}
-Es importante notar que este es el máximo número de aristras que una colección con $m$ thrackles disjuntos en aristas puede cubrir.
+Es importante notar que este es el máximo número de aristas que una colección
+con $m$ thrackles disjuntos puede cubrir.
 % Es importante notar que este es el número más grande de aristas cubiertas por
 % una colección de thrackles disjuntos en aristas inducida por una colección de
 % thrackles máximos, esto es debido a que en el lema~\ref{lema:thdisjuntos}
@@ -161,7 +192,7 @@ Es importante notar que este es el máximo número de aristras que una colecció
 % el número de aristas cubiertas por la colección inducida es menor.
 
 Con los lemas anteriores es posible probar que la cota inferior del
-anti-thickness geométrico de $K_n$ mostrada en la ecuación
+anti-thickness geométrico de $K_n$, mostrada en la ecuación,
 \ref{ecuacion_cotas_atg} no es justa para toda $n$. El siguiente teorema
 establece esta afirmación.
 \begin{theorem}\label{teo:cotainf}
@@ -169,12 +200,12 @@ Sea $\mathcal{D}=\{T'_1,T'_2,\dots,T'_{\left\lceil\frac{n-1}{2}\right\rceil}\}$
 una colección de thrackles disjuntos en aristas inducida por una colección de
 $\left\lceil\frac{n-1}{2}\right\rceil$ thrackles máximos.
 $\left\lceil\frac{n-1}{2}\right\rceil$ thrackles máximos son
-suficientes para inducir descomposición de $K_n$ cuando $n={3,4,6}$ y no son suficientes cuando $n={5,7,8,9,10}$.
+suficientes para inducir una descomposición de $K_n$ cuando $n={3,4,6}$ y no son suficientes cuando $n={5,7,8,9,10}$.
 \end{theorem}
 \begin{proof}
   Se sigue del lema~\ref{lema:existedescomp}. El número de aristas cubiertas
-  por $D$ para cada $3\leq n \leq 10$ se muestran en la
-  tabla~\ref{table:attrivialtight}. Se rellenan los casos en los que no es
+  por $\mathcal{D}$ para cada $3\leq n \leq 10$ se muestran en la
+  tabla~\ref{table:attrivialtight}. Se marcan de gris los casos en los que no es
   posible cubrir todas las aristas de $K_n$.
 \end{proof}
 % En la tabla~ mostramos los casos para los que la cota
@@ -207,10 +238,10 @@ suficientes para inducir descomposición de $K_n$ cuando $n={3,4,6}$ y no son su
   \label{table:attrivialtight}
 \end{table}
 
-Como consecuencia del lema~\ref{lema:existedescomp} y el teorema~\ref{teo:cotainf} podemos dar el valor exacto del número de thrackles máximos necesarios para inducir una descomposición por thrackles de $K_n$ con $ 3\leq n \leq 10$.
+Como consecuencia del lema~\ref{lema:existedescomp} y el teorema~\ref{teo:cotainf} podemos dar una cota inferior justa para el anti-thickness geométrico de $K_n$ con $3 \leq n \leq 10$.
 
 \begin{theorem}\label{teo:nuevacotainf}
-  Sea $S$ un conjunto de $n$ puntos en el plano en posición en general con $3\leq n \leq 10$, y sea $K_n(S)$ la gráfica completa inducida por $S$. El anti-thickness de $K_n(S)$:
+  Sea $S$ un conjunto de $n$ puntos en el plano en posición general con $3\leq n \leq 10$, y sea $K_n(S)$ la gráfica completa inducida por $S$. El anti-thickness de $K_n(S)$:
   \begin{equation}
     At_g(K_n) \geq n - \left\lceil\sqrt{2n+\frac{1}{4}} + \frac{1}{2}\right\rceil.
     \label{ecuacion_cota_inf}
@@ -218,9 +249,12 @@ Como consecuencia del lema~\ref{lema:existedescomp} y el teorema~\ref{teo:cotain
 \end{theorem}
 \begin{proof}
   Se sigue del teorema ~\ref{lema:existedescomp} que el número de aristas
-  cubiertas por una colección $\mathcal{D}=\{T_1,T_2,\dots,T_m\}$ de thrackles, con $|E(T_i)\cap E(T_j)| = 1$, es
+  cubiertas por una colección $\mathcal{D}=\{T_1,T_2,\dots,T_m\}$ de thrackles,
+  con $|E(T_i)\cap E(T_j)| = 1$, es
   \[ -\frac{1}{2}m(m-2n-1). \]
-  Para saber cuántos thrackles como minimo son necesarios en la colección para cubrir las $\binom{n}{2}$ aristas de $K_n$, la resolución de la siguiente desigualdad otorga el resultado.
+  Para saber cuántos thrackles como minimo son necesarios en la colección para
+  cubrir las $\binom{n}{2}$ aristas de $K_n$, es necesario resolver la
+  siguiente desigualdad otorga el resultado.
   \begin{equation}
      -\frac{1}{2}m(m-2n-1) \geq \binom{n}{2}.
      \label{ecuacion_desigualdad_cota_inf}
@@ -230,8 +264,7 @@ Como consecuencia del lema~\ref{lema:existedescomp} y el teorema~\ref{teo:cotain
   \[
     \frac{1}{2}\left(2n-\sqrt{8n+1} + 1\right) \leq m \leq  \frac{1}{2}\left(2n+\sqrt{8n+1} + 1\right).
   \]
-  Como nosotros estamos interesados en la $m$ más pequeña para la cual se cumple la desigualdad~\ref{ecuacion_desigualdad_cota_inf}, la reducción del
-  término de la izquierda da el resultado final deseado.
+  Como nosotros estamos interesados en la $m$ más pequeña para la cual se cumple la desigualdad~\ref{ecuacion_desigualdad_cota_inf}, basta con tomar el término de la izquierda para obtener el resultado deseado.
 \end{proof}
 Presentamos los valores dados por la cota inferior del
 teorema~\ref{teo:nuevacotainf} en la tabla~\ref{table:atnuevacota}.
@@ -249,9 +282,7 @@ teorema~\ref{teo:nuevacotainf} en la tabla~\ref{table:atnuevacota}.
     9   & 6  & 39 & 36 \\ \hline
     10  & 6  & 45 & 45 \\ \hline
   \end{tabular}
-  \caption{Usando la cota del teorema~\ref{teo:nuevacotainf} para el número de
-  thrackles máximos necesarios para inducir una descomposición es posible
-  cubrir, para toda $n\leq 10$, las aristas de $K_n$.}
+  \caption{En la tabla se muestra que la cota inferior del anti-thickness geométrico es justa para $3 \leq n \leq 10$. La segunda columna muestra el tamaño de la colección de thrackles, cuyo tamaño está dado por la cota inferior del anti-thickness geométrico del teorema~\ref{teo:nuevacotainf} para cada $n$. La tercerca columna muestra cuántas aristas cubre dicha colección. La cuarta columna muestra cuántas aritas deben ser cubiertas para cada $K_n$.}
   \label{table:atnuevacota}
 \end{table}
 
@@ -277,22 +308,34 @@ aristas. Luego...Finalmente...
     Las aristas son almacenadas en un vector de tamaño $\binom{n}{2}$ y las etiquetamos con enteros desde $0$ hasta $\binom{n}{2}-1$.
     \item \label{paso3}Construir la \emph{matriz de disyunción}.
     Construimos una matriz binaria de $\binom{n}{2}\times \binom{n}{2}$. Cada
-    indice de las filas y de las columnas representa a cada una de las aristas construidas en el paso anterior. La matriz de disyunción tiene un 0 en la entrada $(i,j)$ si las aristas $i$ y $j$ se cruzan o comparten un vértice y tiene un 1 en en la entrada $(i,j)$ si las aristas $i$ y $j$ son totalmente disjuntas.
+    indice de las filas y de las columnas representa a cada una de las aristas construidas en el paso anterior. La matriz de disyunción tiene un 0 en la entrada $(i,j)$ si las aristas $i$ y $j$ se cruzan o comparten un vértice y tiene un 1 en en la entrada $(i,j)$ si las aristas $i$ y $j$ son totalmente disjuntas. Es decir, construimos la matriz de adyacencia de la gráfica $D(S)$.
   \end{enumerate}
 
   A continuación describimos el algoritmo que usamos para encontrar thrackles
-  de tamaño $k$, este algoritmo usa la matriz de disycunción construida en el
+  de tamaño $k$, este algoritmo usa la matriz de disyunción construida en el
   paso~\ref{paso3}. El pseudocódigo se encuentra en el
   algoritmo~\ref{algo_kthrackles}.
 
-  Para encontrar todos los thrackles de tamaño $k$ diseñamos un algoritmo de
-  \emph{backtracking}. Para nosotros, un solo thrackle de tamaño $k$ es una solución, el algoritmo forma una solución iterativamente cuando encuentra aristas que se intersectan a pares y va descartando aquellas aristas que no forman parte de alguna determinada solución. El algoritmo termina cuando ya no hay más soluciones que encontrar. Una solución es almacenada en un vector $C$ de tamaño $k+1$, el tamaño es $k+1$ para saber cuándo se ha encontrado una solución. En el inicio de la ejecución del algoritmo, el vector $C$ está vacío, es decir, que todas sus entradas tienen un valor nulo a excepción de la primera entrada $C[0]$ cuyo valor es 0. Esta inicialización es necesaria para poner en marcha el algoritmo.
+  El algoritmo que diseñamos utiliza la técnica de \emph{backtracking},
+  recordemos que se desea encontrar todos los thrackles de tamaño $k$. Para
+  nosotros, un solo thrackle de tamaño $k$ es una solución, el algoritmo forma
+  una solución iterativamente cuando encuentra aristas que se intersectan a
+  pares y va descartando aquellas aristas que no forman parte de alguna
+  determinada solución. El algoritmo termina cuando ya no hay más soluciones
+  que encontrar. Una solución es almacenada en un vector $C$ de tamaño $k+1$,
+  el tamaño es $k+1$ para saber cuándo se ha encontrado una solución. En el
+  inicio de la ejecución del algoritmo, el vector $C$ está vacío, es decir, que
+  todas sus entradas tienen un valor nulo a excepción de la primera entrada
+  $C[0]$ cuyo valor es 0. Esta inicialización es necesaria para poner en marcha
+  el algoritmo.
 
-  En cada iteración, el algoritmo verifica si ya se han encontrado $k$ aristas que se intersectan a pares, para evaluar la intersección se usa la matriz de disyunción. Pueden ocurrir dos casos:
+  En cada iteración, el algoritmo verifica si ya se han encontrado $k$ aristas
+  que se intersectan a pares, para evaluar la intersección se usa la matriz de
+  disyunción. Pueden ocurrir dos casos:
   \begin{itemize}
     \item[1] Si esta verificación es negativa se realiza lo siguiente:
     Sea $C[j]$ la última arista encontrada que intersecta a $C[0],C[1],C[2],\dots,C[j-1]$. Hacemos $C[j+1]=C[j]+1$ y verificamos que $C[j+1]$ intersecte a $C[0],C[1],C[2],\dots,C[j-1],C[j]$.
-    Si lo hace, entonces $C[j+1]$ forma parte del thrackle y ahora el thrackle tiene $j+1$ aristas. En caso contrario hacemos $C[j+1]=C[j+1]+1$, es decir, se descarta la arista que estaba en $C[j+1]$ y es reemplazada por la arista subsecuente.
+    Si lo hace, entonces $C[j+1]$ forma parte del thrackle y ahora el thrackle tiene $j+1$ aristas. En caso contrario hacemos $C[j+1]=C[j+1]+1$, es decir, se descarta la arista que estaba en $C[j+1]$ y es reemplazada por la arista subsecuente en la etiquetación.
     \item[2] Si la verificación es positiva se realiza lo siguiente:
     Almacenamos el contenido del vector $C$ en una lista de vectores.
     Como ya se encontró una solución y esta ha sido procesada, para buscar la siguiente solución, le indicamos al algoritmo que el thrackle tiene actualmente tamaño $k-1$, provocando así que en la siguiente iteración la verificación sea negativa y se realice lo descrito en el punto 1.
@@ -313,8 +356,8 @@ aristas. Luego...Finalmente...
   $\left[C[j-1],\binom{n}{2}\right]$. Para el caso particular de la entrada
   $C[0]$, se toman los valores en el rango $\left[ 0, \binom{n}{2}\right]$. Las
   combinaciones que no se evalúan son aquellas que no hace sentido evaluar,
-  estas son combinaciones que contienen al menos una arista disjunta de alguna
-  de las otras aristas de la combinación.
+  estas son las combinaciones que contienen al menos una arista disjunta de
+  alguna de las otras aristas de la combinación.
 
 
   \begin{figure}[htpb]
