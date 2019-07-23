@@ -400,8 +400,6 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt8.tfm
 INPUT /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/binaryfile.png
 INPUT /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/binaryfile.png
 INPUT /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/binaryfile.png
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti8.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti7.tfm
 INPUT /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/main.bbl
 INPUT /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/main.bbl
 INPUT /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/main.aux

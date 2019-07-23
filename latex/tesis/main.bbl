@@ -1,4 +1,4 @@
-\begin{thebibliography}{15}
+\begin{thebibliography}{16}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname url\endcsname\relax
   \def\url#1{{\tt #1}}\fi
@@ -62,6 +62,12 @@ Hurtado, F. (2009).
 \newblock Edge colouring geometric complete graphs.
 \newblock
   \url{http://www.openproblemgarden.org/op/edge_colouring_geometric_complete_graphs}.
+
+\bibitem[{Knuth(2011)}]{Knuth2011}
+Knuth, D. (2011).
+\newblock {\em The art of computer programming:Volume 4A, Combinatorial
+  Algorithms: Part 1, Fascicle 3B\/}.
+\newblock Addison-Wesley.
 
 \bibitem[{Lara \& Rubio-Montiel(2019)}]{Lara2019}
 Lara, D., \& Rubio-Montiel, C. (2019).
