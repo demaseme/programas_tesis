@@ -14,6 +14,6 @@
 \contentsline {section}{\numberline {4.3}Anti-thickness geom\IeC {\'e}trico exacto de $K_n$ con $3\leq n \leq 9$.}{49}{section.4.3}
 \contentsline {section}{\numberline {4.4}Algoritmos}{51}{section.4.4}
 \contentsline {subsection}{\numberline {4.4.1}Algoritmo para encontrar thrackles con $k$ aristas}{51}{subsection.4.4.1}
-\contentsline {subsection}{\numberline {4.4.2}Algoritmo para la intersecci\IeC {\'o}n de dos thrackles}{55}{subsection.4.4.2}
-\contentsline {subsection}{\numberline {4.4.3}Algoritmo para encontrar colecciones de thrackles m\IeC {\'a}ximos que inducen descomposiciones en thrackles de $K_n$}{56}{subsection.4.4.3}
+\contentsline {subsection}{\numberline {4.4.2}Algoritmo para la intersecci\IeC {\'o}n de dos thrackles}{56}{subsection.4.4.2}
+\contentsline {subsection}{\numberline {4.4.3}Algoritmo para encontrar colecciones de thrackles m\IeC {\'a}ximos que inducen descomposiciones en thrackles de $K_n$}{57}{subsection.4.4.3}
 \contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{59}{chapter.5}

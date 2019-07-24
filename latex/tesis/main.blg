@@ -9,14 +9,14 @@ Warning--can't use both author and editor fields in Pach2013
 Warning--can't use both author and editor fields in Pach2013b
 You've used 16 entries,
             2804 wiz_defined-function locations,
-            695 strings with 7120 characters,
-and the built_in function-call counts, 8959 in all, are:
+            696 strings with 7167 characters,
+and the built_in function-call counts, 8962 in all, are:
 = -- 719
 > -- 347
 < -- 14
 + -- 146
 - -- 114
-* -- 674
+* -- 676
 := -- 1400
 add.period$ -- 50
 call.type$ -- 16
@@ -30,13 +30,13 @@ if$ -- 1754
 int.to.chr$ -- 3
 int.to.str$ -- 1
 missing$ -- 138
-newline$ -- 90
+newline$ -- 91
 num.names$ -- 64
 pop$ -- 279
 preamble$ -- 1
 purify$ -- 102
 quote$ -- 0
-skip$ -- 256
+skip$ -- 255
 stack$ -- 0
 substring$ -- 369
 swap$ -- 356
@@ -47,5 +47,5 @@ type$ -- 129
 warning$ -- 4
 while$ -- 65
 width$ -- 0
-write$ -- 214
+write$ -- 215
 (There were 4 warnings)
