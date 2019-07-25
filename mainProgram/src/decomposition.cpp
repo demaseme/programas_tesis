@@ -83,6 +83,7 @@ int load_thrackles(int set_size, int t_size,int desired_ot, int ** bool_th_mat){
   for(i = 0; i < thrackleCounter; i++){
     Thrackle tmp_thrackle;
     for ( j = 0 ; j < cols ; j++){
+      eater = 0;
       myfile.read( (char*)&eater,sizeof(char)); //boolean
       // tmp_thrackle.edge_bool.push_back(eater);
       bool_th_mat[i][j] = eater;
