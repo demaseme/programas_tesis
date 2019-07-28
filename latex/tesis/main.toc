@@ -10,10 +10,10 @@
 \contentsline {chapter}{\numberline {3}Estado del arte}{29}{chapter.3}
 \contentsline {chapter}{\numberline {4}Resultados}{41}{chapter.4}
 \contentsline {section}{\numberline {4.1}Cota inferior del anti-thickness geom\IeC {\'e}trico de $K_n$}{41}{section.4.1}
-\contentsline {section}{\numberline {4.2}Descomposiciones por thrackles m\IeC {\'a}ximos.}{47}{section.4.2}
-\contentsline {section}{\numberline {4.3}Anti-thickness geom\IeC {\'e}trico exacto de $K_n$ con $3\leq n \leq 9$.}{49}{section.4.3}
-\contentsline {section}{\numberline {4.4}Algoritmos}{51}{section.4.4}
-\contentsline {subsection}{\numberline {4.4.1}Algoritmo para encontrar thrackles con $k$ aristas}{51}{subsection.4.4.1}
-\contentsline {subsection}{\numberline {4.4.2}Algoritmo para la intersecci\IeC {\'o}n de dos thrackles}{56}{subsection.4.4.2}
-\contentsline {subsection}{\numberline {4.4.3}Algoritmo para encontrar colecciones de thrackles m\IeC {\'a}ximos que inducen descomposiciones en thrackles de $K_n$}{57}{subsection.4.4.3}
-\contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{59}{chapter.5}
+\contentsline {section}{\numberline {4.2}Descomposiciones inducidas por thrackles m\IeC {\'a}ximos}{48}{section.4.2}
+\contentsline {section}{\numberline {4.3}Intersecci\IeC {\'o}n de thrackles de $K_n$ con $3\leq n \leq 9$.}{51}{section.4.3}
+\contentsline {section}{\numberline {4.4}Algoritmos}{53}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Algoritmo para encontrar thrackles con $k$ aristas}{53}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}Algoritmo para la intersecci\IeC {\'o}n de dos thrackles}{57}{subsection.4.4.2}
+\contentsline {subsection}{\numberline {4.4.3}Algoritmo para encontrar colecciones de thrackles m\IeC {\'a}ximos que inducen descomposiciones en thrackles de $K_n$}{58}{subsection.4.4.3}
+\contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{61}{chapter.5}

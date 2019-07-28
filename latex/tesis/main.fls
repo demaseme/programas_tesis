@@ -393,6 +393,9 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
+INPUT /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/k9_descomp_2.png
+INPUT /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/k9_descomp_2.png
+INPUT /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/k9_descomp_2.png
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss12.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmcsc10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt8.tfm

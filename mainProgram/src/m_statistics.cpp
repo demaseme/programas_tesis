@@ -38,7 +38,7 @@ int main(int argc, char * argv[]){
     default:
         fprintf(stderr,"No existe base de datos para n>10\n"); exit(-1);
   }
-  start = n - floor(sqrt(2*n + (1/4.0)) - (1/2.0));
+  start = n - floor(sqrt(2.0*n + (1.0/4.0)) - (1.0/2.0));
   end = 2;
   cout << start << " -> " << end << endl;
   string file_name = "m_" + to_string(n) + "stats.dat";

@@ -1,4 +1,4 @@
-\begin{thebibliography}{16}
+\begin{thebibliography}{17}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname url\endcsname\relax
   \def\url#1{{\tt #1}}\fi
@@ -9,6 +9,12 @@
 Aichholzer, O., Aurenhammer, F., \& Krasser, H. (2002).
 \newblock Enumerating order types for small point sets with applications.
 \newblock {\em Order\/}, {\em 19\/}(3), 265--281.
+
+\bibitem[{Aichholzer \& Krasser(2001)}]{Aichholzer2001}
+Aichholzer, O., \& Krasser, H. (2001).
+\newblock The point set order type data base: A collection of applications and
+  results.
+\newblock In {\em CCCG\/}, vol.~1, (pp. 17--20).
 
 \bibitem[{Araujo et~al.(2005)Araujo, Dumitrescu, Hurtado, Noy, \&
   Urrutia}]{Araujo2005}

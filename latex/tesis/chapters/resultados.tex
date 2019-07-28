@@ -46,7 +46,7 @@ $\binom{n}{2}$ aristas de la gráfica completa:
 \[ kn \geq \binom{n}{2}. \]
 
 Como los thrackles de la descomposición son geométricos, si buscamos la $k$ más
-pequeña para la cual se cumple la desigualdad anterior entonces  dicha $k$
+pequeña para la cual se cumple la desigualdad anterior entonces $k$
 sería el anti-thickness geométrico de la gráfica completa.
 Resolviendo para $k$  tenemos que al menos
 $k\geq\left\lceil\frac{n-1}{2}\right\rceil$ thrackles máximos son necesarios
@@ -292,47 +292,65 @@ Como consecuencia del lema~\ref{lema:existedescomp} y el teorema~\ref{teo:cotain
     \label{table:atnuevacota}
   \end{table}
 
-  Si desearamos dar un resultado para $n\geq 3$, bastaría con generalizar el
-  lema~\ref{lema:thdisjuntos}. Esto es, que cada par de thrackles máximos se
-  intersecta en al menos una arista y que esto sucede para toda $n\geq 3$.
+  Como consecuencia del teorema~\ref{teo:nuevacotainf} es posible obtener un valor exacto para el anti-thickness geométrico de $K_n$ en posición general.
+  \begin{theorem}
+    Sea $K_n(S)$ la gráfica completa inducida por un conjunto $S$ de $n$ puntos, con $3 \leq n \leq 10$, en posición general. El anti-thickness geométrico de $K_n$ es:
+    \[ At_g(K_n) = n - \left\lfloor\sqrt{2n + \frac{1}{4}} - \frac{1}{2}\right\rfloor \]
+  \end{theorem}
+  \begin{proof}
+    Se sigue del resultado del teorema~\ref{teo:nuevacotainf} y la cota superior del anti-thickness geométrico de $K_n$ cuando $K_n$ es inducida por un conjunto de puntos en posición convexa.
+  \end{proof}
 
-\section{Descomposiciones por thrackles máximos.}
+  Si desearamos dar un resultado similar para $n > 10$, bastaría con generalizar el
+  lema~\ref{lema:thdisjuntos}. Esto es, que cada par de thrackles máximos se
+  intersecta en al menos una arista y que esto sucede para toda $n > 10$.
+
+
+\section{Descomposiciones inducidas por thrackles máximos}
 
   Para comprobar la existencia de configuraciones de puntos para los cuales
-  existe una colección de thracklese óptima, en el sentido de las condiciones
-  epecíficos en la demostración del teorema~\ref{teo:nuevacotainf} elegimos
+  existe una colección de thrackles óptima, en el sentido de las condiciones
+  específicas en la demostración del teorema~\ref{teo:nuevacotainf}, elegimos
   aquellos tipos de orden para los cuales existen al menos $k=n -
-  \left\lfloor\sqrt{2n+\frac{1}{4}} + \frac{1}{2}\right\rfloor$ thrackles
-  máximos. Luego, para cada uno, analizamos todas las colecciones de thrackles máximos posibles de tamaño $k$. Finalmente, para cada colección evaluamos si esta cubre o no a $E(K_n)$. Detallamos el algoritmo en la sección XY. %%FALTA SECCIÓN
+  \left\lfloor\sqrt{2n+\frac{1}{4}} - \frac{1}{2}\right\rfloor$ thrackles
+  máximos. Luego, para cada uno, analizamos todas las colecciones de thrackles
+  máximos posibles de tamaño $k$. Finalmente, para cada colección evaluamos si
+  esta cubre o no a $E(K_n)$. Detallamos el algoritmo en la sección~\ref{secc:descomposicion_thrackles_maximos}.
 
-  La tabla~\ref{table:res_desc_th_max} muestra los resultados obtenidos,
-  mostramos los tipos de orden para los cuáles exista alguna descomposición
-  óptima. Descubrimos que para $n=8$ existen dos tipos de orden con esta
-  característica, para $n=9$ hay 7 y para $n=10$ existen 3.
+  La tabla~\ref{table:res_desc_th_max} muestra los resultados obtenidos;
+  observamos que para $n\in \{8,9,10\}$ existen tipos de orden que tienen $k$
+  thrackles máximos cuya unión cubre a la gráfica completa. Sin embargo,
+  ninguna descomposición para estos tipos de orden es óptima ya que en cada
+  una, existe al menos un par de thrackles cuya intersección tiene tamaño mayor a uno.
   % La importancia de este resultado es que probamos la existencia de tipos de
   % orden, diferentes al convexo, que cumplen con el
   % teorema~\ref{teo:nuevacotainf}.
-  Usando el resultado del teorema~\ref{teo:nuevacotainf} y los resultados obtenidos anteriormente, podemos escribir el siguiente teorema.
+  Es importante hacer notar que encontramos configuraciones de puntos, en posición no convexa, cuyo anti-thickness geométrico es $n -
+  \left\lfloor\sqrt{2n+\frac{1}{4}} - \frac{1}{2}\right\rfloor$.
 
-  \begin{theorem}
-    El anti-thickness geométrico para $3\leq n\leq 10$ es exactamente:
-    \[At_g(K_n) = n - \left\lfloor \sqrt{2n + \frac{1}{4}} - \frac{1}{2}\right\rfloor\]
-  \end{theorem}
-  \begin{proof}
-    Se sigue del hecho de la existencia de tipos de orden para los cuales hay una descomposición en thrackles cuyo tamaño es $n - \left\lfloor \sqrt{2n + \frac{1}{4}} + \frac{1}{2}\right\rfloor$. Esto implica que $At_g(K_n) \leq n - \left\lfloor \sqrt{2n + \frac{1}{4}} - \frac{1}{2}\right\rfloor$. Luego, como $At_g(K_n) \geq n - \left\lfloor \sqrt{2n + \frac{1}{4}} + \frac{1}{2}\right\rfloor $ y además, $n - \left\lfloor \sqrt{2n + \frac{1}{4}} + \frac{1}{2}\right\rfloor  = n - \left\lfloor \sqrt{2n + \frac{1}{4}} - \frac{1}{2}\right\rfloor$ cuando $ 3\leq n\leq 10$, entonces :
-    \[ At_g(K_n) = n - \left\lfloor \sqrt{2n + \frac{1}{4}} - \frac{1}{2}\right\rfloor.\]
-  \end{proof}
+  Para cada tipo de orden encontrado descrito en la
+  tabla~\ref{table:res_desc_th_max} describimos las etiquetas de los thrackles
+  máximos de la colección que puede inducir una descomposición. Estos datos
+  pueden ser consultados en la siguiente liga (INSERTE LIGA AQUÍ).
 
-  Para cada tipo de orden encontrado, se
-  describen las etiquetas de los thrackles máximos de la colección que puede
-  inducir una descomposición. Estos datos pueden ser consultados en la
-  siguiente liga (INSERTE LIGA AQUÍ)
+  La figura~\ref{fig:k9_descomp} describe un ejemplo de una descomposición de $K_9$ en thrackles inducida por 6 thrackles máximos, cada thrackle es dibujado de un color diferente.
+
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.6\textwidth]{k9_descomp_2}
+    \caption{Una descomposición de $K_9$ en seis thrackles, la configuración de
+    puntos corresponde al tipo de orden 12 con respecto de la base de datos
+    de~\cite{Aichholzer2001}. Esta descomposición fue inducida por una colección
+    de thrackles máximos que no es óptima, es sencillo ver esto observando que
+    los thrackles tienen 9,7,6,6,5 y 3 aristas respectivamente. Una descomposición óptima de $K_9$ tiene thrackles de tamaño 9,8,7,6,5 y 4.}
+    \label{fig:k9_descomp}
+  \end{figure}
 
   \begin{table}[htbp]
     \centering
     \begin{tabular}{|c|c|c|}
       \hline
-      $n$   & Tipo de Orden & $k_n$ \\ \hline\hline
+      $n$   & Tipo de Orden & Tamaño de la colección \\ \hline\hline
       8 & 12   & 5  \\
       8 & 54   & 5  \\ \hline
       9 & 12   & 6  \\
@@ -346,18 +364,35 @@ Como consecuencia del lema~\ref{lema:existedescomp} y el teorema~\ref{teo:cotain
      10 & 1328 & 6  \\
      10 & 2243 & 6  \\ \hline
     \end{tabular}
-    \caption{Tipos de orden para los que existe al menos una descomposición en
-    thrackles máximos de tamaño igual al anti-thickness del tipo de orden
-    convexo.}
+    \caption{Tipos de orden para los que existe al menos una colección de
+    $n -
+    \left\lfloor\sqrt{2n+\frac{1}{4}} - \frac{1}{2}\right\rfloor$ thrackles máximos que cubren a $K_n$.}
     \label{table:res_desc_th_max}
   \end{table}
 
-  Para los casos de $n \in \{3,4,\dots,7\}$ no pudimos encontrar una
-  descomposición que cumpliera con las caracteristicas antes descritas, esto es
-  porque existen pocos tipos de orden para los cuales la unión de thrackles
-  máximos cubre las aristas de $K_n$.
+  Para los casos de $n \in \{3,4,\dots,7\}$ no existe alguna
+  colección óptima de $n - \left\lfloor\sqrt{2n+\frac{1}{4}} -
+  \frac{1}{2}\right\rfloor$ thrackles máximos que induzca una descomposición de
+  $K_n$. Para estos valores de $n$ buscamos de manera manual una descomposición
+  con ese número de thrackles. La figura~\ref{fig:descomposicionesk4_k9} muestra que el anti-thickness para dibujos no convexos de $K_n$ es a lo sumo $n - \left\lfloor\sqrt{2n+\frac{1}{4}} - \frac{1}{2}\right\rfloor$. Como resultado podemos decir que el anti-thickness geométrico de $K_n$, con $ 3\leq n \leq 10$ es exactamente $n - \left\lfloor\sqrt{2n+\frac{1}{4}} - \frac{1}{2}\right\rfloor$.
 
-  \section{Anti-thickness geométrico exacto de $K_n$ con $3\leq n \leq 9$.}
+  \begin{figure}[htpb]
+    \centering
+    \includegraphics{descomposicionesK49.png}
+    \caption{Mostramos posibles descomposiciones de la gráfica completa con
+    hasta 7 vértices. Las descomposiciones tienen exáctamente el número de
+    thrackles establecido por la cota inferior del
+    teorema~\ref{teo:nuevacotainf}. Estas configuraciones de puntos son
+    diferentes de la posición convexa.}
+    \label{fig:descomposicionesk4_k9}
+  \end{figure}
+
+  También analizamos, para $ 3\leq n\leq 9$, cómo
+  se comporta la intersección de thrackles de los dibujos de $K_n$. Describimos
+  esta tarea en la siguiente sección.
+
+
+  \section{Intersección de thrackles de $K_n$ con $3\leq n \leq 9$.}
     \chaptermark{$gat(n)$ exacto para $3\leq n \leq 9$.}
 
     Debido a que los resultados de la sección X son aplicables solamente para los tipos de orden con al menos un determinado número de thrackles máximos, decidimos analizar el anti-thickness geométrico para los demás tipos de orden. Para realizar este análisis tratamos de responder la siguiente pregunta: ¿Podemos encontrar, para algún tipo de orden, una descomposición en thrackles cuyo tamaño sea menor a la cota superior de $At_g(K_n)$? En general, esto no es posible. Para dar esta respuesta estudiamos las particiones de enteros y construimos un algoritmo que intenta encontrar descomposiciones en thrackles cuyo tamaño sea menor a la cota superior de $At_g(K_n)$. Para explicar este proceso primero es necesario definir una partición de un entero:
@@ -859,7 +894,7 @@ aristas. Luego...Finalmente...
   \end{algorithm}
 
 \subsection{Algoritmo para encontrar colecciones de thrackles máximos que
-inducen descomposiciones en thrackles de $K_n$}
+inducen descomposiciones en thrackles de $K_n$}\label{secc:descomposicion_thrackles_maximos}
   El algoritmo que diseñamos para este resultado es exhaustivo y secuencial.
   Mostramos el pseudocódigo en el algoritmo XX. %INSERTE ALGORITMO AQUÍ
   El algoritmo se basa en tomar todos los thracklese máximos para cada tipo de
