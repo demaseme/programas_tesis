@@ -75,7 +75,7 @@ int main(int argc, char * argv[]){
     for(int i = 0; i < rows; i++) bool_th_mat[i] = (int *)malloc(cols * sizeof(int));
 
     load_thrackles(n,n,ot,bool_th_mat);
-    printMatrix(bool_th_mat,rows,cols);
+    //printMatrix(bool_th_mat,rows,cols);
     // if (!mat_union_covers(bool_th_mat,cols,rows)){
     //   ++i;
     //   a = (int **)bool_th_mat;

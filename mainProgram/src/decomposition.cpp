@@ -264,6 +264,7 @@ void count_repetitions_all(int ** bool_th_mat, int rows, int k, int setsize, int
   int m_min = 99;
   int m_max = -1;
   int m_cur = 0;
+  int count = 0;
   c[0] = 9999;
   for(int i=1; i < k+1; i++){
       c[i] = i-1;
@@ -279,9 +280,9 @@ void count_repetitions_all(int ** bool_th_mat, int rows, int k, int setsize, int
     //printf("Checking ");
     for(int i = k; i > 0; i--){
       c_curr[i-1] = c[i];
-      printf(" %d ",c[i]);
+      //printf(" %d ",c[i]);
     }
-
+    count++;
     //printf("k=%d,cols = %d\n",k,cols);
     //If one is a decomposition return true.
     if( is_decomposition(c_curr,k,bool_th_mat,cols) ){
@@ -295,10 +296,10 @@ void count_repetitions_all(int ** bool_th_mat, int rows, int k, int setsize, int
       m_cur = count_repetitions(bool_th_mat,c_curr,cols,k,setsize);
       if( m_cur > m_max) {
         m_max = m_cur;
-        // for(int i = k; i > 0; i--){
-        //   printf(" %d ",c[i]);
-        // }
-        // printf("\n");
+        for(int i = k; i > 0; i--){
+          printf(" %d ",c[i]);
+        }
+        printf("\n");
       }
       if( m_cur < m_min) m_min = m_cur;
 
@@ -321,6 +322,7 @@ void count_repetitions_all(int ** bool_th_mat, int rows, int k, int setsize, int
   }
   m_arr[0] = m_min;
   m_arr[1] = m_max;
+  printf("Combinations visited: %d\n",count);
 }
 /*
     From given thrackle list count how many edges are repeated
@@ -449,15 +451,17 @@ void t_combinations(int n, int t){
   for(int i=1; i < t+1; i++){
       c[i] = i-1;
   }
+  int count = 0;
   c[t+1] = n;
   c[t+2] = 0;
   while (true) {
     //usleep(1000000);
     //L2. Visit. Here we check if current combination is a thrackle or nah.
-    for(int i = t; i > 0; i--){
-      printf(" %d ",c[i]);
-    }
-    printf("\n");
+    // for(int i = t; i > 0; i--){
+    //   printf(" %d ",c[i]);
+    // }
+    count++;
+    //printf("\n");
     //L3. FIND j
     j = 1;
     while( (c[j] + 1) == c[j+1] ) {
@@ -472,6 +476,7 @@ void t_combinations(int n, int t){
     //L5. Update and Return to L2.
     c[j] = c[j] + 1;
   }
+  printf("%d\n",count);
 }
 
 /*
