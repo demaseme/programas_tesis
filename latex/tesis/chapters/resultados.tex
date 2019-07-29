@@ -293,47 +293,61 @@ Como consecuencia del lema~\ref{lema:existedescomp} y el teorema~\ref{teo:cotain
   \end{table}
 
   Como consecuencia del teorema~\ref{teo:nuevacotainf} es posible obtener un valor exacto para el anti-thickness geométrico de $K_n$ en posición general.
-  \begin{theorem}
+  \begin{theorem}\label{teo:cotaexacta}
     Sea $K_n(S)$ la gráfica completa inducida por un conjunto $S$ de $n$ puntos, con $3 \leq n \leq 10$, en posición general. El anti-thickness geométrico de $K_n$ es:
-    \[ At_g(K_n) = n - \left\lfloor\sqrt{2n + \frac{1}{4}} - \frac{1}{2}\right\rfloor \]
+    \[ At_g(K_n) = n - \left\lfloor\sqrt{2n + \frac{1}{4}} - \frac{1}{2}\right\rfloor. \]
   \end{theorem}
   \begin{proof}
-    Se sigue del resultado del teorema~\ref{teo:nuevacotainf} y la cota superior del anti-thickness geométrico de $K_n$ cuando $K_n$ es inducida por un conjunto de puntos en posición convexa.
+    Se sigue del resultado del teorema~\ref{teo:nuevacotainf} y
+    la cota superior del anti-thickness geométrico de $K_n$ cuando
+    $K_n$ es inducida por un conjunto de puntos en posición convexa.
   \end{proof}
 
   Si desearamos dar un resultado similar para $n > 10$, bastaría con generalizar el
   lema~\ref{lema:thdisjuntos}. Esto es, que cada par de thrackles máximos se
   intersecta en al menos una arista y que esto sucede para toda $n > 10$.
 
+  Debido a que la cota superior del anti-thickness geométrico está dada por
+  el anti-thickness geométrico de un dibujo en posición convexa, en este trabajo
+  decidimos verificar la existencia de dibujos diferentes al convexo para los
+  cuales se puede alcanzar el mismo anti-thickness geométrico.
 
 \section{Descomposiciones inducidas por thrackles máximos}
 
-  Para comprobar la existencia de configuraciones de puntos para los cuales
-  existe una colección de thrackles óptima, en el sentido de las condiciones
-  específicas en la demostración del teorema~\ref{teo:nuevacotainf}, elegimos
-  aquellos tipos de orden para los cuales existen al menos $k=n -
+  El resultado del teorema~\ref{teo:cotaexacta} es posible usando el anti-thickness
+  geométrico de conjuntos de puntos en posición convexa. En esta tesis verificamos
+  que existen tipos de orden, que no corresponden a la posición convexa, y que
+  inducen una gráfica completa cuyo anti-thickness geométrico es
+  a lo sumo $n - \left\lfloor\sqrt{2n+\frac{1}{4}} - \frac{1}{2}\right\rfloor$.
+
+  Para comprobar la existencia de tipos de orden con las características descritas
+  anteriormente elegimos aquellos para los cuales existen al menos $n -
   \left\lfloor\sqrt{2n+\frac{1}{4}} - \frac{1}{2}\right\rfloor$ thrackles
   máximos. Luego, para cada uno, analizamos todas las colecciones de thrackles
-  máximos posibles de tamaño $k$. Finalmente, para cada colección evaluamos si
-  esta cubre o no a $E(K_n)$. Detallamos el algoritmo en la sección~\ref{secc:descomposicion_thrackles_maximos}.
+  máximos posibles de tamaño $k$. Finalmente, para cada colección, evaluamos si
+  esta cubre o no a $E(K_n)$. Detallamos el algoritmo en la sección
+  \ref{secc:descomposicion_thrackles_maximos}.
 
   La tabla~\ref{table:res_desc_th_max} muestra los resultados obtenidos;
-  observamos que para $n\in \{8,9,10\}$ existen tipos de orden que tienen $k$
-  thrackles máximos cuya unión cubre a la gráfica completa. Sin embargo,
-  ninguna descomposición para estos tipos de orden es óptima ya que en cada
-  una, existe al menos un par de thrackles cuya intersección tiene tamaño mayor a uno.
-  % La importancia de este resultado es que probamos la existencia de tipos de
-  % orden, diferentes al convexo, que cumplen con el
-  % teorema~\ref{teo:nuevacotainf}.
-  Es importante hacer notar que encontramos configuraciones de puntos, en posición no convexa, cuyo anti-thickness geométrico es $n -
-  \left\lfloor\sqrt{2n+\frac{1}{4}} - \frac{1}{2}\right\rfloor$.
+  observamos que para $n\in \{8,9,10\}$ existen tipos de orden que tienen $ n -
+  \left\lfloor\sqrt{2n+\frac{1}{4}} - \frac{1}{2}\right\rfloor$
+  thrackles máximos cuya unión cubre a la gráfica completa, es decir, es posible
+  inducir una descomposición de $K_n$. Sin embargo, ninguna colección
+  encontrada para estos tipos de orden es óptima ya que en cada
+  una existe al menos un par de thrackles cuya intersección tiene tamaño mayor a uno.
+
+  % Es importante hacer notar que encontramos configuraciones de puntos,
+  % en posición no convexa, cuyo anti-thickness geométrico es $n -
+  % \left\lfloor\sqrt{2n+\frac{1}{4}} - \frac{1}{2}\right\rfloor$.
 
   Para cada tipo de orden encontrado descrito en la
   tabla~\ref{table:res_desc_th_max} describimos las etiquetas de los thrackles
   máximos de la colección que puede inducir una descomposición. Estos datos
   pueden ser consultados en la siguiente liga (INSERTE LIGA AQUÍ).
 
-  La figura~\ref{fig:k9_descomp} describe un ejemplo de una descomposición de $K_9$ en thrackles inducida por 6 thrackles máximos, cada thrackle es dibujado de un color diferente.
+  La figura~\ref{fig:k9_descomp} describe un ejemplo de una
+  descomposición de $K_9$ en thrackles inducida por 6
+  thrackles máximos, cada thrackle es dibujado de un color diferente.
 
   \begin{figure}
     \centering
@@ -342,15 +356,18 @@ Como consecuencia del lema~\ref{lema:existedescomp} y el teorema~\ref{teo:cotain
     puntos corresponde al tipo de orden 12 con respecto de la base de datos
     de~\cite{Aichholzer2001}. Esta descomposición fue inducida por una colección
     de thrackles máximos que no es óptima, es sencillo ver esto observando que
-    los thrackles tienen 9,7,6,6,5 y 3 aristas respectivamente. Una descomposición óptima de $K_9$ tiene thrackles de tamaño 9,8,7,6,5 y 4.}
+    los thrackles tienen 9,7,6,6,5 y 3 aristas respectivamente.
+    Una descomposición óptima de $K_9$ tiene thrackles de tamaño 9,8,7,6,5 y 4.}
     \label{fig:k9_descomp}
   \end{figure}
 
   \begin{table}[htbp]
     \centering
-    \begin{tabular}{|c|c|c|}
+    \setlength\extrarowheight{2pt}
+    \begin{tabularx}{\textwidth}{|C|C|C|}
       \hline
-      $n$   & Tipo de Orden & Tamaño de la colección \\ \hline\hline
+      $n$   & Tipo de Orden & Tamaño de la colección \hfill $n -
+      \left\lfloor\sqrt{2n+\frac{1}{4}} - \frac{1}{2}\right\rfloor$ \\ \hline\hline
       8 & 12   & 5  \\
       8 & 54   & 5  \\ \hline
       9 & 12   & 6  \\
@@ -363,7 +380,7 @@ Como consecuencia del lema~\ref{lema:existedescomp} y el teorema~\ref{teo:cotain
      10 & 81   & 6  \\
      10 & 1328 & 6  \\
      10 & 2243 & 6  \\ \hline
-    \end{tabular}
+    \end{tabularx}
     \caption{Tipos de orden para los que existe al menos una colección de
     $n -
     \left\lfloor\sqrt{2n+\frac{1}{4}} - \frac{1}{2}\right\rfloor$ thrackles máximos que cubren a $K_n$.}
@@ -371,10 +388,15 @@ Como consecuencia del lema~\ref{lema:existedescomp} y el teorema~\ref{teo:cotain
   \end{table}
 
   Para los casos de $n \in \{3,4,\dots,7\}$ no existe alguna
-  colección óptima de $n - \left\lfloor\sqrt{2n+\frac{1}{4}} -
-  \frac{1}{2}\right\rfloor$ thrackles máximos que induzca una descomposición de
-  $K_n$. Para estos valores de $n$ buscamos de manera manual una descomposición
-  con ese número de thrackles. La figura~\ref{fig:descomposicionesk4_k9} muestra que el anti-thickness para dibujos no convexos de $K_n$ es a lo sumo $n - \left\lfloor\sqrt{2n+\frac{1}{4}} - \frac{1}{2}\right\rfloor$. Como resultado podemos decir que el anti-thickness geométrico de $K_n$, con $ 3\leq n \leq 10$ es exactamente $n - \left\lfloor\sqrt{2n+\frac{1}{4}} - \frac{1}{2}\right\rfloor$.
+  colección de $n - \left\lfloor\sqrt{2n+\frac{1}{4}} -
+  \frac{1}{2}\right\rfloor$ thrackles máximos que pueda inducir una descomposición de
+  $K_n$. Para estos valores de $n$ buscamos, de manera manual, una descomposición
+  con ese número de thrackles. La figura~\ref{fig:descomposicionesk4_k9}
+  muestra que el anti-thickness para dibujos no convexos de $K_n$,
+  con $ 3 \leq n \leq 7$, es a lo sumo $n - \left\lfloor\sqrt{2n+\frac{1}{4}}
+  - \frac{1}{2}\right\rfloor$. Como resultado podemos decir que el
+  anti-thickness geométrico de $K_n$, con $ 3\leq n \leq 10$
+  es exactamente $n - \left\lfloor\sqrt{2n+\frac{1}{4}} - \frac{1}{2}\right\rfloor$.
 
   \begin{figure}[htpb]
     \centering
@@ -395,20 +417,41 @@ Como consecuencia del lema~\ref{lema:existedescomp} y el teorema~\ref{teo:cotain
   \section{Intersección de thrackles de $K_n$ con $3\leq n \leq 9$.}
     \chaptermark{$gat(n)$ exacto para $3\leq n \leq 9$.}
 
-    Debido a que los resultados de la sección X son aplicables solamente para los tipos de orden con al menos un determinado número de thrackles máximos, decidimos analizar el anti-thickness geométrico para los demás tipos de orden. Para realizar este análisis tratamos de responder la siguiente pregunta: ¿Podemos encontrar, para algún tipo de orden, una descomposición en thrackles cuyo tamaño sea menor a la cota superior de $At_g(K_n)$? En general, esto no es posible. Para dar esta respuesta estudiamos las particiones de enteros y construimos un algoritmo que intenta encontrar descomposiciones en thrackles cuyo tamaño sea menor a la cota superior de $At_g(K_n)$. Para explicar este proceso primero es necesario definir una partición de un entero:
+    % Debido a que los resultados de la sección X son aplicables solamente para los tipos de orden con al menos un determinado número de thrackles máximos, decidimos analizar el anti-thickness geométrico para los demás tipos de orden. Para realizar este análisis tratamos de responder la siguiente pregunta: ¿Podemos encontrar, para algún tipo de orden, una descomposición en thrackles cuyo tamaño sea menor a la cota superior de $At_g(K_n)$? En general, esto no es posible.
+    Debido a que no existen colecciones óptimas que induzcan descomposiciones de $K_n$,
+    estudiamos el comportamiento de las intersecciones entre thrackles que pueden existir
+    en una descomposición. Para explicar este proceso primero es
+    necesario definir una partición de un entero:
 
     \begin{definition}{\emph{Partición de un entero.}(~\cite{Knuth2011})}
-      Una partición de un entero $n$ es una secuencia de enteros no negativos $a_1 \geq a_2 \geq \dots a_m$ tales que $a_1 + a_2 + \dots + a_m = n$.
+      Una partición de un entero $n$ es una colección de enteros
+      no negativos $P = \{a_1, a_2, \dots, a_m\}$ tales que
+      $a_1 \geq a_2\geq \dots \geq a_m$ y $a_1 + a_2 + \dots + a_m = n$.
     \end{definition}
+    %
+    % Nosotros utilizamos las particiones de enteros como guía para construir una
+    % descomposición y construimos un algoritmo que intenta encontrar dichas
+    % descomposiciones en thrackles.
 
-    En ~\cite{Knuth2011} se ofrece un algoritmo para encontrar las particiones de algún entero $n$ en orden lexicográfico. Nosotros utilizamos dicho algoritmo en este trabajo.
+    Es posible usar ciertas particiones de un entero como guía para buscar
+    descomposiciones en thrackles de $K_n$. Por ejemplo, si  deseamos obtener
+    una descomposición en thrackles de $K_4$, entonces necesitamos cubrir
+    seis aristas. Una descomposición del entero 6 es $4+2$, esta partición puede
+    traducirse a una descomposición con dos thrackles: uno con 4 aristas y otro
+    con 2 aristas.
 
-    Es posible usar ciertas particiones de un entero como guía para buscar descomposiciones en thrackles de $K_n$. Por ejemplo, si  deseamos obtener una descomposición en thrackles de $K_4$, entonces necesitamos cubrir seis aristas. Una descomposición del entero 6 es $4+2$, esta partición puede traducirse a una descomposicioń de dos thrackles, uno con 4 aristas y otro con 2 aristas.
-
-    Nuestro objetivo es buscar una descomposición de tamaño menor a $n - \left\lfloor\sqrt{2n+\frac{1}{4}} - \frac{1}{2}\right\rfloor$, además, como es una descomposición, solamente puede contener un thrackle máximo. Estas dos propiedades pueden imponer condiciones sobre las particiones generadas para algún entero. En general, podemos definir un conjunto de particiones válidas para nuestro problema. Hacemos esto a continuación.
-
+    En particular nosotros estudiamos descomposiciones de tamaño estrictamente menor
+    a la cota superior del anti-thickness geométrico, que es:
+    $n - \left\lfloor\sqrt{2n+\frac{1}{4}} - \frac{1}{2}\right\rfloor$. Además,
+    como en una descomposición solamente puede existir un thrackle máximo, es
+    posible imponer condiciones sobre las particiones de enteros para
+    nuestro problema. Nos referimos a estas como \emph{particiones válidas de
+    un entero}.
     \begin{definition}{\emph{Partición válida de un entero.}}
-      Sea $K_n(S)$ la gráfica completa inducida por un conjunto $S$ de $n$ puntos en posición general y sea $x=\binom{n}{2}$. Una partición $P=\{a_1,a_2,\dots,a_m\}$ es válida si cumple con las siguientes condiciones:
+      Sea $K_n(S)$ la gráfica completa inducida por un conjunto $S$ de $n$
+      puntos en posición general y sea $x=\binom{n}{2}$.
+      Una partición $P=\{a_1,a_2,\dots,a_m\}$ es válida si cumple
+      con las siguientes condiciones:
       \begin{itemize}
         \item Si $a_1$ es igual a $n$ entonces solo existe una ocurrencia de $a_1$ en $P$.
         \item La suma $a_1 + a_2 + \dots + a_m = x$.
@@ -416,200 +459,27 @@ Como consecuencia del lema~\ref{lema:existedescomp} y el teorema~\ref{teo:cotain
       \end{itemize}
     \end{definition}
 
-    Usando esta definición generamos las particiones válidas para toda $x=|E(K_n)|$, con $ 3 \leq n \leq 10$. La tabla X1 muestra dichas particiones. Estas particiones fueron generadas con el algoritmo X de la sección XY.
+    Usando esta definición generamos las particiones válidas para todo entero
+    $x\in \left\{ \binom{3}{2}, \binom{4}{2}, \cdots, \binom{10}{2}\right\}$.
+    En ~\cite{Knuth2011} se ofrece un algoritmo para
+    generar las particiones de algún entero $n$. Nosotros utilizamos
+    dicho algoritmo en este trabajo modificandolo para que genere solamente
+    particiones válidas de un entero. Discutimos con más detalle el algoritmo en
+    la sección XY. La tabla X1 muestra las particiones generadas por el
+    algoritmo; es posible observar que para $x\in \left\{\binom{3}{2},\binom{4}{2}
+    \cdots,\binom{7}{2}\right\}$ no existen particiones válidas, esto reafirma,
+    para $ 3\leq n\leq 7$ el resultado del teorema~\ref{teo:nuevacotainf}
+    que establece una cota inferior para el anti-thickness geométrico de $K_n$.
 
     INSERTAR TABLA X1 AQUÍ.
-
-    De estos resultados podemos obtener, sin estudiar ninguna descomposición, el siguiente teorema.
-    \begin{theorem}
-      Para $n=A,b,c$ se tiene que el anti-thickness geométrico:
-      \[At_g(K_n) = n - \left\lfloor\sqrt{2n+\frac{1}{4}} - \frac{1}{2}\right\rfloor \]
-    \end{theorem}
-    \begin{proof}
-      Se sigue del hecho de que para $n=A,b,c$ no existe ninguna partición de
-      $\binom{n}{2}$ cuyo tamaño sea menor a $n -
-      \left\lfloor\sqrt{2n+\frac{1}{4}} - \frac{1}{2}\right\rfloor$. Entonces
-      se tiene que para $n=a,b,c$: \[ At_g(K_n) \geq n -
-      \left\lfloor\sqrt{2n+\frac{1}{4}} - \frac{1}{2}\right\rfloor\]
-      Luego, como para $ 3 \leq n \leq 10$ se tiene que
-      \[At_g(K_n) \leq n - \left\lfloor\sqrt{2n+\frac{1}{4}} -
-      \frac{1}{2}\right\rfloor \]
-      entonces \[At_g(K_n) = n - \left\lfloor\sqrt{2n+\frac{1}{4}} -
-      \frac{1}{2}\right\rfloor. \]
-    \end{proof}
 
     Para los valores restantes de $n$ es neceario estudiar las particiones.
     Usando las particiones de la tabla X1 diseñamos una serie de procedimientos
     que buscan thrackles disjuntos usando las particiones como guía. Como hay
     cerca de 14 procedimientos para realizar esta tarea, expondremos solamente
-    uno de ellos en el algoritmo YX de la sección XY, los otros algoritmos son
-    muy similares a este.
-
-    Aquí falta poner los resultados para $n=7,8,9$ y finalmente $n=10$.
-    %\section{comentarios}
-      % % Dado que la cota superior está dada por el anti-thickness convexo decidimos tratar
-      % % de ajustar la cota inferior ya que creemos que el anti-thickness geométrico es igual
-      % % al anti-thickness convexo. Un enfoque para ajustar la cota inferior es obtener el
-      % % anti-thickness de cada dibujo de $K_n$, esto es, obtener el anti-thickness de cada
-      % % tipo de orden para $K_n$ y seleccionar el menor de todos. Sin embargo, el algoritmo
-      % % exhaustivo para encontrar el anti-thickness tarda al rededor de 7 horas para un solo
-      % % tipo de orden cuando $n=8$, si para $n=8$ hay 3315 tipos de orden requeririamos
-      % % cerca de 960 días para acabar dicha tarea.
-      %
-      % Por esta razón decidimos analizar la estructura de las posibles descomposiciones;
-      % como $K_n$ tiene $\binom{n}{2}$ aristas y los thrackles de la descomposición deben
-      % cubrirlas todas podemos buscar particiones de enteros de la forma $a_1 + a_2 + \dots +
-      % a_k = \binom{n}{2}$.
-      %
-      % A manera de ejemplo, mostraremos como se ajusta la cota inferior del anti-thickness
-      % geométrico para $K_5$. En $K_5$ existen 10 aristas. Las siguientes son
-      % particiones del entero 10:
-      % \[
-      % \begin{array}{l l}
-      %   1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 & 2 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1\\
-      %   3 + 1 + 1 + 1 + 1 + 1 + 1 + 1         & 2 + 2 + 1 + 1 + 1 + 1 + 1 + 1    \\
-      %   4 + 1 + 1 + 1 + 1 + 1 + 1             & 3 + 2 + 1 + 1 + 1 + 1 + 1        \\
-      %   2 + 2 + 2 + 1 + 1 + 1 + 1             & 5 + 1 + 1 + 1 + 1 + 1            \\
-      %   4 + 2 + 1 + 1 + 1 + 1                 & 3 + 3 + 1 + 1 + 1 + 1            \\
-      %   3 + 2 + 2 + 1 + 1 + 1                 & 2 + 2 + 2 + 2 + 1 + 1            \\
-      %   6 + 1 + 1 + 1 + 1                     & 5 + 2 + 1 + 1 + 1                \\
-      %   4 + 3 + 1 + 1 + 1                     & 4 + 2 + 2 + 1 + 1                \\
-      %   3 + 3 + 2 + 1 + 1                     & 3 + 2 + 2 + 2 + 1                \\
-      %   2 + 2 + 2 + 2 + 2                     & 7 + 1 + 1 + 1                    \\
-      %   6 + 2 + 1 + 1                         & 5 + 3 + 1 + 1                    \\
-      %   5 + 2 + 2 + 1                         & 4 + 4 + 1 + 1                    \\
-      %   4 + 3 + 2 + 1                         & 4 + 2 + 2 + 2                    \\
-      %   3 + 3 + 3 + 1                         & 3 + 3 + 2 + 2                    \\
-      %   8 + 1 + 1                             & 7 + 2 + 1                        \\
-      %   6 + 3 + 1                             & 6 + 2 + 2                        \\
-      %   5 + 4 + 1                             & 5 + 3 + 2                        \\
-      %   4 + 4 + 2                             & 4 + 3 + 3                        \\
-      %   9 + 1                                 & 8 + 2                            \\
-      %   7 + 3                                 & 6 + 4                            \\
-      %   5 + 5
-      % \end{array}
-      % \]
-      % Ahora bien, algunas de estas particiones pueden ser usadas como guía para encontrar
-      % una descomposición en thrackles para $K_5$. Si tomamos, por ejemplo, la partición $5+4+1$
-      % estaríamos buscando una descomposición por 3 thrackles: uno de tamaño 5, uno de tamaño 4
-      % y otro de tamaño 1. Es importante notar que como las particiones de un entero $k$
-      % suman exactamente $k$, los thrackles de la descomposición tienen que ser disjuntos en aristas
-      % cuando los tamaños corresponden a los enteros de la partición de $k$.
-      % La partición $5+4+1$ podría ser posible de encontrar, sin embargo, podemos
-      % deshacernos de ciertas particiones que estamos seguros jamás encontraremos como son
-      % aquellas particiones que tienen un entero mayor a $5$ puesto que para un conjunto
-      % de $5$ vértices el thrackle geométrico más grande tiene $5$ aristas, esto también se cumple
-      % para todo $n$. Desaparecerían entonces particiones como $7+2+1$ o $9+1$ por mencionar algunas.
-      %
-      % Nuestro conjunto de particiones posibles se ve ahora de la siguiente manera:
-      % \[
-      % \begin{array}{l l}
-      %   1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 & 2 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1\\
-      %   3 + 1 + 1 + 1 + 1 + 1 + 1 + 1         & 2 + 2 + 1 + 1 + 1 + 1 + 1 + 1    \\
-      %   4 + 1 + 1 + 1 + 1 + 1 + 1             & 3 + 2 + 1 + 1 + 1 + 1 + 1        \\
-      %   2 + 2 + 2 + 1 + 1 + 1 + 1             & 5 + 1 + 1 + 1 + 1 + 1            \\
-      %   4 + 2 + 1 + 1 + 1 + 1                 & 3 + 3 + 1 + 1 + 1 + 1            \\
-      %   3 + 2 + 2 + 1 + 1 + 1                 & 2 + 2 + 2 + 2 + 1 + 1            \\
-      %   5 + 2 + 1 + 1 + 1                     & 4 + 3 + 1 + 1 + 1                \\
-      %   4 + 2 + 2 + 1 + 1                     & 3 + 3 + 2 + 1 + 1                \\
-      %   3 + 2 + 2 + 2 + 1                     & 2 + 2 + 2 + 2 + 2                \\
-      %   5 + 3 + 1 + 1                         & 5 + 2 + 2 + 1                    \\
-      %   4 + 3 + 2 + 1                         & 4 + 4 + 1 + 1                    \\
-      %   3 + 3 + 3 + 1                         & 4 + 2 + 2 + 2                    \\
-      %   5 + 4 + 1                             & 3 + 3 + 2 + 2                    \\
-      %   4 + 4 + 2                             & 5 + 3 + 2                        \\
-      %   5 + 5                                 & 4 + 3 + 3
-      % \end{array}
-      % \]
-      %
-      % Sin embargo, como buscamos ajustar la cota inferior del anti-thickness no nos
-      % interesa encontrar descomposiciones cuyo tamaño sea mayor a la cota superior
-      % del anti-thickness dada por $n - \lfloor \sqrt{2n + 1/4} - 1/2 \rfloor$, en el
-      % caso de $n=5$, evitaremos buscar descomposiciones con un tamaño mayor a 3. Dejando
-      % así las siguientes particiones disponibles:
-      % \[
-      % \begin{array}{l l}
-      %   5 + 4 + 1                 & 4 + 4 + 2                                 \\
-      %   4 + 3 + 3                 & 5 + 3 + 2                                 \\
-      %   5 + 5
-      % \end{array}
-      % \]
-      %
-      % Finalmente, vamos a remover las particiones cuyo tamaño sea igual al anti-thickness
-      % convexo de $K_5$, esto porque sabemos que en efecto la posición convexa otorga
-      % descomposiciones de ese tamaño. Esto nos deja con una única partición posible :
-      % \[ 5 + 5 \] Esto significa que debemos averiguar si existe una descomposición
-      % de $K_5$ por dos thrackles de tamaño 5, en este caso dos thrackles máximos. No obstante,
-      % al buscar las thrackles máximos para todos los tipos de orden de $K_5$ encontramos
-      % que no existen dos thrackles máximos que sean disjuntos en aristas, por esto no
-      % es posible dar una descomposición de $K_5$ en dos thrackles máximos. Y luego,
-      % el anti-thickness de $K_5$ es mayor a 2. Como la cota superior del anti-thickness
-      % de $K_5$ es 3 podemos decir que el anti-thickness geométrico de $K_5$ es exactamente 3.
-      %
-      % De esta manera podemos acotar el anti-thickness geométrico de $K_n$: examinar particiones
-      % del entero $\binom{n}{2}$ con las siguientes condiciones:
-      % \begin{itemize}
-      %   \item La longitud de la partición es menor que el anti-thickness convexo de $K_n$.
-      %   \item Solo existe una ocurrencia del entero $n$ en la partición.
-      % \end{itemize}
-      %
-      % Siguiendo las condiciones anteriores buscamos las particiones válidas para $K_n$
-      % con $n\in[3,9]$. Encontramos que para $n\in[3,7]$ no existen particiones que
-      % cumplan las condiciones, por lo que podemos decir que el anti-thickness geométrico
-      % de $K_n$ para $n\in[3,7]$ es igual al anti-thickness convexo.
-      % Para $K_8$ encontramos las siguientes particiones válidas:
-      %
-      % \[
-      % \begin{array}{l l}
-      % 8 + 7 + 7 + 6 & 7 + 7 + 7 + 7
-      % \end{array}
-      % \]
-      %
-      % No fue posible encontrar una descomposición en thrackles usando alguna de estas
-      % particiones, por lo que podemos decir que $K_8$ tiene anti-thickness geométrico
-      % mayor a 4 y luego el anti-thickness geométrico de $K_8$ es exactamente 5.
-      %
-      % Por otro lado para ajustar la cota inferior del anti-thickness de $K_9$,
-      % tenemos las siguientes particiones válidas:
-      % \[
-      % \begin{array}{l l}
-      % 9 + 8 + 8 + 8 + 3 & 9 + 8 + 8 + 7 + 4 \\
-      % 9 + 8 + 8 + 6 + 5 & 9 + 8 + 7 + 7 + 5 \\
-      % 9 + 8 + 7 + 6 + 6 & 9 + 7 + 7 + 7 + 6 \\
-      % 8 + 8 + 8 + 8 + 4 & 8 + 8 + 8 + 7 + 5 \\
-      % 8 + 8 + 8 + 6 + 6 & 8 + 8 + 7 + 7 + 6 \\
-      % 8 + 7 + 7 + 7 + 7
-      % \end{array}
-      % \]
-      %
-      % Para cada una de las particiones se diseñó un algoritmo que evalúa todos los thrackles
-      % de tamaño 9, 8, 7 y 6. Los resultados fueron los siguientes:
-      %
-      % \begin{itemize}
-      %   \item 9 + 8 + 8 + 8 + 3 - Probado con 9+8+8.
-      %   \item 9 + 8 + 8 + 7 + 4 - Probado con 9+8+8.
-      %   \item 9 + 8 + 8 + 6 + 5 - Probado con 9+8+8. 150000ms
-      %   \item 9 + 8 + 7 + 7 + 5 - Probado con 9+8+7+6+6
-      %   \item 9 + 8 + 7 + 6 + 6 - Probado con 9+8+7+6+6. 981709 ms.
-      %   \item 9 + 7 + 7 + 7 + 6 - Probado con 9+7+7+7+6. 2.11354e+06 ms.
-      %   \item 8 + 8 + 8 + 8 + 4 - Probado con 8+8+8+8. 300888 ms.
-      %   \item 8 + 8 + 8 + 7 + 5 - Probado con 8+8+8+6+6.
-      %   \item 8 + 8 + 8 + 6 + 6 - Probado con 8+8+8+6+6. 569735 ms.
-      %   \item 8 + 8 + 7 + 7 + 6 - Probado con 8+8+7+7+6. 6.39485e+06 - 1 Hora, 46 minutos.
-      %   \item 8 + 7 + 7 + 7 + 7 - Probado con 8+7+7+7+7. 1.23716e+08 - 34 Horas, 21 minutos.
-      % \end{itemize}
-      %
-      % En la mayoría de los casos no fue necesario examinar toda la partición, por ejemplo
-      % para la partición $9+8+8+8+3$, encontramos que no hay 3 thrackles, para ningún
-      % tipo de orden diferente del convexo, donde uno sea de tamaño 9
-      % y los otros dos de tamaño 8 que sean disjuntos en aristas y por esta razón no es necesario
-      % seguir examinando la partición a fondo.
-      %
-      % Como para ninguna partición fue posible encontrar una descomposición en thrackles
-      % podemos decir que el anti-thickness geométrico de $K_9$ es mayor a 5. Y como la cota
-      % superior del anti-thickness geométrico es 6 decimos que el anti-thickness de $K_9$
-      % es exactamente 6.
-
+    uno de ellos en el algoritmo YX de la sección~
+    \ref{secc:descomposiciones_particiones}, los otros algoritmos son similares
+    a este.
 
 \section{Algoritmos}\label{seccion_algoritmos}
 En esta sección presentamos los algoritmos usados en el trabajo. Empezamos
@@ -903,3 +773,171 @@ inducen descomposiciones en thrackles de $K_n$}\label{secc:descomposicion_thrack
   alguna combinación cubre las aritas de $K_n$, almacenamos la combinación en
   una lista de colecciones de thrackles máximos que pueden inducir una
   descomposición en thrackles de $K_n$.
+\subsection{Algoritmo para generar particiones válidas de un entero}
+\subsection{Algoritmo para encontrar descomposiciones por thrackles de $K_n$
+usando particiones de enteros}\label{
+secc:descomposiciones_particiones}
+
+    %\section{comentarios}
+      % % Dado que la cota superior está dada por el anti-thickness convexo decidimos tratar
+      % % de ajustar la cota inferior ya que creemos que el anti-thickness geométrico es igual
+      % % al anti-thickness convexo. Un enfoque para ajustar la cota inferior es obtener el
+      % % anti-thickness de cada dibujo de $K_n$, esto es, obtener el anti-thickness de cada
+      % % tipo de orden para $K_n$ y seleccionar el menor de todos. Sin embargo, el algoritmo
+      % % exhaustivo para encontrar el anti-thickness tarda al rededor de 7 horas para un solo
+      % % tipo de orden cuando $n=8$, si para $n=8$ hay 3315 tipos de orden requeririamos
+      % % cerca de 960 días para acabar dicha tarea.
+      %
+      % Por esta razón decidimos analizar la estructura de las posibles descomposiciones;
+      % como $K_n$ tiene $\binom{n}{2}$ aristas y los thrackles de la descomposición deben
+      % cubrirlas todas podemos buscar particiones de enteros de la forma $a_1 + a_2 + \dots +
+      % a_k = \binom{n}{2}$.
+      %
+      % A manera de ejemplo, mostraremos como se ajusta la cota inferior del anti-thickness
+      % geométrico para $K_5$. En $K_5$ existen 10 aristas. Las siguientes son
+      % particiones del entero 10:
+      % \[
+      % \begin{array}{l l}
+      %   1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 & 2 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1\\
+      %   3 + 1 + 1 + 1 + 1 + 1 + 1 + 1         & 2 + 2 + 1 + 1 + 1 + 1 + 1 + 1    \\
+      %   4 + 1 + 1 + 1 + 1 + 1 + 1             & 3 + 2 + 1 + 1 + 1 + 1 + 1        \\
+      %   2 + 2 + 2 + 1 + 1 + 1 + 1             & 5 + 1 + 1 + 1 + 1 + 1            \\
+      %   4 + 2 + 1 + 1 + 1 + 1                 & 3 + 3 + 1 + 1 + 1 + 1            \\
+      %   3 + 2 + 2 + 1 + 1 + 1                 & 2 + 2 + 2 + 2 + 1 + 1            \\
+      %   6 + 1 + 1 + 1 + 1                     & 5 + 2 + 1 + 1 + 1                \\
+      %   4 + 3 + 1 + 1 + 1                     & 4 + 2 + 2 + 1 + 1                \\
+      %   3 + 3 + 2 + 1 + 1                     & 3 + 2 + 2 + 2 + 1                \\
+      %   2 + 2 + 2 + 2 + 2                     & 7 + 1 + 1 + 1                    \\
+      %   6 + 2 + 1 + 1                         & 5 + 3 + 1 + 1                    \\
+      %   5 + 2 + 2 + 1                         & 4 + 4 + 1 + 1                    \\
+      %   4 + 3 + 2 + 1                         & 4 + 2 + 2 + 2                    \\
+      %   3 + 3 + 3 + 1                         & 3 + 3 + 2 + 2                    \\
+      %   8 + 1 + 1                             & 7 + 2 + 1                        \\
+      %   6 + 3 + 1                             & 6 + 2 + 2                        \\
+      %   5 + 4 + 1                             & 5 + 3 + 2                        \\
+      %   4 + 4 + 2                             & 4 + 3 + 3                        \\
+      %   9 + 1                                 & 8 + 2                            \\
+      %   7 + 3                                 & 6 + 4                            \\
+      %   5 + 5
+      % \end{array}
+      % \]
+      % Ahora bien, algunas de estas particiones pueden ser usadas como guía para encontrar
+      % una descomposición en thrackles para $K_5$. Si tomamos, por ejemplo, la partición $5+4+1$
+      % estaríamos buscando una descomposición por 3 thrackles: uno de tamaño 5, uno de tamaño 4
+      % y otro de tamaño 1. Es importante notar que como las particiones de un entero $k$
+      % suman exactamente $k$, los thrackles de la descomposición tienen que ser disjuntos en aristas
+      % cuando los tamaños corresponden a los enteros de la partición de $k$.
+      % La partición $5+4+1$ podría ser posible de encontrar, sin embargo, podemos
+      % deshacernos de ciertas particiones que estamos seguros jamás encontraremos como son
+      % aquellas particiones que tienen un entero mayor a $5$ puesto que para un conjunto
+      % de $5$ vértices el thrackle geométrico más grande tiene $5$ aristas, esto también se cumple
+      % para todo $n$. Desaparecerían entonces particiones como $7+2+1$ o $9+1$ por mencionar algunas.
+      %
+      % Nuestro conjunto de particiones posibles se ve ahora de la siguiente manera:
+      % \[
+      % \begin{array}{l l}
+      %   1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 & 2 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1\\
+      %   3 + 1 + 1 + 1 + 1 + 1 + 1 + 1         & 2 + 2 + 1 + 1 + 1 + 1 + 1 + 1    \\
+      %   4 + 1 + 1 + 1 + 1 + 1 + 1             & 3 + 2 + 1 + 1 + 1 + 1 + 1        \\
+      %   2 + 2 + 2 + 1 + 1 + 1 + 1             & 5 + 1 + 1 + 1 + 1 + 1            \\
+      %   4 + 2 + 1 + 1 + 1 + 1                 & 3 + 3 + 1 + 1 + 1 + 1            \\
+      %   3 + 2 + 2 + 1 + 1 + 1                 & 2 + 2 + 2 + 2 + 1 + 1            \\
+      %   5 + 2 + 1 + 1 + 1                     & 4 + 3 + 1 + 1 + 1                \\
+      %   4 + 2 + 2 + 1 + 1                     & 3 + 3 + 2 + 1 + 1                \\
+      %   3 + 2 + 2 + 2 + 1                     & 2 + 2 + 2 + 2 + 2                \\
+      %   5 + 3 + 1 + 1                         & 5 + 2 + 2 + 1                    \\
+      %   4 + 3 + 2 + 1                         & 4 + 4 + 1 + 1                    \\
+      %   3 + 3 + 3 + 1                         & 4 + 2 + 2 + 2                    \\
+      %   5 + 4 + 1                             & 3 + 3 + 2 + 2                    \\
+      %   4 + 4 + 2                             & 5 + 3 + 2                        \\
+      %   5 + 5                                 & 4 + 3 + 3
+      % \end{array}
+      % \]
+      %
+      % Sin embargo, como buscamos ajustar la cota inferior del anti-thickness no nos
+      % interesa encontrar descomposiciones cuyo tamaño sea mayor a la cota superior
+      % del anti-thickness dada por $n - \lfloor \sqrt{2n + 1/4} - 1/2 \rfloor$, en el
+      % caso de $n=5$, evitaremos buscar descomposiciones con un tamaño mayor a 3. Dejando
+      % así las siguientes particiones disponibles:
+      % \[
+      % \begin{array}{l l}
+      %   5 + 4 + 1                 & 4 + 4 + 2                                 \\
+      %   4 + 3 + 3                 & 5 + 3 + 2                                 \\
+      %   5 + 5
+      % \end{array}
+      % \]
+      %
+      % Finalmente, vamos a remover las particiones cuyo tamaño sea igual al anti-thickness
+      % convexo de $K_5$, esto porque sabemos que en efecto la posición convexa otorga
+      % descomposiciones de ese tamaño. Esto nos deja con una única partición posible :
+      % \[ 5 + 5 \] Esto significa que debemos averiguar si existe una descomposición
+      % de $K_5$ por dos thrackles de tamaño 5, en este caso dos thrackles máximos. No obstante,
+      % al buscar las thrackles máximos para todos los tipos de orden de $K_5$ encontramos
+      % que no existen dos thrackles máximos que sean disjuntos en aristas, por esto no
+      % es posible dar una descomposición de $K_5$ en dos thrackles máximos. Y luego,
+      % el anti-thickness de $K_5$ es mayor a 2. Como la cota superior del anti-thickness
+      % de $K_5$ es 3 podemos decir que el anti-thickness geométrico de $K_5$ es exactamente 3.
+      %
+      % De esta manera podemos acotar el anti-thickness geométrico de $K_n$: examinar particiones
+      % del entero $\binom{n}{2}$ con las siguientes condiciones:
+      % \begin{itemize}
+      %   \item La longitud de la partición es menor que el anti-thickness convexo de $K_n$.
+      %   \item Solo existe una ocurrencia del entero $n$ en la partición.
+      % \end{itemize}
+      %
+      % Siguiendo las condiciones anteriores buscamos las particiones válidas para $K_n$
+      % con $n\in[3,9]$. Encontramos que para $n\in[3,7]$ no existen particiones que
+      % cumplan las condiciones, por lo que podemos decir que el anti-thickness geométrico
+      % de $K_n$ para $n\in[3,7]$ es igual al anti-thickness convexo.
+      % Para $K_8$ encontramos las siguientes particiones válidas:
+      %
+      % \[
+      % \begin{array}{l l}
+      % 8 + 7 + 7 + 6 & 7 + 7 + 7 + 7
+      % \end{array}
+      % \]
+      %
+      % No fue posible encontrar una descomposición en thrackles usando alguna de estas
+      % particiones, por lo que podemos decir que $K_8$ tiene anti-thickness geométrico
+      % mayor a 4 y luego el anti-thickness geométrico de $K_8$ es exactamente 5.
+      %
+      % Por otro lado para ajustar la cota inferior del anti-thickness de $K_9$,
+      % tenemos las siguientes particiones válidas:
+      % \[
+      % \begin{array}{l l}
+      % 9 + 8 + 8 + 8 + 3 & 9 + 8 + 8 + 7 + 4 \\
+      % 9 + 8 + 8 + 6 + 5 & 9 + 8 + 7 + 7 + 5 \\
+      % 9 + 8 + 7 + 6 + 6 & 9 + 7 + 7 + 7 + 6 \\
+      % 8 + 8 + 8 + 8 + 4 & 8 + 8 + 8 + 7 + 5 \\
+      % 8 + 8 + 8 + 6 + 6 & 8 + 8 + 7 + 7 + 6 \\
+      % 8 + 7 + 7 + 7 + 7
+      % \end{array}
+      % \]
+      %
+      % Para cada una de las particiones se diseñó un algoritmo que evalúa todos los thrackles
+      % de tamaño 9, 8, 7 y 6. Los resultados fueron los siguientes:
+      %
+      % \begin{itemize}
+      %   \item 9 + 8 + 8 + 8 + 3 - Probado con 9+8+8.
+      %   \item 9 + 8 + 8 + 7 + 4 - Probado con 9+8+8.
+      %   \item 9 + 8 + 8 + 6 + 5 - Probado con 9+8+8. 150000ms
+      %   \item 9 + 8 + 7 + 7 + 5 - Probado con 9+8+7+6+6
+      %   \item 9 + 8 + 7 + 6 + 6 - Probado con 9+8+7+6+6. 981709 ms.
+      %   \item 9 + 7 + 7 + 7 + 6 - Probado con 9+7+7+7+6. 2.11354e+06 ms.
+      %   \item 8 + 8 + 8 + 8 + 4 - Probado con 8+8+8+8. 300888 ms.
+      %   \item 8 + 8 + 8 + 7 + 5 - Probado con 8+8+8+6+6.
+      %   \item 8 + 8 + 8 + 6 + 6 - Probado con 8+8+8+6+6. 569735 ms.
+      %   \item 8 + 8 + 7 + 7 + 6 - Probado con 8+8+7+7+6. 6.39485e+06 - 1 Hora, 46 minutos.
+      %   \item 8 + 7 + 7 + 7 + 7 - Probado con 8+7+7+7+7. 1.23716e+08 - 34 Horas, 21 minutos.
+      % \end{itemize}
+      %
+      % En la mayoría de los casos no fue necesario examinar toda la partición, por ejemplo
+      % para la partición $9+8+8+8+3$, encontramos que no hay 3 thrackles, para ningún
+      % tipo de orden diferente del convexo, donde uno sea de tamaño 9
+      % y los otros dos de tamaño 8 que sean disjuntos en aristas y por esta razón no es necesario
+      % seguir examinando la partición a fondo.
+      %
+      % Como para ninguna partición fue posible encontrar una descomposición en thrackles
+      % podemos decir que el anti-thickness geométrico de $K_9$ es mayor a 5. Y como la cota
+      % superior del anti-thickness geométrico es 6 decimos que el anti-thickness de $K_9$
+      % es exactamente 6.
