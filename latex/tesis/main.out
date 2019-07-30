@@ -15,6 +15,8 @@
 \BOOKMARK [2][-]{subsection.4.4.1}{Algoritmo para encontrar thrackles con k aristas}{section.4.4}% 15
 \BOOKMARK [2][-]{subsection.4.4.2}{Algoritmo para la intersecci\363n de dos thrackles}{section.4.4}% 16
 \BOOKMARK [2][-]{subsection.4.4.3}{Algoritmo para encontrar colecciones de thrackles m\341ximos que inducen descomposiciones en thrackles de Kn}{section.4.4}% 17
-\BOOKMARK [2][-]{subsection.4.4.4}{Algoritmo para generar particiones v\341lidas de un entero}{section.4.4}% 18
-\BOOKMARK [2][-]{subsection.4.4.5}{Algoritmo para encontrar descomposiciones por thrackles de Kn usando particiones de enteros}{section.4.4}% 19
-\BOOKMARK [0][-]{chapter.5}{Conclusiones y trabajo futuro}{}% 20
+\BOOKMARK [2][-]{subsection.4.4.4}{Algoritmo para verificar la optimalidad de una colecci\363n de thrackles m\341ximos}{section.4.4}% 18
+\BOOKMARK [2][-]{subsection.4.4.5}{Algoritmo para generar particiones v\341lidas de un entero}{section.4.4}% 19
+\BOOKMARK [2][-]{subsection.4.4.6}{Algoritmo para encontrar descomposiciones por thrackles de Kn usando particiones de enteros}{section.4.4}% 20
+\BOOKMARK [0][-]{chapter.5}{Conclusiones y trabajo futuro}{}% 21
+\BOOKMARK [0][-]{appendix.Alph1}{Etiquetas de thrackles m\341ximos}{}% 22

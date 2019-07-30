@@ -338,7 +338,7 @@ Como consecuencia del lema~\ref{lema:existedescomp} y el teorema~\ref{teo:cotain
   de $K_n$ en thrackles (no necesariamente máximos) asignando cada arista de $K_n$
   a un único thrackle que la cubra. Detallamos el algoritmo para buscar
   colecciones de thrackles máximos que induzcan una descomposición en la sección
-  \ref{secc:descomposicion_thrackles_maximos}. La tabla~\ref{table:res_desc_th_max}
+  \ref{secc:algo_descomposicion_thrackles_maximos}. La tabla~\ref{table:res_desc_th_max}
   muestra los resultados obtenidos de este análisis; observamos que para
   $n\in \{8,9,10\}$ existen tipos de orden que tienen $k$ thrackles máximos que
   pueden inducir una descomposición.
@@ -348,7 +348,7 @@ Como consecuencia del lema~\ref{lema:existedescomp} y el teorema~\ref{teo:cotain
   que ninguna colección, para los tipos de orden descritos anteriormente,
   es óptima ya que en cada una existe al menos un par de thrackles cuya intersección tiene
   tamaño mayor a uno. Para este proceso utilizamos el algoritmo XY descrito en la
-  sección XX. Este resultado nos permite dar el siguiente teorema.
+  sección~\ref{secc:algoritmo_optimalidad}. Este resultado nos permite dar el siguiente teorema.
   \begin{theorem}\label{teo:coleccion_optima}
     Sea $K_n(S)$ una gráfica completa inducida por un conjunto $S$ de $n$ puntos,
     con $3\leq n\leq 10$ , en posición general no convexa. No existen
@@ -356,11 +356,12 @@ Como consecuencia del lema~\ref{lema:existedescomp} y el teorema~\ref{teo:cotain
   \end{theorem}
   \begin{proof}
     Se sigue de los algoritmos de la sección \ref{secc:descomposicion_thrackles_maximos}
-    y la sección XY. El primero busca todas las descomposiciones posibles inducidas
-    por colecciones de thrackles máximos. El segundo verifica la optimalidad
-    de cada una de las colecciones encontradas por el primer algoritmo.
-    Econtramos que no existe ninguna colección de thrackles máximos óptima
-    para ningun tipo de orden de $3\leq n\leq 10$.
+    y la sección~\ref{secc:algoritmo_optimalidad}. El primero busca todas
+    las descomposiciones posibles inducidas por colecciones de thrackles máximos.
+    El segundo verifica la optimalidad de cada una de las colecciones
+    encontradas por el primer algoritmo. Econtramos que no existe ninguna
+    colección de thrackles máximos óptima para ningun tipo de orden diferente del convexo para
+    $3\leq n\leq 10$.
   \end{proof}
 
   % Es importante hacer notar que encontramos configuraciones de puntos,
@@ -368,7 +369,7 @@ Como consecuencia del lema~\ref{lema:existedescomp} y el teorema~\ref{teo:cotain
   % \left\lfloor\sqrt{2n+\frac{1}{4}} - \frac{1}{2}\right\rfloor$.
   Las etiquetas de los thrackles máximos para las gráficas dadas por cada
   tipo de orden de los mostrados en la tabla~\ref{table:res_desc_th_max}, pueden
-  ser consultados en la siguiente liga (INSERTE LIGA AQUÍ).
+  ser consultados en el apéndice~\ref{apendice_thrackles_inducen}.
 
   La figura~\ref{fig:k9_descomp} muestra un ejemplo de una
   descomposición de $K_9$, en thrackles, inducida por seis
@@ -810,7 +811,7 @@ aristas. Luego...Finalmente...
   \end{algorithm}
 
 \subsection{Algoritmo para encontrar colecciones de thrackles máximos que
-inducen descomposiciones en thrackles de $K_n$}\label{secc:descomposicion_thrackles_maximos}
+inducen descomposiciones en thrackles de $K_n$}\label{secc:algo_descomposicion_thrackles_maximos}
   El algoritmo que diseñamos para este resultado es exhaustivo y secuencial.
   Mostramos el pseudocódigo en el algoritmo XX. %INSERTE ALGORITMO AQUÍ
   El algoritmo se basa en tomar todos los thracklese máximos para cada tipo de
@@ -819,10 +820,11 @@ inducen descomposiciones en thrackles de $K_n$}\label{secc:descomposicion_thrack
   alguna combinación cubre las aritas de $K_n$, almacenamos la combinación en
   una lista de colecciones de thrackles máximos que pueden inducir una
   descomposición en thrackles de $K_n$.
+  \subsection{Algoritmo para verificar la optimalidad de una colección de
+  thrackles máximos}\label{secc:algoritmo_optimalidad}
 \subsection{Algoritmo para generar particiones válidas de un entero}
 \subsection{Algoritmo para encontrar descomposiciones por thrackles de $K_n$
-usando particiones de enteros}\label{
-secc:descomposiciones_particiones}
+usando particiones de enteros}\label{secc:descomposiciones_particiones}
 
     %\section{comentarios}
       % % Dado que la cota superior está dada por el anti-thickness convexo decidimos tratar
