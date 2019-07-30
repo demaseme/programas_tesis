@@ -209,6 +209,8 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/algorithmicx/algorithmicx.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/algorithmicx/algorithmicx.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/makecell/makecell.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/makecell/makecell.sty
 INPUT /home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/main.aux
 INPUT /home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/main.aux
 OUTPUT /home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/main.aux

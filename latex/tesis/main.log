@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.12)  29 JUL 2019 13:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.12)  29 JUL 2019 19:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -869,45 +869,54 @@ Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
 \ALG@tmplength=\skip71
 )
 Document Style - pseudocode environments for use with the `algorithmicx' style
+) (/usr/share/texlive/texmf-dist/tex/latex/makecell/makecell.sty
+Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
+\rotheadsize=\dimen183
+\c@nlinenum=\count147
+\TeXr@lab=\toks47
 )
-\c@definition=\count147
-\c@theorem=\count148
-\c@corollary=\count149
+\c@definition=\count148
+\c@theorem=\count149
+\c@corollary=\count150
  (/home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/main.aux
 LaTeX Info: Redefining \. on input line 20.
 LaTeX Info: Redefining \% on input line 20.
+
+
+LaTeX Warning: Label `secc:descomposicion_thrackles_maximos' multiply defined.
+
 )
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Info: Redefining \. on input line 42.
-LaTeX Info: Redefining \% on input line 42.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Info: Redefining \. on input line 43.
+LaTeX Info: Redefining \% on input line 43.
  (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count150
-\scratchdimen=\dimen183
+\scratchcounter=\count151
+\scratchdimen=\dimen184
 \scratchbox=\box61
-\nofMPsegments=\count151
-\nofMParguments=\count152
-\everyMPshowfont=\toks47
-\MPscratchCnt=\count153
-\MPscratchDim=\dimen184
-\MPnumerator=\count154
-\makeMPintoPDFobject=\count155
-\everyMPtoPDFconversion=\toks48
+\nofMPsegments=\count152
+\nofMParguments=\count153
+\everyMPshowfont=\toks48
+\MPscratchCnt=\count154
+\MPscratchDim=\dimen185
+\MPnumerator=\count155
+\makeMPintoPDFobject=\count156
+\everyMPtoPDFconversion=\toks49
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
  (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
@@ -925,28 +934,28 @@ Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
  ABD: EveryShipout initializing macros ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 42.
+LaTeX Info: Redefining \selectfont on input line 43.
 \AtBeginShipoutBox=\box62
-Package hyperref Info: Link coloring OFF on input line 42.
+Package hyperref Info: Link coloring OFF on input line 43.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
  (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count156
+\c@section@level=\count157
 )
-LaTeX Info: Redefining \ref on input line 42.
-LaTeX Info: Redefining \pageref on input line 42.
-LaTeX Info: Redefining \nameref on input line 42.
+LaTeX Info: Redefining \ref on input line 43.
+LaTeX Info: Redefining \pageref on input line 43.
+LaTeX Info: Redefining \nameref on input line 43.
  (/home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/main.out) (/home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 44.
+LaTeX Font Info:    Try loading font information for U+msa on input line 45.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 44.
+LaTeX Font Info:    Try loading font information for U+msb on input line 45.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
@@ -975,8 +984,8 @@ Overfull \hbox (3.35565pt too wide) in paragraph at lines 18--18
 \openout5 = `main.toc'.
 
  [11]
-LaTeX Info: Redefining \. on input line 50.
-LaTeX Info: Redefining \% on input line 50.
+LaTeX Info: Redefining \. on input line 51.
+LaTeX Info: Redefining \% on input line 51.
  [12
 
 ]
@@ -987,8 +996,8 @@ Overfull \hbox (12.72499pt too wide) in paragraph at lines 20--24
  []
 
 [13])
-LaTeX Info: Redefining \. on input line 52.
-LaTeX Info: Redefining \% on input line 52.
+LaTeX Info: Redefining \. on input line 53.
+LaTeX Info: Redefining \% on input line 53.
  [14]
 Cap\'{\i }tulo 2.
 (/home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/chapters/antecedentes.tex
@@ -1129,11 +1138,11 @@ File: images/excoloring.png Graphic file (type png)
 Package pdftex.def Info: images/excoloring.png  used on input line 454.
 (pdftex.def)             Requested size: 97.5pt x 122.27296pt.
 )
-LaTeX Info: Redefining \. on input line 54.
-LaTeX Info: Redefining \% on input line 54.
+LaTeX Info: Redefining \. on input line 55.
+LaTeX Info: Redefining \% on input line 55.
  [27]
-LaTeX Info: Redefining \. on input line 54.
-LaTeX Info: Redefining \% on input line 54.
+LaTeX Info: Redefining \. on input line 55.
+LaTeX Info: Redefining \% on input line 55.
  [28 </home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/images/excoloring.png>]
 Cap\'{\i }tulo 3.
 (/home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/chapters/estado.tex
@@ -1223,8 +1232,8 @@ Package pdftex.def Info: images/exdoblecadena.png  used on input line 498.
 LaTeX Info: Redefining \. on input line 531.
 LaTeX Info: Redefining \% on input line 531.
  [38 </home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/images/exdoblecadena.png>]) [39]
-LaTeX Info: Redefining \. on input line 56.
-LaTeX Info: Redefining \% on input line 56.
+LaTeX Info: Redefining \. on input line 57.
+LaTeX Info: Redefining \% on input line 57.
  [40
 
 ]
@@ -1250,27 +1259,41 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 LaTeX Info: Redefining \. on input line 91.
 LaTeX Info: Redefining \% on input line 91.
  [42]
-LaTeX Info: Redefining \. on input line 138.
-LaTeX Info: Redefining \% on input line 138.
+
+/home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/chapters/resultados.tex:102: LaTeX Error: File `K9_nomax' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.102   \includegraphics{K9_nomax}
+                                  
+I could not locate the file with any of these extensions:
+.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+LaTeX Info: Redefining \. on input line 140.
+LaTeX Info: Redefining \% on input line 140.
 
 Overfull \hbox (0.99004pt too wide) has occurred while \output is active
 \OT1/cmr/m/sl/12 4.1.  COTA INFERIOR DEL ANTI-THICKNESS GEOM[]ETRICO DE $\OML/cmm/m/it/12 K[]$ \OT1/cmr/m/n/12 43
  []
 
 [43]
-LaTeX Info: Redefining \. on input line 161.
-LaTeX Info: Redefining \% on input line 161.
+LaTeX Info: Redefining \. on input line 168.
+LaTeX Info: Redefining \% on input line 168.
  [44]
-LaTeX Info: Redefining \. on input line 239.
-LaTeX Info: Redefining \% on input line 239.
+LaTeX Info: Redefining \. on input line 217.
+LaTeX Info: Redefining \% on input line 217.
 
 Overfull \hbox (0.99004pt too wide) has occurred while \output is active
 \OT1/cmr/m/sl/12 4.1.  COTA INFERIOR DEL ANTI-THICKNESS GEOM[]ETRICO DE $\OML/cmm/m/it/12 K[]$ \OT1/cmr/m/n/12 45
  []
 
 [45]
-LaTeX Info: Redefining \. on input line 266.
-LaTeX Info: Redefining \% on input line 266.
+LaTeX Info: Redefining \. on input line 265.
+LaTeX Info: Redefining \% on input line 265.
  [46]
 LaTeX Info: Redefining \. on input line 304.
 LaTeX Info: Redefining \% on input line 304.
@@ -1280,308 +1303,312 @@ Overfull \hbox (0.99004pt too wide) has occurred while \output is active
  []
 
 [47]
-Overfull \hbox (0.90984pt too wide) in paragraph at lines 317--322
-[]\OT1/cmr/m/n/12 El re-sul-ta-do del teo-re-ma []4.1.6[] es po-si-ble usan-do el anti-thickness geom^^Setri-
- []
-
-LaTeX Info: Redefining \. on input line 351.
-LaTeX Info: Redefining \% on input line 351.
-[48]
-<images/k9_descomp_2.png, id=583, 1188.44pt x 1467.4825pt>
+LaTeX Info: Redefining \. on input line 344.
+LaTeX Info: Redefining \% on input line 344.
+ [48]
+<images/k9_descomp_2.png, id=586, 1188.44pt x 1467.4825pt>
 File: images/k9_descomp_2.png Graphic file (type png)
 <use images/k9_descomp_2.png>
-Package pdftex.def Info: images/k9_descomp_2.png  used on input line 354.
+Package pdftex.def Info: images/k9_descomp_2.png  used on input line 378.
 (pdftex.def)             Requested size: 234.00238pt x 288.94574pt.
 
-Underfull \hbox (badness 1297) in paragraph at lines 383--383
+Underfull \hbox (badness 1297) in paragraph at lines 408--408
  []|$\OML/cmm/m/it/12 n$| 
  []
 
 
-Underfull \hbox (badness 1337) in paragraph at lines 383--383
+Underfull \hbox (badness 1337) in paragraph at lines 408--408
  []|\OT1/cmr/m/n/12 8| 
  []
 
 
-Underfull \hbox (badness 1137) in paragraph at lines 383--383
+Underfull \hbox (badness 1137) in paragraph at lines 408--408
  []|\OT1/cmr/m/n/12 12| 
  []
 
 
-Underfull \hbox (badness 1337) in paragraph at lines 383--383
+Underfull \hbox (badness 1337) in paragraph at lines 408--408
  []|\OT1/cmr/m/n/12 5| 
  []
 
 
-Underfull \hbox (badness 1337) in paragraph at lines 383--383
+Underfull \hbox (badness 1337) in paragraph at lines 408--408
  []|\OT1/cmr/m/n/12 8| 
  []
 
 
-Underfull \hbox (badness 1137) in paragraph at lines 383--383
+Underfull \hbox (badness 1137) in paragraph at lines 408--408
  []|\OT1/cmr/m/n/12 54| 
  []
 
 
-Underfull \hbox (badness 1337) in paragraph at lines 383--383
+Underfull \hbox (badness 1337) in paragraph at lines 408--408
  []|\OT1/cmr/m/n/12 5| 
  []
 
 
-Underfull \hbox (badness 1337) in paragraph at lines 383--383
+Underfull \hbox (badness 1337) in paragraph at lines 408--408
  []|\OT1/cmr/m/n/12 9| 
  []
 
 
-Underfull \hbox (badness 1137) in paragraph at lines 383--383
+Underfull \hbox (badness 1137) in paragraph at lines 408--408
  []|\OT1/cmr/m/n/12 12| 
  []
 
 
-Underfull \hbox (badness 1337) in paragraph at lines 383--383
+Underfull \hbox (badness 1337) in paragraph at lines 408--408
  []|\OT1/cmr/m/n/12 6| 
  []
 
 
-Underfull \hbox (badness 1337) in paragraph at lines 383--383
+Underfull \hbox (badness 1337) in paragraph at lines 408--408
  []|\OT1/cmr/m/n/12 9| 
  []
 
 
-Underfull \hbox (badness 1137) in paragraph at lines 383--383
+Underfull \hbox (badness 1137) in paragraph at lines 408--408
  []|\OT1/cmr/m/n/12 52| 
  []
 
 
-Underfull \hbox (badness 1337) in paragraph at lines 383--383
+Underfull \hbox (badness 1337) in paragraph at lines 408--408
  []|\OT1/cmr/m/n/12 6| 
  []
 
 
-Underfull \hbox (badness 1337) in paragraph at lines 383--383
+Underfull \hbox (badness 1337) in paragraph at lines 408--408
  []|\OT1/cmr/m/n/12 9| 
  []
 
 
-Underfull \hbox (badness 1137) in paragraph at lines 383--383
+Underfull \hbox (badness 1137) in paragraph at lines 408--408
  []|\OT1/cmr/m/n/12 54| 
  []
 
 
-Underfull \hbox (badness 1337) in paragraph at lines 383--383
+Underfull \hbox (badness 1337) in paragraph at lines 408--408
  []|\OT1/cmr/m/n/12 6| 
  []
 
 
-Underfull \hbox (badness 1337) in paragraph at lines 383--383
+Underfull \hbox (badness 1337) in paragraph at lines 408--408
  []|\OT1/cmr/m/n/12 9| 
  []
 
 
-Underfull \hbox (badness 1137) in paragraph at lines 383--383
+Underfull \hbox (badness 1137) in paragraph at lines 408--408
  []|\OT1/cmr/m/n/12 80| 
  []
 
 
-Underfull \hbox (badness 1337) in paragraph at lines 383--383
+Underfull \hbox (badness 1337) in paragraph at lines 408--408
  []|\OT1/cmr/m/n/12 6| 
  []
 
 
-Underfull \hbox (badness 1337) in paragraph at lines 383--383
+Underfull \hbox (badness 1337) in paragraph at lines 408--408
  []|\OT1/cmr/m/n/12 9| 
  []
 
 
-Underfull \hbox (badness 1337) in paragraph at lines 383--383
+Underfull \hbox (badness 1337) in paragraph at lines 408--408
  []|\OT1/cmr/m/n/12 6| 
  []
 
 
-Underfull \hbox (badness 1337) in paragraph at lines 383--383
+Underfull \hbox (badness 1337) in paragraph at lines 408--408
  []|\OT1/cmr/m/n/12 9| 
  []
 
 
-Underfull \hbox (badness 1337) in paragraph at lines 383--383
+Underfull \hbox (badness 1337) in paragraph at lines 408--408
  []|\OT1/cmr/m/n/12 6| 
  []
 
 
-Underfull \hbox (badness 1337) in paragraph at lines 383--383
+Underfull \hbox (badness 1337) in paragraph at lines 408--408
  []|\OT1/cmr/m/n/12 9| 
  []
 
 
-Underfull \hbox (badness 1337) in paragraph at lines 383--383
+Underfull \hbox (badness 1337) in paragraph at lines 408--408
  []|\OT1/cmr/m/n/12 6| 
  []
 
 
-Underfull \hbox (badness 1137) in paragraph at lines 383--383
+Underfull \hbox (badness 1137) in paragraph at lines 408--408
  []|\OT1/cmr/m/n/12 10| 
  []
 
 
-Underfull \hbox (badness 1137) in paragraph at lines 383--383
+Underfull \hbox (badness 1137) in paragraph at lines 408--408
  []|\OT1/cmr/m/n/12 81| 
  []
 
 
-Underfull \hbox (badness 1337) in paragraph at lines 383--383
+Underfull \hbox (badness 1337) in paragraph at lines 408--408
  []|\OT1/cmr/m/n/12 6| 
  []
 
 
-Underfull \hbox (badness 1137) in paragraph at lines 383--383
+Underfull \hbox (badness 1137) in paragraph at lines 408--408
  []|\OT1/cmr/m/n/12 10| 
  []
 
 
-Underfull \hbox (badness 1337) in paragraph at lines 383--383
+Underfull \hbox (badness 1337) in paragraph at lines 408--408
  []|\OT1/cmr/m/n/12 6| 
  []
 
 
-Underfull \hbox (badness 1137) in paragraph at lines 383--383
+Underfull \hbox (badness 1137) in paragraph at lines 408--408
  []|\OT1/cmr/m/n/12 10| 
  []
 
 
-Underfull \hbox (badness 1337) in paragraph at lines 383--383
+Underfull \hbox (badness 1337) in paragraph at lines 408--408
  []|\OT1/cmr/m/n/12 6| 
  []
 
 
-LaTeX Warning: File `descomposicionesK49.png' not found on input line 403.
+LaTeX Warning: File `descomposicionesK49.png' not found on input line 431.
 
 
-/home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/chapters/resultados.tex:403: Package pdftex.def Error: File `descomposicionesK49.png' not found: using draft setting.
+/home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/chapters/resultados.tex:431: Package pdftex.def Error: File `descomposicionesK49.png' not found: using draft setting.
 
 See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.403 ...\includegraphics{descomposicionesK49.png}
+l.431 ...\includegraphics{descomposicionesK49.png}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 417.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 417.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 417.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 417.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\leq' on input line 417.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\leq' on input line 417.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 417.
-
-LaTeX Info: Redefining \. on input line 425.
-LaTeX Info: Redefining \% on input line 425.
+LaTeX Info: Redefining \. on input line 443.
+LaTeX Info: Redefining \% on input line 443.
 
 Overfull \hbox (6.95692pt too wide) has occurred while \output is active
 \OT1/cmr/m/sl/12 4.2.  DESCOMPOSICIONES INDUCIDAS POR THRACKLES M[]AXIMOS \OT1/cmr/m/n/12 49
  []
 
 [49]
-LaTeX Info: Redefining \. on input line 425.
-LaTeX Info: Redefining \% on input line 425.
+LaTeX Info: Redefining \. on input line 443.
+LaTeX Info: Redefining \% on input line 443.
  [50 </home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/images/k9_descomp_2.png>]
-LaTeX Info: Redefining \. on input line 473.
-LaTeX Info: Redefining \% on input line 473.
- [51]
+LaTeX Info: Redefining \. on input line 443.
+LaTeX Info: Redefining \% on input line 443.
 
-LaTeX Warning: Reference `secc:descomposiciones_particiones' on page 52 undefined on input line 481.
+Overfull \hbox (6.95692pt too wide) has occurred while \output is active
+\OT1/cmr/m/sl/12 4.2.  DESCOMPOSICIONES INDUCIDAS POR THRACKLES M[]AXIMOS \OT1/cmr/m/n/12 51
+ []
+
+[51]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 445.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 493.
+(hyperref)                removing `subscript' on input line 445.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 493.
+(hyperref)                removing `math shift' on input line 445.
 
-LaTeX Info: Redefining \. on input line 507.
-LaTeX Info: Redefining \% on input line 507.
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 445.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\leq' on input line 445.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\leq' on input line 445.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 445.
+
+LaTeX Info: Redefining \. on input line 495.
+LaTeX Info: Redefining \% on input line 495.
 [52]
-LaTeX Info: Redefining \. on input line 537.
-LaTeX Info: Redefining \% on input line 537.
- [53]
-Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 691.
-<images/binaryfile.png, id=631, 466.74374pt x 386.44376pt>
+
+LaTeX Warning: Reference `secc:descomposiciones_particiones' on page 53 undefined on input line 526.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 538.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 538.
+
+LaTeX Info: Redefining \. on input line 541.
+LaTeX Info: Redefining \% on input line 541.
+[53]
+LaTeX Info: Redefining \. on input line 575.
+LaTeX Info: Redefining \% on input line 575.
+ [54]
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 736.
+LaTeX Info: Redefining \. on input line 744.
+LaTeX Info: Redefining \% on input line 744.
+ [55]
+LaTeX Info: Redefining \. on input line 744.
+LaTeX Info: Redefining \% on input line 744.
+ [56]
+LaTeX Info: Redefining \. on input line 744.
+LaTeX Info: Redefining \% on input line 744.
+ [57]
+<images/binaryfile.png, id=658, 466.74374pt x 386.44376pt>
 File: images/binaryfile.png Graphic file (type png)
 <use images/binaryfile.png>
-Package pdftex.def Info: images/binaryfile.png  used on input line 714.
+Package pdftex.def Info: images/binaryfile.png  used on input line 759.
 (pdftex.def)             Requested size: 155.99762pt x 129.1602pt.
-LaTeX Info: Redefining \. on input line 765.
-LaTeX Info: Redefining \% on input line 765.
- [54]
-LaTeX Info: Redefining \. on input line 765.
-LaTeX Info: Redefining \% on input line 765.
- [55]
-LaTeX Info: Redefining \. on input line 765.
-LaTeX Info: Redefining \% on input line 765.
- [56]
+LaTeX Info: Redefining \. on input line 810.
+LaTeX Info: Redefining \% on input line 810.
+ [58 </home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/images/binaryfile.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 767.
+(hyperref)                removing `math shift' on input line 812.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 767.
+(hyperref)                removing `subscript' on input line 812.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 767.
+(hyperref)                removing `math shift' on input line 812.
 
-LaTeX Info: Redefining \. on input line 776.
-LaTeX Info: Redefining \% on input line 776.
-[57 </home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/images/binaryfile.png>]
-LaTeX Info: Redefining \. on input line 776.
-LaTeX Info: Redefining \% on input line 776.
- [58]
 
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 778.
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
+LaTeX Info: Redefining \. on input line 821.
+LaTeX Info: Redefining \% on input line 821.
+ [59]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 778.
+(hyperref)                removing `math shift' on input line 823.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 778.
+(hyperref)                removing `subscript' on input line 823.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 823.
 
 )
-LaTeX Info: Redefining \. on input line 58.
-LaTeX Info: Redefining \% on input line 58.
- [59]
-LaTeX Info: Redefining \. on input line 58.
-LaTeX Info: Redefining \% on input line 58.
- [60
+LaTeX Info: Redefining \. on input line 59.
+LaTeX Info: Redefining \% on input line 59.
+ [60]
+Cap\'{\i }tulo 5.
+(/home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/chapters/conclusiones.tex) (/home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/main.bbl [61
 
 ]
-Cap\'{\i }tulo 5.
-(/home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/chapters/conclusiones.tex) (/home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/main.bbl [61]
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
  [62
@@ -1592,39 +1619,42 @@ Underfull \hbox (badness 10000) in paragraph at lines 97--101
  []
 
 )
-LaTeX Info: Redefining \. on input line 62.
-LaTeX Info: Redefining \% on input line 62.
+LaTeX Info: Redefining \. on input line 63.
+LaTeX Info: Redefining \% on input line 63.
  [64]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 62.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 62.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 63.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 63.
  (/home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/main.aux
 LaTeX Info: Redefining \. on input line 20.
 LaTeX Info: Redefining \% on input line 20.
 )
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 62.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 62.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 63.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 63.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 1AAAFBC611361E4305A9D8AA35E87C05;1649.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 62.
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 63.
  ) 
 Here is how much of TeX's memory you used:
- 20799 strings out of 492982
- 389564 string characters out of 6134895
- 502903 words of memory out of 5000000
- 23761 multiletter control sequences out of 15000+600000
+ 20966 strings out of 492982
+ 391271 string characters out of 6134895
+ 495449 words of memory out of 5000000
+ 23909 multiletter control sequences out of 15000+600000
  22708 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,15n,67p,997b,862s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,19n,67p,997b,862s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmsl12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/main.pdf (64 pages, 1854517 bytes).
+Output written on /home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/main.pdf (64 pages, 1857651 bytes).
 PDF statistics:
- 811 PDF objects out of 1000 (max. 8388607)
- 667 compressed objects within 7 object streams
- 182 named destinations out of 1000 (max. 500000)
+ 819 PDF objects out of 1000 (max. 8388607)
+ 675 compressed objects within 7 object streams
+ 184 named destinations out of 1000 (max. 500000)
  313 words of extra memory for PDF output out of 10000 (max. 10000000)
 

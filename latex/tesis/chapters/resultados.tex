@@ -94,27 +94,35 @@ finalmente comparamos dichos thrackles a pares y encontramos que:
 
 En la tabla~\ref{tabla_relacion_ot} mostramos cuántos tipos de orden tienen
 thrackles máximos, cuántos tienen solamente un thrackle máximo y cuántos no
-tienen ningún thrackle máximo. La figura X muestra un ejemplo de un tipo de
-orden para $n=9$ en el cual no existe ningún thrackle máximo. Una pregunta
-interesante es ¿cómo caracterizamos a los tipos de orden que no tienen
-thrackles máximos?
-
+tienen ningún thrackle máximo. La figura~\ref{k9_nomax} muestra un ejemplo de
+un tipo de orden, para $n=9$, en el cual no existe ningún thrackle máximo.
+Una pregunta interesante es ¿cómo caracterizamos a los tipos de orden cuya
+gráfica completa no tiene thrackles máximos?
+\begin{figure}
+  \includegraphics{K9_nomax}
+  \caption{Este conjunto de puntos corresponde al tipo de orden 999 de $n=9$.
+  La gráfica completa inducida por ellos no contiene ningún thrackle máximo.}
+  \label{k9_nomax}
+\end{figure}
 \begin{table}
   \centering
   \setlength\extrarowheight{2pt}
-  \begin{tabularx}{\textwidth}{|C|C|C|C|}
+  \begin{tabularx}{\textwidth}{|C|l|l|l|}
     \hline
-    $n$ & Tipos de orden(T.O.) & T.O. con solo un thrackle máximo & T.O. sin thrackles máximos \\\hline
-    3 & 1 & 1 & 0 \\
-    4 & 2 & 1 & 1 \\
-    5 & 0 & 0 & 0 \\
-    6 & 0 & 0 & 0 \\
-    7 & 0 & 0 & 0 \\
-    8 & 0 & 0 & 0 \\
-    9 & 0 & 0 & 0 \\
-    10 & 0 & 0 & 0 \\ \hline
+    $n$ & Tipos de orden(T.O.) & \makecell{T.O. con solo\\ un thrackle máximo} &
+     \makecell{T.O. sin \\thrackles máximos\hfill} \\\hline
+    3 & 1         & 1(33\%)         & 0(0\%)    \\
+    4 & 2         & 0(0\%)          & 1(50\%)   \\
+    5 & 3         & 0(0\%)          & 2(66\%)   \\
+    6 & 16        & 1(6.25\%)       & 6(37.50\%)  \\
+    7 & 135       & 7(5.18\%)       & 50(37.03\%) \\
+    8 & 3315      & 208(6\%)        & 1175(35.44\%) \\
+    9 & 158817    & 10547(6.64\%)   & 53758(33.84\%) \\
+    10 & 14309547 & 962517(6.72\%)  & 4654339(32.52\%) \\ \hline
   \end{tabularx}
-  \caption{Mostramos, para cada $3\leq n \leq 10$, la relación de los tipos de orden con solamente un thrackle máximo y los tipos de orden sin thrackles máximos.}
+  \caption{Mostramos, para cada $3\leq n \leq 10$,
+  la relación de los tipos de orden con solamente un thrackle máximo y
+  los tipos de orden sin thrackles máximos.}
   \label{tabla_relacion_ot}
 \end{table}
 
@@ -243,7 +251,7 @@ Como consecuencia del lema~\ref{lema:existedescomp} y el teorema~\ref{teo:cotain
 \begin{theorem}\label{teo:nuevacotainf}
   Sea $S$ un conjunto de $n$ puntos en el plano en posición general con $3\leq n \leq 10$, y sea $K_n(S)$ la gráfica completa inducida por $S$. El anti-thickness de $K_n(S)$:
   \begin{equation}
-    At_g(K_n) \geq n - \left\lceil\sqrt{2n+\frac{1}{4}} + \frac{1}{2}\right\rceil.
+    At_g(K_n) \geq n - \left\lfloor\sqrt{2n+\frac{1}{4}} - \frac{1}{2}\right\rfloor.
     \label{ecuacion_cota_inf}
   \end{equation}
 \end{theorem}
@@ -272,7 +280,7 @@ Como consecuencia del lema~\ref{lema:existedescomp} y el teorema~\ref{teo:cotain
     \centering
     \begin{tabular}{|c|c|c|c|}
       \hline
-      $n$ & $k=n - \left\lceil\sqrt{2n+\frac{1}{4}} + \frac{1}{2}\right\rceil$ & $\sum^n_{i=(n-k) + 1}i$ & $\binom{n}{2}$\\[5pt] \hline\hline
+      $n$ & $k=n - \left\lfloor\sqrt{2n+\frac{1}{4}} - \frac{1}{2}\right\rfloor$ & $\sum^n_{i=(n-k) + 1}i$ & $\binom{n}{2}$\\[5pt] \hline\hline
       3   & 1  & 3 & 3 \\ \hline
       4   & 2  & 7 & 6 \\ \hline
       5   & 3  & 12 & 10 \\ \hline
@@ -287,8 +295,7 @@ Como consecuencia del lema~\ref{lema:existedescomp} y el teorema~\ref{teo:cotain
     tamaño de la colección de thrackles, cuyo tamaño está dado por la cota
     inferior del anti-thickness geométrico del teorema~\ref{teo:nuevacotainf}
     para cada $n$. La tercerca columna muestra cuántas aristas cubre dicha
-    colección. La cuarta columna muestra cuántas aritas deben ser cubiertas para
-    cada $K_n$.}
+    colección. La cuarta columna muestra el número de aristas de $K_n$.}
     \label{table:atnuevacota}
   \end{table}
 
@@ -299,54 +306,72 @@ Como consecuencia del lema~\ref{lema:existedescomp} y el teorema~\ref{teo:cotain
   \end{theorem}
   \begin{proof}
     Se sigue del resultado del teorema~\ref{teo:nuevacotainf} y
-    la cota superior del anti-thickness geométrico de $K_n$ cuando
+    la cota superior del anti-thickness geométrico de $K_n$,
+    $n - \left\lfloor\sqrt{2n + \frac{1}{4}} - \frac{1}{2}\right\rfloor $ , cuando
     $K_n$ es inducida por un conjunto de puntos en posición convexa.
   \end{proof}
 
   Si desearamos dar un resultado similar para $n > 10$, bastaría con generalizar el
-  lema~\ref{lema:thdisjuntos}. Esto es, que cada par de thrackles máximos se
-  intersecta en al menos una arista y que esto sucede para toda $n > 10$.
+  lema~\ref{lema:thdisjuntos}. Esto es, demostrar que cada par de thrackles máximos se
+  intersecta en al menos una arista y que esto sucede para toda $n > 10$. Nosotros
+  conjeturamos que este lema también se cumple para $n>10$.
 
   Debido a que la cota superior del anti-thickness geométrico está dada por
-  el anti-thickness geométrico de un dibujo en posición convexa, en este trabajo
-  decidimos verificar la existencia de dibujos diferentes al convexo para los
-  cuales se puede alcanzar el mismo anti-thickness geométrico.
+  el dibujo en posición convexa, en este trabajo decidimos verificar si existen
+  dibujos, diferentes al convexo, para los cuales se alcanza la cota inferior
+  dada por el teorema~\ref{teo:nuevacotainf}.
 
-\section{Descomposiciones inducidas por thrackles máximos}
+\section{Descomposiciones inducidas por thrackles máximos}\label{secc:descomposicion_thrackles_maximos}
 
-  El resultado del teorema~\ref{teo:cotaexacta} es posible usando el anti-thickness
-  geométrico de conjuntos de puntos en posición convexa. En esta tesis verificamos
-  que existen tipos de orden, que no corresponden a la posición convexa, y que
-  inducen una gráfica completa cuyo anti-thickness geométrico es
-  a lo sumo $n - \left\lfloor\sqrt{2n+\frac{1}{4}} - \frac{1}{2}\right\rfloor$.
+  La cota superior del anti-thickness geométrico está dada por el conjunto
+  de puntos en posición convexa. Sea $k=n - \left\lfloor\sqrt{2n+\frac{1}{4}} -
+  \frac{1}{2}\right\rfloor$, en esta tesis verificamos que existen tipos de
+  orden, que no corresponden a la posición convexa, y que inducen una gráfica
+  completa cuyo anti-thickness geométrico es a lo sumo $k$.
 
   Para comprobar la existencia de tipos de orden con las características descritas
-  anteriormente elegimos aquellos para los cuales existen al menos $n -
-  \left\lfloor\sqrt{2n+\frac{1}{4}} - \frac{1}{2}\right\rfloor$ thrackles
-  máximos. Luego, para cada uno, analizamos todas las colecciones de thrackles
+  anteriormente elegimos aquellos que tienen al menos $k$ thrackles
+  máximos. Luego, para cada uno, analizamos todas sus colecciones de thrackles
   máximos posibles de tamaño $k$. Finalmente, para cada colección, evaluamos si
-  esta cubre o no a $E(K_n)$. Detallamos el algoritmo en la sección
-  \ref{secc:descomposicion_thrackles_maximos}.
+  esta cubre o no a $E(K_n)$. Cuando una colección de thrackles máximos cubre
+  al conjunto de aristas de la gráfica completa, es posible inducir una descomposición
+  de $K_n$ en thrackles (no necesariamente máximos) asignando cada arista de $K_n$
+  a un único thrackle que la cubra. Detallamos el algoritmo para buscar
+  colecciones de thrackles máximos que induzcan una descomposición en la sección
+  \ref{secc:descomposicion_thrackles_maximos}. La tabla~\ref{table:res_desc_th_max}
+  muestra los resultados obtenidos de este análisis; observamos que para
+  $n\in \{8,9,10\}$ existen tipos de orden que tienen $k$ thrackles máximos que
+  pueden inducir una descomposición.
 
-  La tabla~\ref{table:res_desc_th_max} muestra los resultados obtenidos;
-  observamos que para $n\in \{8,9,10\}$ existen tipos de orden que tienen $ n -
-  \left\lfloor\sqrt{2n+\frac{1}{4}} - \frac{1}{2}\right\rfloor$
-  thrackles máximos cuya unión cubre a la gráfica completa, es decir, es posible
-  inducir una descomposición de $K_n$. Sin embargo, ninguna colección
-  encontrada para estos tipos de orden es óptima ya que en cada
-  una existe al menos un par de thrackles cuya intersección tiene tamaño mayor a uno.
+
+  Verificamos la optimalidad de las colecciones de thrackles máximos y encontramos
+  que ninguna colección, para los tipos de orden descritos anteriormente,
+  es óptima ya que en cada una existe al menos un par de thrackles cuya intersección tiene
+  tamaño mayor a uno. Para este proceso utilizamos el algoritmo XY descrito en la
+  sección XX. Este resultado nos permite dar el siguiente teorema.
+  \begin{theorem}\label{teo:coleccion_optima}
+    Sea $K_n(S)$ una gráfica completa inducida por un conjunto $S$ de $n$ puntos,
+    con $3\leq n\leq 10$ , en posición general no convexa. No existen
+    colecciones de thrackles máximos óptimas en $K_n(S)$.
+  \end{theorem}
+  \begin{proof}
+    Se sigue de los algoritmos de la sección \ref{secc:descomposicion_thrackles_maximos}
+    y la sección XY. El primero busca todas las descomposiciones posibles inducidas
+    por colecciones de thrackles máximos. El segundo verifica la optimalidad
+    de cada una de las colecciones encontradas por el primer algoritmo.
+    Econtramos que no existe ninguna colección de thrackles máximos óptima
+    para ningun tipo de orden de $3\leq n\leq 10$.
+  \end{proof}
 
   % Es importante hacer notar que encontramos configuraciones de puntos,
   % en posición no convexa, cuyo anti-thickness geométrico es $n -
   % \left\lfloor\sqrt{2n+\frac{1}{4}} - \frac{1}{2}\right\rfloor$.
+  Las etiquetas de los thrackles máximos para las gráficas dadas por cada
+  tipo de orden de los mostrados en la tabla~\ref{table:res_desc_th_max}, pueden
+  ser consultados en la siguiente liga (INSERTE LIGA AQUÍ).
 
-  Para cada tipo de orden encontrado descrito en la
-  tabla~\ref{table:res_desc_th_max} describimos las etiquetas de los thrackles
-  máximos de la colección que puede inducir una descomposición. Estos datos
-  pueden ser consultados en la siguiente liga (INSERTE LIGA AQUÍ).
-
-  La figura~\ref{fig:k9_descomp} describe un ejemplo de una
-  descomposición de $K_9$ en thrackles inducida por 6
+  La figura~\ref{fig:k9_descomp} muestra un ejemplo de una
+  descomposición de $K_9$, en thrackles, inducida por seis
   thrackles máximos, cada thrackle es dibujado de un color diferente.
 
   \begin{figure}
@@ -354,7 +379,8 @@ Como consecuencia del lema~\ref{lema:existedescomp} y el teorema~\ref{teo:cotain
     \includegraphics[width=0.6\textwidth]{k9_descomp_2}
     \caption{Una descomposición de $K_9$ en seis thrackles, la configuración de
     puntos corresponde al tipo de orden 12 con respecto de la base de datos
-    de~\cite{Aichholzer2001}. Esta descomposición fue inducida por una colección
+    de~\cite{Aichholzer2001}. El anti-thickness geométrico de $K_9$ es
+    6. Esta descomposición fue inducida por una colección
     de thrackles máximos que no es óptima, es sencillo ver esto observando que
     los thrackles tienen 9,7,6,6,5 y 3 aristas respectivamente.
     Una descomposición óptima de $K_9$ tiene thrackles de tamaño 9,8,7,6,5 y 4.}
@@ -387,15 +413,18 @@ Como consecuencia del lema~\ref{lema:existedescomp} y el teorema~\ref{teo:cotain
     \label{table:res_desc_th_max}
   \end{table}
 
-  Para los casos de $n \in \{3,4,\dots,7\}$ no existe alguna
-  colección de $n - \left\lfloor\sqrt{2n+\frac{1}{4}} -
-  \frac{1}{2}\right\rfloor$ thrackles máximos que pueda inducir una descomposición de
-  $K_n$. Para estos valores de $n$ buscamos, de manera manual, una descomposición
-  con ese número de thrackles. La figura~\ref{fig:descomposicionesk4_k9}
-  muestra que el anti-thickness para dibujos no convexos de $K_n$,
-  con $ 3 \leq n \leq 7$, es a lo sumo $n - \left\lfloor\sqrt{2n+\frac{1}{4}}
-  - \frac{1}{2}\right\rfloor$. Como resultado podemos decir que el
-  anti-thickness geométrico de $K_n$, con $ 3\leq n \leq 10$
+  Para los casos de $n \in \{3,4,\dots,7\}$ no existe ninguna
+  colección de $k$ thrackles máximos que pueda inducir una descomposición de
+  $K_n$. Esto es porque, para ninguno de los tipos de orden, en este rango de $n$,
+  existe una colección de thrackles máximos que cubran las aristas de $K_n$.
+  Para estos valores de $n$ buscamos, de manera manual, una descomposición
+  con ese número de thrackles (no necesariamente máximos).
+  La figura~\ref{fig:descomposicionesk4_k9}
+  muestra para cada calor de $n$ con $3\leq n\leq 7$, dibujos cuyo anti-thickness
+  es igual a la cota inferior del teorema~\ref{teo:nuevacotainf}. De esto se sigue
+  que el anti-thickness geométrico de $K_n$, con $ 3 \leq n \leq 7$, es a lo
+  sumo $n - \left\lfloor\sqrt{2n+\frac{1}{4}} - \frac{1}{2}\right\rfloor$.
+  Como resultado podemos decir que el anti-thickness geométrico de $K_n$, con $ 3\leq n \leq 10$
   es exactamente $n - \left\lfloor\sqrt{2n+\frac{1}{4}} - \frac{1}{2}\right\rfloor$.
 
   \begin{figure}[htpb]
@@ -409,19 +438,24 @@ Como consecuencia del lema~\ref{lema:existedescomp} y el teorema~\ref{teo:cotain
     \label{fig:descomposicionesk4_k9}
   \end{figure}
 
-  También analizamos, para $ 3\leq n\leq 9$, cómo
-  se comporta la intersección de thrackles de los dibujos de $K_n$. Describimos
-  esta tarea en la siguiente sección.
+  En la siguiente sección analizamos, para $ 3\leq n\leq 9$, cómo
+  se comporta la intersección de thrackles, no necesariamente máximos, de los
+  dibujos de $K_n$.
 
 
   \section{Intersección de thrackles de $K_n$ con $3\leq n \leq 9$.}
     \chaptermark{$gat(n)$ exacto para $3\leq n \leq 9$.}
 
-    % Debido a que los resultados de la sección X son aplicables solamente para los tipos de orden con al menos un determinado número de thrackles máximos, decidimos analizar el anti-thickness geométrico para los demás tipos de orden. Para realizar este análisis tratamos de responder la siguiente pregunta: ¿Podemos encontrar, para algún tipo de orden, una descomposición en thrackles cuyo tamaño sea menor a la cota superior de $At_g(K_n)$? En general, esto no es posible.
-    Debido a que no existen colecciones óptimas que induzcan descomposiciones de $K_n$,
-    estudiamos el comportamiento de las intersecciones entre thrackles que pueden existir
-    en una descomposición. Para explicar este proceso primero es
-    necesario definir una partición de un entero:
+    % Debido a que los resultados de la sección X son aplicables solamente para los tipos de orden con al menos un determinado número
+    % de thrackles máximos, decidimos analizar el anti-thickness geométrico para los demás tipos de orden. Para realizar este análisis
+    % tratamos de responder la siguiente pregunta: ¿Podemos encontrar, para algún tipo de orden, una descomposición en thrackles cuyo
+    % tamaño sea menor a la cota superior de $At_g(K_n)$? En general, esto no es posible.
+    Debido al resultado del teorema~\ref{teo:coleccion_optima} establecido
+    en la sección~\ref{secc:descomposicion_thrackles_maximos} decidimos estudiar
+    la existencia de colecciones de thrackles, no necesariamente máximos,
+    cuya intersección a pares es vacía y que además puedan cubrir las arsitas
+    de $K_n$. Para explicar este proceso primero es necesario definir una
+    \emph{partición de un entero}.
 
     \begin{definition}{\emph{Partición de un entero.}(~\cite{Knuth2011})}
       Una partición de un entero $n$ es una colección de enteros
@@ -436,28 +470,40 @@ Como consecuencia del lema~\ref{lema:existedescomp} y el teorema~\ref{teo:cotain
     Es posible usar ciertas particiones de un entero como guía para buscar
     descomposiciones en thrackles de $K_n$. Por ejemplo, si  deseamos obtener
     una descomposición en thrackles de $K_4$, entonces necesitamos cubrir
-    seis aristas. Una descomposición del entero 6 es $4+2$, esta partición puede
-    traducirse a una descomposición con dos thrackles: uno con 4 aristas y otro
-    con 2 aristas.
-
-    En particular nosotros estudiamos descomposiciones de tamaño estrictamente menor
+    seis aristas. El entero 6 tiene once particiones, tres de ellas son:
+    $\{4,2\},\{2,2,2\},\{3,1,1,1\}$. Las cuales pueden traducirse a tres diferentes
+    descomposiciones, la partición $\{4,2\}$ se traduce en una descomposición
+    con un thrackle con cuatro aristas y uno de dos aristas, la partición
+    $\{2,2,2\}$ se traduce en una descomposición con 3 thrackles con dos
+    aristas cada uno, la partición $\{3,1,1,1\}$ se traduce a una descomposición
+    con un thrackle con tres aristas y tres thrackles con una arista. Debido a que
+    nosotros estudiamos descomposiciones de tamaño estrictamente menor
     a la cota superior del anti-thickness geométrico, que es:
-    $n - \left\lfloor\sqrt{2n+\frac{1}{4}} - \frac{1}{2}\right\rfloor$. Además,
+    $n - \left\lfloor\sqrt{2n+\frac{1}{4}} - \frac{1}{2}\right\rfloor$, y
     como en una descomposición solamente puede existir un thrackle máximo, es
     posible imponer condiciones sobre las particiones de enteros para
-    nuestro problema. Nos referimos a estas como \emph{particiones válidas de
-    un entero}.
+    las particiones que usaremos. Nos referimos a estas como
+    \emph{particiones válidas de un entero}.
     \begin{definition}{\emph{Partición válida de un entero.}}
       Sea $K_n(S)$ la gráfica completa inducida por un conjunto $S$ de $n$
-      puntos en posición general y sea $x=\binom{n}{2}$.
+      puntos en posición general.
       Una partición $P=\{a_1,a_2,\dots,a_m\}$ es válida si cumple
       con las siguientes condiciones:
       \begin{itemize}
         \item Si $a_1$ es igual a $n$ entonces solo existe una ocurrencia de $a_1$ en $P$.
-        \item La suma $a_1 + a_2 + \dots + a_m = x$.
+        \item La suma $a_1 + a_2 + \dots + a_m = \binom{n}{2}$.
         \item $m < n - \left\lfloor\sqrt{2n+\frac{1}{4}} - \frac{1}{2}\right\rfloor$.
       \end{itemize}
     \end{definition}
+
+    No existe una formula cerrada para conocer el número de particiones de
+    algún entero $n$. Sin embargo, si se considera a las composiciones
+    de un entero $n$ como las secuencias de enteros positivos en donde el orden
+    importa, es decir, dos composiciones diferentes del entero 3 serían $\{2,1\}$
+    y $\{1,2\}$, entonces podemos acotar el espacio de búsqueda de las particiones
+    de un entero. Como el número de composiciones para un entero $n$ es $2^{n-1}$
+    podemos decir que existen a lo sumo $O(2^{n-1})$ particiones para el
+    mismo entero $n$.
 
     Usando esta definición generamos las particiones válidas para todo entero
     $x\in \left\{ \binom{3}{2}, \binom{4}{2}, \cdots, \binom{10}{2}\right\}$.
