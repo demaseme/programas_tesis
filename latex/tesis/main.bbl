@@ -1,4 +1,4 @@
-\begin{thebibliography}{17}
+\begin{thebibliography}{18}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname url\endcsname\relax
   \def\url#1{{\tt #1}}\fi
@@ -69,8 +69,15 @@ Hurtado, F. (2009).
 \newblock
   \url{http://www.openproblemgarden.org/op/edge_colouring_geometric_complete_graphs}.
 
-\bibitem[{Knuth(2011)}]{Knuth2011}
-Knuth, D. (2011).
+\bibitem[{Knuth(2011{\natexlab{a}})}]{Knuth2011A}
+Knuth, D. (2011{\natexlab{a}}).
+\newblock {\em The art of computer programming:Volume 4A, Combinatorial
+  Algorithms: Part 1, Fascicle 3A\/}.
+\newblock Addison-Wesley.
+\newline\urlprefix\url{http://www.cs.utsa.edu/~wagner/knuth/fasc3b.pdf}
+
+\bibitem[{Knuth(2011{\natexlab{b}})}]{Knuth2011}
+Knuth, D. (2011{\natexlab{b}}).
 \newblock {\em The art of computer programming:Volume 4A, Combinatorial
   Algorithms: Part 1, Fascicle 3B\/}.
 \newblock Addison-Wesley.

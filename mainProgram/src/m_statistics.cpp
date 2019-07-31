@@ -39,7 +39,7 @@ int main(int argc, char * argv[]){
         fprintf(stderr,"No existe base de datos para n>10\n"); exit(-1);
   }
   start = n - floor(sqrt(2.0*n + (1.0/4.0)) - (1.0/2.0));
-  end = 2;
+  end = start;
   cout << start << " -> " << end << endl;
   string file_name = "m_" + to_string(n) + "stats.dat";
   ofstream myfile;
@@ -57,7 +57,7 @@ int main(int argc, char * argv[]){
 
   auto i = otypes_vec.begin();
 
-  //++i; //Avoid OT 0 - convex.
+  ++i; //Avoid OT 0 - convex.
 
   while ( i != otypes_vec.end() ){
     ot = *i;

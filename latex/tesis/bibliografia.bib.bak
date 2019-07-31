@@ -259,6 +259,7 @@
   year      = {2011},
   author    = {Donald Knuth},
   editor    = {Donald Knuth},
+  url       = {http://www.cs.utsa.edu/~wagner/knuth/fasc3b.pdf},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}

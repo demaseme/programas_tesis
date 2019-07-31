@@ -4,48 +4,49 @@ The top-level auxiliary file: main.aux
 The style file: apa-good.bst.bst
 Database file #1: bibliografia.bib.bib
 Warning--can't use both author and editor fields in Chartrand2008
+Warning--can't use both author and editor fields in Knuth2011A
 Warning--can't use both author and editor fields in Knuth2011
 Warning--can't use both author and editor fields in Pach2013
 Warning--can't use both author and editor fields in Pach2013b
-You've used 17 entries,
+You've used 18 entries,
             2804 wiz_defined-function locations,
-            703 strings with 7323 characters,
-and the built_in function-call counts, 9654 in all, are:
-= -- 780
-> -- 366
-< -- 17
-+ -- 155
-- -- 120
-* -- 723
-:= -- 1495
-add.period$ -- 53
-call.type$ -- 17
-change.case$ -- 125
+            706 strings with 7431 characters,
+and the built_in function-call counts, 10062 in all, are:
+= -- 810
+> -- 376
+< -- 18
++ -- 162
+- -- 123
+* -- 752
+:= -- 1563
+add.period$ -- 56
+call.type$ -- 18
+change.case$ -- 130
 chr.to.int$ -- 15
-cite$ -- 21
-duplicate$ -- 717
-empty$ -- 729
-format.name$ -- 173
-if$ -- 1899
-int.to.chr$ -- 3
+cite$ -- 23
+duplicate$ -- 747
+empty$ -- 766
+format.name$ -- 177
+if$ -- 1978
+int.to.chr$ -- 4
 int.to.str$ -- 1
-missing$ -- 148
-newline$ -- 96
-num.names$ -- 68
-pop$ -- 302
+missing$ -- 155
+newline$ -- 102
+num.names$ -- 72
+pop$ -- 316
 preamble$ -- 1
-purify$ -- 108
+purify$ -- 113
 quote$ -- 0
-skip$ -- 281
+skip$ -- 293
 stack$ -- 0
-substring$ -- 406
-swap$ -- 387
+substring$ -- 419
+swap$ -- 401
 text.length$ -- 6
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 138
-warning$ -- 4
-while$ -- 71
+type$ -- 144
+warning$ -- 5
+while$ -- 74
 width$ -- 0
-write$ -- 229
-(There were 4 warnings)
+write$ -- 242
+(There were 5 warnings)

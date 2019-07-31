@@ -262,4 +262,13 @@
   url       = {http://www.cs.utsa.edu/~wagner/knuth/fasc3b.pdf},
 }
 
+@Book{Knuth2011A,
+  title     = {The art of computer programming:Volume 4A, Combinatorial Algorithms: Part 1, Fascicle 3A},
+  publisher = {Addison-Wesley},
+  year      = {2011},
+  author    = {Donald Knuth},
+  editor    = {Donald Knuth},
+  url       = {http://www.cs.utsa.edu/~wagner/knuth/fasc3b.pdf},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

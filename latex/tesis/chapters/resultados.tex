@@ -99,8 +99,9 @@ un tipo de orden, para $n=9$, en el cual no existe ningún thrackle máximo.
 Una pregunta interesante es ¿cómo caracterizamos a los tipos de orden cuya
 gráfica completa no tiene thrackles máximos?
 \begin{figure}
-  \includegraphics{K9_nomax}
-  \caption{Este conjunto de puntos corresponde al tipo de orden 999 de $n=9$.
+  \centering
+  \includegraphics[width=0.8\textwidth]{k9_nomax}
+  \caption{Este conjunto de puntos corresponde al tipo de orden 136764 de $n=9$.
   La gráfica completa inducida por ellos no contiene ningún thrackle máximo.}
   \label{k9_nomax}
 \end{figure}
@@ -848,13 +849,101 @@ aristas. Luego...Finalmente...
 \subsection{Algoritmo para encontrar colecciones de thrackles máximos que
 inducen descomposiciones en thrackles de $K_n$}\label{secc:algo_descomposicion_thrackles_maximos}
   El algoritmo que diseñamos para este resultado es exhaustivo y secuencial.
-  Mostramos el pseudocódigo en el algoritmo XX. %INSERTE ALGORITMO AQUÍ
-  El algoritmo se basa en tomar todos los thracklese máximos para cada tipo de
-  orden válido y hacer todas las combinaciones posibles de tamaño $n -
-  \left\lfloor\sqrt{2n+\frac{1}{4}} + \frac{1}{2}\right\rfloor$. Luego, si
-  alguna combinación cubre las aritas de $K_n$, almacenamos la combinación en
-  una lista de colecciones de thrackles máximos que pueden inducir una
-  descomposición en thrackles de $K_n$.
+  Este algoritmo necesita un paso de preparación para funcionar:
+  \begin{itemize}
+    \item Seleccionar los tipos de orden válidos. Para cada tipo de orden, para $3\leq n \leq 10$,
+    examinamos cuáles tienen al menos $n - \left\lfloor\sqrt{2n + \frac{1}{4}} -
+    \frac{1}{2}\right\rfloor$ thrackles máximos. De los resultantes, examinamos cuáles tipos de
+    orden cubren, con la unión de sus thrackles máximos, todas las aristas de $K_n$.
+  \end{itemize}
+  Después de la etapa de preparación, podemos empezar la búsqueda. Mostramos el pseudocódigo en el
+  algoritmo~\ref{algo_descomposicion_thrackles_maximos}. Una vez que sabemos cuáles son los tipos
+  de orden que pueden tener una colección de thrackles  máximos que inducen una descomposición,  se
+  buscan, de manera exhaustiva, todas las combinaciones posibles de colecciones de $n -
+  \left\lfloor\sqrt{2n + \frac{1}{4}} - \frac{1}{2}\right\rfloor$ thrackles máximos. Para cada una
+  de las combinaciones verificamos si cubre o no a las aristas de $K_n$. Si la combinación cubre,
+  almacenamos las etiquetas en una lista de soluciones y examinamos la siguiente combinación
+  posible. En caso contrario se descarta esa combinación y se continúa examinando la siguiente
+  combinación posible.
+
+  Las combinaciones fueron generadas usando el algoritmo descrito en~\cite{Knuth2011A}. Dicho
+  algoritmo tiene una complejidad de $\displaystyle O\left(\frac{t}{n-t+1}\right)$
+  donde $t$ es dada y es el tamaño de las combinaciones a generar.
+  En nuestro caso, $t=n - \left\lfloor\sqrt{2n + \frac{1}{4}} - \frac{1}{2}\right\rfloor$. De esta
+  manera, para este problema, el algoritmo de generación de combinaciones tiene una complejidad de
+  \[O\left(\frac{n - \left\lfloor\sqrt{2n + \frac{1}{4}} - \frac{1}{2}\right\rfloor}
+  {n - \left(n - \left\lfloor\sqrt{2n + \frac{1}{4}} - \frac{1}{2}\right\rfloor\right)+1}\right) =
+  O(n)\]
+  \begin{algorithm}[pb]
+    \begin{algorithmic}[1]
+      \Procedure{SearchThrackleCollection}{Lista $L$ de tipos de orden válidos.}
+      \State $t \gets n -
+      \left\lfloor\sqrt{2n + \frac{1}{4}} - \frac{1}{2}\right\rfloor$
+      \For{$i \in \{1,2,\dots,|L|\}$}
+        \State $\mathcal{T} \gets $ colección de thrackles máximos de $L_i$
+        \State $k \gets |\mathcal{T}|$
+        \State $C \gets $ combinaciones de tamaño $t$ del conjunto $\{1,2,\dots,k\}$
+        \ForEach{$c\in C$}
+          \State $solution \gets \{T[c[1]],T[c[2]],\dots,T[c[k]]\}$
+          \If{$solution$ cubre las aristas de $K_n$}
+            \State Almacenar $solution$ en una lista de soluciones.
+          \EndIf
+        \EndFor
+      \EndFor
+      \EndProcedure
+    \end{algorithmic}
+    \caption{Búsqueda de colecciones de thrackles máximos que inducen una descomposición de $K_n$}
+    \label{algo_descomposicion_thrackles_maximos}
+  \end{algorithm}
+  El costo computacional de este algoritmo depende de cuántos thrackles máximos exista en cada uno
+  de los tipos de orden. Sea $t=  n -
+  \left\lfloor\sqrt{2n + \frac{1}{4}} - \frac{1}{2}\right\rfloor$ y sea $k$ el número de thrackles
+  en algún tipo de orden. El algoritmo examina las $\binom{k}{t}$ combinaciones posibles. Si
+  consideramos el mayor número de thrackles máximos, para cada $ n \leq 10$, de entre todos
+  los tipos de orden válidos podemos cuantificar el número de operaciones para ese caso en
+  particular. Mostramos el número de combinaciones para cada caso en la
+  tabla~\ref{tabla:numero_operaciones_thrackles_maximos}.
+  \begin{table}[t]
+    \centering
+    \begin{tabular}{|c|c|l|}
+      \hline
+      $n$ & \makecell{Número máximo de \\ thrackles en un T.O.} & \makecell{Número de \\
+      combinaciones} \\ \hline
+      \hline
+      6 & 5 & 10 \\ \hline
+      7 & 16 & 1,820 \\\hline
+      8 & 49 & 1,906,884 \\\hline
+      9 & 134 & 7,177,979,809 \\\hline
+      10 & 333 & 1,809,928,822,548 \\ \hline
+    \end{tabular}
+    \caption{Se cuantifica el número de combinaciones a examinar por el algoritmo para el tipo de
+    orden válido con más thrackles de cada $ 3 \leq n \leq 10$. Para los casos de $n = \{3,4,5\}$
+    no existen tipos de orden, diferentes al convexo, tal que la unión de thrackles máximos cubra
+    las aristas de $K_n$.}
+    \label{tabla:numero_operaciones_thrackles_maximos}
+  \end{table}
+
+  La implementación de este algoritmo fue ejecutada en el cluster. Presentamos el tiempo de
+  ejecución en milisegundos para cada $n$ con $6\leq n \leq 10$ en la
+  tabla~\ref{tabla:tiempo_thrackles_maximos}. Podemos notar que a pesar de que en el caso de
+  $K_{10}$ hay aproximadamente $1.8E^{12}$ combinaciones posibles para uno de los tipos de orden de
+  $10$ puntos, el algoritmo termina en un tiempo considerable para nosotros.
+  \begin{table}
+    \centering
+    \begin{tabular}{|c|c|}
+      \hline
+      $n$ & Tiempo de ejecución (ms) \\ \hline \hline
+      6   & 6 \\ \hline
+      7   & 6 \\ \hline
+      8   & 708 \\ \hline
+      9   & --- \\ \hline
+      10  & --- \\ \hline
+    \end{tabular}
+    \caption{La tabla muestra cuánto tiempo tomó el algoritmo para calcular las colecciones de $n -
+    \left\lfloor\sqrt{2n + \frac{1}{4}} - \frac{1}{2}\right\rfloor$ thrackles que inducen una descomposición $K_n$.}
+    \label{tabla:tiempo_thrackles_maximos}
+  \end{table}
+
   \subsection{Algoritmo para verificar la optimalidad de una colección de
   thrackles máximos}\label{secc:algoritmo_optimalidad}
 \subsection{Algoritmo para generar particiones válidas de un entero}\label{secc:algo_particiones_validas}
