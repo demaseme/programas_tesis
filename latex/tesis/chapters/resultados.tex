@@ -377,7 +377,7 @@ Como consecuencia del lema~\ref{lema:existedescomp} y el teorema~\ref{teo:cotain
 
   \begin{figure}
     \centering
-    \includegraphics[width=0.6\textwidth]{k9_descomp_2}
+    \includegraphics[width=0.7\textwidth]{k9_descomp_2}
     \caption{Una descomposición de $K_9$ en seis thrackles, la configuración de
     puntos corresponde al tipo de orden 12 con respecto de la base de datos
     de~\cite{Aichholzer2001}. El anti-thickness geométrico de $K_9$ es
@@ -421,7 +421,7 @@ Como consecuencia del lema~\ref{lema:existedescomp} y el teorema~\ref{teo:cotain
   Para estos valores de $n$ buscamos, de manera manual, una descomposición
   con ese número de thrackles (no necesariamente máximos).
   La figura~\ref{fig:descomposicionesk4_k9}
-  muestra para cada calor de $n$ con $3\leq n\leq 7$, dibujos cuyo anti-thickness
+  muestra para cada color de $n$ con $3\leq n\leq 7$, dibujos cuyo anti-thickness
   es igual a la cota inferior del teorema~\ref{teo:nuevacotainf}. De esto se sigue
   que el anti-thickness geométrico de $K_n$, con $ 3 \leq n \leq 7$, es a lo
   sumo $n - \left\lfloor\sqrt{2n+\frac{1}{4}} - \frac{1}{2}\right\rfloor$.
@@ -430,12 +430,13 @@ Como consecuencia del lema~\ref{lema:existedescomp} y el teorema~\ref{teo:cotain
 
   \begin{figure}[htpb]
     \centering
-    \includegraphics{descomposicionesK49.png}
+    \includegraphics[width=0.7\textwidth]{descomposiciones_K49.png}
     \caption{Mostramos posibles descomposiciones de la gráfica completa con
     hasta 7 vértices. Las descomposiciones tienen exáctamente el número de
     thrackles establecido por la cota inferior del
-    teorema~\ref{teo:nuevacotainf}. Estas configuraciones de puntos son
-    diferentes de la posición convexa.}
+    teorema~\ref{teo:nuevacotainf}. Estas configuraciones de puntos, a excepción de $K_6$, son
+    diferentes de la posición convexa. Los tipos de orden correspondientes a cada dibujo están
+    indicados en la figura como $O.T.$}
     \label{fig:descomposicionesk4_k9}
   \end{figure}
 
@@ -512,21 +513,55 @@ Como consecuencia del lema~\ref{lema:existedescomp} y el teorema~\ref{teo:cotain
     generar las particiones de algún entero $n$. Nosotros utilizamos
     dicho algoritmo en este trabajo modificandolo para que genere solamente
     particiones válidas de un entero. Discutimos con más detalle el algoritmo en
-    la sección XY. La tabla X1 muestra las particiones generadas por el
+    la sección~\ref{secc:algo_particiones_validas}.
+    La tabla~\ref{tabla:particionesk8k9} muestra las particiones generadas por el
     algoritmo; es posible observar que para $x\in \left\{\binom{3}{2},\binom{4}{2}
     \cdots,\binom{7}{2}\right\}$ no existen particiones válidas, esto reafirma,
     para $ 3\leq n\leq 7$ el resultado del teorema~\ref{teo:nuevacotainf}
-    que establece una cota inferior para el anti-thickness geométrico de $K_n$.
+    que establece una cota inferior para el anti-thickness geométrico de $K_n$. Por otro lado,
+    no generamos las particiones para $K_10$ ya que debido al tamaño de los archivos binarios
+    generados con el algoritmo de búsqueda de thrackles no fue posible diseñar un algoritmo durante
+    el tiempo del desarrollo de este trabajo.
+    \begin{table}[t]
+      \centering
+      \begin{tabular}{|c|c|}
+        \hline
+        $n$                       & Particiones de $\displaystyle\binom{n}{2}$ \\ \hline\hline
+        \multirow{2}{*}{$ 8 $}    & $\{8,7,7,6\}$ \\ \cline{2-2}
+                                  & $\{7,7,7,7\}$ \\ \hline
+        \multirow{11}{*}{$ 9 $}   &$\{9,8,8,8,3\}$ \\ \cline{2-2}
+                                  &$\{9,8,8,7,4\}$ \\ \cline{2-2}
+                                  &$\{9,8,8,6,5\}$ \\ \cline{2-2}
+                                  &$\{9,8,7,7,5\}$ \\ \cline{2-2}
+                                  &$\{9,8,7,6,6\}$ \\ \cline{2-2}
+                                  &$\{9,7,7,7,6\}$ \\ \cline{2-2}
+                                  &$\{8,8,8,8,4\}$ \\ \cline{2-2}
+                                  &$\{8,8,8,7,5\}$ \\ \cline{2-2}
+                                  &$\{8,8,8,6,6\}$ \\ \cline{2-2}
+                                  &$\{8,8,7,7,6\}$ \\ \cline{2-2}
+                                  &$\{8,7,7,7,7\}$ \\ \hline
+      \end{tabular}
+      \caption{Particiones de enteros del número de aristas de $K_8$ y de $K_9$. }
+      \label{tabla:particionesk8k9}
+    \end{table}
 
-    INSERTAR TABLA X1 AQUÍ.
-
-    Para los valores restantes de $n$ es neceario estudiar las particiones.
-    Usando las particiones de la tabla X1 diseñamos una serie de procedimientos
-    que buscan thrackles disjuntos usando las particiones como guía. Como hay
-    cerca de 14 procedimientos para realizar esta tarea, expondremos solamente
-    uno de ellos en el algoritmo YX de la sección~
-    \ref{secc:descomposiciones_particiones}, los otros algoritmos son similares
-    a este.
+    Usando las particiones de la tabla~\ref{tabla:particionesk8k9} diseñamos
+    una serie de procedimientos que buscan thrackles disjuntos usando las particiones como guía.
+    Como hay cerca de 14 procedimientos para realizar esta tarea, expondremos solamente
+    uno de ellos en el algoritmo YX de la sección~\ref{secc:descomposiciones_particiones}, los
+    otros algoritmos son similares a este. Como resultado de estos procedimientos podemos dar el
+    siguiente teorema:
+    \begin{theorem}
+      Sea $P=\{a_1,a_2,\dots,a_m\}$ una partición válida para $K_8$ o para $K_9$. No existe, para
+      ningún dibujo diferente del convexo, una colección $\mathcal{D}=\{T_1,T_2,\dots,T_m\}$ de
+      thrackles disjuntos tales que $|E(T_1)|=a_1,|E(T_2)|=a_2,\dots,|E(T_m)|=a_m$.
+    \end{theorem}
+    \begin{proof}
+      Se sigue del resultado de la ejecución de los algoritmos para evaluar colecciones de
+      thrackles. Los algoritmos encuentran que, para ninguna partición de la
+      tabla~\ref{tabla:particionesk8k9}, existe una colección de thrackles disjuntos cuyo número de
+      aristas corresponde a las particiones válidas de $K_8$ y $K_9$.
+    \end{proof}
 
 \section{Algoritmos}\label{seccion_algoritmos}
 En esta sección presentamos los algoritmos usados en el trabajo. Empezamos
@@ -822,7 +857,7 @@ inducen descomposiciones en thrackles de $K_n$}\label{secc:algo_descomposicion_t
   descomposición en thrackles de $K_n$.
   \subsection{Algoritmo para verificar la optimalidad de una colección de
   thrackles máximos}\label{secc:algoritmo_optimalidad}
-\subsection{Algoritmo para generar particiones válidas de un entero}
+\subsection{Algoritmo para generar particiones válidas de un entero}\label{secc:algo_particiones_validas}
 \subsection{Algoritmo para encontrar descomposiciones por thrackles de $K_n$
 usando particiones de enteros}\label{secc:descomposiciones_particiones}
 

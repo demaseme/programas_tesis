@@ -402,6 +402,9 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
 INPUT /home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/images/k9_descomp_2.png
 INPUT /home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/images/k9_descomp_2.png
 INPUT /home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/images/k9_descomp_2.png
+INPUT /home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/images/descomposiciones_K49.png
+INPUT /home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/images/descomposiciones_K49.png
+INPUT /home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/images/descomposiciones_K49.png
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss12.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmcsc10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt8.tfm
