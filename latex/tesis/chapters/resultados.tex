@@ -575,18 +575,40 @@ aristas. Luego...Finalmente...
 \subsection{Algoritmo para encontrar thrackles con $k$
   aristas}\label{seccion_algoritmo_kthrackles}
   A continuación presentamos el algoritmo para encontrar thrackles de tamaño
-  $k$, donde $k$ es dada. Este algoritmo requiere tres pasos de preparación para funcionar adecuadamente. Describimos estos pasos a continuación:
+  $k$, donde $k$ es dada. Usando este algoritmo se resuelve el problema de
+  encontrar todos los thrackles con $k$ aristas para todos los tipos de orden
+  de alguna $n$. El algoritmo recibe como entrada los valores de $n$ y $k$
+  donde $1 \leq k \leq n$. Como salida se entrega el número de thrackles con
+  $k$ aristas y se generan archivos binarios con los datos de los thrackles
+  encontrados.
+
+  Este algoritmo fue implementado en el lenguaje \texttt{C++}; utilizamos una
+  estructura de datos llamada vector. Un vector es un contenedor que representa
+  a un arreglo que puede cambiar de tamaño. El vector puede ser accedido igual
+  que un arreglo (usando el operador \texttt{[]}) con la misma eficiencia.
+
+  Este algoritmo requiere tres pasos de preparación para funcionar. Describimos estos pasos a continuación. Para cada tipo de orden $S$:
   \begin{enumerate}
-    \item Leer y almacenar el archivo que contiene el tipo de orden deseado.
-    Los datos se almacenan en un vector de tamaño $n$ donde cada elemento es
+    \item Leer y almacenar el archivo que contiene el tipo de orden $S$.
+    Los puntos se almacenan en un vector de tamaño $n$ donde cada elemento es
     un objeto que contiene las coordenadas $x$ y $y$ de cada uno de los puntos
-    leídos.
-    \item Generar y almacenar las aristas de la gráfica completa.
-    Para cada punto almacenado $p_i$ creamos todas las aristas que tienen como punto inicial a $p_i$ y como punto final a $p_j$ donde $ i+1 \leq j \leq n$.
-    Las aristas son almacenadas en un vector de tamaño $\binom{n}{2}$ y las etiquetamos con enteros desde $0$ hasta $\binom{n}{2}-1$.
+    de $S$.
+    \item Generar y almacenar las aristas de la gráfica completa inducida por
+    $S$. Para cada punto almacenado $p_i$ creamos todas las aristas (no
+    dirigidas) que tienen como punto inicial a $p_i$ y como punto final a $p_j$
+    donde $ i+1 \leq j \leq n$.
+    Las aristas son almacenadas en un vector de tamaño $\binom{n}{2}$ y las
+    etiquetamos con enteros desde $0$ hasta $\binom{n}{2}-1$.
     \item \label{paso3}Construir la \emph{matriz de disyunción}.
-    Construimos una matriz binaria de $\binom{n}{2}\times \binom{n}{2}$. Cada
-    indice de las filas y de las columnas representa a cada una de las aristas construidas en el paso anterior. La matriz de disyunción tiene un 0 en la entrada $(i,j)$ si las aristas $i$ y $j$ se cruzan o comparten un vértice y tiene un 1 en en la entrada $(i,j)$ si las aristas $i$ y $j$ son totalmente disjuntas. Es decir, construimos la matriz de adyacencia de la gráfica $D(S)$.
+    Construimos una matriz binaria de $\binom{n}{2}\times \binom{n}{2}$. La
+    matriz es almacenada en un arreglo de arreglos convencional. Cada
+    indice de las filas y de las columnas representa a cada una de las aristas
+    de $K_n(S)$ de manera tal que la fila $i$ representa a la arista que tiene
+    la etiqueta $i$, consideramos que la enumeración de las filas y columnas de
+    la matriz empieza desde $0$, por lo que $i \in [0,\binom{n}{2}-1]$. Esto ocurre de la misma manera para las columnas.
+
+    La matriz de disyunción tiene un 0 en la entrada $(i,j)$ si las aristas $i$ y $j$ se cruzan o comparten un vértice y tiene un 1 en en la entrada $(i,j)$ si las aristas $i$ y $j$ son totalmente disjuntas. Es decir, construimos la
+    matriz de adyacencia de la gráfica $D(S)$.
   \end{enumerate}
 
   A continuación describimos el algoritmo que usamos para encontrar thrackles
@@ -596,38 +618,54 @@ aristas. Luego...Finalmente...
 
   El algoritmo que diseñamos utiliza la técnica de \emph{backtracking},
   recordemos que se desea encontrar todos los thrackles de tamaño $k$. Para
-  nosotros, un solo thrackle de tamaño $k$ es una solución, el algoritmo forma
-  una solución iterativamente cuando encuentra aristas que se intersectan a
-  pares y va descartando aquellas aristas que no forman parte de alguna
-  determinada solución. El algoritmo termina cuando ya no hay más soluciones
-  que encontrar. Una solución es almacenada en un vector $C$ de tamaño $k+1$,
-  el tamaño es $k+1$ para saber cuándo se ha encontrado una solución. En el
-  inicio de la ejecución del algoritmo, el vector $C$ está vacío, es decir, que
-  todas sus entradas tienen un valor nulo a excepción de la primera entrada
-  $C[0]$ cuyo valor es 0. Esta inicialización es necesaria para poner en marcha
-  el algoritmo.
+  nosotros, un solo thrackle de tamaño $k$ es una solución. Una solución es
+  almacenada en un vector $C$. En cada entrada del vector se almacenan las etiquetas que conforman un thrackle con $k$ aristas.
 
   En cada iteración, el algoritmo verifica si ya se han encontrado $k$ aristas
   que se intersectan a pares, para evaluar la intersección se usa la matriz de
-  disyunción. Pueden ocurrir dos casos:
-  \begin{itemize}
-    \item[1] Si esta verificación es negativa se realiza lo siguiente:
-    Sea $C[j]$ la última arista encontrada que intersecta a $C[0],C[1],C[2],\dots,C[j-1]$. Hacemos $C[j+1]=C[j]+1$ y verificamos que $C[j+1]$ intersecte a $C[0],C[1],C[2],\dots,C[j-1],C[j]$.
-    Si lo hace, entonces $C[j+1]$ forma parte del thrackle y ahora el thrackle tiene $j+1$ aristas. En caso contrario hacemos $C[j+1]=C[j+1]+1$, es decir, se descarta la arista que estaba en $C[j+1]$ y es reemplazada por la arista subsecuente en la etiquetación.
-    \item[2] Si la verificación es positiva se realiza lo siguiente:
-    Almacenamos el contenido del vector $C$ en una lista de vectores.
-    Como ya se encontró una solución y esta ha sido procesada, para buscar la siguiente solución, le indicamos al algoritmo que el thrackle tiene actualmente tamaño $k-1$, provocando así que en la siguiente iteración la verificación sea negativa y se realice lo descrito en el punto 1.
-  \end{itemize}
-  % En este algoritmo hay dos estados para el vector $C$. El primero es que el vector $C$ tenga exactamente $k$ entradas no nulas y que además la arista $C[k]$ intersecta a las aristas $C[0],C[1],\dots C[k-1]$, en otras palabras, se ha encontrado un thrackle con las aristas $C[0],C[1],\dots C[k-1],C[k]$. En este caso se ha encontrado una solución por lo que almacenamos los valores de $C$.
+  disyunción.
+
+  Supongamos que el vector $C$ tiene entradas desde $C[0]$ hasta $C[j]$ y que
+  $j+1 < k$. Esto quiere decir que las aristas $C[0],C[1],\dots,C[j]$ forman un
+  thrackle con $j+1$ aristas. El algoritmo buscaría extender el tamaño de este
+  thrackle en uno. Para esto hacemos $C[j+1]=C[j]+1$ y verificamos que $C[j+1]$
+  intersecte a $C[0],C[1],C[2],\dots,C[j-1],C[j]$. Si lo hace, entonces
+  $C[j+1]$ forma parte del thrackle y ahora el thrackle tiene $j+2$ aristas. En
+  caso contrario hacemos $C[j+1]=C[j+1]+1$, es decir, se descarta la arista que
+  estaba en $C[j+1]$ y es reemplazada por la arista subsecuente en la
+  etiquetación.
+
   Si en algún momento la entrada $C[j]$ tiene un valor mayor o igual a
   $\binom{n}{2}$, esto es, que ya agotó los valores posibles para representar
-  alguna arista en $K_n$, entonces, se incrementa el valor de la entrada $C[j-1]$ en uno y se continua la verificación a partir de esta entrada como se describió anteriormente.
+  alguna arista en $K_n$, entonces, se incrementa el valor de la entrada
+  $C[j-1]$ en uno y se continua la verificación a partir de esta entrada. Esto
+  permite que el algoritmo realice el proceso de \emph{backtracking}.
+
+  Si el vector $C$ tiene $k$ entradas, es decir, encontró un thrackle con $k$
+  aristas entonces almacenamos el contenido del vector $C$ en una lista de
+  vectores. Como ya se encontró una solución y esta ha sido procesada, para
+  buscar la siguiente solución, le indicamos al algoritmo que el thrackle tiene
+  actualmente tamaño $k-1$, provocando así que en la siguiente iteración se
+  busque incrementar el tamaño del thrackle en uno.
+
+  Es posible observar un ejemplo de cómo se llena el vector $C$ en una
+  ejecución del algoritmo en la figura~\ref{fig:ejemplo_backtracking}.
+
+  En el  inicio de la ejecución del algoritmo, el vector $C$ está vacío, es
+  decir, que  todas sus entradas tienen un valor nulo a excepción de la primera
+  entrada $C[0]$ cuyo valor es 0. Esta inicialización es necesaria para poner
+  en marcha el algoritmo. De esta manera, el algoritmo encuentra primero todos
+  los thrackles que contengan a la arista con etiqueta 0. Una vez que la
+  posición $C[0]$ tenga un valor mayor o igual a $\binom{n}{2}$, el valor de
+  $C[0]$ será igual a 1. Esto hará que el algoritmo busque los thrackles que
+  contengan a la arista con etiqueta 1. Este proceso se repite para todos los
+  valores entre $0$ y $\binom{n}{2}-1$.
 
   Este algoritmo solamente genera soluciones que son efectivamente thrackles.
-  Esto se sigue del hecho de que en $C$ solo se avanza a la siguiente posición
+  Puesto que en $C$ solo se avanza a la siguiente posición
   cuando se encuentra que la arista de la posición actual intersecta a las
   aristas anteriormente establecidas. Además, el algoritmo genera todos los
-  thrackles con $k$ aristas. Si no lo hiciera significaria que no evalúo
+  thrackles con $k$ aristas. Si no lo hiciera significaría que no evaluó
   determinada combinación de aristas, lo cual no es posible. El algoritmo
   evalúa virtualmente todas las combinaciones posibles de aristas ya que, para
   cada entrada $1\leq j\leq k$, $C[j]$ toma valores en el rango
@@ -635,8 +673,7 @@ aristas. Luego...Finalmente...
   $C[0]$, se toman los valores en el rango $\left[ 0, \binom{n}{2}\right]$. Las
   combinaciones que no se evalúan son aquellas que no hace sentido evaluar,
   estas son las combinaciones que contienen al menos una arista disjunta de
-  alguna de las otras aristas de la combinación. Es posible observar un ejemplo de cómo se llena el vector $C$ en una ejecución del algoritmo en la figura~\ref{fig:ejemplo_backtracking}.
-
+  alguna de las otras aristas de la combinación.
 
   \begin{figure}[htpb]
     \centering
@@ -715,21 +752,6 @@ aristas. Luego...Finalmente...
     Es posible observar que cuando $C=[0,1,2,NIL]$ no se generan, debajo de ese nivel, combinaciones con las etiquetas 1 y 2. Se marcan de fondo gris las soluciones encontradas.}
     \label{fig:ejemplo_backtracking}
   \end{figure}
-  % Debido a que los valores de las entradas del vector nunca se decrementan, el algoritmo agota los posibles valores para cada una de las entradas. Esto permite que regrese hasta la posición 0, cuando agote los $\binom{n}{2}$ valores para esta posición, intentará regresar a la posición -1 para continuar la verificación desde esa posición. Esta es una posición inválida para un vector, por ello usamos esta caracteristica como condición de paro de nuestro algoritmo.
-  %
-  % Los thrackles encontrados por este algoritmo están codificados como cademas de
-  % enteros, cada entero representa una de las aristas de $K_n$. Es posible
-  % inducir un thrackle a partir de un conjunto de aristas y después realizar
-  % operaciones sobre ellos.
-
-  % Debido a la construcción de la matriz de disyunción, y al algoritmo de
-  % backtracking, los thrackles encontrados están ordenados lexicograficamente. De
-  % tal manera que para el thrackle codificado como $i_1,i_2,\dots,i_k$ se tiene
-  % que $i_i < i_2 < \cdots < i_k$.
-  %
-  % El motivo por el que buscamos agotar las $\binom{n}{2}$ posibilidades para
-  % cada posición en el vector es que el algoritmo entrege todos los thrackles
-  % posibles con $k$ aristas.
 
   \algblockdefx[NAME]{}{OTHEREND}%
   [1]{Until (#1)}
@@ -775,23 +797,23 @@ aristas. Luego...Finalmente...
     \label{algo_kthrackles}
   \end{algorithm}
 
-  La información de los thrackles encontrados para cada $3\leq n \leq 10$ es
-  almacenada en archivos binarios de nombre \texttt{n\_k\_All\_bool.ths}
-  donde \texttt{k} es el número de aristas para cada thrackle. El archivo binario
-  tiene la siguiente estructura:
-  \begin{enumerate}
-    \item Tipo de orden escrito como caracter binario de tipo \texttt{uint16\_t}.
-    \item Número de thrackles de tamaño $k$ para determinado tipo de orden
-    escrito como caracter binario de tipo \texttt{uint16\_t}.
-    \item Para cada thrackle, se escribe una lista de $\binom{n}{2}$ caracteres
-    binarios que representan cada una de las aristas, si el $j$-ésimo elemento de
-    la lista tiene un $0$ en el $i$-ésimo caracter entonces el thrackle $j$
-    tiene la arista $i$. Cada caracter de la lista está escrito con un caracter
-    de tipo \texttt{char}.
-  \end{enumerate}
-
-  La figura~\ref{fig:binaryfile} muestra un ejemplo de la sintaxis
-  descrita anteriormente.
+  % La información de los thrackles encontrados para cada $3\leq n \leq 10$ es
+  % almacenada en archivos binarios de nombre \texttt{n\_k\_All\_bool.ths}
+  % donde \texttt{k} es el número de aristas para cada thrackle. El archivo binario
+  % tiene la siguiente estructura:
+  % \begin{enumerate}
+  %   \item Tipo de orden escrito como caracter binario de tipo \texttt{uint16\_t}.
+  %   \item Número de thrackles de tamaño $k$ para determinado tipo de orden
+  %   escrito como caracter binario de tipo \texttt{uint16\_t}.
+  %   \item Para cada thrackle, se escribe una lista de $\binom{n}{2}$ caracteres
+  %   binarios que representan cada una de las aristas, si el $j$-ésimo elemento de
+  %   la lista tiene un $0$ en el $i$-ésimo caracter entonces el thrackle $j$
+  %   tiene la arista $i$. Cada caracter de la lista está escrito con un caracter
+  %   de tipo \texttt{char}.
+  % \end{enumerate}
+  %
+  % La figura~\ref{fig:binaryfile} muestra un ejemplo de la sintaxis
+  % descrita anteriormente.
   \begin{figure}[htpb]
     \centering
     \includegraphics[width=0.4\linewidth]{binaryfile}
