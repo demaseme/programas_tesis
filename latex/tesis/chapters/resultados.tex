@@ -717,6 +717,7 @@ aristas. Luego...Finalmente...
        \node[nd,right=of A-11]{...}; %A12
        \node[nd, right=of A-6]{...}; %A13
         \node[nd, right=of A-9]{...}; %A14
+        \node[nd, below=of A-4]{\includegraphics[width=0.4\textwidth]{ejemplo_backtracking}};
        %\draw{...}
        %
        \node[root=NIL/NIL/NIL/NIL, %ROOT.
@@ -746,10 +747,13 @@ aristas. Luego...Finalmente...
        \draw[-Stealth, semithick, shorten >=1mm, shorten <=1mm]
            (A-9.south) -- (A-12.north);
     \end{tikzpicture}
-    \caption{La figura muestra un ejemplo de cómo cambia el vector $C$ cuando se busca un thrackle con 4 aristas para alguna $n>5$. Solamente se representan algunas instancias del vector $C$.
+    \caption{La figura muestra un ejemplo de cómo cambia el vector $C$ cuando se busca un thrackle
+    con 4 aristas para alguna $n>5$. Solamente se representan algunas instancias del vector $C$.
     En este ejemplo suponemos que las aristas con etiqueta 1 y 2 no se
-    intersectan.
-    Es posible observar que cuando $C=[0,1,2,NIL]$ no se generan, debajo de ese nivel, combinaciones con las etiquetas 1 y 2. Se marcan de fondo gris las soluciones encontradas.}
+    intersectan. Es posible observar que cuando $C=[0,1,2,NIL]$ no se generan, debajo de ese nivel,
+    combinaciones con las etiquetas 1 y 2. Se marcan de fondo gris las soluciones encontradas.
+    En el lado derecho presentamos un dibujo de una gráfica en la que se buscan los thrackles con
+    4 aristas.}
     \label{fig:ejemplo_backtracking}
   \end{figure}
 
@@ -760,7 +764,7 @@ aristas. Luego...Finalmente...
       \Procedure{EncontrarThrackleK}{$n,k$}
       \State Sea $C$ un vector de tamaño $k+1$.
       \State $C[0]\gets 0$
-      \State $C[i]\gets 0$ para $ 1 \leq i \leq k+1$
+      \State $C[i]\gets NIL$ para $ 1 \leq i \leq k+1$
       %\State $C[1]\gets $
       \State \texttt{inters\_flag} $\gets$ \texttt{true}
       \State \texttt{curr\_size} $\gets 0$
@@ -814,19 +818,19 @@ aristas. Luego...Finalmente...
   %
   % La figura~\ref{fig:binaryfile} muestra un ejemplo de la sintaxis
   % descrita anteriormente.
-  \begin{figure}[htpb]
-    \centering
-    \includegraphics[width=0.4\linewidth]{binaryfile}
-    \caption{Un segmento de un archivo binario, en este ejemplo $n=6$ y $k=6$.
-    La primera línea indica que para el tipo de orden $4$ existen $3$ thrackles
-    con $6$ aristas. Las siguientes 3 lineas indican las aristas de cada uno
-    de los thrackles con un $1$. Después, para el tipo de orden 5, existe un
-    thrackle, para el tipo de orden 6 no existen thrackles con 6 aristas. El
-    archivo binario continua de esta manera para cada uno de los tipos de orden
-    para $n=6$. Este ejemplo no representa necesariamente los datos reales
-    encontrados en este trabajo para $n=6$.}
-    \label{fig:binaryfile}
-  \end{figure}
+  % \begin{figure}[htpb]
+  %   \centering
+  %   \includegraphics[width=0.4\linewidth]{binaryfile}
+  %   \caption{Un segmento de un archivo binario, en este ejemplo $n=6$ y $k=6$.
+  %   La primera línea indica que para el tipo de orden $4$ existen $3$ thrackles
+  %   con $6$ aristas. Las siguientes 3 lineas indican las aristas de cada uno
+  %   de los thrackles con un $1$. Después, para el tipo de orden 5, existe un
+  %   thrackle, para el tipo de orden 6 no existen thrackles con 6 aristas. El
+  %   archivo binario continua de esta manera para cada uno de los tipos de orden
+  %   para $n=6$. Este ejemplo no representa necesariamente los datos reales
+  %   encontrados en este trabajo para $n=6$.}
+  %   \label{fig:binaryfile}
+  % \end{figure}
 
   Los datos de los thrackles máximos encontrados para cada $ 3\leq n \leq 9$
   pueden ser descargados de la siguiente liga:
@@ -840,7 +844,9 @@ aristas. Luego...Finalmente...
   de enteros, aprovechamos el ordenamiento lexicográfico para hacer la
   operación de intersección de thrackles en tiempo lineal.
   Sea $A$ y $B$ dos vectores que representan las aristas de dos thrackles, con
-  $|A|=|B|=k$. El algoritmo~\ref{algo_interseccion} entrega la intersección de $A$ y $B$ y la almacena en un conjunto $C$. Este algoritmo es secuencial y visita en el peor caso todas las entradas de los dos vectores.
+  $|A|=|B|=k$. El algoritmo~\ref{algo_interseccion} entrega la intersección de $A$ y $B$ y la
+  almacena en un conjunto $C$. Este algoritmo es secuencial y visita en el peor caso todas las
+  entradas de los dos vectores.
   \begin{algorithm}[htpb]
     \begin{algorithmic}[1]
       \Procedure{ThrackleIntersection}{$A,B,C$}
@@ -925,6 +931,19 @@ inducen descomposiciones en thrackles de $K_n$}\label{secc:algo_descomposicion_t
   los tipos de orden válidos podemos cuantificar el número de operaciones para ese caso en
   particular. Mostramos el número de combinaciones para cada caso en la
   tabla~\ref{tabla:numero_operaciones_thrackles_maximos}.
+
+  Para verificar si determinada colección de thrackles cubre a la gráfica completa se recorre cada
+  una de las aristas de los thrackles de la colección. El costo computacional de este proceso en
+  particular está dominado por el número de aristas de cada thrackle y el número de thrackles de la
+  colección. En el mejor caso, en una colección de $m$ thrackles, los thrackles tienen
+  $n,n-1,n-2,\dots,n-m+1$ aristas. Como se menciona en el teorema~\ref{teo:nuevacotainf} esta suma
+  es igual a $-\frac{1}{2}m(m-2n-1)$ lo que asintóticamente equivale a $O(mn)$. En nuestro trabajo
+  $m$ es siempre igual a $n -  \left\lfloor\sqrt{2n + \frac{1}{4}} - \frac{1}{2}\right\rfloor$,
+  entonces, el costo de la verificación es $O(n^2)$.
+
+  Con el resultado anterior y el costo de calcular las combinaciones posibles podemos decir que el
+  costo computacional del algoritmo es $O(n^3)$.
+
   \begin{table}[t]
     \centering
     \begin{tabular}{|c|c|l|}
@@ -954,11 +973,11 @@ inducen descomposiciones en thrackles de $K_n$}\label{secc:algo_descomposicion_t
     \centering
     \begin{tabular}{|c|c|}
       \hline
-      $n$ & Tiempo de ejecución (ms) \\ \hline \hline
-      6   & 6 \\ \hline
-      7   & 6 \\ \hline
-      8   & 708 \\ \hline
-      9   & --- \\ \hline
+      $n$ & Tiempo de ejecución \\ \hline \hline
+      6   & 6 ms \\ \hline
+      7   & 6 ms \\ \hline
+      8   & 708 ms \\ \hline
+      9   & 25 minutos \\ \hline
       10  & --- \\ \hline
     \end{tabular}
     \caption{La tabla muestra cuánto tiempo tomó el algoritmo para calcular las colecciones de $n -
@@ -968,7 +987,41 @@ inducen descomposiciones en thrackles de $K_n$}\label{secc:algo_descomposicion_t
 
   \subsection{Algoritmo para verificar la optimalidad de una colección de
   thrackles máximos}\label{secc:algoritmo_optimalidad}
-\subsection{Algoritmo para generar particiones válidas de un entero}\label{secc:algo_particiones_validas}
+\subsection{Algoritmo para generar particiones válidas de un
+entero}\label{secc:algo_particiones_validas}
+El algoritmo proporcinado en~\cite{Knuth2011} genera las particiones de algún entero $n$ con
+$O(n^2)$ operaciones. De estas particiones, examinamos aquellas que tengan menos de $n -
+\left\lfloor\sqrt{2n + \frac{1}{4}} - \frac{1}{2}\right\rfloor$ elementos y evaluamos si son
+válidas.
+Nuestro procedimiento para evaluar la validez de una partición tiene complejidad lineal. El
+pseudocódigo puede observarse en el algoritmo~\ref{algo:is_partition_valid}. En la evaluación
+recorremos un arreglo de a lo sumo $n - \left\lfloor\sqrt{2n + \frac{1}{4}} -
+\frac{1}{2}\right\rfloor$ posiciones y verificamos que solamente exista una ocurrencia de $n$. De
+esta manera, el procedimiento de evaluación tiene una complejidad de $O(n)$ lo que causa que la
+generación de particiones válidas tenga un costo total de $O(n^3)$.
+
+\begin{algorithm}
+  \begin{algorithmic}[1]
+    \Procedure{IsPartitionValid}{Entero $n$, Arreglo \textit{P} de tamaño $s$ }
+    \State $c\gets 0$
+    \ForEach{$i \in $ \texttt{ P}}
+      \If{ $i > n$ }
+        \State \textbf{Return } $false$
+      \EndIf
+      \If{ $i == n$ }
+        \State $c \gets c+1$
+      \EndIf
+      \If { $ c > 1 $}
+        \State \textbf{Return } $false$
+      \EndIf
+    \EndFor
+    \State \textbf{Return } $true$
+    \EndProcedure
+  \end{algorithmic}
+  \caption{Algoritmo para evaluar si una partición dada es válida o no}
+  \label{algo:is_partition_valid}
+\end{algorithm}
+
 \subsection{Algoritmo para encontrar descomposiciones por thrackles de $K_n$
 usando particiones de enteros}\label{secc:descomposiciones_particiones}
 

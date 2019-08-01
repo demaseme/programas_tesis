@@ -517,7 +517,7 @@ void generate_integer_partitions_constrained(int size, int max_size, int max_val
         //while( a[m] > max_val) a[m]--;
         int q = m - (n == 1);
         for ( ; ; ) {
-            if  ( (m == max_size) && is_partition_valid(a,m+1,max_val)) visit(m+1, a); //P3
+            if  ( (m <= max_size) && is_partition_valid(a,m+1,max_val)) visit(m+1, a); //P3
             if (a[q] == 2) { //P4
                 a[q] = 1;
                 q -= 1;
