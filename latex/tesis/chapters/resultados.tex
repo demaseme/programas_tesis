@@ -756,7 +756,7 @@ aristas. Luego...Finalmente...
     4 aristas.}
     \label{fig:ejemplo_backtracking}
   \end{figure}
-
+  % 
   % \algblockdefx[NAME]{}{OTHEREND}%
   % [1]{Until (#1)}
   % \begin{algorithm}[htpb]
@@ -780,7 +780,8 @@ aristas. Luego...Finalmente...
   %       \State \textbf{continue}
   %     \EndIf
   %     \For{$i\gets 0 \dots \text{\texttt{curr\_size}}-1$}
-  %       \State \texttt{inters\_flag}=\texttt{inters\_flag} $\&\&$ \texttt{matrix}$[C[i]][C\text{\texttt{curr\_size}}]$
+  %       \State \texttt{inters\_flag}=\texttt{inters\_flag} $\&\&$
+  %       \texttt{matrix}$[C[i]][C\text{\texttt{curr\_size}}]$
   %     \EndFor
   %     \If{\texttt{inters\_flag} $==$ \texttt{False}}
   %       \State $C[\text{\texttt{curr\_size}}] \gets C[\text{\texttt{curr\_size}}] + 1$

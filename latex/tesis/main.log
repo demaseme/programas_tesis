@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.12)  1 AUG 2019 17:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.12)  2 AUG 2019 12:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1617,59 +1617,59 @@ Overfull \hbox (54.3329pt too wide) in paragraph at lines 749--756
  []
 
 
-LaTeX Warning: Reference `algo_interseccion' on page 58 undefined on input line 847.
+LaTeX Warning: Reference `algo_interseccion' on page 58 undefined on input line 848.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 878.
+(hyperref)                removing `math shift' on input line 879.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 878.
+(hyperref)                removing `subscript' on input line 879.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 878.
+(hyperref)                removing `math shift' on input line 879.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 882.
-LaTeX Info: Redefining \% on input line 882.
+LaTeX Info: Redefining \. on input line 883.
+LaTeX Info: Redefining \% on input line 883.
  [58]
-LaTeX Info: Redefining \. on input line 882.
-LaTeX Info: Redefining \% on input line 882.
+LaTeX Info: Redefining \. on input line 883.
+LaTeX Info: Redefining \% on input line 883.
  [59 </home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/images/ejemplo_backtracking.png>]
 
-LaTeX Warning: Reference `algo_descomposicion_thrackles_maximos' on page 60 undefined on input line 888.
+LaTeX Warning: Reference `algo_descomposicion_thrackles_maximos' on page 60 undefined on input line 889.
 
 
-Overfull \hbox (3.12509pt too wide) in paragraph at lines 897--902
+Overfull \hbox (3.12509pt too wide) in paragraph at lines 898--903
 []\OT1/cmr/m/n/12 Las com-bi-na-cio-nes fue-ron ge-ne-ra-das usan-do el al-go-rit-mo des-cri-to en []Knuth[]
  []
 
-LaTeX Info: Redefining \. on input line 934.
-LaTeX Info: Redefining \% on input line 934.
+LaTeX Info: Redefining \. on input line 935.
+LaTeX Info: Redefining \% on input line 935.
 [60]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 1002.
-LaTeX Info: Redefining \% on input line 1002.
+LaTeX Info: Redefining \. on input line 1003.
+LaTeX Info: Redefining \% on input line 1003.
  [61]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1023.
+(hyperref)                removing `math shift' on input line 1024.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 1023.
+(hyperref)                removing `subscript' on input line 1024.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1023.
+(hyperref)                removing `math shift' on input line 1024.
 
 )
 LaTeX Info: Redefining \. on input line 61.
