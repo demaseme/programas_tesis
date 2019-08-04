@@ -14,10 +14,11 @@
 \contentsline {section}{\numberline {4.3}Intersecci\IeC {\'o}n de thrackles de $K_n$ con $3\leq n \leq 9$.}{52}{section.4.3}
 \contentsline {section}{\numberline {4.4}Algoritmos}{55}{section.4.4}
 \contentsline {subsection}{\numberline {4.4.1}Algoritmo para encontrar thrackles con $k$ aristas}{56}{subsection.4.4.1}
-\contentsline {subsection}{\numberline {4.4.2}Algoritmo para la intersecci\IeC {\'o}n de dos thrackles}{58}{subsection.4.4.2}
+\contentsline {subsubsection}{An\IeC {\'a}lisis de complejidad}{58}{section*.37}
+\contentsline {subsection}{\numberline {4.4.2}Algoritmo para la intersecci\IeC {\'o}n de dos thrackles}{60}{subsection.4.4.2}
 \contentsline {subsection}{\numberline {4.4.3}Algoritmo para encontrar colecciones de thrackles m\IeC {\'a}ximos que inducen descomposiciones en thrackles de $K_n$}{60}{subsection.4.4.3}
 \contentsline {subsection}{\numberline {4.4.4}Algoritmo para verificar la optimalidad de una colecci\IeC {\'o}n de thrackles m\IeC {\'a}ximos}{62}{subsection.4.4.4}
 \contentsline {subsection}{\numberline {4.4.5}Algoritmo para generar particiones v\IeC {\'a}lidas de un entero}{62}{subsection.4.4.5}
-\contentsline {subsection}{\numberline {4.4.6}Algoritmo para encontrar descomposiciones por thrackles de $K_n$ usando particiones de enteros}{62}{subsection.4.4.6}
+\contentsline {subsection}{\numberline {4.4.6}Algoritmo para encontrar descomposiciones por thrackles de $K_n$ usando particiones de enteros}{63}{subsection.4.4.6}
 \contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{65}{chapter.5}
 \contentsline {chapter}{\numberline {A}Etiquetas de thrackles m\IeC {\'a}ximos}{67}{appendix.Alph1}

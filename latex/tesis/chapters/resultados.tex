@@ -566,7 +566,7 @@ Como consecuencia del lema~\ref{lema:existedescomp} y el teorema~\ref{teo:cotain
 
 \section{Algoritmos}\label{seccion_algoritmos}
 En esta sección presentamos los algoritmos usados en el trabajo. Empezamos
-describiendo el algoritmo para encontar thrackles de cualquier tamaño dado
+describiendo el algoritmo para encontar thrackles, de cualquier tamaño, dado
 un conjunto de puntos en posición general. Después hablamos del algoritmo
 usado para encontrar la intersección de dos thrackles con el mismo número de
 aristas. Luego...Finalmente...
@@ -575,17 +575,18 @@ aristas. Luego...Finalmente...
 \subsection{Algoritmo para encontrar thrackles con $k$
   aristas}\label{seccion_algoritmo_kthrackles}
   A continuación presentamos el algoritmo para encontrar thrackles de tamaño
-  $k$, donde $k$ es dada. Usando este algoritmo se resuelve el problema de
-  encontrar todos los thrackles con $k$ aristas para todos los tipos de orden
-  de alguna $n$. El algoritmo recibe como entrada los valores de $n$ y $k$
-  donde $1 \leq k \leq n$. Como salida se entrega el número de thrackles con
-  $k$ aristas y se generan archivos binarios con los datos de los thrackles
-  encontrados.
+  $k$, donde $k$ es dada. Con este algoritmo buscamos resolver el sigiente problema:
+  Entrada: Un entero $n$, con $ 3 \leq n \leq 10$ y un entero $k$, con $ n \leq k$.
+  Salida: Una lista de thrackles de tamaño $k$ inducidos por un conjunto de $n$ puntos en
+  posición general.
 
-  Este algoritmo fue implementado en el lenguaje \texttt{C++}; utilizamos una
-  estructura de datos llamada vector. Un vector es un contenedor que representa
-  a un arreglo que puede cambiar de tamaño. El vector puede ser accedido igual
-  que un arreglo (usando el operador \texttt{[]}) con la misma eficiencia.
+  Este algoritmo fue implementado en el lenguaje \texttt{C++} en su versión 5 (2017); la
+  implementación fue ejecutada en un \emph{cluster} con las siguientes características:
+
+  Para almacenar información utilizamos, principalmente, una estructura de datos llamada vector.
+  Un vector es un contenedor que representa a un arreglo que puede cambiar de tamaño.Podemos
+  acceder al vector igual que se hace con un arreglo (usando el operador \texttt{[]}) con la misma
+  complejidad.
 
   Este algoritmo requiere tres pasos de preparación para funcionar. Describimos estos pasos a continuación. Para cada tipo de orden $S$:
   \begin{enumerate}
@@ -594,8 +595,8 @@ aristas. Luego...Finalmente...
     un objeto que contiene las coordenadas $x$ y $y$ de cada uno de los puntos
     de $S$.
     \item Generar y almacenar las aristas de la gráfica completa inducida por
-    $S$. Para cada punto almacenado $p_i$ creamos todas las aristas (no
-    dirigidas) que tienen como punto inicial a $p_i$ y como punto final a $p_j$
+    $S$. Para cada punto almacenado $p_i$, creamos todas las aristas (no
+    dirigidas) que tienen como punto inicial a $p_i$ y como punto final a $p_j$,
     donde $ i+1 \leq j \leq n$.
     Las aristas son almacenadas en un vector de tamaño $\binom{n}{2}$ y las
     etiquetamos con enteros desde $0$ hasta $\binom{n}{2}-1$.
@@ -603,23 +604,27 @@ aristas. Luego...Finalmente...
     Construimos una matriz binaria de $\binom{n}{2}\times \binom{n}{2}$. La
     matriz es almacenada en un arreglo de arreglos convencional. Cada
     indice de las filas y de las columnas representa a cada una de las aristas
-    de $K_n(S)$ de manera tal que la fila $i$ representa a la arista que tiene
+    de $K_n(S)$, de manera tal que la fila $i$ representa a la arista que tiene
     la etiqueta $i$, consideramos que la enumeración de las filas y columnas de
-    la matriz empieza desde $0$, por lo que $i \in [0,\binom{n}{2}-1]$. Esto ocurre de la misma manera para las columnas.
+    la matriz empieza desde $0$, por lo que $i \in [0,\binom{n}{2}-1]$. Esto ocurre de la misma
+    manera para las columnas.
 
-    La matriz de disyunción tiene un 0 en la entrada $(i,j)$ si las aristas $i$ y $j$ se cruzan o comparten un vértice y tiene un 1 en en la entrada $(i,j)$ si las aristas $i$ y $j$ son totalmente disjuntas. Es decir, construimos la
+    La matriz de disyunción tiene un 0 en la entrada $(i,j)$ si las aristas $i$ y $j$ se cruzan o
+    comparten un vértice, y tiene un 1 en en la entrada $(i,j)$ si las aristas $i$ y $j$ son
+    totalmente disjuntas. Es decir, construimos la
     matriz de adyacencia de la gráfica $D(S)$.
   \end{enumerate}
 
-  A continuación describimos el algoritmo que usamos para encontrar thrackles
+  A continuación describimos el algoritmo para encontrar thrackles
   de tamaño $k$, este algoritmo usa la matriz de disyunción construida en el
-  paso~\ref{paso3}. El pseudocódigo se encuentra en el
+  paso~\ref{paso3} descrito anteriormente. El pseudocódigo se encuentra en el
   algoritmo~\ref{algo_kthrackles}.
 
   El algoritmo que diseñamos utiliza la técnica de \emph{backtracking},
   recordemos que se desea encontrar todos los thrackles de tamaño $k$. Para
   nosotros, un solo thrackle de tamaño $k$ es una solución. Una solución es
-  almacenada en un vector $C$. En cada entrada del vector se almacenan las etiquetas que conforman un thrackle con $k$ aristas.
+  almacenada en un vector $C$. Almacenamos las etiquetas de las aristas que
+  conforman un thrackle de tamaño $k$ en las entradas del vector.
 
   En cada iteración, el algoritmo verifica si ya se han encontrado $k$ aristas
   que se intersectan a pares, para evaluar la intersección se usa la matriz de
@@ -648,32 +653,61 @@ aristas. Luego...Finalmente...
   actualmente tamaño $k-1$, provocando así que en la siguiente iteración se
   busque incrementar el tamaño del thrackle en uno.
 
-  Es posible observar un ejemplo de cómo se llena el vector $C$ en una
+  Mostramos un ejemplo de cómo se llena el vector $C$ en una
   ejecución del algoritmo en la figura~\ref{fig:ejemplo_backtracking}.
 
   En el  inicio de la ejecución del algoritmo, el vector $C$ está vacío, es
-  decir, que  todas sus entradas tienen un valor nulo a excepción de la primera
-  entrada $C[0]$ cuyo valor es 0. Esta inicialización es necesaria para poner
+  decir, que  todas sus entradas tienen un valor nulo. Esto se representa en
+  la raiz del arbol generado implicitamente por el backtracking. En la primera iteración
+  hacemos $C[0] = 0$. Esta inicialización es necesaria para poner
   en marcha el algoritmo. De esta manera, el algoritmo encuentra primero todos
   los thrackles que contengan a la arista con etiqueta 0. Una vez que la
   posición $C[0]$ tenga un valor mayor o igual a $\binom{n}{2}$, el valor de
   $C[0]$ será igual a 1. Esto hará que el algoritmo busque los thrackles que
   contengan a la arista con etiqueta 1. Este proceso se repite para todos los
-  valores entre $0$ y $\binom{n}{2}-1$.
+  valores entre $0$ y $\binom{n}{2}-1$. Esto es representado por los nodos del nivel 1
+  del arbol. Después, para cada nodo $i$ en el nivel 1 del arbol, se generan los nodos
+  que representan un thrackle con las aristas de $i$ y la arista subsecuente en la etiquetación
+  con respecto de la última arista de $i$. Estos nodos conforman el nivel 2 del arbol. En la figura
+  ~\ref{fig:ejemplo_backtracking} mostramos un ejemplo de un árbol generado por el algoritmo que
+  tiene 4 niveles.
 
   Este algoritmo solamente genera soluciones que son efectivamente thrackles.
   Puesto que en $C$ solo se avanza a la siguiente posición
   cuando se encuentra que la arista de la posición actual intersecta a las
   aristas anteriormente establecidas. Además, el algoritmo genera todos los
-  thrackles con $k$ aristas. Si no lo hiciera significaría que no evaluó
-  determinada combinación de aristas, lo cual no es posible. El algoritmo
-  evalúa virtualmente todas las combinaciones posibles de aristas ya que, para
+  thrackles con $k$ aristas, si no lo hiciera significaría que no evaluó
+  determinada combinación de aristas, lo cual no es posible, puesto que el algoritmo
+  evalúa implicitamente todas las combinaciones posibles de aristas ya que, para
   cada entrada $1\leq j\leq k$, $C[j]$ toma valores en el rango
   $\left[C[j-1],\binom{n}{2}\right]$. Para el caso particular de la entrada
   $C[0]$, se toman los valores en el rango $\left[ 0, \binom{n}{2}\right]$. Las
-  combinaciones que no se evalúan son aquellas que no hace sentido evaluar,
+  combinaciones que se descartan son aquellas que no forman un thrackle,
   estas son las combinaciones que contienen al menos una arista disjunta de
   alguna de las otras aristas de la combinación.
+
+  \subsubsection{Análisis de complejidad}
+  El caso en el que este algoritmo realiza más cálculos es aquel en el que no se descarta ninguna
+  combinación de tamaño $t$ con $t \leq k$ y por lo tanto el algoritmo analiza, en tiempo $O(t)$,
+  cada combinación. Para establecer el costo computacional del algoritmo es necesario saber cuántas
+  combinaciones de tamaño $t$ existen para cada $t\leq k$ y multiplicar el costo de evaluar cada
+  combinación. Como hay $\binom{n}{2}$ aristas y estamos asumiendo que cualquier combinación de
+  tamaño $t$ es válida, existen $\binom{\binom{n}{2}}{t}$ combinaciones de dicho tamaño. Se
+  necesitan $t \binom{\binom{n}{2}}{t}$ operaciones para evaluar todas las combinaciones de tamaño
+  $t$. En nuestro caso $ t \in [1,10]$, por lo tanto el costo computacional del algoritmo, en el
+  peor caso es: \[ \displaystyle O\left( \sum_{t=1}^{10} t\binom{\binom{n}{2}}{t} \right) =
+  O\left(\binom{\binom{n}{2}}{1} + \binom{\binom{n}{2}}{2} + \binom{\binom{n}{2}}{3} +\dots+
+  \binom{\binom{n}{2}}{10} \right) = O(n^{11})\] para $n\leq 10$.
+  % \frac{1}{2}(n-1)n+\frac{1}{2}(n-1)n\left(\frac{1}{2}n(n-1))-1\right) +
+  % \frac{1}{4}(n-1)n\left(\frac{1}{2}(n-1)n-2\right)\left(\frac{1}{2}(n-1)n-1\left) +  \] \]
+ %  1/4 (-1 + n) n (-2 + 1/2 (-1 + n) n) (-1 + 1/2 (-1 + n) n) +
+ % 1/12 (-1 + n) n (-3 + 1/2 (-1 + n) n) (-2 + 1/2 (-1 + n) n) (-1 +
+ %    1/2 (-1 + n) n) +
+ % 1/48 (-1 + n) n (-4 + 1/2 (-1 + n) n) (-3 + 1/2 (-1 + n) n) (-2 +
+ %    1/2 (-1 + n) n) (-1 + 1/2 (-1 + n) n) +
+ % 6 Binomial[1/2 (-1 + n) n, 6] + 7 Binomial[1/2 (-1 + n) n, 7] +
+ % 8 Binomial[1/2 (-1 + n) n, 8] + 9 Binomial[1/2 (-1 + n) n, 9] +
+ % 10 Binomial[1/2 (-1 + n) n, 10]
 
   \begin{figure}[htpb]
     \centering
@@ -756,7 +790,7 @@ aristas. Luego...Finalmente...
     4 aristas.}
     \label{fig:ejemplo_backtracking}
   \end{figure}
-  % 
+  %
   % \algblockdefx[NAME]{}{OTHEREND}%
   % [1]{Until (#1)}
   % \begin{algorithm}[htpb]
