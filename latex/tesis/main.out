@@ -8,15 +8,15 @@
 \BOOKMARK [1][-]{section.2.3}{N\372mero crom\341tico}{chapter.2}% 8
 \BOOKMARK [0][-]{chapter.3}{Estado del arte}{}% 9
 \BOOKMARK [0][-]{chapter.4}{Resultados}{}% 10
-\BOOKMARK [1][-]{section.4.1}{Cota inferior del anti-thickness geom\351trico de Kn}{chapter.4}% 11
+\BOOKMARK [1][-]{section.4.1}{Cota inferior del anti-thickness geom\351trico de K_n}{chapter.4}% 11
 \BOOKMARK [1][-]{section.4.2}{Descomposiciones inducidas por thrackles m\341ximos}{chapter.4}% 12
-\BOOKMARK [1][-]{section.4.3}{Intersecci\363n de thrackles de Kn con 3n 9.}{chapter.4}% 13
+\BOOKMARK [1][-]{section.4.3}{Intersecci\363n de thrackles de K_n con 3n 9.}{chapter.4}% 13
 \BOOKMARK [1][-]{section.4.4}{Algoritmos}{chapter.4}% 14
 \BOOKMARK [2][-]{subsection.4.4.1}{Algoritmo para encontrar thrackles con k aristas}{section.4.4}% 15
 \BOOKMARK [2][-]{subsection.4.4.2}{Algoritmo para la intersecci\363n de dos thrackles}{section.4.4}% 16
-\BOOKMARK [2][-]{subsection.4.4.3}{Algoritmo para encontrar colecciones de thrackles m\341ximos que inducen descomposiciones en thrackles de Kn}{section.4.4}% 17
+\BOOKMARK [2][-]{subsection.4.4.3}{Algoritmo para encontrar colecciones de thrackles m\341ximos que inducen descomposiciones en thrackles de K_n}{section.4.4}% 17
 \BOOKMARK [2][-]{subsection.4.4.4}{Algoritmo para verificar la optimalidad de una colecci\363n de thrackles m\341ximos}{section.4.4}% 18
 \BOOKMARK [2][-]{subsection.4.4.5}{Algoritmo para generar particiones v\341lidas de un entero}{section.4.4}% 19
-\BOOKMARK [2][-]{subsection.4.4.6}{Algoritmo para encontrar descomposiciones por thrackles de Kn usando particiones de enteros}{section.4.4}% 20
+\BOOKMARK [2][-]{subsection.4.4.6}{Algoritmo para encontrar descomposiciones por thrackles de K_n usando particiones de enteros}{section.4.4}% 20
 \BOOKMARK [0][-]{chapter.5}{Conclusiones y trabajo futuro}{}% 21
 \BOOKMARK [0][-]{appendix.Alph1}{Etiquetas de thrackles m\341ximos}{}% 22
