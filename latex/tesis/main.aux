@@ -188,35 +188,43 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.4.2}Algoritmo para la intersecci\IeC {\'o}n de dos thrackles}{59}{subsection.4.4.2}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces La figura muestra un ejemplo de c\IeC {\'o}mo cambia el vector $C$ cuando se busca un thrackle con 4 aristas para alguna $n>5$. En el lado derecho presentamos un dibujo de una gr\IeC {\'a}fica en la que se buscan los thrackles con 4 aristas. Solamente se representan algunas instancias del vector $C$. En este ejemplo suponemos que las aristas con etiqueta 1 y 2 no se intersectans. Es posible observar que cuando $C=[0,1,2,NIL]$ no se generan, debajo de ese nivel, combinaciones con las etiquetas 1 y 2. Se marcan de fondo gris las soluciones encontradas. \relax }}{60}{figure.caption.38}}
 \newlabel{fig:ejemplo_backtracking}{{4.4}{60}{La figura muestra un ejemplo de cómo cambia el vector $C$ cuando se busca un thrackle con 4 aristas para alguna $n>5$. En el lado derecho presentamos un dibujo de una gráfica en la que se buscan los thrackles con 4 aristas. Solamente se representan algunas instancias del vector $C$. En este ejemplo suponemos que las aristas con etiqueta 1 y 2 no se intersectans. Es posible observar que cuando $C=[0,1,2,NIL]$ no se generan, debajo de ese nivel, combinaciones con las etiquetas 1 y 2. Se marcan de fondo gris las soluciones encontradas. \relax }{figure.caption.38}{}}
+\@writefile{loa}{\contentsline {algocf}{\numberline {1}{\ignorespaces Algoritmo para encontrar todos los thrackles de tama\IeC {\~n}o $k$.\relax }}{61}{algocf.1}}
+\newlabel{algo_kthrackles}{{1}{61}{Análisis de complejidad}{algocf.1}{}}
+\@writefile{loa}{\contentsline {algocf}{\numberline {2}{\ignorespaces Intersecci\IeC {\'o}n de dos conjuntos ordenados en tiempo lineal.\relax }}{62}{algocf.2}}
+\newlabel{algo_interseccion}{{2}{62}{Algoritmo para la intersección de dos thrackles}{algocf.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.3}Algoritmo para encontrar colecciones de thrackles m\IeC {\'a}ximos que inducen descomposiciones en thrackles de $K_n$}{62}{subsection.4.4.3}}
+\newlabel{secc:algo_descomposicion_thrackles_maximos}{{4.4.3}{62}{Algoritmo para encontrar colecciones de thrackles máximos que inducen descomposiciones en thrackles de $K_n$}{subsection.4.4.3}{}}
 \citation{Knuth2011A}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.3}Algoritmo para encontrar colecciones de thrackles m\IeC {\'a}ximos que inducen descomposiciones en thrackles de $K_n$}{61}{subsection.4.4.3}}
-\newlabel{secc:algo_descomposicion_thrackles_maximos}{{4.4.3}{61}{Algoritmo para encontrar colecciones de thrackles máximos que inducen descomposiciones en thrackles de $K_n$}{subsection.4.4.3}{}}
+\@writefile{loa}{\contentsline {algocf}{\numberline {3}{\ignorespaces Algoritmo de Knuth para generar las combinaciones de tama\IeC {\~n}o $t$ del conjunto $\{0,1,2,\dots  ,n-1\}$.\relax }}{64}{algocf.3}}
+\newlabel{algo:knuth_combinaciones}{{3}{64}{Algoritmo para encontrar colecciones de thrackles máximos que inducen descomposiciones en thrackles de $K_n$}{algocf.3}{}}
+\@writefile{toc}{\contentsline {subsubsection}{An\IeC {\'a}lisis de complejidad}{64}{section*.43}}
+\newlabel{complejidad_colecciones}{{4.6}{64}{Análisis de complejidad}{equation.4.4.6}{}}
 \citation{Knuth2011}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.4}Algoritmo para verificar la optimalidad de una colecci\IeC {\'o}n de thrackles m\IeC {\'a}ximos}{63}{subsection.4.4.4}}
-\newlabel{secc:algoritmo_optimalidad}{{4.4.4}{63}{Algoritmo para verificar la optimalidad de una colección de thrackles máximos}{subsection.4.4.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.5}Algoritmo para generar particiones v\IeC {\'a}lidas de un entero}{63}{subsection.4.4.5}}
-\newlabel{secc:algo_particiones_validas}{{4.4.5}{63}{Algoritmo para generar particiones válidas de un entero}{subsection.4.4.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.6}Algoritmo para encontrar descomposiciones por thrackles de $K_n$ usando particiones de enteros}{63}{subsection.4.4.6}}
-\newlabel{secc:descomposiciones_particiones}{{4.4.6}{63}{Algoritmo para encontrar descomposiciones por thrackles de $K_n$ usando particiones de enteros}{subsection.4.4.6}{}}
-\@writefile{loa}{\contentsline {algocf}{\numberline {1}{\ignorespaces Algoritmo para encontrar todos los thrackles de tama\IeC {\~n}o $k$.\relax }}{64}{algocf.1}}
-\newlabel{algo_kthrackles}{{1}{64}{Análisis de complejidad}{algocf.1}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.7}{\ignorespaces Se cuantifica el n\IeC {\'u}mero de combinaciones a examinar por el algoritmo para el tipo de orden v\IeC {\'a}lido con m\IeC {\'a}s thrackles de cada $ 3 \leq n \leq 10$. Para los casos de $n = \{3,4,5\}$ no existen tipos de orden, diferentes al convexo, tal que la uni\IeC {\'o}n de thrackles m\IeC {\'a}ximos cubra las aristas de $K_n$.\relax }}{65}{table.caption.40}}
-\newlabel{tabla:numero_operaciones_thrackles_maximos}{{4.7}{65}{Se cuantifica el número de combinaciones a examinar por el algoritmo para el tipo de orden válido con más thrackles de cada $ 3 \leq n \leq 10$. Para los casos de $n = \{3,4,5\}$ no existen tipos de orden, diferentes al convexo, tal que la unión de thrackles máximos cubra las aristas de $K_n$.\relax }{table.caption.40}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.8}{\ignorespaces La tabla muestra cu\IeC {\'a}nto tiempo tom\IeC {\'o} el algoritmo para calcular las colecciones de $n - \left \lfloor \sqrt  {2n + \genfrac  {}{}{}{}{1}{4}} - \genfrac  {}{}{}{}{1}{2}\right \rfloor $ thrackles que inducen una descomposici\IeC {\'o}n $K_n$.\relax }}{65}{table.caption.41}}
-\newlabel{tabla:tiempo_thrackles_maximos}{{4.8}{65}{La tabla muestra cuánto tiempo tomó el algoritmo para calcular las colecciones de $n - \left \lfloor \sqrt {2n + \frac {1}{4}} - \frac {1}{2}\right \rfloor $ thrackles que inducen una descomposición $K_n$.\relax }{table.caption.41}{}}
-\@writefile{loa}{\contentsline {algocf}{\numberline {2}{\ignorespaces Algoritmo para evaluar si una partici\IeC {\'o}n es v\IeC {\'a}lida o no.\relax }}{66}{algocf.2}}
-\newlabel{algo:is_partition_valid}{{2}{66}{Algoritmo para generar particiones válidas de un entero}{algocf.2}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{67}{chapter.5}}
+\@writefile{loa}{\contentsline {algocf}{\numberline {4}{\ignorespaces B\IeC {\'u}squeda de colecciones de thrackles m\IeC {\'a}ximos que inducen una descomposici\IeC {\'o}n de $K_n$\relax }}{65}{algocf.4}}
+\newlabel{algo:descomposicion_thrackles_maximos}{{4}{65}{Algoritmo para encontrar colecciones de thrackles máximos que inducen descomposiciones en thrackles de $K_n$}{algocf.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.4}Algoritmo para verificar la optimalidad de una colecci\IeC {\'o}n de thrackles m\IeC {\'a}ximos}{65}{subsection.4.4.4}}
+\newlabel{secc:algoritmo_optimalidad}{{4.4.4}{65}{Algoritmo para verificar la optimalidad de una colección de thrackles máximos}{subsection.4.4.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.5}Algoritmo para generar particiones v\IeC {\'a}lidas de un entero}{65}{subsection.4.4.5}}
+\newlabel{secc:algo_particiones_validas}{{4.4.5}{65}{Algoritmo para generar particiones válidas de un entero}{subsection.4.4.5}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.7}{\ignorespaces Se cuantifica el n\IeC {\'u}mero de combinaciones a examinar por el algoritmo para el tipo de orden v\IeC {\'a}lido con m\IeC {\'a}s thrackles de cada $ 3 \leq n \leq 10$. Para los casos de $n = \{3,4,5\}$ no existen tipos de orden, diferentes al convexo, tal que la uni\IeC {\'o}n de thrackles m\IeC {\'a}ximos cubra las aristas de $K_n$.\relax }}{66}{table.caption.44}}
+\newlabel{tabla:numero_operaciones_thrackles_maximos}{{4.7}{66}{Se cuantifica el número de combinaciones a examinar por el algoritmo para el tipo de orden válido con más thrackles de cada $ 3 \leq n \leq 10$. Para los casos de $n = \{3,4,5\}$ no existen tipos de orden, diferentes al convexo, tal que la unión de thrackles máximos cubra las aristas de $K_n$.\relax }{table.caption.44}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.8}{\ignorespaces La tabla muestra cu\IeC {\'a}nto tiempo tom\IeC {\'o} el algoritmo para calcular las colecciones de $n - \left \lfloor \sqrt  {2n + \genfrac  {}{}{}{}{1}{4}} - \genfrac  {}{}{}{}{1}{2}\right \rfloor $ thrackles que inducen una descomposici\IeC {\'o}n $K_n$.\relax }}{66}{table.caption.45}}
+\newlabel{tabla:tiempo_thrackles_maximos}{{4.8}{66}{La tabla muestra cuánto tiempo tomó el algoritmo para calcular las colecciones de $n - \left \lfloor \sqrt {2n + \frac {1}{4}} - \frac {1}{2}\right \rfloor $ thrackles que inducen una descomposición $K_n$.\relax }{table.caption.45}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.6}Algoritmo para encontrar descomposiciones por thrackles de $K_n$ usando particiones de enteros}{66}{subsection.4.4.6}}
+\newlabel{secc:descomposiciones_particiones}{{4.4.6}{66}{Algoritmo para encontrar descomposiciones por thrackles de $K_n$ usando particiones de enteros}{subsection.4.4.6}{}}
+\@writefile{loa}{\contentsline {algocf}{\numberline {5}{\ignorespaces Algoritmo para evaluar si una partici\IeC {\'o}n es v\IeC {\'a}lida o no.\relax }}{67}{algocf.5}}
+\newlabel{algo:is_partition_valid}{{5}{67}{Algoritmo para generar particiones válidas de un entero}{algocf.5}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{69}{chapter.5}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loa}{\addvspace {10\p@ }}
 \bibstyle{apa-good.bst}
 \bibdata{bibliografia.bib}
-\@writefile{toc}{\contentsline {chapter}{\numberline {A}Etiquetas de thrackles m\IeC {\'a}ximos}{69}{appendix.Alph1}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {A}Etiquetas de thrackles m\IeC {\'a}ximos}{71}{appendix.Alph1}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loa}{\addvspace {10\p@ }}
-\newlabel{apendice_thrackles_inducen}{{A}{70}{Etiquetas de thrackles máximos}{appendix.Alph1}{}}
+\newlabel{apendice_thrackles_inducen}{{A}{72}{Etiquetas de thrackles máximos}{appendix.Alph1}{}}
 \bibcite{Aichholzer2002}{{1}{2002}{{Aichholzer et~al.}}{{Aichholzer, Aurenhammer, \& Krasser}}}
 \bibcite{Aichholzer2001}{{2}{2001}{{Aichholzer \& Krasser}}{{}}}
 \bibcite{Araujo2005}{{3}{2005}{{Araujo et~al.}}{{Araujo, Dumitrescu, Hurtado, Noy, \& Urrutia}}}

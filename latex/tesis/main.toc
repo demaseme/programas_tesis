@@ -16,9 +16,10 @@
 \contentsline {subsection}{\numberline {4.4.1}Algoritmo para encontrar thrackles con $k$ aristas}{56}{subsection.4.4.1}
 \contentsline {subsubsection}{An\IeC {\'a}lisis de complejidad}{58}{section*.37}
 \contentsline {subsection}{\numberline {4.4.2}Algoritmo para la intersecci\IeC {\'o}n de dos thrackles}{59}{subsection.4.4.2}
-\contentsline {subsection}{\numberline {4.4.3}Algoritmo para encontrar colecciones de thrackles m\IeC {\'a}ximos que inducen descomposiciones en thrackles de $K_n$}{61}{subsection.4.4.3}
-\contentsline {subsection}{\numberline {4.4.4}Algoritmo para verificar la optimalidad de una colecci\IeC {\'o}n de thrackles m\IeC {\'a}ximos}{63}{subsection.4.4.4}
-\contentsline {subsection}{\numberline {4.4.5}Algoritmo para generar particiones v\IeC {\'a}lidas de un entero}{63}{subsection.4.4.5}
-\contentsline {subsection}{\numberline {4.4.6}Algoritmo para encontrar descomposiciones por thrackles de $K_n$ usando particiones de enteros}{63}{subsection.4.4.6}
-\contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{67}{chapter.5}
-\contentsline {chapter}{\numberline {A}Etiquetas de thrackles m\IeC {\'a}ximos}{69}{appendix.Alph1}
+\contentsline {subsection}{\numberline {4.4.3}Algoritmo para encontrar colecciones de thrackles m\IeC {\'a}ximos que inducen descomposiciones en thrackles de $K_n$}{62}{subsection.4.4.3}
+\contentsline {subsubsection}{An\IeC {\'a}lisis de complejidad}{64}{section*.43}
+\contentsline {subsection}{\numberline {4.4.4}Algoritmo para verificar la optimalidad de una colecci\IeC {\'o}n de thrackles m\IeC {\'a}ximos}{65}{subsection.4.4.4}
+\contentsline {subsection}{\numberline {4.4.5}Algoritmo para generar particiones v\IeC {\'a}lidas de un entero}{65}{subsection.4.4.5}
+\contentsline {subsection}{\numberline {4.4.6}Algoritmo para encontrar descomposiciones por thrackles de $K_n$ usando particiones de enteros}{66}{subsection.4.4.6}
+\contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{69}{chapter.5}
+\contentsline {chapter}{\numberline {A}Etiquetas de thrackles m\IeC {\'a}ximos}{71}{appendix.Alph1}

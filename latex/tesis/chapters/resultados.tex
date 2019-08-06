@@ -574,11 +574,15 @@ aristas. Luego...Finalmente...
 
 \subsection{Algoritmo para encontrar thrackles con $k$
   aristas}\label{seccion_algoritmo_kthrackles}
-  A continuación presentamos el algoritmo para encontrar thrackles de tamaño
-  $k$, donde $k$ es dada. Con este algoritmo buscamos resolver el siguiente problema:
-  Entrada: Un entero $n$, con $ 3 \leq n \leq 10$ y un entero $k$, con $ n \leq k$.
-  Salida: Una lista de thrackles de tamaño $k$ inducidos por un conjunto de $n$ puntos en
-  posición general.
+  A continuación presentamos el algoritmo para resolver el siguiente problema:
+  \begin{itemize}
+    \item[Problema] Dado un conjunto de $n$ puntos $S$, encontrar los thrackles de tamaño
+    $k$ de la gráfica completa $K_n(S)$.
+    \item[Entrada]  Un entero $n$, con $ 3 \leq n \leq 10$ y un entero $k$, con $ n \leq
+    k$.
+    \item[Salida] Una lista de thrackles de tamaño $k$ inducidos por un conjunto de $n$
+    puntos en posición general.
+  \end{itemize}
 
   Este algoritmo fue implementado en el lenguaje \texttt{C++} en su versión 5 (2017); la
   implementación fue ejecutada en un \emph{cluster} con las siguientes características:
@@ -792,7 +796,7 @@ aristas. Luego...Finalmente...
     \label{fig:ejemplo_backtracking}
   \end{figure}
 
-  \begin{algorithm}[t]
+  \begin{algorithm}[hpt]
       \DontPrintSemicolon
       \SetKwInOut{Input}{Entrada}
       \SetKwInOut{Output}{Salida}
@@ -882,35 +886,40 @@ aristas. Luego...Finalmente...
   de enteros, aprovechamos el ordenamiento lexicográfico para hacer la
   operación de intersección de thrackles en tiempo lineal.
   Sea $A$ y $B$ dos vectores que representan las aristas de dos thrackles, con
-  $|A|=|B|=k$. El algoritmo~\ref{algo_interseccion} entrega la intersección de $A$ y $B$ y la
-  almacena en un conjunto $C$. Este algoritmo es secuencial y visita en el peor caso todas las
-  entradas de los dos vectores.
-  % \begin{algorithm}[htpb]
-  %   \begin{algorithmic}[1]
-  %     \Procedure{ThrackleIntersection}{$A,B,C$}
-  %     \State $i\gets 0$
-  %     \State $j\gets 0$
-  %     \While{$i<k$ and $j<k$}
-  %       \If{$A[i] < B[j]$}
-  %         \State $i\gets i+1$
-  %         \State \textbf{continue}
-  %       \EndIf
-  %       \If{$A[i]==B[j]$}
-  %         \State $C\gets C\cup \{A[i]\}$
-  %         \State $i\gets i+1$
-  %         \State $j\gets j+1$
-  %         \State \textbf{continue}
-  %       \EndIf
-  %       \If{$A[i]>B[j]$}
-  %         \State $j\gets j+1$
-  %         \State \textbf{continue}
-  %       \EndIf
-  %     \EndWhile
-  %     \EndProcedure
-  %   \end{algorithmic}
-  %   \caption{Intersección de dos conjuntos ordenados en tiempo lineal.}
-  %   \label{algo_interseccion}
-  % \end{algorithm}
+  $|A|=|B|=k$. El algoritmo~\ref{algo_interseccion} entrega la intersección de $A$ y $B$
+  y la almacena en un conjunto $C$. Este algoritmo es secuencial y visita en el peor caso
+  todas las entradas de los dos vectores, en nuestra implementación, los thrackles
+  almacenan la información de sus aristas en un vector de tamaño $\binom{n}{2}$ para cada
+  $n$ en el rango $[3,10]$.
+  \begin{algorithm}[ht]
+    \DontPrintSemicolon
+    \SetKwInOut{Input}{Entrada}
+    \SetKwInOut{Output}{Salida}
+    \underline{función Intersection} $(A,B,C)$\;
+    \Input{Dos conjuntos $A,B$ del mismo tamaño y un conjunto $C$}
+    \Output{Un conjunto $C$ con la intersección de $A$ y $B$}
+      $i\gets 0$\;
+      $j\gets 0$\;
+      \While{$i<k$ and $j<k$}{
+        \If{$A[i] < B[j]$}{
+          $i\gets i+1$\;
+          \textbf{continue}\;
+        }
+        \If{$A[i]==B[j]$}{
+          $C\gets C\cup \{A[i]\}$\;
+          $i\gets i+1$\;
+          $j\gets j+1$\;
+          \textbf{continue}\;
+        }
+        \If{$A[i]>B[j]$}{
+          $j\gets j+1$\;
+          \textbf{continue}\;
+        }
+      }
+    \caption{Intersección de dos conjuntos ordenados en tiempo
+    lineal.}
+    \label{algo_interseccion}
+  \end{algorithm}
 
 \subsection{Algoritmo para encontrar colecciones de thrackles máximos que
 inducen descomposiciones en thrackles de $K_n$}\label{secc:algo_descomposicion_thrackles_maximos}
@@ -925,93 +934,145 @@ inducen descomposiciones en thrackles de $K_n$}\label{secc:algo_descomposicion_t
 
   El algoritmo que diseñamos para este resultado es exhaustivo y secuencial.
 
-  Este algoritmo necesita un paso de preparación para funcionar: Para cada tipo de orden, para
-  $3\leq n \leq 10$, examinamos cuáles tienen al menos $n - \left\lfloor\sqrt{2n + \frac{1}{4}} -
-  \frac{1}{2}\right\rfloor$ thrackles máximos. De los resultantes, examinamos cuáles tipos de
-  orden cubren, con la unión de sus thrackles máximos, todas las aristas de $K_n$.
+  Este algoritmo necesita un paso de preparación para funcionar: Para cada tipo de orden,
+  para $3\leq n \leq 10$, examinamos cuáles tienen al menos $n - \left\lfloor\sqrt{2n +
+  \frac{1}{4}} - \frac{1}{2}\right\rfloor$ thrackles máximos. De los resultantes,
+  examinamos cuáles tipos de orden cubren, con la unión de sus thrackles máximos, todas
+  las aristas de $K_n$.
 
-  Después de la etapa de preparación, podemos empezar la búsqueda de las colecciones de thrackles
-  máximos. Mostramos el pseudocódigo en el algoritmo~\ref{algo_descomposicion_thrackles_maximos}.
-  Una vez que sabemos cuáles son los tipos de orden candidatos a tener una colección de thrackles
-  máximos que induzcan una descomposición de $K_n$, buscamos, de manera exhaustiva, todas las
-  combinaciones posibles de $n -  \left\lfloor\sqrt{2n + \frac{1}{4}} - \frac{1}{2}\right\rfloor$
-  thrackles máximos. Para cada una de las combinaciones verificamos si esta cubre o no a las
-  aristas de $K_n$. Si la combinación cubre, almacenamos las etiquetas en una lista de soluciones y
-  examinamos la siguiente combinación. En caso contrario se descarta esa combinación y continuamos
-  examinando.
+  Después de la etapa de preparación, podemos empezar la búsqueda de las colecciones de
+  thrackles máximos. Mostramos el pseudocódigo en el
+  algoritmo~\ref{algo:descomposicion_thrackles_maximos}. Una vez que sabemos cuáles son
+  los tipos de orden candidatos a tener una colección de thrackles máximos que induzcan
+  una descomposición de $K_n$, buscamos, de manera exhaustiva, todas las combinaciones
+  posibles de $n -  \left\lfloor\sqrt{2n + \frac{1}{4}} - \frac{1}{2}\right\rfloor$
+  thrackles máximos. Para cada una de las combinaciones verificamos si esta cubre o no a
+  las aristas de $K_n$. Si la combinación cubre, almacenamos las etiquetas en una lista
+  de soluciones y examinamos la siguiente combinación. En caso contrario se descarta esa
+  combinación y continuamos examinando.
 
-  Las combinaciones fueron generadas usando el algoritmo descrito en~\cite{Knuth2011A}. Mostramos el psuedocódigo del algoritmo para generar las combinaciones en el algoritmo. Dicho
-  algoritmo tiene una complejidad de $\displaystyle O\left(\binom{c}{t}\frac{t}{c-t+1}\right)$
-  $t$ es el total de elementos y $c$ y es el tamaño de las combinaciones a generar.
-  Con la información de la tabla~\ref{tabla:numero_operaciones_thrackles_maximos} podemos
-  decir que $t$ es al menos $5$ y como buscamos descomposiciones cuyo tamaño sea igual al Anti-thickness de $K_n$, decimos que $c=n - \left\lfloor\sqrt{2n + \frac{1}{4}} - \frac{1}{2}\right\rfloor$. De esta manera y para este problema, el algoritmo de generación de combinaciones tiene una complejidad de \[O \left( \frac{5}{n - \left\lfloor\sqrt{2n + \frac{1}{4}} - \frac{1}{2}\right\rfloor - 4} \right) = O(n)\]
-  % \begin{algorithm}[pb]
-  %   \begin{algorithmic}[1]
-  %     \Procedure{SearchThrackleCollection}{Lista $L$ de tipos de orden válidos.}
-  %     \State $t \gets n -
-  %     \left\lfloor\sqrt{2n + \frac{1}{4}} - \frac{1}{2}\right\rfloor$
-  %     \For{$i \in \{1,2,\dots,|L|\}$}
-  %       \State $\mathcal{T} \gets $ colección de thrackles máximos de $L_i$
-  %       \State $k \gets |\mathcal{T}|$
-  %       \State $C \gets $ combinaciones de tamaño $t$ del conjunto $\{1,2,\dots,k\}$
-  %       \ForEach{$c\in C$}
-  %         \State $solution \gets \{T[c[1]],T[c[2]],\dots,T[c[k]]\}$
-  %         \If{$solution$ cubre las aristas de $K_n$}
-  %           \State Almacenar $solution$ en una lista de soluciones.
-  %         \EndIf
-  %       \EndFor
-  %     \EndFor
-  %     \EndProcedure
-  %   \end{algorithmic}
-  %   \caption{Búsqueda de colecciones de thrackles máximos que inducen una descomposición de $K_n$}
-  %   \label{algo_descomposicion_thrackles_maximos}
-  % \end{algorithm}
-  El costo computacional de este algoritmo depende de cuántos thrackles máximos exista en cada uno
-  de los tipos de orden. Sea $t=  n -
-  \left\lfloor\sqrt{2n + \frac{1}{4}} - \frac{1}{2}\right\rfloor$ y sea $k$ el número de thrackles
-  en algún tipo de orden. El algoritmo examina las $\binom{k}{t}$ combinaciones posibles. Si
-  consideramos el mayor número de thrackles máximos, para cada $ n \leq 10$, de entre todos
-  los tipos de orden válidos podemos cuantificar el número de operaciones para ese caso en
-  particular. Mostramos el número de combinaciones para cada caso en la
-  tabla~\ref{tabla:numero_operaciones_thrackles_maximos}.
+  Las combinaciones fueron generadas usando el algoritmo descrito en~\cite{Knuth2011A}.
+  Mostramos el pseudocódigo del algoritmo para generar las combinaciones en el algoritmo
+  \ref{algo:knuth_combinaciones}. Dado un entero $t$, si queremos generar las
+  combinaciones de $c$ elementos, algoritmo~\ref{algo:knuth_combinaciones} tiene una
+  complejidad de $O\left(\binom{t}{c}\right)$.
 
-  Para verificar si determinada colección de thrackles cubre a la gráfica completa se recorre cada
-  una de las aristas de los thrackles de la colección. El costo computacional de este proceso en
-  particular está dominado por el número de aristas de cada thrackle y el número de thrackles de la
-  colección. En el mejor caso, en una colección de $m$ thrackles, los thrackles tienen
-  $n,n-1,n-2,\dots,n-m+1$ aristas. Como se menciona en el teorema~\ref{teo:nuevacotainf} esta suma
-  es igual a $-\frac{1}{2}m(m-2n-1)$ lo que asintóticamente equivale a $O(mn)$. En nuestro trabajo
-  $m$ es siempre igual a $n -  \left\lfloor\sqrt{2n + \frac{1}{4}} - \frac{1}{2}\right\rfloor$,
-  entonces, el costo de la verificación es $O(n^2)$.
+  En nuestro trabajo, $c$ es fija para cada $n$ ya que hacemos $c = At_g(K_n)$.
+  Recordemos que $At_g(K_n) = n - \left\lfloor\sqrt{2n+\frac{1}{4}} -
+  \frac{1}{2}\right\rfloor$. Sin embargo, $t$ depende de dos parámetros: uno es $n$ y el
+  otro es el tipo de orden de $n$ con el que trabajemos. Por ejemplo, para $n=6$ el tipo
+  de orden $1$ tiene $13$ thrackles máximos, por lo que buscariamos generar las
+  $\binom{13}{3}$ combinaciones. Por otro lado, el tipo de orden $7$ tiene $5$ thrackles
+  máximos, en este caso necesitamos generar las $\binom{5}{3}$ combinaciones.
 
-  Con el resultado anterior y el costo de calcular las combinaciones posibles podemos decir que el
-  costo computacional del algoritmo es $O(n^3)$.
+  Sea $\mathcal{C}=\{c_1,c_2,\dots,c_k\}$ una combinación generada por el algoritmo.
+  Decimos que $c_i\in\mathcal{C}$ representa una etiqueta de un thrackle máximo. Por
+  ejemplo, si $\mathcal{C}=\{23,45,99\}$ entonces $\mathcal{C}$ representa una colección
+  de tres thrackles máximos, los cuales tienen etiquetas 23, 45 y 99 respectivamente.
+
+  Para cada combinación calculada, el algoritmo verifica si esta cubre o no a las aristas
+  de $K_n$. Hacemos esta verficicación con un algoritmo secuencial que recorre el arreglo
+  de aristas de cada thrackle identificado por las etiquetas de la combinación. En
+  nuestra implementación cada thrackle de $K_n$ tiene asociado un arreglo de
+  $\binom{n}{2}$ posiciones.
+  \begin{algorithm}[h]
+    \DontPrintSemicolon
+    \SetKwInOut{Input}{Entrada}
+    \SetKwInOut{Output}{Salida}
+    \underline{función KnuthCombinations} $(n,t)$\;
+    \Input{Un entero $n$, un entero $t$ con $0 \leq t \leq n$}
+    \Output{Las combinaciones de $t$ elementos de los $n$ números en el conjunto $0,1,2,\dots,n-1$.}
+    \For{$j=1\dots t$}{
+      $c[j] \gets j-1 $\;
+      }
+    $c[t+1] \gets n$\;
+    $c[t+2] \gets 0$\;
+    \textbf{L2: } \;
+    Almacenar la combinación $c[t],c[t-1],\dots,c[0]$. \;
+    $j \gets 1$ \;
+    \While{$c[j]+1 == c[j+1]$}{
+      $c[j] \gets j-1$\;
+      $j \gets j+1$\;
+    }
+    \If{ $j>t$ }{ \textbf{return}\; }
+    $c[j] \gets c[j]+1$ \;
+    $goto$\textbf{ L2}\;
+    \caption{Algoritmo de Knuth para generar las combinaciones de tamaño $t$ del conjunto $\{0,1,2,\dots,n-1\}$.}
+    \label{algo:knuth_combinaciones}
+  \end{algorithm}
+  \begin{algorithm}[th]
+    \DontPrintSemicolon
+    \SetKwInOut{Input}{Entrada}
+    \SetKwInOut{Output}{Salida}
+    \underline{función FindThrackleCollections} $(n,ot)$\;
+    \Input{Un entero $n$, un entero $ot$ que representa algún tipo de orden válido de
+    $n$.}
+    \Output{Las combinaciones de $At_g(K_n)$ thrackles máximos que pueden inducir una
+    descomposición del dibujo de $K_n$ inducido por el tipo de orden $ot$.}
+    $c \gets n - \left\lfloor\sqrt{2n + \frac{1}{4}} - \frac{1}{2}\right\rfloor$\;
+    $\mathcal{T} \gets $ colección de thrackles máximos del tipo de orden $ot$\;
+    $k \gets |\mathcal{T}|$\;
+    $C \gets $ combinaciones de tamaño $c$ del conjunto $\{1,2,\dots,k\}$\;
+    \ForEach{$t\in C$}{
+      $solution \gets \{T[t[1]],T[t[2]],\dots,T[t[k]]\}$\;
+      \If{$solution$ cubre las aristas de $K_n$}{
+        Almacenar $solution$ en una lista de soluciones.
+        }
+      }
+    \caption{Búsqueda de colecciones de thrackles máximos que inducen una descomposición
+    de $K_n$}
+    \label{algo:descomposicion_thrackles_maximos}
+  \end{algorithm}
+
+  \subsubsection{Análisis de complejidad}
+
+  De manera general, para un tipo de orden válido de $n$, con $m$ thrackles máximos, el
+  algoritmo~\ref{algo:descomposicion_thrackles_maximos} genera las
+  $\binom{m}{n - \left\lfloor\sqrt{2n + \frac{1}{4}} - \frac{1}{2}\right\rfloor}$
+  combinaciones y después, para cada una, examina, en tiempo $O(n - \left\lfloor\sqrt{2n
+  + \frac{1}{4}} -\frac{1}{2}\right\rfloor \cdot n^2)$, si esta cubre o no a las aristas
+  de $K_n$. Luego, este algoritmo tiene complejidad:
+  \begin{equation}\displaystyle
+    O\left(\binom{m}{n - \left\lfloor\sqrt{2n + \frac{1}{4}} - \frac{1}{2}\right\rfloor}\cdot\left(
+    n - \left\lfloor\sqrt{2n + \frac{1}{4}} -\frac{1}{2}\right\rfloor\right) \cdot n^2 \right) = O \left( \binom{m}{n} n^3 \right)
+    \label{complejidad_colecciones}
+  \end{equation}
+
+  Es importante notar que la complejidad establecida en la
+  ecuación~\ref{complejidad_colecciones} es para un solo tipo de orden. Nosotros
+  ejecutamos este algoritmo para cada tipo de orden válido como se describió
+  anteriormente. Para saber cuántos thrackles máximos hay en determinado tipo de orden
+  usamos el algoritmo descrito en la sección~\ref{seccion_algoritmo_kthrackles}.
+  Damos un panorama del número de las $\binom{m}{n}$ combinaciones a evaluar por el
+  algoritmo para el tipo de orden con el mayor número de thrackles máximos para cada $n$,
+  con $6\leq n\leq 10$ en la tabla~\ref{tabla:numero_operaciones_thrackles_maximos}.
 
   \begin{table}[t]
     \centering
-    \begin{tabular}{|c|c|l|}
+    \begin{tabular}{|c|c|c|l|}
       \hline
-      $n$ & \makecell{Número máximo de \\ thrackles en un T.O.} & \makecell{Número de \\
+      $n$ & \makecell{Número máximo de \\ thrackles en un T.O.} &$At_g(K_n)$& \makecell{Número de \\
       combinaciones} \\ \hline
       \hline
-      6 & 5 & 10 \\ \hline
-      7 & 16 & 1,820 \\\hline
-      8 & 49 & 1,906,884 \\\hline
-      9 & 134 & 7,177,979,809 \\\hline
-      10 & 333 & 1,809,928,822,548 \\ \hline
+      6 & 5 & 3 & 10 \\ \hline
+      7 & 16 & 4 & 1,820 \\\hline
+      8 & 49 & 5 & 1,906,884 \\\hline
+      9 & 134 & 6 & 7,177,979,809 \\\hline
+      10 & 333 & 6 & 1,809,928,822,548 \\ \hline
     \end{tabular}
-    \caption{Se cuantifica el número de combinaciones a examinar por el algoritmo para el tipo de
-    orden válido con más thrackles de cada $ 3 \leq n \leq 10$. Para los casos de $n = \{3,4,5\}$
-    no existen tipos de orden, diferentes al convexo, tal que la unión de thrackles máximos cubra
-    las aristas de $K_n$.}
+    \caption{Se cuantifica el número de combinaciones a examinar por el algoritmo para el
+    tipo de orden válido con más thrackles de cada $ 3 \leq n \leq 10$. Para los casos de
+    $n = \{3,4,5\}$ no existen tipos de orden, diferentes al convexo, tal que la unión de
+    thrackles máximos cubra las aristas de $K_n$.}
     \label{tabla:numero_operaciones_thrackles_maximos}
   \end{table}
 
-  La implementación de este algoritmo fue ejecutada en el cluster. Presentamos el tiempo de
-  ejecución en milisegundos para cada $n$ con $6\leq n \leq 10$ en la
-  tabla~\ref{tabla:tiempo_thrackles_maximos}. Podemos notar que a pesar de que en el caso de
-  $K_{10}$ hay aproximadamente $1.8E^{12}$ combinaciones posibles para uno de los tipos de orden de
-  $10$ puntos, el algoritmo termina en un tiempo considerable para nosotros.
+  La implementación de este algoritmo fue ejecutada en el cluster. Presentamos el tiempo
+  de ejecución en milisegundos para cada $n$ con $6\leq n \leq 10$ en la
+  tabla~\ref{tabla:tiempo_thrackles_maximos}. Podemos notar que a pesar de que en el caso
+  de $K_{10}$ hay aproximadamente $1.8E^{12}$ combinaciones posibles para uno de los
+  tipos de orden de $10$ puntos, el algoritmo termina en un tiempo considerable para
+  nosotros.
   \begin{table}
     \centering
     \begin{tabular}{|c|c|}
@@ -1030,36 +1091,29 @@ inducen descomposiciones en thrackles de $K_n$}\label{secc:algo_descomposicion_t
 
   \subsection{Algoritmo para verificar la optimalidad de una colección de
   thrackles máximos}\label{secc:algoritmo_optimalidad}
-\subsection{Algoritmo para generar particiones válidas de un
-entero}\label{secc:algo_particiones_validas}
-El algoritmo proporcinado en~\cite{Knuth2011} genera las particiones de algún entero $n$ con
-$O(n^2)$ operaciones. De estas particiones, examinamos aquellas que tengan menos de $n -
-\left\lfloor\sqrt{2n + \frac{1}{4}} - \frac{1}{2}\right\rfloor$ elementos y evaluamos si son
-válidas.
-Nuestro procedimiento para evaluar la validez de una partición tiene complejidad lineal. El
-pseudocódigo puede observarse en el algoritmo~\ref{algo:is_partition_valid}. En la evaluación
-recorremos un arreglo de a lo sumo $n - \left\lfloor\sqrt{2n + \frac{1}{4}} -
-\frac{1}{2}\right\rfloor$ posiciones y verificamos que solamente exista una
-ocurrencia de $n$. De esta manera, el procedimiento de evaluación tiene una complejidad de $O(n)$ lo que causa que la
-generación de particiones válidas tenga un costo total de $O(n^3)$.
+  \subsection{Algoritmo para generar particiones válidas de un
+  entero}\label{secc:algo_particiones_validas}
+    El algoritmo proporcinado en~\cite{Knuth2011} genera las particiones de algún entero $n$ con $O(n^2)$ operaciones. De estas particiones, examinamos aquellas que tengan menos de $n - \left\lfloor\sqrt{2n + \frac{1}{4}} - \frac{1}{2}\right\rfloor$ elementos y evaluamos si son válidas.
 
-\begin{algorithm}[h]
-  \DontPrintSemicolon
-  \SetKwInOut{Input}{Entrada}
-  \SetKwInOut{Output}{Salida}
-  \underline{función ParticionValida} $(n,P)$\;
-   \Input{Un entero $n$, una partición $P$ de $n$ de tamaño $k$.}
-   \Output{$true$, si la partición $P$ es válida, $false$ en otro caso.}
-    $c \gets 0$\;
-    \ForEach{$i \in P$}{
-    \If{ $i > n$ }{ \Return{$false$}}
-    \If{ $i == n$}{ $c \gets c+1$ }
-    \If{$ c > 1 $}{ \Return {$false$}}
-    }
-    \Return{$true$}
-   \caption{Algoritmo para evaluar si una partición es válida o no.}
-   \label{algo:is_partition_valid}
-\end{algorithm}
+    Nuestro procedimiento para evaluar la validez de una partición tiene complejidad lineal. El pseudocódigo puede observarse en el algoritmo~\ref{algo:is_partition_valid}. En la evaluación recorremos un arreglo de a lo sumo $n - \left\lfloor\sqrt{2n + \frac{1}{4}} - \frac{1}{2}\right\rfloor$ posiciones y verificamos que solamente exista una ocurrencia de $n$. De esta manera, el procedimiento de evaluación tiene una complejidad de $O(n)$ lo que causa que la generación de particiones válidas tenga un costo total de $O(n^3)$.
+
+    \begin{algorithm}[h]
+      \DontPrintSemicolon
+      \SetKwInOut{Input}{Entrada}
+      \SetKwInOut{Output}{Salida}
+      \underline{función ParticionValida} $(n,P)$\;
+       \Input{Un entero $n$, una partición $P$ de $n$ de tamaño $k$.}
+       \Output{$true$, si la partición $P$ es válida, $false$ en otro caso.}
+        $c \gets 0$\;
+        \ForEach{$i \in P$}{
+        \If{ $i > n$ }{ \Return{$false$}}
+        \If{ $i == n$}{ $c \gets c+1$ }
+        \If{$ c > 1 $}{ \Return {$false$}}
+        }
+        \Return{$true$}
+       \caption{Algoritmo para evaluar si una partición es válida o no.}
+       \label{algo:is_partition_valid}
+    \end{algorithm}
 
 
 \subsection{Algoritmo para encontrar descomposiciones por thrackles de $K_n$
