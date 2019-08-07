@@ -307,6 +307,11 @@ INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsl12.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+INPUT /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/chapters/dedicatoria.tex
+INPUT /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/chapters/dedicatoria.tex
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti12.tfm
+INPUT /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/chapters/gracias.tex
+INPUT /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/chapters/gracias.tex
 INPUT /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/main.toc
 INPUT /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/main.toc
 OUTPUT /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/main.toc
@@ -317,7 +322,6 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx6.tfm
 INPUT /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/chapters/antecedentes.tex
 INPUT /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/chapters/antecedentes.tex
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti12.tfm
 INPUT /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/g5vex.png
 INPUT /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/g5vex.png
 INPUT /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/g5vex.png

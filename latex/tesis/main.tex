@@ -43,14 +43,26 @@
 % }
 % \author{David Gustavo Merinos Sosa}
 % \date{Day Month Year}
-
+\newenvironment{dedication}
+  {
+   \thispagestyle{empty}% no header and footer
+   \vspace*{\stretch{1}}% some space at the top
+   \itshape             % the text is in italics
+   \raggedleft          % flush to the right margin
+  }
+  {\par % end the paragraph
+   \vspace{\stretch{3}} % space at bottom is three times that at the top
+   \clearpage           % finish off the page
+  }
 \begin{document}
 \input{Portada.tex}
 % \maketitle
 \chapter*{Abstract}
 \chapter*{Resumen}
 \chapter*{Dedicación}
+\input{chapters/dedicatoria.tex}
 \chapter*{Agradecimientos}
+\input{chapters/gracias.tex}
 \tableofcontents
 
 \chapter{Introducción}
