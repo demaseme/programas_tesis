@@ -348,8 +348,11 @@ Como consecuencia del lema~\ref{lema:existedescomp} y el teorema~\ref{teo:cotain
   Verificamos la optimalidad de las colecciones de thrackles máximos y encontramos
   que ninguna colección, para los tipos de orden descritos anteriormente,
   es óptima ya que en cada una existe al menos un par de thrackles cuya intersección tiene
-  tamaño mayor a uno. Para este proceso utilizamos el algoritmo XY descrito en la
-  sección~\ref{secc:algoritmo_optimalidad}. Este resultado nos permite dar el siguiente teorema.
+  tamaño mayor a uno. Para este proceso utilizamos el algoritmo de intersección de
+  thrackles descrito en la sección~\ref{secc:interseccion_thrackles}. Si la intersección
+  de cada par de thrackles de la colección es exactamente de tamaño 1, entonces la
+  colección es óptima, de otra manera, la colección no es óptima. Este resultado nos
+  permite dar el siguiente teorema.
   \begin{theorem}\label{teo:coleccion_optima}
     Sea $K_n(S)$ una gráfica completa inducida por un conjunto $S$ de $n$ puntos,
     con $3\leq n\leq 10$ , en posición general no convexa. No existen
@@ -446,8 +449,8 @@ Como consecuencia del lema~\ref{lema:existedescomp} y el teorema~\ref{teo:cotain
   dibujos de $K_n$.
 
 
-  \section{Intersección de thrackles de $K_n$ con $3\leq n \leq 9$.}
-    \chaptermark{$gat(n)$ exacto para $3\leq n \leq 9$.}
+  \section{Intersección de thrackles de $K_n$ con $3\leq n \leq 9$.}\label{secc:interseccion_thrackles}
+    \chaptermark{Intersección de thrackles.}
 
     % Debido a que los resultados de la sección X son aplicables solamente para los tipos de orden con al menos un determinado número
     % de thrackles máximos, decidimos analizar el anti-thickness geométrico para los demás tipos de orden. Para realizar este análisis
@@ -549,10 +552,10 @@ Como consecuencia del lema~\ref{lema:existedescomp} y el teorema~\ref{teo:cotain
     Usando las particiones de la tabla~\ref{tabla:particionesk8k9} diseñamos
     una serie de procedimientos que buscan thrackles disjuntos usando las particiones como guía.
     Como hay cerca de 14 procedimientos para realizar esta tarea, expondremos solamente
-    uno de ellos en el algoritmo YX de la sección~\ref{secc:descomposiciones_particiones}, los
+    uno de ellos en el algoritmo~\ref{algo:partition_decomposition} de la sección~\ref{secc:descomposiciones_particiones}, los
     otros algoritmos son similares a este. Como resultado de estos procedimientos podemos dar el
     siguiente teorema:
-    \begin{theorem}
+    \begin{theorem}\label{teorema:particiones}
       Sea $P=\{a_1,a_2,\dots,a_m\}$ una partición válida para $K_8$ o para $K_9$. No existe, para
       ningún dibujo diferente del convexo, una colección $\mathcal{D}=\{T_1,T_2,\dots,T_m\}$ de
       thrackles disjuntos tales que $|E(T_1)|=a_1,|E(T_2)|=a_2,\dots,|E(T_m)|=a_m$.
@@ -881,7 +884,7 @@ aristas. Luego...Finalmente...
    puede ser descargado de la siguiente liga:
   \url{http://computacion.cs.cinvestav.mx/~dmerinos/site/archivos_tesis/10.tar.gz}
 
-\subsection{Algoritmo para la intersección de dos thrackles}
+\subsection{Algoritmo para la intersección de dos thrackles}\label{secc:interseccion_thrackles}
   Dados dos thrackles con el mismo número de aristas, codificados como cadenas
   de enteros, aprovechamos el ordenamiento lexicográfico para hacer la
   operación de intersección de thrackles en tiempo lineal.
@@ -1089,15 +1092,54 @@ inducen descomposiciones en thrackles de $K_n$}\label{secc:algo_descomposicion_t
     \label{tabla:tiempo_thrackles_maximos}
   \end{table}
 
-  \subsection{Algoritmo para verificar la optimalidad de una colección de
-  thrackles máximos}\label{secc:algoritmo_optimalidad}
   \subsection{Algoritmo para generar particiones válidas de un
   entero}\label{secc:algo_particiones_validas}
-    El algoritmo proporcinado en~\cite{Knuth2011} genera las particiones de algún entero $n$ con $O(n^2)$ operaciones. De estas particiones, examinamos aquellas que tengan menos de $n - \left\lfloor\sqrt{2n + \frac{1}{4}} - \frac{1}{2}\right\rfloor$ elementos y evaluamos si son válidas.
 
-    Nuestro procedimiento para evaluar la validez de una partición tiene complejidad lineal. El pseudocódigo puede observarse en el algoritmo~\ref{algo:is_partition_valid}. En la evaluación recorremos un arreglo de a lo sumo $n - \left\lfloor\sqrt{2n + \frac{1}{4}} - \frac{1}{2}\right\rfloor$ posiciones y verificamos que solamente exista una ocurrencia de $n$. De esta manera, el procedimiento de evaluación tiene una complejidad de $O(n)$ lo que causa que la generación de particiones válidas tenga un costo total de $O(n^3)$.
+    El algoritmo proporcinado en~\cite{Knuth2011} genera las particiones de algún entero
+    $n$ con $O(n^2)$ operaciones, mostramos el pseudocódigo en el
+    algoritmo~\ref{algo:particiones}. Una vez que las particiones son generadas,
+    examinamos aquellas que tengan menos de $n - \left\lfloor\sqrt{2n + \frac{1}{4}} -
+    \frac{1}{2}\right\rfloor$ elementos y evaluamos si son válidas. Una partición $P$, de
+    tamaño $n -\left\lfloor\sqrt{2n + \frac{1}{4}} - \frac{1}{2}\right\rfloor$, $n$ es
+    válida cuando todo elemento de $P$ es menor o igual a $n$ y si algún $p_i\in P$ es
+    igual a $n$ entonces solamente hay una ocurrencia de $p_i$ en $P$.
+    \begin{algorithm}[htpb]
+      \DontPrintSemicolon
+      \SetKwInOut{Input}{Entrada}
+      \SetKwInOut{Output}{Salida}
+      \underline{función KnuthPartitions} $(n)$\;
+      \Input{Un entero $n$, con $n\geq 1$.}
+      \Output{Las particiones $P=\{a_1,a_2,\dots,a_k\}$ del entero $n$, tal que $a_1 \geq
+      a_2 \geq \dots \geq a_k\}$ y $a_1 + a_2 +\dots + a_k = n$.}
+      \textbf{P1}. $a_0 \gets 0$, $m\gets 1$\;
+      \textbf{P2}. $a_m \gets n$, $q \ gets m - [n=1]$\;
+      \textbf{P3}. Almacenar la partición $\{a_1,a_2,\dots,a_k\}$.\;
+      \If{$a_q \neq 2$}{ \textbf{goto P5} }
+      \textbf{P4}. $a_q \gets 1$ $q \gets q-1$, $m \gets m+1$, $a_m \gets 1$.\;
+      \textbf{goto P4}\;
+      \textbf{P5}. \If{$q==0$}{\textbf{return}}
+      \Else{
+        $x \gets a_q - 1$ \;
+        $a_q \gets x$ \;
+        $n\gets m-q+1$\;
+        $m\gets q+1$\;
+      }
+      \textbf{P6}. \If{$n \leq x$}{\textbf{goto P2}}
+      \Else{
+        $a_m \gets x$\;
+        $m \gets m+1$\;
+        $n \gets n-x$\;
+        \textbf{goto P6}\;
+      }
+      \caption{Algoritmo de Knuth para generar las particiones de un entero $n$.}
+      \label{algo:particiones}
+    \end{algorithm}
 
-    \begin{algorithm}[h]
+    Nuestro procedimiento para evaluar la validez de una partición consiste en visitar
+    cada posición de un arreglo de a lo sumo $n - \left\lfloor\sqrt{2n + \frac{1}{4}} -
+    \frac{1}{2}\right\rfloor$ posiciones y verificar que solamente exista una ocurrencia
+    de $n$. Mostramos el pseudocódigo en el algoritmo~\ref{algo:is_partition_valid}.
+    \begin{algorithm}[htpb]
       \DontPrintSemicolon
       \SetKwInOut{Input}{Entrada}
       \SetKwInOut{Output}{Salida}
@@ -1114,7 +1156,130 @@ inducen descomposiciones en thrackles de $K_n$}\label{secc:algo_descomposicion_t
        \caption{Algoritmo para evaluar si una partición es válida o no.}
        \label{algo:is_partition_valid}
     \end{algorithm}
+    \subsubsection{Análisis de complejidad}
 
+    El algoritmo para generar las particiones de un entero $n$ tiene complejidad
+    $O(n^2)$. Adicionalmente, nosotros verificamos solamente las particiones que tengan
+    menos de $n - \left\lfloor\sqrt{2n + \frac{1}{4}} - \frac{1}{2}\right\rfloor$
+    elementos. Para esto verificamos la longitud de una partición en tiempo lineal, ya
+    que, cualquier partición de $n$ tiene a lo sumo $n$ elementos. Luego, para cada
+    partición con el tamaño deseado, evaluamos si es válida o no. La prueba de validez
+    consiste en analizar cada elemento de la partición, y como estas tienen menos de $n -
+    \left\lfloor\sqrt{2n + \frac{1}{4}} - \frac{1}{2}\right\rfloor$ elementos, se
+    requiere tiempo $O(n)$ para verificar cada una.
+
+    El costo total de este algoritmo es: \[ O(n^2\cdot n \cdot n) = O(n^4)\]
 
 \subsection{Algoritmo para encontrar descomposiciones por thrackles de $K_n$
 usando particiones de enteros}\label{secc:descomposiciones_particiones}
+
+Este algoritmo fue diseñado para resolver el siguiente problema:
+\begin{itemize}
+  \item[Problema] Dada una partición $P=\{a_1,a_2,\dots,a_m\}$ de un entero $n$ con
+  $m < At_g(K_n)$. Encontrar si existe o no una colección
+  $\mathcal{C}=\{T_1,T_2,\dots,T_m\}$ de thrackles disjuntos con $|E(T_i)| = a_i$.
+  \item[Entrada] Una partición válida $P$ de $n$.
+  \item[Salida] $true$ si existe una colección de thrackles con las caracteristicas
+  descritas en el problema. $false$ en otro caso.
+\end{itemize}
+
+  Como resultado del algoritmo para encontrar particiones válidas descrito en la sección
+  \ref{secc:algo_particiones_validas} tenemos una lista de particiones válidas para
+  $n=\{8,9\}$ que presentamos en la tabla~\ref{tabla:particionesk8k9_2}. Las particiones
+  de $n=10$ no fueron evaluadas en este trabajo debido al tamaño de los archivos
+  generados para los thrackles de tamaño $9$ y $10$.
+  \begin{table}[t]
+    \centering
+    \begin{tabular}{|c|c|}
+      \hline
+      $n$                       & Particiones de $\displaystyle\binom{n}{2}$ \\ \hline\hline
+      \multirow{2}{*}{$ 8 $}    & $\{8,7,7,6\}$ \\ \cline{2-2}
+                                & $\{7,7,7,7\}$ \\ \hline
+      \multirow{11}{*}{$ 9 $}   &$\{9,8,8,8,3\}$ \\ \cline{2-2}
+                                &$\{9,8,8,7,4\}$ \\ \cline{2-2}
+                                &$\{9,8,8,6,5\}$ \\ \cline{2-2}
+                                &$\{9,8,7,7,5\}$ \\ \cline{2-2}
+                                &$\{9,8,7,6,6\}$ \\ \cline{2-2}
+                                &$\{9,7,7,7,6\}$ \\ \cline{2-2}
+                                &$\{8,8,8,8,4\}$ \\ \cline{2-2}
+                                &$\{8,8,8,7,5\}$ \\ \cline{2-2}
+                                &$\{8,8,8,6,6\}$ \\ \cline{2-2}
+                                &$\{8,8,7,7,6\}$ \\ \cline{2-2}
+                                &$\{8,7,7,7,7\}$ \\ \hline
+    \end{tabular}
+    \caption{Particiones de enteros del número de aristas de $K_8$ y de $K_9$. }
+    \label{tabla:particionesk8k9_2}
+  \end{table}
+
+  A continuación presentamos, con un caso particular, el esquema general de los
+  algoritmos usados para verificar si existen colecciones de thrackles cuyos tamaños
+  obedezcan a los elementos de una partición. Este es un algoritmo de \emph{backtracking}, presentamos el pseudocódigo en el algoritmo~\ref{algo:partition_decomposition}.
+  \begin{algorithm}[htpb]
+    \DontPrintSemicolon
+    \SetKwInOut{Input}{Entrada}
+    \SetKwInOut{Output}{Salida}
+    \underline{función 8876} $(n,P)$\;
+     \Input{Un entero $n$, Una partición válida $P$ de $n$ de tamaño $k$.}
+     \Output{$true$, si existe una colección de thrackles disjuntos en la que los tamaños de los thrackles corresponden a los elementos de $P$; $false$ en otro caso.}
+     TESTING\;
+     \caption{Algoritmo para buscar una colección de thrackles disjuntos de $K_n$ dada una partición válida de $n$.}
+     \label{algo:partition_decomposition}
+  \end{algorithm}
+  Tomemos el caso de la partición de $8$, $P=\{8,7,7,6\}$, en este caso queremos
+  verificar si existe o no una colección de cuatro thrackles, uno de tamaño 8, dos de
+  tamaño 7 y uno de tamaño 6, tal que sean disjuntos a pares. Para buscar esta colección,
+  podemos diseñar un algoritmo que evalúe, exhaustivamente, la intersección de cada
+  thrackle $A$ de tamaño 8, con cada thrackle $B$ de tamaño 7, si existen $A$ y $B$
+  disjuntos, verificamos que exista algún thrackle $C$ de tamaño 7 que sea disjunto con
+  $A$ y con $B$ y, finalmente, si existe, buscamos un thrackle $D$, de tamaño 6 que sea
+  disjunto con $A,B$ y $C$.
+
+  Para verificar que los thrackles sean disjuntos, mantenemos un arreglo booleano $B$ de $\binom{8}{2}$ posiciones, cuando se analiza un thrackle $T$ de tamaño 8 recorremos el arreglo de aristas de $T$, cuyo tamaño es también $\binom{8}{2}$. Como $T$ tiene 8 aristas entonces el arreglo de aristas de $T$ tiene exactamente 8 posiciones con valor 1
+  y el resto con valor 0. Para cada posición $p$ del arreglo de aristas de $T$ cuyo valor sea 1, marcamos la misma posición en $B$ con un 1. Esto significa que el thrackle $T$ cubre a la arista $p$.
+
+  Si en algún momento, debemos marcar alguna posición $p$ del arreglo $B$ y esta ya tiene un valor de 1 entonces un thrackle, anteriormente analizado, ya cubre esa arista y por lo tanto el thrackle que se está verificando actualmente no es disjunto con alguno anterior. Por lo tanto descartamos ese thrackle y continuamos verificando.
+
+  Si no encontramos ningún thrackle que sea disjunto con los anteriormente analizados, el
+  algoritmo realiza un paso de backtracking descartando el último thrackle que fue
+  compatible con los demás y continuando con el siguiente del mismo tamaño del thrackle
+  descartado.
+
+  El algoritmo termina, retornando un valor $true$, cuando encuentra un thrackle con 8
+  aristas, dos con 7 aristas y uno con 6 aristas que son disjuntos a pares o bien, cuando
+  no hay más thrackles que analizar; en este caso el algoritmo retorna un valor $false$.
+
+  Este algoritmo evalúa, en el peor caso, todas las combinaciones posibles de cuatro
+  thrackles con tamaños 8,7,7 y 6 respectivamente.
+
+  Como paso de preparación, este algoritmo requiere tener los datos de los thrackles de
+  tamaño $8,7,7$ y $6$ para $K_8$. Y de manera general sea $P=\{a_1,a_2,\dots,a_m\}$, una
+  partición válida de $n$, es necesario tener los datos de los thrackles de tamaño $a_i$,
+  con $a_i\in P$.
+
+  En nuestra implementación, decidimos almacenar los datos de los thrackles en la memoria
+  del cluster para que el acceso fuera mucho más rápido que leer repetitivamente los
+  archivos creados por el algoritmo de búsqueda de thracklese con $k$ aristas, presentado
+  en la sección~\ref{seccion_algoritmo_kthrackles}.
+
+  Para las particiones presentadas en la tabla~\ref{tabla:particionesk8k9_2}, en la
+  mayoría de los casos no fue necesario construir procedimientos que evaluaran toda la
+  partición, es decir, para el caso de la partición de $9$, $\{8,8,8,8,4\}$, construimos
+  un procedimiento que evalúa si existe una colección de cuatro thrackles de tamaño 8 que
+  sean disjuntos.
+
+  Los procedimientos construidos permitieron dar el resultado del
+  teorema~\ref{teorema:particiones} de la sección~\ref{secc:interseccion_thrackles}. 
+  Estos procedimientos pueden encontrarse en la siguiente liga.
+  HTTPXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  \subsubsection{Análisis de complejidad}
+  El costo computacional de este algoritmo está dado por el número de thrackles de cada
+  tamaño establecido por la partición. Si existen $k$ thrackles de tamaño 8, $m$
+  thrackles de tamaño 7 y $q$ thrackles de tamaño 6. El algoritmo realiza $O(k\dot
+  m^2\dot q)$ operaciones.
+
+  De manera general para una partición válida $P=\{a_1,a_2,\dots,a_m\}$, si existen $t_i$
+  thrackles de tamaño $a_i$, un algoritmo exhaustivo como el aquí presentado tiene, en el
+  peor caso, una complejidad de \[O\left(\prod_{i=1}^m t_i\right). \]
+
+\subsection{Algoritmo para encontrar el anti-thickness de un dibujo de
+$K_n$}\label{secc:anti-thickness-dibujo}

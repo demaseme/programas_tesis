@@ -11,15 +11,17 @@
 \contentsline {chapter}{\numberline {4}Resultados}{41}{chapter.4}
 \contentsline {section}{\numberline {4.1}Cota inferior del anti-thickness geom\IeC {\'e}trico de $K_n$}{41}{section.4.1}
 \contentsline {section}{\numberline {4.2}Descomposiciones inducidas por thrackles m\IeC {\'a}ximos}{48}{section.4.2}
-\contentsline {section}{\numberline {4.3}Intersecci\IeC {\'o}n de thrackles de $K_n$ con $3\leq n \leq 9$.}{52}{section.4.3}
+\contentsline {section}{\numberline {4.3}Intersecci\IeC {\'o}n de thrackles de $K_n$ con $3\leq n \leq 9$.}{53}{section.4.3}
 \contentsline {section}{\numberline {4.4}Algoritmos}{55}{section.4.4}
-\contentsline {subsection}{\numberline {4.4.1}Algoritmo para encontrar thrackles con $k$ aristas}{56}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.1}Algoritmo para encontrar thrackles con $k$ aristas}{55}{subsection.4.4.1}
 \contentsline {subsubsection}{An\IeC {\'a}lisis de complejidad}{58}{section*.37}
 \contentsline {subsection}{\numberline {4.4.2}Algoritmo para la intersecci\IeC {\'o}n de dos thrackles}{59}{subsection.4.4.2}
 \contentsline {subsection}{\numberline {4.4.3}Algoritmo para encontrar colecciones de thrackles m\IeC {\'a}ximos que inducen descomposiciones en thrackles de $K_n$}{62}{subsection.4.4.3}
 \contentsline {subsubsection}{An\IeC {\'a}lisis de complejidad}{64}{section*.43}
-\contentsline {subsection}{\numberline {4.4.4}Algoritmo para verificar la optimalidad de una colecci\IeC {\'o}n de thrackles m\IeC {\'a}ximos}{65}{subsection.4.4.4}
-\contentsline {subsection}{\numberline {4.4.5}Algoritmo para generar particiones v\IeC {\'a}lidas de un entero}{65}{subsection.4.4.5}
-\contentsline {subsection}{\numberline {4.4.6}Algoritmo para encontrar descomposiciones por thrackles de $K_n$ usando particiones de enteros}{66}{subsection.4.4.6}
-\contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{69}{chapter.5}
-\contentsline {chapter}{\numberline {A}Etiquetas de thrackles m\IeC {\'a}ximos}{71}{appendix.Alph1}
+\contentsline {subsection}{\numberline {4.4.4}Algoritmo para generar particiones v\IeC {\'a}lidas de un entero}{65}{subsection.4.4.4}
+\contentsline {subsubsection}{An\IeC {\'a}lisis de complejidad}{66}{section*.48}
+\contentsline {subsection}{\numberline {4.4.5}Algoritmo para encontrar descomposiciones por thrackles de $K_n$ usando particiones de enteros}{68}{subsection.4.4.5}
+\contentsline {subsubsection}{An\IeC {\'a}lisis de complejidad}{71}{section*.51}
+\contentsline {subsection}{\numberline {4.4.6}Algoritmo para encontrar el anti-thickness de un dibujo de $K_n$}{71}{subsection.4.4.6}
+\contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{73}{chapter.5}
+\contentsline {chapter}{\numberline {A}Etiquetas de thrackles m\IeC {\'a}ximos}{75}{appendix.Alph1}
