@@ -21,7 +21,7 @@
 \contentsline {subsection}{\numberline {4.4.4}Algoritmo para generar particiones v\IeC {\'a}lidas de un entero}{65}{subsection.4.4.4}
 \contentsline {subsubsection}{An\IeC {\'a}lisis de complejidad}{66}{section*.48}
 \contentsline {subsection}{\numberline {4.4.5}Algoritmo para encontrar descomposiciones por thrackles de $K_n$ usando particiones de enteros}{68}{subsection.4.4.5}
-\contentsline {subsubsection}{An\IeC {\'a}lisis de complejidad}{71}{section*.51}
-\contentsline {subsection}{\numberline {4.4.6}Algoritmo para encontrar el anti-thickness de un dibujo de $K_n$}{71}{subsection.4.4.6}
-\contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{73}{chapter.5}
-\contentsline {chapter}{\numberline {A}Etiquetas de thrackles m\IeC {\'a}ximos}{75}{appendix.Alph1}
+\contentsline {subsubsection}{An\IeC {\'a}lisis de complejidad}{73}{section*.52}
+\contentsline {subsection}{\numberline {4.4.6}Algoritmo para encontrar el anti-thickness de un dibujo de $K_n$}{73}{subsection.4.4.6}
+\contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{75}{chapter.5}
+\contentsline {chapter}{\numberline {A}Etiquetas de thrackles m\IeC {\'a}ximos}{77}{appendix.Alph1}

@@ -846,36 +846,6 @@ aristas. Luego...Finalmente...
     \label{algo_kthrackles}
   \end{algorithm}
 
-  % La información de los thrackles encontrados para cada $3\leq n \leq 10$ es
-  % almacenada en archivos binarios de nombre \texttt{n\_k\_All\_bool.ths}
-  % donde \texttt{k} es el número de aristas para cada thrackle. El archivo binario
-  % tiene la siguiente estructura:
-  % \begin{enumerate}
-  %   \item Tipo de orden escrito como caracter binario de tipo \texttt{uint16\_t}.
-  %   \item Número de thrackles de tamaño $k$ para determinado tipo de orden
-  %   escrito como caracter binario de tipo \texttt{uint16\_t}.
-  %   \item Para cada thrackle, se escribe una lista de $\binom{n}{2}$ caracteres
-  %   binarios que representan cada una de las aristas, si el $j$-ésimo elemento de
-  %   la lista tiene un $0$ en el $i$-ésimo caracter entonces el thrackle $j$
-  %   tiene la arista $i$. Cada caracter de la lista está escrito con un caracter
-  %   de tipo \texttt{char}.
-  % \end{enumerate}
-  %
-  % La figura~\ref{fig:binaryfile} muestra un ejemplo de la sintaxis
-  % descrita anteriormente.
-  % \begin{figure}[htpb]
-  %   \centering
-  %   \includegraphics[width=0.4\linewidth]{binaryfile}
-  %   \caption{Un segmento de un archivo binario, en este ejemplo $n=6$ y $k=6$.
-  %   La primera línea indica que para el tipo de orden $4$ existen $3$ thrackles
-  %   con $6$ aristas. Las siguientes 3 lineas indican las aristas de cada uno
-  %   de los thrackles con un $1$. Después, para el tipo de orden 5, existe un
-  %   thrackle, para el tipo de orden 6 no existen thrackles con 6 aristas. El
-  %   archivo binario continua de esta manera para cada uno de los tipos de orden
-  %   para $n=6$. Este ejemplo no representa necesariamente los datos reales
-  %   encontrados en este trabajo para $n=6$.}
-  %   \label{fig:binaryfile}
-  % \end{figure}
 
   Los datos de los thrackles máximos encontrados para cada $ 3\leq n \leq 9$
   pueden ser descargados de la siguiente liga:
@@ -1215,15 +1185,93 @@ Este algoritmo fue diseñado para resolver el siguiente problema:
   algoritmos usados para verificar si existen colecciones de thrackles cuyos tamaños
   obedezcan a los elementos de una partición. Este es un algoritmo de \emph{backtracking}, presentamos el pseudocódigo en el algoritmo~\ref{algo:partition_decomposition}.
   \begin{algorithm}[htpb]
+    \LinesNumbered
+    % This is to hide end and get the last vertical line straight
+    \SetKwBlock{Begin}{Begin}{}
+    \SetAlgoLined
     \DontPrintSemicolon
     \SetKwInOut{Input}{Entrada}
     \SetKwInOut{Output}{Salida}
+    \SetKwProg{Forcut}{foreach}{}{}
     \underline{función 8876} $(n,P)$\;
      \Input{Un entero $n$, Una partición válida $P$ de $n$ de tamaño $k$.}
      \Output{$true$, si existe una colección de thrackles disjuntos en la que los tamaños de los thrackles corresponden a los elementos de $P$; $false$ en otro caso.}
-     TESTING\;
+     \Begin{
+     Sea $Z$ un vector booleano de 28 posiciones.
+     \For{$i\gets 0 \dots 28$}{
+      $Z[i]=0$\;
+     }
+     Almacenar el estado actual de $Z$ en el arreglo $Z_1$.\;
+     \ForEach{Thrackle $A$ de tamaño 8}{
+        Sea $A.bedges$ el vector booleano  que representa las aristas de $A$.\;
+        \For{$i \gets 0 \dots 26$}{
+          \If{$A.bedges[i] == 1$}{
+            \If{$Z[i] == 1$}{ % POSICIÓN OCUPADA THRACKLE NO DISJUNTO
+              Restaurar $Z$ a $Z_1$.\;
+              Descartar thrackle actual y continuar con el siguiente de tamaño 8.\;
+            }
+            \Else{
+              $Z[i] \gets 1$\;
+            }
+          }
+        }
+        Almacenar el estado actual de $Z$ en el arreglo $Z_2$.\;
+        \Forcut{Thrackle $B$ de tamaño 7}{
+          Sea $B.bedges$ el vector booleano  que representa las aristas de $B$.\;
+          \For{$i \gets 0 \dots 26$}{
+            \If{$B.bedges[i] == 1$}{
+              \If{$Z[i] == 1$}{ % POSICIÓN OCUPADA THRACKLE NO DISJUNTO
+                Restaurar $Z$ a $Z_2$.\;
+                Descartar thrackle actual y continuar con el siguiente de tamaño 7.\;
+              }
+              \Else{
+                $Z[i] \gets 1$\;
+              }
+            }
+          }
+        }
+     }
+     }
      \caption{Algoritmo para buscar una colección de thrackles disjuntos de $K_n$ dada una partición válida de $n$.}
      \label{algo:partition_decomposition}
+  \end{algorithm}
+
+  \begin{algorithm}
+    \LinesNumbered
+    \setcounter{AlgoLine}{35}
+    \SetKwBlock{Begin}{}{end}
+    \Begin{
+    Almacenar el estado actual de $Z$ en el arreglo $Z_3$.\;
+    \ForEach{Thrackle $C$ de tamaño 7}{
+      Sea $C.bedges$ el vector booleano  que representa las aristas de $C$.\;
+      \For{$i \gets 0 \dots 26$}{
+        \If{$C.bedges[i] == 1$}{
+          \If{$Z[i] == 1$}{ % POSICIÓN OCUPADA THRACKLE NO DISJUNTO
+            Restaurar $Z$ a $Z_3$.\;
+            Descartar thrackle actual y continuar con el siguiente de tamaño 7.\;
+          }
+          \Else{
+            $Z[i] \gets 1$\;
+          }
+        }
+      }
+      Almacenar el estado actual de $Z$ en el arreglo $Z_4$.\;
+      \ForEach{Thrackle $D$ de tamaño 6}{
+        Sea $D.bedges$ el vector booleano  que representa las aristas de $D$.\;
+        \For{$i \gets 0 \dots 26$}{
+          \If{$D.bedges[i] == 1$}{
+            \If{$Z[i] == 1$}{ % POSICIÓN OCUPADA THRACKLE NO DISJUNTO
+              Restaurar $Z$ a $Z_4$.\;
+              Descartar thrackle actual y continuar con el siguiente de tamaño 6.\;
+            }
+            \Else{
+              $Z[i] \gets 1$\;
+            }
+          }
+        }
+      }
+      }
+      }
   \end{algorithm}
   Tomemos el caso de la partición de $8$, $P=\{8,7,7,6\}$, en este caso queremos
   verificar si existe o no una colección de cuatro thrackles, uno de tamaño 8, dos de
@@ -1234,10 +1282,10 @@ Este algoritmo fue diseñado para resolver el siguiente problema:
   $A$ y con $B$ y, finalmente, si existe, buscamos un thrackle $D$, de tamaño 6 que sea
   disjunto con $A,B$ y $C$.
 
-  Para verificar que los thrackles sean disjuntos, mantenemos un arreglo booleano $B$ de $\binom{8}{2}$ posiciones, cuando se analiza un thrackle $T$ de tamaño 8 recorremos el arreglo de aristas de $T$, cuyo tamaño es también $\binom{8}{2}$. Como $T$ tiene 8 aristas entonces el arreglo de aristas de $T$ tiene exactamente 8 posiciones con valor 1
-  y el resto con valor 0. Para cada posición $p$ del arreglo de aristas de $T$ cuyo valor sea 1, marcamos la misma posición en $B$ con un 1. Esto significa que el thrackle $T$ cubre a la arista $p$.
+  Para verificar que los thrackles sean disjuntos, mantenemos un arreglo booleano $Z$ de $\binom{8}{2}$ posiciones, cuando se analiza un thrackle $T$ de tamaño 8 recorremos el arreglo de aristas de $T$, cuyo tamaño es también $\binom{8}{2}$. Como $T$ tiene 8 aristas entonces el arreglo de aristas de $T$ tiene exactamente 8 posiciones con valor 1
+  y el resto con valor 0. Para cada posición $p$ del arreglo de aristas de $T$ cuyo valor sea 1, marcamos la misma posición en $Z$ con un 1. Esto significa que el thrackle $T$ cubre a la arista $p$.
 
-  Si en algún momento, debemos marcar alguna posición $p$ del arreglo $B$ y esta ya tiene un valor de 1 entonces un thrackle, anteriormente analizado, ya cubre esa arista y por lo tanto el thrackle que se está verificando actualmente no es disjunto con alguno anterior. Por lo tanto descartamos ese thrackle y continuamos verificando.
+  Si en algún momento, debemos marcar alguna posición $p$ del arreglo $Z$ y esta ya tiene un valor de 1 entonces un thrackle, anteriormente analizado, ya cubre esa arista y por lo tanto el thrackle que se está verificando actualmente no es disjunto con alguno anterior. Por lo tanto descartamos ese thrackle y continuamos verificando.
 
   Si no encontramos ningún thrackle que sea disjunto con los anteriormente analizados, el
   algoritmo realiza un paso de backtracking descartando el último thrackle que fue
@@ -1268,7 +1316,7 @@ Este algoritmo fue diseñado para resolver el siguiente problema:
   sean disjuntos.
 
   Los procedimientos construidos permitieron dar el resultado del
-  teorema~\ref{teorema:particiones} de la sección~\ref{secc:interseccion_thrackles}. 
+  teorema~\ref{teorema:particiones} de la sección~\ref{secc:interseccion_thrackles}.
   Estos procedimientos pueden encontrarse en la siguiente liga.
   HTTPXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   \subsubsection{Análisis de complejidad}
