@@ -8,6 +8,7 @@
 \usepackage{amsthm}
 \usepackage{amsfonts}
 \usepackage{subcaption}
+\usepackage{setspace} %setstrech
 \usepackage{breqn} %equation break
 %\usepackage{algorithmic}
 \usepackage[linesnumbered,ruled,spanish,vlined]{algorithm2e}
@@ -36,15 +37,16 @@
 \algnewcommand\algorithmicforeach{\textbf{for each}}
 \algdef{S}[FOR]{ForEach}[1]{\algorithmicforeach\ #1\ \algorithmicdo}
 
-\title{
-{Thesis Title}\\
-{\large Centro de Investigación y Estudios Avanzados del IPN}
-}
-\author{David Gustavo Merinos Sosa}
-\date{Day Month Year}
+% \title{
+% {Thesis Title}\\
+% {\large Centro de Investigación y Estudios Avanzados del IPN}
+% }
+% \author{David Gustavo Merinos Sosa}
+% \date{Day Month Year}
 
 \begin{document}
-\maketitle
+\input{Portada.tex}
+% \maketitle
 \chapter*{Abstract}
 \chapter*{Resumen}
 \chapter*{Dedicación}
