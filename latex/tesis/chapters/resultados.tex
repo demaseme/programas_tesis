@@ -568,32 +568,30 @@ Como consecuencia del lema~\ref{lema:existedescomp} y el teorema~\ref{teo:cotain
     \end{proof}
 
 \section{Algoritmos}\label{seccion_algoritmos}
-En esta sección presentamos los algoritmos usados en el trabajo. Empezamos
+En esta sección presentamos los algoritmos usados en este trabajo. Empezamos
 describiendo el algoritmo para encontar thrackles, de cualquier tamaño, dado
 un conjunto de puntos en posición general. Después hablamos del algoritmo
 usado para encontrar la intersección de dos thrackles con el mismo número de
 aristas. Luego...Finalmente...
 
+Los algoritmos fueron implementados en el lenguaje \texttt{C++} en su versión 5 (2017);
+las implementaciones fueron ejecutadas en un \emph{cluster} con las siguientes características:
+\begin{itemize}
+  \item 1
+  \item 2
+  \item 3
+\end{itemize}
+Para almacenar información utilizamos, principalmente, una estructura de datos llamada vector. Un vector es un contenedor que representa a un arreglo que puede cambiar de tamaño.Podemos acceder al vector igual que se hace con un arreglo (usando el operador \texttt{[]}) con la misma complejidad.
 
 \subsection{Algoritmo para encontrar thrackles con $k$
   aristas}\label{seccion_algoritmo_kthrackles}
-  A continuación presentamos el algoritmo para resolver el siguiente problema:
+  A continuación presentamos un algoritmo para resolver el siguiente problema:
   \begin{itemize}
-    \item[Problema] Dado un conjunto de $n$ puntos $S$, encontrar los thrackles de tamaño
-    $k$ de la gráfica completa $K_n(S)$.
-    \item[Entrada]  Un entero $n$, con $ 3 \leq n \leq 10$ y un entero $k$, con $ n \leq
+    \item[] Problema: Dado $n$, deseamos encontrar todos los thrackles de tamaño $k$ de todas las gráficasc ompletas $K_n(S)$, donde $S$ es un conjunto de $n$ puntos.
+    \item[] Entrada: Un entero $n$, con $ 3 \leq n \leq 10$ y un entero $k$, con $ n \leq
     k$.
-    \item[Salida] Una lista de thrackles de tamaño $k$ inducidos por un conjunto de $n$
-    puntos en posición general.
+    \item[] Salida: Por cada tipo de orden de $n$ puntos, una lista de todos los thrackles de tamaño $k$ inducidos por el conjunto.
   \end{itemize}
-
-  Este algoritmo fue implementado en el lenguaje \texttt{C++} en su versión 5 (2017); la
-  implementación fue ejecutada en un \emph{cluster} con las siguientes características:
-
-  Para almacenar información utilizamos, principalmente, una estructura de datos llamada vector.
-  Un vector es un contenedor que representa a un arreglo que puede cambiar de tamaño.Podemos
-  acceder al vector igual que se hace con un arreglo (usando el operador \texttt{[]}) con la misma
-  complejidad.
 
   Este algoritmo requiere tres pasos de preparación para funcionar. Describimos estos pasos a continuación. Para cada tipo de orden $S$:
   \begin{enumerate}
@@ -626,6 +624,54 @@ aristas. Luego...Finalmente...
   de tamaño $k$, este algoritmo usa la matriz de disyunción construida en el
   paso~\ref{paso3} descrito anteriormente. El pseudocódigo se encuentra en el
   algoritmo~\ref{algo_kthrackles}.
+
+  \begin{algorithm}[p]
+      \DontPrintSemicolon
+      \SetKwInOut{Input}{Entrada}
+      \SetKwInOut{Output}{Salida}
+      \underline{función EncontrarThrackle} $(n,k)$\;
+      \Input{Un entero $n$, un entero $k$.}
+      \Output{Una lista de thrackles de tamaño $k$ para cada tipo de orden de $n$.}
+      Sea $C$ un vector de tamaño $k+1$;
+      $C[0]\gets 0$\;
+      $C[i]\gets NIL$ para $ 1 \leq i \leq k+1$\;
+      %\State $C[1]\gets $
+      \texttt{inters\_flag} $\gets$ \texttt{true}\;
+      \texttt{curr\_size} $\gets 0$\;
+      \While{$C[0] < \binom{n}{2}$}{
+        \While{\texttt{curr\_size}$<k$}{
+          \texttt{inters\_flag} $=$ \texttt{true}\;
+          \If{$C[\text{\texttt{curr\_size}}] \geq \binom{n}{2}$}{
+            \texttt{curr\_size} $\gets$  \texttt{curr\_size} $-1$\;
+            \If{\texttt{curr\_size} $<0$}{
+            \Return{Lista $L$ y \texttt{thrackle\_counter}}\;
+            }
+            $C[\text{\texttt{curr\_size}}]\gets C[\text{\texttt{curr\_size}}]+1$\;
+            \textbf{continue}\;
+          }
+          \For{$i\gets 0 \dots \text{\texttt{curr\_size}}-1$}{
+            \texttt{inters\_flag}=\texttt{inters\_flag} $\&\&$\;
+            \texttt{matrix}$[C[i]][C\text{\texttt{curr\_size}}]$\;
+          }
+          \If{\texttt{inters\_flag} $==$ \texttt{False}}{
+            $C[\text{\texttt{curr\_size}}] \gets C[\text{\texttt{curr\_size}}] + 1$\;
+            \textbf{continue}\;
+            }
+          \Else{
+            \If{\texttt{curr\_size}$+1==k$}{
+              \texttt{thrackle\_counter} $\gets$ \texttt{thrackle\_counter} + 1\;
+              Almacenar $C$ en una lista de vectores $L$.\;
+              \textbf{continue}\;
+              }
+            }
+            $C[\text{\texttt{curr\_size}}+1] \gets C[\text{\texttt{curr\_size}}] + 1$\;
+        }
+        \texttt{curr\_size} $\gets$ \texttt{curr\_size} $+1$\;
+      }
+      %\Return{$L$}
+    \caption{Algoritmo para encontrar todos los thrackles de tamaño $k$.}
+    \label{algo_kthrackles}
+  \end{algorithm}
 
   El algoritmo que diseñamos utiliza la técnica de \emph{backtracking},
   recordemos que se desea encontrar todos los thrackles de tamaño $k$. Para
@@ -662,62 +708,7 @@ aristas. Luego...Finalmente...
 
   Mostramos un ejemplo de cómo se llena el vector $C$ en una
   ejecución del algoritmo en la figura~\ref{fig:ejemplo_backtracking}.
-
-  En el  inicio de la ejecución del algoritmo, el vector $C$ está vacío, es
-  decir, que  todas sus entradas tienen un valor nulo. Esto se representa en
-  la raiz del arbol generado implicitamente por el backtracking. En la primera iteración
-  hacemos $C[0] = 0$. Esta inicialización es necesaria para poner
-  en marcha el algoritmo. De esta manera, el algoritmo encuentra primero todos
-  los thrackles que contengan a la arista con etiqueta 0. Una vez que la
-  posición $C[0]$ tenga un valor mayor o igual a $\binom{n}{2}$, el valor de
-  $C[0]$ será igual a 1. Esto hará que el algoritmo busque los thrackles que
-  contengan a la arista con etiqueta 1. Este proceso se repite para todos los
-  valores entre $0$ y $\binom{n}{2}-1$. Esto es representado por los nodos del nivel 1
-  del arbol. Después, para cada nodo $i$ en el nivel 1 del arbol, se generan los nodos
-  que representan un thrackle con las aristas de $i$ y la arista subsecuente en la etiquetación
-  con respecto de la última arista de $i$. Estos nodos conforman el nivel 2 del arbol. En la figura
-  ~\ref{fig:ejemplo_backtracking} mostramos un ejemplo de un árbol generado por el algoritmo que
-  tiene 4 niveles.
-
-  Este algoritmo solamente genera soluciones que son efectivamente thrackles.
-  Puesto que en $C$ solo se avanza a la siguiente posición
-  cuando se encuentra que la arista de la posición actual intersecta a las
-  aristas anteriormente establecidas. Además, el algoritmo genera todos los
-  thrackles con $k$ aristas, si no lo hiciera significaría que no evaluó
-  determinada combinación de aristas, lo cual no es posible, puesto que el algoritmo
-  evalúa implicitamente todas las combinaciones posibles de aristas ya que, para
-  cada entrada $1\leq j\leq k$, $C[j]$ toma valores en el rango
-  $\left[C[j-1],\binom{n}{2}\right]$. Para el caso particular de la entrada
-  $C[0]$, se toman los valores en el rango $\left[ 0, \binom{n}{2}\right]$. Las
-  combinaciones que se descartan son aquellas que no forman un thrackle,
-  estas son las combinaciones que contienen al menos una arista disjunta de
-  alguna de las otras aristas de la combinación.
-
-  \subsubsection{Análisis de complejidad}
-  El caso en el que este algoritmo realiza más cálculos es aquel en el que no se descarta ninguna
-  combinación de tamaño $t$ con $t \leq k$ y por lo tanto el algoritmo analiza, en tiempo $O(t)$,
-  cada combinación. Para establecer el costo computacional del algoritmo es necesario saber cuántas
-  combinaciones de tamaño $t$ existen para cada $t\leq k$ y multiplicar el costo de evaluar cada
-  combinación. Como hay $\binom{n}{2}$ aristas y estamos asumiendo que cualquier combinación de
-  tamaño $t$ es válida, existen $\binom{\binom{n}{2}}{t}$ combinaciones de dicho tamaño. Se
-  necesitan $t \binom{\binom{n}{2}}{t}$ operaciones para evaluar todas las combinaciones de tamaño
-  $t$. En nuestro caso $ t \in [1,10]$, por lo tanto el costo computacional del algoritmo, en el
-  peor caso es:
-  \begin{dmath}
-    \displaystyle O\left( \sum_{t=1}^{10} t\binom{\binom{n}{2}}{t} \right) =
-    O\left(\binom{\binom{n}{2}}{1} + \binom{\binom{n}{2}}{2} + \binom{\binom{n}{2}}{3} +\dots+
-    \binom{\binom{n}{2}}{10} \right) = \frac{563}{1260}n^2 - \frac{2009}{2880}n^3
-    -\frac{104929}{1451520}n^4 + \frac{942563}{2903040}n^5 + \frac{240847}{1548288}n^6 -
-    \frac{1819243}{11612160}n^7 -\frac{243803}{6635520}n^8 + \frac{35789}{1032192}n^9 +
-    \frac{2698441}{371589120}n^{10} - \frac{1048709}{185794560}n^{11} -\frac{26651}{41287680}n^{12}
-    + \frac{8717}{15482880}n^{13} + \frac{19}{589824}n^{14} - \frac{n^{16}}{6193152} +
-    \frac{11}{7741440}n^{17} -\frac{n^{18}}{13762560} - \frac{n^{19}}{37158912} +
-    \frac{n^{20}}{371589120} =
-    O(n^{20}),
-\end{dmath}
-   para $n$ suficientemente grande.
-
-  \begin{figure}[htpb]
+  \begin{figure}[p]
     \centering
     \begin{tikzpicture}[
      node distance = 15mm and 1mm,
@@ -798,54 +789,65 @@ aristas. Luego...Finalmente...
     }
     \label{fig:ejemplo_backtracking}
   \end{figure}
+  En el  inicio de la ejecución del algoritmo, el vector $C$ está vacío, es
+  decir, que  todas sus entradas tienen un valor nulo. Esto se representa en
+  la raíz del árbol generado implicitamente por el backtracking. Podemos pensar que el
+  arbol implicito se construye primero a profundiad, similar a un recorrido de búsqueda
+  en profundidad (DFS). El primer subárbol que se genera, después de la raiz, es aquel
+  cuya raiz tiene a $C[0]=0$ y las demás posiciones con un valor nulo, llamemosle $r_1$.
+  Si aún no se alcanza el tamaño de thrackle deseado, después generamos, como hijo de
+  $r_1$, el subárbol cuya raíz tiene a $C[0]=0$ y $C[1]=1$ y las demás posiciones con un
+  valor nulo, llamemosle $r_2$. Si aún no se alcanza el tamaño de thrackle deseado,
+  después generamos, como hijo de $r_2$, el subárbol cuya raíz tiene a $C[0]=0,C[1]=1$ y
+  $C[2]=2$ y las demás posiciones con un valor nulo. Repetimos este proceso hasta que
+  alcancemos el tamaño de thrackle que buscamos. Cada nodo genera un hijo siempre y
+  cuando las aristas representadas en $C$ se intersecten a pares. En la figura
+  ~\ref{fig:ejemplo_backtracking} mostramos un ejemplo de un árbol generado por el
+  algoritmo que tiene 4 niveles.
 
-  \begin{algorithm}[hpt]
-      \DontPrintSemicolon
-      \SetKwInOut{Input}{Entrada}
-      \SetKwInOut{Output}{Salida}
-      \underline{función EncontrarThrackle} $(n,k)$\;
-      \Input{Un entero $n$, un entero $k$.}
-      \Output{Una lista de thrackles de tamaño $k$ para cada tipo de orden de $n$.}
-      Sea $C$ un vector de tamaño $k+1$;
-      $C[0]\gets 0$\;
-      $C[i]\gets NIL$ para $ 1 \leq i \leq k+1$\;
-      %\State $C[1]\gets $
-      \texttt{inters\_flag} $\gets$ \texttt{true}\;
-      \texttt{curr\_size} $\gets 0$\;
-      \While{$C[0] < \binom{n}{2}$}{
-        \While{\texttt{curr\_size}$<k$}{
-          \texttt{inters\_flag} $=$ \texttt{true}\;
-          \If{$C[\text{\texttt{curr\_size}}] \geq \binom{n}{2}$}{
-            \texttt{curr\_size} $\gets$  \texttt{curr\_size} $-1$\;
-            \If{\texttt{curr\_size} $<0$}{
-            \Return{Lista $L$ y \texttt{thrackle\_counter}}\;
-            }
-            $C[\text{\texttt{curr\_size}}]\gets C[\text{\texttt{curr\_size}}]+1$\;
-            \textbf{continue}\;
-          }
-          \For{$i\gets 0 \dots \text{\texttt{curr\_size}}-1$}{
-            \texttt{inters\_flag}=\texttt{inters\_flag} $\&\&$\;
-            \texttt{matrix}$[C[i]][C\text{\texttt{curr\_size}}]$\;
-          }
-          \If{\texttt{inters\_flag} $==$ \texttt{False}}{
-            $C[\text{\texttt{curr\_size}}] \gets C[\text{\texttt{curr\_size}}] + 1$\;
-            }
-          \Else{
-            \If{\texttt{curr\_size}$+1==k$}{
-              \texttt{thrackle\_counter} $\gets$ \texttt{thrackle\_counter} + 1\;
-              Almacenar $C$ en una lista de vectores $L$.\;
-              \textbf{continue}\;
-              }
-            }
-        }
-        $C[\text{\texttt{curr\_size}}+1] \gets C[\text{\texttt{curr\_size}}] + 1$\;
-        \texttt{curr\_size} $\gets$ \texttt{curr\_size} $+1$\;
-      }
-      %\Return{$L$}
-    \caption{Algoritmo para encontrar todos los thrackles de tamaño $k$.}
-    \label{algo_kthrackles}
-  \end{algorithm}
+  En la primera iteración hacemos $C[0] = 0$. Esta inicialización es necesaria para poner
+  en marcha el algoritmo. De esta manera, el algoritmo encuentra primero todos
+  los thrackles que contengan a la arista con etiqueta 0 en la primera posición. Una vez que la posición $C[0]$ tenga un valor mayor o igual a $\binom{n}{2}$, el valor de
+  $C[0]$ será igual a 1. Esto hará que el algoritmo busque los thrackles que
+  contengan a la arista con etiqueta 1 en la primera posición. Este proceso se repite para todos los valores entre $0$ y $\binom{n}{2}-1$.
+  % Esto es representado por los nodos del nivel 1  del arbol. Después, para cada nodo $i$ en el nivel 1 del arbol, se generan los nodos
+  % que representan un thrackle con las aristas de $i$ y la arista subsecuente en la etiquetación con respecto de la última arista de $i$. Estos nodos conforman el nivel 2 del arbol.
 
+  Este algoritmo solamente genera soluciones que son thrackles.
+  Puesto que en $C$ solo se avanza a la siguiente posición
+  cuando se encuentra que la arista de la posición actual intersecta a las
+  aristas anteriormente establecidas. Además, el algoritmo genera todos los
+  thrackles con $k$ aristas, si no lo hiciera significaría que no evaluó
+  determinada combinación de aristas. Recordemos que las aristas están etiquetadas
+  con enteros desde $0$ hasta $\binom{n}{2}-1$. Supongamos que existe un subconjunto
+  $T=\{a_1,a_2,\dots,a_k\}$ de las etiquetas $\{0,1,2,\dots,\binom{n}{2}-1$ que
+  representa un thrackle de tamaño $k$ y que el algoritmo no evaluó. Existe un subárbol
+  cuya raíz, llamemosle $r_1$ tiene a $C[0]=a_1$ y, por consiguiente $r_1$, tiene como
+  hijo al subárbol cuya raíz, llamemosle $r_2$ tiene a $C[0]=a_1$ y a $C[1]=a_2$ y así
+  sucesivamente hasta llegar a un nodo sin hijos que tiene a $C[0]=a_1,C[1]=a_2,\dots
+  C[k]=a_k$, si el algoritmo no evaluó esta combinación, signfica que no generó alguno
+  de los subárboles, en la línea 25 del algoritmo, que tienen como descendiente al nodo
+  $C[0]=a_1,C[1]=a_2,\dots C[k]=a_k$ y esto sucede cuando existe al menos un par de
+  aristas $a_i,a_j\in T$ que son  disjuntas. Esto contradice la suposición de que $T$
+  representa un thrackle, por lo tanto, si $T$ es un thrackle, entonces el algoritmo lo
+  evalúa, esto sucede en el ciclo \texttt{for} de la línea 15.
+
+  Para el caso particular de la entrada $C[0]$, se toman los valores en el rango $\left[ 0, \binom{n}{2}\right]$. Las combinaciones que se descartan, al hacer la evaluación en la línea 18, son aquellas que no forman un thrackle, estas son las combinaciones que contienen al menos una arista disjunta de alguna de las otras aristas de la combinación.
+
+  \subsubsection{Análisis de complejidad}
+  El caso en el que este algoritmo realiza más cálculos es aquel en el que no se descarta ninguna combinación de tamaño $t$ para $t \leq k$ y por lo tanto el algoritmo analiza, en tiempo $O(t)$, cada combinación en el ciclo de la línea 15. Para establecer el costo computacional del algoritmo es necesario saber cuántas combinaciones de tamaño $t$ existen para cada $t\leq k$ y multiplicar esto por el costo de evaluar cada combinación. Como hay $\binom{n}{2}$ aristas y estamos suponiendo que cualquier combinación de tamaño $t$ es válida, existen $\displaystyle \binom{\binom{n}{2}}{t}$ combinaciones de dicho tamaño. Se necesitan $\displaystyle t \binom{\binom{n}{2}}{t}$ operaciones para evaluar todas las combinaciones de tamaño  $t$. En nuestro caso $ t \in [1,10]$, por lo tanto el costo computacional del algoritmo, en el peor caso es:
+  \begin{dmath}
+    \displaystyle O\left( \sum_{t=1}^{10} t\binom{\binom{n}{2}}{t} \right) =
+    O\left(\binom{\binom{n}{2}}{1} + 2\binom{\binom{n}{2}}{2} + 3\binom{\binom{n}{2}}{3} +\dots+ 10\binom{\binom{n}{2}}{10} \right) = O(n^2)+ O(n^4)+ O(n^6) + \dots + O(n^{20})
+    % \frac{563}{1260}n^2 - \frac{2009}{2880}n^3
+    % -\frac{104929}{1451520}n^4 + \frac{942563}{2903040}n^5 + \frac{240847}{1548288}n^6 -
+    % \frac{1819243}{11612160}n^7 -\frac{243803}{6635520}n^8 + \frac{35789}{1032192}n^9 +
+    % \frac{2698441}{371589120}n^{10} - \frac{1048709}{185794560}n^{11} -\frac{26651}{41287680}n^{12}
+    % + \frac{8717}{15482880}n^{13} + \frac{19}{589824}n^{14} - \frac{n^{16}}{6193152} +
+    % \frac{11}{7741440}n^{17} -\frac{n^{18}}{13762560} - \frac{n^{19}}{37158912} +
+    % \frac{n^{20}}{371589120} = O(n^{20}),
+\end{dmath}
+   para cada tipo de orden de $n$ puntos.
 
   Los datos de los thrackles máximos encontrados para cada $ 3\leq n \leq 9$
   pueden ser descargados de la siguiente liga:
@@ -855,8 +857,8 @@ aristas. Luego...Finalmente...
   \url{http://computacion.cs.cinvestav.mx/~dmerinos/site/archivos_tesis/10.tar.gz}
 
 \subsection{Algoritmo para la intersección de dos thrackles}\label{secc:interseccion_thrackles}
-  Dados dos thrackles con el mismo número de aristas, codificados como cadenas
-  de enteros, aprovechamos el ordenamiento lexicográfico para hacer la
+  Dados dos thrackles con el mismo número de aristas, con un arreglo de enteros que
+  represente a sus aristas, aprovechamos el ordenamiento lexicográfico para hacer la
   operación de intersección de thrackles en tiempo lineal.
   Sea $A$ y $B$ dos vectores que representan las aristas de dos thrackles, con
   $|A|=|B|=k$. El algoritmo~\ref{algo_interseccion} entrega la intersección de $A$ y $B$
@@ -894,15 +896,12 @@ aristas. Luego...Finalmente...
     \label{algo_interseccion}
   \end{algorithm}
 
-\subsection{Algoritmo para encontrar colecciones de thrackles máximos que
-inducen descomposiciones en thrackles de $K_n$}\label{secc:algo_descomposicion_thrackles_maximos}
+\subsection{Algoritmo para encontrar colecciones de thrackles máximos de $K_n$} \label{secc:algo_descomposicion_thrackles_maximos}
   Aquí presentamos un algoritmo para resolver el siguiente problema:
   \begin{itemize}
-    \item[Problema:] Encontrar, para todo tipo de orden de $n$, con $3 \leq n \leq 10$, las
-    colecciones de thrackles máximos que pueden inducir una descomposición de $K_n$.
-    \item[Entrada:] Un entero $n$, con $ 3 \leq n \leq 10$.
-    \item[Salida:] Una lista de colecciones de thrackles máximos que pueden inducir una
-    descomposición de $K_n$.
+    \item[] Problema: Determinar si existen y encontrar, para cada tipo de orden de $n$ puntos, con $3 \leq n \leq 10$, las colecciones de thrackles máximos que pueden inducir una descomposición de $K_n$.
+    \item[] Entrada: Un entero $n$, con $ 3 \leq n \leq 10$.
+    \item[] Salida: Praa cada tipo de orden de $n$ puntos, una lista de colecciones de thrackles máximos que pueden inducir una descomposición de $K_n$.
   \end{itemize}
 
   El algoritmo que diseñamos para este resultado es exhaustivo y secuencial.
