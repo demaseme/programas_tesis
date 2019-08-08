@@ -849,6 +849,9 @@ Para almacenar información utilizamos, principalmente, una estructura de datos 
 \end{dmath}
    para cada tipo de orden de $n$ puntos.
 
+
+     {\huge FALTA COMPARACIÓN CON MUNDO REAL}
+
   Los datos de los thrackles máximos encontrados para cada $ 3\leq n \leq 9$
   pueden ser descargados de la siguiente liga:
   \url{http://computacion.cs.cinvestav.mx/~dmerinos/site/archivos_tesis/3to9.tar.gz}
@@ -901,7 +904,7 @@ Para almacenar información utilizamos, principalmente, una estructura de datos 
   \begin{itemize}
     \item[] Problema: Determinar si existen y encontrar, para cada tipo de orden de $n$ puntos, con $3 \leq n \leq 10$, las colecciones de thrackles máximos que pueden inducir una descomposición de $K_n$.
     \item[] Entrada: Un entero $n$, con $ 3 \leq n \leq 10$.
-    \item[] Salida: Praa cada tipo de orden de $n$ puntos, una lista de colecciones de thrackles máximos que pueden inducir una descomposición de $K_n$.
+    \item[] Salida: Para cada tipo de orden de $n$ puntos, una lista de colecciones de thrackles máximos que pueden inducir una descomposición de $K_n$.
   \end{itemize}
 
   El algoritmo que diseñamos para este resultado es exhaustivo y secuencial.
@@ -912,6 +915,30 @@ Para almacenar información utilizamos, principalmente, una estructura de datos 
   examinamos cuáles tipos de orden cubren, con la unión de sus thrackles máximos, todas
   las aristas de $K_n$.
 
+  \begin{algorithm}[H]
+    \DontPrintSemicolon
+    \SetKwInOut{Input}{Entrada}
+    \SetKwInOut{Output}{Salida}
+    \underline{función FindThrackleCollections} $(n,ot)$\;
+    \Input{Un entero $n$, un entero $ot$ que representa algún tipo de orden válido de
+    $n$.}
+    \Output{Las combinaciones de $At_g(K_n)$ thrackles máximos que pueden inducir una
+    descomposición del dibujo de $K_n$ inducido por el tipo de orden $ot$.}
+    $c \gets n - \left\lfloor\sqrt{2n + \frac{1}{4}} - \frac{1}{2}\right\rfloor$\;
+    $\mathcal{T} \gets $ colección de thrackles máximos del tipo de orden $ot$\;
+    $k \gets |\mathcal{T}|$\;
+    $C \gets $ combinaciones de tamaño $c$ del conjunto $\{1,2,\dots,k\}$\;
+    \ForEach{$t\in C$}{
+      $solution \gets \{T[t[1]],T[t[2]],\dots,T[t[k]]\}$\;
+      \If{$solution$ cubre las aristas de $K_n$}{
+        Almacenar $solution$ en una lista de soluciones.
+        }
+      }
+    \caption{Búsqueda de colecciones de thrackles máximos que inducen una descomposición
+    de $K_n$}
+    \label{algo:descomposicion_thrackles_maximos}
+  \end{algorithm}
+
   Después de la etapa de preparación, podemos empezar la búsqueda de las colecciones de
   thrackles máximos. Mostramos el pseudocódigo en el
   algoritmo~\ref{algo:descomposicion_thrackles_maximos}. Una vez que sabemos cuáles son
@@ -920,27 +947,35 @@ Para almacenar información utilizamos, principalmente, una estructura de datos 
   posibles de $n -  \left\lfloor\sqrt{2n + \frac{1}{4}} - \frac{1}{2}\right\rfloor$
   thrackles máximos. Para cada una de las combinaciones verificamos si esta cubre o no a
   las aristas de $K_n$. Si la combinación cubre, almacenamos las etiquetas en una lista
-  de soluciones y examinamos la siguiente combinación. En caso contrario se descarta esa
+  de soluciones y examinamos la siguiente combinación. En caso contrario descartamos esa
   combinación y continuamos examinando.
 
   Las combinaciones fueron generadas usando el algoritmo descrito en~\cite{Knuth2011A}.
   Mostramos el pseudocódigo del algoritmo para generar las combinaciones en el algoritmo
-  \ref{algo:knuth_combinaciones}. Dado un entero $t$, si queremos generar las
-  combinaciones de $c$ elementos, algoritmo~\ref{algo:knuth_combinaciones} tiene una
-  complejidad de $O\left(\binom{t}{c}\right)$.
+  \ref{algo:knuth_combinaciones} en la página \pageref{algo:knuth_combinaciones}. Dado un
+  entero $t$, si queremos generar las combinaciones de $c$ elementos,
+  algoritmo~\ref{algo:knuth_combinaciones} tiene una complejidad de
+  $O\left(\binom{t}{c}\right) = O(t^c)$.
 
   En nuestro trabajo, $c$ es fija para cada $n$ ya que hacemos $c = At_g(K_n)$.
   Recordemos que $At_g(K_n) = n - \left\lfloor\sqrt{2n+\frac{1}{4}} -
   \frac{1}{2}\right\rfloor$. Sin embargo, $t$ depende de dos parámetros: uno es $n$ y el
-  otro es el tipo de orden de $n$ con el que trabajemos. Por ejemplo, para $n=6$ el tipo
-  de orden $1$ tiene $13$ thrackles máximos, por lo que buscariamos generar las
+  otro es el tipo de orden de tamaño $n$ con el que trabajemos. Por ejemplo, para $n=6$
+  el tipo de orden $1$ tiene $13$ thrackles máximos, por lo que buscariamos generar las
   $\binom{13}{3}$ combinaciones. Por otro lado, el tipo de orden $7$ tiene $5$ thrackles
-  máximos, en este caso necesitamos generar las $\binom{5}{3}$ combinaciones.
+  máximos, por lo que buscariamos generar las $\binom{5}{3}$ combinaciones. Esto tiene un
+  impacto en la complejidad del algoritmo.
 
   Sea $\mathcal{C}=\{c_1,c_2,\dots,c_k\}$ una combinación generada por el algoritmo.
-  Decimos que $c_i\in\mathcal{C}$ representa una etiqueta de un thrackle máximo. Por
-  ejemplo, si $\mathcal{C}=\{23,45,99\}$ entonces $\mathcal{C}$ representa una colección
-  de tres thrackles máximos, los cuales tienen etiquetas 23, 45 y 99 respectivamente.
+  $c_i\in\mathcal{C}$ representa una etiqueta de un thrackle máximo. Recordemos que el
+  algoritmo entrega, para cada tipo de orden de tamaño $n$, una lista
+  $\{\mathcal{C_1},\mathcal{C_1},\dots,\mathcal{C_j}\}$, donde cada $\mathcal{C_i}$ es
+  una colección de thrackles máximos que pueden inducir una descomposición de $K_n$. Por
+  ejemplo, si $\mathcal{C_j}=\{23,45,99\}$ entonces $\mathcal{C_j}$ representa una
+  colección de tres thrackles máximos, los cuales tienen etiquetas 23, 45 y 99
+  respectivamente. Es posible buscar, en el archivo generado por el
+  algoritmo~\ref{algo_kthrackles} que busca thrackles con $k$ aristas, el thrackle que
+  corresponde con determinada etiqueta y realizar operaciones sobre este.
 
   Para cada combinación calculada, el algoritmo verifica si esta cubre o no a las aristas
   de $K_n$. Hacemos esta verficicación con un algoritmo secuencial que recorre el arreglo
@@ -972,52 +1007,22 @@ Para almacenar información utilizamos, principalmente, una estructura de datos 
     \caption{Algoritmo de Knuth para generar las combinaciones de tamaño $t$ del conjunto $\{0,1,2,\dots,n-1\}$.}
     \label{algo:knuth_combinaciones}
   \end{algorithm}
-  \begin{algorithm}[th]
-    \DontPrintSemicolon
-    \SetKwInOut{Input}{Entrada}
-    \SetKwInOut{Output}{Salida}
-    \underline{función FindThrackleCollections} $(n,ot)$\;
-    \Input{Un entero $n$, un entero $ot$ que representa algún tipo de orden válido de
-    $n$.}
-    \Output{Las combinaciones de $At_g(K_n)$ thrackles máximos que pueden inducir una
-    descomposición del dibujo de $K_n$ inducido por el tipo de orden $ot$.}
-    $c \gets n - \left\lfloor\sqrt{2n + \frac{1}{4}} - \frac{1}{2}\right\rfloor$\;
-    $\mathcal{T} \gets $ colección de thrackles máximos del tipo de orden $ot$\;
-    $k \gets |\mathcal{T}|$\;
-    $C \gets $ combinaciones de tamaño $c$ del conjunto $\{1,2,\dots,k\}$\;
-    \ForEach{$t\in C$}{
-      $solution \gets \{T[t[1]],T[t[2]],\dots,T[t[k]]\}$\;
-      \If{$solution$ cubre las aristas de $K_n$}{
-        Almacenar $solution$ en una lista de soluciones.
-        }
-      }
-    \caption{Búsqueda de colecciones de thrackles máximos que inducen una descomposición
-    de $K_n$}
-    \label{algo:descomposicion_thrackles_maximos}
-  \end{algorithm}
+
 
   \subsubsection{Análisis de complejidad}
-
-  De manera general, para un tipo de orden válido de $n$, con $m$ thrackles máximos, el
-  algoritmo~\ref{algo:descomposicion_thrackles_maximos} genera las
-  $\binom{m}{n - \left\lfloor\sqrt{2n + \frac{1}{4}} - \frac{1}{2}\right\rfloor}$
-  combinaciones y después, para cada una, examina, en tiempo $O(n - \left\lfloor\sqrt{2n
-  + \frac{1}{4}} -\frac{1}{2}\right\rfloor \cdot n^2)$, si esta cubre o no a las aristas
-  de $K_n$. Luego, este algoritmo tiene complejidad:
+  Sea $x=n - \left\lfloor\sqrt{2n + \frac{1}{4}} - \frac{1}{2}\right\rfloor$, para un tipo de orden válido (un tipo de orden con al menos $x$ thrackles máximos) de tamaño $n$, con $m$ thrackles máximos, el algoritmo~\ref{algo:descomposicion_thrackles_maximos} genera las
+  $\binom{m}{x}$ combinaciones y después, para cada una, examina, en tiempo $O((n - x) \cdot n^2)$, si esta cubre o no a las aristas de $K_n$. Luego, este algoritmo tiene complejidad:
   \begin{equation}\displaystyle
-    O\left(\binom{m}{n - \left\lfloor\sqrt{2n + \frac{1}{4}} - \frac{1}{2}\right\rfloor}\cdot\left(
-    n - \left\lfloor\sqrt{2n + \frac{1}{4}} -\frac{1}{2}\right\rfloor\right) \cdot n^2 \right) = O \left( \binom{m}{n} n^3 \right)
+    O\left(\binom{m}{x}\cdot ( n- x ) n^2 \right) = O \left( \binom{m}{n} n^3 \right) = O(m^n n^3)
     \label{complejidad_colecciones}
   \end{equation}
 
   Es importante notar que la complejidad establecida en la
-  ecuación~\ref{complejidad_colecciones} es para un solo tipo de orden. Nosotros
-  ejecutamos este algoritmo para cada tipo de orden válido como se describió
-  anteriormente. Para saber cuántos thrackles máximos hay en determinado tipo de orden
-  usamos el algoritmo descrito en la sección~\ref{seccion_algoritmo_kthrackles}.
-  Damos un panorama del número de las $\binom{m}{n}$ combinaciones a evaluar por el
-  algoritmo para el tipo de orden con el mayor número de thrackles máximos para cada $n$,
-  con $6\leq n\leq 10$ en la tabla~\ref{tabla:numero_operaciones_thrackles_maximos}.
+  ecuación~\ref{complejidad_colecciones} es para un tipo de orden. Nosotros
+  ejecutamos este algoritmo para cada tipo de orden válido. Para saber cuántos thrackles
+  máximos hay en determinado tipo de orden usamos el algoritmo~\ref{algo_kthrackles} descrito en la sección~\ref{seccion_algoritmo_kthrackles}. Damos un panorama del número de las $\binom{m}{n}$ combinaciones a evaluar por el algoritmo para el tipo de orden con el mayor número de thrackles máximos para cada $n$, con $6\leq n\leq 10$ en la tabla~\ref{tabla:numero_operaciones_thrackles_maximos}.
+
+    {\huge FALTA COMPARACIÓN CON MUNDO REAL}
 
   \begin{table}[t]
     \centering
