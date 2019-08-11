@@ -567,6 +567,83 @@ Como consecuencia del lema~\ref{lema:existedescomp} y el teorema~\ref{teo:cotain
       aristas corresponde a las particiones válidas de $K_8$ y $K_9$.
     \end{proof}
 
+Mientras estudiabamos las colecciones de thrackles máximos, decidimos calcular el número
+de cruce para encontrar una explicación de la existencia de colecciones de thrackles
+máximos en determinados tipos de orden, detallamos los resultados de este análisis en la
+siguiente sección.
+
+\section{Número de cruce de thrackles maximos }\label{secc:cnthracklemax}
+
+En la sección~\ref{secc:interseccion_thrackles} dimos como resultado el
+teorema~\ref{teorema:particiones} que establece la no existencia de ciertas colecciones
+de thrackles. Durante el desarrollo de este trabajo decidimos analizar el número de cruce
+de cada uno de los thrackles máximos que hay en una colección que puede inducir una
+descomposición de $K_n$. Definimos el número de cruce de una gráfica geométrica a continuación.
+
+\begin{definition}{\emph{Número de cruce de una gráfica geométrica}(\cite{Schaefer2018})}
+  El número de cruce $cr(\mathsf{G})$ de una gráfica geométrica $\mathsf{G}$
+  es el número de cruces propios entre aristas de $\mathsf{G}$.
+\end{definition}
+
+Mostramos ejemplos del número de cruce de gráficas geométricas en la
+figura~\ref{fig:k4_cn}; es posible observar que la gráfica $K_4$ puede ser dibujada con
+un cruce y también puede ser dibujada como gráfica plana.
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.5\textwidth]{k4_cn}
+  \caption{A la izquierda, $K_4$ dibujada con un cruce. A la derecha $K_4$ dibujada sin
+  cruces.}
+  \label{fig:k4_cn}
+\end{figure}
+
+Para los resultados de esta sección, debemos definir el número de cruce de un thrackle
+máximo. Para esto, es necesario mencionar cuántos \emph{no cruces} existen en un thrackle
+geométrico. Para nosotros, un \emph{no cruce} es un par de aristas que son adyacentes
+entre sí.
+
+\begin{lemma} \label{lema:nocruces}
+  Sea $T$ un thrackle y sea $v\in V(T)$ un vértice de $T$. El vértice $v$ causa $\binom{deg(v)}{2}$ \emph{no cruces}. En otras palabras: existen $\binom{deg(v)}{2}$ adyacentes a pares para cada vértice $v\in V(T)$.
+\end{lemma}
+\begin{proof}
+  Sea $e=(a,b)$ una arista de $T$ con extremos $a$ y $b$. Por la definición de thrackle
+  geométrico, toda arista, diferente de $e$, con extremo en $a$ o en $b$ es adyacente con
+  $e$ y por lo tanto no la cruza. Sea $v\in V(T)$ un vértice con grado $deg(v)=k$ y sea
+  $\{(v,b_1),(v,b_2),\dots,(v,b_k)\}$ las aristas con un extremo en $v$. Tenemos que
+  $(v,b_1)$ no cruza a $\{(v,b_2),(v,b_3)\dots,(v,b_k)\}$, esto es $k-1$ no cruces.
+  Luego, $(v,b_2)$ no cruza a $\{(v,b_3),(v,b_4)\dots,(v,b_k)\}$, esto es $k-2$ no cruces. Siguiendo de esta manera hasta la arista $(v,b_k)$, como sus no-cruces ya fueron contados anteriormente, entonces, $(v,b_k)$ aporta 0 no cruces. De esta manera, en total, del vértice $v$ podemos contar $(k-1)+(k-2)+\dots+0$ no cruces, lo que equivale a $\binom{k}{2}$ y como, $k=deg(v)$ el resultado se sigue.
+\end{proof}
+
+\begin{theorem} \label{teorema:cn_thrackle}
+  Sea $T$ un thrackle geométrico, con $m=|E({T})|$ el número de cruce $cr({T})$ de ${T}$ es:
+  \[
+    \binom{m}{2} - \sum_{u \in V({T})} \binom{deg(u)}{2}
+  \]
+\end{theorem}
+\begin{proof}
+  Como $T$ es un thrackle, cada una de las $m$ aristas debe intersectarse a pares
+  exactamente una vez. En particular, podemos asumir que cada par de aristas de ${T}$ se
+  cruza propiamente. Si ${T}$ está compuesto solamente por aristas que se cruzan a pares,
+  se tiene que para cada $u\in V({T})$ $deg(u)=1$ y por lo tanto $\sum_{u \in V({T})}
+  \binom{deg(u)}{2} = 0$ y el resultado se sigue. Sin embargo, debemos tener en cuenta
+  que no necesariamente cada par de aristas se cruza sino que algunas pueden ser
+  adyacentes. Dicho de otra manera, debemos contar cuántos no cruces existen en el
+  thrackle. Por el lema~\ref{lema:nocruces} sabemos que existen exactamente
+  $\binom{deg(v)}{2}$ no cruces por cada vértice $v$ del thrackle. El resultado se sigue.
+  % Sin embargo, por el teorema 12.22 de~\cite{Schaefer2018} sabemos que un thrackle geométrico contiene a lo sumo un ciclo impar y algunos vértices tienen grado uno. Esto implica que pueden existir al menos 3 aristas que conformen un ciclo y por lo tanto no se cruzan sino que son adyacentes. Sustraemos todos los \emph{no cruces} de los $\binom{n}{2}$ que asumimos originalmente. Por el lema X, sabemos cuántos no cruces hay en un thrackle geométrico máximo y el resultado se sigue.
+\end{proof}
+
+Basándonos en el resultado del teorema~\ref{teorema:cn_thrackle}, codificamos un
+algoritmo para encontrar el número de un thrackle. Y además, para cada colección del
+apendice~\ref{apendice_thrackles_inducen} buscamos, para cada thrackle máximo, el número
+de cruce de cada uno. Detallamos el algoritmo mencionado en la
+sección~\ref{secc:algo_cnthracklemax}.
+
+Encontramos, que en cada colección de la lista anteriormente mencionada, el 50\% de los
+thrackles máximos de la colección, tiene un número de cruce mínimo con respecto al número
+de vértices mientras que el otro 50\% de los thrackles tiene número de cruce mucho más
+alto. Reportamos estos resultados en el apéndice~\ref{apendice_thrackles_inducen_cn}.
+
+
 \section{Algoritmos}\label{seccion_algoritmos}
 En esta sección presentamos los algoritmos usados en este trabajo. Empezamos
 describiendo el algoritmo para encontar thrackles, de cualquier tamaño, dado
@@ -1149,11 +1226,11 @@ usando particiones de enteros}\label{secc:descomposiciones_particiones}
 
 Este algoritmo fue diseñado para resolver el siguiente problema:
 \begin{itemize}
-  \item[Problema] Dada una partición $P=\{a_1,a_2,\dots,a_m\}$ de un entero $n$ con
+  \item[] Problema: Dada una partición $P=\{a_1,a_2,\dots,a_m\}$ de un entero $n$ con
   $m < At_g(K_n)$. Encontrar si existe o no una colección
   $\mathcal{C}=\{T_1,T_2,\dots,T_m\}$ de thrackles disjuntos con $|E(T_i)| = a_i$.
-  \item[Entrada] Una partición válida $P$ de $n$.
-  \item[Salida] $true$ si existe una colección de thrackles con las caracteristicas
+  \item[] Entrada: Una partición válida $P$ de $n$.
+  \item[] Salida: $true$ si existe una colección de thrackles con las caracteristicas
   descritas en el problema. $false$ en otro caso.
 \end{itemize}
 
@@ -1335,3 +1412,62 @@ Este algoritmo fue diseñado para resolver el siguiente problema:
 
 \subsection{Algoritmo para encontrar el anti-thickness de un dibujo de
 $K_n$}\label{secc:anti-thickness-dibujo}
+\subsection{Algoritmo para dar el número de cruce de un thrackle máximo}
+\label{secc:algo_cnthracklemax}
+Utilizamos este algoritmo para resolver el siguiente problema:
+
+Este algoritmo fue diseñado para resolver el siguiente problema:
+\begin{itemize}
+  \item[] Problema: Dado un thrackle geométrico, calcular su número de cruce.
+  \item[] Entrada: Las aristas del thrackle representadas en un arreglo booleano.
+  \item[] Salida: El número de cruce del thrackle.
+\end{itemize}
+
+Calculamos el número de cruce de un thrackle como describimos en la sección~\ref{secc:cnthracklemax}. Mostramos el pseudocódigo del algoritmo para realizar los cálculos en el algoritmo~\ref{algo_cnthracklemax}.
+
+\begin{algorithm}[H]
+  \DontPrintSemicolon
+  \SetKwInOut{Input}{Entrada}
+  \SetKwInOut{Output}{Salida}
+  \underline{función CrossingNumberThrackle} $(E,n)$\;
+   \Input{Un arreglo booleano E, de tamaño $\binom{n}{2}$, que representa a las aristas del thrackle.}
+   \Output{Un entero $r$ igual al número de cruce del trackle inducido por $E$.}
+   $i,j,c \gets 0$\;
+   Sea $degs[n]$ un arreglo de enteros, de tamaño $n$\;
+   $th\_size \gets 0$\;
+   $sum \gets 0$\;
+   $r \gets 0$\;
+   \For{$i=0,\dots,\binom{n}{2}$}{
+    \If{$E[i] == 1$}{
+      $th\_size \gets th\_size + 1$\;
+    }
+   }
+   \For{$i = 0,\dots, n$}{
+       \For{$ j = i+1, \dots, n$}{
+           \If{$E[c]$}{
+               $degs[i] \gets degs[i]+1$\;
+               $degs[j] \gets degs[j]+1$\;
+           }
+           $c \gets c+1$\;
+       }
+   }
+   $ans \gets th\_size\cdot \frac{(th\_size-1)}{2}$\;
+   $sum \gets 0$\;
+   \For{$i = 0,\dots, n$}{
+       $sum \gets sum + degs[i]\cdot\frac{(degs[i]-1)}{2}$\;
+   }
+   $r \gets ans-sum$\;
+   \textbf{return} $r$\;
+  \caption{Algoritmo para calcular el número de cruce de un thrackle geométrico.}
+  \label{algo_cnthracklemax}
+\end{algorithm}
+
+\subsubsection{Análisis de complejidad}
+
+Este algoritmo es secuencial. El ciclo de la línea 7, recorre un arreglo de tamaño
+$\binom{n}{2}$ lo que aporta $O(n^2)$ a la complejidad. Los ciclos anidados de las
+líneas 10 y 11 realizan $n + n-1 + n-2 + \dots + 1$ operaciones con complejidad $O(1)$,
+lo que aporta $O(n^2)$  a la complejidad del algoritmo. Finalmente, el ciclo de la
+línea 18 recorre un arreglo de tamaño $n$, lo que aporta $O(n)$ a la complejidad.
+
+Así, la complejidad total del algoritmo es \[ O(n^2) + O(n^2) + O(n) = O(n^2)\].
