@@ -62,7 +62,7 @@ void loadPoints(const int n, const int desired_ot, vector<Point> & P){
   int y = 0;
   read_size = sizeof(char);
   if (n>8) read_size = sizeof(uint16_t);
-  while (ot != desired_ot){
+  while (ot < desired_ot){
     for( int i = 0; i < n ;  i++){
       x = 0; y = 0;
       file_h.read( (char*) &x, read_size);
@@ -70,11 +70,13 @@ void loadPoints(const int n, const int desired_ot, vector<Point> & P){
     }
     ot ++;
   }
+  
   for( int i = 0; i < n ;  i++){
     x = 0; y = 0;
     file_h.read( (char*) &x, read_size);
     file_h.read( (char*) &y, read_size);
     P[i].x = x;
     P[i].y = y;
+    printf("x,y: %d,%d\n",x,y);
   }
 }

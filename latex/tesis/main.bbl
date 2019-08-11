@@ -4,7 +4,7 @@
   \def\url#1{{\tt #1}}\fi
 \expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
 
-\bibitem[{Aichholzer et~al.(2002)Aichholzer, Aurenhammer, \&
+\bibitem[{Aichholzer \emph{et~al.}(2002)Aichholzer, Aurenhammer, \&
   Krasser}]{Aichholzer2002}
 Aichholzer, O., Aurenhammer, F., \& Krasser, H. (2002).
 \newblock Enumerating order types for small point sets with applications.
@@ -16,7 +16,7 @@ Aichholzer, O., \& Krasser, H. (2001).
   results.
 \newblock In {\em CCCG\/}, vol.~1, (pp. 17--20).
 
-\bibitem[{Araujo et~al.(2005)Araujo, Dumitrescu, Hurtado, Noy, \&
+\bibitem[{Araujo \emph{et~al.}(2005)Araujo, Dumitrescu, Hurtado, Noy, \&
   Urrutia}]{Araujo2005}
 Araujo, G., Dumitrescu, A., Hurtado, F., Noy, M., \& Urrutia, J. (2005).
 \newblock On the chromatic number of some geometric type kneser graphs.
@@ -27,7 +27,7 @@ Chartrand, G., \& Zhang, P. (2008).
 \newblock {\em Chromatic Graph Theory\/}.
 \newblock Chapman and Hall/CRC, 1 ed.
 
-\bibitem[{Dillencourt et~al.(2004)Dillencourt, Eppstein, \&
+\bibitem[{Dillencourt \emph{et~al.}(2004)Dillencourt, Eppstein, \&
   Hirschberg}]{Dillencourt2004}
 Dillencourt, M.~B., Eppstein, D., \& Hirschberg, D.~S. (2004).
 \newblock Geometric thickness of complete graphs.
@@ -39,21 +39,21 @@ Dujmovic, V., \& Wood, D.~R. (2017).
 \newblock Thickness and antithickness of graphs.
 \newblock {\em CoRR\/}, {\em abs/1708.04773\/}.
 
-\bibitem[{Fabila-Monroy et~al.(2017)Fabila-Monroy, Hidalgo-Toscano, Lea{\~n}os,
-  \& Lomel{\'\i}-Haro}]{Lomeli2018}
+\bibitem[{Fabila-Monroy \emph{et~al.}(2017)Fabila-Monroy, Hidalgo-Toscano,
+  Lea{\~n}os, \& Lomel{\'\i}-Haro}]{Lomeli2018}
 Fabila-Monroy, R., Hidalgo-Toscano, C., Lea{\~n}os, J., \& Lomel{\'\i}-Haro, M.
   (2017).
 \newblock The chromatic number of the disjointness graph of the double chain.
 \newblock {\em arXiv preprint arXiv:1711.05425\/}.
 
-\bibitem[{Fabila-Monroy et~al.(2018{\natexlab{a}})Fabila-Monroy, Jonsson,
-  Valtr, \& Wood}]{Fabila-Monroy2018}
+\bibitem[{Fabila-Monroy \emph{et~al.}(2018{\natexlab{a}})Fabila-Monroy,
+  Jonsson, Valtr, \& Wood}]{Fabila-Monroy2018}
 Fabila-Monroy, R., Jonsson, J., Valtr, P., \& Wood, D.~R. (2018{\natexlab{a}}).
 \newblock The exact chromatic number of the convex segment disjointness graph.
 \newblock {\em arXiv preprint arXiv:1804.01057\/}.
 
-\bibitem[{Fabila-Monroy et~al.(2018{\natexlab{b}})Fabila-Monroy, Jonsson,
-  Valtr, \& Wood}]{Fabila-Monroy2018-poly}
+\bibitem[{Fabila-Monroy \emph{et~al.}(2018{\natexlab{b}})Fabila-Monroy,
+  Jonsson, Valtr, \& Wood}]{Fabila-Monroy2018-poly}
 Fabila-Monroy, R., Jonsson, J., Valtr, P., \& Wood, D.~R. (2018{\natexlab{b}}).
 \newblock The exact chromatic number of the convex segment disjointness graph.
 \newblock {\em arXiv preprint arXiv:1804.01057\/}, (p.~6).

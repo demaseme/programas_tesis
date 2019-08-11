@@ -10,16 +10,17 @@
 \BOOKMARK [0][-]{chapter.4}{Resultados}{}% 10
 \BOOKMARK [1][-]{section.4.1}{Cota inferior del anti-thickness geom\351trico de K_n}{chapter.4}% 11
 \BOOKMARK [1][-]{section.4.2}{Descomposiciones inducidas por thrackles m\341ximos}{chapter.4}% 12
-\BOOKMARK [1][-]{section.4.3}{Intersecci\363n de thrackles de K_n con 3n 9.}{chapter.4}% 13
-\BOOKMARK [1][-]{section.4.4}{N\372mero de cruce de thrackles maximos }{chapter.4}% 14
-\BOOKMARK [1][-]{section.4.5}{Algoritmos}{chapter.4}% 15
-\BOOKMARK [2][-]{subsection.4.5.1}{Algoritmo para encontrar thrackles con k aristas}{section.4.5}% 16
-\BOOKMARK [2][-]{subsection.4.5.2}{Algoritmo para la intersecci\363n de dos thrackles}{section.4.5}% 17
-\BOOKMARK [2][-]{subsection.4.5.3}{Algoritmo para encontrar colecciones de thrackles m\341ximos de K_n}{section.4.5}% 18
-\BOOKMARK [2][-]{subsection.4.5.4}{Algoritmo para generar particiones v\341lidas de un entero}{section.4.5}% 19
-\BOOKMARK [2][-]{subsection.4.5.5}{Algoritmo para encontrar descomposiciones por thrackles de K_n usando particiones de enteros}{section.4.5}% 20
-\BOOKMARK [2][-]{subsection.4.5.6}{Algoritmo para encontrar el anti-thickness de un dibujo de K_n}{section.4.5}% 21
-\BOOKMARK [2][-]{subsection.4.5.7}{Algoritmo para dar el n\372mero de cruce de un thrackle m\341ximo}{section.4.5}% 22
-\BOOKMARK [0][-]{chapter.5}{Conclusiones y trabajo futuro}{}% 23
-\BOOKMARK [0][-]{appendix.Alph1}{Etiquetas de thrackles m\341ximos}{}% 24
-\BOOKMARK [0][-]{appendix.Alph2}{N\372meros de cruce para thrackles m\341ximos}{}% 25
+\BOOKMARK [1][-]{section.4.3}{Anti-thickness de gr\341ficas geom\351tricas sin thrackles m\341ximos}{chapter.4}% 13
+\BOOKMARK [1][-]{section.4.4}{Intersecci\363n de thrackles de K_n con 3n 9.}{chapter.4}% 14
+\BOOKMARK [1][-]{section.4.5}{N\372mero de cruce de thrackles maximos }{chapter.4}% 15
+\BOOKMARK [1][-]{section.4.6}{Algoritmos}{chapter.4}% 16
+\BOOKMARK [2][-]{subsection.4.6.1}{Algoritmo para encontrar thrackles con k aristas}{section.4.6}% 17
+\BOOKMARK [2][-]{subsection.4.6.2}{Algoritmo para la intersecci\363n de dos thrackles}{section.4.6}% 18
+\BOOKMARK [2][-]{subsection.4.6.3}{Algoritmo para encontrar colecciones de thrackles m\341ximos de K_n}{section.4.6}% 19
+\BOOKMARK [2][-]{subsection.4.6.4}{Algoritmo para generar particiones v\341lidas de un entero}{section.4.6}% 20
+\BOOKMARK [2][-]{subsection.4.6.5}{Algoritmo para encontrar descomposiciones por thrackles de K_n usando particiones de enteros}{section.4.6}% 21
+\BOOKMARK [2][-]{subsection.4.6.6}{Algoritmo para encontrar el anti-thickness de un dibujo de K_n}{section.4.6}% 22
+\BOOKMARK [2][-]{subsection.4.6.7}{Algoritmo para dar el n\372mero de cruce de un thrackle m\341ximo}{section.4.6}% 23
+\BOOKMARK [0][-]{chapter.5}{Conclusiones y trabajo futuro}{}% 24
+\BOOKMARK [0][-]{appendix.Alph1}{Etiquetas de thrackles m\341ximos}{}% 25
+\BOOKMARK [0][-]{appendix.Alph2}{N\372meros de cruce para thrackles m\341ximos}{}% 26

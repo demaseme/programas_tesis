@@ -348,8 +348,8 @@ Como consecuencia del lema~\ref{lema:existedescomp} y el teorema~\ref{teo:cotain
   Verificamos la optimalidad de las colecciones de thrackles máximos y encontramos
   que ninguna colección, para los tipos de orden descritos anteriormente,
   es óptima ya que en cada una existe al menos un par de thrackles cuya intersección tiene
-  tamaño mayor a uno. Para este proceso utilizamos el algoritmo de intersección de
-  thrackles descrito en la sección~\ref{secc:interseccion_thrackles}. Si la intersección
+  tamaño mayor a uno. Para este proceso utilizamos el algoritmo~\ref{algo_interseccion} de intersección de
+  thrackles descrito en la sección~\ref{secc:algo_interseccion_thrackles}. Si la intersección
   de cada par de thrackles de la colección es exactamente de tamaño 1, entonces la
   colección es óptima, de otra manera, la colección no es óptima. Este resultado nos
   permite dar el siguiente teorema.
@@ -360,10 +360,9 @@ Como consecuencia del lema~\ref{lema:existedescomp} y el teorema~\ref{teo:cotain
   \end{theorem}
   \begin{proof}
     Se sigue de los algoritmos de la sección \ref{secc:descomposicion_thrackles_maximos}
-    y la sección~\ref{secc:algoritmo_optimalidad}. El primero busca todas
+    y la verificación de optimalidad. El primero busca todas
     las descomposiciones posibles inducidas por colecciones de thrackles máximos.
-    El segundo verifica la optimalidad de cada una de las colecciones
-    encontradas por el primer algoritmo. Econtramos que no existe ninguna
+    Econtramos que no existe ninguna
     colección de thrackles máximos óptima para ningun tipo de orden diferente del convexo para
     $3\leq n\leq 10$.
   \end{proof}
@@ -443,6 +442,40 @@ Como consecuencia del lema~\ref{lema:existedescomp} y el teorema~\ref{teo:cotain
     indicados en la figura como $O.T.$}
     \label{fig:descomposicionesk4_k9}
   \end{figure}
+
+  En esta tesis decidimos analizar qué pasa con el anti-thickness de los tipos de orden en los que no
+  existe ni un thrackle máximo, para esto usamos un algoritmo que encuentra, de manera exhaustiva, el
+  anti-thickness de un dibujo dado. Explicamos este resultado a continuación.
+
+  \section{Anti-thickness de gráficas geométricas sin thrackles máximos}
+
+  Una vez que obtuvimos el anti-thickness geométrico exacto para gráficas completas con hasta 10 vértices,
+  y al observar que podemos alcazar este usando colecciones de thrackles máximos, nos preguntamos ¿Cómo es
+  el anti-thickness para los dibujos que no tienen thrackles máximos? ¿Es mayor? Y sí es así, ¿cuánto más?
+
+  Para responder estas interrogantes no es posible formar colecciones de thrackles máximos y evaluar la
+  cobertura de aristas. Por esta razón construimos un algoritmo que encuentra el anti-thickness de un
+  dibujo geométrico inducido por un conjunto de $n$ puntos. El algoritmo es recursivo y usa una técnica
+  de backtracking. Discutimos con más detalle el algoritmo en la sección X.
+
+  En teoría, este algoritmo puede encontrar el anti-thickness de cualquier dibujo, para cualquier $n \geq
+  3$, sin embargo, debido a su costo computacional, solamente hicimos experimentos para $n\leq 8$.
+  Utilizando el algoritmo A para encontrar thrackles máximos descrito en la sección X, listamos cuáles
+  son los tipos de orden que no tienen thrackles máximos. La lista de cada uno de los tipos de orden que
+  cumplen con esta característica puede ser descargada en la siguiente liga: \url{http.ABCDEFGHIJLKL.com}.
+
+  Recordando el trabajo de~\cite{Araujo2005} donde definen:
+  \[
+  d(n) = \max\{\chi(D(S)): S\subset \mathbb{R}^2 \text{ está en posición general}, |S|=n\},
+  \]
+  y donde además prueban que :
+  \[
+  5\left\lfloor\frac{n}{7}\right\rfloor \leq d(n) \leq \min(n-2,n-\frac{1}{2}-\frac{\lfloor \lg \lg n\rfloor}{2}).
+  \]
+  Con nuestros resultados podemos decir que encontramos el valor exacto de $d(n)$ para
+  $n\in\{3,4,5,6,7,8\}$. Por ejemplo, para $n=8$, tenemos $5 \leq d(8) \leq 6$, sin embargo, nuestro
+  algoritmo encontró un dibujo de $K_8$ que requiere al menos 6 thrackles en su descomposición. Esto
+  implica que $6 \leq d(8) \leq 6$ y por lo tanto, $d(8) = 6$. Los números de tipo de orden de tamaño $n$, para $n \in [3,8]$, para los que se ejecutó el  algoritmo y el anti-thickness encontrado para cada uno pueden descargarse desde la siguiente liga: (\url{http:ABCDEFGHIJLKL.COM}).
 
   En la siguiente sección analizamos, para $ 3\leq n\leq 9$, cómo
   se comporta la intersección de thrackles, no necesariamente máximos, de los
@@ -571,7 +604,6 @@ Mientras estudiabamos las colecciones de thrackles máximos, decidimos calcular 
 de cruce para encontrar una explicación de la existencia de colecciones de thrackles
 máximos en determinados tipos de orden, detallamos los resultados de este análisis en la
 siguiente sección.
-
 \section{Número de cruce de thrackles maximos }\label{secc:cnthracklemax}
 
 En la sección~\ref{secc:interseccion_thrackles} dimos como resultado el
@@ -936,7 +968,7 @@ Para almacenar información utilizamos, principalmente, una estructura de datos 
    puede ser descargado de la siguiente liga:
   \url{http://computacion.cs.cinvestav.mx/~dmerinos/site/archivos_tesis/10.tar.gz}
 
-\subsection{Algoritmo para la intersección de dos thrackles}\label{secc:interseccion_thrackles}
+\subsection{Algoritmo para la intersección de dos thrackles}\label{secc:algo_interseccion_thrackles}
   Dados dos thrackles con el mismo número de aristas, con un arreglo de enteros que
   represente a sus aristas, aprovechamos el ordenamiento lexicográfico para hacer la
   operación de intersección de thrackles en tiempo lineal.
