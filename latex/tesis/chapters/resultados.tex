@@ -1444,62 +1444,214 @@ Este algoritmo fue diseñado para resolver el siguiente problema:
 
 \subsection{Algoritmo para encontrar el anti-thickness de un dibujo de
 $K_n$}\label{secc:anti-thickness-dibujo}
-\subsection{Algoritmo para dar el número de cruce de un thrackle máximo}
-\label{secc:algo_cnthracklemax}
-Utilizamos este algoritmo para resolver el siguiente problema:
 
-Este algoritmo fue diseñado para resolver el siguiente problema:
-\begin{itemize}
-  \item[] Problema: Dado un thrackle geométrico, calcular su número de cruce.
-  \item[] Entrada: Las aristas del thrackle representadas en un arreglo booleano.
-  \item[] Salida: El número de cruce del thrackle.
-\end{itemize}
+  El algoritmo presentado en esta sección resuelve el siguiente problema:
+  \begin{itemize}
+    \item[] Problema: Dado un conjunto de $n$ puntos en posición general, deseamos encontrar el
+    anti-thickness de la gráfica geométrica completa inducida por el conjunto.
+    \item[] Entrada: Un conjunto de $n$ puntos en posición general.
+    \item[] Salida: El anti-thickness de la gráfica completa inducida por el conjunto de puntos.
+  \end{itemize}
 
-Calculamos el número de cruce de un thrackle como describimos en la sección~\ref{secc:cnthracklemax}. Mostramos el pseudocódigo del algoritmo para realizar los cálculos en el algoritmo~\ref{algo_cnthracklemax}.
+  Este es un algoritmo exhaustivo y recursivo que usa backtracking para encontrar el anti-thickness de un
+  dibujo de $K_n$. Esta tarea es realizada buscando colecciones de thrackles cuyo tamaño sea mínimo justo
+  como en la definición de anti-thickness de un dibujo presentado en la sección~\ref{secc:anti-thickness}.
+  El algoritmo busca el thrackle de mayor tamaño posible en cada llamada recursiva para intentar agregarlo a la colección. Para poder agregarlo debe ser disjunto con los thrackles que ya existan en la colección. El algoritmo termina cuando no puede encontrar más colecciones de thrackles que cubran la gráfica completa y que tenga tamaño mínimo o bien, cuando las colecciones que encuentra son más grandes que el anti-thickness encontrado actualmente.
 
-\begin{algorithm}[H]
-  \DontPrintSemicolon
-  \SetKwInOut{Input}{Entrada}
-  \SetKwInOut{Output}{Salida}
-  \underline{función CrossingNumberThrackle} $(E,n)$\;
-   \Input{Un arreglo booleano E, de tamaño $\binom{n}{2}$, que representa a las aristas del thrackle.}
-   \Output{Un entero $r$ igual al número de cruce del trackle inducido por $E$.}
-   $i,j,c \gets 0$\;
-   Sea $degs[n]$ un arreglo de enteros, de tamaño $n$\;
-   $th\_size \gets 0$\;
-   $sum \gets 0$\;
-   $r \gets 0$\;
-   \For{$i=0,\dots,\binom{n}{2}$}{
-    \If{$E[i] == 1$}{
-      $th\_size \gets th\_size + 1$\;
+  Este algoritmo requiere que se lean los puntos y se induzca la gráfica completa así como la inicialización
+  de la matriz de disyunción de la misma que mencionamos en la sección~\ref{seccion_algoritmo_kthrackles} del algoritmo de búsqueda de thrackles con $k$ aristas. A continuación presentamos el pseudcódigo del núcleo del algoritmo. Las variables $minAt,matrix,cols,n,coveredEdges$ pueden considerarse variables globales. Donde $minAt$ es un entero que representa el tamaño mínimo de la colección de thrackles encontrada hasta determinado momento,$matrix$ representa la matriz de disyunción previamente construida, $cols$ es un entero que representa el número de columnas en la matriz de disyunción y $cols=\binom{n}{2}-1$ y $coveredEdges$ es un vector de enteros que indica cuáles aristas han sido cubiertas por alguna colección en determinado momento.
+
+  En el algoritmo representamos un thrackle con un vector de enteros que representan las etiquetas de las
+  aristas que inducen al thrackle. El vector de enteros tiene valores desde $0$ a $\binom{n}{2}-1$ ya que
+  este es el rango de etiquetación de las aristas de $K_n$.
+  \begin{algorithm}[p]
+    \DontPrintSemicolon
+    \SetKwInOut{Input}{Entrada}
+    \SetKwInOut{Output}{Salida}
+    \underline{función} exhaustive\_at $ (current\_thrackle,LevelAt) $\;
+    \Input{Un vector de enteros que representa las aristas de un thrackle, un entero que representa el
+    tamaño de la colección de thrackles actual.}
+    \Output{El anti-thickness de la gráfica completa inducida por un conjunto de puntos.}
+    \If{ $LevelAt \geq minAt $}{
+      \textbf{return}\;
     }
-   }
-   \For{$i = 0,\dots, n$}{
-       \For{$ j = i+1, \dots, n$}{
-           \If{$E[c]$}{
-               $degs[i] \gets degs[i]+1$\;
-               $degs[j] \gets degs[j]+1$\;
-           }
-           $c \gets c+1$\;
-       }
-   }
-   $ans \gets th\_size\cdot \frac{(th\_size-1)}{2}$\;
-   $sum \gets 0$\;
-   \For{$i = 0,\dots, n$}{
-       $sum \gets sum + degs[i]\cdot\frac{(degs[i]-1)}{2}$\;
-   }
-   $r \gets ans-sum$\;
-   \textbf{return} $r$\;
-  \caption{Algoritmo para calcular el número de cruce de un thrackle geométrico.}
-  \label{algo_cnthracklemax}
-\end{algorithm}
+    \If{ $coveredEdges$.size() $== cols$ }{
+      \If{$LevelAt < minAt$}{
+        $minAt = LevelAt$ \;
+      }
+      \textbf{return}\;
+    }
+    \Else{
+      Sea $local\_desc$ un vector de enteros.\;
+      \While{true}{
+        Sea $thrackle$ un vector de vector de enteros.\;
+        $val \gets$ \texttt{next}($local\_desc,thrackle,current\_thrackle,at$)\;
+        \If{$!val$}{
+          \textbf{return}\
+        }
+        $local\_desc$.push\_back($thrackle$)\;
+        $coveredEdges \gets coveredEdges \cup thrackle$\;
+        \texttt{exhaustive\_at}($thrackle,LevelAt+1$)\;
+        $coveredEdges \gets coveredEdges \cap thrackle$\;
+      }
+    }
+    \caption{Pseudcódigo del algoritmo que encuentra el anti-thickness de una gráfica completa inducida por
+    un conjunto de puntos $S$.}
+    \label{algo_exhaustive_at}
+  \end{algorithm}
 
-\subsubsection{Análisis de complejidad}
+  Este algoritmo construye, implicitamente, un árbol en el que cada nodo es un thrackle y un camino desde
+  la raiz hasta algún nodo es una colección de thrackles. Una colección de thrackles es una descomposición
+  si la intersección a pares de cada thrackle en la colección es vacía y si la unión de las aristas de
+  todos los thrackles es igual a las aristas de $K_n$. Decimos que dos thrackles son compatibles si su
+  intersección es vacía. El algoritmo baja de nivel en el árbol cuando encuentra un thrackle compatible con
+  el resto de los thrackles que ya están en la colección.
 
-Este algoritmo es secuencial. El ciclo de la línea 7, recorre un arreglo de tamaño
-$\binom{n}{2}$ lo que aporta $O(n^2)$ a la complejidad. Los ciclos anidados de las
-líneas 10 y 11 realizan $n + n-1 + n-2 + \dots + 1$ operaciones con complejidad $O(1)$,
-lo que aporta $O(n^2)$  a la complejidad del algoritmo. Finalmente, el ciclo de la
-línea 18 recorre un arreglo de tamaño $n$, lo que aporta $O(n)$ a la complejidad.
+  Procedemos a explicar las líneas de este algoritmo para entender mejor qué es lo que hace. La línea 2
+  verifica si el nivel actual en el árbol es mayor al mínimo encontrado hasta el momento. Si es así la
+  llamada a la función termina. Esta verificación es útil cuando ya se encontró una descomposición de $K_n$
+  de tamaño $t$, y el tamaño de la colección actual es mayor o igual a $t$, es obvio que esa colección no
+  mejorará el resultado actual de $t$ así que evitamos seguir por ese camino. La verificación de la línea 4
+  funciona para saber si la colección de thrackles ya cubre las aristas de la gráfica completa. Si
+  la verificación es positiva, quiere decir que se ha encontrado una descomposición. En la línea 5 se
+  procede a evaluar si la descomposición es más pequeña que alguna encontrada anteriormente, si es así, se
+  actualiza el valor de $minAt$ en la línea 6. Finalmente, en la línea 7, terminamos la llamada recursiva.
+  El bloque \texttt{else} de la línea 8 se ejecuta cuando aún no se ha encontrado una descomposición. En la
+  línea 9 declaramos un vector de enteros que nos servirá para almacenar los hijos del nodo actual del
+  árbol. El ciclo \texttt{while} de las líneas 10 a la 18 es en donde se hace la búsqueda de thrackles para
+  la descomposición. En la línea 11 declaramos un vector de enteros $thrackle$, en él, almacenaremos un
+  thrackle compatible con el thrackle actual $current\_thrackle$. En la línea 12 buscamos el thrackle
+  compatible más inmediato posible usando un procedimiento que busca, dada una colección de aristas, un
+  thrackle compatible. Explicamos este procedimiento más adelante. Si \texttt{next} encuentra un thrackle,
+  lo almacena en la variable $thrackle$ y val adquiere un valor positivo o de $true$, en caso contrario
+  $val$ tiene un valor negativo o de $false$. La línea 13 verifica si se encontró o no un thrackle
+  compatible; si no se encontró, la llamada recursiva es terminada en la línea 14. La línea 15 agrega el
+  vector $thrackle$ a la lista de descendientes $local\_desc$. Esto indica que $thrackle$ es hijo de
+  $current\_thrackle$ en el árbol. Esta información es usada por el procedimiento \texttt{next}. La línea
+  16 actualiza la lista de aristas cubiertas hasta el momento. La linea 17 realiza la llamada recursiva
+  para seguir bajando en el árbol y verificar si ya se ha cubierto a todas las aristas de $K_n$. La linea
+  18 quita de la lista de aristas cubiertas a las aristas cubiertas por $thrackle$. Esto permite realizar
+  el backtracking en la siguiente iteración del ciclo \texttt{while}.
 
-Así, la complejidad total del algoritmo es \[ O(n^2) + O(n^2) + O(n) = O(n^2)\].
+  Para saber cuáles aristas han sido cubiertas por la colección de thrackles mantenemos registro de las
+  aristas de cada thrackle haciendo la operación de unión. El vector $coveredEdges$ contiene enteros desde
+  $0$ hasta $\binom{n}{2}-1$. Cada vez que se trabaja con un thrackle compatible se agrega, al vector
+  $coveredEdges$, el contenido del vector que representa al thrackle.
+
+  En la figura \ref{fig:exhaustive1} mostramos un camino desde la raiz hasta un nodo $T_3$. En cada uno de
+  los nodos se representa la información de los thrackles que conforman una descomposición de un dibujo de
+  $K_6$. La gráfica $K_6$ tiene 15 aristas por lo que las etiquetas de las aristas de los thrackles van
+  desde $0$ hasta $15$. En este ejemplo, una vez que se encontró la descomposición de tres thrackles $T_1,T_2$ y $T_3$ el valor de $minAt$ es igual a 3. Por ello el algoritmo evitará analizar colecciones de 3 o más thrackles. El algoritmo ignora estas colecciones al terminar prematuramente las llamadas recursivas en la línea 3 del pseudcódigo.
+  \begin{figure}
+    \centering
+    \begin{subfigure}{.5\textwidth}
+      \centering
+      \includegraphics[width=0.7\textwidth]{exhaustive_ex1}
+
+    \end{subfigure}\hfill%
+    \begin{subfigure}{.5\textwidth}
+      \centering
+      \includegraphics[width=0.7\textwidth]{exhaustive_ex1b}
+
+    \end{subfigure}\hfill%
+    \caption{En la figura de la izquierda: una descomposición de algún dibujo de $K_6$ por tres thrackles
+    $T_1,T_2$ y $T_3$. Cuando $T_1$ es analizado en el algoritmo, las aristas con etiquetas $0,1,3,4,5$ y
+    $6$ son agregadas al vector $coveredEdges$ y después se hace la llamada recursiva con
+    $current\_thrackle=T_1$ y $LevelAt=1$, en esta llamada recursiva el procedimiento \texttt{next}
+    encuentra a $T_2$ y lo agrega como parte de la colección al hacer la unión de sus aristas con el vector
+    $coveredEdges$. Después se  hace la llamada recursiva con $current\_thrackle=T_2$ y $LevelAt=2$, en
+    esta llamada recurisva el procedimiento \texttt{next} encuentra a $T_3$ y lo agrega como parte de la
+    colección al hacer la unión  de sus aristas con el vector $coveredEdges$. Después se hace la llamada
+    recursiva y se detecta que todas las aristas han sido cubiertas por lo que se actualiza el valor de
+    $minAt$ y se termina la última llamada recursiva. En la figura de la derecha: Después de terminar la
+    llamada recursiva se descarta $T_3$ y \texttt{next} busca, a partir de $T_2$ el siguiente thrackle
+    compatible. En este ejemplo, se encuentra a $T_4$ que es un thrackle con 3 aristas. En la colección de
+    los tres thrackles $T_1,T_2,T_4$ falta la arista con etiqueta 9. El algoritmo intentaría buscar el
+    próximo thrackle, de tamaño 1, que cubra esta arista en la siguiente llamada recursiva. Sin embargo,
+    antes de buscar un thrackle comparará las variables $LevelAt$ y $minAt$. Como son iguales, evitará
+    seguir buscando un thrackle y finalizará la llamada recursiva descartando así a $T_4$. Nótese que en este momento la instancia del vector $local\_desc$ tiene los siguientes elementos: $local\_desc=\{T_3,T_4\}$. }
+    \label{fig:exhaustive1}
+  \end{figure}
+
+  Una vez que se ha inicializado la matriz de disyunción podemos llamar a la función
+  \texttt{exhaustive\_at} usando como parámetros un vector de enteros vacío y $LevelAt=0$.
+  \begin{algorithm}
+    \caption{Algoritmo para encontrar el siguiente thrackle compatible.}
+    \label{algo:next}
+  \end{algorithm}
+  Ahora hablaremos acerca de la función \texttt{next}. Este procedimiento encuentra, dado un thrackle $T$ de tamaño $k$ otro thrackle compatible con $T$. Antes de empezar la búsqueda establece el tamaño $q$ del thrackle a encontrar. Esto lo hace analizando el tamaño de los descendientes de $T$, el algoritmo toma el tamaño más pequeño de estos descedientes ya que, por la  naturaleza del algoritmo, no tiene sentido buscar un thrackle más grande que el descendiente más pequeño. Una vez que se conoce el valor de $q$ hay que elegir cuáles son las aristas en las que se iniciará la búsqueda del siguiente thrackle. Después se inicia una búsqueda secuencial y exhaustiva de un thrackle de tamaño $q$ usando la misma ténica descrita en la sección~\ref{seccion_algoritmo_kthrackles} para encontrar un thrackle de un tamaño dado. La diferencia principal es la inicialización del vector $C$ que en este caso no tendrá valores nulos sino los de las $q$ etiquetas elegidas anteriormente.
+
+  Cuando el procedimiento \texttt{next} encuentra un thrackle $M$ con $q$ aristas se procede a verificar
+  que la intersección del vector $coveredEdges$ y las etiquetas de $M$ sea vacía. Esto es para asegurar que
+  $M$ sea disjunto con los otros thrackles de la colección.
+
+  Si el procedimiento \texttt{next} no encuentra un thrackle con $q$ aristas, se repite la búsqueda de un
+  thrackle con $q-1$ aristas. El tamaño mínimo de un thrackle es 1.
+
+  Si no se logra encontrar ningún thrackle compatible se retorna un valor negativo o de $false$. Si el
+  thrackle encontrado es disjunto de los thrackles que ya están en la colección se retorna un valor
+  positivo o de $true$.
+
+  Presentamos el pseudocódigo del procedimiento \texttt{next} en el algoritmo~\ref{algo:next}.
+  \subsubsection{Análisis de complejidad}
+
+
+\subsection{Algoritmo para dar el número de cruce de un thrackle máximo}
+  \label{secc:algo_cnthracklemax}
+  Utilizamos este algoritmo para resolver el siguiente problema:
+
+  Este algoritmo fue diseñado para resolver el siguiente problema:
+  \begin{itemize}
+    \item[] Problema: Dado un thrackle geométrico, calcular su número de cruce.
+    \item[] Entrada: Las aristas del thrackle representadas en un arreglo booleano.
+    \item[] Salida: El número de cruce del thrackle.
+  \end{itemize}
+
+  Calculamos el número de cruce de un thrackle como describimos en la sección~\ref{secc:cnthracklemax}. Mostramos el pseudocódigo del algoritmo para realizar los cálculos en el algoritmo~\ref{algo_cnthracklemax}.
+
+  \begin{algorithm}[b]
+    \DontPrintSemicolon
+    \SetKwInOut{Input}{Entrada}
+    \SetKwInOut{Output}{Salida}
+    \underline{función CrossingNumberThrackle} $(E,n)$\;
+     \Input{Un arreglo booleano E, de tamaño $\binom{n}{2}$, que representa a las aristas del thrackle.}
+     \Output{Un entero $r$ igual al número de cruce del trackle inducido por $E$.}
+     $i,j,c \gets 0$\;
+     Sea $degs[n]$ un arreglo de enteros, de tamaño $n$\;
+     $th\_size \gets 0$\;
+     $sum \gets 0$\;
+     $r \gets 0$\;
+     \For{$i=0,\dots,\binom{n}{2}$}{
+      \If{$E[i] == 1$}{
+        $th\_size \gets th\_size + 1$\;
+      }
+     }
+     \For{$i = 0,\dots, n$}{
+         \For{$ j = i+1, \dots, n$}{
+             \If{$E[c]$}{
+                 $degs[i] \gets degs[i]+1$\;
+                 $degs[j] \gets degs[j]+1$\;
+             }
+             $c \gets c+1$\;
+         }
+     }
+     $ans \gets th\_size\cdot \frac{(th\_size-1)}{2}$\;
+     $sum \gets 0$\;
+     \For{$i = 0,\dots, n$}{
+         $sum \gets sum + degs[i]\cdot\frac{(degs[i]-1)}{2}$\;
+     }
+     $r \gets ans-sum$\;
+     \textbf{return} $r$\;
+    \caption{Algoritmo para calcular el número de cruce de un thrackle geométrico.}
+    \label{algo_cnthracklemax}
+  \end{algorithm}
+
+  \subsubsection{Análisis de complejidad}
+
+  Este algoritmo es secuencial. El ciclo de la línea 7, recorre un arreglo de tamaño
+  $\binom{n}{2}$ lo que aporta $O(n^2)$ a la complejidad. Los ciclos anidados de las
+  líneas 10 y 11 realizan $n + n-1 + n-2 + \dots + 1$ operaciones con complejidad $O(1)$,
+  lo que aporta $O(n^2)$  a la complejidad del algoritmo. Finalmente, el ciclo de la
+  línea 18 recorre un arreglo de tamaño $n$, lo que aporta $O(n)$ a la complejidad.
+
+  Así, la complejidad total del algoritmo es \[ O(n^2) + O(n^2) + O(n) = O(n^2)\].

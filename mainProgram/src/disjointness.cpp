@@ -19,8 +19,6 @@ of complete graph. Requires the disjointness matrix to be loaded.
 It might take a while to end even for small set of points.
 */
 void exhaustive_at(int** matrix, int cols, int n, vector<int> current_thrackle, int at, int mode){
-  vector<vector<int>> local_desc;
-
   if( at >= minAt) return;
 
   if ( (int) coveredEdges.size() == cols ) {
@@ -28,6 +26,7 @@ void exhaustive_at(int** matrix, int cols, int n, vector<int> current_thrackle, 
     return;
   }
   else {
+    vector<vector<int>> local_desc;
     while(true){
 
       vector<int> thrackle;
@@ -94,7 +93,7 @@ int next(int ** matrix, vector<vector<int>> descendants, vector<int> & thrackle,
   }
   //If descendants biggest size is less than k, then set k to this size.
   if ((smallest_desc < k) && (smallest_desc > 0)) k = smallest_desc;
-
+  //Define where to start.
   vector<int> starting_thrackle;
   if ( smallest_desc_ind >= 0 ){ //yes desc
     //Copy from smallest descendant
