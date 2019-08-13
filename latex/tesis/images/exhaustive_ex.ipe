@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70206" creator="Ipe 7.2.7">
-<info created="D:20190811202152" modified="D:20190811203606"/>
+<info created="D:20190811202152" modified="D:20190811235455"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -253,8 +253,13 @@ h
 </ipestyle>
 <page>
 <layer name="alpha"/>
+<layer name="beta"/>
 <view layers="alpha" active="alpha"/>
 <path layer="alpha" stroke="black">
+167.977 743.79 m
+183.956 711.636 l
+</path>
+<path stroke="black">
 167.977 743.79 m
 151.97 711.774 l
 </path>
@@ -278,12 +283,17 @@ h
 8 0 0 8 192 768 e
 </path>
 <text matrix="1 0 0 1 25.7547 14.3211" transformations="translations" pos="192 768" stroke="black" type="label" width="4.771" height="4.289" depth="0" valign="baseline" style="math">r</text>
-<path matrix="1 0 0 1 7.99256 -8.01627" stroke="black" fill="white" pen="heavier">
+<path matrix="1 0 0 1 7.99256 -8.01627" stroke="black" fill="white">
 8.02343 0.210416 -0.210416 8.02343 143.977 719.79 e
 </path>
 <text matrix="1 0 0 1 -45.3387 -58.7901" transformations="translations" pos="192 768" stroke="black" type="label" width="10.291" height="6.812" depth="1.49" valign="baseline" style="math">T_3</text>
-<text matrix="0.264618 0 0 2.0231 127.889 -795.401" transformations="translations" pos="208.926 764.113" stroke="black" type="label" width="73.064" height="5.98" depth="1.99" valign="baseline" size="footnote" style="math">T_1 = \{0,1,3,4,5,6\}</text>
-<text matrix="0.264618 0 0 2.0231 119.769 -816.28" transformations="translations" pos="208.926 764.113" stroke="black" type="label" width="73.535" height="5.98" depth="1.99" valign="baseline" size="footnote" style="math">T_2 = \{2,7,8,10,11\}</text>
-<text matrix="0.264618 0 0 2.0231 109.33 -840.176" transformations="translations" pos="208.926 764.113" stroke="black" type="label" width="69.771" height="5.98" depth="1.99" valign="baseline" size="footnote" style="math">T_3 = \{9,12,13,14\}</text>
+<text matrix="0.264618 0 0 2.0231 130.673 -793.545" transformations="translations" pos="208.926 764.113" stroke="black" type="label" width="73.064" height="5.98" depth="1.99" valign="baseline" size="footnote" style="math">T_1 = \{0,1,3,4,5,6\}</text>
+<text matrix="0.264618 0 0 2.0231 123.017 -807.696" transformations="translations" pos="208.926 764.113" stroke="black" type="label" width="73.535" height="5.98" depth="1.99" valign="baseline" size="footnote" style="math">T_2 = \{2,7,8,10,11\}</text>
+<text layer="beta" matrix="0.264618 0 0 2.0231 109.33 -840.176" transformations="translations" pos="208.926 764.113" stroke="black" type="label" width="69.771" height="5.98" depth="1.99" valign="baseline" size="footnote" style="math">T_3 = \{9,12,13,14\}</text>
+<path layer="alpha" matrix="1 0 0 1 39.9786 -8.15404" stroke="black" fill="white" pen="heavier">
+8.02343 0.210416 -0.210416 8.02343 143.977 719.79 e
+</path>
+<text matrix="1 0 0 1 -13.3527 -58.9279" transformations="translations" pos="192 768" stroke="black" type="label" width="10.291" height="6.812" depth="1.49" valign="baseline" style="math">T_4</text>
+<text matrix="0.264618 0 0 2.0231 130.513 -823.222" transformations="translations" pos="208.926 764.113" stroke="black" type="label" width="61.773" height="5.98" depth="1.99" valign="baseline" size="footnote" style="math">T_4 = \{12,13,14\}</text>
 </page>
 </ipe>

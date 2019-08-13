@@ -237,32 +237,32 @@
 \newlabel{secc:anti-thickness-dibujo}{{4.6.6}{76}{Algoritmo para encontrar el anti-thickness de un dibujo de $K_n$}{subsection.4.6.6}{}}
 \@writefile{loa}{\contentsline {algocf}{\numberline {8}{\ignorespaces Pseudc\IeC {\'o}digo del algoritmo que encuentra el anti-thickness de una gr\IeC {\'a}fica completa inducida por un conjunto de puntos $S$.\relax }}{78}{algocf.8}}
 \newlabel{algo_exhaustive_at}{{8}{78}{Algoritmo para encontrar el anti-thickness de un dibujo de $K_n$}{algocf.8}{}}
-\@writefile{loa}{\contentsline {algocf}{\numberline {9}{\ignorespaces Algoritmo para encontrar el siguiente thrackle compatible.\relax }}{80}{algocf.9}}
-\newlabel{algo:next}{{9}{80}{Algoritmo para encontrar el anti-thickness de un dibujo de $K_n$}{algocf.9}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces En la figura de la izquierda: una descomposici\IeC {\'o}n de alg\IeC {\'u}n dibujo de $K_6$ por tres thrackles $T_1,T_2$ y $T_3$. Cuando $T_1$ es analizado en el algoritmo, las aristas con etiquetas $0,1,3,4,5$ y $6$ son agregadas al vector $coveredEdges$ y despu\IeC {\'e}s se hace la llamada recursiva con $current\_thrackle=T_1$ y $LevelAt=1$, en esta llamada recursiva el procedimiento \texttt  {next} encuentra a $T_2$ y lo agrega como parte de la colecci\IeC {\'o}n al hacer la uni\IeC {\'o}n de sus aristas con el vector $coveredEdges$. Despu\IeC {\'e}s se hace la llamada recursiva con $current\_thrackle=T_2$ y $LevelAt=2$, en esta llamada recurisva el procedimiento \texttt  {next} encuentra a $T_3$ y lo agrega como parte de la colecci\IeC {\'o}n al hacer la uni\IeC {\'o}n de sus aristas con el vector $coveredEdges$. Despu\IeC {\'e}s se hace la llamada recursiva y se detecta que todas las aristas han sido cubiertas por lo que se actualiza el valor de $minAt$ y se termina la \IeC {\'u}ltima llamada recursiva. En la figura de la derecha: Despu\IeC {\'e}s de terminar la llamada recursiva se descarta $T_3$ y \texttt  {next} busca, a partir de $T_2$ el siguiente thrackle compatible. En este ejemplo, se encuentra a $T_4$ que es un thrackle con 3 aristas. En la colecci\IeC {\'o}n de los tres thrackles $T_1,T_2,T_4$ falta la arista con etiqueta 9. El algoritmo intentar\IeC {\'\i }a buscar el pr\IeC {\'o}ximo thrackle, de tama\IeC {\~n}o 1, que cubra esta arista en la siguiente llamada recursiva. Sin embargo, antes de buscar un thrackle comparar\IeC {\'a} las variables $LevelAt$ y $minAt$. Como son iguales, evitar\IeC {\'a} seguir buscando un thrackle y finalizar\IeC {\'a} la llamada recursiva descartando as\IeC {\'\i } a $T_4$. N\IeC {\'o}tese que en este momento la instancia del vector $local\_desc$ tiene los siguientes elementos: $local\_desc=\{T_3,T_4\}$. \relax }}{81}{figure.caption.54}}
 \newlabel{fig:exhaustive1}{{4.6}{81}{En la figura de la izquierda: una descomposición de algún dibujo de $K_6$ por tres thrackles $T_1,T_2$ y $T_3$. Cuando $T_1$ es analizado en el algoritmo, las aristas con etiquetas $0,1,3,4,5$ y $6$ son agregadas al vector $coveredEdges$ y después se hace la llamada recursiva con $current\_thrackle=T_1$ y $LevelAt=1$, en esta llamada recursiva el procedimiento \texttt {next} encuentra a $T_2$ y lo agrega como parte de la colección al hacer la unión de sus aristas con el vector $coveredEdges$. Después se hace la llamada recursiva con $current\_thrackle=T_2$ y $LevelAt=2$, en esta llamada recurisva el procedimiento \texttt {next} encuentra a $T_3$ y lo agrega como parte de la colección al hacer la unión de sus aristas con el vector $coveredEdges$. Después se hace la llamada recursiva y se detecta que todas las aristas han sido cubiertas por lo que se actualiza el valor de $minAt$ y se termina la última llamada recursiva. En la figura de la derecha: Después de terminar la llamada recursiva se descarta $T_3$ y \texttt {next} busca, a partir de $T_2$ el siguiente thrackle compatible. En este ejemplo, se encuentra a $T_4$ que es un thrackle con 3 aristas. En la colección de los tres thrackles $T_1,T_2,T_4$ falta la arista con etiqueta 9. El algoritmo intentaría buscar el próximo thrackle, de tamaño 1, que cubra esta arista en la siguiente llamada recursiva. Sin embargo, antes de buscar un thrackle comparará las variables $LevelAt$ y $minAt$. Como son iguales, evitará seguir buscando un thrackle y finalizará la llamada recursiva descartando así a $T_4$. Nótese que en este momento la instancia del vector $local\_desc$ tiene los siguientes elementos: $local\_desc=\{T_3,T_4\}$. \relax }{figure.caption.54}{}}
-\@writefile{toc}{\contentsline {subsubsection}{An\IeC {\'a}lisis de complejidad}{82}{section*.56}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.7}Algoritmo para dar el n\IeC {\'u}mero de cruce de un thrackle m\IeC {\'a}ximo}{82}{subsection.4.6.7}}
-\newlabel{secc:algo_cnthracklemax}{{4.6.7}{82}{Algoritmo para dar el número de cruce de un thrackle máximo}{subsection.4.6.7}{}}
-\@writefile{toc}{\contentsline {subsubsection}{An\IeC {\'a}lisis de complejidad}{82}{section*.58}}
-\@writefile{loa}{\contentsline {algocf}{\numberline {10}{\ignorespaces Algoritmo para calcular el n\IeC {\'u}mero de cruce de un thrackle geom\IeC {\'e}trico.\relax }}{83}{algocf.10}}
-\newlabel{algo_cnthracklemax}{{10}{83}{Algoritmo para dar el número de cruce de un thrackle máximo}{algocf.10}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{85}{chapter.5}}
+\@writefile{loa}{\contentsline {algocf}{\numberline {9}{\ignorespaces Algoritmo para encontrar el siguiente thrackle compatible.\relax }}{82}{algocf.9}}
+\newlabel{algo:next}{{9}{82}{Algoritmo para encontrar el anti-thickness de un dibujo de $K_n$}{algocf.9}{}}
+\@writefile{toc}{\contentsline {subsubsection}{An\IeC {\'a}lisis de complejidad}{84}{section*.57}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.7}Algoritmo para dar el n\IeC {\'u}mero de cruce de un thrackle m\IeC {\'a}ximo}{84}{subsection.4.6.7}}
+\newlabel{secc:algo_cnthracklemax}{{4.6.7}{84}{Algoritmo para dar el número de cruce de un thrackle máximo}{subsection.4.6.7}{}}
+\@writefile{toc}{\contentsline {subsubsection}{An\IeC {\'a}lisis de complejidad}{85}{section*.59}}
+\@writefile{loa}{\contentsline {algocf}{\numberline {10}{\ignorespaces Algoritmo para calcular el n\IeC {\'u}mero de cruce de un thrackle geom\IeC {\'e}trico.\relax }}{86}{algocf.10}}
+\newlabel{algo_cnthracklemax}{{10}{86}{Algoritmo para dar el número de cruce de un thrackle máximo}{algocf.10}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{87}{chapter.5}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loa}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {chapter}{\numberline {A}Etiquetas de thrackles m\IeC {\'a}ximos}{87}{appendix.Alph1}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {A}Etiquetas de thrackles m\IeC {\'a}ximos}{89}{appendix.Alph1}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loa}{\addvspace {10\p@ }}
-\newlabel{apendice_thrackles_inducen}{{A}{88}{Etiquetas de thrackles máximos}{appendix.Alph1}{}}
+\newlabel{apendice_thrackles_inducen}{{A}{90}{Etiquetas de thrackles máximos}{appendix.Alph1}{}}
 \bibstyle{apa-good.bst}
 \bibdata{bibliografia.bib}
-\@writefile{toc}{\contentsline {chapter}{\numberline {B}N\IeC {\'u}meros de cruce para thrackles m\IeC {\'a}ximos}{91}{appendix.Alph2}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {B}N\IeC {\'u}meros de cruce para thrackles m\IeC {\'a}ximos}{93}{appendix.Alph2}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loa}{\addvspace {10\p@ }}
-\newlabel{apendice_thrackles_inducen_cn}{{B}{92}{Números de cruce para thrackles máximos}{appendix.Alph2}{}}
+\newlabel{apendice_thrackles_inducen_cn}{{B}{94}{Números de cruce para thrackles máximos}{appendix.Alph2}{}}
 \bibcite{Aichholzer2002}{{1}{2002}{{Aichholzer \emph  {et~al.}}}{{Aichholzer, Aurenhammer, \& Krasser}}}
 \bibcite{Aichholzer2001}{{2}{2001}{{Aichholzer \& Krasser}}{{}}}
 \bibcite{Araujo2005}{{3}{2005}{{Araujo \emph  {et~al.}}}{{Araujo, Dumitrescu, Hurtado, Noy, \& Urrutia}}}

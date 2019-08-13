@@ -25,9 +25,9 @@
 \contentsline {subsection}{\numberline {4.6.5}Algoritmo para encontrar descomposiciones por thrackles de $K_n$ usando particiones de enteros}{72}{subsection.4.6.5}
 \contentsline {subsubsection}{An\IeC {\'a}lisis de complejidad}{76}{section*.52}
 \contentsline {subsection}{\numberline {4.6.6}Algoritmo para encontrar el anti-thickness de un dibujo de $K_n$}{76}{subsection.4.6.6}
-\contentsline {subsubsection}{An\IeC {\'a}lisis de complejidad}{82}{section*.56}
-\contentsline {subsection}{\numberline {4.6.7}Algoritmo para dar el n\IeC {\'u}mero de cruce de un thrackle m\IeC {\'a}ximo}{82}{subsection.4.6.7}
-\contentsline {subsubsection}{An\IeC {\'a}lisis de complejidad}{82}{section*.58}
-\contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{85}{chapter.5}
-\contentsline {chapter}{\numberline {A}Etiquetas de thrackles m\IeC {\'a}ximos}{87}{appendix.Alph1}
-\contentsline {chapter}{\numberline {B}N\IeC {\'u}meros de cruce para thrackles m\IeC {\'a}ximos}{91}{appendix.Alph2}
+\contentsline {subsubsection}{An\IeC {\'a}lisis de complejidad}{84}{section*.57}
+\contentsline {subsection}{\numberline {4.6.7}Algoritmo para dar el n\IeC {\'u}mero de cruce de un thrackle m\IeC {\'a}ximo}{84}{subsection.4.6.7}
+\contentsline {subsubsection}{An\IeC {\'a}lisis de complejidad}{85}{section*.59}
+\contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{87}{chapter.5}
+\contentsline {chapter}{\numberline {A}Etiquetas de thrackles m\IeC {\'a}ximos}{89}{appendix.Alph1}
+\contentsline {chapter}{\numberline {B}N\IeC {\'u}meros de cruce para thrackles m\IeC {\'a}ximos}{93}{appendix.Alph2}

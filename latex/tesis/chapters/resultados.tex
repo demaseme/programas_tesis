@@ -1576,8 +1576,73 @@ $K_n$}\label{secc:anti-thickness-dibujo}
   Una vez que se ha inicializado la matriz de disyunción podemos llamar a la función
   \texttt{exhaustive\_at} usando como parámetros un vector de enteros vacío y $LevelAt=0$.
   \begin{algorithm}
+    \LinesNumbered
+    % This is to hide end and get the last vertical line straight
+    \SetKwBlock{Begin}{Begin}{}
+    \SetAlgoLined
+    \DontPrintSemicolon
+    \SetKwInOut{Input}{Entrada}
+    \SetKwInOut{Output}{Salida}
+    \underline{función} next\_at $ (current\_thrackle,descendants,currentAt,found\_thrackle) $\;
+    \Input{El thrackle actual $current\_thrackle$ desde donde se quiere encontrar otro thrackle compatible,
+    un vector de vectores de enteros que representa a los descendientes de $current\_thrackle$, llamado
+    $descendants$, el mejor tamaño actual de una descomposición de la gráfica completa actual $currentAt$ y
+    un vector vacío $found\_thrackle$ para almacenar el resultado. .}
+    \Output{ $false$ si no se encontró un thrackle compatible; $true$ si se encontró un thrackle
+    compatible. El resultado es almacenado en $found\_thrackle$.}
+    Sea $missing = \{0,1,2,\dots,\binom{n}{2}-1\} - coveredEdges$. \;
+    $ q\gets |missing|$\;
+    \If{$ q > n $ and $currentAt == 0$ }{ $q \gets n$\;}
+    \If{$ q > n $ and $currentAt > 0$ }{ $q \gets n-1$\;}
+    Sea $s$ el tamaño del descendiente más pequeño $i$. \;
+    \If{ $s < q $ and $s > 0$ }{$q \gets s$\;}
+    \If{ $descendants \neq \emptyset$ }{
+      $starting\_thrackle \gets [descendants[i][0],descendants[i][1],\dots,descendants[i][q-1]]$
+    }
+    \ElseIf{$current\_thrackle$ es máximo o es vacío}{
+      $starting\_thrackle \gets [missing[0],missing[1],\dots,missing[q-1]]$
+    }
+    \ElseIf{$current\_thrackle$ no es máximo ni vacío y no hay descendientes}{
+      $starting\_thrackle \gets current\_thrackle$
+      $q \gets |current_thrackle|$
+    }
+    $p \gets 1$\;
+    $ce \gets |coveredEdges|$\;
+    \While{ $qp + ce < cols $ }{$p\gets p+1$}
+    \If{ $currentAt + p \geq minAt$ }{
+      \textbf{return} $false$
+    }
     \caption{Algoritmo para encontrar el siguiente thrackle compatible.}
     \label{algo:next}
+
+  \end{algorithm}
+  \begin{algorithm}
+    \LinesNumbered
+    \setcounter{AlgoLine}{31}
+    \SetKwBlock{Begin}{}{end}
+    \Begin{
+    Sea $local$ un vector de enteros vacío.\;
+    \While{$true$}{
+      $val \gets $\texttt{find\_next\_thrackle}($starting\_thrackle,local$)\;
+      \While{ $!val$ }{
+        $q \gets q-1$\;
+        \If{$q == 0$ }{ \textbf{return} $false$ }
+        $p \gets 1$\;
+        $ce \gets |coveredEdges|$\;
+        \While{ $qp + ce < cols $ }{$p\gets p+1$}
+        \If{ $currentAt + p \geq minAt$ }{
+          \textbf{return} $false$\;
+        }
+        $starting\_thrackle \gets [missing[0],missing[1],\dots,missing[q-1]]$\;
+      }
+      \If{  $coveredEdges \cap local == \emptyset $ }{
+        \If{ $local \not\subset descendants$ }{
+          $found\_thrackle \gets local$\;
+          \textbf{return} $true$\;
+        }
+      }
+    }
+    }
   \end{algorithm}
   Ahora hablaremos acerca de la función \texttt{next}. Este procedimiento encuentra, dado un thrackle $T$ de tamaño $k$ otro thrackle compatible con $T$. Antes de empezar la búsqueda establece el tamaño $q$ del thrackle a encontrar. Esto lo hace analizando el tamaño de los descendientes de $T$, el algoritmo toma el tamaño más pequeño de estos descedientes ya que, por la  naturaleza del algoritmo, no tiene sentido buscar un thrackle más grande que el descendiente más pequeño. Una vez que se conoce el valor de $q$ hay que elegir cuáles son las aristas en las que se iniciará la búsqueda del siguiente thrackle. Después se inicia una búsqueda secuencial y exhaustiva de un thrackle de tamaño $q$ usando la misma ténica descrita en la sección~\ref{seccion_algoritmo_kthrackles} para encontrar un thrackle de un tamaño dado. La diferencia principal es la inicialización del vector $C$ que en este caso no tendrá valores nulos sino los de las $q$ etiquetas elegidas anteriormente.
 
@@ -1592,7 +1657,14 @@ $K_n$}\label{secc:anti-thickness-dibujo}
   thrackle encontrado es disjunto de los thrackles que ya están en la colección se retorna un valor
   positivo o de $true$.
 
-  Presentamos el pseudocódigo del procedimiento \texttt{next} en el algoritmo~\ref{algo:next}.
+  Presentamos el pseudocódigo del procedimiento \texttt{next} en el algoritmo~\ref{algo:next}. Las primeras 30 líneas del pseudocódigo ilustran cómo se elige el tamaño del nuevo thrackle e inicializan el thrackle por donde se empezará la búsqueda. Las siguientes líneas describen el proceso de búsqueda de un thrackle compatible. La línea 35 llama al algoritmo de búsqueda que, como ya mencionamos, trabaja de la misma manera que el algoritmo para búsqueda de thrackles de tamaño $k$ con la diferencia de que el vector inicial no está vacío sino que tiene los contenidos de $starting\_thrackle$.
+
+  El ciclo \texttt{while} de las líneas 34 a la 50 termina cuando sucede una de las tres situaciones siguientes
+  \begin{itemize}
+    \item El tamaño del thrackle compatible es 0. Esto indica que ya se ha intentado buscar thrackles compatibles con diferentes tamaños pero no se ha encontrado ninguno. Cada vez que el algoritmo no encuentra un thrackle compatible, se reduce el tamaño del thrackle a buscar en la línea 37.
+    \item La comparación de la línea 44 es positiva. El segmento de código compuesto por las líneas 40 a la 45 hacen un cálculo para saber si vale la pena o no buscar un thrackle de tamaño $q$. Si se supone que en el mejor caso se necesitan $p$ thrackles de tamaño $q$ para cubrir a $K_n$ entonces el tamaño final de la descomposición en ese caso en particular es $currentAt + p$. Si esto es mayor al tamaño más pequeño encontrado para una descomposición hasta el momento, entonces no vale la pena seguir por ese camino y se descarta esa búsqueda.
+    \item Se ha encontrado un thrackle compatible, esto es que la intersección del thrackle encontrado y las aristas cubiertas hasta el momento es vacía y que además, el thrackle encontrado no es ninguno de los descendientes de $current\_thrackle$. Esta verificación se hace en el \texttt{if} de las línea 47 a la 50.
+  \end{itemize}
   \subsubsection{Análisis de complejidad}
 
 

@@ -53,7 +53,8 @@ void exhaustive_at(int** matrix, int cols, int n, vector<int> current_thrackle, 
 and the thrackles in descendants (avoiding them),
 stores result in thrackle, if no thrackle is found NULL is stored in thrackle
 */
-int next(int ** matrix, vector<vector<int>> descendants, vector<int> & thrackle, const vector<int> subroot, int cols, int n, int at, int mode){
+int next(int ** matrix, vector<vector<int>> descendants, vector<int> & thrackle, const vector<int> subroot,
+  int cols, int n, int at, int mode){
   //First step is to define the size of the thrackle to be found.
   vector<int> missing_edges;
   vector<int> local_thrackle;
@@ -99,7 +100,8 @@ int next(int ** matrix, vector<vector<int>> descendants, vector<int> & thrackle,
     //Copy from smallest descendant
     starting_thrackle.assign(descendants[smallest_desc_ind].begin(),descendants[smallest_desc_ind].begin()+k);
     flag = false;
-  } else if( (((int)subroot.size() == n) && smallest_desc_ind < 0) || subroot.empty()){ //no desc, yes maximal | or root of tree
+  } else if( (((int)subroot.size() == n) && smallest_desc_ind < 0) || subroot.empty()){
+    //no desc, yes maximal | or root of tree
     //Copy from missing edges
     starting_thrackle.assign(missing_edges.begin(),missing_edges.begin()+k);
   } else if ( ((int) subroot.size() < n) && smallest_desc_ind < 0 && !subroot.empty()){ // no desc, no max
