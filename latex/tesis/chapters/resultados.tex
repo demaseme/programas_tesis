@@ -686,11 +686,13 @@ aristas. Luego...Finalmente...
 Los algoritmos fueron implementados en el lenguaje \texttt{C++} en su versión 5 (2017);
 las implementaciones fueron ejecutadas en un \emph{cluster} con las siguientes características:
 \begin{itemize}
-  \item 1
-  \item 2
-  \item 3
+  \item Procesador de 8 núcleos con velocidad de 1.5 GHz.
+  \item Memoria RAM de 64 GB.
+  \item Almacenamiento en disco duro de 128 GB.
 \end{itemize}
-Para almacenar información utilizamos, principalmente, una estructura de datos llamada vector. Un vector es un contenedor que representa a un arreglo que puede cambiar de tamaño.Podemos acceder al vector igual que se hace con un arreglo (usando el operador \texttt{[]}) con la misma complejidad.
+Como nuestra implementación no está paralelizada, cada proceso corre en un solo procesador. Por lo que las comparaciones con el tiempo teórico son hechas tomando en cuenta solo un procesador de 1.5 GHz.
+
+Para almacenar información utilizamos, principalmente, una estructura de datos llamada vector. Un vector es un contenedor que representa a un arreglo que puede cambiar de tamaño. Podemos acceder al vector igual que se hace con un arreglo (usando el operador \texttt{[]}) con la misma complejidad.
 
 \subsection{Algoritmo para encontrar thrackles con $k$
   aristas}\label{seccion_algoritmo_kthrackles}
@@ -958,8 +960,21 @@ Para almacenar información utilizamos, principalmente, una estructura de datos 
 \end{dmath}
    para cada tipo de orden de $n$ puntos.
 
+   En teoría, el tiempo que necesitariamos para ejecutar este algoritmo en el cluster es significativo. En la tabla~\ref{tabla:kthrackles_tiempo}, mostramos cuánto tiempo es requerido por este algoritmo con complejidadd $O(n^{20})$ tomando en cuenta la velocidad de procesamiento del cluster. También mostramos cuánto tiempo tardó su ejecución para $n=\{8,9,10\}$.
+   \begin{table}
+     \centering
+     \begin{tabular}{|c|c|c|}
+       \hline \hline
+       $n$      & Tiempo teórico en cluster & Tiempo real en cluster \\ \hline
+       10       &     2113.99 años          & 3 días \\   \hline
+       9        &     257.01 años           & 12 minutos \\    \hline
+       8        &     24.36 años            & 6 segundos \\  \hline
+     \end{tabular}
+     \caption{Tiempo de ejecución teórico del algoritmo y tiempo real de ejecución en el cluster.}
+     \label{tabla:kthrackles_tiempo}
+   \end{table}
 
-     {\huge FALTA COMPARACIÓN CON MUNDO REAL}
+     %\huge FALTA COMPARACIÓN CON MUNDO REAL}
 
   Los datos de los thrackles máximos encontrados para cada $ 3\leq n \leq 9$
   pueden ser descargados de la siguiente liga:
@@ -978,7 +993,7 @@ Para almacenar información utilizamos, principalmente, una estructura de datos 
   todas las entradas de los dos vectores, en nuestra implementación, los thrackles
   almacenan la información de sus aristas en un vector de tamaño $\binom{n}{2}$ para cada
   $n$ en el rango $[3,10]$.
-  \begin{algorithm}[ht]
+  \begin{algorithm}[]
     \DontPrintSemicolon
     \SetKwInOut{Input}{Entrada}
     \SetKwInOut{Output}{Salida}
@@ -1131,7 +1146,19 @@ Para almacenar información utilizamos, principalmente, una estructura de datos 
   ejecutamos este algoritmo para cada tipo de orden válido. Para saber cuántos thrackles
   máximos hay en determinado tipo de orden usamos el algoritmo~\ref{algo_kthrackles} descrito en la sección~\ref{seccion_algoritmo_kthrackles}. Damos un panorama del número de las $\binom{m}{n}$ combinaciones a evaluar por el algoritmo para el tipo de orden con el mayor número de thrackles máximos para cada $n$, con $6\leq n\leq 10$ en la tabla~\ref{tabla:numero_operaciones_thrackles_maximos}.
 
-    {\huge FALTA COMPARACIÓN CON MUNDO REAL}
+  A pesar de que la complejidad descrita por la ecuación~\ref{complejidad_colecciones} es bastante grande, en la ejecución que realizamos obtuvimos tiempos de ejecución aceptables para el trabajo. En la tabla ~\ref{tabla:tiempo_colecciones_thrackles} describimos el tiempo de ejecución necesario para el tipo de orden de tamaño $n=\{8,9,10\}$ que tiene el mayor número de thrackles máximos y no es el convexo, y el tiempo de ejecución que tomó analizar todos los tipos de orden válidos.
+
+  \begin{table}
+    \begin{tabular}{|c|c|c|c|}
+      \hline
+      $n$ & $m$ & Tiempo de ejecución teórico & Tiempo de ejecución real \\ \hline
+      8   & 94  &  $2\times 10^{450}$ años    &  0.70 segundos           \\ \hline
+      9   & 213 &  $3\times 10^{193}$ años    &                           \\ \hline
+      10  & 459 &  $1.3 \times 10^{74}$ años  &                            \\ \hline
+    \end{tabular}
+    \caption{Mostramos el tiempo de ejecución real del algoritmo para todos los tipos de orden. La segunda columna indica cuántos thrackles máximos hay en como máximo en algún tipo de orden válido para cada $n$. La tercera columna indica cuánto tiempo necesitaría para acabar, en el peor caso. La última columna indica cuánto tiempo se necesitó en realidad.}
+    \label{tabla:tiempo_colecciones_thrackles}
+  \end{table}
 
   \begin{table}[t]
     \centering
