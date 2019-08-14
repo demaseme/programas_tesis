@@ -947,7 +947,7 @@ Para almacenar información utilizamos, principalmente, una estructura de datos 
   El caso en el que este algoritmo realiza más cálculos es aquel en el que no se descarta ninguna combinación de tamaño $t$ para $t \leq k$ y por lo tanto el algoritmo analiza, en tiempo $O(t)$, cada combinación en el ciclo de la línea 15. Para establecer el costo computacional del algoritmo es necesario saber cuántas combinaciones de tamaño $t$ existen para cada $t\leq k$ y multiplicar esto por el costo de evaluar cada combinación. Como hay $\binom{n}{2}$ aristas y estamos suponiendo que cualquier combinación de tamaño $t$ es válida, existen $\displaystyle \binom{\binom{n}{2}}{t}$ combinaciones de dicho tamaño. Se necesitan $\displaystyle t \binom{\binom{n}{2}}{t}$ operaciones para evaluar todas las combinaciones de tamaño  $t$. En nuestro caso $ t \in [1,10]$, por lo tanto el costo computacional del algoritmo, en el peor caso es:
   \begin{dmath}
     \displaystyle O\left( \sum_{t=1}^{10} t\binom{\binom{n}{2}}{t} \right) =
-    O\left(\binom{\binom{n}{2}}{1} + 2\binom{\binom{n}{2}}{2} + 3\binom{\binom{n}{2}}{3} +\dots+ 10\binom{\binom{n}{2}}{10} \right) = O(n^2)+ O(n^4)+ O(n^6) + \dots + O(n^{20})
+    O\left(\binom{\binom{n}{2}}{1} + 2\binom{\binom{n}{2}}{2} + 3\binom{\binom{n}{2}}{3} +\dots+ 10\binom{\binom{n}{2}}{10} \right) = O(n^2)+ O(n^4)+ O(n^6) + \dots + O(n^{20}) = O(n^{20}),
     % \frac{563}{1260}n^2 - \frac{2009}{2880}n^3
     % -\frac{104929}{1451520}n^4 + \frac{942563}{2903040}n^5 + \frac{240847}{1548288}n^6 -
     % \frac{1819243}{11612160}n^7 -\frac{243803}{6635520}n^8 + \frac{35789}{1032192}n^9 +
