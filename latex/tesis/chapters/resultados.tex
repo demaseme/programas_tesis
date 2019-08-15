@@ -583,10 +583,10 @@ Como consecuencia del lema~\ref{lema:existedescomp} y el teorema~\ref{teo:cotain
     \end{table}
 
     Usando las particiones de la tabla~\ref{tabla:particionesk8k9} diseñamos
-    una serie de procedimientos que buscan thrackles disjuntos usando las particiones como guía.
-    Como hay cerca de 14 procedimientos para realizar esta tarea, expondremos solamente
+    una serie de algoritmos que buscan thrackles disjuntos usando las particiones como guía.
+    Como hay cerca de 14 algoritmos para realizar esta tarea, expondremos solamente
     uno de ellos en el algoritmo~\ref{algo:partition_decomposition} de la sección~\ref{secc:descomposiciones_particiones}, los
-    otros algoritmos son similares a este. Como resultado de estos procedimientos podemos dar el
+    otros algoritmos son similares a este. Como resultado de estos algoritmos podemos dar el
     siguiente teorema:
     \begin{theorem}\label{teorema:particiones}
       Sea $P=\{a_1,a_2,\dots,a_m\}$ una partición válida para $K_8$ o para $K_9$. No existe, para
@@ -1256,12 +1256,12 @@ Para almacenar información utilizamos, principalmente, una estructura de datos 
       \label{algo:particiones}
     \end{algorithm}
 
-    Nuestro procedimiento para evaluar si una partición es una partición guía consiste en visitar
+    Nuestra función para evaluar si una partición es una partición guía consiste en visitar
     cada posición de un arreglo con a lo sumo $n - \left\lfloor\sqrt{2n + \frac{1}{4}} -
     \frac{1}{2}\right\rfloor$ elementos y verificar que solamente exista una ocurrencia
     de $n$. Mostramos el pseudocódigo en el algoritmo~\ref{algo:is_partition_valid}. Esta tarea
     requiere analizar, en tiempo $O(1)$ cada una de los elementos del arreglo, cuyo tamaño es
-    $O(n)$, por ello la prueba tiene complejidad lineal. Este procedimiento es usado por el
+    $O(n)$, por ello la prueba tiene complejidad lineal. Esta función es usada por el
     algoritmo de generación de particiones guía.
 
     \begin{algorithm}[htpb]
@@ -1310,7 +1310,7 @@ Este algoritmo fue diseñado para resolver el siguiente problema:
 
   Como resultado del algoritmo para encontrar particiones válidas descrito en la sección
   \ref{secc:algo_particiones_validas}, tenemos una lista de particiones válidas para
-  $n\in\{8,9\}$ que presentamos en la tabla~\ref{tabla:particionesk8k9_2}. En este procedimiento se
+  $n\in\{8,9\}$ que presentamos en la tabla~\ref{tabla:particionesk8k9_2}. En esta función se
   cargan, a memoria, los datos de los thrackles, en el caso de $K_{10}$, los archivos de los
   thrackles máximos y thrackles con 9 aristas exceden el tamaño de la memoria del cluster. Por ello
   las particiones de $n=10$ no fueron evaluadas en este trabajo.
@@ -1434,7 +1434,7 @@ Este algoritmo fue diseñado para resolver el siguiente problema:
 
   Para el funcionamiento de este algoritmo es necesario tener los datos de los thrackles de cada
   tamaño indicado por la partición, por ejemplo, si se trabaja con $n=8$ y la partición guía es
-  $\{8,7,7,6\}$ se debe usar el procedimiento de búsqueda de thrackles con $k$ aristas descrito en
+  $\{8,7,7,6\}$ se debe usar la función de búsqueda de thrackles con $k$ aristas descrito en
   la sección~\ref{seccion_algoritmo_kthrackles} para buscar los thrackles con ocho, siete y seis
   aristas. No es necesario tener dos archivos diferentes para cada uno de los dos thrackles de
   tamaño siete, es suficiente tener un archivo para cada tamaño diferente.
@@ -1482,17 +1482,18 @@ Este algoritmo fue diseñado para resolver el siguiente problema:
   en la sección~\ref{seccion_algoritmo_kthrackles}.
 
   Para las particiones guía presentadas en la tabla~\ref{tabla:particionesk8k9_2}, en la
-  algunos de los casos no fue necesario construir procedimientos que evaluaran toda la
-  partición. Para el caso de $n=9$ y las particiones $\{9,8,8,8,3\},\{9,8,8,7,4\},\{9,8,8,6,5\}$ el
+  algunos de los casos no fue necesario construir funciones que evaluaran toda la
+  partición. Para el caso de $n=9$ y las particiones $\{9,8,8,8,3\}$, $\{9,8,8,7,4\}$, $\{9,8,8,6,5\}$ el
   construimos un algoritmo que verifica la existencia de una colección de thrackles de tamaños
-  nueve, ocho y ocho. Para las particiones $\{9,8,7,7,5\},\{9,8,7,6,6\},\{9,7,7,7,6\}$ construimos
+  nueve, ocho y ocho. Para las particiones $\{9,8,7,7,5\}$, $\{9,8,7,6,6\}$, $\{9,7,7,7,6\}$ construimos
   un algoritmo que verifica la existencia de una colección de thrackles de tamaños nueve, siete,
   siete, siete y seis. Para el resto de las particiones guía de $n=9$ escribimos un algoritmo para
   cada una. Para las dos particiones guía de $n=9$ construimos dos algoritmos.
 
   Las funciones construidas permitieron dar el resultado del
   teorema~\ref{teorema:particiones} de la sección~\ref{secc:interseccion_thrackles}.
-  Estas funciones pueden encontrarse en la siguiente liga.
+  Estas funciones pueden encontrarse en la siguiente liga:
+
   \url{https://github.com/demaseme/programas_tesis_rev3/tree/master/cpps}.
 
   \subsubsection{Análisis de complejidad}
@@ -1510,8 +1511,9 @@ Este algoritmo fue diseñado para resolver el siguiente problema:
     t_i=\displaystyle \binom{\binom{n}{2}}{a_i}
   \end{equation}
   thrackles de tamaño $a_i$. La ecuación~\ref{ti} alcanza el máximo cuando $a_i=n$. Por lo que
-  un algoritmo exhaustivo como el aquí presentado que usa como partición guía una partición que tiene $m$ elementos tiene, en el (\binom{n}{2}^npeor caso, una complejidad de
-  \[O\left(\binom{\binom{n}{2}}{n}^m\right) = O(n^2^n^m) \].
+  un algoritmo exhaustivo como el aquí presentado que usa como partición guía una partición que tiene $m$
+  elementos tiene, en el peor caso, una complejidad de
+  \[O\left(\binom{\binom{n}{2}}{n}^m\right) = O(n^{2nm}) \].
 
   Por otro lado~\ref{ti} se minimiza cuando $a_i=1$, por lo que el algoritmo tiene como mejor caso una complejidad de :
   \[\omega\left(\binom{\binom{n}{2}}{1}^m\right)= \omega\left( \binom{n}{2}^m\right) = \omega(n^{2m})\].
@@ -1527,17 +1529,31 @@ $K_n$}\label{secc:anti-thickness-dibujo}
     \item[] Salida: El anti-thickness de la gráfica completa inducida por el conjunto de puntos.
   \end{itemize}
 
-  Este es un algoritmo exhaustivo y recursivo que usa backtracking para encontrar el anti-thickness de un
-  dibujo de $K_n$. Esta tarea es realizada buscando colecciones de thrackles cuyo tamaño sea mínimo justo
-  como en la definición de anti-thickness de un dibujo presentado en la sección~\ref{secc:anti-thickness}.
-  El algoritmo busca el thrackle de mayor tamaño posible en cada llamada recursiva para intentar agregarlo a la colección. Para poder agregarlo debe ser disjunto con los thrackles que ya existan en la colección. El algoritmo termina cuando no puede encontrar más colecciones de thrackles que cubran la gráfica completa y que tenga tamaño mínimo o bien, cuando las colecciones que encuentra son más grandes que el anti-thickness encontrado actualmente.
+  Este es un algoritmo exhaustivo y recursivo que usa la técnica de backtracking para encontrar el
+  anti-thickness de un dibujo de $K_n$. El algoritmo realiza esta tarea buscando colecciones de thrackles
+  cuyo tamaño sea mínimo, como en la definición~\ref{definicion:at_dibujo} de anti-thickness de un dibujo
+  presentado en la sección~\ref{secc:anti-thickness}.
+
+  Este algoritmo construye, implicitamente, un árbol en el que cada nodo es un thrackle y un camino desde
+  la raiz hasta algún nodo es una colección de thrackles. Una colección de thrackles es una descomposición
+  si la intersección a pares de cada thrackle en la colección es vacía y si la unión de las aristas de
+  todos los thrackles es igual al conjunto de aristas de $K_n$. Decimos que dos thrackles son compatibles
+  si su intersección es vacía. En este árbol la raíz es el nivel cero, los hijos de la raiz son el nivel 1,
+  los hijos de los hijos de la raiz son el nivel 2 y así sucesivamente. El algoritmo baja de nivel en el
+  árbol cuando encuentra un thrackle compatible con el resto de los thrackles que ya están en la colección.
+
+  El algoritmo busca el thrackle de mayor tamaño posible en cada llamada recursiva para intentar agregarlo
+  a la colección. Para poder agregarlo debe ser disjunto con los thrackles que ya existan en la colección.
+  El algoritmo termina cuando no puede encontrar más colecciones de thrackles que cubran la gráfica
+  completa y que tenga tamaño mínimo o bien, cuando las colecciones que encuentra son más grandes que el
+  anti-thickness encontrado actualmente.
 
   Este algoritmo requiere que se lean los puntos y se induzca la gráfica completa así como la inicialización
-  de la matriz de disyunción de la misma que mencionamos en la sección~\ref{seccion_algoritmo_kthrackles} del algoritmo de búsqueda de thrackles con $k$ aristas. A continuación presentamos el pseudcódigo del núcleo del algoritmo. Las variables $minAt,matrix,cols,n,coveredEdges$ pueden considerarse variables globales. Donde $minAt$ es un entero que representa el tamaño mínimo de la colección de thrackles encontrada hasta determinado momento,$matrix$ representa la matriz de disyunción previamente construida, $cols$ es un entero que representa el número de columnas en la matriz de disyunción y $cols=\binom{n}{2}-1$ y $coveredEdges$ es un vector de enteros que indica cuáles aristas han sido cubiertas por alguna colección en determinado momento.
+  de la matriz de disyunción de la misma que mencionamos en la sección~\ref{seccion_algoritmo_kthrackles}
+  del algoritmo de búsqueda de thrackles con $k$ aristas.
 
   En el algoritmo representamos un thrackle con un vector de enteros que representan las etiquetas de las
-  aristas que inducen al thrackle. El vector de enteros tiene valores desde $0$ a $\binom{n}{2}-1$ ya que
-  este es el rango de etiquetación de las aristas de $K_n$.
+  aristas que inducen al thrackle. El vector de enteros tiene valores desde $0$ hasta $\binom{n}{2}-1$ ya que este es el rango de etiquetación de las aristas de $K_n$.
   \begin{algorithm}[p]
     \DontPrintSemicolon
     \SetKwInOut{Input}{Entrada}
@@ -1574,48 +1590,46 @@ $K_n$}\label{secc:anti-thickness-dibujo}
     \label{algo_exhaustive_at}
   \end{algorithm}
 
-  Este algoritmo construye, implicitamente, un árbol en el que cada nodo es un thrackle y un camino desde
-  la raiz hasta algún nodo es una colección de thrackles. Una colección de thrackles es una descomposición
-  si la intersección a pares de cada thrackle en la colección es vacía y si la unión de las aristas de
-  todos los thrackles es igual a las aristas de $K_n$. Decimos que dos thrackles son compatibles si su
-  intersección es vacía. El algoritmo baja de nivel en el árbol cuando encuentra un thrackle compatible con
-  el resto de los thrackles que ya están en la colección.
+  A continuación presentamos el pseudcódigo del núcleo del algoritmo. Las variables
+  $minAt,matrix,cols,n,coveredEdges$ son variables globales. Donde $minAt$ es un entero que representa el
+  tamaño mínimo de la colección de thrackles encontrada hasta determinado momento,$matrix$ representa la
+  matriz de disyunción previamente construida, $cols$ es un entero que representa el número de columnas en
+  la matriz de disyunción y $cols=\binom{n}{2}-1$ y $coveredEdges$ es un vector de enteros que indica
+  cuáles aristas han sido cubiertas por alguna colección en determinado momento.
 
-  Procedemos a explicar las líneas de este algoritmo para entender mejor qué es lo que hace. La línea 2
-  verifica si el nivel actual en el árbol es mayor al mínimo encontrado hasta el momento. Si es así la
+  Procedemos a explicar las líneas de este algoritmo para entender mejor qué es lo que hace. En la línea 2 se verifica si el nivel actual en el árbol es mayor al mínimo encontrado hasta el momento. Si es así la
   llamada a la función termina. Esta verificación es útil cuando ya se encontró una descomposición de $K_n$
-  de tamaño $t$, y el tamaño de la colección actual es mayor o igual a $t$, es obvio que esa colección no
-  mejorará el resultado actual de $t$ así que evitamos seguir por ese camino. La verificación de la línea 4
+  de tamaño $t$, y el tamaño de la colección actual es mayor o igual a $t$. Ya que esa colección no
+  mejorará el resultado actual de $t$, evitamos seguir por ese camino. La verificación de la línea 4
   funciona para saber si la colección de thrackles ya cubre las aristas de la gráfica completa. Si
-  la verificación es positiva, quiere decir que se ha encontrado una descomposición. En la línea 5 se
+  la verificación es verdadera, quiere decir que se ha encontrado una descomposición. En la línea 5 se
   procede a evaluar si la descomposición es más pequeña que alguna encontrada anteriormente, si es así, se
   actualiza el valor de $minAt$ en la línea 6. Finalmente, en la línea 7, terminamos la llamada recursiva.
   El bloque \texttt{else} de la línea 8 se ejecuta cuando aún no se ha encontrado una descomposición. En la
   línea 9 declaramos un vector de enteros que nos servirá para almacenar los hijos del nodo actual del
   árbol. El ciclo \texttt{while} de las líneas 10 a la 18 es en donde se hace la búsqueda de thrackles para
-  la descomposición. En la línea 11 declaramos un vector de enteros $thrackle$, en él, almacenaremos un
+  la descomposición.
+
+  En la línea 11 declaramos un vector de enteros $thrackle$, en él, almacenaremos un
   thrackle compatible con el thrackle actual $current\_thrackle$. En la línea 12 buscamos el thrackle
-  compatible más inmediato posible usando un procedimiento que busca, dada una colección de aristas, un
-  thrackle compatible. Explicamos este procedimiento más adelante. Si \texttt{next} encuentra un thrackle,
-  lo almacena en la variable $thrackle$ y val adquiere un valor positivo o de $true$, en caso contrario
-  $val$ tiene un valor negativo o de $false$. La línea 13 verifica si se encontró o no un thrackle
+  compatible más cercano posible usando una función que busca, dada una colección de aristas, un
+  thrackle compatible. Explicamos esta función más adelante. Si \texttt{next} encuentra un thrackle,
+  lo almacena en la variable $thrackle$ y val adquiere el valor de $true$, en caso contrario
+  $val$ tiene el valor de $false$. La línea 13 verifica si se encontró o no un thrackle
   compatible; si no se encontró, la llamada recursiva es terminada en la línea 14. La línea 15 agrega el
   vector $thrackle$ a la lista de descendientes $local\_desc$. Esto indica que $thrackle$ es hijo de
-  $current\_thrackle$ en el árbol. Esta información es usada por el procedimiento \texttt{next}. La línea
+  $current\_thrackle$ en el árbol. Esta información es usada por el la función \texttt{next}. La línea
   16 actualiza la lista de aristas cubiertas hasta el momento. La linea 17 realiza la llamada recursiva
   para seguir bajando en el árbol y verificar si ya se ha cubierto a todas las aristas de $K_n$. La linea
   18 quita de la lista de aristas cubiertas a las aristas cubiertas por $thrackle$. Esto permite realizar
   el backtracking en la siguiente iteración del ciclo \texttt{while}.
 
   Para saber cuáles aristas han sido cubiertas por la colección de thrackles mantenemos registro de las
-  aristas de cada thrackle haciendo la operación de unión. El vector $coveredEdges$ contiene enteros desde
-  $0$ hasta $\binom{n}{2}-1$. Cada vez que se trabaja con un thrackle compatible se agrega, al vector
-  $coveredEdges$, el contenido del vector que representa al thrackle.
+  aristas de cada thrackle haciendo la operación de unión: El vector $coveredEdges$ contiene enteros desde
+  $0$ hasta $\binom{n}{2}-1$. Cada vez que se trabaja con un thrackle compatible se hace la unión del vector
+  $coveredEdges$ con el contenido del vector que representa al thrackle.
 
-  En la figura \ref{fig:exhaustive1} mostramos un camino desde la raiz hasta un nodo $T_3$. En cada uno de
-  los nodos se representa la información de los thrackles que conforman una descomposición de un dibujo de
-  $K_6$. La gráfica $K_6$ tiene 15 aristas por lo que las etiquetas de las aristas de los thrackles van
-  desde $0$ hasta $15$. En este ejemplo, una vez que se encontró la descomposición de tres thrackles $T_1,T_2$ y $T_3$ el valor de $minAt$ es igual a 3. Por ello el algoritmo evitará analizar colecciones de 3 o más thrackles. El algoritmo ignora estas colecciones al terminar prematuramente las llamadas recursivas en la línea 3 del pseudcódigo.
+  En la figura \ref{fig:exhaustive1} mostramos un ejemplo de un árbol que se forma cuando se ejecuta el algoritmo para la búsqueda del anti-thickness de algún dibujo de $K_6$, ilustramos un camino desde la raiz hasta un nodo $T_3$. En cada uno de los nodos se representa la información de los thrackles que conforman una descomposición de un dibujo de $K_6$. La gráfica $K_6$ tiene 15 aristas por lo que las etiquetas de las aristas de los thrackles van desde $0$ hasta $15$. En este ejemplo, una vez que se encontró la descomposición de tres thrackles $T_1,T_2$ y $T_3$ el valor de $minAt$ es igual a 3. Por ello el algoritmo evitará analizar colecciones de 3 o más thrackles. El algoritmo ignora estas colecciones al terminar prematuramente las llamadas recursivas en la línea 3 del pseudocódigo.
   \begin{figure}
     \centering
     \begin{subfigure}{.5\textwidth}
@@ -1631,10 +1645,10 @@ $K_n$}\label{secc:anti-thickness-dibujo}
     \caption{En la figura de la izquierda: una descomposición de algún dibujo de $K_6$ por tres thrackles
     $T_1,T_2$ y $T_3$. Cuando $T_1$ es analizado en el algoritmo, las aristas con etiquetas $0,1,3,4,5$ y
     $6$ son agregadas al vector $coveredEdges$ y después se hace la llamada recursiva con
-    $current\_thrackle=T_1$ y $LevelAt=1$, en esta llamada recursiva el procedimiento \texttt{next}
+    $current\_thrackle=T_1$ y $LevelAt=1$, en esta llamada recursiva el algoritmo \texttt{next}
     encuentra a $T_2$ y lo agrega como parte de la colección al hacer la unión de sus aristas con el vector
     $coveredEdges$. Después se  hace la llamada recursiva con $current\_thrackle=T_2$ y $LevelAt=2$, en
-    esta llamada recurisva el procedimiento \texttt{next} encuentra a $T_3$ y lo agrega como parte de la
+    esta llamada recurisva el algoritmo \texttt{next} encuentra a $T_3$ y lo agrega como parte de la
     colección al hacer la unión  de sus aristas con el vector $coveredEdges$. Después se hace la llamada
     recursiva y se detecta que todas las aristas han sido cubiertas por lo que se actualiza el valor de
     $minAt$ y se termina la última llamada recursiva. En la figura de la derecha: Después de terminar la
@@ -1647,8 +1661,7 @@ $K_n$}\label{secc:anti-thickness-dibujo}
     \label{fig:exhaustive1}
   \end{figure}
 
-  Una vez que se ha inicializado la matriz de disyunción podemos llamar a la función
-  \texttt{exhaustive\_at} usando como parámetros un vector de enteros vacío y $LevelAt=0$.
+  Una vez que se ha inicializado la matriz de disyunción podemos hacer la primer llamada recursiva a la función \texttt{exhaustive\_at} usando como parámetros un vector de enteros vacío y $LevelAt=0$.
   \begin{algorithm}
     \LinesNumbered
     % This is to hide end and get the last vertical line straight
@@ -1718,20 +1731,21 @@ $K_n$}\label{secc:anti-thickness-dibujo}
     }
     }
   \end{algorithm}
-  Ahora hablaremos acerca de la función \texttt{next}. Este procedimiento encuentra, dado un thrackle $T$ de tamaño $k$ otro thrackle compatible con $T$. Antes de empezar la búsqueda establece el tamaño $q$ del thrackle a encontrar. Esto lo hace analizando el tamaño de los descendientes de $T$, el algoritmo toma el tamaño más pequeño de estos descedientes ya que, por la  naturaleza del algoritmo, no tiene sentido buscar un thrackle más grande que el descendiente más pequeño. Una vez que se conoce el valor de $q$ hay que elegir cuáles son las aristas en las que se iniciará la búsqueda del siguiente thrackle. Después se inicia una búsqueda secuencial y exhaustiva de un thrackle de tamaño $q$ usando la misma ténica descrita en la sección~\ref{seccion_algoritmo_kthrackles} para encontrar un thrackle de un tamaño dado. La diferencia principal es la inicialización del vector $C$ que en este caso no tendrá valores nulos sino los de las $q$ etiquetas elegidas anteriormente.
 
-  Cuando el procedimiento \texttt{next} encuentra un thrackle $M$ con $q$ aristas se procede a verificar
+  Ahora hablaremos acerca de la función \texttt{next} presentamos el pseudocódigo en el algoritmo~\ref{algo:next}. Esta función encuentra, dado un thrackle $T$ de tamaño $k$ otro thrackle compatible con $T$. Antes de empezar la búsqueda establece el tamaño $q$ del thrackle a encontrar. Esto lo hace analizando el tamaño de los descendientes de $T$, el algoritmo toma el tamaño más pequeño de estos descedientes ya que, por la  naturaleza del algoritmo, no tiene sentido buscar un thrackle más grande que el descendiente más pequeño. Una vez que se conoce el valor de $q$ hay que elegir cuáles son las aristas en las que se iniciará la búsqueda del siguiente thrackle. Después se inicia una búsqueda secuencial y exhaustiva de un thrackle de tamaño $q$ usando la misma técnica descrita en la sección~\ref{seccion_algoritmo_kthrackles} para encontrar un thrackle de un tamaño dado. La diferencia principal es la inicialización del vector $C$ que en este caso no tendrá valores nulos sino los de las $q$ etiquetas elegidas anteriormente.
+
+  Cuando la función \texttt{next} encuentra un thrackle $M$ con $q$ aristas se procede a verificar
   que la intersección del vector $coveredEdges$ y las etiquetas de $M$ sea vacía. Esto es para asegurar que
   $M$ sea disjunto con los otros thrackles de la colección.
 
-  Si el procedimiento \texttt{next} no encuentra un thrackle con $q$ aristas, se repite la búsqueda de un
+  Si la función \texttt{next} no encuentra un thrackle con $q$ aristas, se repite la búsqueda de un
   thrackle con $q-1$ aristas. El tamaño mínimo de un thrackle es 1.
 
-  Si no se logra encontrar ningún thrackle compatible se retorna un valor negativo o de $false$. Si el
-  thrackle encontrado es disjunto de los thrackles que ya están en la colección se retorna un valor
-  positivo o de $true$.
+  Si no se logra encontrar ningún thrackle compatible se retorna el valor de $false$. Si el
+  thrackle encontrado es disjunto de los thrackles que ya están en la colección se retorna el valor
+  de $true$.
 
-  Presentamos el pseudocódigo del procedimiento \texttt{next} en el algoritmo~\ref{algo:next}. Las primeras 30 líneas del pseudocódigo ilustran cómo se elige el tamaño del nuevo thrackle e inicializan el thrackle por donde se empezará la búsqueda. Las siguientes líneas describen el proceso de búsqueda de un thrackle compatible. La línea 35 llama al algoritmo de búsqueda que, como ya mencionamos, trabaja de la misma manera que el algoritmo para búsqueda de thrackles de tamaño $k$ con la diferencia de que el vector inicial no está vacío sino que tiene los contenidos de $starting\_thrackle$.
+  Las primeras 30 líneas del pseudocódigo ilustran cómo se elige el tamaño del nuevo thrackle e inicializan el thrackle por donde se empezará la búsqueda. Las siguientes líneas describen el proceso de búsqueda de un thrackle compatible. La línea 35 llama al algoritmo de búsqueda que, como ya mencionamos, trabaja de la misma manera que el algoritmo para búsqueda de thrackles de tamaño $k$ con la diferencia de que el vector inicial no está vacío sino que tiene los contenidos de $starting\_thrackle$.
 
   El ciclo \texttt{while} de las líneas 34 a la 50 termina cuando sucede una de las tres situaciones siguientes
   \begin{itemize}
