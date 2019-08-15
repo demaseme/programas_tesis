@@ -1506,11 +1506,11 @@ Este algoritmo fue diseñado para resolver el siguiente problema:
 
   De manera general para una partición guía $P=\{a_1,a_2,\dots,a_m\}$, si existen $t_i$
   thrackles de tamaño $a_i$, en el peor caso hay
-  \begin{equation} \label{ti}
+  \begin{equation} \label{ti}(\binom{n}{2}^n
     t_i=\displaystyle \binom{\binom{n}{2}}{a_i}
   \end{equation}
   thrackles de tamaño $a_i$. La ecuación~\ref{ti} alcanza el máximo cuando $a_i=n$. Por lo que
-  un algoritmo exhaustivo como el aquí presentado que usa como partición guía una partición que tiene $m$ elementos tiene, en el peor caso, una complejidad de
+  un algoritmo exhaustivo como el aquí presentado que usa como partición guía una partición que tiene $m$ elementos tiene, en el (\binom{n}{2}^npeor caso, una complejidad de
   \[O\left(\binom{\binom{n}{2}}{n}^m\right) = O(n^2^n^m) \].
 
   Por otro lado~\ref{ti} se minimiza cuando $a_i=1$, por lo que el algoritmo tiene como mejor caso una complejidad de :
