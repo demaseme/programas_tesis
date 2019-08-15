@@ -1144,17 +1144,29 @@ Para almacenar información utilizamos, principalmente, una estructura de datos 
   Es importante notar que la complejidad establecida en la
   ecuación~\ref{complejidad_colecciones} es para un tipo de orden. Nosotros
   ejecutamos este algoritmo para cada tipo de orden válido. Para saber cuántos thrackles
-  máximos hay en determinado tipo de orden usamos el algoritmo~\ref{algo_kthrackles} descrito en la sección~\ref{seccion_algoritmo_kthrackles}. Damos un panorama del número de las $\binom{m}{n}$ combinaciones a evaluar por el algoritmo para el tipo de orden con el mayor número de thrackles máximos para cada $n$, con $6\leq n\leq 10$ en la tabla~\ref{tabla:numero_operaciones_thrackles_maximos}.
+  máximos hay en determinado tipo de orden usamos el algoritmo~\ref{algo_kthrackles} descrito en la
+  sección~\ref{seccion_algoritmo_kthrackles}. En la
+  tabla~\ref{tabla:numero_operaciones_thrackles_maximos} damos un panorama de los valores que toma
+  $m$ para $6\leq n \leq 10$. Con esto ilustramos también los valores que toma
+  $\binom{m}{At_g(K_n)}$, es decir, el número de  combinaciones a evaluar por el algoritmo en el
+  peor caso.
 
-  A pesar de que la complejidad descrita por la ecuación~\ref{complejidad_colecciones} es bastante grande, en la ejecución que realizamos obtuvimos tiempos de ejecución aceptables para el trabajo. En la tabla ~\ref{tabla:tiempo_colecciones_thrackles} describimos el tiempo de ejecución necesario para el tipo de orden de tamaño $n=\{8,9,10\}$ que tiene el mayor número de thrackles máximos y no es el convexo, y el tiempo de ejecución que tomó analizar todos los tipos de orden válidos.
+  A pesar de que la complejidad descrita por la ecuación~\ref{complejidad_colecciones} es bastante
+  grande, en la ejecución que realizamos obtuvimos tiempos de ejecución aceptables para el trabajo.
+  En la tabla ~\ref{tabla:tiempo_colecciones_thrackles} describimos el tiempo de ejecución
+  necesario para el tipo de orden de tamaño $n=\{8,9,10\}$ que tiene el mayor número de thrackles
+  máximos y no es el convexo, y el tiempo de ejecución que tomó analizar todos los tipos de orden
+  válidos.Podemos notar que a pesar de que en el caso de $K_{10}$ hay aproximadamente $1.8E^{12}$
+  combinaciones posibles para uno de los tipos de orden de $10$ puntos, el algoritmo termina en un
+  tiempo considerable para nosotros.
 
   \begin{table}
     \begin{tabular}{|c|c|c|c|}
       \hline
       $n$ & $m$ & Tiempo de ejecución teórico & Tiempo de ejecución real \\ \hline
       8   & 94  &  $2\times 10^{450}$ años    &  0.70 segundos           \\ \hline
-      9   & 213 &  $3\times 10^{193}$ años    &                           \\ \hline
-      10  & 459 &  $1.3 \times 10^{74}$ años  &                            \\ \hline
+      9   & 213 &  $3\times 10^{193}$ años    &  25 minutos               \\ \hline
+      10  & 459 &  $1.3 \times 10^{74}$ años  &  4 días y 2 horas          \\ \hline
     \end{tabular}
     \caption{Mostramos el tiempo de ejecución real del algoritmo para todos los tipos de orden. La segunda columna indica cuántos thrackles máximos hay en como máximo en algún tipo de orden válido para cada $n$. La tercera columna indica cuánto tiempo necesitaría para acabar, en el peor caso. La última columna indica cuánto tiempo se necesitó en realidad.}
     \label{tabla:tiempo_colecciones_thrackles}
@@ -1164,8 +1176,7 @@ Para almacenar información utilizamos, principalmente, una estructura de datos 
     \centering
     \begin{tabular}{|c|c|c|l|}
       \hline
-      $n$ & \makecell{Número máximo de \\ thrackles en un T.O.} &$At_g(K_n)$& \makecell{Número de \\
-      combinaciones} \\ \hline
+      $n$ & \makecell{Número máximo de \\ thrackles en un T.O.} &$At_g(K_n)$& \makecell{Número de \\      combinaciones} \\ \hline
       \hline
       6 & 5 & 3 & 10 \\ \hline
       7 & 16 & 4 & 1,820 \\\hline
@@ -1180,27 +1191,27 @@ Para almacenar información utilizamos, principalmente, una estructura de datos 
     \label{tabla:numero_operaciones_thrackles_maximos}
   \end{table}
 
-  La implementación de este algoritmo fue ejecutada en el cluster. Presentamos el tiempo
-  de ejecución en milisegundos para cada $n$ con $6\leq n \leq 10$ en la
-  tabla~\ref{tabla:tiempo_thrackles_maximos}. Podemos notar que a pesar de que en el caso
-  de $K_{10}$ hay aproximadamente $1.8E^{12}$ combinaciones posibles para uno de los
-  tipos de orden de $10$ puntos, el algoritmo termina en un tiempo considerable para
-  nosotros.
-  \begin{table}
-    \centering
-    \begin{tabular}{|c|c|}
-      \hline
-      $n$ & Tiempo de ejecución \\ \hline \hline
-      6   & 6 ms \\ \hline
-      7   & 6 ms \\ \hline
-      8   & 708 ms \\ \hline
-      9   & 25 minutos \\ \hline
-      10  & 4 días, 2 horas y 6 minutos \\ \hline
-    \end{tabular}
-    \caption{La tabla muestra cuánto tiempo tomó el algoritmo para calcular las colecciones de $n -
-    \left\lfloor\sqrt{2n + \frac{1}{4}} - \frac{1}{2}\right\rfloor$ thrackles que inducen una descomposición $K_n$.}
-    \label{tabla:tiempo_thrackles_maximos}
-  \end{table}
+  % La implementación de este algoritmo fue ejecutada en el cluster. En la
+  % tabla~\ref{tabla:tiempo_thrackles_maximos} presentamos el tiempo de ejecución en milisegundos
+  % para cada $n$ con $6\leq n \leq 10$. Podemos notar que a pesar de que en el caso
+  % de $K_{10}$ hay aproximadamente $1.8E^{12}$ combinaciones posibles para uno de los
+  % tipos de orden de $10$ puntos, el algoritmo termina en un tiempo considerable para
+  % nosotros.
+  % \begin{table}
+  %   \centering
+  %   \begin{tabular}{|c|c|}
+  %     \hline
+  %     $n$ & Tiempo de ejecución \\ \hline \hline
+  %     6   & 6 ms \\ \hline
+  %     7   & 6 ms \\ \hline
+  %     8   & 708 ms \\ \hline
+  %     9   & 25 minutos \\ \hline
+  %     10  & 4 días, 2 horas y 6 minutos \\ \hline
+  %   \end{tabular}
+  %   \caption{La tabla muestra cuánto tiempo tomó el algoritmo para calcular las colecciones de $n -
+  %   \left\lfloor\sqrt{2n + \frac{1}{4}} - \frac{1}{2}\right\rfloor$ thrackles que inducen una descomposición $K_n$.}
+  %   \label{tabla:tiempo_thrackles_maximos}
+  % \end{table}
 
   \subsection{Algoritmo para generar particiones válidas de un
   entero}\label{secc:algo_particiones_validas}
@@ -1210,9 +1221,9 @@ Para almacenar información utilizamos, principalmente, una estructura de datos 
     algoritmo~\ref{algo:particiones}. Una vez que las particiones son generadas,
     examinamos aquellas que tengan menos de $n - \left\lfloor\sqrt{2n + \frac{1}{4}} -
     \frac{1}{2}\right\rfloor$ elementos y evaluamos si son válidas. Una partición $P$, de
-    tamaño $n -\left\lfloor\sqrt{2n + \frac{1}{4}} - \frac{1}{2}\right\rfloor$, $n$ es
-    válida cuando todo elemento de $P$ es menor o igual a $n$ y si algún $p_i\in P$ es
-    igual a $n$ entonces solamente hay una ocurrencia de $p_i$ en $P$.
+    tamaño $n -\left\lfloor\sqrt{2n + \frac{1}{4}} - \frac{1}{2}\right\rfloor$, de $n$ es
+    una \emph{partición guía} si 1) todo elemento de $P$ es menor o igual a $n$ y 2) si algún $p_i\in P$ es
+    igual a $n$, entonces solamente hay una ocurrencia de $p_i$ en $P$.
     \begin{algorithm}[htpb]
       \DontPrintSemicolon
       \SetKwInOut{Input}{Entrada}
@@ -1245,10 +1256,14 @@ Para almacenar información utilizamos, principalmente, una estructura de datos 
       \label{algo:particiones}
     \end{algorithm}
 
-    Nuestro procedimiento para evaluar la validez de una partición consiste en visitar
-    cada posición de un arreglo de a lo sumo $n - \left\lfloor\sqrt{2n + \frac{1}{4}} -
-    \frac{1}{2}\right\rfloor$ posiciones y verificar que solamente exista una ocurrencia
-    de $n$. Mostramos el pseudocódigo en el algoritmo~\ref{algo:is_partition_valid}.
+    Nuestro procedimiento para evaluar si una partición es una partición guía consiste en visitar
+    cada posición de un arreglo con a lo sumo $n - \left\lfloor\sqrt{2n + \frac{1}{4}} -
+    \frac{1}{2}\right\rfloor$ elementos y verificar que solamente exista una ocurrencia
+    de $n$. Mostramos el pseudocódigo en el algoritmo~\ref{algo:is_partition_valid}. Esta tarea
+    requiere analizar, en tiempo $O(1)$ cada una de los elementos del arreglo, cuyo tamaño es
+    $O(n)$, por ello la prueba tiene complejidad lineal. Este procedimiento es usado por el
+    algoritmo de generación de particiones guía.
+
     \begin{algorithm}[htpb]
       \DontPrintSemicolon
       \SetKwInOut{Input}{Entrada}
@@ -1269,16 +1284,16 @@ Para almacenar información utilizamos, principalmente, una estructura de datos 
     \subsubsection{Análisis de complejidad}
 
     El algoritmo para generar las particiones de un entero $n$ tiene complejidad
-    $O(n^2)$. Adicionalmente, nosotros verificamos solamente las particiones que tengan
+    $O(n^2)$. Adicionalmente, nosotros verificamos que las particiones  tengan
     menos de $n - \left\lfloor\sqrt{2n + \frac{1}{4}} - \frac{1}{2}\right\rfloor$
-    elementos. Para esto verificamos la longitud de una partición en tiempo lineal, ya
-    que, cualquier partición de $n$ tiene a lo sumo $n$ elementos. Luego, para cada
-    partición con el tamaño deseado, evaluamos si es válida o no. La prueba de validez
-    consiste en analizar cada elemento de la partición, y como estas tienen menos de $n -
-    \left\lfloor\sqrt{2n + \frac{1}{4}} - \frac{1}{2}\right\rfloor$ elementos, se
-    requiere tiempo $O(n)$ para verificar cada una.
+    elementos en tiempo lineal. Luego, para cada partición con el tamaño deseado,
+    evaluamos si es válida o no. El costo total de este algoritmo es:
+    \[ O(n^2\cdot n \cdot n) = O(n^4)\]
 
-    El costo total de este algoritmo es: \[ O(n^2\cdot n \cdot n) = O(n^4)\]
+    La razón principal por las que definimos las particiones guía es porque pueden ser utilizadas
+    como guía para buscar descomposiciones de $K_n$ donde cada elemento de la partición indica
+    el tamaño de un thrackle. A continuación presentamos cómo utilizamos estas particiones
+    para construir una serie de algoritmos.
 
 \subsection{Algoritmo para encontrar descomposiciones por thrackles de $K_n$
 usando particiones de enteros}\label{secc:descomposiciones_particiones}
@@ -1286,18 +1301,19 @@ usando particiones de enteros}\label{secc:descomposiciones_particiones}
 Este algoritmo fue diseñado para resolver el siguiente problema:
 \begin{itemize}
   \item[] Problema: Dada una partición $P=\{a_1,a_2,\dots,a_m\}$ de un entero $n$ con
-  $m < At_g(K_n)$. Encontrar si existe o no una colección
-  $\mathcal{C}=\{T_1,T_2,\dots,T_m\}$ de thrackles disjuntos con $|E(T_i)| = a_i$.
-  \item[] Entrada: Una partición válida $P$ de $n$.
+  $m < At_g(K_n)$, deseamos encontrar si existe, para algún dibujo de $n$, una colección
+  $\mathcal{C}=\{T_1,T_2,\dots,T_m\}$ de thrackles disjuntos tales que $|E(T_i)| = a_i$.
+  \item[] Entrada: Una partición guía $P$ de $n$.
   \item[] Salida: $true$ si existe una colección de thrackles con las caracteristicas
   descritas en el problema. $false$ en otro caso.
 \end{itemize}
 
   Como resultado del algoritmo para encontrar particiones válidas descrito en la sección
-  \ref{secc:algo_particiones_validas} tenemos una lista de particiones válidas para
-  $n=\{8,9\}$ que presentamos en la tabla~\ref{tabla:particionesk8k9_2}. Las particiones
-  de $n=10$ no fueron evaluadas en este trabajo debido al tamaño de los archivos
-  generados para los thrackles de tamaño $9$ y $10$.
+  \ref{secc:algo_particiones_validas}, tenemos una lista de particiones válidas para
+  $n\in\{8,9\}$ que presentamos en la tabla~\ref{tabla:particionesk8k9_2}. En este procedimiento se
+  cargan, a memoria, los datos de los thrackles, en el caso de $K_{10}$, los archivos de los
+  thrackles máximos y thrackles con 9 aristas exceden el tamaño de la memoria del cluster. Por ello
+  las particiones de $n=10$ no fueron evaluadas en este trabajo.
   \begin{table}[t]
     \centering
     \begin{tabular}{|c|c|}
@@ -1323,7 +1339,9 @@ Este algoritmo fue diseñado para resolver el siguiente problema:
 
   A continuación presentamos, con un caso particular, el esquema general de los
   algoritmos usados para verificar si existen colecciones de thrackles cuyos tamaños
-  obedezcan a los elementos de una partición. Este es un algoritmo de \emph{backtracking}, presentamos el pseudocódigo en el algoritmo~\ref{algo:partition_decomposition}.
+  correspondan a los elementos de una partición. Este algoritmo utiliza la técnica de
+  \emph{backtracking}, presentamos el pseudocódigo en el
+  algoritmo~\ref{algo:partition_decomposition}.
   \begin{algorithm}[htpb]
     \LinesNumbered
     % This is to hide end and get the last vertical line straight
@@ -1413,61 +1431,90 @@ Este algoritmo fue diseñado para resolver el siguiente problema:
       }
       }
   \end{algorithm}
-  Tomemos el caso de la partición de $8$, $P=\{8,7,7,6\}$, en este caso queremos
-  verificar si existe o no una colección de cuatro thrackles, uno de tamaño 8, dos de
-  tamaño 7 y uno de tamaño 6, tal que sean disjuntos a pares. Para buscar esta colección,
+
+  Para el funcionamiento de este algoritmo es necesario tener los datos de los thrackles de cada
+  tamaño indicado por la partición, por ejemplo, si se trabaja con $n=8$ y la partición guía es
+  $\{8,7,7,6\}$ se debe usar el procedimiento de búsqueda de thrackles con $k$ aristas descrito en
+  la sección~\ref{seccion_algoritmo_kthrackles} para buscar los thrackles con ocho, siete y seis
+  aristas. No es necesario tener dos archivos diferentes para cada uno de los dos thrackles de
+  tamaño siete, es suficiente tener un archivo para cada tamaño diferente.
+
+  Tomemos el caso de la primera partición de ocho, $P=\{8,7,7,6\}$, en este caso queremos
+  verificar si existe o no una colección de cuatro thrackles, uno de tamaño ocho, dos de
+  tamaño siete y uno de tamaño seis, tal que sean disjuntos a pares. Para buscar esta colección,
   podemos diseñar un algoritmo que evalúe, exhaustivamente, la intersección de cada
-  thrackle $A$ de tamaño 8, con cada thrackle $B$ de tamaño 7, si existen $A$ y $B$
-  disjuntos, verificamos que exista algún thrackle $C$ de tamaño 7 que sea disjunto con
-  $A$ y con $B$ y, finalmente, si existe, buscamos un thrackle $D$, de tamaño 6 que sea
+  thrackle $A$ de tamaño ocho, con cada thrackle $B$ de tamaño siete, si existen $A$ y $B$
+  disjuntos, verificamos que exista algún thrackle $C$ de tamaño siete que sea disjunto con
+  $A$ y con $B$ y, finalmente, si existe, buscamos un thrackle $D$, de tamaño seis que sea
   disjunto con $A,B$ y $C$.
 
-  Para verificar que los thrackles sean disjuntos, mantenemos un arreglo booleano $Z$ de $\binom{8}{2}$ posiciones, cuando se analiza un thrackle $T$ de tamaño 8 recorremos el arreglo de aristas de $T$, cuyo tamaño es también $\binom{8}{2}$. Como $T$ tiene 8 aristas entonces el arreglo de aristas de $T$ tiene exactamente 8 posiciones con valor 1
-  y el resto con valor 0. Para cada posición $p$ del arreglo de aristas de $T$ cuyo valor sea 1, marcamos la misma posición en $Z$ con un 1. Esto significa que el thrackle $T$ cubre a la arista $p$.
+  Para verificar que los thrackles sean disjuntos, mantenemos un arreglo booleano $Z$ de
+  $\binom{8}{2}$ posiciones. Cuando se analiza un thrackle $T$ de tamaño 8 recorremos el arreglo de
+  aristas de $T$, cuyo tamaño es también $\binom{8}{2}$. Como $T$ tiene 8 aristas entonces el
+  arreglo de aristas de $T$ tiene exactamente 8 posiciones con valor uno
+  y el resto con valor cero. Para cada posición $p$ de $T$ cuyo valor sea uno, marcamos la misma
+  posición en $Z$ con un uno. Esto significa que el thrackle $T$ cubre a la arista $p$.
 
-  Si en algún momento, debemos marcar alguna posición $p$ del arreglo $Z$ y esta ya tiene un valor de 1 entonces un thrackle, anteriormente analizado, ya cubre esa arista y por lo tanto el thrackle que se está verificando actualmente no es disjunto con alguno anterior. Por lo tanto descartamos ese thrackle y continuamos verificando.
+  Si en algún momento debemos marcar alguna posición $p$ del arreglo $Z$ y esta ya tiene un valor
+  de uno entonces un thrackle, anteriormente analizado, ya cubre esa arista y por lo tanto el
+  thrackle que se está verificando actualmente no es disjunto con alguno anterior. Por lo tanto
+  descartamos ese thrackle y continuamos verificando con el thrackle subsecuente del archivo.
 
   Si no encontramos ningún thrackle que sea disjunto con los anteriormente analizados, el
-  algoritmo realiza un paso de backtracking descartando el último thrackle que fue
-  compatible con los demás y continuando con el siguiente del mismo tamaño del thrackle
-  descartado.
+  algoritmo descarta el último thrackle que fue compatible con los demás y continúa con el
+  siguiente del mismo tamaño del thrackle descartado.
 
-  El algoritmo termina, retornando un valor $true$, cuando encuentra un thrackle con 8
-  aristas, dos con 7 aristas y uno con 6 aristas que son disjuntos a pares o bien, cuando
+  El algoritmo termina, retornando un valor $true$, cuando encuentra un thrackle con ocho
+  aristas, dos con siete aristas y uno con seis aristas que son disjuntos a pares o bien, cuando
   no hay más thrackles que analizar; en este caso el algoritmo retorna un valor $false$.
 
   Este algoritmo evalúa, en el peor caso, todas las combinaciones posibles de cuatro
   thrackles con tamaños 8,7,7 y 6 respectivamente.
 
-  Como paso de preparación, este algoritmo requiere tener los datos de los thrackles de
-  tamaño $8,7,7$ y $6$ para $K_8$. Y de manera general sea $P=\{a_1,a_2,\dots,a_m\}$, una
-  partición válida de $n$, es necesario tener los datos de los thrackles de tamaño $a_i$,
-  con $a_i\in P$.
+  % Como paso de preparación, este algoritmo requiere tener los datos de los thrackles de
+  % tamaño $8,7,7$ y $6$ para $K_8$. Y de manera general sea $P=\{a_1,a_2,\dots,a_m\}$, una
+  % partición válida de $n$, es necesario tener los datos de los thrackles de tamaño $a_i$,
+  % con $a_i\in P$.
 
   En nuestra implementación, decidimos almacenar los datos de los thrackles en la memoria
   del cluster para que el acceso fuera mucho más rápido que leer repetitivamente los
-  archivos creados por el algoritmo de búsqueda de thracklese con $k$ aristas, presentado
+  archivos creados por el algoritmo de búsqueda de thracklese con $k$ aristas presentado
   en la sección~\ref{seccion_algoritmo_kthrackles}.
 
-  Para las particiones presentadas en la tabla~\ref{tabla:particionesk8k9_2}, en la
-  mayoría de los casos no fue necesario construir procedimientos que evaluaran toda la
-  partición, es decir, para el caso de la partición de $9$, $\{8,8,8,8,4\}$, construimos
-  un procedimiento que evalúa si existe una colección de cuatro thrackles de tamaño 8 que
-  sean disjuntos.
+  Para las particiones guía presentadas en la tabla~\ref{tabla:particionesk8k9_2}, en la
+  algunos de los casos no fue necesario construir procedimientos que evaluaran toda la
+  partición. Para el caso de $n=9$ y las particiones $\{9,8,8,8,3\},\{9,8,8,7,4\},\{9,8,8,6,5\}$ el
+  construimos un algoritmo que verifica la existencia de una colección de thrackles de tamaños
+  nueve, ocho y ocho. Para las particiones $\{9,8,7,7,5\},\{9,8,7,6,6\},\{9,7,7,7,6\}$ construimos
+  un algoritmo que verifica la existencia de una colección de thrackles de tamaños nueve, siete,
+  siete, siete y seis. Para el resto de las particiones guía de $n=9$ escribimos un algoritmo para
+  cada una. Para las dos particiones guía de $n=9$ construimos dos algoritmos.
 
-  Los procedimientos construidos permitieron dar el resultado del
+  Las funciones construidas permitieron dar el resultado del
   teorema~\ref{teorema:particiones} de la sección~\ref{secc:interseccion_thrackles}.
-  Estos procedimientos pueden encontrarse en la siguiente liga.
+  Estas funciones pueden encontrarse en la siguiente liga.
   \url{https://github.com/demaseme/programas_tesis_rev3/tree/master/cpps}.
-  \subsubsection{Análisis de complejidad}
-  El costo computacional de este algoritmo está dado por el número de thrackles de cada
-  tamaño establecido por la partición. Si existen $k$ thrackles de tamaño 8, $m$
-  thrackles de tamaño 7 y $q$ thrackles de tamaño 6. El algoritmo realiza $O(k\dot
-  m^2\dot q)$ operaciones.
 
-  De manera general para una partición válida $P=\{a_1,a_2,\dots,a_m\}$, si existen $t_i$
-  thrackles de tamaño $a_i$, un algoritmo exhaustivo como el aquí presentado tiene, en el
-  peor caso, una complejidad de \[O\left(\prod_{i=1}^m t_i\right). \]
+  \subsubsection{Análisis de complejidad}
+  La complejidad de este algoritmo está dado por el número de thrackles de cada
+  tamaño establecido por la partición. Si existen $k$ thrackles de tamaño 8, $m$
+  thrackles de tamaño 7 y $q$ thrackles de tamaño 6. El algoritmo realiza $O(k\cdot
+  m^2 \cdot q)$ operaciones. Notese el exponente de $m$ en la complejidad, recordemos que
+  la partición guía es $\{8,7,7,6\}$ esto implica que por cada thrackle de tamaño 7, verificaremos
+  con cada uno de los otros thrackles de tamaño 7 y por ello debemos considerar $m\times m$ en la
+  complejidad.
+
+  De manera general para una partición guía $P=\{a_1,a_2,\dots,a_m\}$, si existen $t_i$
+  thrackles de tamaño $a_i$, en el peor caso hay
+  \begin{equation} \label{ti}
+    t_i=\displaystyle \binom{\binom{n}{2}}{a_i}
+  \end{equation}
+  thrackles de tamaño $a_i$. La ecuación~\ref{ti} alcanza el máximo cuando $a_i=n$. Por lo que
+  un algoritmo exhaustivo como el aquí presentado que usa como partición guía una partición que tiene $m$ elementos tiene, en el peor caso, una complejidad de
+  \[O\left(\binom{\binom{n}{2}}{n}^m\right) = O(n^2^n^m) \].
+
+  Por otro lado~\ref{ti} se minimiza cuando $a_i=1$, por lo que el algoritmo tiene como mejor caso una complejidad de :
+  \[\omega\left(\binom{\binom{n}{2}}{1}^m\right)= \omega\left( \binom{n}{2}^m\right) = \omega(n^{2m})\].
 
 \subsection{Algoritmo para encontrar el anti-thickness de un dibujo de
 $K_n$}\label{secc:anti-thickness-dibujo}
