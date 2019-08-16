@@ -1478,7 +1478,7 @@ Este algoritmo fue diseñado para resolver el siguiente problema:
 
   En nuestra implementación, decidimos almacenar los datos de los thrackles en la memoria
   del cluster para que el acceso fuera mucho más rápido que leer repetitivamente los
-  archivos creados por el algoritmo de búsqueda de thracklese con $k$ aristas presentado
+  archivos creados por el algoritmo de búsqueda de thrackles con $k$ aristas presentado
   en la sección~\ref{seccion_algoritmo_kthrackles}.
 
   Para las particiones guía presentadas en la tabla~\ref{tabla:particionesk8k9_2}, en la
@@ -1590,14 +1590,15 @@ $K_n$}\label{secc:anti-thickness-dibujo}
     \label{algo_exhaustive_at}
   \end{algorithm}
 
-  A continuación presentamos el pseudcódigo del núcleo del algoritmo. Las variables
-  $minAt,matrix,cols,n,coveredEdges$ son variables globales. Donde $minAt$ es un entero que representa el
-  tamaño mínimo de la colección de thrackles encontrada hasta determinado momento,$matrix$ representa la
-  matriz de disyunción previamente construida, $cols$ es un entero que representa el número de columnas en
-  la matriz de disyunción y $cols=\binom{n}{2}-1$ y $coveredEdges$ es un vector de enteros que indica
-  cuáles aristas han sido cubiertas por alguna colección en determinado momento.
+  Presentamos el pseudcódigo en el algoritmo~\ref{algo_exhaustive_at}, donde
+  $minAt$, $matrix$, $cols$, $n$ y $coveredEdges$ son variables globales. En el pseudcódigo $minAt$ es un
+  entero que representa el tamaño mínimo de la colección de thrackles encontrada hasta determinado momento,
+  $matrix$ representa la matriz de disyunción previamente construida, $cols$ es un entero que representa el
+  número de columnas en la matriz de disyunción y $cols=\binom{n}{2}-1$ y $coveredEdges$ es un vector de
+  enteros que indica cuáles aristas han sido cubiertas por alguna colección en determinado momento.
 
-  Procedemos a explicar las líneas de este algoritmo para entender mejor qué es lo que hace. En la línea 2 se verifica si el nivel actual en el árbol es mayor al mínimo encontrado hasta el momento. Si es así la
+  Procedemos a explicar las líneas de este algoritmo para entender mejor qué es lo que hace. En la línea 2
+  se verifica si el nivel actual en el árbol es mayor al mínimo encontrado hasta el momento. Si es así la
   llamada a la función termina. Esta verificación es útil cuando ya se encontró una descomposición de $K_n$
   de tamaño $t$, y el tamaño de la colección actual es mayor o igual a $t$. Ya que esa colección no
   mejorará el resultado actual de $t$, evitamos seguir por ese camino. La verificación de la línea 4
@@ -1613,12 +1614,13 @@ $K_n$}\label{secc:anti-thickness-dibujo}
   En la línea 11 declaramos un vector de enteros $thrackle$, en él, almacenaremos un
   thrackle compatible con el thrackle actual $current\_thrackle$. En la línea 12 buscamos el thrackle
   compatible más cercano posible usando una función que busca, dada una colección de aristas, un
-  thrackle compatible. Explicamos esta función más adelante. Si \texttt{next} encuentra un thrackle,
-  lo almacena en la variable $thrackle$ y val adquiere el valor de $true$, en caso contrario
-  $val$ tiene el valor de $false$. La línea 13 verifica si se encontró o no un thrackle
-  compatible; si no se encontró, la llamada recursiva es terminada en la línea 14. La línea 15 agrega el
-  vector $thrackle$ a la lista de descendientes $local\_desc$. Esto indica que $thrackle$ es hijo de
-  $current\_thrackle$ en el árbol. Esta información es usada por el la función \texttt{next}. La línea
+  thrackle compatible. Para nosotros, la noción de cercanía está basada en el ordenamiento de dos thrackles
+  como mencionamos en la sección~\ref{seccion_thrackles}. Explicamos esta función más adelante. Si
+  \texttt{next} encuentra un thrackle, lo almacena en la variable $thrackle$ y val adquiere el valor de
+  $true$, en caso contrario $val$ tiene el valor de $false$. La línea 13 verifica si se encontró o no un
+  thrackle compatible; si no se encontró, la llamada recursiva es terminada en la línea 14. La línea 15
+  agrega el vector $thrackle$ a la lista de descendientes $local\_desc$. Esto indica que $thrackle$ es hijo
+  de $current\_thrackle$ en el árbol. Esta información es usada por el la función \texttt{next}. La línea
   16 actualiza la lista de aristas cubiertas hasta el momento. La linea 17 realiza la llamada recursiva
   para seguir bajando en el árbol y verificar si ya se ha cubierto a todas las aristas de $K_n$. La linea
   18 quita de la lista de aristas cubiertas a las aristas cubiertas por $thrackle$. Esto permite realizar
@@ -1629,7 +1631,14 @@ $K_n$}\label{secc:anti-thickness-dibujo}
   $0$ hasta $\binom{n}{2}-1$. Cada vez que se trabaja con un thrackle compatible se hace la unión del vector
   $coveredEdges$ con el contenido del vector que representa al thrackle.
 
-  En la figura \ref{fig:exhaustive1} mostramos un ejemplo de un árbol que se forma cuando se ejecuta el algoritmo para la búsqueda del anti-thickness de algún dibujo de $K_6$, ilustramos un camino desde la raiz hasta un nodo $T_3$. En cada uno de los nodos se representa la información de los thrackles que conforman una descomposición de un dibujo de $K_6$. La gráfica $K_6$ tiene 15 aristas por lo que las etiquetas de las aristas de los thrackles van desde $0$ hasta $15$. En este ejemplo, una vez que se encontró la descomposición de tres thrackles $T_1,T_2$ y $T_3$ el valor de $minAt$ es igual a 3. Por ello el algoritmo evitará analizar colecciones de 3 o más thrackles. El algoritmo ignora estas colecciones al terminar prematuramente las llamadas recursivas en la línea 3 del pseudocódigo.
+  En la figura \ref{fig:exhaustive1} mostramos un ejemplo de un árbol que se forma cuando se ejecuta el
+  algoritmo para la búsqueda del anti-thickness de algún dibujo de $K_6$, ilustramos un camino desde la
+  raiz hasta un nodo $T_3$. En cada uno de los nodos se representa la información de los thrackles que
+  conforman una descomposición de un dibujo de $K_6$. La gráfica $K_6$ tiene 15 aristas por lo que las
+  etiquetas de las aristas de los thrackles van desde $0$ hasta $15$. En este ejemplo, una vez que se
+  encontró la descomposición de tres thrackles $T_1,T_2$ y $T_3$ el valor de $minAt$ es igual a 3. Por ello
+  el algoritmo evitará analizar colecciones de 3 o más thrackles. El algoritmo ignora estas colecciones al
+  terminar prematuramente las llamadas recursivas en la línea 3 del pseudocódigo.
   \begin{figure}
     \centering
     \begin{subfigure}{.5\textwidth}
@@ -1750,10 +1759,54 @@ $K_n$}\label{secc:anti-thickness-dibujo}
   El ciclo \texttt{while} de las líneas 34 a la 50 termina cuando sucede una de las tres situaciones siguientes
   \begin{itemize}
     \item El tamaño del thrackle compatible es 0. Esto indica que ya se ha intentado buscar thrackles compatibles con diferentes tamaños pero no se ha encontrado ninguno. Cada vez que el algoritmo no encuentra un thrackle compatible, se reduce el tamaño del thrackle a buscar en la línea 37.
-    \item La comparación de la línea 44 es positiva. El segmento de código compuesto por las líneas 40 a la 45 hacen un cálculo para saber si vale la pena o no buscar un thrackle de tamaño $q$. Si se supone que en el mejor caso se necesitan $p$ thrackles de tamaño $q$ para cubrir a $K_n$ entonces el tamaño final de la descomposición en ese caso en particular es $currentAt + p$. Si esto es mayor al tamaño más pequeño encontrado para una descomposición hasta el momento, entonces no vale la pena seguir por ese camino y se descarta esa búsqueda.
+    \item La comparación de la línea 44 es positiva. El segmento de código compuesto por las líneas 40 a la 45 hacen un cálculo para saber si vale la pena o no buscar un thrackle de tamaño $q$. Si se supone que en el mejor caso se necesitan $p$ thrackles de tamaño $q$ para cubrir a $K_n$ entonces el tamaño final de la descomposición en ese caso en particular es $currentAt + p$. Si esto es mayor al tamaño más pequeño encontrado para una descomposición hasta el momento ($minAt$), entonces no vale la pena seguir por ese camino y se descarta esa búsqueda.
     \item Se ha encontrado un thrackle compatible, esto es que la intersección del thrackle encontrado y las aristas cubiertas hasta el momento es vacía y que además, el thrackle encontrado no es ninguno de los descendientes de $current\_thrackle$. Esta verificación se hace en el \texttt{if} de las línea 47 a la 50.
   \end{itemize}
   \subsubsection{Análisis de complejidad}
+
+  Analizamos primero el costo de la función \texttt{exhaustive\_at} descrita en el
+  algoritmo~\ref{algo_exhaustive_at}. Las primeras 7 líneas tienen costo $O(1)$. Llamemos
+  $O(\mathcal{XT})$ al costo de la línea 12, esto es el costo de la función \texttt{next}. El costo de
+  agregar un elemento a un vector al final de este es constante por lo que la línea 15 tiene costo $O(1)$.
+  Las operaciones de unión e intersección de conjuntos tienen costo lineal en el tamaño de los vectores de
+  entrada, como el tamaño máximo del vector $coveredEdges$ es $\binom{n}{2}$, las operaciones de las líneas
+  16 y 18 tienen costo $O(n^2)$. El costo total del algoritmo depende del número de veces que se llame
+  recurisvamente a la función \texttt{exhaustive\_at}. En el peor caso, en la primera llamada a la función
+  tratamos de cubrir una gráfica con $\binom{n}{2}$ aristas y solo podemos cubrir una, es decir, encontramos un thrackle de tamaño uno, luego la llamada recursiva será para resolver un problema de $\binom{n}{2}-1$ aristas y de nuevo, encontramos un thrackle de tamaño uno y así sucesivamente. Esto nos permite escribir una relación de recurrencia para la complejidad de este algoritmo. Sea $T(k)$ la complejidad, en el peor caso, del algoritmo \texttt{exhaustive\_at} y $k=\binom{n}{2}$:
+  \[ T(k) = T(k-1) + O(1) + O(k^2 \frac{n-1}{2}^2) + O(\mathcal{XT}) \]
+
+  Podemos observar que como $k=\binom{n}{2}$ entonces $n = k\frac{n-1}{2}$. Esta relación de recurrencia converge a \[ O(k^3 n^2 + \mathcal{XT}\cdot k) = O\left(\binom{n}{2}^3 n^2 + \binom{n}{2}\mathcal{XT}\right) = O(n^8 + n^2\mathcal{XT})\]
+
+  Ahora analizamos el costo de la función \texttt{next}. Hacemos esto contando cuántas veces se llamará a
+  \texttt{next} desde un mismo nodo, para esto suponemos que el anti-thickness de la gráfica completa
+  inducida por el dibujo es mayor que el nivel donde se encuentra el nodo. Dado un thrackle con $m$ aristas
+  donde $m < n$, debemos calcular cuántos thrackles son compatibles con él. Diagamos que solo se han
+  cubierto $m$ aristas, esto implica que quedan $\binom{n}{2} - m$ aristas por cubrir. En el peor caso hay
+  $\binom{\binom{n}{2}-m}{m}$ thrackles de tamaño $m$ compatibles, $\binom{\binom{n}{2}-m}{m-1}$ thrackles
+  de tamaño $m-1$ compatibles, $\binom{\binom{n}{2}-m}{m-2}$ thrackles de tamaño $m-2$ compatibles y de
+  esta misma manera hasta $\binom{\binom{n}{2}-m}{1}$ thrackles de tamaño $1$ compatibles. Y cada uno será
+  encontrado, no necesariamente de manera subsecuente, por la función \texttt{next} desde el mismo nodo. En
+  total hay, en el peor caso \[ \sum_{i=1}^m \binom{\binom{n}{2}-m}{i} \] thrackles compatibles. Como esa
+  suma maximiza su valor cuando $i=m$, podemos acotarla por $O(n^{2m})$. Luego, el valor más grande que
+  puede tener $m$ es $n-1$ podemos acotar el costo de esta función por $O(n^{2(n-1)}) = O(n^{2n})$.
+
+  Finalmente el costo del algoritmo \texttt{exhaustive\_at} es
+  \[O(n^8 + n^2 n^{2n}) = O(n^8 + n^{2+2n}) = O (n^{2+2n}).\]
+
+  Mostramos el tiempo teórico que le tomaría a este algoritmo para terminar, con las características del cluster que mencionamos anteriormente, y el tiempo real que le tomó para un dibujo en la tabla X.
+
+  \begin{table}
+    \begin{tabular}{|c|c|c|c|}
+      \hline
+      $n$ & Tiempo teórico & Tipo de orden & Tiempo real \\ \hline
+      $8$ & x              & --            & --          \\ \hline
+      $7$ & x              & --            & --          \\ \hline
+      $6$ & x              & --            & --          \\ \hline
+    \end{tabular}
+    \caption{}
+    \label{}
+
+  \end{table}
 
 
 \subsection{Algoritmo para dar el número de cruce de un thrackle máximo}

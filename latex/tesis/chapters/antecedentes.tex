@@ -165,7 +165,7 @@ geométricas donde cada par de aristas se intersectan una vez, estas gráficas
 geométricas reciben el nombre de thrackles. En la siguiente sección explicamos
 formalmente qué son los thrackles.
 
-\subsection{Thrackles}
+\subsection{Thrackles} \label{seccion_thrackles}
 Sea $\mathsf{G}$ un dibujo de una gráfica $G$. Decimos que $\mathsf{G}$ es un
 \emph{thrackle} si cada par de aristas se intersecta exactamente una vez. La
 figura~\ref{fig:exmaxth} ilustra un ejemplo de thrackle.
@@ -196,7 +196,7 @@ $n$ aristas. La figura~\ref{fig:exmaxth} muestra un thrackle máximo.
   \caption{Un thrackle geométrico con cinco vértices.}
   \label{fig:exthgeo}
 \end{subfigure}
-\caption{Ambas figuras ilustran thracklese definidos sobre el mismo conjunto de
+\caption{Ambas figuras ilustran thrackles definidos sobre el mismo conjunto de
 puntos. En los dos casos el thrackle dibujado es máximo.}
 \label{fig:exthgeotop}
 \end{figure}
@@ -229,7 +229,22 @@ Además definimos la intersección entre dos thrackles como sigue:
   \[ T_i \cap T_j = E(T_i) \cap E(T_j).\]
 \end{definition}
 
-Decimos que dos thrackles $T_i$ y $T_j$ son disjuntos cuando $T_i\cap T_j = \emptyset$.
+Decimos que dos thrackles $T_i$ y $T_j$ son disjuntos cuando $T_i\cap T_j = \emptyset$. Además, decimos que
+un thrackle $T$ es de \emph{tamaño} $k$ si $E(T)=k$.
+
+En este trabajo representamos un thrackle $T$ de tamaño $k$ con una tupla de enteros positivos
+$\{e_1,e_2,\dots,e_k\}$ tales que $e_1 < e_2 < \dots < e_k$. Decimos que $T=\{e_1,e_2,\dots,e_k\}$ tiene a
+las aristas $e_1,e_2,\dots,e_k$. Esta representación nos permite dar un orden para dos thrackles.
+
+\begin{definition}{\emph{Ordenamiento de dos thrackles}.}
+  Sea $T_1 =\{e_1,e_2,\dots,e_{t_1}\}$ y $T_2 =\{f_1,f_2,\dots,f_{t_2}\}$ dos thrackles con tamaño $t_1$ y
+  $t_2$ respectivamente. Decimos que $T_1 < T_2$ si y solo si existe $e_i \in T_1$ y $f_i \in T_2$ tal que
+  $e_i < f_i$ o bien, si $t_1 > t_2$.
+\end{definition}
+
+Para ejemplificar la definición anterior supongamos que $T_1=\{1,3,6,8,12\}$ y que $T_2=\{1,3,6,9,10\}$, en
+este caso $T_1 < T_2$ ya que $8 < 9$. Por otro lado, si $T_3=\{1,3,4\}$ tenemos que $T_1 < T_3$ porque
+$T_3$ tiene tres aristas y $T_1$ tiene cinco aristas.
 
 Dada una gráfica completa (abstracta) esta puede ser dibujada en el plano
 de muchas maneras, solo basta con mover un punto en cualquier dirección

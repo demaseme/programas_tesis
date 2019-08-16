@@ -5,7 +5,7 @@
 \contentsline {subsection}{\numberline {2.1.1}Gr\IeC {\'a}fica geom\IeC {\'e}trica}{17}{subsection.2.1.1}
 \contentsline {subsection}{\numberline {2.1.2}Thrackles}{19}{subsection.2.1.2}
 \contentsline {subsection}{\numberline {2.1.3}Tipo de Orden}{21}{subsection.2.1.3}
-\contentsline {section}{\numberline {2.2}Anti-thickness y anti-thickness geom\IeC {\'e}trico}{25}{section.2.2}
+\contentsline {section}{\numberline {2.2}Anti-thickness y anti-thickness geom\IeC {\'e}trico}{24}{section.2.2}
 \contentsline {section}{\numberline {2.3}N\IeC {\'u}mero crom\IeC {\'a}tico}{27}{section.2.3}
 \contentsline {chapter}{\numberline {3}Estado del arte}{29}{chapter.3}
 \contentsline {chapter}{\numberline {4}Resultados}{41}{chapter.4}
@@ -26,8 +26,8 @@
 \contentsline {subsubsection}{An\IeC {\'a}lisis de complejidad}{77}{section*.53}
 \contentsline {subsection}{\numberline {4.6.6}Algoritmo para encontrar el anti-thickness de un dibujo de $K_n$}{78}{subsection.4.6.6}
 \contentsline {subsubsection}{An\IeC {\'a}lisis de complejidad}{86}{section*.58}
-\contentsline {subsection}{\numberline {4.6.7}Algoritmo para dar el n\IeC {\'u}mero de cruce de un thrackle m\IeC {\'a}ximo}{86}{subsection.4.6.7}
-\contentsline {subsubsection}{An\IeC {\'a}lisis de complejidad}{86}{section*.60}
-\contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{89}{chapter.5}
-\contentsline {chapter}{\numberline {A}Etiquetas de thrackles m\IeC {\'a}ximos}{91}{appendix.Alph1}
-\contentsline {chapter}{\numberline {B}N\IeC {\'u}meros de cruce para thrackles m\IeC {\'a}ximos}{95}{appendix.Alph2}
+\contentsline {subsection}{\numberline {4.6.7}Algoritmo para dar el n\IeC {\'u}mero de cruce de un thrackle m\IeC {\'a}ximo}{87}{subsection.4.6.7}
+\contentsline {subsubsection}{An\IeC {\'a}lisis de complejidad}{88}{section*.60}
+\contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{91}{chapter.5}
+\contentsline {chapter}{\numberline {A}Etiquetas de thrackles m\IeC {\'a}ximos}{93}{appendix.Alph1}
+\contentsline {chapter}{\numberline {B}N\IeC {\'u}meros de cruce para thrackles m\IeC {\'a}ximos}{97}{appendix.Alph2}
