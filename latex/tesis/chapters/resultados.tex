@@ -355,7 +355,7 @@ cruce. Finalmente listamos los algoritmos que utilizamos en este trabajo para da
   inducidas por los tipos de orden para cada $n$ de la tabla~\ref{table:res_desc_th_max} no son
   necesariamente las que tienen más thrackles máximos. Mostramos cuántos thrackles máximos hay en cada
   tipo de orden en un archivo que puede ser descargado de la siguiete liga:
-  (\url{http://computacion.cs.cinvestav.mx/dmerinos~/site/archivos_tesis/thrMax_k.tar.xz}).
+  (\url{http://computacion.cs.cinvestav.mx/~dmerinos/site/archivos_tesis/thrMax_k.tar.xz}).
 
   Además, verificamos el porcentaje de números de tipos de orden de $8,9$ y $10$ puntos para los cuales es
   posible inducir una descomposición usando solamente thrackles máximos basándonos en el número total de
@@ -436,15 +436,42 @@ cruce. Finalmente listamos los algoritmos que utilizamos en este trabajo para da
     \label{table:res_desc_th_max}
   \end{table}
 
-  Decidimos estudiar la estructura geométrica de los tipos de orden de la tabla~\ref{table:res_desc_th_max} para intentar caracterizar cuáles conjuntos de puntos inducen una gráfica completa que tiene una descomposición en thrackles máximos. Para esto describimos a continuación el concepto de \emph{k-convexidad} de un conjunto. Existen varias definiciones de $k$-convexidad, en este trabajo retomamos dos.
+  Decidimos estudiar la estructura geométrica de los tipos de orden de la tabla~\ref{table:res_desc_th_max}
+  para intentar caracterizar cuáles conjuntos de puntos inducen una gráfica completa que tiene una
+  descomposición en thrackles máximos. Para esto describimos a continuación el concepto de
+  \emph{k-convexidad} de un conjunto y \emph{reflexividad} de un conjunto. Existen varias definiciones de un conjunto $k$-convexo, aquí retomamos uno.
+  \newpage
+  \begin{definition}{\emph{Conjunto k-convexo}(\cite{Valtr2002}).}
 
-  \begin{definition}{\emph{Conjunto k-convexo}.}
-
+    Un conjunto de puntos $P$ en el plano es $k$-convexo si ningún triángulo definido por tres puntos de
+    $P$ contiene a más de $k$ puntos de $P$ en su interior.
   \end{definition}
 
-  \begin{definition}{\emph{Conjunto k-convexo}.}
+  \begin{definition}{\emph{Reflexividad de un conjunto}.(\cite{Arkin2003}).}
 
+    Sea $r(P)$ el número de vértices cóncavos de un polígono $P$ y sea $\mathcal{P}$ el conjunto de todas las poligonizaciones de un conjunto $S$ de puntos, la reflexividad del conjunto $S$ se define como sigue: \[ \rho(S) = \min_{P\in \mathcal{P}} r(P).\]
   \end{definition}
+
+  Basándonos en las definiciones anteriores encontramos que, de los tipos de orden en la
+  tabla~\ref{table:res_desc_th_max}, los doce tienen reflexividad igual a uno. Esto es, que todos tienen una
+  poligonización que cuenta con solamente un vértice cóncavo. Cuando un conjunto de $n$ vértices tiene a
+  $n-1$ vértices en posición convexa y a un vértice dentro de la cubierta convexa, es fácil observar que la
+  reflexividad es uno, puesto que la cadena convexa contiene a $n-1$ vértices y solo es necesario unir, con
+  dos aristas, el principio y el fin de dicha cadena con el vértice que está dentro de la cadena convexa.
+  El tipo de orden número 1080 para $n=9$ contiene a dos puntos en el interior de su cubierta convexa, sin
+  embargo, es posible encontrar una poligonización con un solo ángulo cóncavo. Presentamos dicha
+  poligonización en la figura~\ref{fig:poligonizacion1080}.
+
+  Respecto a la $k$-convexidad, encontramos que todos los tipos de orden listados, a excepción del tipo de
+  orden de nueve vértices con número 1080, son $1$-convexos ya que cuentan con solamente un punto en el
+  interior de su cubierta convexa.
+
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth ]{poligonizacion1080}
+    \caption{Una poligonización para el tipo de orden número 1080 de nueve vértices, esta poligonización solo tiene un ángulo cóncavo por lo que su reflexividad es uno. No es cero ya que esto requiere que todos sus ángulos sean convexos, lo que equivale a que todos los puntos estén en posición convexa.}
+    \label{fig:poligonizacion1080}
+  \end{figure}
 
   Para los casos de $n \in \{3,4,\dots,7\}$ no existe ninguna
   colección de $k$ thrackles máximos que pueda inducir una descomposición de

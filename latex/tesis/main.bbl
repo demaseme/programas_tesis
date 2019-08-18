@@ -1,4 +1,4 @@
-\begin{thebibliography}{18}
+\begin{thebibliography}{20}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname url\endcsname\relax
   \def\url#1{{\tt #1}}\fi
@@ -21,6 +21,14 @@ Aichholzer, O., \& Krasser, H. (2001).
 Araujo, G., Dumitrescu, A., Hurtado, F., Noy, M., \& Urrutia, J. (2005).
 \newblock On the chromatic number of some geometric type kneser graphs.
 \newblock {\em Comput. Geom.\/}, {\em 32\/}(1), 59--69.
+
+\bibitem[{Arkin \emph{et~al.}(2003)Arkin, Mitchell, Fekete, Hurtado, Noy,
+  Sacrist{\'a}n, \& Sethia}]{Arkin2003}
+Arkin, E.~M., Mitchell, J. S.~B., Fekete, S.~P., Hurtado, F., Noy, M.,
+  Sacrist{\'a}n, V., \& Sethia, S. (2003).
+\newblock {\em On the Reflexivity of Point Sets\/}, (pp. 139--156).
+\newblock Berlin, Heidelberg: Springer Berlin Heidelberg.
+\newline\urlprefix\url{https://doi.org/10.1007/978-3-642-55566-4_6}
 
 \bibitem[{Chartrand \& Zhang(2008)}]{Chartrand2008}
 Chartrand, G., \& Zhang, P. (2008).
@@ -110,5 +118,13 @@ Pach, J., \& Sterling, E. (2011).
 Schaefer, M. (2018).
 \newblock {\em Crossing numbers of graphs\/}.
 \newblock Discrete Mathematics and Its Applications. CRC Press.
+
+\bibitem[{Valtr(2002)}]{Valtr2002}
+Valtr (2002).
+\newblock A sufficient condition for the existence of large empty convex
+  polygons.
+\newblock {\em Discrete {\&} Computational Geometry\/}, {\em 28\/}(4),
+  671--682.
+\newline\urlprefix\url{https://doi.org/10.1007/s00454-002-2898-x}
 
 \end{thebibliography}

@@ -3,50 +3,51 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: main.aux
 The style file: apa-good.bst.bst
 Database file #1: bibliografia.bib.bib
+Warning--can't use both author and editor fields in Arkin2003
 Warning--can't use both author and editor fields in Chartrand2008
 Warning--can't use both author and editor fields in Knuth2011A
 Warning--can't use both author and editor fields in Knuth2011
 Warning--can't use both author and editor fields in Pach2013
 Warning--can't use both author and editor fields in Pach2013b
-You've used 18 entries,
+You've used 20 entries,
             2804 wiz_defined-function locations,
-            706 strings with 7438 characters,
-and the built_in function-call counts, 10062 in all, are:
-= -- 810
-> -- 376
-< -- 18
-+ -- 162
-- -- 123
-* -- 752
-:= -- 1563
-add.period$ -- 56
-call.type$ -- 18
-change.case$ -- 130
-chr.to.int$ -- 15
-cite$ -- 23
-duplicate$ -- 747
-empty$ -- 766
-format.name$ -- 177
-if$ -- 1978
+            724 strings with 8011 characters,
+and the built_in function-call counts, 11526 in all, are:
+= -- 924
+> -- 445
+< -- 20
++ -- 190
+- -- 147
+* -- 872
+:= -- 1781
+add.period$ -- 62
+call.type$ -- 20
+change.case$ -- 147
+chr.to.int$ -- 17
+cite$ -- 26
+duplicate$ -- 846
+empty$ -- 872
+format.name$ -- 205
+if$ -- 2268
 int.to.chr$ -- 4
 int.to.str$ -- 1
-missing$ -- 155
-newline$ -- 102
-num.names$ -- 72
-pop$ -- 316
+missing$ -- 177
+newline$ -- 114
+num.names$ -- 80
+pop$ -- 358
 preamble$ -- 1
-purify$ -- 113
+purify$ -- 129
 quote$ -- 0
-skip$ -- 293
+skip$ -- 330
 stack$ -- 0
-substring$ -- 419
-swap$ -- 401
-text.length$ -- 6
+substring$ -- 500
+swap$ -- 463
+text.length$ -- 7
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 144
-warning$ -- 5
-while$ -- 74
+type$ -- 159
+warning$ -- 6
+while$ -- 85
 width$ -- 0
-write$ -- 242
-(There were 5 warnings)
+write$ -- 270
+(There were 6 warnings)
