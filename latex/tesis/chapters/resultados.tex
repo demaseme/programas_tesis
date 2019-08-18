@@ -351,6 +351,18 @@ cruce. Finalmente listamos los algoritmos que utilizamos en este trabajo para da
   $n\in \{8,9,10\}$ existen tipos de orden que tienen $k$ thrackles máximos que
   pueden inducir una descomposición.
 
+  Con los resultados del algoritmo de búsqueda de thrackles podemos decir que las gráficas completas
+  inducidas por los tipos de orden para cada $n$ de la tabla~\ref{table:res_desc_th_max} no son
+  necesariamente las que tienen más thrackles máximos. Mostramos cuántos thrackles máximos hay en cada
+  tipo de orden en un archivo que puede ser descargado de la siguiete liga:
+  (\url{http://computacion.cs.cinvestav.mx/dmerinos~/site/archivos_tesis/thrMax_k.tar.xz}).
+
+  Además, verificamos el porcentaje de números de tipos de orden de $8,9$ y $10$ puntos para los cuales es
+  posible inducir una descomposición usando solamente thrackles máximos basándonos en el número total de
+  tipos de orden de cada uno de estos valores. Solo el $0.09\%$ de los tipos de orden de 8 puntos tiene una
+  descomposición en thrackles máximos incluyendo la posición convexa, solo el $0.005\%$ de los tipos de
+  orden de 9 puntos y solo el $.00002\%$ de los tipos de orden de 10 puntos.
+
   Verificamos la optimalidad de las colecciones de thrackles máximos y encontramos
   que ninguna colección, para los tipos de orden descritos anteriormente,
   es óptima ya que en cada una existe al menos un par de thrackles cuya intersección tiene
@@ -359,6 +371,7 @@ cruce. Finalmente listamos los algoritmos que utilizamos en este trabajo para da
   de cada par de thrackles de la colección es exactamente de tamaño 1, entonces la
   colección es óptima, de otra manera, la colección no es óptima. Este resultado nos
   permite dar el siguiente teorema.
+
   \begin{theorem}\label{teo:coleccion_optima}
     Sea $K_n(S)$ una gráfica completa inducida por un conjunto $S$ de $n$ puntos,
     con $3\leq n\leq 10$ , en posición general no convexa. No existen
@@ -397,7 +410,7 @@ cruce. Finalmente listamos los algoritmos que utilizamos en este trabajo para da
     \label{fig:k9_descomp}
   \end{figure}
 
-  \begin{table}[htbp]
+  \begin{table}[]
     \centering
     \setlength\extrarowheight{2pt}
     \begin{tabularx}{\textwidth}{|C|C|C|}
@@ -423,15 +436,30 @@ cruce. Finalmente listamos los algoritmos que utilizamos en este trabajo para da
     \label{table:res_desc_th_max}
   \end{table}
 
+  Decidimos estudiar la estructura geométrica de los tipos de orden de la tabla~\ref{table:res_desc_th_max} para intentar caracterizar cuáles conjuntos de puntos inducen una gráfica completa que tiene una descomposición en thrackles máximos. Para esto describimos a continuación el concepto de \emph{k-convexidad} de un conjunto. Existen varias definiciones de $k$-convexidad, en este trabajo retomamos dos.
+
+  \begin{definition}{\emph{Conjunto k-convexo}.}
+
+  \end{definition}
+
+  \begin{definition}{\emph{Conjunto k-convexo}.}
+
+  \end{definition}
+
   Para los casos de $n \in \{3,4,\dots,7\}$ no existe ninguna
   colección de $k$ thrackles máximos que pueda inducir una descomposición de
   $K_n$. Esto es porque, para ninguno de los tipos de orden, en este rango de $n$,
-  existe una colección de thrackles máximos que cubran las aristas de $K_n$.
-  Para estos valores de $n$ buscamos, de manera manual, una descomposición
-  con ese número de thrackles (no necesariamente máximos).
-  La figura~\ref{fig:descomposicionesk4_k9}
-  muestra para cada color de $n$ con $3\leq n\leq 7$, dibujos cuyo anti-thickness
-  es igual a la cota inferior del teorema~\ref{teo:nuevacotainf}. De esto se sigue
+  existe una colección de thrackles máximos que cubran las aristas de $K_n$ (a excepción del
+  dibujo en posición convexa). Creemos que una de las razones por las que esto sucede es que los thrackles
+  máximos que existen para cada tipo de orden en este rango comparten muchas aristas a pares por lo que
+  aunque exista un alto número de thrackles máximos, la unión no cubre las aristas de la gráfica completa.
+
+  Para los valores de $n$ anteriormente mencionados buscamos, de manera manual, una descomposición
+  con ese número de thrackles (no necesariamente máximos). Explicamos esto en la
+  sección~\ref{secc:interseccion_thrackles}.
+
+  La figura~\ref{fig:descomposicionesk4_k9} muestra para cada valor de $n$ con $3\leq n\leq 7$, dibujos
+  cuyo anti-thickness  es igual a la cota inferior del teorema~\ref{teo:nuevacotainf}. De esto se sigue
   que el anti-thickness geométrico de $K_n$, con $ 3 \leq n \leq 7$, es a lo
   sumo $n - \left\lfloor\sqrt{2n+\frac{1}{4}} - \frac{1}{2}\right\rfloor$.
   Como resultado podemos decir que el anti-thickness geométrico de $K_n$, con $ 3\leq n \leq 10$
@@ -448,6 +476,8 @@ cruce. Finalmente listamos los algoritmos que utilizamos en este trabajo para da
     indicados en la figura como $O.T.$}
     \label{fig:descomposicionesk4_k9}
   \end{figure}
+
+
 
   En esta tesis decidimos analizar qué pasa con el anti-thickness de los tipos de orden en los que
   no existe ni un thrackle máximo, para esto usamos un algoritmo que encuentra, de manera
@@ -491,6 +521,47 @@ cruce. Finalmente listamos los algoritmos que utilizamos en este trabajo para da
   tamaño $n$, para $n \in [3,8]$, para los que se ejecutó el algoritmo y el anti-thickness
   encontrado para cada uno pueden descargarse desde la siguiente liga:
   (\url{http://computacion.cs.cinvestav.mx/~dmerinos/site/archivos_tesis/without_max_at.tar.gz}).
+=======
+
+
+  En esta tesis decidimos analizar qué pasa con el anti-thickness de los tipos de orden en los que no
+  existe ni un thrackle máximo, para esto usamos un algoritmo que encuentra, de manera exhaustiva, el
+  anti-thickness de un dibujo dado. Explicamos este resultado a continuación.
+
+  \section{Anti-thickness de gráficas geométricas sin thrackles máximos}
+
+    Una vez que obtuvimos el anti-thickness geométrico exacto para gráficas completas con hasta 10 vértices,
+    y al observar que podemos alcazar este usando colecciones de thrackles máximos, nos preguntamos ¿Cómo es
+    el anti-thickness para los dibujos que no tienen thrackles máximos? ¿Es mayor? Y sí es así, ¿cuánto más?
+
+    Para responder estas interrogantes no es posible formar colecciones de thrackles máximos y evaluar la
+    cobertura de aristas. Por esta razón construimos un algoritmo que encuentra el anti-thickness de un
+    dibujo geométrico inducido por un conjunto de $n$ puntos. El algoritmo es recursivo y usa una técnica
+    de backtracking. Discutimos con más detalle el algoritmo en la sección X.
+
+    En teoría, este algoritmo puede encontrar el anti-thickness de cualquier dibujo, para cualquier $n \geq
+    3$, sin embargo, debido a su costo computacional, solamente hicimos experimentos para $n\leq 8$.
+    Utilizando el algoritmo A para encontrar thrackles máximos descrito en la sección X, listamos cuáles
+    son los tipos de orden que no tienen thrackles máximos. La lista de cada uno de los tipos de orden que
+    cumplen con esta característica puede ser descargada en la siguiente liga: \url{http.ABCDEFGHIJLKL.com}.
+
+    Recordando el trabajo de~\cite{Araujo2005} donde definen:
+    \[
+    d(n) = \max\{\chi(D(S)): S\subset \mathbb{R}^2 \text{ está en posición general}, |S|=n\},
+    \]
+    y donde además prueban que :
+    \[
+    5\left\lfloor\frac{n}{7}\right\rfloor \leq d(n) \leq \min(n-2,n-\frac{1}{2}-\frac{\lfloor \lg \lg n\rfloor}{2}).
+    \]
+    Con nuestros resultados podemos decir que encontramos el valor exacto de $d(n)$ para
+    $n\in\{3,4,5,6,7,8\}$. Por ejemplo, para $n=8$, tenemos $5 \leq d(8) \leq 6$, sin embargo, nuestro
+    algoritmo encontró un dibujo de $K_8$ que requiere al menos 6 thrackles en su descomposición. Esto
+    implica que $6 \leq d(8) \leq 6$ y por lo tanto, $d(8) = 6$. Los números de tipo de orden de tamaño $n$, para $n \in [3,8]$, para los que se ejecutó el  algoritmo y el anti-thickness encontrado para cada uno pueden descargarse desde la siguiente liga: (\url{http:ABCDEFGHIJLKL.COM}).
+
+    En la siguiente sección analizamos, para $ 3\leq n\leq 9$, cómo
+    se comporta la intersección de thrackles, no necesariamente máximos, de los
+    dibujos de $K_n$.
+>>>>>>> Stashed changes
 
   En la siguiente sección analizamos, para $ 3\leq n\leq 9$, cómo se comporta la intersección de
   thrackles, no necesariamente máximos, de los dibujos de $K_n$.

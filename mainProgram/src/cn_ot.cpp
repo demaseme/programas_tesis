@@ -44,7 +44,7 @@ void load_ordertypes(const int n, const int k){
   string file_name = "data/K_" + to_string(n) +"_"+ to_string(k) + "_statistics.dat";
   ifstream file_h;
   file_h.open(file_name);
-  if (file_h.bad() || !file_h.good()){
+  if ((file_h.bad() || !file_h.good()) ){
     fprintf(stderr, "Error opening file %s\n", file_name.c_str());
     exit(-1);
   }
@@ -68,14 +68,21 @@ int load_cn(int n, int total_ots){
   ifstream fileh;
   fileh.open(file_name,ios::binary);
   int eater;
-  if (! fileh.good()) {
+  if (!fileh.good() && n < 10) {
     fprintf(stderr, "Error opening file %s \n", file_name.c_str());
     exit(-1);
   }
-  for ( int i = 0 ; i < total_ots ; i++){
-    eater = 0;
-    fileh.read( (char*)&eater, sizeof(char));
-    cn_arr[i] = eater;
+  if (n<10){
+    for ( int i = 0 ; i < total_ots ; i++){
+      eater = 0;
+      fileh.read( (char*)&eater, sizeof(char));
+      cn_arr[i] = eater;
+    }
+  } else {
+    for ( int i = 0 ; i < total_ots ; i++){
+      eater = -1;
+      cn_arr[i] = eater;
+    }
   }
   fileh.close();
   return 1;

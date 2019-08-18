@@ -1,16 +1,19 @@
 #include "../include/decomposition.h"
 
 int cn_arr[158817];
-int load_cn();
+int load_cn(const int);
 int max_cn();
 int min_cn(int &);
 void printcn_range(int l, int r);
-int main(){
-
-  int ot_convexat[8] = {0,8,12,54,80,696,1080,1287};
-  int ot_higherat[11] = {8,1074,1268,4777,4888,17539,17967,17977,17982,18601,74934 };
-  load_cn();
-  printcn_range(36, 40);
+int main(int argc, char * argv[]){
+  if(argc < 2){
+    printf("Usage %s <n>\n", argv[0]);
+    exit(-1);
+  }
+  // int ot_convexat[8] = {0,8,12,54,80,696,1080,1287};
+  // int ot_higherat[11] = {8,1074,1268,4777,4888,17539,17967,17977,17982,18601,74934 };
+  load_cn(atoi(argv[1]));
+  printcn_range(0, 999);
   // int min_index = 0;
   // int mincn = min_cn(min_index);
   // printf("minimal cn %d, index is %d\n",mincn,min_index);
@@ -43,8 +46,9 @@ int min_cn(int & index){
   }
   return min;
 }
-int load_cn(){
-  string file_name = "../../OT/crossn09.b08";
+int load_cn(const int n){
+  string file_name = "../../OT/crossn0" + to_string(n) + ".b08";
+  //string file_name = "../../OT/crossn09.b08";
   ifstream fileh;
   fileh.open(file_name,ios::binary);
   int eater;
@@ -59,6 +63,7 @@ int load_cn(){
   }
   return 1;
 }
+
 
 void printcn_range(int l, int r){
     for ( int i = 0; i < 158817 ; i ++){
