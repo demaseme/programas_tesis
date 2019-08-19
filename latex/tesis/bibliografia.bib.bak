@@ -262,4 +262,62 @@
   url       = {http://www.cs.utsa.edu/~wagner/knuth/fasc3b.pdf},
 }
 
+@Book{Knuth2011A,
+  title     = {The art of computer programming:Volume 4A, Combinatorial Algorithms: Part 1, Fascicle 3A},
+  publisher = {Addison-Wesley},
+  year      = {2011},
+  author    = {Donald Knuth},
+  editor    = {Donald Knuth},
+  url       = {http://www.cs.utsa.edu/~wagner/knuth/fasc3b.pdf},
+}
+
+@Article{Valtr2002,
+author="Valtr",
+title="A Sufficient Condition for the Existence of Large Empty Convex Polygons",
+journal="Discrete {\&} Computational Geometry",
+year="2002",
+month="Nov",
+day="01",
+volume="28",
+number="4",
+pages="671--682",
+abstract="Let P be a set of points in general position in the plane. We say that P is k -convex if no triangle determined by P contains more than k points of P in the interior. We say that a subset A of P in convex position forms an empty polygon (in P ) if no point of P {\backslash} A lies in the convex hull of A . We show that for any k,n there is an N=N(k,n) such that any k -convex set of at least N points in general position in the plane contains an empty n -gon. We also prove an analogous statement in Rdfor each odd d≥ 3.",
+issn="1432-0444",
+doi="10.1007/s00454-002-2898-x",
+url="https://doi.org/10.1007/s00454-002-2898-x"
+}
+
+@Inbook{Arkin2003,
+author="Arkin, Esther M.
+and Mitchell, Joseph S. B.
+and Fekete, S{\'a}ndor P.
+and Hurtado, Ferran
+and Noy, Marc
+and Sacrist{\'a}n, Vera
+and Sethia, Saurabh",
+editor="Aronov, Boris
+and Basu, Saugata
+and Pach, J{\'a}nos
+and Sharir, Micha",
+title="On the Reflexivity of Point Sets",
+bookTitle="Discrete and Computational Geometry: The Goodman-Pollack Festschrift",
+year="2003",
+publisher="Springer Berlin Heidelberg",
+address="Berlin, Heidelberg",
+pages="139--156",
+abstract="We introduce a new measure for planar point sets S that captures a combinatorial distance that S is from being a convex set: The reflexivityp(S) of S is given by the smallest number of reflex vertices in a simple polygonalization of S. We prove combinatorial bounds on the reflexivity of point sets and study some closely related quantities, including the convex cover number kc(S) of a planar point set, which is the smallest number of convex chains that cover S, and the convex partition number kp(S), which is given by the smallest number of convex chains with pairwise-disjoint convex hulls that cover S.",
+isbn="978-3-642-55566-4",
+doi="10.1007/978-3-642-55566-4_6",
+url="https://doi.org/10.1007/978-3-642-55566-4_6"
+}
+
+@MastersThesis{Bulnes2017,
+  author = {Carlos Antonio Bulnes Domínguez},
+  title  = {Búsqueda de Crossing Families para Gráficas Geométricas},
+  school = {CINVESTAV},
+  year   = {2017},
+  type   = {mathesis},
+  month  = oct,
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

@@ -1,4 +1,4 @@
-\begin{thebibliography}{20}
+\begin{thebibliography}{21}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname url\endcsname\relax
   \def\url#1{{\tt #1}}\fi
@@ -41,6 +41,11 @@ Dillencourt, M.~B., Eppstein, D., \& Hirschberg, D.~S. (2004).
 \newblock Geometric thickness of complete graphs.
 \newblock In {\em Graph Algorithms And Applications 2\/}, (pp. 39--51). World
   Scientific.
+
+\bibitem[{Domínguez(2017)}]{Bulnes2017}
+Domínguez, C. A.~B. (2017).
+\newblock {\em Búsqueda de Crossing Families para Gráficas Geométricas\/}.
+\newblock mathesis, CINVESTAV.
 
 \bibitem[{Dujmovic \& Wood(2017)}]{Dujmovic2017}
 Dujmovic, V., \& Wood, D.~R. (2017).

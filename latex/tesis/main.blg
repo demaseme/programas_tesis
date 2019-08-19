@@ -9,45 +9,45 @@ Warning--can't use both author and editor fields in Knuth2011A
 Warning--can't use both author and editor fields in Knuth2011
 Warning--can't use both author and editor fields in Pach2013
 Warning--can't use both author and editor fields in Pach2013b
-You've used 20 entries,
+You've used 21 entries,
             2804 wiz_defined-function locations,
-            724 strings with 8011 characters,
-and the built_in function-call counts, 11526 in all, are:
-= -- 924
-> -- 445
-< -- 20
-+ -- 190
-- -- 147
-* -- 872
-:= -- 1781
-add.period$ -- 62
-call.type$ -- 20
-change.case$ -- 147
-chr.to.int$ -- 17
-cite$ -- 26
-duplicate$ -- 846
-empty$ -- 872
-format.name$ -- 205
-if$ -- 2268
+            730 strings with 8138 characters,
+and the built_in function-call counts, 11910 in all, are:
+= -- 957
+> -- 455
+< -- 21
++ -- 194
+- -- 150
+* -- 891
+:= -- 1850
+add.period$ -- 65
+call.type$ -- 21
+change.case$ -- 153
+chr.to.int$ -- 18
+cite$ -- 27
+duplicate$ -- 877
+empty$ -- 901
+format.name$ -- 209
+if$ -- 2341
 int.to.chr$ -- 4
 int.to.str$ -- 1
-missing$ -- 177
-newline$ -- 114
-num.names$ -- 80
-pop$ -- 358
+missing$ -- 183
+newline$ -- 119
+num.names$ -- 84
+pop$ -- 371
 preamble$ -- 1
-purify$ -- 129
+purify$ -- 134
 quote$ -- 0
-skip$ -- 330
+skip$ -- 343
 stack$ -- 0
-substring$ -- 500
-swap$ -- 463
+substring$ -- 511
+swap$ -- 477
 text.length$ -- 7
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 159
+type$ -- 168
 warning$ -- 6
-while$ -- 85
+while$ -- 88
 width$ -- 0
-write$ -- 270
+write$ -- 283
 (There were 6 warnings)
