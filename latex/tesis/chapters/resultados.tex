@@ -5,7 +5,8 @@ encontramos la cota superior usando conjuntos de hasta diez puntos en posición 
 resultado nos permite dar el anti-thickness geométrico exacto para gráficas completas con hasta
 diez vértices en posición general. Después, mencionamos la relación que encontramos entre el
 anti-thickness geométrico de una gráfica completa inducida por un conjunto de puntos y su número de
-cruce. Finalmente listamos los algoritmos que utilizamos en este trabajo para dar los resultados que reportamos, tambien hacemos el análisis de complejidad de cada algoritmo.
+cruce. Finalmente listamos los algoritmos que utilizamos en este trabajo para dar los resultados que reportamos, también hacemos el análisis de complejidad de cada algoritmo.
+
 
 \section{Cota inferior del anti-thickness geométrico de $K_n$}\label{sec:cota_inf}
   El principal resultado de este trabajo es que encontramos el valor exacto del
@@ -149,8 +150,8 @@ cruce. Finalmente listamos los algoritmos que utilizamos en este trabajo para da
 
   Usando estos resultados podemos derivar el siguiente lema.
   \begin{lemma}\label{lema:thdisjuntos}
-    Sea $S$ un conjunto de puntos en posición general y sean $T_1$ y $T_2$ thrakles máximos en $K_n(S)$ con $|V(T_1)|\leq 10$
-    y $|V(T_2)|\leq 10$. $T_1$ y $T_2$ tienen al menos una arista en común.
+    Sea $S$ un conjunto de puntos en posición general y sean $T_1$ y $T_2$ thrackles máximos en $K_n(S)$
+    con $|V(T_1)|\leq 10$ y $|V(T_2)|\leq 10$. $T_1$ y $T_2$ tienen al menos una arista en común.
   \end{lemma}
   \begin{proof}
     Para cada tipo de orden con hasta diez puntos, generamos todos los thrackles
@@ -204,7 +205,7 @@ cruce. Finalmente listamos los algoritmos que utilizamos en este trabajo para da
   % una colección de thrackles disjuntos en aristas inducida por una colección de
   % thrackles máximos, esto es debido a que en el lema~\ref{lema:thdisjuntos}
   % consideramos que la intersección en aristas de dos thrackles máximos es de
-  % tamaño 1. No es dificil observar que si la intersección es más grande entonces
+  % tamaño 1. No es difícil observar que si la intersección es más grande entonces
   % el número de aristas cubiertas por la colección inducida es menor.
 
   Con los lemas anteriores es posible probar que la cota inferior del
@@ -268,7 +269,7 @@ cruce. Finalmente listamos los algoritmos que utilizamos en este trabajo para da
     cubiertas por una colección $\mathcal{D}=\{T_1,T_2,\dots,T_m\}$ de thrackles,
     con $|E(T_i)\cap E(T_j)| = 1$, es
     \[ -\frac{1}{2}m(m-2n-1). \]
-    Para saber cuántos thrackles como minimo son necesarios en la colección para
+    Para saber cuántos thrackles como mínimo son necesarios en la colección para
     cubrir las $\binom{n}{2}$ aristas de $K_n$, es necesario resolver la
     siguiente desigualdad otorga el resultado.
     \begin{equation}
@@ -302,7 +303,7 @@ cruce. Finalmente listamos los algoritmos que utilizamos en este trabajo para da
       geométrico es justa para $3 \leq n \leq 10$. La segunda columna muestra el
       tamaño de la colección de thrackles, cuyo tamaño está dado por la cota
       inferior del anti-thickness geométrico del teorema~\ref{teo:nuevacotainf}
-      para cada $n$. La tercerca columna muestra cuántas aristas cubre dicha
+      para cada $n$. La tercera columna muestra cuántas aristas cubre dicha
       colección. La cuarta columna muestra el número de aristas de $K_n$.}
       \label{table:atnuevacota}
     \end{table}
@@ -319,7 +320,7 @@ cruce. Finalmente listamos los algoritmos que utilizamos en este trabajo para da
       $K_n$ es inducida por un conjunto de puntos en posición convexa.
     \end{proof}
 
-    Si desearamos dar un resultado similar para $n > 10$, bastaría con generalizar el
+    Para dar un resultado similar para $n > 10$, bastaría con generalizar el
     lema~\ref{lema:thdisjuntos}. Esto es, demostrar que cada par de thrackles máximos se
     intersecta en al menos una arista y que esto sucede para toda $n > 10$. Nosotros
     conjeturamos que este lema también se cumple para $n>10$.
@@ -354,7 +355,7 @@ cruce. Finalmente listamos los algoritmos que utilizamos en este trabajo para da
   Con los resultados del algoritmo de búsqueda de thrackles podemos decir que las gráficas completas
   inducidas por los tipos de orden para cada $n$ de la tabla~\ref{table:res_desc_th_max} no son
   necesariamente las que tienen más thrackles máximos. Mostramos cuántos thrackles máximos hay en cada
-  tipo de orden en un archivo que puede ser descargado de la siguiete liga:
+  tipo de orden en un archivo que puede ser descargado de la siguiente liga:
   (\url{http://computacion.cs.cinvestav.mx/~dmerinos/site/archivos_tesis/thrMax_k.tar.xz}).
 
   Además, verificamos el porcentaje de números de tipos de orden de $8,9$ y $10$ puntos para los cuales es
@@ -381,8 +382,7 @@ cruce. Finalmente listamos los algoritmos que utilizamos en este trabajo para da
     Se sigue de los algoritmos de la sección \ref{secc:descomposicion_thrackles_maximos}
     y la verificación de optimalidad. El primero busca todas
     las descomposiciones posibles inducidas por colecciones de thrackles máximos.
-    Econtramos que no existe ninguna
-    colección de thrackles máximos óptima para ningun tipo de orden diferente del convexo para
+    Encontramos que no existe ninguna colección de thrackles máximos óptima para ningún tipo de orden diferente del convexo para
     $3\leq n\leq 10$.
   \end{proof}
 
@@ -496,7 +496,7 @@ cruce. Finalmente listamos los algoritmos que utilizamos en este trabajo para da
     \centering
     \includegraphics[width=0.7\textwidth]{descomposiciones_K49.png}
     \caption{Mostramos posibles descomposiciones de la gráfica completa con
-    hasta 7 vértices. Las descomposiciones tienen exáctamente el número de
+    hasta 7 vértices. Las descomposiciones tienen exactamente el número de
     thrackles establecido por la cota inferior del
     teorema~\ref{teo:nuevacotainf}. Estas configuraciones de puntos, a excepción de $K_6$, son
     diferentes de la posición convexa. Los tipos de orden correspondientes a cada dibujo están
@@ -504,12 +504,12 @@ cruce. Finalmente listamos los algoritmos que utilizamos en este trabajo para da
     \label{fig:descomposicionesk4_k9}
   \end{figure}
 
-  Mientras estudiabamos las colecciones de thrackles máximos, decidimos calcular el número
+  Mientras estudiábamos las colecciones de thrackles máximos, decidimos calcular el número
   de cruce para encontrar una explicación de la existencia de colecciones de thrackles
   máximos en determinados tipos de orden, detallamos los resultados de este análisis en la
   siguiente sección.
 
-  \subsection{Número de cruce de thrackles maximos }\label{secc:cnthracklemax}
+  \subsection{Número de cruce de thrackles máximos }\label{secc:cnthracklemax}
 
     Durante el desarrollo de este trabajo decidimos analizar el número de cruce
     de cada uno de los thrackles máximos que hay en una colección que puede inducir una
@@ -569,7 +569,7 @@ cruce. Finalmente listamos los algoritmos que utilizamos en este trabajo para da
 
     Basándonos en el resultado del teorema~\ref{teorema:cn_thrackle}, codificamos un
     algoritmo para encontrar el número de un thrackle. Y además, para cada colección del
-    apendice~\ref{apendice_thrackles_inducen} buscamos, para cada thrackle máximo, el número
+    apéndice~\ref{apendice_thrackles_inducen} buscamos, para cada thrackle máximo, el número
     de cruce de cada uno. Detallamos el algoritmo mencionado en la
     sección~\ref{secc:algo_cnthracklemax}.
 
@@ -594,12 +594,12 @@ cruce. Finalmente listamos los algoritmos que utilizamos en este trabajo para da
 \section{Anti-thickness de gráficas geométricas sin thrackles máximos}
 
   Una vez que obtuvimos el anti-thickness geométrico exacto para gráficas completas con hasta 10
-  vértices, y al observar que podemos alcazar este usando colecciones de thrackles máximos, nos
+  vértices, y al observar que podemos alcanzar este usando colecciones de thrackles máximos, nos
   preguntamos ¿cómo es el anti-thickness para los dibujos que no tienen thrackles máximos? ¿Es
   mayor? Y sí es así ¿cuánto más?
 
   En el trabajo de~\cite{Bulnes2017} se ofrece el número total de
-  tipos de orden de $n$, con $n\in[8,10]$ para los cuáles no exsiten thrackles máximos, en la
+  tipos de orden de $n$, con $n\in[8,10]$ para los cuáles no existen thrackles máximos, en la
   tabla~\ref{tabla_totales} mostramos una comparación entre estos y el número de tipos de orden de $n$ para
   los cuales existe una descomposición por thrackles máximos con tamaño igual al anti-thickness de $K_n$.
 
@@ -623,7 +623,7 @@ cruce. Finalmente listamos los algoritmos que utilizamos en este trabajo para da
   Para responder estas interrogantes no es posible formar colecciones de thrackles máximos y
   evaluar la cobertura de aristas como hicimos anteriormente. Por esta razón construimos un algoritmo que
   encuentra el anti-thickness de un dibujo geométrico inducido por un conjunto de $n$ puntos. El algoritmo
-  es recursivo y usa una técnica de backtracking. Discutimos con más detalle el algoritmo en la
+  es recursivo y usa una técnica de \emph{backtracking}. Discutimos con más detalle el algoritmo en la
   sección~\ref{secc:anti-thickness-dibujo}.
 
   En teoría, este algoritmo puede encontrar el anti-thickness de cualquier dibujo, para cualquier
@@ -651,7 +651,7 @@ cruce. Finalmente listamos los algoritmos que utilizamos en este trabajo para da
   como explicamos en la sección~\ref{cap3}. En el caso de $K_8$, existe al menos un dibujo que necesita
   cinco thrackles para su descomposición, por ejemplo, el dibujo en posición convexa. Sin embargo, como
   existe al menos otro dibujo para el que se necesitan seis thrackles en su descomposición y como este
-  número coicide con el de la cota superior de la ecuación~\ref{eq_dn}, cuando $n=8$, decimos que $d(8)=6$.
+  número coincide con el de la cota superior de la ecuación~\ref{eq_dn}, cuando $n=8$, decimos que $d(8)=6$.
   El resultado $d(7)=5$ se sigue del trabajo  de~\cite{Araujo2005}. Para los valores de $d(n)$ con $n \in
   \{3,4,5,6\}$ verificamos que el máximo número de thrackles necesarios en una descomposición de $K_n$ es,
   en efecto, $n-2$. En la tabla~\ref{tabla_ds} mostramos, para cada $n \in \{3,4,5,6,7,8\}$ el número de uno
@@ -677,14 +677,14 @@ cruce. Finalmente listamos los algoritmos que utilizamos en este trabajo para da
     \label{tabla_ds}
   \end{table}
 
-  Tosos los números de tipo de orden de tamaño $n$, para $n \in [3,8]$, para los que se ejecutó el
+  Todos los números de tipo de orden de tamaño $n$, para $n \in [3,8]$, para los que se ejecutó el
   algoritmo y el anti-thickness encontrado para cada uno pueden descargarse desde la siguiente liga:
   (\url{http://computacion.cs.cinvestav.mx/~dmerinos/site/archivos_tesis/without_max_at.tar.gz}). Con esto
   encontramos, para este mismo rango de $n$, que el anti-thickness de los dibujos para los cuales no
   existen thrackles máximos es mayor que el anti-thickness geométrico de $K_n$.
 
   En la siguiente sección analizamos, para $3 \leq n \leq 9$, cómo se comporta la intersección de
-  thrackles, no necesariamente máximos, de los d ibujos de $K_n$.
+  thrackles, no necesariamente máximos, de los dibujos de $K_n$.
 
 \section{Intersección de thrackles de $K_n$ con $3\leq n \leq 9$.}\label{secc:interseccion_thrackles}
     \chaptermark{Intersección de thrackles.}
@@ -692,7 +692,7 @@ cruce. Finalmente listamos los algoritmos que utilizamos en este trabajo para da
     Debido al resultado del teorema~\ref{teo:coleccion_optima} establecido
     en la sección~\ref{secc:descomposicion_thrackles_maximos} decidimos estudiar
     la existencia de colecciones de thrackles, no necesariamente máximos,
-    cuya intersección a pares es vacía y que además puedan cubrir las arsitas
+    cuya intersección a pares es vacía y que además puedan cubrir las aristas
     de $K_n$. Para explicar este proceso primero es necesario definir una
     \emph{partición de un entero}.
 
@@ -737,13 +737,13 @@ cruce. Finalmente listamos los algoritmos que utilizamos en este trabajo para da
 
     No existe una formula cerrada para conocer el número de particiones de
     algún entero $n$. Una \emph{composición} de un entero $n$ es una partición
-    en la que el órden de los elementos importa es decir, dos composiciones
+    en la que el orden de los elementos importa es decir, dos composiciones
     diferentes del entero 3 son $\{2,1\}$ y $\{1,2\}$. Podemos acotar el espacio de búsqueda de las
     particiones de un entero considerando únicamente las composiciones. Como el número de composiciones
     para un entero $n$ es $2^{n-1}$ podemos decir que existen a lo sumo $O(2^{n-1})$ particiones para el
     mismo entero $n$.
 
-    Usando la definición~\ref{definicion_particion_guia} generamos las particiones gúia para todo entero
+    Usando la definición~\ref{definicion_particion_guia} generamos las particiones guía para todo entero
     $x\in \left\{ \binom{3}{2}, \binom{4}{2}, \dots, \binom{10}{2}\right\}$.
     En ~\cite{Knuth2011} se ofrece un algoritmo para
     generar las particiones de algún entero $n$. Nosotros utilizamos
@@ -811,11 +811,26 @@ cruce. Finalmente listamos los algoritmos que utilizamos en este trabajo para da
 
 \section{Algoritmos}\label{seccion_algoritmos}
   En esta sección presentamos los algoritmos usados en este trabajo. Empezamos
-  describiendo el algoritmo para encontar thrackles, de cualquier tamaño, dado
+  describiendo el algoritmo para encontrar thrackles, de cualquier tamaño, dado
   un conjunto de puntos en posición general. Después hablamos del algoritmo
   usado para encontrar la intersección de dos thrackles con el mismo número de
-  aristas. Luego...Finalmente...
+  aristas. Luego, explicamos el algoritmo que implementamos para encontrar colecciones de thrackles
+  máximos de $K_n$. Explicamos también como generamos las particiones guía de un entero y también como usamos esas particiones para buscar colecciones de thrackles con un algoritmo exhaustivo. Después, mostramos el algoritmo para encontrar el anti-thickness de un dibujo específico. Finalmente, hablamos del algoritmo para calcular el número de cruce de un thrackle.
 
+  En la figura~\ref{fig:diagrama} explicamos cómo se relacionan los algoritmos con los resultados obtenidos. En esta figura denotamos los resultados por rectángulos delineados continuamente y los algoritmos por rectángulos con lineas punteadas.
+
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{diagrama}
+    \caption{Ilustramos la relación entre algunos de los algoritmos y los resultados que describimos en
+    esta tesis. Las flechas indican que algún resultado o algoritmo usó el resultado o el algoritmo al que
+    está apuntado. Por ejemplo, el algoritmo de descomposiciones por particiones guía usa el algoritmo de
+    búsqueda de thrackles con $k$ aristas y a su vez el resultado de dicho algoritmo está relacionado con
+    la cota superior. Por otra parte, mejoramos la cota inferior del anti-thickness geométrico usando el
+    resultado de la intersección entre thrackles máximos, para obtener este resultado buscamos los
+    thrackles máximos para cada tipo de orden usando el algoritmo de búsqueda de thrackles con $k$ aristas.}
+    \label{fig:diagrama}
+  \end{figure}
   Los algoritmos fueron implementados en el lenguaje \texttt{C++} en su versión 5 (2017);
   las implementaciones fueron ejecutadas en un \emph{cluster} con las siguientes características:
   \begin{itemize}
@@ -831,7 +846,7 @@ cruce. Finalmente listamos los algoritmos que utilizamos en este trabajo para da
   aristas}\label{seccion_algoritmo_kthrackles}
   A continuación presentamos un algoritmo para resolver el siguiente problema:
   \begin{itemize}
-    \item[] Problema: Dado $n$, deseamos encontrar todos los thrackles de tamaño $k$ de todas las gráficasc ompletas $K_n(S)$, donde $S$ es un conjunto de $n$ puntos.
+    \item[] Problema: Dado $n$, deseamos encontrar todos los thrackles de tamaño $k$ de todas las gráficas completas $K_n(S)$, donde $S$ es un conjunto de $n$ puntos.
     \item[] Entrada: Un entero $n$, con $ 3 \leq n \leq 10$ y un entero $k$, con $ n \leq
     k$.
     \item[] Salida: Por cada tipo de orden de $n$ puntos, una lista de todos los thrackles de tamaño $k$ inducidos por el conjunto.
@@ -860,8 +875,7 @@ cruce. Finalmente listamos los algoritmos que utilizamos en este trabajo para da
 
     La matriz de disyunción tiene un 0 en la entrada $(i,j)$ si las aristas $i$ y $j$ se cruzan o
     comparten un vértice, y tiene un 1 en en la entrada $(i,j)$ si las aristas $i$ y $j$ son
-    totalmente disjuntas. Es decir, construimos la
-    matriz de adyacencia de la gráfica $D(S)$.
+    totalmente disjuntas. Es decir, construimos la matriz de adyacencia de la gráfica $D(S)$.
   \end{enumerate}
 
   A continuación describimos el algoritmo para encontrar thrackles
@@ -930,8 +944,8 @@ cruce. Finalmente listamos los algoritmos que utilizamos en este trabajo para da
   Supongamos que el vector $C$ tiene entradas desde $C[0]$ hasta $C[j]$ y que
   $j+1 < k$. Esto quiere decir que las aristas $C[0],C[1],\dots,C[j]$ forman un
   thrackle con $j+1$ aristas. El algoritmo buscaría extender el tamaño de este
-  thrackle en uno. Para esto hacemos $C[j+1]=C[j]+1$ y verificamos que $C[j+1]$
-  intersecte a $C[0],C[1],C[2],\dots,C[j-1],C[j]$. Si lo hace, entonces
+  thrackle en uno. Para esto hacemos $C[j+1]=C[j]+1$ y verificamos si $C[j+1]$
+  intersecta a $C[0],C[1],C[2],\dots,C[j-1],C[j]$. Si lo hace, entonces
   $C[j+1]$ forma parte del thrackle y ahora el thrackle tiene $j+2$ aristas. En
   caso contrario hacemos $C[j+1]=C[j+1]+1$, es decir, se descarta la arista que
   estaba en $C[j+1]$ y es reemplazada por la arista subsecuente en la
@@ -1028,17 +1042,17 @@ cruce. Finalmente listamos los algoritmos que utilizamos en este trabajo para da
     con 4 aristas para alguna $n>5$. En el lado derecho presentamos un dibujo de una gráfica en la
     que se buscan los thrackles con 4 aristas. Solamente se representan algunas instancias del
     vector $C$. En este ejemplo suponemos que las aristas con etiqueta 1 y 2 no se
-    intersectans. Es posible observar que cuando $C=[0,1,2,NIL]$ no se generan, debajo de ese nivel,
+    intersectan. Es posible observar que cuando $C=[0,1,2,NIL]$ no se generan, debajo de ese nivel,
     combinaciones con las etiquetas 1 y 2. Se marcan de fondo gris las soluciones encontradas.
     }
     \label{fig:ejemplo_backtracking}
   \end{figure}
   En el  inicio de la ejecución del algoritmo, el vector $C$ está vacío, es
   decir, que  todas sus entradas tienen un valor nulo. Esto se representa en
-  la raíz del árbol generado implicitamente por el backtracking. Podemos pensar que el
-  arbol implicito se construye primero a profundiad, similar a un recorrido de búsqueda
-  en profundidad (DFS). El primer subárbol que se genera, después de la raiz, es aquel
-  cuya raiz tiene a $C[0]=0$ y las demás posiciones con un valor nulo, llamemosle $r_1$.
+  la raíz del árbol generado implícitamente por el backtracking. Podemos pensar que el
+  árbol implícito se construye primero a profundiad, similar a un recorrido de búsqueda
+  en profundidad (DFS). El primer subárbol que se genera, después de la raíz, es aquel
+  cuya raíz tiene a $C[0]=0$ y las demás posiciones con un valor nulo, llamemosle $r_1$.
   Si aún no se alcanza el tamaño de thrackle deseado, después generamos, como hijo de
   $r_1$, el subárbol cuya raíz tiene a $C[0]=0$ y $C[1]=1$ y las demás posiciones con un
   valor nulo, llamemosle $r_2$. Si aún no se alcanza el tamaño de thrackle deseado,
@@ -1069,7 +1083,7 @@ cruce. Finalmente listamos los algoritmos que utilizamos en este trabajo para da
   cuya raíz, llamemosle $r_1$ tiene a $C[0]=a_1$ y, por consiguiente $r_1$, tiene como
   hijo al subárbol cuya raíz, llamemosle $r_2$ tiene a $C[0]=a_1$ y a $C[1]=a_2$ y así
   sucesivamente hasta llegar a un nodo sin hijos que tiene a $C[0]=a_1,C[1]=a_2,\dots
-  C[k]=a_k$, si el algoritmo no evaluó esta combinación, signfica que no generó alguno
+  C[k]=a_k$, si el algoritmo no evaluó esta combinación, significa que no generó alguno
   de los subárboles, en la línea 25 del algoritmo, que tienen como descendiente al nodo
   $C[0]=a_1,C[1]=a_2,\dots C[k]=a_k$ y esto sucede cuando existe al menos un par de
   aristas $a_i,a_j\in T$ que son  disjuntas. Esto contradice la suposición de que $T$
@@ -1093,7 +1107,7 @@ cruce. Finalmente listamos los algoritmos que utilizamos en este trabajo para da
   \end{dmath}
    para cada tipo de orden de $n$ puntos.
 
-   En teoría, el tiempo que necesitariamos para ejecutar este algoritmo en el cluster es significativo. En la tabla~\ref{tabla:kthrackles_tiempo}, mostramos cuánto tiempo es requerido por este algoritmo con complejidadd $O(n^{20})$ tomando en cuenta la velocidad de procesamiento del cluster. También mostramos cuánto tiempo tardó su ejecución para $n=\{8,9,10\}$.
+   En teoría, el tiempo que necesitaríamos para ejecutar este algoritmo en el cluster es significativo. En la tabla~\ref{tabla:kthrackles_tiempo}, mostramos cuánto tiempo es requerido por este algoritmo con complejidad $O(n^{20})$ tomando en cuenta la velocidad de procesamiento del cluster. También mostramos cuánto tiempo tardó su ejecución para $n=\{8,9,10\}$.
    \begin{table}
      \centering
      \begin{tabular}{|c|c|c|}
@@ -1218,9 +1232,9 @@ cruce. Finalmente listamos los algoritmos que utilizamos en este trabajo para da
   Recordemos que $At_g(K_n) = n - \left\lfloor\sqrt{2n+\frac{1}{4}} -
   \frac{1}{2}\right\rfloor$. Sin embargo, $t$ depende de dos parámetros: uno es $n$ y el
   otro es el tipo de orden de tamaño $n$ con el que trabajemos. Por ejemplo, para $n=6$
-  el tipo de orden $1$ tiene $13$ thrackles máximos, por lo que buscariamos generar las
+  el tipo de orden $1$ tiene $13$ thrackles máximos, por lo que buscaríamos generar las
   $\binom{13}{3}$ combinaciones. Por otro lado, el tipo de orden $7$ tiene $5$ thrackles
-  máximos, por lo que buscariamos generar las $\binom{5}{3}$ combinaciones. Esto tiene un
+  máximos, por lo que buscaríamos generar las $\binom{5}{3}$ combinaciones. Esto tiene un
   impacto en la complejidad del algoritmo.
 
   Sea $\mathcal{C}=\{c_1,c_2,\dots,c_k\}$ una combinación generada por el algoritmo.
@@ -1235,7 +1249,7 @@ cruce. Finalmente listamos los algoritmos que utilizamos en este trabajo para da
   corresponde con determinada etiqueta y realizar operaciones sobre este.
 
   Para cada combinación calculada, el algoritmo verifica si esta cubre o no a las aristas
-  de $K_n$. Hacemos esta verficicación con un algoritmo secuencial que recorre el arreglo
+  de $K_n$. Hacemos esta verficación con un algoritmo secuencial que recorre el arreglo
   de aristas de cada thrackle identificado por las etiquetas de la combinación. En
   nuestra implementación cada thrackle de $K_n$ tiene asociado un arreglo de
   $\binom{n}{2}$ posiciones.
@@ -1349,7 +1363,7 @@ cruce. Finalmente listamos los algoritmos que utilizamos en este trabajo para da
   \subsection{Algoritmo para generar particiones guía de un
   entero}\label{secc:algo_particiones_validas}
 
-    El algoritmo proporcinado en~\cite{Knuth2011} genera las particiones de algún entero
+    El algoritmo proporcionado en~\cite{Knuth2011} genera las particiones de algún entero
     $n$ con $O(n^2)$ operaciones, mostramos el pseudocódigo en el
     algoritmo~\ref{algo:particiones}. Una vez que las particiones son generadas,
     examinamos aquellas que tengan menos de $n - \left\lfloor\sqrt{2n + \frac{1}{4}} -
@@ -1437,7 +1451,7 @@ usando particiones de enteros}\label{secc:descomposiciones_particiones}
     $m < At_g(K_n)$, deseamos encontrar si existe, para algún dibujo de $n$, una colección
     $\mathcal{C}=\{T_1,T_2,\dots,T_m\}$ de thrackles disjuntos tales que $|E(T_i)| = a_i$.
     \item[] Entrada: Una partición guía $P$ de $n$.
-    \item[] Salida: $true$ si existe una colección de thrackles con las caracteristicas
+    \item[] Salida: $true$ si existe una colección de thrackles con las características
     descritas en el problema. $false$ en otro caso.
   \end{itemize}
 
@@ -1633,7 +1647,7 @@ usando particiones de enteros}\label{secc:descomposiciones_particiones}
   La complejidad de este algoritmo está dado por el número de thrackles de cada
   tamaño establecido por la partición. Si existen $k$ thrackles de tamaño 8, $m$
   thrackles de tamaño 7 y $q$ thrackles de tamaño 6. El algoritmo realiza $O(k\cdot
-  m^2 \cdot q)$ operaciones. Notese el exponente de $m$ en la complejidad, recordemos que
+  m^2 \cdot q)$ operaciones. Nótese el exponente de $m$ en la complejidad, recordemos que
   la partición guía es $\{8,7,7,6\}$ esto implica que por cada thrackle de tamaño 7, verificaremos
   con cada uno de los otros thrackles de tamaño 7 y por ello debemos considerar $m\times m$ en la
   complejidad.
@@ -1667,12 +1681,12 @@ $K_n$}\label{secc:anti-thickness-dibujo}
   cuyo tamaño sea mínimo, como en la definición~\ref{definicion:at_dibujo} de anti-thickness de un dibujo
   presentado en la sección~\ref{secc:anti-thickness}.
 
-  Este algoritmo construye, implicitamente, un árbol en el que cada nodo es un thrackle y un camino desde
-  la raiz hasta algún nodo es una colección de thrackles. Una colección de thrackles es una descomposición
+  Este algoritmo construye, implícitamente, un árbol en el que cada nodo es un thrackle y un camino desde
+  la raíz hasta algún nodo es una colección de thrackles. Una colección de thrackles es una descomposición
   si la intersección a pares de cada thrackle en la colección es vacía y si la unión de las aristas de
   todos los thrackles es igual al conjunto de aristas de $K_n$. Decimos que dos thrackles son compatibles
-  si su intersección es vacía. En este árbol la raíz es el nivel cero, los hijos de la raiz son el nivel 1,
-  los hijos de los hijos de la raiz son el nivel 2 y así sucesivamente. El algoritmo baja de nivel en el
+  si su intersección es vacía. En este árbol la raíz es el nivel cero, los hijos de la raíz son el nivel 1,
+  los hijos de los hijos de la raíz son el nivel 2 y así sucesivamente. El algoritmo baja de nivel en el
   árbol cuando encuentra un thrackle compatible con el resto de los thrackles que ya están en la colección.
 
   El algoritmo busca el thrackle de mayor tamaño posible en cada llamada recursiva para intentar agregarlo
@@ -1723,8 +1737,8 @@ $K_n$}\label{secc:anti-thickness-dibujo}
     \label{algo_exhaustive_at}
   \end{algorithm}
 
-  Presentamos el pseudcódigo en el algoritmo~\ref{algo_exhaustive_at}, donde
-  $minAt$, $matrix$, $cols$, $n$ y $coveredEdges$ son variables globales. En el pseudcódigo $minAt$ es un
+  Presentamos el pseudocódigo en el algoritmo~\ref{algo_exhaustive_at}, donde
+  $minAt$, $matrix$, $cols$, $n$ y $coveredEdges$ son variables globales. En el pseudocódigo $minAt$ es un
   entero que representa el tamaño mínimo de la colección de thrackles encontrada hasta determinado momento,
   $matrix$ representa la matriz de disyunción previamente construida, $cols$ es un entero que representa el
   número de columnas en la matriz de disyunción y $cols=\binom{n}{2}-1$ y $coveredEdges$ es un vector de
@@ -1766,7 +1780,7 @@ $K_n$}\label{secc:anti-thickness-dibujo}
 
   En la figura \ref{fig:exhaustive1} mostramos un ejemplo de un árbol que se forma cuando se ejecuta el
   algoritmo para la búsqueda del anti-thickness de algún dibujo de $K_6$, ilustramos un camino desde la
-  raiz hasta un nodo $T_3$. En cada uno de los nodos se representa la información de los thrackles que
+  raíz hasta un nodo $T_3$. En cada uno de los nodos se representa la información de los thrackles que
   conforman una descomposición de un dibujo de $K_6$. La gráfica $K_6$ tiene 15 aristas por lo que las
   etiquetas de las aristas de los thrackles van desde $0$ hasta $15$. En este ejemplo, una vez que se
   encontró la descomposición de tres thrackles $T_1,T_2$ y $T_3$ el valor de $minAt$ es igual a 3. Por ello
@@ -1790,7 +1804,7 @@ $K_n$}\label{secc:anti-thickness-dibujo}
     $current\_thrackle=T_1$ y $LevelAt=1$, en esta llamada recursiva el algoritmo \texttt{next}
     encuentra a $T_2$ y lo agrega como parte de la colección al hacer la unión de sus aristas con el vector
     $coveredEdges$. Después se  hace la llamada recursiva con $current\_thrackle=T_2$ y $LevelAt=2$, en
-    esta llamada recurisva el algoritmo \texttt{next} encuentra a $T_3$ y lo agrega como parte de la
+    esta llamada recursiva el algoritmo \texttt{next} encuentra a $T_3$ y lo agrega como parte de la
     colección al hacer la unión  de sus aristas con el vector $coveredEdges$. Después se hace la llamada
     recursiva y se detecta que todas las aristas han sido cubiertas por lo que se actualiza el valor de
     $minAt$ y se termina la última llamada recursiva. En la figura de la derecha: Después de terminar la
@@ -1874,7 +1888,7 @@ $K_n$}\label{secc:anti-thickness-dibujo}
     }
   \end{algorithm}
 
-  Ahora hablaremos acerca de la función \texttt{next} presentamos el pseudocódigo en el algoritmo~\ref{algo:next}. Esta función encuentra, dado un thrackle $T$ de tamaño $k$ otro thrackle compatible con $T$. Antes de empezar la búsqueda establece el tamaño $q$ del thrackle a encontrar. Esto lo hace analizando el tamaño de los descendientes de $T$, el algoritmo toma el tamaño más pequeño de estos descedientes ya que, por la  naturaleza del algoritmo, no tiene sentido buscar un thrackle más grande que el descendiente más pequeño. Una vez que se conoce el valor de $q$ hay que elegir cuáles son las aristas en las que se iniciará la búsqueda del siguiente thrackle. Después se inicia una búsqueda secuencial y exhaustiva de un thrackle de tamaño $q$ usando la misma técnica descrita en la sección~\ref{seccion_algoritmo_kthrackles} para encontrar un thrackle de un tamaño dado. La diferencia principal es la inicialización del vector $C$ que en este caso no tendrá valores nulos sino los de las $q$ etiquetas elegidas anteriormente.
+  Ahora hablaremos acerca de la función \texttt{next} presentamos el pseudocódigo en el algoritmo~\ref{algo:next}. Esta función encuentra, dado un thrackle $T$ de tamaño $k$ otro thrackle compatible con $T$. Antes de empezar la búsqueda establece el tamaño $q$ del thrackle a encontrar. Esto lo hace analizando el tamaño de los descendientes de $T$, el algoritmo toma el tamaño más pequeño de estos descendientes ya que, por la  naturaleza del algoritmo, no tiene sentido buscar un thrackle más grande que el descendiente más pequeño. Una vez que se conoce el valor de $q$ hay que elegir cuáles son las aristas en las que se iniciará la búsqueda del siguiente thrackle. Después se inicia una búsqueda secuencial y exhaustiva de un thrackle de tamaño $q$ usando la misma técnica descrita en la sección~\ref{seccion_algoritmo_kthrackles} para encontrar un thrackle de un tamaño dado. La diferencia principal es la inicialización del vector $C$ que en este caso no tendrá valores nulos sino los de las $q$ etiquetas elegidas anteriormente.
 
   Cuando la función \texttt{next} encuentra un thrackle $M$ con $q$ aristas se procede a verificar
   que la intersección del vector $coveredEdges$ y las etiquetas de $M$ sea vacía. Esto es para asegurar que
@@ -1904,7 +1918,7 @@ $K_n$}\label{secc:anti-thickness-dibujo}
   Las operaciones de unión e intersección de conjuntos tienen costo lineal en el tamaño de los vectores de
   entrada, como el tamaño máximo del vector $coveredEdges$ es $\binom{n}{2}$, las operaciones de las líneas
   16 y 18 tienen costo $O(n^2)$. El costo total del algoritmo depende del número de veces que se llame
-  recurisvamente a la función \texttt{exhaustive\_at}. En el peor caso, en la primera llamada a la función
+  recursivamente a la función \texttt{exhaustive\_at}. En el peor caso, en la primera llamada a la función
   tratamos de cubrir una gráfica con $\binom{n}{2}$ aristas y solo podemos cubrir una, es decir, encontramos un thrackle de tamaño uno, luego la llamada recursiva será para resolver un problema de $\binom{n}{2}-1$ aristas y de nuevo, encontramos un thrackle de tamaño uno y así sucesivamente. Esto nos permite escribir una relación de recurrencia para la complejidad de este algoritmo. Sea $T(k)$ la complejidad, en el peor caso, del algoritmo \texttt{exhaustive\_at} y $k=\binom{n}{2}$:
   \[ T(k) = T(k-1) + O(1) + O(k^2 \frac{n-1}{2}^2) + O(\mathcal{XT}) \]
 
@@ -1913,7 +1927,7 @@ $K_n$}\label{secc:anti-thickness-dibujo}
   Ahora analizamos el costo de la función \texttt{next}. Hacemos esto contando cuántas veces se llamará a
   \texttt{next} desde un mismo nodo, para esto suponemos que el anti-thickness de la gráfica completa
   inducida por el dibujo es mayor que el nivel donde se encuentra el nodo. Dado un thrackle con $m$ aristas
-  donde $m < n$, debemos calcular cuántos thrackles son compatibles con él. Diagamos que solo se han
+  donde $m < n$, debemos calcular cuántos thrackles son compatibles con él. Digamos que solo se han
   cubierto $m$ aristas, esto implica que quedan $\binom{n}{2} - m$ aristas por cubrir. En el peor caso hay
   $\binom{\binom{n}{2}-m}{m}$ thrackles de tamaño $m$ compatibles, $\binom{\binom{n}{2}-m}{m-1}$ thrackles
   de tamaño $m-1$ compatibles, $\binom{\binom{n}{2}-m}{m-2}$ thrackles de tamaño $m-2$ compatibles y de
@@ -1929,14 +1943,15 @@ $K_n$}\label{secc:anti-thickness-dibujo}
   Mostramos el tiempo teórico que le tomaría a este algoritmo para terminar, con las características del cluster que mencionamos anteriormente, y el tiempo real que le tomó para un dibujo en la tabla~\ref{tabla_tiempo_exhaustive_at}.
 
   \begin{table}
+    \centering
     \begin{tabular}{|c|c|c|c|}
       \hline
-      $n$ & Tiempo teórico & Tipo de orden & Tiempo real \\ \hline
-      $8$ & x              & --            & --          \\ \hline
-      $7$ & x              & --            & --          \\ \hline
-      $6$ & x              & --            & --          \\ \hline
+      $n$ & Tiempo teórico            & Tipo de orden & Tiempo real   \\ \hline
+      $8$ & $1.20096\times10^7$ años  & 1943          & xena15             \\ \hline
+      $7$ & $22155.3$ años            & 80            & 1 minuto            \\ \hline
+      $6$ & $52.2428$ años            & 9             & 0.33 segundos          \\ \hline
     \end{tabular}
-    \caption{}
+    \caption{Mostramos el tiempo estimado de terminación de acuerdo a la complejidad del algoritmo y el tiempo que tardó en terminar una ejecución de este algoritmo usando los tipos de orden descritos en la tabla. Estos tiempos de terminación son aceptables para esta implementación.}
     \label{tabla_tiempo_exhaustive_at}
 
   \end{table}
@@ -1960,7 +1975,7 @@ $K_n$}\label{secc:anti-thickness-dibujo}
     \SetKwInOut{Output}{Salida}
     \underline{función CrossingNumberThrackle} $(E,n)$\;
      \Input{Un arreglo booleano E, de tamaño $\binom{n}{2}$, que representa a las aristas del thrackle.}
-     \Output{Un entero $r$ igual al número de cruce del trackle inducido por $E$.}
+     \Output{Un entero $r$ igual al número de cruce del thrackle inducido por $E$.}
      $i,j,c \gets 0$\;
      Sea $degs[n]$ un arreglo de enteros, de tamaño $n$\;
      $th\_size \gets 0$\;

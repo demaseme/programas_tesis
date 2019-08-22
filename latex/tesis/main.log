@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.16)  19 AUG 2019 17:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.16)  21 AUG 2019 20:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1405,114 +1405,114 @@ File: images/exdecom.png Graphic file (type png)
 <use images/exdecom.png>
 Package pdftex.def Info: images/exdecom.png  used on input line 84.
 (pdftex.def)             Requested size: 312.00119pt x 119.83473pt.
-LaTeX Info: Redefining \. on input line 119.
-LaTeX Info: Redefining \% on input line 119.
+LaTeX Info: Redefining \. on input line 120.
+LaTeX Info: Redefining \% on input line 120.
  [17 </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/exbipartita.png>]
 <images/exdrawk5.png, id=277, 2035.605pt x 849.1725pt>
 File: images/exdrawk5.png Graphic file (type png)
 <use images/exdrawk5.png>
-Package pdftex.def Info: images/exdrawk5.png  used on input line 132.
+Package pdftex.def Info: images/exdrawk5.png  used on input line 133.
 (pdftex.def)             Requested size: 195.0pt x 81.346pt.
 <images/exintersection.png, id=279, 392.46625pt x 489.83pt>
 File: images/exintersection.png Graphic file (type png)
 <use images/exintersection.png>
-Package pdftex.def Info: images/exintersection.png  used on input line 151.
+Package pdftex.def Info: images/exintersection.png  used on input line 152.
 (pdftex.def)             Requested size: 77.99881pt x 97.3439pt.
 
 Underfull \vbox (badness 1406) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 162.
-LaTeX Info: Redefining \% on input line 162.
+LaTeX Info: Redefining \. on input line 163.
+LaTeX Info: Redefining \% on input line 163.
  [18 </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/exdecom.png>]
 <images/exmaxth.png, id=293, 748.7975pt x 484.81125pt>
 File: images/exmaxth.png Graphic file (type png)
 <use images/exmaxth.png>
-Package pdftex.def Info: images/exmaxth.png  used on input line 180.
+Package pdftex.def Info: images/exmaxth.png  used on input line 181.
 (pdftex.def)             Requested size: 175.49881pt x 113.62735pt.
 <images/exthtop.png, id=294, 565.11125pt x 642.4pt>
 File: images/exthtop.png Graphic file (type png)
 <use images/exthtop.png>
-Package pdftex.def Info: images/exthtop.png  used on input line 189.
+Package pdftex.def Info: images/exthtop.png  used on input line 190.
 (pdftex.def)             Requested size: 93.59952pt x 106.39331pt.
 <images/exthgeo.png, id=295, 663.47874pt x 663.47874pt>
 File: images/exthgeo.png Graphic file (type png)
 <use images/exthgeo.png>
-Package pdftex.def Info: images/exthgeo.png  used on input line 195.
+Package pdftex.def Info: images/exthgeo.png  used on input line 196.
 (pdftex.def)             Requested size: 93.59952pt x 93.59505pt.
-LaTeX Info: Redefining \. on input line 205.
-LaTeX Info: Redefining \% on input line 205.
+LaTeX Info: Redefining \. on input line 206.
+LaTeX Info: Redefining \% on input line 206.
  [19 </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/exdrawk5.png> </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/exintersection.png>]
-LaTeX Info: Redefining \. on input line 223.
-LaTeX Info: Redefining \% on input line 223.
+LaTeX Info: Redefining \. on input line 224.
+LaTeX Info: Redefining \% on input line 224.
  [20 </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/exmaxth.png> </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/exthtop.png> </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/exthgeo.png>]
-Overfull \hbox (3.37598pt too wide) in paragraph at lines 245--248
+Overfull \hbox (3.37598pt too wide) in paragraph at lines 246--249
 []\OT1/cmr/m/n/12 Para ejem-pli-fi-car la de-fi-ni-ci^^Son an-te-rior su-pon-ga-mos que $\OML/cmm/m/it/12 T[] \OT1/cmr/m/n/12 = \OMS/cmsy/m/n/12 f\OT1/cmr/m/n/12 1\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 3\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 6\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 8\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 12\OMS/cmsy/m/n/12 g$
  []
 
 <images/triplet.png, id=321, 1126.2075pt x 1153.30875pt>
 File: images/triplet.png Graphic file (type png)
 <use images/triplet.png>
-Package pdftex.def Info: images/triplet.png  used on input line 274.
+Package pdftex.def Info: images/triplet.png  used on input line 275.
 (pdftex.def)             Requested size: 117.00119pt x 119.80753pt.
-LaTeX Info: Redefining \. on input line 282.
-LaTeX Info: Redefining \% on input line 282.
+LaTeX Info: Redefining \. on input line 283.
+LaTeX Info: Redefining \% on input line 283.
 [21]
-LaTeX Info: Redefining \. on input line 302.
-LaTeX Info: Redefining \% on input line 302.
+LaTeX Info: Redefining \. on input line 303.
+LaTeX Info: Redefining \% on input line 303.
  [22 </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/triplet.png>]
 <images/exot34.png, id=343, 1908.12875pt x 658.46pt>
 File: images/exot34.png Graphic file (type png)
 <use images/exot34.png>
-Package pdftex.def Info: images/exot34.png  used on input line 305.
+Package pdftex.def Info: images/exot34.png  used on input line 306.
 (pdftex.def)             Requested size: 312.00119pt x 107.66663pt.
 <images/exotk5.png, id=344, 2331.71124pt x 1101.11375pt>
 File: images/exotk5.png Graphic file (type png)
 <use images/exotk5.png>
-Package pdftex.def Info: images/exotk5.png  used on input line 312.
+Package pdftex.def Info: images/exotk5.png  used on input line 313.
 (pdftex.def)             Requested size: 312.00119pt x 147.33342pt.
 <images/ot5.png, id=345, 1744.5175pt x 658.46pt>
 File: images/ot5.png Graphic file (type png)
 <use images/ot5.png>
-Package pdftex.def Info: images/ot5.png  used on input line 321.
+Package pdftex.def Info: images/ot5.png  used on input line 322.
 (pdftex.def)             Requested size: 312.00119pt x 117.76413pt.
 <images/exotk6.png, id=347, 1665.22125pt x 1268.74pt>
 File: images/exotk6.png Graphic file (type png)
 <use images/exotk6.png>
-Package pdftex.def Info: images/exotk6.png  used on input line 341.
+Package pdftex.def Info: images/exotk6.png  used on input line 342.
 (pdftex.def)             Requested size: 195.0pt x 148.56395pt.
-LaTeX Info: Redefining \. on input line 359.
-LaTeX Info: Redefining \% on input line 359.
+LaTeX Info: Redefining \. on input line 360.
+LaTeX Info: Redefining \% on input line 360.
  [23 </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/exot34.png> </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/exotk5.png>]
-Overfull \hbox (1.4418pt too wide) in paragraph at lines 386--386
+Overfull \hbox (1.4418pt too wide) in paragraph at lines 387--387
 []\OT1/cmr/bx/n/17.28 Anti-thickness y anti-thickness geom^^Setri-
  []
 
 <images/exantithickness.png, id=359, 2302.6025pt x 843.15pt>
 File: images/exantithickness.png Graphic file (type png)
 <use images/exantithickness.png>
-Package pdftex.def Info: images/exantithickness.png  used on input line 397.
+Package pdftex.def Info: images/exantithickness.png  used on input line 398.
 (pdftex.def)             Requested size: 272.99881pt x 99.96428pt.
-LaTeX Info: Redefining \. on input line 407.
-LaTeX Info: Redefining \% on input line 407.
+LaTeX Info: Redefining \. on input line 408.
+LaTeX Info: Redefining \% on input line 408.
 [24 </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/ot5.png>]
-LaTeX Info: Redefining \. on input line 407.
-LaTeX Info: Redefining \% on input line 407.
+LaTeX Info: Redefining \. on input line 408.
+LaTeX Info: Redefining \% on input line 408.
  [25 </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/exotk6.png> </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/exantithickness.png>]
 <images/exantithicknessgeo.png, id=377, 1437.37pt x 700.6175pt>
 File: images/exantithicknessgeo.png Graphic file (type png)
 <use images/exantithicknessgeo.png>
-Package pdftex.def Info: images/exantithicknessgeo.png  used on input line 422.
+Package pdftex.def Info: images/exantithicknessgeo.png  used on input line 423.
 (pdftex.def)             Requested size: 234.00238pt x 114.05745pt.
-LaTeX Info: Redefining \. on input line 447.
-LaTeX Info: Redefining \% on input line 447.
+LaTeX Info: Redefining \. on input line 448.
+LaTeX Info: Redefining \% on input line 448.
  [26]
 <images/excoloring.png, id=388, 545.03625pt x 683.55376pt>
 File: images/excoloring.png Graphic file (type png)
 <use images/excoloring.png>
-Package pdftex.def Info: images/excoloring.png  used on input line 476.
+Package pdftex.def Info: images/excoloring.png  used on input line 477.
 (pdftex.def)             Requested size: 97.5pt x 122.27296pt.
-LaTeX Info: Redefining \. on input line 492.
-LaTeX Info: Redefining \% on input line 492.
+LaTeX Info: Redefining \. on input line 493.
+LaTeX Info: Redefining \% on input line 493.
  [27 </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/exantithicknessgeo.png>])
 LaTeX Info: Redefining \. on input line 75.
 LaTeX Info: Redefining \% on input line 75.
@@ -1612,66 +1612,66 @@ LaTeX Info: Redefining \% on input line 77.
 ]
 Cap\'{\i }tulo 4.
 (/home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/chapters/resultados.tex
-Overfull \hbox (1.84576pt too wide) in paragraph at lines 10--10
+Overfull \hbox (1.84576pt too wide) in paragraph at lines 11--11
 []\OT1/cmr/bx/n/17.28 Cota in-fe-rior del anti-thickness geom^^Setri-
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 10.
+(hyperref)                removing `math shift' on input line 11.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 10.
+(hyperref)                removing `math shift' on input line 11.
 
 [41]
-LaTeX Info: Redefining \. on input line 89.
-LaTeX Info: Redefining \% on input line 89.
+LaTeX Info: Redefining \. on input line 90.
+LaTeX Info: Redefining \% on input line 90.
  [42]
 <images/k9_nomax.png, id=556, 1984.41376pt x 1674.255pt>
 File: images/k9_nomax.png Graphic file (type png)
 <use images/k9_nomax.png>
-Package pdftex.def Info: images/k9_nomax.png  used on input line 112.
+Package pdftex.def Info: images/k9_nomax.png  used on input line 113.
 (pdftex.def)             Requested size: 312.00119pt x 263.21117pt.
-LaTeX Info: Redefining \. on input line 138.
-LaTeX Info: Redefining \% on input line 138.
+LaTeX Info: Redefining \. on input line 139.
+LaTeX Info: Redefining \% on input line 139.
 
 Overfull \hbox (0.99004pt too wide) has occurred while \output is active
 \OT1/cmr/m/sl/12 4.1.  COTA INFERIOR DEL ANTI-THICKNESS GEOM[]ETRICO DE $\OML/cmm/m/it/12 K[]$ \OT1/cmr/m/n/12 43
  []
 
 [43]
-LaTeX Info: Redefining \. on input line 154.
-LaTeX Info: Redefining \% on input line 154.
+LaTeX Info: Redefining \. on input line 155.
+LaTeX Info: Redefining \% on input line 155.
  [44 </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/k9_nomax.png>]
-LaTeX Info: Redefining \. on input line 182.
-LaTeX Info: Redefining \% on input line 182.
+LaTeX Info: Redefining \. on input line 183.
+LaTeX Info: Redefining \% on input line 183.
 
 Overfull \hbox (0.99004pt too wide) has occurred while \output is active
 \OT1/cmr/m/sl/12 4.1.  COTA INFERIOR DEL ANTI-THICKNESS GEOM[]ETRICO DE $\OML/cmm/m/it/12 K[]$ \OT1/cmr/m/n/12 45
  []
 
 [45]
-LaTeX Info: Redefining \. on input line 261.
-LaTeX Info: Redefining \% on input line 261.
+LaTeX Info: Redefining \. on input line 262.
+LaTeX Info: Redefining \% on input line 262.
  [46]
-LaTeX Info: Redefining \. on input line 284.
-LaTeX Info: Redefining \% on input line 284.
+LaTeX Info: Redefining \. on input line 285.
+LaTeX Info: Redefining \% on input line 285.
 
 Overfull \hbox (0.99004pt too wide) has occurred while \output is active
 \OT1/cmr/m/sl/12 4.1.  COTA INFERIOR DEL ANTI-THICKNESS GEOM[]ETRICO DE $\OML/cmm/m/it/12 K[]$ \OT1/cmr/m/n/12 47
  []
 
 [47]
-LaTeX Info: Redefining \. on input line 326.
-LaTeX Info: Redefining \% on input line 326.
+LaTeX Info: Redefining \. on input line 327.
+LaTeX Info: Redefining \% on input line 327.
  [48]
-Overfull \hbox (9.51378pt too wide) in paragraph at lines 332--332
+Overfull \hbox (9.51378pt too wide) in paragraph at lines 333--333
 []\OT1/cmr/bx/n/17.28 Cota su-pe-rior del anti-thickness geom^^Setri-
  []
 
-LaTeX Info: Redefining \. on input line 365.
-LaTeX Info: Redefining \% on input line 365.
+LaTeX Info: Redefining \. on input line 366.
+LaTeX Info: Redefining \% on input line 366.
 [49]
 <images/k9_descomp_2.png, id=639, 1188.44pt x 1467.4825pt>
 File: images/k9_descomp_2.png Graphic file (type png)
@@ -1938,187 +1938,196 @@ Overfull \hbox (9.52641pt too wide) in paragraph at lines 803--810
 []\OT1/cmr/m/n/12 Estos re-sul-ta-dos tie-nen im-pli-ca-cio-nes so-bre la co-ta in-fe-rior del anti-thickness
  []
 
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 831.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 831.
-
-LaTeX Info: Redefining \. on input line 834.
-LaTeX Info: Redefining \% on input line 834.
+<images/diagrama.png, id=784, 864.22874pt x 373.395pt>
+File: images/diagrama.png Graphic file (type png)
+<use images/diagrama.png>
+Package pdftex.def Info: images/diagrama.png  used on input line 824.
+(pdftex.def)             Requested size: 350.99762pt x 151.65146pt.
+LaTeX Info: Redefining \. on input line 842.
+LaTeX Info: Redefining \% on input line 842.
 [63]
-LaTeX Info: Redefining \. on input line 918.
-LaTeX Info: Redefining \% on input line 918.
- [64]
-<images/ejemplo_backtracking.png, id=798, 2757.30125pt x 2499.3375pt>
+LaTeX Info: Redefining \. on input line 842.
+LaTeX Info: Redefining \% on input line 842.
+ [64 </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/diagrama.png>]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 846.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 846.
+
+LaTeX Info: Redefining \. on input line 876.
+LaTeX Info: Redefining \% on input line 876.
+[65]
+LaTeX Info: Redefining \. on input line 967.
+LaTeX Info: Redefining \% on input line 967.
+ [66]
+LaTeX Info: Redefining \. on input line 967.
+LaTeX Info: Redefining \% on input line 967.
+ [67]
+<images/ejemplo_backtracking.png, id=846, 2757.30125pt x 2499.3375pt>
 File: images/ejemplo_backtracking.png Graphic file (type png)
 <use images/ejemplo_backtracking.png>
-Package pdftex.def Info: images/ejemplo_backtracking.png  used on input line 997.
+Package pdftex.def Info: images/ejemplo_backtracking.png  used on input line 1011.
 (pdftex.def)             Requested size: 155.99762pt x 141.373pt.
 
-Overfull \hbox (54.3329pt too wide) in paragraph at lines 1026--1033
+Overfull \hbox (54.3329pt too wide) in paragraph at lines 1040--1047
  [][] 
  []
 
-LaTeX Info: Redefining \. on input line 1051.
-LaTeX Info: Redefining \% on input line 1051.
-[65]
-LaTeX Info: Redefining \. on input line 1051.
-LaTeX Info: Redefining \% on input line 1051.
- [66]
-LaTeX Info: Redefining \. on input line 1051.
-LaTeX Info: Redefining \% on input line 1051.
- [67 </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/ejemplo_backtracking.png>]
-LaTeX Info: Redefining \. on input line 1080.
-LaTeX Info: Redefining \% on input line 1080.
- [68]
+LaTeX Info: Redefining \. on input line 1092.
+LaTeX Info: Redefining \% on input line 1092.
+[68]
+LaTeX Info: Redefining \. on input line 1092.
+LaTeX Info: Redefining \% on input line 1092.
+ [69 </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/ejemplo_backtracking.png>]
+LaTeX Info: Redefining \. on input line 1132.
+LaTeX Info: Redefining \% on input line 1132.
+ [70]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `htbp') on input line 1129.
-
-LaTeX Info: Redefining \. on input line 1158.
-LaTeX Info: Redefining \% on input line 1158.
-[69]
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1159.
+               Default added (so using `htbp') on input line 1143.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1159.
+(hyperref)                removing `math shift' on input line 1173.
 
-LaTeX Info: Redefining \. on input line 1199.
-LaTeX Info: Redefining \% on input line 1199.
-[70]
-LaTeX Info: Redefining \. on input line 1199.
-LaTeX Info: Redefining \% on input line 1199.
- [71]
-Overfull \hbox (3.12509pt too wide) in paragraph at lines 1210--1216
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 1173.
+
+LaTeX Info: Redefining \. on input line 1183.
+LaTeX Info: Redefining \% on input line 1183.
+[71]
+LaTeX Info: Redefining \. on input line 1183.
+LaTeX Info: Redefining \% on input line 1183.
+ [72]
+Overfull \hbox (3.12509pt too wide) in paragraph at lines 1224--1230
 []\OT1/cmr/m/n/12 Las com-bi-na-cio-nes fue-ron ge-ne-ra-das usan-do el al-go-rit-mo des-cri-to en []Knuth[]
  []
 
-LaTeX Info: Redefining \. on input line 1225.
-LaTeX Info: Redefining \% on input line 1225.
-[72]
+LaTeX Info: Redefining \. on input line 1230.
+LaTeX Info: Redefining \% on input line 1230.
+[73]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-LaTeX Info: Redefining \. on input line 1295.
-LaTeX Info: Redefining \% on input line 1295.
-[73]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+LaTeX Info: Redefining \. on input line 1300.
+LaTeX Info: Redefining \% on input line 1300.
+[74]
+Underfull \vbox (badness 3724) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 1391.
-LaTeX Info: Redefining \% on input line 1391.
- [74]
-LaTeX Info: Redefining \. on input line 1399.
-LaTeX Info: Redefining \% on input line 1399.
+LaTeX Info: Redefining \. on input line 1405.
+LaTeX Info: Redefining \% on input line 1405.
  [75]
-LaTeX Info: Redefining \. on input line 1399.
-LaTeX Info: Redefining \% on input line 1399.
+LaTeX Info: Redefining \. on input line 1413.
+LaTeX Info: Redefining \% on input line 1413.
  [76]
+LaTeX Info: Redefining \. on input line 1413.
+LaTeX Info: Redefining \% on input line 1413.
+ [77]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1432.
+(hyperref)                removing `math shift' on input line 1446.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1432.
+(hyperref)                removing `math shift' on input line 1446.
 
-LaTeX Info: Redefining \. on input line 1436.
-LaTeX Info: Redefining \% on input line 1436.
-[77]
-
-LaTeX Warning: Float too large for page by 109.06633pt on input line 1528.
-
-LaTeX Info: Redefining \. on input line 1583.
-LaTeX Info: Redefining \% on input line 1583.
+LaTeX Info: Redefining \. on input line 1450.
+LaTeX Info: Redefining \% on input line 1450.
 [78]
-LaTeX Info: Redefining \. on input line 1583.
-LaTeX Info: Redefining \% on input line 1583.
- [79]
-LaTeX Info: Redefining \. on input line 1583.
-LaTeX Info: Redefining \% on input line 1583.
+
+LaTeX Warning: Float too large for page by 109.06633pt on input line 1542.
+
+LaTeX Info: Redefining \. on input line 1597.
+LaTeX Info: Redefining \% on input line 1597.
+[79]
+LaTeX Info: Redefining \. on input line 1597.
+LaTeX Info: Redefining \% on input line 1597.
  [80]
-LaTeX Info: Redefining \. on input line 1603.
-LaTeX Info: Redefining \% on input line 1603.
+LaTeX Info: Redefining \. on input line 1597.
+LaTeX Info: Redefining \% on input line 1597.
  [81]
-Overfull \hbox (4.55338pt too wide) in paragraph at lines 1630--1631
+LaTeX Info: Redefining \. on input line 1617.
+LaTeX Info: Redefining \% on input line 1617.
+ [82]
+Overfull \hbox (4.55338pt too wide) in paragraph at lines 1644--1645
 [][]$\OT1/cmtt/m/n/10.95 https : / / github . com / demaseme / programas _ tesis _ rev3 / tree / master / cpps$[]\OT1/cmr/m/n/12 . 
  []
 
-LaTeX Info: Redefining \. on input line 1649.
-LaTeX Info: Redefining \% on input line 1649.
-[82]
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1655.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1655.
-
-LaTeX Info: Redefining \. on input line 1683.
-LaTeX Info: Redefining \% on input line 1683.
+LaTeX Info: Redefining \. on input line 1663.
+LaTeX Info: Redefining \% on input line 1663.
 [83]
-LaTeX Info: Redefining \. on input line 1746.
-LaTeX Info: Redefining \% on input line 1746.
- [84]
-LaTeX Info: Redefining \. on input line 1746.
-LaTeX Info: Redefining \% on input line 1746.
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 1669.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 1669.
+
+LaTeX Info: Redefining \. on input line 1697.
+LaTeX Info: Redefining \% on input line 1697.
+[84]
+LaTeX Info: Redefining \. on input line 1760.
+LaTeX Info: Redefining \% on input line 1760.
  [85]
-<images/exhaustive_ex1.png, id=1139, 1086.0575pt x 856.19875pt>
+LaTeX Info: Redefining \. on input line 1760.
+LaTeX Info: Redefining \% on input line 1760.
+ [86]
+<images/exhaustive_ex1.png, id=1146, 1086.0575pt x 856.19875pt>
 File: images/exhaustive_ex1.png Graphic file (type png)
 <use images/exhaustive_ex1.png>
-Package pdftex.def Info: images/exhaustive_ex1.png  used on input line 1779.
+Package pdftex.def Info: images/exhaustive_ex1.png  used on input line 1793.
 (pdftex.def)             Requested size: 136.4994pt x 107.59941pt.
-<images/exhaustive_ex1b.png, id=1140, 854.19125pt x 658.46pt>
+<images/exhaustive_ex1b.png, id=1147, 854.19125pt x 658.46pt>
 File: images/exhaustive_ex1b.png Graphic file (type png)
 <use images/exhaustive_ex1b.png>
-Package pdftex.def Info: images/exhaustive_ex1b.png  used on input line 1784.
+Package pdftex.def Info: images/exhaustive_ex1b.png  used on input line 1798.
 (pdftex.def)             Requested size: 136.4994pt x 105.21509pt.
 
 
-LaTeX Warning: Float too large for page by 116.21645pt on input line 1847.
+LaTeX Warning: Float too large for page by 116.21645pt on input line 1861.
 
-LaTeX Info: Redefining \. on input line 1878.
-LaTeX Info: Redefining \% on input line 1878.
-[86]
-LaTeX Info: Redefining \. on input line 1878.
-LaTeX Info: Redefining \% on input line 1878.
- [87 </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/exhaustive_ex1.png> </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/exhaustive_ex1b.png>]
-LaTeX Info: Redefining \. on input line 1878.
-LaTeX Info: Redefining \% on input line 1878.
- [88]
-LaTeX Info: Redefining \. on input line 1878.
-LaTeX Info: Redefining \% on input line 1878.
+LaTeX Info: Redefining \. on input line 1892.
+LaTeX Info: Redefining \% on input line 1892.
+[87]
+LaTeX Info: Redefining \. on input line 1892.
+LaTeX Info: Redefining \% on input line 1892.
+ [88 </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/exhaustive_ex1.png> </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/exhaustive_ex1b.png>]
+LaTeX Info: Redefining \. on input line 1892.
+LaTeX Info: Redefining \% on input line 1892.
  [89]
-LaTeX Info: Redefining \. on input line 1896.
-LaTeX Info: Redefining \% on input line 1896.
+LaTeX Info: Redefining \. on input line 1892.
+LaTeX Info: Redefining \% on input line 1892.
  [90]
-LaTeX Info: Redefining \. on input line 1911.
-LaTeX Info: Redefining \% on input line 1911.
+LaTeX Info: Redefining \. on input line 1910.
+LaTeX Info: Redefining \% on input line 1910.
  [91]
-LaTeX Info: Redefining \. on input line 1948.
-LaTeX Info: Redefining \% on input line 1948.
- [92])
-LaTeX Info: Redefining \. on input line 79.
-LaTeX Info: Redefining \% on input line 79.
- [93]
+LaTeX Info: Redefining \. on input line 1925.
+LaTeX Info: Redefining \% on input line 1925.
+ [92]
+LaTeX Info: Redefining \. on input line 1968.
+LaTeX Info: Redefining \% on input line 1968.
+ [93])
 LaTeX Info: Redefining \. on input line 79.
 LaTeX Info: Redefining \% on input line 79.
  [94]
-Cap\'{\i }tulo 5.
-(/home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/chapters/conclusiones.tex) [95
-
-]
-LaTeX Info: Redefining \. on input line 82.
-LaTeX Info: Redefining \% on input line 82.
+LaTeX Info: Redefining \. on input line 79.
+LaTeX Info: Redefining \% on input line 79.
+ [95]
+LaTeX Info: Redefining \. on input line 79.
+LaTeX Info: Redefining \% on input line 79.
  [96
 
 ]
+Cap\'{\i }tulo 5.
+(/home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/chapters/conclusiones.tex [97])
+LaTeX Info: Redefining \. on input line 82.
+LaTeX Info: Redefining \% on input line 82.
+ [98]
 Ap\'{e}ndice A.
 (/home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/chapters/apendice_thrackles_inducen.tex)
 Overfull \hbox (45.84897pt too wide) in paragraph at lines 2--84
@@ -2128,32 +2137,26 @@ Overfull \hbox (45.84897pt too wide) in paragraph at lines 2--84
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [97]
+ [99
+
+]
 Overfull \vbox (37.09956pt too high) has occurred while \output is active []
 
 LaTeX Info: Redefining \. on input line 84.
 LaTeX Info: Redefining \% on input line 84.
- [98] [99]
+ [100] [101]
 LaTeX Info: Redefining \. on input line 84.
 LaTeX Info: Redefining \% on input line 84.
- [100
+ [102
 
 ]
 Ap\'{e}ndice B.
 (/home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/chapters/apendice_thrackles_inducen_cn.tex)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [101]
+ [103]
 Overfull \vbox (67.09956pt too high) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 86.
-LaTeX Info: Redefining \% on input line 86.
-
-Overfull \hbox (9.05896pt too wide) has occurred while \output is active
-\OT1/cmr/m/n/12 102 \OT1/cmr/m/sl/12 AP[]ENDICE B.  N[]UMEROS DE CRUCE PARA THRACKLES M[]AXIMOS
- []
-
-[102] [103]
 LaTeX Info: Redefining \. on input line 86.
 LaTeX Info: Redefining \% on input line 86.
 
@@ -2161,57 +2164,65 @@ Overfull \hbox (9.05896pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/12 104 \OT1/cmr/m/sl/12 AP[]ENDICE B.  N[]UMEROS DE CRUCE PARA THRACKLES M[]AXIMOS
  []
 
-[104
+[104] [105]
+LaTeX Info: Redefining \. on input line 86.
+LaTeX Info: Redefining \% on input line 86.
+
+Overfull \hbox (9.05896pt too wide) has occurred while \output is active
+\OT1/cmr/m/n/12 106 \OT1/cmr/m/sl/12 AP[]ENDICE B.  N[]UMEROS DE CRUCE PARA THRACKLES M[]AXIMOS
+ []
+
+[106
 
 ]
 Ap\'{e}ndice C.
 (/home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/chapters/apendice_otypes.tex
-<images/8_12.png, id=1310, 826.08624pt x 532.99126pt>
+<images/8_12.png, id=1337, 826.08624pt x 532.99126pt>
 File: images/8_12.png Graphic file (type png)
 <use images/8_12.png>
 Package pdftex.def Info: images/8_12.png  used on input line 4.
 (pdftex.def)             Requested size: 312.00119pt x 201.3026pt.
-<images/8_54.png, id=1311, 581.17125pt x 825.0825pt>
+<images/8_54.png, id=1338, 581.17125pt x 825.0825pt>
 File: images/8_54.png Graphic file (type png)
 <use images/8_54.png>
 Package pdftex.def Info: images/8_54.png  used on input line 9.
 (pdftex.def)             Requested size: 312.00119pt x 442.94443pt.
-<images/9_12.png, id=1312, 868.24374pt x 1072.005pt>
+<images/9_12.png, id=1339, 868.24374pt x 1072.005pt>
 File: images/9_12.png Graphic file (type png)
 <use images/9_12.png>
 Package pdftex.def Info: images/9_12.png  used on input line 14.
 (pdftex.def)             Requested size: 312.00119pt x 385.21814pt.
-<images/9_52.png, id=1313, 825.0825pt x 609.27625pt>
+<images/9_52.png, id=1340, 825.0825pt x 609.27625pt>
 File: images/9_52.png Graphic file (type png)
 <use images/9_52.png>
 Package pdftex.def Info: images/9_52.png  used on input line 19.
 (pdftex.def)             Requested size: 350.99762pt x 259.19464pt.
-<images/9_54.png, id=1314, 581.17125pt x 825.0825pt>
+<images/9_54.png, id=1341, 581.17125pt x 825.0825pt>
 File: images/9_54.png Graphic file (type png)
 <use images/9_54.png>
 Package pdftex.def Info: images/9_54.png  used on input line 24.
 (pdftex.def)             Requested size: 350.99762pt x 498.31406pt.
-<images/9_80.png, id=1315, 825.0825pt x 574.145pt>
+<images/9_80.png, id=1342, 825.0825pt x 574.145pt>
 File: images/9_80.png Graphic file (type png)
 <use images/9_80.png>
 Package pdftex.def Info: images/9_80.png  used on input line 29.
 (pdftex.def)             Requested size: 350.99762pt x 244.24931pt.
-<images/9_696.png, id=1316, 648.4225pt x 695.59875pt>
+<images/9_696.png, id=1343, 648.4225pt x 695.59875pt>
 File: images/9_696.png Graphic file (type png)
 <use images/9_696.png>
 Package pdftex.def Info: images/9_696.png  used on input line 34.
 (pdftex.def)             Requested size: 350.99762pt x 376.54115pt.
-<images/9_1080.png, id=1317, 372.39125pt x 825.0825pt>
+<images/9_1080.png, id=1344, 372.39125pt x 825.0825pt>
 File: images/9_1080.png Graphic file (type png)
 <use images/9_1080.png>
 Package pdftex.def Info: images/9_1080.png  used on input line 40.
 (pdftex.def)             Requested size: 234.00238pt x 518.4828pt.
-<images/9_1287.png, id=1318, 759.83875pt x 824.07875pt>
+<images/9_1287.png, id=1345, 759.83875pt x 824.07875pt>
 File: images/9_1287.png Graphic file (type png)
 <use images/9_1287.png>
 Package pdftex.def Info: images/9_1287.png  used on input line 45.
 (pdftex.def)             Requested size: 350.99762pt x 380.67778pt.
-<images/10_81.png, id=1319, 1083.04625pt x 1123.19624pt>
+<images/10_81.png, id=1346, 1083.04625pt x 1123.19624pt>
 File: images/10_81.png Graphic file (type png)
 <use images/10_81.png>
 Package pdftex.def Info: images/10_81.png  used on input line 50.
@@ -2221,7 +2232,7 @@ Overfull \hbox (0.79999pt too wide) in paragraph at lines 50--51
  [][] 
  []
 
-<images/10_1328.png, id=1320, 851.18pt x 863.225pt>
+<images/10_1328.png, id=1347, 851.18pt x 863.225pt>
 File: images/10_1328.png Graphic file (type png)
 <use images/10_1328.png>
 Package pdftex.def Info: images/10_1328.png  used on input line 55.
@@ -2231,7 +2242,7 @@ Overfull \hbox (0.79999pt too wide) in paragraph at lines 55--56
  [][] 
  []
 
-<images/10_2243.png, id=1321, 833.1125pt x 864.22874pt>
+<images/10_2243.png, id=1348, 833.1125pt x 864.22874pt>
 File: images/10_2243.png Graphic file (type png)
 <use images/10_2243.png>
 Package pdftex.def Info: images/10_2243.png  used on input line 60.
@@ -2241,37 +2252,37 @@ Overfull \hbox (0.79999pt too wide) in paragraph at lines 60--61
  [][] 
  []
 
-) (/home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/main.bbl [105 </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/8_12.png>]
+) (/home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/main.bbl [107 </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/8_12.png>]
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
- [106 </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/8_54.png>] [107 </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/9_12.png>]
+ [108 </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/8_54.png>] [109 </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/9_12.png>]
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
- [108 </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/9_52.png>] [109 </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/9_54.png>]
+ [110 </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/9_52.png>] [111 </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/9_54.png>]
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
- [110 </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/9_80.png>] [111 </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/9_696.png>]
+ [112 </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/9_80.png>] [113 </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/9_696.png>]
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
- [112 </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/9_1080.png>] [113 </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/9_1287.png>]
+ [114 </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/9_1080.png>] [115 </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/9_1287.png>]
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
- [114 </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/10_81.png>] [115 </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/10_1328.png>]
+ [116 </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/10_81.png>] [117 </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/10_1328.png>]
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
- [116 </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/10_2243.png>] [117
+ [118 </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/10_2243.png>] [119
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 117--121
+Underfull \hbox (badness 10000) in paragraph at lines 130--134
 \OT1/cmr/m/n/12 URL []$\OT1/cmtt/m/n/10.95 https : / / www . tandfonline . com / doi / abs / 10 . 4169 / amer . math .
  []
 
 LaTeX Info: Redefining \. on input line 134.
 LaTeX Info: Redefining \% on input line 134.
-[118])
+[120])
 LaTeX Info: Redefining \. on input line 90.
 LaTeX Info: Redefining \% on input line 90.
- [119]
+ [121]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 90.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 90.
  (/home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/main.aux
@@ -2281,23 +2292,23 @@ LaTeX Info: Redefining \% on input line 21.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 90.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 90.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 69E2BE508A0E4D4BD17D312E6462A4FB;2285.
+(rerunfilecheck)             Checksum: 95417F9880623A4ED170E6B0A344ACF6;2288.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 90.
  ) 
 Here is how much of TeX's memory you used:
- 32017 strings out of 492982
- 603567 string characters out of 6134895
- 711824 words of memory out of 5000000
- 34485 multiletter control sequences out of 15000+600000
+ 32040 strings out of 492982
+ 603970 string characters out of 6134895
+ 713009 words of memory out of 5000000
+ 34500 multiletter control sequences out of 15000+600000
  548873 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  59i,28n,94p,10415b,899s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
 nts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/main.pdf (119 pages, 2694307 bytes).
+Output written on /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/main.pdf (121 pages, 2730054 bytes).
 PDF statistics:
- 1604 PDF objects out of 1728 (max. 8388607)
- 1377 compressed objects within 14 object streams
- 558 named destinations out of 1000 (max. 500000)
- 464 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1637 PDF objects out of 1728 (max. 8388607)
+ 1406 compressed objects within 15 object streams
+ 565 named destinations out of 1000 (max. 500000)
+ 469 words of extra memory for PDF output out of 10000 (max. 10000000)
 
