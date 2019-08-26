@@ -30,6 +30,6 @@
 \contentsline {subsubsection}{An\IeC {\'a}lisis de complejidad}{94}{section*.65}
 \contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{97}{chapter.5}
 \contentsline {subsubsection}{Trabajo futuro}{98}{section*.66}
-\contentsline {chapter}{\numberline {A}Etiquetas de thrackles m\IeC {\'a}ximos}{99}{appendix.Alph1}
-\contentsline {chapter}{\numberline {B}N\IeC {\'u}meros de cruce para thrackles m\IeC {\'a}ximos}{103}{appendix.Alph2}
-\contentsline {chapter}{\numberline {C}Tipos de orden con descomposiciones.}{107}{appendix.Alph3}
+\contentsline {chapter}{\numberline {A}Etiquetas de thrackles m\IeC {\'a}ximos}{101}{appendix.Alph1}
+\contentsline {chapter}{\numberline {B}N\IeC {\'u}meros de cruce para thrackles m\IeC {\'a}ximos}{105}{appendix.Alph2}
+\contentsline {chapter}{\numberline {C}Tipos de orden con descomposiciones.}{109}{appendix.Alph3}
