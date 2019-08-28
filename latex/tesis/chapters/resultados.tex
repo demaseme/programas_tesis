@@ -1,9 +1,10 @@
-En esta sección presentamos el producto de los diferentes enfoques que empleamos en el estudio del
-anti-thickness geométrico. Comenzamos hablando de la cota inferior del anti-thickness geométrico y
-cómo la mejoramos para conjuntos de hasta diez puntos en posición general. Luego, explicamos cómo
-encontramos la cota superior usando conjuntos de hasta diez puntos en posición general. Este
+En este capítulo presentamos el producto de los diferentes enfoques que empleamos en el estudio del
+anti-thickness geométrico. Los resultados de esta tesis son todos para puntos en posición general.
+Comenzamos hablando de la cota inferior del anti-thickness geométrico y
+cómo la mejoramos para conjuntos de hasta diez puntos. Luego, explicamos cómo
+encontramos la cota superior usando conjuntos de hasta diez puntos. Este
 resultado nos permite dar el anti-thickness geométrico exacto para gráficas completas con hasta
-diez vértices en posición general. Después, mencionamos la relación que encontramos entre el
+diez vértices. Después, mencionamos la relación que encontramos entre el
 anti-thickness geométrico de una gráfica completa inducida por un conjunto de puntos y su número de
 cruce. Finalmente listamos los algoritmos que utilizamos en este trabajo para dar los resultados que reportamos, también hacemos el análisis de complejidad de cada algoritmo.
 
@@ -11,7 +12,8 @@ cruce. Finalmente listamos los algoritmos que utilizamos en este trabajo para da
 \section{Cota inferior del anti-thickness geométrico de $K_n$}\label{sec:cota_inf}
   El principal resultado de este trabajo es que encontramos el valor exacto del
   anti-thickness geométrico para la gráfica completa con hasta diez vértices en
-  posición general. Obtuvimos dicho valor mejorando la cota inferior y usando la cota superior actual, las cuales siguen a continuación:
+  posición general. Obtuvimos dicho valor mejorando la cota inferior(\cite{Dujmovic2017})
+  y usando la cota superior actual~(\cite{Fabila-Monroy2018}), que mostramos a continuación:
   \begin{equation}
   \left\lfloor\frac{n-1}{2}\right\rfloor \leq At_g(K_n) \leq n - \left\lfloor
   \sqrt{2n + \frac{1}{4}} - \frac{1}{2} \right\rfloor.
@@ -43,7 +45,7 @@ cruce. Finalmente listamos los algoritmos que utilizamos en este trabajo para da
   \end{theorem}
 
   Omitimos la demostración del teorema anterior ya que las ideas de la
-  demostración no son retomadas en este trabajo.
+  misma no son retomadas en este trabajo.
   % El teorema es importante para
   % nosotros ya que indica el número máximo de aristas posibles para un thrackle.
 
@@ -71,9 +73,9 @@ cruce. Finalmente listamos los algoritmos que utilizamos en este trabajo para da
   para $n\leq 10$.
   \begin{table}[t]
     \centering
-    \begin{tabular}{|c|c|}
+    \begin{tabular}{| >{\centering\arraybackslash}m{1in} | >{\centering\arraybackslash}m{1in} |}
       \hline
-      $n$ & $\left\lceil\frac{n-1}{2}\right\rceil$ \\[5pt] \hline\hline
+      $n$ & \multirow{2}{*}{$ \left\lceil\frac{n-1}{2}\right\rceil$} \\[10pt] \hline\hline
       3   & 1  \\
       4   & 2  \\
       5   & 2  \\
@@ -90,12 +92,12 @@ cruce. Finalmente listamos los algoritmos que utilizamos en este trabajo para da
 
   En el trabajo de~\cite{Fabila-Monroy2018} encuentran que, dados dos thrackles
   máximos en posición convexa, estos comparten una arista, y que esto se cumple
-  para cada par de thrackles de la descomposición. En este trabajo verificamos
+  para cada par de thrackles de cualquier descomposición. En este trabajo verificamos
   que este resultado también es válido para conjuntos de hasta diez puntos en
-  posición general (no convexa). Usando los tipos de orden de los conjuntos
+  posición general no convexa. Usando los tipos de orden de los conjuntos
   con hasta diez puntos inducimos la gráfica completa, luego buscamos, para
   cada uno de los tipos de orden, todos los thrackles máximos y
-  finalmente comparamos dichos thrackles a pares y encontramos que:
+  finalmente comparamos dichos thrackles a pares. Obtuvimos los siguientes resultados:
   \begin{itemize}
     \item Para todo tipo de orden con al menos dos thrackles máximos, cada par de thrackles máximos tienen intersección no vacía en aristas.
     \item Existen tipos de orden con solo un thrackle máximo.
@@ -104,10 +106,11 @@ cruce. Finalmente listamos los algoritmos que utilizamos en este trabajo para da
 
   En la tabla~\ref{tabla_relacion_ot} mostramos cuántos tipos de orden tienen
   thrackles máximos, cuántos tienen solamente un thrackle máximo y cuántos no
-  tienen ningún thrackle máximo. La figura~\ref{k9_nomax} muestra un ejemplo de
+  tienen ningún thrackle máximo. La figura~\ref{k9_nomax} muestra
   un tipo de orden, para $n=9$, en el cual no existe ningún thrackle máximo.
   Una pregunta interesante es ¿cómo caracterizamos a los tipos de orden cuya
-  gráfica completa no tiene thrackles máximos?
+  gráfica completa no tiene thrackles máximos? Esta pregunta es investigada en el trabajo
+  de~\cite{Bulnes2017}.
   \begin{figure}
     \centering
     \includegraphics[width=0.8\textwidth]{k9_nomax}
@@ -154,18 +157,22 @@ cruce. Finalmente listamos los algoritmos que utilizamos en este trabajo para da
     con $|V(T_1)|\leq 10$ y $|V(T_2)|\leq 10$. $T_1$ y $T_2$ tienen al menos una arista en común.
   \end{lemma}
   \begin{proof}
-    Para cada tipo de orden con hasta diez puntos, generamos todos los thrackles
-    máximos inducidos. Usando este conjunto verificamos que para cada pareja la intersección en aristas es no vacía
+    Esta demostración se obtuvo computacionalmente. Para cada tipo de orden con hasta diez puntos,
+    generamos todos los thrackles  máximos inducidos con el algoritmo~\ref{algo_kthrackles} cuya
+    correctitud discutimos en la sección~\ref{seccion_algoritmo_kthrackles}. Usando este conjunto
+    verificamos que para cada pareja la intersección en aristas es no vacía usando el
+    algoritmo~\ref{algo_interseccion} que describimos en la
+    sección~\ref{secc:algo_interseccion_thrackles}.
   \end{proof}
 
   El lema anterior implica que para $n\leq 10$ no es posible encontrar una
   descomposición en thrackles máximos de tamaño
-  $\left\lceil\frac{n-1}{2}\right\rceil$, ya que, en dicha descomposición, los
-  thrackles máximos no son disjuntos a pares pero esto infringiría las
+  $\left\lceil\frac{n-1}{2}\right\rceil$, ya que, si esta exisitiera, los
+  thrackles máximos no serían disjuntos a pares y esto infringiría las
   condiciones de una descomposición.
   En otras palabras una descomposición por thrackles solo podría contener un
   thrackle máximo. Sin embargo, es posible encontrar, a partir de una colección
-  de thrackles máximos, una colección de thrackles que son disjuntos.
+  de thrackles máximos, una colección de thrackles que son disjuntos (y no necesariamente máximos).
   Describimos este proceso en el siguiente lema:
   % Por consecuencia es posible contar cuántas aristas son cubiertas
   % por una descomposición de thrackles máximos cuyo tamaño es $\left\lceil\frac{n-1}{2}\right\rceil$.
@@ -209,21 +216,22 @@ cruce. Finalmente listamos los algoritmos que utilizamos en este trabajo para da
   % el número de aristas cubiertas por la colección inducida es menor.
 
   Con los lemas anteriores es posible probar que la cota inferior del
-  anti-thickness geométrico de $K_n$, mostrada en la ecuación,
-  \ref{ecuacion_cotas_atg} no es justa para toda $n$. El siguiente teorema
+  anti-thickness geométrico de $K_n$, mostrada en la ecuación
+  \ref{ecuacion_cotas_atg}, no es justa para toda $n$. El siguiente teorema
   establece esta afirmación.
   \begin{theorem}\label{teo:cotainf}
   Sea $\mathcal{D}=\{T'_1,T'_2,\dots,T'_{\left\lceil\frac{n-1}{2}\right\rceil}\}$
   una colección de thrackles disjuntos en aristas inducida por una colección de
   $\left\lceil\frac{n-1}{2}\right\rceil$ thrackles máximos.
   $\left\lceil\frac{n-1}{2}\right\rceil$ thrackles máximos son
-  suficientes para inducir una descomposición de $K_n$ cuando $n={3,4,6}$ y no son suficientes cuando $n={5,7,8,9,10}$.
+  suficientes para inducir una descomposición de $K_n$ cuando $n\in \{3,4,6\}$ y no son suficientes cuando $n\in\{5,7,8,9,10\}$.
   \end{theorem}
   \begin{proof}
     Se sigue del lema~\ref{lema:existedescomp}. El número de aristas cubiertas
     por $\mathcal{D}$ para cada $3\leq n \leq 10$ se muestran en la
-    tabla~\ref{table:attrivialtight}. Se marcan de gris los casos en los que no es
-    posible cubrir todas las aristas de $K_n$.
+    tabla~\ref{table:attrivialtight}. Observando la tercera columna, es claro que para
+    $n\in\{5,7,8,9,10\}$, $\left\lceil\frac{n-1}{2}\right\rceil$ thrackles máximos no cubren las aristas
+    necesarias de la gráfica completa. Marcamos estos casos de gris.
   \end{proof}
   % En la tabla~ mostramos los casos para los que la cota
   % inferior del anti-thickness geométrico no es justa usando el
@@ -258,7 +266,7 @@ cruce. Finalmente listamos los algoritmos que utilizamos en este trabajo para da
   Como consecuencia del lema~\ref{lema:existedescomp} y el teorema~\ref{teo:cotainf} podemos dar una cota inferior justa para el anti-thickness geométrico de $K_n$ con $3 \leq n \leq 10$.
 
   \begin{theorem}\label{teo:nuevacotainf}
-    Sea $S$ un conjunto de $n$ puntos en el plano en posición general con $3\leq n \leq 10$, y sea $K_n(S)$ la gráfica completa inducida por $S$. El anti-thickness de $K_n(S)$:
+    Sea $S$ un conjunto de $n$ puntos en el plano en posición general con $3\leq n \leq 10$, y sea $K_n(S)$ la gráfica completa inducida por $S$. El anti-thickness $At_g(K_n)$ de $K_n(S)$ tiene la siguiente cota inferior:
     \begin{equation}
       At_g(K_n) \geq n - \left\lfloor\sqrt{2n+\frac{1}{4}} - \frac{1}{2}\right\rfloor.
       \label{ecuacion_cota_inf}
@@ -285,6 +293,8 @@ cruce. Finalmente listamos los algoritmos que utilizamos en este trabajo para da
   \end{proof}
     Presentamos los valores dados por la cota inferior del
     teorema~\ref{teo:nuevacotainf} en la tabla~\ref{table:atnuevacota}.
+    Es posible observar que para toda $n$, con $3\leq n\leq 10$ se cubren las aristas de la gráfica completa si usamos $n - \left\lfloor\sqrt{2n+\frac{1}{4}} - \frac{1}{2}\right\rfloor$ thrackles máximos
+    en la colección.
     \begin{table}[t]
       \centering
       \begin{tabular}{|c|c|c|c|}
@@ -315,7 +325,7 @@ cruce. Finalmente listamos los algoritmos que utilizamos en este trabajo para da
     \end{theorem}
     \begin{proof}
       Se sigue del resultado del teorema~\ref{teo:nuevacotainf} y
-      la cota superior del anti-thickness geométrico de $K_n$,
+      la cota superior~(\cite{Fabila-Monroy2018}) del anti-thickness geométrico de $K_n$,
       $n - \left\lfloor\sqrt{2n + \frac{1}{4}} - \frac{1}{2}\right\rfloor $ , cuando
       $K_n$ es inducida por un conjunto de puntos en posición convexa.
     \end{proof}
@@ -327,7 +337,7 @@ cruce. Finalmente listamos los algoritmos que utilizamos en este trabajo para da
 
     Debido a que la cota superior del anti-thickness geométrico está dada por
     el dibujo en posición convexa, en este trabajo decidimos verificar si existen
-    dibujos, diferentes al convexo, para los cuales se alcanza la cota inferior
+    dibujos diferentes al convexo, para los cuales se alcanza la cota inferior
     dada por el teorema~\ref{teo:nuevacotainf}. Hacemos esto en la siguiente sección.
 
 \section{Cota superior del anti-thickness geométrico}\label{secc:descomposicion_thrackles_maximos}
@@ -341,19 +351,18 @@ cruce. Finalmente listamos los algoritmos que utilizamos en este trabajo para da
   Para comprobar la existencia de tipos de orden con las características descritas
   anteriormente elegimos aquellos que tienen al menos $k$ thrackles
   máximos. Luego, para cada uno, analizamos todas sus colecciones de thrackles
-  máximos posibles de tamaño $k$. Finalmente, para cada colección, evaluamos si
+  máximos de tamaño $k$. Finalmente, para cada colección, evaluamos si
   esta cubre o no a $E(K_n)$. Cuando una colección de thrackles máximos cubre
   al conjunto de aristas de la gráfica completa, es posible inducir una descomposición
   de $K_n$ en thrackles (no necesariamente máximos) asignando cada arista de $K_n$
   a un único thrackle que la cubra. Detallamos el algoritmo para buscar
   colecciones de thrackles máximos que induzcan una descomposición en la sección
   \ref{secc:algo_descomposicion_thrackles_maximos}. La tabla~\ref{table:res_desc_th_max}
-  muestra los resultados obtenidos de este análisis; observamos que para
+  muestra los resultados que obtuvimos de este análisis; observamos que únicamente para
   $n\in \{8,9,10\}$ existen tipos de orden que tienen $k$ thrackles máximos que
   pueden inducir una descomposición.
 
-  Con los resultados del algoritmo de búsqueda de thrackles podemos decir que las gráficas completas
-  inducidas por los tipos de orden para cada $n$ de la tabla~\ref{table:res_desc_th_max} no son
+  Con los resultados del algoritmo~\ref{algo_kthrackles} de búsqueda de thrackles podemos decir que las gráficas completas inducidas por los tipos de orden de la tabla~\ref{table:res_desc_th_max} no son
   necesariamente las que tienen más thrackles máximos. Mostramos cuántos thrackles máximos hay en cada
   tipo de orden en un archivo que puede ser descargado de la siguiente liga:
   (\url{http://computacion.cs.cinvestav.mx/~dmerinos/site/archivos_tesis/thrMax_k.tar.xz}).
