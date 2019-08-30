@@ -325,6 +325,10 @@ INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsl12.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+INPUT /home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/chapters/abstract.tex
+INPUT /home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/chapters/abstract.tex
+INPUT /home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/chapters/abstract_spa.tex
+INPUT /home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/chapters/abstract_spa.tex
 INPUT /home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/chapters/dedicatoria.tex
 INPUT /home/dmerinos/Documents/CINVESTAV/Programas/latex/tesis/chapters/dedicatoria.tex
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti12.tfm
