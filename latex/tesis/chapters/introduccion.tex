@@ -1,48 +1,57 @@
-Este trabajo está ubicado en el área de la geometría combinatoria y en el área de
-geometría computacional.
+Un dibujo rectilíneo de una gráfica, también llamado gráfica geométrica, está definido por un conjunto de
+puntos en el plano, llamados vértices, y un conjunto de segmentos de recta que unen pares de puntos,
+llamados aristas. Un thrackle es un subconjunto de estos segmentos tal que cada par se cruza o tiene un
+extremo en común. En el área de geometría combinatoria existe un problema en el que, dada una gráfica, se
+busca saber cuál es el mínimo número de thrackles que existen en un conjunto de tal manera que cada
+thrackle tiene una de las aristas de un dibujo rectilíneo de la gráfica y no hay dos thrackles del conjunto
+que compartan una o más aristas y además, la unión de los thrackles es el conjunto de aristas de la
+gráfica. Este parámetro recibe el nombre de anti-thickness geométrico de una gráfica.
 
-Una gráfica es un conjunto de vértices junto con un conjunto de aristas
-que unen pares de vértices. Cuando la gráfica tiene todas las aristas posibles
-decimos que es una gráfica completa. Cuando representamos la gráfica
-en el plano, es decir, cuando sus vértices son puntos en $\mathbf{R}^2$ y sus
-aristas son curvas que unen dos puntos, decimos que tenemos un dibujo de la gráfica.
-Cuando las aristas son todas segmentos de recta, decimos que la gráfica es geométrica.
-Cuando las aristas del dibujo de la gráfica se intersectan a pares la gráfica es un thrackle.
+El anti-thickness geométrico ha sido estudiado con anterioridad, para gráficas geométricas completas cuyos
+vértices están en posición convexa, en el trabajo de \cite{Fabila-Monroy2018}. Denotamos este parámetro
+como $At_g(K_n)$; se sabe que \[At_c(K_n) = n - \left\lfloor\sqrt{2n + \frac{1}{4}}-
+\frac{1}{2}\right\rfloor.\]
 
-En el área de geométria combinatoria existe un problema en el cual se busca
-obtener una descomposición de una gráfica completa con tamaño mínimo y en el
-que cada uno de los elementos de la partición sea un thrackle. En este trabajo exploramos
-una solución a este problema para gráficas completas de hasta diez vértices
-utilizando herramientas de la geometría computacional.
-Este problema, que recibe el nombre de anti-thickness de una gráfica completa $K_n$ y se denota como $At_g(K_n)$
-ha sido estudiado con anterioridad para gráficas geométricas cuyos vértices están en posición convexa~(\cite{Fabila-Monroy2018}).
-A esta variación del problema la denotamos como $At_c(K_n)$.
-Se sabe que \[At_c(K_n) = n - \left\lfloor\sqrt{2n + \frac{1}{4}}- \frac{1}{2}\right\rfloor.\]
-Dichos resultados fueron encontrados usando técnicas combinatorias y geométricas.
-Para el caso en el que los puntos de la gráfica completa están
-en posición general existen las siguientes cotas:
+Además, en el trabajo de \cite{Lomeli2018} encuentran el anti-thickness geométrico de una configuración de
+puntos conocida como la doble cadena convexa, denotada como $K_{k,l}$. En este trabajo los autores
+demuestran que el anti-thickness, $At_g(K_{k,l})$ de la doble cadena convexa es \[ At_g(K_{k,l}) = k+l
+-\left\lfloor\sqrt{2l + \frac{1}{4}} -\frac{1}{2}\right\rfloor. \]
+
+En el trabajo de \cite{Dujmovic2017} se ofrecen varios resultados para distintos dibujos de una gráfica, y
+además las cotas del anti-thickness geométrico para el caso en el que los puntos de la gráfica completa
+están en posición general. Estas cotas son las siguientes:
 \[ \frac{n-1}{2} \leq At_g(K_n) \leq n - \left\lfloor\sqrt{2n + \frac{1}{4}}- \frac{1}{2}\right\rfloor.\]
 
-La cota superior proviene del caso en el que los puntos están en posición convexa
-mientras que la cota inferior proviene del hecho de que un thrackle máximo tiene
-a lo más $n$ aristas. Sin embargo, esto significaría que cuando los puntos
-están en posición general los thrackles máximos son disjuntos en aristas. Esto
-no es verdad en posición convexa, lo cual da lugar para cuestionarnos si en realidad
-esta cota es justa para posición general.
+La cota superior proviene de resultado obtenido para el anti-thickness geométrico cuando los puntos están
+en posición convexa mientras que la cota inferior proviene del hecho de que un thrackle con el máximo
+número de aristas tiene a lo más $n$ aristas. Sin embargo, para dar la cota inferior se asume que cada par
+de thrackles con el máximo número de aristas no comparten ni una arista. Esto no es verdad en posición
+convexa, lo cual da lugar para cuestionarnos si en realidad esta cota es justa para posición general.
 
-En esta tesis encontramos que en efecto $At_g(K_n) = n - \left\lfloor\sqrt{2n + \frac{1}{4}}- \frac{1}{2}\right\rfloor$ para $n\leq 10$.
-Nosotros usamos la información que proveen los tipos de orden para conjuntos de hasta diez puntos para inducir una
-gráfica completa y obtener descomposiciones en thrackles usando algoritmos exhaustivos. Además buscamos información
-acerca del número de cruce de las descomposiciones para tratar de explicar las características de los conjuntos
-de puntos en posición general que alcanzan el anti-thickness geométrico de la posición convexa.
+En esta tesis encontramos que en efecto el anti-thickness geométrico $At_g(K_n)$ de una gráfica completa es
+$At_g(K_n) = n - \left\lfloor\sqrt{2n + \frac{1}{4}}- \frac{1}{2}\right\rfloor$ para $n\leq 10$. Nosotros
+analizamos los dibujos rectilíneos con hasta diez puntos para buscar conjuntos de thrackles usando
+algoritmos exhaustivos. También encontramos dibujos rectilíneos cuyos puntos no están en posición convexa
+cuyo anti-thickness es igual al proveído en el trabajo de \cite{Fabila-Monroy2018}. Adicionalmente
+analizamos la reflexividad, el número de cruce y la convexidad de estos dibujos para trata de
+clasificarlos. Encontramos una relación entre estos tres parámetros y el anti-thickness geométrico de la
+gráfica completa. Asimismo encontramos el anti-thickness exacto de dibujos rectilíneos en los que no
+existen thrackles con $n$ aristas.
 
-La tesis está organizada de la siguiente manera: en el siguiente capítulo se explican
- a detalle y de manera más formal las definiciones que usamos en este trabajo y que
-son necesarias para entender el desarrollo de la tesis, después hacemos un recuento de los resultados
-obtenidos acerca del anti-thickness geométrico y tratamos de explicar el origen del concepto tomando en cuenta
-un problema propuesto con anterioridad, luego, en la sección de resultados, explicaremos los resultados del trabajo y cómo fueron
-obtenidos. En esta sección exponemos los algoritmos usados para las búsquedas exhaustivas. Finalmente
-mencionaremos las conclusiones y posible trabajo futuro.
+Para dar un resultado acerca de un parámetro como el anti-thickness es necesario encontrar propiedades que
+sean compartidas por cada uno de los dibujos de una gráfica, podemos encontrar dichas propiedades usando
+herramientas combinatorias o geométricas, o bien, analizando los dibujos de una gráfica computacionalmente,
+por ello, cada uno de nuestros resultados tiene un algoritmo computacional como sustento. Este enfoque
+resulta nuevo para la búsqueda del anti-thickness geométrico ya que, como mencionamos anteriormente, este
+problema ha sido atacado usando herramientas geométricas. Nuestros resultados, a pesar de que son para
+conjuntos pequeños de puntos, ayudan a entender cómo se comporta el anti-thickness geométrico para puntos
+en posición general dando un panorama para conjuntos más grandes de puntos.
 
-% De manera sencilla observamos que la cota no es justa para $K_5$, si consideramos todos los tipos de orden para $K_5$, ninguno
-% tiene una descomposición por thrackles cuyo tamaño sea menor a tres.
+La tesis está organizada de la siguiente manera: en el capítulo 1 se explican
+a detalle y de manera más formal las definiciones que usamos en este trabajo y que
+son necesarias para entender el desarrollo de la tesis, en el capítulo 2 hacemos un recuento de los
+resultados obtenidos acerca del anti-thickness geométrico y tratamos de explicar el origen del concepto
+tomando en cuenta un problema propuesto con anterioridad, luego, en el capítulo 3, explicaremos los
+resultados del trabajo y cómo fueron obtenidos. En dicho capítulo exponemos los algoritmos usados para las
+búsquedas exhaustivas. Finalmente, en el capítulo 5 mencionamos nuestras conclusiones y posible trabajo
+futuro.

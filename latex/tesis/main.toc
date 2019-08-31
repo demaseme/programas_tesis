@@ -1,36 +1,36 @@
 \babel@toc {spanish}{}
 \contentsline {chapter}{\numberline {1}Introducci\IeC {\'o}n}{13}{chapter.1}
-\contentsline {chapter}{\numberline {2}Antecedentes}{15}{chapter.2}
-\contentsline {section}{\numberline {2.1}Gr\IeC {\'a}ficas}{15}{section.2.1}
-\contentsline {subsection}{\numberline {2.1.1}Gr\IeC {\'a}fica geom\IeC {\'e}trica}{17}{subsection.2.1.1}
-\contentsline {subsection}{\numberline {2.1.2}Thrackles}{19}{subsection.2.1.2}
-\contentsline {subsection}{\numberline {2.1.3}Tipo de Orden}{21}{subsection.2.1.3}
-\contentsline {section}{\numberline {2.2}Anti-thickness y anti-thickness geom\IeC {\'e}trico}{24}{section.2.2}
-\contentsline {section}{\numberline {2.3}N\IeC {\'u}mero crom\IeC {\'a}tico}{27}{section.2.3}
-\contentsline {chapter}{\numberline {3}Estado del arte}{29}{chapter.3}
-\contentsline {chapter}{\numberline {4}Resultados}{41}{chapter.4}
-\contentsline {section}{\numberline {4.1}Cota inferior del anti-thickness geom\IeC {\'e}trico de $K_n$}{41}{section.4.1}
-\contentsline {section}{\numberline {4.2}Cota superior del anti-thickness geom\IeC {\'e}trico}{49}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}N\IeC {\'u}mero de cruce de thrackles m\IeC {\'a}ximos }{57}{subsection.4.2.1}
-\contentsline {section}{\numberline {4.3}Anti-thickness de gr\IeC {\'a}ficas geom\IeC {\'e}tricas sin thrackles m\IeC {\'a}ximos}{59}{section.4.3}
-\contentsline {section}{\numberline {4.4}Intersecci\IeC {\'o}n de thrackles de $K_n$ con $3\leq n \leq 9$.}{62}{section.4.4}
-\contentsline {section}{\numberline {4.5}Algoritmos}{65}{section.4.5}
-\contentsline {subsection}{\numberline {4.5.1}Algoritmo para encontrar thrackles con $k$ aristas}{67}{subsection.4.5.1}
-\contentsline {subsubsection}{An\IeC {\'a}lisis de complejidad}{72}{section*.45}
-\contentsline {subsection}{\numberline {4.5.2}Algoritmo para la intersecci\IeC {\'o}n de dos thrackles}{73}{subsection.4.5.2}
-\contentsline {subsection}{\numberline {4.5.3}Algoritmo para encontrar colecciones de thrackles m\IeC {\'a}ximos de $K_n$}{73}{subsection.4.5.3}
-\contentsline {subsubsection}{An\IeC {\'a}lisis de complejidad}{76}{section*.49}
-\contentsline {subsection}{\numberline {4.5.4}Algoritmo para generar particiones gu\IeC {\'\i }a de un entero}{78}{subsection.4.5.4}
-\contentsline {subsubsection}{An\IeC {\'a}lisis de complejidad}{80}{section*.54}
-\contentsline {subsection}{\numberline {4.5.5}Algoritmo para encontrar descomposiciones por thrackles de $K_n$ usando particiones de enteros}{81}{subsection.4.5.5}
-\contentsline {subsubsection}{An\IeC {\'a}lisis de complejidad}{85}{section*.58}
-\contentsline {subsection}{\numberline {4.5.6}Algoritmo para encontrar el anti-thickness de un dibujo de $K_n$}{86}{subsection.4.5.6}
-\contentsline {subsubsection}{An\IeC {\'a}lisis de complejidad}{94}{section*.63}
-\contentsline {subsection}{\numberline {4.5.7}Algoritmo para dar el n\IeC {\'u}mero de cruce de un thrackle m\IeC {\'a}ximo}{95}{subsection.4.5.7}
-\contentsline {subsubsection}{An\IeC {\'a}lisis de complejidad}{96}{section*.66}
-\contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{99}{chapter.5}
-\contentsline {subsubsection}{Trabajo futuro}{100}{section*.67}
-\contentsline {chapter}{\numberline {A}Etiquetas de thrackles m\IeC {\'a}ximos}{103}{appendix.Alph1}
-\contentsline {chapter}{\numberline {B}N\IeC {\'u}meros de cruce para thrackles m\IeC {\'a}ximos}{107}{appendix.Alph2}
-\contentsline {chapter}{\numberline {C}Tipos de orden con descomposiciones.}{111}{appendix.Alph3}
-\contentsline {chapter}{\numberline {D}Lista de ligas.}{123}{appendix.Alph4}
+\contentsline {chapter}{\numberline {2}Antecedentes}{17}{chapter.2}
+\contentsline {section}{\numberline {2.1}Gr\IeC {\'a}ficas}{17}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Gr\IeC {\'a}fica geom\IeC {\'e}trica}{19}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Thrackles}{21}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.3}Tipo de Orden}{23}{subsection.2.1.3}
+\contentsline {section}{\numberline {2.2}Anti-thickness y anti-thickness geom\IeC {\'e}trico}{26}{section.2.2}
+\contentsline {section}{\numberline {2.3}N\IeC {\'u}mero crom\IeC {\'a}tico}{29}{section.2.3}
+\contentsline {chapter}{\numberline {3}Estado del arte}{31}{chapter.3}
+\contentsline {chapter}{\numberline {4}Resultados}{43}{chapter.4}
+\contentsline {section}{\numberline {4.1}Cota inferior del anti-thickness geom\IeC {\'e}trico de $K_n$}{43}{section.4.1}
+\contentsline {section}{\numberline {4.2}Cota superior del anti-thickness geom\IeC {\'e}trico}{51}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}N\IeC {\'u}mero de cruce de thrackles m\IeC {\'a}ximos }{59}{subsection.4.2.1}
+\contentsline {section}{\numberline {4.3}Anti-thickness de gr\IeC {\'a}ficas geom\IeC {\'e}tricas sin thrackles m\IeC {\'a}ximos}{61}{section.4.3}
+\contentsline {section}{\numberline {4.4}Intersecci\IeC {\'o}n de thrackles de $K_n$ con $3\leq n \leq 9$.}{64}{section.4.4}
+\contentsline {section}{\numberline {4.5}Algoritmos}{67}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.1}Algoritmo para encontrar thrackles con $k$ aristas}{69}{subsection.4.5.1}
+\contentsline {subsubsection}{An\IeC {\'a}lisis de complejidad}{74}{section*.45}
+\contentsline {subsection}{\numberline {4.5.2}Algoritmo para la intersecci\IeC {\'o}n de dos thrackles}{75}{subsection.4.5.2}
+\contentsline {subsection}{\numberline {4.5.3}Algoritmo para encontrar colecciones de thrackles m\IeC {\'a}ximos de $K_n$}{75}{subsection.4.5.3}
+\contentsline {subsubsection}{An\IeC {\'a}lisis de complejidad}{78}{section*.49}
+\contentsline {subsection}{\numberline {4.5.4}Algoritmo para generar particiones gu\IeC {\'\i }a de un entero}{80}{subsection.4.5.4}
+\contentsline {subsubsection}{An\IeC {\'a}lisis de complejidad}{82}{section*.54}
+\contentsline {subsection}{\numberline {4.5.5}Algoritmo para encontrar descomposiciones por thrackles de $K_n$ usando particiones de enteros}{83}{subsection.4.5.5}
+\contentsline {subsubsection}{An\IeC {\'a}lisis de complejidad}{87}{section*.58}
+\contentsline {subsection}{\numberline {4.5.6}Algoritmo para encontrar el anti-thickness de un dibujo de $K_n$}{88}{subsection.4.5.6}
+\contentsline {subsubsection}{An\IeC {\'a}lisis de complejidad}{96}{section*.63}
+\contentsline {subsection}{\numberline {4.5.7}Algoritmo para dar el n\IeC {\'u}mero de cruce de un thrackle m\IeC {\'a}ximo}{97}{subsection.4.5.7}
+\contentsline {subsubsection}{An\IeC {\'a}lisis de complejidad}{98}{section*.66}
+\contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{101}{chapter.5}
+\contentsline {subsubsection}{Trabajo futuro}{102}{section*.67}
+\contentsline {chapter}{\numberline {A}Etiquetas de thrackles m\IeC {\'a}ximos}{105}{appendix.Alph1}
+\contentsline {chapter}{\numberline {B}N\IeC {\'u}meros de cruce para thrackles m\IeC {\'a}ximos}{109}{appendix.Alph2}
+\contentsline {chapter}{\numberline {C}Tipos de orden con descomposiciones.}{113}{appendix.Alph3}
+\contentsline {chapter}{\numberline {D}Lista de ligas.}{125}{appendix.Alph4}
