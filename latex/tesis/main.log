@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.16)  31 AUG 2019 16:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.16)  31 AUG 2019 19:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1238,6 +1238,10 @@ Package: booktabs 2016/04/27 v1.618033 publication quality tables
 \@thisruleclass=\count324
 \@lastruleclass=\count325
 \@thisrulewidth=\dimen326
+) (/usr/share/texlive/texmf-dist/tex/latex/hyphenat/hyphenat.sty
+Package: hyphenat 2009/09/02 v2.3c hyphenation utilities
+\langwohyphens=\language84
+LaTeX Info: Redefining \_ on input line 43.
 )
 \c@definition=\count326
 \c@theorem=\count327
@@ -1248,22 +1252,22 @@ LaTeX Info: Redefining \% on input line 21.
 )
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Info: Redefining \. on input line 61.
-LaTeX Info: Redefining \% on input line 61.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Info: Redefining \. on input line 62.
+LaTeX Info: Redefining \% on input line 62.
  (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count329
@@ -1293,9 +1297,9 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
  ABD: EveryShipout initializing macros ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 61.
+LaTeX Info: Redefining \selectfont on input line 62.
 \AtBeginShipoutBox=\box92
-Package hyperref Info: Link coloring OFF on input line 61.
+Package hyperref Info: Link coloring OFF on input line 62.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
  (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
@@ -1303,9 +1307,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count335
 )
-LaTeX Info: Redefining \ref on input line 61.
-LaTeX Info: Redefining \pageref on input line 61.
-LaTeX Info: Redefining \nameref on input line 61.
+LaTeX Info: Redefining \ref on input line 62.
+LaTeX Info: Redefining \pageref on input line 62.
+LaTeX Info: Redefining \nameref on input line 62.
  (/home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/main.out) (/home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
@@ -1335,9 +1339,12 @@ Overfull \hbox (9.36372pt too wide) in paragraph at lines 3--10
 
 ] (/home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/chapters/abstract.tex) [3] [4
 
-] (/home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/chapters/abstract_spa.tex) [5] [6
+] (/home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/chapters/abstract_spa.tex)
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-] (/home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/chapters/dedicatoria.tex [7]) [8
+ [5] [6] (/home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/chapters/dedicatoria.tex [7
+
+]) [8
 
 
 ] (/home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/chapters/gracias.tex) [9] [10
@@ -1354,18 +1361,18 @@ Overfull \hbox (3.35565pt too wide) in paragraph at lines 21--21
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
-LaTeX Info: Redefining \. on input line 74.
-LaTeX Info: Redefining \% on input line 74.
+LaTeX Info: Redefining \. on input line 75.
+LaTeX Info: Redefining \% on input line 75.
  [12]
 Cap\'{\i }tulo 1.
 (/home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/chapters/introduccion.tex [13
 
 ])
-LaTeX Info: Redefining \. on input line 76.
-LaTeX Info: Redefining \% on input line 76.
+LaTeX Info: Redefining \. on input line 77.
+LaTeX Info: Redefining \% on input line 77.
  [14] [15]
-LaTeX Info: Redefining \. on input line 76.
-LaTeX Info: Redefining \% on input line 76.
+LaTeX Info: Redefining \. on input line 77.
+LaTeX Info: Redefining \% on input line 77.
  [16
 
 ]
@@ -1512,8 +1519,8 @@ Package pdftex.def Info: images/excoloring.png  used on input line 477.
 LaTeX Info: Redefining \. on input line 493.
 LaTeX Info: Redefining \% on input line 493.
  [29 </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/exantithicknessgeo.png>])
-LaTeX Info: Redefining \. on input line 78.
-LaTeX Info: Redefining \% on input line 78.
+LaTeX Info: Redefining \. on input line 79.
+LaTeX Info: Redefining \% on input line 79.
  [30 </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/excoloring.png>]
 Cap\'{\i }tulo 3.
 (/home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/chapters/estado.tex
@@ -1603,8 +1610,8 @@ Package pdftex.def Info: images/exdoblecadena.png  used on input line 498.
 LaTeX Info: Redefining \. on input line 531.
 LaTeX Info: Redefining \% on input line 531.
  [40 </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/exdoblecadena.png>]) [41]
-LaTeX Info: Redefining \. on input line 80.
-LaTeX Info: Redefining \% on input line 80.
+LaTeX Info: Redefining \. on input line 81.
+LaTeX Info: Redefining \% on input line 81.
  [42
 
 ]
@@ -1976,14 +1983,14 @@ LaTeX Info: Redefining \% on input line 1985.
 LaTeX Info: Redefining \. on input line 2028.
 LaTeX Info: Redefining \% on input line 2028.
  [97])
-LaTeX Info: Redefining \. on input line 82.
-LaTeX Info: Redefining \% on input line 82.
+LaTeX Info: Redefining \. on input line 83.
+LaTeX Info: Redefining \% on input line 83.
  [98]
-LaTeX Info: Redefining \. on input line 82.
-LaTeX Info: Redefining \% on input line 82.
+LaTeX Info: Redefining \. on input line 83.
+LaTeX Info: Redefining \% on input line 83.
  [99]
-LaTeX Info: Redefining \. on input line 82.
-LaTeX Info: Redefining \% on input line 82.
+LaTeX Info: Redefining \. on input line 83.
+LaTeX Info: Redefining \% on input line 83.
  [100
 
 ]
@@ -1992,14 +1999,14 @@ Cap\'{\i }tulo 5.
 LaTeX Info: Redefining \. on input line 41.
 LaTeX Info: Redefining \% on input line 41.
  [102]) [103]
-LaTeX Info: Redefining \. on input line 85.
-LaTeX Info: Redefining \% on input line 85.
+LaTeX Info: Redefining \. on input line 86.
+LaTeX Info: Redefining \% on input line 86.
  [104
 
 ]
 Ap\'{e}ndice A.
 (/home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/chapters/apendice_thrackles_inducen.tex)
-Overfull \hbox (45.84897pt too wide) in paragraph at lines 2--87
+Overfull \hbox (45.84897pt too wide) in paragraph at lines 2--88
 [][] []
  []
 
@@ -2009,11 +2016,11 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [105]
 Overfull \vbox (37.09956pt too high) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 87.
-LaTeX Info: Redefining \% on input line 87.
+LaTeX Info: Redefining \. on input line 88.
+LaTeX Info: Redefining \% on input line 88.
  [106] [107]
-LaTeX Info: Redefining \. on input line 87.
-LaTeX Info: Redefining \% on input line 87.
+LaTeX Info: Redefining \. on input line 88.
+LaTeX Info: Redefining \% on input line 88.
  [108
 
 ]
@@ -2024,16 +2031,16 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [109]
 Overfull \vbox (67.09956pt too high) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 89.
-LaTeX Info: Redefining \% on input line 89.
+LaTeX Info: Redefining \. on input line 90.
+LaTeX Info: Redefining \% on input line 90.
 
 Overfull \hbox (9.05896pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/12 110 \OT1/cmr/m/sl/12 AP[]ENDICE B.  N[]UMEROS DE CRUCE PARA THRACKLES M[]AXIMOS
  []
 
 [110] [111]
-LaTeX Info: Redefining \. on input line 89.
-LaTeX Info: Redefining \% on input line 89.
+LaTeX Info: Redefining \. on input line 90.
+LaTeX Info: Redefining \% on input line 90.
 
 Overfull \hbox (9.05896pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/12 112 \OT1/cmr/m/sl/12 AP[]ENDICE B.  N[]UMEROS DE CRUCE PARA THRACKLES M[]AXIMOS
@@ -2120,23 +2127,23 @@ Overfull \hbox (0.79999pt too wide) in paragraph at lines 60--61
  []
 
 ) [113 </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/8_12.png>]
-LaTeX Info: Redefining \. on input line 91.
-LaTeX Info: Redefining \% on input line 91.
+LaTeX Info: Redefining \. on input line 92.
+LaTeX Info: Redefining \% on input line 92.
  [114 </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/8_54.png>] [115 </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/9_12.png>]
-LaTeX Info: Redefining \. on input line 91.
-LaTeX Info: Redefining \% on input line 91.
+LaTeX Info: Redefining \. on input line 92.
+LaTeX Info: Redefining \% on input line 92.
  [116 </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/9_52.png>] [117 </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/9_54.png>]
-LaTeX Info: Redefining \. on input line 91.
-LaTeX Info: Redefining \% on input line 91.
+LaTeX Info: Redefining \. on input line 92.
+LaTeX Info: Redefining \% on input line 92.
  [118 </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/9_80.png>] [119 </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/9_696.png>]
-LaTeX Info: Redefining \. on input line 91.
-LaTeX Info: Redefining \% on input line 91.
+LaTeX Info: Redefining \. on input line 92.
+LaTeX Info: Redefining \% on input line 92.
  [120 </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/9_1080.png>] [121 </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/9_1287.png>]
-LaTeX Info: Redefining \. on input line 91.
-LaTeX Info: Redefining \% on input line 91.
+LaTeX Info: Redefining \. on input line 92.
+LaTeX Info: Redefining \% on input line 92.
  [122 </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/10_81.png>] [123 </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/10_1328.png>]
-LaTeX Info: Redefining \. on input line 91.
-LaTeX Info: Redefining \% on input line 91.
+LaTeX Info: Redefining \. on input line 92.
+LaTeX Info: Redefining \% on input line 92.
  [124 </home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/10_2243.png>]
 Ap\'{e}ndice D.
 (/home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/chapters/apendice_ligas.tex
@@ -2164,32 +2171,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 130--134
 LaTeX Info: Redefining \. on input line 134.
 LaTeX Info: Redefining \% on input line 134.
 [128])
-LaTeX Info: Redefining \. on input line 95.
-LaTeX Info: Redefining \% on input line 95.
+LaTeX Info: Redefining \. on input line 96.
+LaTeX Info: Redefining \% on input line 96.
  [129]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 95.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 95.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 96.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 96.
  (/home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/main.aux
 LaTeX Info: Redefining \. on input line 21.
 LaTeX Info: Redefining \% on input line 21.
 )
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 95.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 95.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 96.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 96.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 6B98EE8318B19FCC4573B5F9DAC6D02D;2344.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 95.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 96.
  ) 
 Here is how much of TeX's memory you used:
- 32065 strings out of 492982
- 604802 string characters out of 6134895
- 712415 words of memory out of 5000000
- 34505 multiletter control sequences out of 15000+600000
+ 32099 strings out of 492982
+ 605296 string characters out of 6134895
+ 713171 words of memory out of 5000000
+ 34535 multiletter control sequences out of 15000+600000
  547326 words of font info for 87 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  59i,28n,94p,10415b,899s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
 nts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/main.pdf (129 pages, 2766895 bytes).
+Output written on /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/main.pdf (129 pages, 2767540 bytes).
 PDF statistics:
  1727 PDF objects out of 1728 (max. 8388607)
  1485 compressed objects within 15 object streams
