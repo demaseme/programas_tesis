@@ -29,7 +29,7 @@
 \contentsline {subsection}{\numberline {4.5.7}Algoritmo para dar el n\IeC {\'u}mero de cruce de un thrackle m\IeC {\'a}ximo}{97}{subsection.4.5.7}
 \contentsline {subsubsection}{An\IeC {\'a}lisis de complejidad}{98}{section*.66}
 \contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{101}{chapter.5}
-\contentsline {subsubsection}{Trabajo futuro}{102}{section*.67}
+\contentsline {subsubsection}{Trabajo futuro}{103}{section*.67}
 \contentsline {chapter}{\numberline {A}Etiquetas de thrackles m\IeC {\'a}ximos}{105}{appendix.Alph1}
 \contentsline {chapter}{\numberline {B}N\IeC {\'u}meros de cruce para thrackles m\IeC {\'a}ximos}{109}{appendix.Alph2}
 \contentsline {chapter}{\numberline {C}Tipos de orden con descomposiciones.}{113}{appendix.Alph3}

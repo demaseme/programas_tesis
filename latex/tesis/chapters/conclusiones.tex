@@ -1,13 +1,25 @@
-En esta tesis estudiamos el problema del anti-thickness geométrico de gráficas completas con hasta 10 vértices.
+En esta tesis estudiamos el problema del anti-thickness geométrico de gráficas completas con hasta 10
+vértices.
 
-En este trabajo encontramos que el anti-thickness geométrico $At_g(K_n)$ de la gráfica completa de $n$ vértices $K_n$, con $ 3 \leq n \leq 10$, es:
+En este trabajo encontramos que el anti-thickness geométrico $At_g(K_n)$ de la gráfica completa de $n$
+vértices $K_n$, con $ 3 \leq n \leq 10$, es:
 \[ At_g(K_n) =  n - \left\lfloor \sqrt{2n + \frac{1}{4}} - \frac{1}{2}\right\rfloor. \]
 Para dar este resultado analizamos las gráficas completas inducidas por los conjuntos de hasta diez
-vértices proveídos por la base de datos de tipos de orden del trabajo de~\cite{Aichholzer2001}, encontramos que dos thrackles máximos de la misma gráfica completa comparten al menos una arista, dando así una nueva cota inferior para conjuntos pequeños de puntos. La cota superior está dada por el anti-thickness del dibujo de $K_n$ en posición convexa; nosotros encontramos dibujos, que no están en posición convexa, que tienen el mismo anti-thickness.
+vértices proveídos por la base de datos de tipos de orden del trabajo de~\cite{Aichholzer2001}, encontramos
+que dos thrackles máximos de la misma gráfica completa comparten al menos una arista, dando así una nueva
+cota inferior para conjuntos pequeños de puntos. La cota superior está dada por el anti-thickness del
+dibujo de $K_n$ en posición convexa; nosotros encontramos dibujos, que no están en posición convexa, que
+tienen el mismo anti-thickness.
+
+Nosotros conjeturamos que en general, cada par de thrackles máximos de una gráfica geométrica se
+intersectan en al menos una arista y, por consecuencia, conjeturamos también que el anti-thickness
+geométrico de $K_n$, con $n \geq 3$, es exactamente \[ At_g(K_n) =  n - \left\lfloor \sqrt{2n +
+\frac{1}{4}} - \frac{1}{2}\right\rfloor. \]
 
 Para cada thrackle de las descomposiciones encontradas calculamos el número
-de cruce para observar que existe una relación del número de thrackles con número de cruce alto y número de
-cruce bajo cercana al 50\%; en este trabajo damos la definición del número de cruce de un thrackle.
+de cruce para observar que en cada colección de thrackles de las descomposiciones encontradas, cerca del
+50\% de los thrackles máximos tiene un número de cruce mínimo (con respecto al número de vértices); en este
+trabajo damos la definición del número de cruce de un thrackle.
 
 También analizamos y listamos cuáles conjuntos de puntos no tienen thrackles máximos y cuáles tienen
 solamente un thrackle máximo para cada $n$ en el rango $[3,10]$. Aquí hacemos la observación de que
@@ -18,11 +30,32 @@ Para los conjuntos de $n$ puntos, con $3 \leq n \leq 8$ que inducen gráficas co
 máximos analizamos, con un algoritmo exhaustivo, el anti-thickness geométrico de cada uno. Encontramos que
 estos dibujos tienen anti-thickness mayor, en una unidad, al anti-thickness geométrico de $K_n$.
 
+%porque son importantes estos resultados
+Estos resultados, aunque son para conjuntos pequeños de puntos, muestran un panorama de cómo podrían
+comportarse los thrackles máximos en conjuntos más grandes. Además estudiamos cómo influye el número de
+cruce de una gráfica completa en el número de thrackles máximos que ésta tiene y por lo tanto en su
+anti-thickness. El número de cruce no había sido estudiado de esta manera.
+
+Retomando el trabajo de~\cite{Lomeli2018} en el que dan el anti-thickness geométrico exacto para la doble
+cadena convexa, y observando que esta configuración de puntos no induce ningún thrackle máximo, podemos
+concluir que nuestro teorema~\ref{teo:at_sin_thracklesmax}, que establece que el anti-thickness de dibujos
+de $K_n$ sin thrackles máximos es mayor o igual al anti-thickness geométrico de $K_n$, se mantiene para la
+doble cadena convexa con hasta diez vértices.
+
+Una variante del anti-thickness geométrico es considerar, en lugar del mínimo, el máximo número de
+thrackles en una descomposición por thrackles de la gráfica completa, este parámetro es estudiado
+por~\cite{Araujo2005} y se denota como $d(n)$, en nuestro trabajo encontramos el valor de $d(n)$ exacto
+para $n \in [3,10]$. En este aspecto, nosotros conjeturamos que
+\[
+d(n) =  \min\left(n-2,n-\frac{1}{2}-\frac{\lfloor \lg \lg n\rfloor}{2}\right).
+\]
+
 Uno de los objetivos de la tesis era obtener el anti-thickness geométrico de $K_n$ con $n\geq 3$. Sin
 embargo no fue posible ya que no pudimos probar la generalización del lema~\ref{lema:thdisjuntos} que
 establece que la intersección entre dos thrackles máximos de un mismo dibujo siempre sucede. Decidimos no
 invertir más tiempo en la generalización del teorema para dar más resultados acerca de conjuntos pequeño de
-$n$.
+$n$. Otra pregunta interesante que no respondimos del todo en esta tesis es ¿cómo se caracterizan los
+conjuntos de puntos para los cuales no existen thrackles máximos?
 
 Queremos destacar que el trabajo mostrado en esta tesis muestra el proceso por el cuál pasamos para
 intentar resolver el problema del anti-thickness geométrico para conjuntos pequeños de puntos. La cota
@@ -36,7 +69,14 @@ intersectan en al menos una arista o bien, probando que no existen descomposicio
 La generalización del lema~\ref{lema:thdisjuntos} es el trabajo a futuro más fuerte, de encontrarse, el
 problema del anti-thickness geométrico para gráficas completas quedaría resuelto de manera general. Esto
 deja abierto el problema de encontrar el anti-thickness de un dibujo en específico de manera eficiente.
-Pero, como explicamos en el capítulo~\ref{cap3}, encontrar el anti-thickness de una gráfica geométrica equivale a encontrar el número cromático de su gráfica de disyunción y este último es un problema $NP$-difícil~(\cite{Skiena2003}). Sin embargo, existen algoritmos genéticos para encontrar una aproximación al número cromático de una gráfica dada como los presentados en~\cite{Fleurent1996} y \cite{Galinier1999} en los que se muestra que los resultados fueron obtenidos en un rango de tiempo considerablemente bueno para el hardware en el que se implementaron. Es posible implementar estos algoritmos para encontrar la coloración de la gráfica de disyunción y obtener resultados acerca del anti-thickness de algún dibujo de $K_n$.
+Pero, como explicamos en el capítulo~\ref{cap3}, encontrar el anti-thickness de una gráfica geométrica
+equivale a encontrar el número cromático de su gráfica de disyunción y este último es un problema
+$NP$-difícil~(\cite{Skiena2003}). Sin embargo, existen algoritmos genéticos para encontrar una aproximación
+al número cromático de una gráfica dada. Los primeros trabajos respecto a estos algoritmos son los
+presentados en~\cite{Fleurent1996} y \cite{Galinier1999}. En ellos se muestra que los resultados fueron
+obtenidos en un rango de tiempo considerablemente bueno para el hardware en el que se implementaron. Es
+posible implementar estos algoritmos para encontrar la coloración de la gráfica de disyunción y obtener
+resultados acerca del anti-thickness de algún dibujo de $K_n$.
 
 También es deseable encontrar una manera de caracterizar los dibujos que inducen gráficas completas sin
 thrackles máximos, o con solo uno, ya que analizar todas las $\displaystyle \binom{\binom{n}{2}}{n}$
