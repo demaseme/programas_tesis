@@ -627,15 +627,36 @@ cruce. Finalmente listamos los algoritmos que utilizamos en este trabajo para da
     puede estar relacionado con el número de thrackles máximos en esta. Observamos y conjeturamos
     que los tipos de orden con menor número de cruce tienen pocos thrackles máximos y los tipos de
     orden con mayor número de cruce tienen el máximo número de thrackles máximos, esto último se
-    cumple para el tipo de orden en posición convexa. Encontramos también, que para $3 \leq n \leq
-    8$ los conjuntos de puntos que son \emph{menos convexos}, esto es, que tienen $k$-convexidad
-    alta, tienen anti-thickness mayor que el convexo por una unidad.
-
+    cumple para el tipo de orden en posición convexa. Ilustramos la relación
+    que hay entre el número de cruce y el número de thrackles máximos para cada tipo de orden de
+    ocho puntos en las figuras~\ref{fig:cnk8} y \ref{fig:cnk8_2}. Para construir la primera figura
+    ordenamos las etiquetas de los tipos de orden de ocho puntos con respecto al número de thrackles
+    máximos y asignamos, a las etiquetas de los tipos de orden en el orden resultante, los enteros
+    $1$,$2$,$\dots$,$3315$, esto está representando en el eje horizontal de la gráfica. El número de
+    cruce para cada tipo de orden está representado en el eje vertical de la gráfica. Para construir
+    la segunda figura hicimos uso del software \texttt{Mathematica} en su versión 12 y la función
+    \texttt{predict} que nos ayuda a observar la tendencia de los datos con una función lineal. En nuestro caso, es claro que la función resultante es decreciente. El código para generar ambas gráfica puede ser consultado en el apéndice~\ref{apendice_codigo_figuras}.
+    \begin{figure}
+      \centering
+      \includegraphics[width=1\linewidth]{exportP1_single}
+      \caption{Mostramos el resultado de ordenar los tipos de orden de acuerdo al número de thrackles máximos. Graficamos etiquetas de los tipos de orden contra el número de cruce.}
+      \label{fig:cnk8}
+    \end{figure}
+    \begin{figure}
+      \centering
+      \includegraphics[width=1\linewidth]{exportP2}
+      \caption{Mostramos la tendencia de los datos de la gráfica~\ref{fig:cnk8}, es posible observar que el número de thrackles máximos disminuye con respecto del número de cruce.}
+      \label{fig:cnk8_2}
+    \end{figure}
     Observamos también que los thrackles máximos que encontramos en los tipos de orden de 9
     vértices, de la tabla~\ref{table:res_desc_th_max} son ciclos de tamaño 3, con aristas con un
     extremo en vértices de grado uno y otro extremo en alguno de los vértices ápice del ciclo.
 
-    Para cada $n$, con $n \in [3,10]$ listamos los tipos de orden, el número de thrackles máximos en cada tipo de orden y el número de cruce para cada tipo de orden. Estas listas están ordenados de acuerdo al número de thrackles en el tipo de orden de mayor a menor y pueden ser descargadas en la liga~\ref{link-thrMax_k} del apéndice~\ref{apendice-ligas}. Con este orden notamos que el número de thrackles máximos disminuye casi de la misma manera que el número de cruce.
+    Para cada $n$, con $n \in [3,10]$ listamos los tipos de orden, el número de thrackles máximos en
+    cada tipo de orden y el número de cruce para cada tipo de orden. Estas listas están ordenados de
+    acuerdo al número de thrackles en el tipo de orden de mayor a menor y pueden ser descargadas en
+    la liga~\ref{link-thrMax_k} del apéndice~\ref{apendice-ligas}. Con este orden también notamos
+    que el número de thrackles máximos disminuye casi de la misma manera que el número de cruce.
 
     En esta tesis decidimos analizar qué pasa con el anti-thickness de los tipos de orden en los que
     no existe ni un thrackle máximo, para esto usamos un algoritmo que encuentra, de manera
@@ -737,6 +758,11 @@ cruce. Finalmente listamos los algoritmos que utilizamos en este trabajo para da
     El anti-thickness de los dibujos para los cuales no existen thrackles
     máximos es mayor o igual que el anti-thickness geométrico de $K_n$, con $n \in [3,10]$.
   \end{theorem}
+
+  Encontramos también, que para $3 \leq n \leq 8$ los conjuntos de puntos que tienen $k$-convexidad
+  alta, cuya definición establecimos en la sección~\ref{secc:descomposicion_thrackles_maximos},
+  tienen anti-thickness mayor que el convexo por una unidad.
+
   En la siguiente sección analizamos, para $3 \leq n \leq 9$, cómo se comporta la intersección de
   thrackles, no necesariamente máximos, de los dibujos de $K_n$.
 
@@ -2033,7 +2059,7 @@ $K_n$}\label{secc:anti-thickness-dibujo}
   \end{itemize}
 
   Calculamos el número de cruce de un thrackle como describimos en la
-  sección~\ref{secc:cnthracklemax}. Recordemos que para un thrackle con $m$ aristas el número de cruce 
+  sección~\ref{secc:cnthracklemax}. Recordemos que para un thrackle con $m$ aristas el número de cruce
   es \[ \binom{m}{2} - \sum_{u\in V(T)} \binom{deg(u)}{2}. \]
 
   Mostramos el pseudocódigo del algoritmo para realizar los cálculos en el algoritmo~\ref{algo_cnthracklemax}.

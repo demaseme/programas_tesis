@@ -1,0 +1,35 @@
+\label{apendice_codigo_figuras}
+Para este código, \texttt{k8\_cn.dat} es el archivo que contiene solo
+una columna que indica el número de cruce de cada tipo de orden. Dicha
+columna está ordenada con respecto del número de thrackles máximos en
+cada tipo de orden. El código genera dos figuras con los nombres \texttt{exportP1\_single.png} y \texttt{exportP2.png} respectivamente.
+\begin{lstlisting}[frame=single, language= Mathematica]
+k8cn = Import["~/k8_cn.dat", "List"];
+k8cn2d = Map[# -> Part[k8cn, #] &, Range[1, 3315]];
+q = Predict[k8cn2d, Method -> "LinearRegression"]
+p1 = Show[
+   ListPlot[List @@@ k8cn2d, PlotStyle -> Blue,
+    PlotLegends -> {"Numero de cruce
+                    por tipo de orden"}
+    , PlotRange -> {{1, 3315}, {15, 70}}],
+   ImageSize -> {800, 600}
+   ];
+Export["~/exportP1_single.png", p1]
+p2 = Show[
+   ListPlot[List @@@ k8cn2d, PlotStyle -> Blue,
+    PlotLegends -> {"Numero de cruce
+                por tipo de orden"}],
+   Plot[{
+     q[x]
+     },
+    {x, 1, 3315},
+    PlotStyle -> {{Red, Dashed, Thickness[0.003]}},
+    PlotRange -> {{1, 3315}, {15, 70}},
+    Exclusions -> False,
+    PerformanceGoal -> "Quality",
+    PlotLegends -> {"Tendencia"}
+    ],
+   ImageSize -> {800, 600}
+   ];
+Export["~/exportP2.png", p2]
+\end{lstlisting}

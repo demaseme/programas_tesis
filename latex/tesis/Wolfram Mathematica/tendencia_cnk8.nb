@@ -1,0 +1,2657 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[    142928,       2649]
+NotebookOptionsPosition[    141560,       2621]
+NotebookOutlinePosition[    141925,       2637]
+CellTagsIndexPosition[    141882,       2634]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"k8cn", " ", "=", " ", 
+   RowBox[{"Import", "[", 
+    RowBox[{"\"\<~/k8_cn.dat\>\"", ",", "\"\<List\>\""}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.77645066421518*^9, 3.7764507017491198`*^9}},
+ CellLabel->"In[5]:=",ExpressionUUID->"355f97a1-a0b6-400f-aaac-5ff62ebc86cd"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"k8cn2d", " ", "=", " ", 
+   RowBox[{"Map", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"#", "->", 
+       RowBox[{"Part", "[", 
+        RowBox[{"k8cn", ",", "#"}], "]"}]}], "&"}], ",", 
+     RowBox[{"Range", "[", 
+      RowBox[{"1", ",", "3315"}], "]"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"data", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"x", "\[Rule]", 
+      RowBox[{"x", "+", 
+       RowBox[{"RandomVariate", "[", 
+        RowBox[{"NormalDistribution", "[", "]"}], "]"}]}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{"RandomReal", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "5"}], ",", "5"}], "}"}], ",", "40"}], "]"}]}], 
+      "}"}]}], "]"}]}], ";"}], "\n"}], "Input",
+ CellChangeTimes->{{3.7764507034512653`*^9, 3.776450709817133*^9}, {
+  3.776452173708818*^9, 3.776452186074959*^9}, {3.7764522439374237`*^9, 
+  3.776452309339284*^9}, {3.776452416428011*^9, 3.7764524167874527`*^9}, {
+  3.776452460263188*^9, 3.776452529835123*^9}},
+ CellLabel->"In[93]:=",ExpressionUUID->"3621b1a5-4953-48be-a6d4-969babe0bd1d"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"p", " ", "=", " ", 
+  RowBox[{"Predict", "[", 
+   RowBox[{"k8cn2d", ",", 
+    RowBox[{"Method", "\[Rule]", "\"\<NearestNeighbors\>\""}]}], 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"q", " ", "=", " ", 
+  RowBox[{"Predict", "[", 
+   RowBox[{"k8cn2d", ",", 
+    RowBox[{"Method", "\[Rule]", "\"\<LinearRegression\>\""}]}], "]"}]}]}], \
+"Input",
+ CellChangeTimes->{{3.776451127816594*^9, 3.776451129062965*^9}, {
+  3.776452004698965*^9, 3.776452123307315*^9}, {3.776452173022687*^9, 
+  3.77645220696332*^9}, {3.7764523180229607`*^9, 3.776452318331716*^9}, {
+  3.776452474327784*^9, 3.776452475196279*^9}, {3.7764535085044403`*^9, 
+  3.7764535199656153`*^9}, {3.776453573521542*^9, 3.7764535832290907`*^9}, {
+  3.776453688812971*^9, 3.776453690237297*^9}},
+ CellLabel->
+  "In[127]:=",ExpressionUUID->"fdf644fa-0f73-46c2-8dc0-26669b865daf"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   TagBox["PredictorFunction",
+    "SummaryHead"], "[", 
+   DynamicModuleBox[{Typeset`open$$ = False, Typeset`embedState$$ = "Ready"}, 
+    
+    TemplateBox[{PaneSelectorBox[{False -> GridBox[{{
+            PaneBox[
+             ButtonBox[
+              DynamicBox[
+               FEPrivate`FrontEndResource[
+               "FEBitmaps", "SquarePlusIconMedium"]], 
+              ButtonFunction :> (Typeset`open$$ = True), Appearance -> None, 
+              Evaluator -> Automatic, Method -> "Preemptive"], 
+             Alignment -> {Center, Center}, ImageSize -> 
+             Dynamic[{
+               Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                AbsoluteCurrentValue[Magnification]}]], 
+            GraphicsBox[{{}, {{}, {
+                PointSize[0.125], 
+                GrayLevel[0.55], 
+                
+                PointBox[{{-1, 1.5}, {0, 2.3}, {1, 0.8}, {2, 2}, {3, 1.3}, {
+                  4, 4.}}]}, {
+                GrayLevel[0.7], 
+                AbsoluteThickness[1.5], 
+                
+                BSplineCurveBox[{{-1, 2}, {0, 2}, {1, 1}, {2, 1}, {4, 2}, {5, 
+                 4}}]}}, {}}, Axes -> {False, False}, 
+             AxesLabel -> {None, None}, AxesOrigin -> {0, 0}, 
+             BaseStyle -> {FontFamily -> "Arial", 
+               AbsoluteThickness[1.5]}, DisplayFunction -> Identity, 
+             Frame -> {{True, True}, {True, True}}, 
+             FrameLabel -> {{None, None}, {None, None}}, FrameStyle -> 
+             Directive[
+               Thickness[Tiny], 
+               GrayLevel[0.7]], FrameTicks -> {{None, None}, {None, None}}, 
+             GridLines -> {None, None}, LabelStyle -> {FontFamily -> "Arial"},
+              Method -> {"ScalingFunctions" -> None}, PlotRange -> {All, All},
+              PlotRangeClipping -> True, PlotRangePadding -> {{1, 1}, {1, 1}},
+              Ticks -> {None, None}, Axes -> False, AspectRatio -> 1, 
+             ImageSize -> 
+             Dynamic[{
+               Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                AbsoluteCurrentValue[Magnification]}], Frame -> True, 
+             FrameTicks -> None, FrameStyle -> Directive[
+               Opacity[0.5], 
+               Thickness[Tiny], 
+               RGBColor[0.368417, 0.506779, 0.709798]], Background -> 
+             GrayLevel[0.94]], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Input type: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["\"Numerical\"", "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Method: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["\"NearestNeighbors\"", "SummaryItem"]}]}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Rows" -> {{Top}}}, AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}], True -> GridBox[{{
+            PaneBox[
+             ButtonBox[
+              DynamicBox[
+               FEPrivate`FrontEndResource[
+               "FEBitmaps", "SquareMinusIconMedium"]], 
+              ButtonFunction :> (Typeset`open$$ = False), Appearance -> None, 
+              Evaluator -> Automatic, Method -> "Preemptive"], 
+             Alignment -> {Center, Center}, ImageSize -> 
+             Dynamic[{
+               Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                AbsoluteCurrentValue[Magnification]}]], 
+            GraphicsBox[{{}, {{}, {
+                PointSize[0.125], 
+                GrayLevel[0.55], 
+                
+                PointBox[{{-1, 1.5}, {0, 2.3}, {1, 0.8}, {2, 2}, {3, 1.3}, {
+                  4, 4.}}]}, {
+                GrayLevel[0.7], 
+                AbsoluteThickness[1.5], 
+                
+                BSplineCurveBox[{{-1, 2}, {0, 2}, {1, 1}, {2, 1}, {4, 2}, {5, 
+                 4}}]}}, {}}, Axes -> {False, False}, 
+             AxesLabel -> {None, None}, AxesOrigin -> {0, 0}, 
+             BaseStyle -> {FontFamily -> "Arial", 
+               AbsoluteThickness[1.5]}, DisplayFunction -> Identity, 
+             Frame -> {{True, True}, {True, True}}, 
+             FrameLabel -> {{None, None}, {None, None}}, FrameStyle -> 
+             Directive[
+               Thickness[Tiny], 
+               GrayLevel[0.7]], FrameTicks -> {{None, None}, {None, None}}, 
+             GridLines -> {None, None}, LabelStyle -> {FontFamily -> "Arial"},
+              Method -> {"ScalingFunctions" -> None}, PlotRange -> {All, All},
+              PlotRangeClipping -> True, PlotRangePadding -> {{1, 1}, {1, 1}},
+              Ticks -> {None, None}, Axes -> False, AspectRatio -> 1, 
+             ImageSize -> 
+             Dynamic[{
+               Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                AbsoluteCurrentValue[Magnification]}], Frame -> True, 
+             FrameTicks -> None, FrameStyle -> Directive[
+               Opacity[0.5], 
+               Thickness[Tiny], 
+               RGBColor[0.368417, 0.506779, 0.709798]], Background -> 
+             GrayLevel[0.94]], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Input type: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["\"Numerical\"", "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Method: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["\"NearestNeighbors\"", "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox[
+                 "\"Number of training examples: \"", 
+                  "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                 TagBox["3315", "SummaryItem"]}]}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Rows" -> {{Top}}}, AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}]}, 
+       Dynamic[Typeset`open$$], ImageSize -> Automatic]},
+     "SummaryPanel"],
+    DynamicModuleValues:>{}], "]"}],
+  PredictorFunction[
+   Association[
+   "ExampleNumber" -> 3315, "Input" -> 
+    Association["Preprocessor" -> MachineLearning`MLProcessor["ToMLDataset", 
+        Association[
+        "Input" -> Association["f1" -> Association["Type" -> "Numerical"]], 
+         "Output" -> 
+         Association[
+          "f1" -> Association["Type" -> "Numerical", "Weight" -> 1]], 
+         "Preprocessor" -> MachineLearning`MLProcessor["Sequence", 
+           Association["Processors" -> {
+              MachineLearning`MLProcessor["List"], 
+              MachineLearning`MLProcessor["WrapMLDataset", 
+               Association[
+               "FeatureTypes" -> {"Numerical"}, "FeatureKeys" -> {"f1"}, 
+                "FeatureWeights" -> Automatic, "ExampleWeights" -> Automatic, 
+                "RawExample" -> Missing["KeyAbsent", "RawExample"]]]}]], 
+         "ScalarFeature" -> True, "Invertibility" -> "Perfect", "Missing" -> 
+         "Allowed"]], "Processor" -> MachineLearning`MLProcessor["Sequence", 
+        Association[
+        "Input" -> Association[
+          "f1" -> Association["Type" -> "Numerical", "Weight" -> 1]], 
+         "Output" -> 
+         Association[
+          "f1" -> Association["Type" -> "NumericalVector", "Weight" -> 1]], 
+         "Processors" -> {
+           MachineLearning`MLProcessor["ToVector", 
+            Association[
+            "Invertibility" -> "Perfect", "Missing" -> "Allowed", "Input" -> 
+             Association[
+              "f1" -> Association["Type" -> "Numerical", "Weight" -> 1]], 
+             "Output" -> 
+             Association[
+              "f1" -> Association[
+                "Type" -> "NumericalVector", "Weight" -> 1]], 
+             "Version" -> {12., 0}, "ID" -> 1537627216228573037]], 
+           MachineLearning`MLProcessor["ImputeMissing", 
+            Association[
+            "Invertibility" -> "Perfect", "Missing" -> "Imputed", "Input" -> 
+             Association[
+              "f1" -> Association[
+                "Type" -> "NumericalVector", "Weight" -> 1]], 
+             "Imputer" -> (DimensionReducerFunction[
+               Association[
+               "ExampleNumber" -> 3315, "Imputer" -> 
+                MachineLearning`MLProcessor["ImputeMissing", 
+                  Association[
+                  "Invertibility" -> "Perfect", "Missing" -> "Imputed", 
+                   "Input" -> 
+                   Association[
+                    "f1" -> Association[
+                    "Type" -> "NumericalVector", "Weight" -> 1]], 
+                   "Fill" -> {1658.}, "Method" -> "Naive", "VectorLength" -> 
+                   1, "Output" -> 
+                   Association[
+                    "f1" -> Association[
+                    "Type" -> "NumericalVector", "Weight" -> 1]], "Type" -> 
+                   "NumericalVector"]], "RandomImputer" -> 
+                MachineLearning`MLProcessor["ImputeMissing", 
+                  Association[
+                  "Invertibility" -> "Perfect", "Missing" -> "Imputed", 
+                   "Input" -> 
+                   Association[
+                    "f1" -> Association[
+                    "Type" -> "NumericalVector", "Weight" -> 1]], 
+                   "Mean" -> {1658.}, 
+                   "StandardDeviation" -> {956.9580276410596}, "Method" -> 
+                   "NaiveSampler", "VectorLength" -> 1, "Output" -> 
+                   Association[
+                    "f1" -> Association[
+                    "Type" -> "NumericalVector", "Weight" -> 1]], "Type" -> 
+                   "NumericalVector"]], "Preprocessor" -> 
+                MachineLearning`MLProcessor["ToMLDataset", 
+                  Association[
+                  "Input" -> 
+                   Association[
+                    "f1" -> Association[
+                    "Type" -> "NumericalVector", "Length" -> 1]], "Output" -> 
+                   Association[
+                    "f1" -> Association[
+                    "Type" -> "NumericalVector", "Weight" -> 1]], 
+                   "Preprocessor" -> MachineLearning`MLProcessor["Sequence", 
+                    Association["Processors" -> {
+                    MachineLearning`MLProcessor["List"], 
+                    MachineLearning`MLProcessor["WrapMLDataset", 
+                    Association[
+                    "FeatureTypes" -> {"NumericalVector"}, 
+                    "FeatureKeys" -> {"f1"}, "FeatureWeights" -> Automatic, 
+                    "ExampleWeights" -> Automatic, "RawExample" -> 
+                    Missing["KeyAbsent", "RawExample"]]]}]], "ScalarFeature" -> 
+                   True, "Invertibility" -> "Perfect", "Missing" -> 
+                   "Allowed"]], "Processor" -> 
+                MachineLearning`MLProcessor["Identity"], "Padder" -> 
+                MachineLearning`MLProcessor["Identity"], "PostProcessor" -> 
+                MachineLearning`MLProcessor["FromMLDataset", 
+                  Association[
+                  "DatasetFormat" -> Automatic, "Input" -> 
+                   Association[
+                    "f1" -> Association[
+                    "Type" -> "NumericalVector", "Weight" -> 1]], "Output" -> 
+                   Association[
+                    "f1" -> Association[
+                    "Type" -> "NumericalVector", "Length" -> 1]], 
+                   "InversePreprocessor" -> 
+                   MachineLearning`MLProcessor["Sequence", 
+                    Association["Processors" -> {
+                    MachineLearning`MLProcessor["List"], 
+                    MachineLearning`MLProcessor["WrapMLDataset", 
+                    Association[
+                    "FeatureTypes" -> {"NumericalVector"}, 
+                    "FeatureKeys" -> {"f1"}, "FeatureWeights" -> {1}, 
+                    "ExampleWeights" -> 1]]}]], "ScalarFeature" -> True, 
+                   "Invertibility" -> "Perfect", "Missing" -> "Allowed"]], 
+                "Model" -> 
+                Association[
+                 "Matrix" -> {{1.}}, "Processor" -> 
+                  MachineLearning`MLProcessor["Standardize", 
+                    Association[
+                    "Invertibility" -> "Perfect", "Missing" -> "Allowed", 
+                    "Input" -> 
+                    Association[
+                    "f1" -> Association[
+                    "Type" -> "NumericalVector", "Weight" -> 1]], 
+                    "Mean" -> {1658.}, 
+                    "StandardDeviation" -> {956.9580276410596}, "Output" -> 
+                    Association[
+                    "f1" -> Association[
+                    "Type" -> "NumericalVector", "Weight" -> 1]]]], 
+                  "FinalDimension" -> 1, "Method" -> "Linear"], 
+                "PerformanceGoal" -> Automatic, "Invertibility" -> 
+                "Approximate", "Log" -> 
+                Association[
+                 "TrainingTime" -> 0.011539, "MaxTrainingMemory" -> 132792, 
+                  "DataMemory" -> 26744, "FunctionMemory" -> 21744, 
+                  "LanguageVersion" -> {12., 0}, "Date" -> 
+                  DateObject[{2019, 9, 2, 17, 54, 50.891093`8.45921675394072},
+                     "Instant", "Gregorian", -5.], "ProcessorCount" -> 2, 
+                  "ProcessorType" -> "x86-64", "OperatingSystem" -> "Unix", 
+                  "SystemWordLength" -> 64, "Evaluations" -> {}]]][#, 
+               "ImputedVectors", PerformanceGoal -> "Quality"]& ), "Method" -> 
+             "DimensionReduction", "VectorLength" -> 1, "Output" -> 
+             Association[
+              "f1" -> Association[
+                "Type" -> "NumericalVector", "Weight" -> 1]], "Type" -> 
+             "NumericalVector", "Version" -> {12., 0}, "ID" -> 
+             4026204838636604962]], 
+           MachineLearning`MLProcessor["Standardize", 
+            Association[
+            "Invertibility" -> "Perfect", "Missing" -> "Allowed", "Input" -> 
+             Association[
+              "f1" -> Association[
+                "Type" -> "NumericalVector", "Weight" -> 1]], 
+             "Mean" -> {1658.}, "StandardDeviation" -> {956.9580276410596}, 
+             "Output" -> 
+             Association[
+              "f1" -> Association[
+                "Type" -> "NumericalVector", "Weight" -> 1]], 
+             "Version" -> {12., 0}, "ID" -> 555916400263098432]]}, 
+         "Invertibility" -> "Perfect", "Missing" -> "Imputed"]]], "Output" -> 
+    Association["Preprocessor" -> MachineLearning`MLProcessor["ToMLDataset", 
+        Association[
+        "Input" -> Association["f1" -> Association["Type" -> "Numerical"]], 
+         "Output" -> 
+         Association[
+          "f1" -> Association["Type" -> "Numerical", "Weight" -> 1]], 
+         "Preprocessor" -> MachineLearning`MLProcessor["Sequence", 
+           Association["Processors" -> {
+              MachineLearning`MLProcessor["List"], 
+              MachineLearning`MLProcessor["WrapMLDataset", 
+               Association[
+               "FeatureTypes" -> {"Numerical"}, "FeatureKeys" -> {"f1"}, 
+                "FeatureWeights" -> Automatic, "ExampleWeights" -> Automatic, 
+                "RawExample" -> Missing["KeyAbsent", "RawExample"]]]}]], 
+         "ScalarFeature" -> True, "Invertibility" -> "Perfect", "Missing" -> 
+         "Allowed"]], "Processor" -> MachineLearning`MLProcessor["Sequence", 
+        Association[
+        "Input" -> Association[
+          "f1" -> Association["Type" -> "Numerical", "Weight" -> 1]], 
+         "Output" -> 
+         Association[
+          "f1" -> Association["Type" -> "Numerical", "Weight" -> 1]], 
+         "Processors" -> {
+           MachineLearning`MLProcessor["ToVector", 
+            Association[
+            "Invertibility" -> "Perfect", "Missing" -> "Allowed", "Input" -> 
+             Association[
+              "f1" -> Association["Type" -> "Numerical", "Weight" -> 1]], 
+             "Output" -> 
+             Association[
+              "f1" -> Association[
+                "Type" -> "NumericalVector", "Weight" -> 1]], 
+             "Version" -> {12., 0}, "ID" -> 3398496960982252545]], 
+           MachineLearning`MLProcessor["Standardize", 
+            Association[
+            "Invertibility" -> "Perfect", "Missing" -> "Allowed", "Input" -> 
+             Association[
+              "f1" -> Association[
+                "Type" -> "NumericalVector", "Weight" -> 1]], 
+             "Mean" -> {34.700150829562595`}, 
+             "StandardDeviation" -> {7.1757920069826975`}, "Output" -> 
+             Association[
+              "f1" -> Association[
+                "Type" -> "NumericalVector", "Weight" -> 1]], 
+             "Version" -> {12., 0}, "ID" -> 7142530097952826746]], 
+           MachineLearning`MLProcessor["FromVector", 
+            Association[
+            "Invertibility" -> "Perfect", "Missing" -> "Allowed", "Input" -> 
+             Association[
+              "f1" -> Association[
+                "Type" -> "NumericalVector", "Weight" -> 1]], "Output" -> 
+             Association[
+              "f1" -> Association["Type" -> "Numerical", "Weight" -> 1]], 
+             "Version" -> {12., 0}, "ID" -> 6292400893533429124]], 
+           MachineLearning`MLProcessor["FirstValues", 
+            Association[
+            "Info" -> Association["Type" -> "Numerical", "Weight" -> 1], 
+             "Key" -> "f1", "Invertibility" -> "Perfect", "Missing" -> 
+             "Allowed"]]}, "Invertibility" -> "Perfect", "Missing" -> 
+         "Allowed"]], "ProbabilityPostprocessor" -> Identity, 
+      "InverseProcessorFunction" -> (34.700150829562595` + 
+       7.1757920069826975` #& ), 
+      "ProcessorFunction" -> (-4.83572416756174 + 0.13935743943343246` #& ), 
+      "Name" -> "value", 
+      "Quantiles" -> {-2.187932818326524, 4.919296592778531}], "Prior" -> 
+    Automatic, "Utility" -> (DiracDelta[#2 - #]& ), "Threshold" -> 0, 
+    "PerformanceGoal" -> Automatic, "BatchProcessing" -> Automatic, "Model" -> 
+    Association[
+     "NeighborsFunction" -> 
+      MachineLearning`PackageScope`NeighborsFunction["Nearest", 
+        NearestFunction[
+         Hold[
+          Nearest[CompressedData["
+1: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
+WA==
+            "] -> Automatic, Method -> "KDtree"]]]], "NeighborsNumber" -> 
+      20, "DistributionData" -> {NormalDistribution, 0.5619657645882633}, 
+      "TrainingOutput" -> CompressedData["
+1:eJxd2juoZmcVxvEz3jKEWMgUXhFUvIAWEknUYjJfCi1MISSNaIqMkCnC4MAE
+CRIsYiNaBZJO0hkQQStBAzpnrESRIKQ0Fhq0Ea0sptP9f9m/zfIU3/m+vfd7
+We+6POtZa5+PfPPW4zfednZ29uzl7c/j15979Pbt69954l1dPH395ucevHlp
++/nk/WdnV77x2Pmv3vfjRz707cunl35y985zX//B+dP3/ez8te9+8ZFLl2+d
+9/zWW69ea8wffvi38yt3n7r28u1/rmf3f/Qzp8b1bI3dnr35lztr7rdeuX2n
+70ev/+f8jRt/vnbzjd/95p2f+vTV7vX999d+ee3jP//k+Zzrd3J84srVNce9
+ew+8vK67/9sr/137dL/v5G3c5y+9Y323R+OffPH3a05naM1k6vm/P/ujtV8y
+dJbW7Lm9+m5u979w4/1rnfTSs66t05z2SoZkav+etWd7NLY5nbNxrWF+c5rf
+p7l07/zGJGfX2SB5ydmZOncy2rO1b716/fTCw9+71icdvPTYB049b1wyfOXq
+v5befdjCun2nE3LST7/J1nf3s23326e1Gpdc7WMcXXa29ENnjeMvjWPb5Otc
+bNu5k4U/tEafnncv+VuHrlu/353J3snYfs0jI30mS/7pTH33rHU6U3ak3/bq
+njM2tvWTNxnouPvda2x2SJ7mdE2G1uvavmKmefTlXmt/7an3nPhQ8zsbv+cP
+5OzTmsn7xC/+dOi9uY1tXPfp8NdvfflUbNOdeG8+X3eGeb/97SnGpv7XnE32
+9hcnfKn77dO81svuzZ3j6ZEMXXeG6W+N6yzZqTWSRSxm19Zs/SXbFgv9bq2w
+a/pW6zWGf/HhZO7a+dJrH2doP/rM1sUEP4QBbNnvvpe/7PHb2vTSM7a3X2ft
+d3smt5ij5+ZNDGzP1uy6MckHk2HsRXx5/eGPLeyfuC9GkwV+pV+4RYb2akxn
+b+/Wag8YIkYaz3fNaX3xJhYb13OYxH7yjDWSo/vmw6rOYG05qN/ZW/wtP0u/
+mz+8+cG33+1+3/IKHBdbckp79WnfztZ3e3e+4gdepafGzXhOz7C8uY1NzmWD
+3dbtA3PoSHy9cO/qiU/yBbZtPrmzA2w4csW2b/5pDlxIVjqZ2NLvhZPbPDKw
+gZwtR8sL/Dl/5efOCGfEb+drfvHZ3vm0vMBm8RH6S9buZUP5pnPCo/bJX7Jf
+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
+       "], 
+      "DistributionSmoothing" -> 0.5, "Processor" -> 
+      MachineLearning`MLProcessor["FirstValues", 
+        Association[
+        "Info" -> Association["Type" -> "NumericalVector", "Weight" -> 1], 
+         "Key" -> "f1", "Invertibility" -> "Perfect", "Missing" -> 
+         "Allowed"]], "Method" -> "NearestNeighbors", "PostProcessor" -> 
+      MachineLearning`MLProcessor["Identity"], "Options" -> 
+      Association[
+       "NeighborsNumber" -> 
+        Association["Value" -> 20, "Options" -> Association[]], 
+        "DistributionSmoothing" -> 
+        Association["Value" -> 0.5, "Options" -> Association[]], 
+        "NearestMethod" -> 
+        Association["Value" -> "KDtree", "Options" -> Association[]]]], 
+    "TrainingInformation" -> 
+    Association[
+     "PanelCell" -> CellObject[731921], "TrainingFunction" -> Predict, 
+      "EMIterations" -> Missing["KeyAbsent", "EMIterations"], 
+      "ProcessorEntropyShift" -> 1.9707131398022515`, "PreprocessingTime" -> 
+      0.151168`5.631004860757354, "LossName" -> "StandardDeviation", 
+      "BestModelInformation" -> Dataset[
+        Association[
+        "MeanCrossEntropy" -> 
+         Around[2.7895548563386288`, 0.03795442597034264], 
+         "StandardDeviation" -> 
+         Around[4.008274365916042, 0.15311262006411916`], "EvaluationTime" -> 
+         0.000016669670169626657`, "TestSize" -> 500, "ModelMemory" -> 40968, 
+         "ModelUtility" -> -2.089138129195965, "TrainingSize" -> 2652, 
+         "TrainingTime" -> 0.03981071705534971, "TrainingMemory" -> 3465520, 
+         "ExperimentCount" -> 1, "MeanCrossEntropyHistory" -> {
+           Around[2.7895548563386288`, 0.03795442597034264]}, 
+         "StandardDeviationHistory" -> {
+           Around[4.008274365916042, 0.15311262006411916`]}, 
+         "Configuration" -> {
+          "NearestNeighbors", "NeighborsNumber" -> Automatic, 
+           "DistributionSmoothing" -> 0.5, "NearestMethod" -> Automatic}], 
+        TypeSystem`Struct[{
+         "MeanCrossEntropy", "StandardDeviation", "EvaluationTime", 
+          "TestSize", "ModelMemory", "ModelUtility", "TrainingSize", 
+          "TrainingTime", "TrainingMemory", "ExperimentCount", 
+          "MeanCrossEntropyHistory", "StandardDeviationHistory", 
+          "Configuration"}, {TypeSystem`AnyType, TypeSystem`AnyType, 
+          TypeSystem`Atom[Real], 
+          TypeSystem`Atom[Integer], 
+          TypeSystem`Atom[Integer], 
+          TypeSystem`Atom[Real], 
+          TypeSystem`Atom[Integer], 
+          TypeSystem`Atom[Real], 
+          TypeSystem`Atom[Integer], 
+          TypeSystem`Atom[Integer], 
+          TypeSystem`Vector[TypeSystem`AnyType, 1], 
+          TypeSystem`Vector[TypeSystem`AnyType, 1], 
+          TypeSystem`Tuple[{
+            TypeSystem`Atom[String], TypeSystem`AnyType, TypeSystem`AnyType, 
+            TypeSystem`AnyType}]}], 
+        Association["ID" -> 167435183979756]], "Configurations" -> Dataset[
+        Association[
+        Association[
+          "Value" -> "NearestNeighbors", "Options" -> 
+           Association[
+            "NeighborsNumber" -> Association["Value" -> Automatic], 
+             "DistributionSmoothing" -> Association["Value" -> 0.5], 
+             "NearestMethod" -> Association["Value" -> Automatic]]] -> 
+         Association["Experiments" -> {
+             Association[
+             "MeanCrossEntropy" -> 
+              Around[3.2537007105753295`, 0.2785845233656234], 
+              "StandardDeviation" -> 
+              Around[5.137549167031871, 0.680900960798426], "EvaluationTime" -> 
+              0.000015848931924611124`, "TestSize" -> 100, "ModelMemory" -> 
+              6072, "ModelUtility" -> -2.355895889214413, "TrainingSize" -> 
+              10, "TrainingTime" -> 0.00630957344480193, "TrainingMemory" -> 
+              65504, "ExperimentCount" -> 1, "MeanCrossEntropyHistory" -> {
+                Around[3.2537007105753295`, 0.1969890056054545]}, 
+              "StandardDeviationHistory" -> {
+                Around[5.137549167031871, 0.4814696866970026]}], 
+             Association[
+             "MeanCrossEntropy" -> 
+              Around[2.989447401341654, 0.15263290647909378`], 
+              "StandardDeviation" -> 
+              Around[4.776384393914905, 0.6798507031319235], "EvaluationTime" -> 
+              0.000015848931924611124`, "TestSize" -> 100, "ModelMemory" -> 
+              6912, "ModelUtility" -> -2.2849116863613994`, "TrainingSize" -> 
+              70, "TrainingTime" -> 0.007943282347242814, "TrainingMemory" -> 
+              149424, "ExperimentCount" -> 1, "MeanCrossEntropyHistory" -> {
+                Around[2.989447401341654, 0.10792776320357933`]}, 
+              "StandardDeviationHistory" -> {
+                Around[4.776384393914905, 0.4807270423790255]}], 
+             Association[
+             "MeanCrossEntropy" -> 
+              Around[2.9484877065958326`, 0.09757484240403229], 
+              "StandardDeviation" -> 
+              Around[4.454641932857492, 0.284878061468505], "EvaluationTime" -> 
+              0.00001172616941196111, "TestSize" -> 300, "ModelMemory" -> 
+              11144, "ModelUtility" -> -2.199815082405425, "TrainingSize" -> 
+              400, "TrainingTime" -> 0.01995262314968879, "TrainingMemory" -> 
+              1389032, "ExperimentCount" -> 1, "MeanCrossEntropyHistory" -> {
+                Around[2.9484877065958326`, 0.06899583273709992]}, 
+              "StandardDeviationHistory" -> {
+                Around[4.454641932857492, 0.20143920907565796`]}], 
+             Association[
+             "MeanCrossEntropy" -> 
+              Around[2.7895548563386288`, 0.03795442597034264], 
+              "StandardDeviation" -> 
+              Around[4.008274365916042, 0.15311262006411916`], 
+              "EvaluationTime" -> 0.000016669670169626657`, "TestSize" -> 500,
+               "ModelMemory" -> 40968, "ModelUtility" -> -2.089138129195965, 
+              "TrainingSize" -> 2652, "TrainingTime" -> 0.03981071705534971, 
+              "TrainingMemory" -> 3465520, "ExperimentCount" -> 1, 
+              "MeanCrossEntropyHistory" -> {
+                Around[2.7895548563386288`, 0.03795442597034264]}, 
+              "StandardDeviationHistory" -> {
+                Around[4.008274365916042, 0.15311262006411916`]}]}, 
+           "PredictedPerformances" -> 
+           Association[
+            "EvaluationTime" -> 0.000016669670169626657`, "ModelMemory" -> 
+             40968, "StandardDeviation" -> 
+             Around[4.008274365916042, 0.15311262006411916`], 
+             "TrainingMemory" -> 3465520, "TrainingTime" -> 
+             0.056072969763989074`], "Index" -> 1]], 
+        TypeSystem`Assoc[
+         TypeSystem`Struct[{"Value", "Options"}, {
+           TypeSystem`Atom[String], 
+           TypeSystem`Assoc[
+            TypeSystem`Atom[String], 
+            TypeSystem`Struct[{"Value"}, {TypeSystem`AnyType}], 3]}], 
+         TypeSystem`Struct[{"Experiments", "PredictedPerformances", "Index"}, {
+           TypeSystem`Vector[
+            
+            TypeSystem`Struct[{
+             "MeanCrossEntropy", "StandardDeviation", "EvaluationTime", 
+              "TestSize", "ModelMemory", "ModelUtility", "TrainingSize", 
+              "TrainingTime", "TrainingMemory", "ExperimentCount", 
+              "MeanCrossEntropyHistory", "StandardDeviationHistory"}, {
+             TypeSystem`AnyType, TypeSystem`AnyType, 
+              TypeSystem`Atom[Real], 
+              TypeSystem`Atom[Integer], 
+              TypeSystem`Atom[Integer], 
+              TypeSystem`Atom[Real], 
+              TypeSystem`Atom[Integer], 
+              TypeSystem`Atom[Real], 
+              TypeSystem`Atom[Integer], 
+              TypeSystem`Atom[Integer], 
+              TypeSystem`Vector[TypeSystem`AnyType, 1], 
+              TypeSystem`Vector[TypeSystem`AnyType, 1]}], 4], 
+           
+           TypeSystem`Struct[{
+            "EvaluationTime", "ModelMemory", "StandardDeviation", 
+             "TrainingMemory", "TrainingTime"}, {
+             TypeSystem`Atom[Real], 
+             TypeSystem`Atom[Integer], TypeSystem`AnyType, 
+             TypeSystem`Atom[Integer], 
+             TypeSystem`Atom[Real]}], 
+           TypeSystem`Atom[Integer]}], 1], 
+        Association["ID" -> 167430889012460]], "MaxTrainingSize" -> 3315, 
+      "PreprocessorEvaluationTime" -> 6.44970703125`3.*^-6, 
+      "PreprocessorMemory" -> 39264, "InputDimension" -> 1, "OutputDimension" -> 
+      1, "BaselineLogProbability" -> -1.4189385332046727`, "VariableBudget" -> 
+      True, "CheckpointingInfo" -> Association["Checkpointing" -> False], 
+      "UserStop" -> False, "NaturalStop" -> True, "AbortStop" -> False, 
+      "LastReportingTime" -> 3.776435691061163`16.3296570826536*^9, 
+      "RoundPartitioning" -> Dataset[{
+         Association[
+         "TrainingSizes" -> 10, "TimeBudgets" -> 0.0005970649820469557, 
+          "ElapsedTimes" -> 0.013439, "ExperimentCounts" -> 1], 
+         Association[
+         "TrainingSizes" -> 70, "TimeBudgets" -> 0.0029853249102347796`, 
+          "ElapsedTimes" -> 0.013251, "ExperimentCounts" -> 1], 
+         Association[
+         "TrainingSizes" -> 400, "TimeBudgets" -> 0.014926624551173892`, 
+          "ElapsedTimes" -> 0.026954, "ExperimentCounts" -> 1], 
+         Association[
+         "TrainingSizes" -> 2652, "TimeBudgets" -> 0.07463312275586946, 
+          "ElapsedTimes" -> 0.053144, "ExperimentCounts" -> 1]}, 
+        TypeSystem`Vector[
+         TypeSystem`Struct[{
+          "TrainingSizes", "TimeBudgets", "ElapsedTimes", 
+           "ExperimentCounts"}, {
+           TypeSystem`Atom[Integer], 
+           TypeSystem`Atom[Real], 
+           TypeSystem`Atom[Real], 
+           TypeSystem`Atom[Integer]}], 4], 
+        Association[
+        "Origin" -> HoldComplete[GeneralUtilities`AssociationTranspose, 
+           Dataset`DatasetHandle[167439478947052]], "ID" -> 
+         167443773914348]]], "Log" -> 
+    Association["Example" -> MachineLearning`MLDataset[
+        Association[
+        "f1" -> Association[
+          "Type" -> "Numerical", "Weight" -> 1, "Values" -> {1987}, "ID" -> 
+           8648384402107197552]], 
+        Association[
+        "ExampleNumber" -> 1, "ExampleWeights" -> 1, "LogDensityRatios" -> 0, 
+         "RawExample" -> False]], "TrainingTime" -> 0.67253, 
+      "MaxTrainingMemory" -> 3727208, "DataMemory" -> 318352, 
+      "FunctionMemory" -> 151336, "LanguageVersion" -> {12., 0}, "Date" -> 
+      DateObject[{2019, 9, 2, 17, 54, 51.530896`8.464642669126746}, "Instant",
+         "Gregorian", -5.], "ProcessorCount" -> 2, "ProcessorType" -> 
+      "x86-64", "OperatingSystem" -> "Unix", "SystemWordLength" -> 64, 
+      "Evaluations" -> {}]]],
+  Editable->False,
+  SelectWithContents->True,
+  Selectable->False]], "Output",
+ CellChangeTimes->{3.776453520947171*^9, 3.776453691556961*^9},
+ CellLabel->
+  "Out[127]=",ExpressionUUID->"ba964c1e-013b-4e95-b775-0205836544bf"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   TagBox["PredictorFunction",
+    "SummaryHead"], "[", 
+   DynamicModuleBox[{Typeset`open$$ = False, Typeset`embedState$$ = "Ready"}, 
+    
+    TemplateBox[{PaneSelectorBox[{False -> GridBox[{{
+            PaneBox[
+             ButtonBox[
+              DynamicBox[
+               FEPrivate`FrontEndResource[
+               "FEBitmaps", "SquarePlusIconMedium"]], 
+              ButtonFunction :> (Typeset`open$$ = True), Appearance -> None, 
+              Evaluator -> Automatic, Method -> "Preemptive"], 
+             Alignment -> {Center, Center}, ImageSize -> 
+             Dynamic[{
+               Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                AbsoluteCurrentValue[Magnification]}]], 
+            GraphicsBox[{{}, {{}, {
+                PointSize[0.125], 
+                GrayLevel[0.55], 
+                
+                PointBox[{{-1, 1.5}, {0, 2.3}, {1, 0.8}, {2, 2}, {3, 1.3}, {
+                  4, 4.}}]}, {
+                GrayLevel[0.7], 
+                AbsoluteThickness[1.5], 
+                
+                BSplineCurveBox[{{-1, 2}, {0, 2}, {1, 1}, {2, 1}, {4, 2}, {5, 
+                 4}}]}}, {}}, Axes -> {False, False}, 
+             AxesLabel -> {None, None}, AxesOrigin -> {0, 0}, 
+             BaseStyle -> {FontFamily -> "Arial", 
+               AbsoluteThickness[1.5]}, DisplayFunction -> Identity, 
+             Frame -> {{True, True}, {True, True}}, 
+             FrameLabel -> {{None, None}, {None, None}}, FrameStyle -> 
+             Directive[
+               Thickness[Tiny], 
+               GrayLevel[0.7]], FrameTicks -> {{None, None}, {None, None}}, 
+             GridLines -> {None, None}, LabelStyle -> {FontFamily -> "Arial"},
+              Method -> {"ScalingFunctions" -> None}, PlotRange -> {All, All},
+              PlotRangeClipping -> True, PlotRangePadding -> {{1, 1}, {1, 1}},
+              Ticks -> {None, None}, Axes -> False, AspectRatio -> 1, 
+             ImageSize -> 
+             Dynamic[{
+               Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                AbsoluteCurrentValue[Magnification]}], Frame -> True, 
+             FrameTicks -> None, FrameStyle -> Directive[
+               Opacity[0.5], 
+               Thickness[Tiny], 
+               RGBColor[0.368417, 0.506779, 0.709798]], Background -> 
+             GrayLevel[0.94]], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Input type: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["\"Numerical\"", "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Method: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["\"LinearRegression\"", "SummaryItem"]}]}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Rows" -> {{Top}}}, AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}], True -> GridBox[{{
+            PaneBox[
+             ButtonBox[
+              DynamicBox[
+               FEPrivate`FrontEndResource[
+               "FEBitmaps", "SquareMinusIconMedium"]], 
+              ButtonFunction :> (Typeset`open$$ = False), Appearance -> None, 
+              Evaluator -> Automatic, Method -> "Preemptive"], 
+             Alignment -> {Center, Center}, ImageSize -> 
+             Dynamic[{
+               Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                AbsoluteCurrentValue[Magnification]}]], 
+            GraphicsBox[{{}, {{}, {
+                PointSize[0.125], 
+                GrayLevel[0.55], 
+                
+                PointBox[{{-1, 1.5}, {0, 2.3}, {1, 0.8}, {2, 2}, {3, 1.3}, {
+                  4, 4.}}]}, {
+                GrayLevel[0.7], 
+                AbsoluteThickness[1.5], 
+                
+                BSplineCurveBox[{{-1, 2}, {0, 2}, {1, 1}, {2, 1}, {4, 2}, {5, 
+                 4}}]}}, {}}, Axes -> {False, False}, 
+             AxesLabel -> {None, None}, AxesOrigin -> {0, 0}, 
+             BaseStyle -> {FontFamily -> "Arial", 
+               AbsoluteThickness[1.5]}, DisplayFunction -> Identity, 
+             Frame -> {{True, True}, {True, True}}, 
+             FrameLabel -> {{None, None}, {None, None}}, FrameStyle -> 
+             Directive[
+               Thickness[Tiny], 
+               GrayLevel[0.7]], FrameTicks -> {{None, None}, {None, None}}, 
+             GridLines -> {None, None}, LabelStyle -> {FontFamily -> "Arial"},
+              Method -> {"ScalingFunctions" -> None}, PlotRange -> {All, All},
+              PlotRangeClipping -> True, PlotRangePadding -> {{1, 1}, {1, 1}},
+              Ticks -> {None, None}, Axes -> False, AspectRatio -> 1, 
+             ImageSize -> 
+             Dynamic[{
+               Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                AbsoluteCurrentValue[Magnification]}], Frame -> True, 
+             FrameTicks -> None, FrameStyle -> Directive[
+               Opacity[0.5], 
+               Thickness[Tiny], 
+               RGBColor[0.368417, 0.506779, 0.709798]], Background -> 
+             GrayLevel[0.94]], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Input type: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["\"Numerical\"", "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Method: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["\"LinearRegression\"", "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox[
+                 "\"Number of training examples: \"", 
+                  "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                 TagBox["3315", "SummaryItem"]}]}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Rows" -> {{Top}}}, AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}]}, 
+       Dynamic[Typeset`open$$], ImageSize -> Automatic]},
+     "SummaryPanel"],
+    DynamicModuleValues:>{}], "]"}],
+  PredictorFunction[
+   Association[
+   "ExampleNumber" -> 3315, "Input" -> 
+    Association["Preprocessor" -> MachineLearning`MLProcessor["ToMLDataset", 
+        Association[
+        "Input" -> Association["f1" -> Association["Type" -> "Numerical"]], 
+         "Output" -> 
+         Association[
+          "f1" -> Association["Type" -> "Numerical", "Weight" -> 1]], 
+         "Preprocessor" -> MachineLearning`MLProcessor["Sequence", 
+           Association["Processors" -> {
+              MachineLearning`MLProcessor["List"], 
+              MachineLearning`MLProcessor["WrapMLDataset", 
+               Association[
+               "FeatureTypes" -> {"Numerical"}, "FeatureKeys" -> {"f1"}, 
+                "FeatureWeights" -> Automatic, "ExampleWeights" -> Automatic, 
+                "RawExample" -> Missing["KeyAbsent", "RawExample"]]]}]], 
+         "ScalarFeature" -> True, "Invertibility" -> "Perfect", "Missing" -> 
+         "Allowed"]], "Processor" -> MachineLearning`MLProcessor["Sequence", 
+        Association[
+        "Input" -> Association[
+          "f1" -> Association["Type" -> "Numerical", "Weight" -> 1]], 
+         "Output" -> 
+         Association[
+          "f1" -> Association["Type" -> "NumericalVector", "Weight" -> 1]], 
+         "Processors" -> {
+           MachineLearning`MLProcessor["ToVector", 
+            Association[
+            "Invertibility" -> "Perfect", "Missing" -> "Allowed", "Input" -> 
+             Association[
+              "f1" -> Association["Type" -> "Numerical", "Weight" -> 1]], 
+             "Output" -> 
+             Association[
+              "f1" -> Association[
+                "Type" -> "NumericalVector", "Weight" -> 1]], 
+             "Version" -> {12., 0}, "ID" -> 1537627216228573037]], 
+           MachineLearning`MLProcessor["ImputeMissing", 
+            Association[
+            "Invertibility" -> "Perfect", "Missing" -> "Imputed", "Input" -> 
+             Association[
+              "f1" -> Association[
+                "Type" -> "NumericalVector", "Weight" -> 1]], 
+             "Imputer" -> (DimensionReducerFunction[
+               Association[
+               "ExampleNumber" -> 3315, "Imputer" -> 
+                MachineLearning`MLProcessor["ImputeMissing", 
+                  Association[
+                  "Invertibility" -> "Perfect", "Missing" -> "Imputed", 
+                   "Input" -> 
+                   Association[
+                    "f1" -> Association[
+                    "Type" -> "NumericalVector", "Weight" -> 1]], 
+                   "Fill" -> {1658.}, "Method" -> "Naive", "VectorLength" -> 
+                   1, "Output" -> 
+                   Association[
+                    "f1" -> Association[
+                    "Type" -> "NumericalVector", "Weight" -> 1]], "Type" -> 
+                   "NumericalVector"]], "RandomImputer" -> 
+                MachineLearning`MLProcessor["ImputeMissing", 
+                  Association[
+                  "Invertibility" -> "Perfect", "Missing" -> "Imputed", 
+                   "Input" -> 
+                   Association[
+                    "f1" -> Association[
+                    "Type" -> "NumericalVector", "Weight" -> 1]], 
+                   "Mean" -> {1658.}, 
+                   "StandardDeviation" -> {956.9580276410596}, "Method" -> 
+                   "NaiveSampler", "VectorLength" -> 1, "Output" -> 
+                   Association[
+                    "f1" -> Association[
+                    "Type" -> "NumericalVector", "Weight" -> 1]], "Type" -> 
+                   "NumericalVector"]], "Preprocessor" -> 
+                MachineLearning`MLProcessor["ToMLDataset", 
+                  Association[
+                  "Input" -> 
+                   Association[
+                    "f1" -> Association[
+                    "Type" -> "NumericalVector", "Length" -> 1]], "Output" -> 
+                   Association[
+                    "f1" -> Association[
+                    "Type" -> "NumericalVector", "Weight" -> 1]], 
+                   "Preprocessor" -> MachineLearning`MLProcessor["Sequence", 
+                    Association["Processors" -> {
+                    MachineLearning`MLProcessor["List"], 
+                    MachineLearning`MLProcessor["WrapMLDataset", 
+                    Association[
+                    "FeatureTypes" -> {"NumericalVector"}, 
+                    "FeatureKeys" -> {"f1"}, "FeatureWeights" -> Automatic, 
+                    "ExampleWeights" -> Automatic, "RawExample" -> 
+                    Missing["KeyAbsent", "RawExample"]]]}]], "ScalarFeature" -> 
+                   True, "Invertibility" -> "Perfect", "Missing" -> 
+                   "Allowed"]], "Processor" -> 
+                MachineLearning`MLProcessor["Identity"], "Padder" -> 
+                MachineLearning`MLProcessor["Identity"], "PostProcessor" -> 
+                MachineLearning`MLProcessor["FromMLDataset", 
+                  Association[
+                  "DatasetFormat" -> Automatic, "Input" -> 
+                   Association[
+                    "f1" -> Association[
+                    "Type" -> "NumericalVector", "Weight" -> 1]], "Output" -> 
+                   Association[
+                    "f1" -> Association[
+                    "Type" -> "NumericalVector", "Length" -> 1]], 
+                   "InversePreprocessor" -> 
+                   MachineLearning`MLProcessor["Sequence", 
+                    Association["Processors" -> {
+                    MachineLearning`MLProcessor["List"], 
+                    MachineLearning`MLProcessor["WrapMLDataset", 
+                    Association[
+                    "FeatureTypes" -> {"NumericalVector"}, 
+                    "FeatureKeys" -> {"f1"}, "FeatureWeights" -> {1}, 
+                    "ExampleWeights" -> 1]]}]], "ScalarFeature" -> True, 
+                   "Invertibility" -> "Perfect", "Missing" -> "Allowed"]], 
+                "Model" -> 
+                Association[
+                 "Matrix" -> {{1.}}, "Processor" -> 
+                  MachineLearning`MLProcessor["Standardize", 
+                    Association[
+                    "Invertibility" -> "Perfect", "Missing" -> "Allowed", 
+                    "Input" -> 
+                    Association[
+                    "f1" -> Association[
+                    "Type" -> "NumericalVector", "Weight" -> 1]], 
+                    "Mean" -> {1658.}, 
+                    "StandardDeviation" -> {956.9580276410596}, "Output" -> 
+                    Association[
+                    "f1" -> Association[
+                    "Type" -> "NumericalVector", "Weight" -> 1]]]], 
+                  "FinalDimension" -> 1, "Method" -> "Linear"], 
+                "PerformanceGoal" -> Automatic, "Invertibility" -> 
+                "Approximate", "Log" -> 
+                Association[
+                 "TrainingTime" -> 0.012657, "MaxTrainingMemory" -> 132792, 
+                  "DataMemory" -> 26744, "FunctionMemory" -> 21744, 
+                  "LanguageVersion" -> {12., 0}, "Date" -> 
+                  DateObject[{2019, 9, 2, 17, 54, 51.57521`8.465015980225433},
+                     "Instant", "Gregorian", -5.], "ProcessorCount" -> 2, 
+                  "ProcessorType" -> "x86-64", "OperatingSystem" -> "Unix", 
+                  "SystemWordLength" -> 64, "Evaluations" -> {}]]][#, 
+               "ImputedVectors", PerformanceGoal -> "Quality"]& ), "Method" -> 
+             "DimensionReduction", "VectorLength" -> 1, "Output" -> 
+             Association[
+              "f1" -> Association[
+                "Type" -> "NumericalVector", "Weight" -> 1]], "Type" -> 
+             "NumericalVector", "Version" -> {12., 0}, "ID" -> 
+             4026204838636604962]], 
+           MachineLearning`MLProcessor["Standardize", 
+            Association[
+            "Invertibility" -> "Perfect", "Missing" -> "Allowed", "Input" -> 
+             Association[
+              "f1" -> Association[
+                "Type" -> "NumericalVector", "Weight" -> 1]], 
+             "Mean" -> {1658.}, "StandardDeviation" -> {956.9580276410596}, 
+             "Output" -> 
+             Association[
+              "f1" -> Association[
+                "Type" -> "NumericalVector", "Weight" -> 1]], 
+             "Version" -> {12., 0}, "ID" -> 555916400263098432]]}, 
+         "Invertibility" -> "Perfect", "Missing" -> "Imputed"]]], "Output" -> 
+    Association["Preprocessor" -> MachineLearning`MLProcessor["ToMLDataset", 
+        Association[
+        "Input" -> Association["f1" -> Association["Type" -> "Numerical"]], 
+         "Output" -> 
+         Association[
+          "f1" -> Association["Type" -> "Numerical", "Weight" -> 1]], 
+         "Preprocessor" -> MachineLearning`MLProcessor["Sequence", 
+           Association["Processors" -> {
+              MachineLearning`MLProcessor["List"], 
+              MachineLearning`MLProcessor["WrapMLDataset", 
+               Association[
+               "FeatureTypes" -> {"Numerical"}, "FeatureKeys" -> {"f1"}, 
+                "FeatureWeights" -> Automatic, "ExampleWeights" -> Automatic, 
+                "RawExample" -> Missing["KeyAbsent", "RawExample"]]]}]], 
+         "ScalarFeature" -> True, "Invertibility" -> "Perfect", "Missing" -> 
+         "Allowed"]], "Processor" -> MachineLearning`MLProcessor["Sequence", 
+        Association[
+        "Input" -> Association[
+          "f1" -> Association["Type" -> "Numerical", "Weight" -> 1]], 
+         "Output" -> 
+         Association[
+          "f1" -> Association["Type" -> "Numerical", "Weight" -> 1]], 
+         "Processors" -> {
+           MachineLearning`MLProcessor["ToVector", 
+            Association[
+            "Invertibility" -> "Perfect", "Missing" -> "Allowed", "Input" -> 
+             Association[
+              "f1" -> Association["Type" -> "Numerical", "Weight" -> 1]], 
+             "Output" -> 
+             Association[
+              "f1" -> Association[
+                "Type" -> "NumericalVector", "Weight" -> 1]], 
+             "Version" -> {12., 0}, "ID" -> 3398496960982252545]], 
+           MachineLearning`MLProcessor["Standardize", 
+            Association[
+            "Invertibility" -> "Perfect", "Missing" -> "Allowed", "Input" -> 
+             Association[
+              "f1" -> Association[
+                "Type" -> "NumericalVector", "Weight" -> 1]], 
+             "Mean" -> {34.700150829562595`}, 
+             "StandardDeviation" -> {7.1757920069826975`}, "Output" -> 
+             Association[
+              "f1" -> Association[
+                "Type" -> "NumericalVector", "Weight" -> 1]], 
+             "Version" -> {12., 0}, "ID" -> 7142530097952826746]], 
+           MachineLearning`MLProcessor["FromVector", 
+            Association[
+            "Invertibility" -> "Perfect", "Missing" -> "Allowed", "Input" -> 
+             Association[
+              "f1" -> Association[
+                "Type" -> "NumericalVector", "Weight" -> 1]], "Output" -> 
+             Association[
+              "f1" -> Association["Type" -> "Numerical", "Weight" -> 1]], 
+             "Version" -> {12., 0}, "ID" -> 6292400893533429124]], 
+           MachineLearning`MLProcessor["FirstValues", 
+            Association[
+            "Info" -> Association["Type" -> "Numerical", "Weight" -> 1], 
+             "Key" -> "f1", "Invertibility" -> "Perfect", "Missing" -> 
+             "Allowed"]]}, "Invertibility" -> "Perfect", "Missing" -> 
+         "Allowed"]], "ProbabilityPostprocessor" -> Identity, 
+      "InverseProcessorFunction" -> (34.700150829562595` + 
+       7.1757920069826975` #& ), 
+      "ProcessorFunction" -> (-4.83572416756174 + 0.13935743943343246` #& ), 
+      "Name" -> "value", 
+      "Quantiles" -> {-2.187932818326524, 4.919296592778531}], "Prior" -> 
+    Automatic, "Utility" -> (DiracDelta[#2 - #]& ), "Threshold" -> 0, 
+    "PerformanceGoal" -> Automatic, "BatchProcessing" -> Automatic, "Model" -> 
+    Association["MeanFunction" -> LinearLayer[
+        Association[
+        "Type" -> "Linear", "Arrays" -> 
+         Association[
+          "Weights" -> RawArray["Real32",{{-0.7293789386749268}}], "Biases" -> 
+           RawArray["Real32",{0.}]], "Parameters" -> 
+         Association[
+          "OutputDimensions" -> {1}, "$OutputSize" -> 1, "$InputSize" -> 1, 
+           "$InputDimensions" -> {1}], "Inputs" -> 
+         Association[
+          "Input" -> NeuralNetworks`TensorT[{1}, NeuralNetworks`RealT]], 
+         "Outputs" -> 
+         Association[
+          "Output" -> NeuralNetworks`TensorT[{1}, NeuralNetworks`RealT]]], 
+        Association["Version" -> "12.0.11", "Unstable" -> False]], 
+      "DistributionData" -> {NormalDistribution, 0.6843163693202508}, 
+      "Processor" -> MachineLearning`MLProcessor["Sequence", 
+        Association[
+        "Input" -> Association[
+          "f1" -> Association["Type" -> "NumericalVector", "Weight" -> 1]], 
+         "Output" -> 
+         Association[
+          "f1" -> Association["Type" -> "NumericalVector", "Weight" -> 1]], 
+         "Processors" -> {
+           MachineLearning`MLProcessor["Standardize", 
+            Association[
+            "Invertibility" -> "Perfect", "Missing" -> "Allowed", "Input" -> 
+             Association[
+              "f1" -> Association[
+                "Type" -> "NumericalVector", "Weight" -> 1]], 
+             "Mean" -> {5.9652958042028186`*^-6}, 
+             "StandardDeviation" -> {1.0000114732119074`}, "Output" -> 
+             Association[
+              "f1" -> Association[
+                "Type" -> "NumericalVector", "Weight" -> 1]], 
+             "Version" -> {12., 0}, "ID" -> 2287541452959999340]], 
+           MachineLearning`MLProcessor["FirstValues", 
+            Association[
+            "Info" -> Association["Type" -> "NumericalVector", "Weight" -> 1],
+              "Key" -> "f1", "Invertibility" -> "Perfect", "Missing" -> 
+             "Allowed"]]}, "Invertibility" -> "Perfect", "Missing" -> 
+         "Allowed"]], "Method" -> "LinearRegression", "PostProcessor" -> 
+      MachineLearning`MLProcessor["Identity"], "Options" -> 
+      Association[
+       "L1Regularization" -> 
+        Association["Value" -> 0, "Options" -> Association[]], 
+        "L2Regularization" -> 
+        Association["Value" -> 0.00001, "Options" -> Association[]], 
+        "OptimizationMethod" -> 
+        Association["Value" -> "NormalEquation", "Options" -> Association[]], 
+        MaxIterations -> 
+        Association["Value" -> 30, "Options" -> Association[]]]], 
+    "TrainingInformation" -> 
+    Association[
+     "PanelCell" -> CellObject[732097], "TrainingFunction" -> Predict, 
+      "EMIterations" -> Missing["KeyAbsent", "EMIterations"], 
+      "ProcessorEntropyShift" -> 1.9707131398022515`, "PreprocessingTime" -> 
+      0.205695`5.7647687285606475, "LossName" -> "StandardDeviation", 
+      "BestModelInformation" -> Dataset[
+        Association[
+        "MeanCrossEntropy" -> 
+         Around[3.053685020097945, 0.039700890406801366`], 
+         "StandardDeviation" -> 
+         Around[5.026391927549225, 0.18886582553056483`], "EvaluationTime" -> 
+         0.000013675813386831483`, "TestSize" -> 500, "ModelMemory" -> 15664.,
+          "ModelUtility" -> -2.315349711398489, "TrainingSize" -> 2652, 
+         "TrainingTime" -> 0.009491939604142432, "TrainingMemory" -> 208960., 
+         "ExperimentCount" -> 2, "MeanCrossEntropyHistory" -> {
+           Around[3.047017012313142, 0.09309822173388682], 
+           Around[3.0603530278827478`, 0.04313336647701397]}, 
+         "StandardDeviationHistory" -> {
+           Around[4.988283060896595, 0.44467108424583973`], 
+           Around[5.064500794201854, 0.20341751448595038`]}, 
+         "Configuration" -> {
+          "LinearRegression", "L1Regularization" -> 0, "L2Regularization" -> 
+           0.00001, "OptimizationMethod" -> Automatic, MaxIterations -> 30}, 
+         "FinalTrainingSize" -> 3315], 
+        TypeSystem`Struct[{
+         "MeanCrossEntropy", "StandardDeviation", "EvaluationTime", 
+          "TestSize", "ModelMemory", "ModelUtility", "TrainingSize", 
+          "TrainingTime", "TrainingMemory", "ExperimentCount", 
+          "MeanCrossEntropyHistory", "StandardDeviationHistory", 
+          "Configuration", "FinalTrainingSize"}, {
+         TypeSystem`AnyType, TypeSystem`AnyType, 
+          TypeSystem`Atom[Real], 
+          TypeSystem`Atom[Integer], 
+          TypeSystem`Atom[Real], 
+          TypeSystem`Atom[Real], 
+          TypeSystem`Atom[Integer], 
+          TypeSystem`Atom[Real], 
+          TypeSystem`Atom[Real], 
+          TypeSystem`Atom[Integer], 
+          TypeSystem`Vector[TypeSystem`AnyType, 2], 
+          TypeSystem`Vector[TypeSystem`AnyType, 2], 
+          TypeSystem`Tuple[{
+            TypeSystem`Atom[String], TypeSystem`AnyType, TypeSystem`AnyType, 
+            TypeSystem`AnyType, TypeSystem`AnyType}], 
+          TypeSystem`Atom[Integer]}], 
+        Association["ID" -> 228097302068463]], "Configurations" -> Dataset[
+        Association[
+        Association[
+          "Value" -> "LinearRegression", "Options" -> 
+           Association[
+            "L1Regularization" -> Association["Value" -> 0], 
+             "L2Regularization" -> Association["Value" -> 1000.], 
+             "OptimizationMethod" -> Association["Value" -> Automatic], 
+             MaxIterations -> Association["Value" -> 30]]] -> 
+         Association["Experiments" -> {
+             Association[
+             "MeanCrossEntropy" -> 
+              Around[3.455827379098355, 0.05838060967133688], 
+              "StandardDeviation" -> 
+              Around[7.401195442087845, 0.5649773993752355], "EvaluationTime" -> 
+              0.000012589254117941663`, "TestSize" -> 200, "ModelMemory" -> 
+              15664, "ModelUtility" -> -2.7099537804270843`, "TrainingSize" -> 
+              10, "TrainingTime" -> 0.012589254117941668`, "TrainingMemory" -> 
+              57792, "ExperimentCount" -> 1, "MeanCrossEntropyHistory" -> {
+                Around[3.455827379098355, 0.041281324988407246`]}, 
+              "StandardDeviationHistory" -> {
+                Around[7.401195442087845, 0.3994993503153693]}], 
+             Association[
+             "MeanCrossEntropy" -> 
+              Around[3.3069542893950916`, 0.05426835792315075], 
+              "StandardDeviation" -> 
+              Around[6.41116630986383, 0.30013595050515957`], 
+              "EvaluationTime" -> 0.000013404173569609027`, "TestSize" -> 400,
+               "ModelMemory" -> 15664, "ModelUtility" -> -2.560520983846309, 
+              "TrainingSize" -> 400, "TrainingTime" -> 0.007943282347242814, 
+              "TrainingMemory" -> 74064, "ExperimentCount" -> 1, 
+              "MeanCrossEntropyHistory" -> {
+                Around[3.3069542893950916`, 0.0383735238913186]}, 
+              "StandardDeviationHistory" -> {
+                Around[6.41116630986383, 0.2122281658800683]}], 
+             Association[
+             "MeanCrossEntropy" -> 
+              Around[3.1147002819138185`, 0.03625649001290234], 
+              "StandardDeviation" -> 
+              Around[5.320829608454641, 0.17704452417662278`], 
+              "EvaluationTime" -> 0.0000942955023333934, "TestSize" -> 500, 
+              "ModelMemory" -> 15664., "ModelUtility" -> -2.371422465290811, 
+              "TrainingSize" -> 2652, "TrainingTime" -> 0.027698578149339768`,
+               "TrainingMemory" -> 212968., "ExperimentCount" -> 2, 
+              "MeanCrossEntropyHistory" -> {
+                Around[3.1069274546761205`, 0.03909635919262245], 
+                Around[3.122473109151517, 0.08358069392186188]}, 
+              "StandardDeviationHistory" -> {
+                Around[5.285879100074923, 0.19232878868678718`], 
+                Around[5.35578011683436, 0.4028164174999083]}]}, 
+           "PredictedPerformances" -> 
+           Association[
+            "EvaluationTime" -> 0.0000942955023333934, "ModelMemory" -> 
+             15664., "StandardDeviation" -> 
+             Around[5.320829608454641, 0.17704452417662278`], 
+             "TrainingMemory" -> 212968., "TrainingTime" -> 
+             0.04721247680461638], "Index" -> 1], 
+         Association[
+          "Value" -> "LinearRegression", "Options" -> 
+           Association[
+            "L1Regularization" -> Association["Value" -> 0], 
+             "L2Regularization" -> Association["Value" -> 10.], 
+             "OptimizationMethod" -> Association["Value" -> Automatic], 
+             MaxIterations -> Association["Value" -> 30]]] -> 
+         Association["Experiments" -> {
+             Association[
+             "MeanCrossEntropy" -> 
+              Around[3.126075973237666, 0.062350268087777196`], 
+              "StandardDeviation" -> 
+              Around[5.399415365213279, 0.340098484898137], "EvaluationTime" -> 
+              0.000012589254117941663`, "TestSize" -> 300, "ModelMemory" -> 
+              15664, "ModelUtility" -> -2.391970021207835, "TrainingSize" -> 
+              10, "TrainingTime" -> 0.007943282347242814, "TrainingMemory" -> 
+              57792, "ExperimentCount" -> 1, "MeanCrossEntropyHistory" -> {
+                Around[3.126075973237666, 0.044088297373666444`]}, 
+              "StandardDeviationHistory" -> {
+                Around[5.399415365213279, 0.24048594494274328`]}], 
+             Association[
+             "MeanCrossEntropy" -> 
+              Around[3.0634679952417985`, 0.054903329341401984`], 
+              "StandardDeviation" -> 
+              Around[5.060092619084389, 0.25296991411816], "EvaluationTime" -> 
+              0.00001207140329435333, "TestSize" -> 500, "ModelMemory" -> 
+              15664, "ModelUtility" -> -2.3244941838034485`, "TrainingSize" -> 
+              400, "TrainingTime" -> 0.007943282347242814, "TrainingMemory" -> 
+              74000, "ExperimentCount" -> 1, "MeanCrossEntropyHistory" -> {
+                Around[3.0634679952417985`, 0.03882251648702369]}, 
+              "StandardDeviationHistory" -> {
+                Around[5.060092619084389, 0.17887674170912948`]}], 
+             Association[
+             "MeanCrossEntropy" -> 
+              Around[3.065928446841747, 0.03455061300847557], 
+              "StandardDeviation" -> 
+              Around[5.084425253904057, 0.1624391742954632], "EvaluationTime" -> 
+              0.000014762372655721303`, "TestSize" -> 700, "ModelMemory" -> 
+              15664., "ModelUtility" -> -2.3257117718150564`, "TrainingSize" -> 
+              2652, "TrainingTime" -> 0.009999999999999998, "TrainingMemory" -> 
+              208944., "ExperimentCount" -> 2, "MeanCrossEntropyHistory" -> {
+                Around[3.0656062138529157`, 0.061962991879592394`], 
+                Around[3.066250679830578, 0.04161913927455326]}, 
+              "StandardDeviationHistory" -> {
+                Around[5.074978818723004, 0.29200074444799623`], 
+                Around[5.093871689085111, 0.19499969483998034`]}]}, 
+           "PredictedPerformances" -> 
+           Association[
+            "EvaluationTime" -> 0.000014762372655721303`, "ModelMemory" -> 
+             15664., "StandardDeviation" -> 
+             Around[5.084425253904057, 0.1624391742954632], "TrainingMemory" -> 
+             208944., "TrainingTime" -> 0.02044328234724281], "Index" -> 2], 
+         Association[
+          "Value" -> "LinearRegression", "Options" -> 
+           Association[
+            "L1Regularization" -> Association["Value" -> 0], 
+             "L2Regularization" -> Association["Value" -> 0.01], 
+             "OptimizationMethod" -> Association["Value" -> Automatic], 
+             MaxIterations -> Association["Value" -> 30]]] -> 
+         Association["Experiments" -> {
+             Association[
+             "MeanCrossEntropy" -> 
+              Around[3.2449253561795306`, 0.13528745312576476`], 
+              "StandardDeviation" -> 
+              Around[5.301940458963812, 0.37276772976992245`], 
+              "EvaluationTime" -> 0.000012589254117941663`, "TestSize" -> 300,
+               "ModelMemory" -> 15664, "ModelUtility" -> -2.3751969145610756`,
+               "TrainingSize" -> 10, "TrainingTime" -> 0.007943282347242814, 
+              "TrainingMemory" -> 57792, "ExperimentCount" -> 1, 
+              "MeanCrossEntropyHistory" -> {
+                Around[3.2449253561795306`, 0.09566267551468545]}, 
+              "StandardDeviationHistory" -> {
+                Around[5.301940458963812, 0.2635865895278266]}], 
+             Association[
+             "MeanCrossEntropy" -> 
+              Around[3.0687812140305732`, 0.06299453844459649], 
+              "StandardDeviation" -> 
+              Around[5.082409057307941, 0.2883514460835938], "EvaluationTime" -> 
+              0.000013404173569609027`, "TestSize" -> 400, "ModelMemory" -> 
+              15664, "ModelUtility" -> -2.3302289419961038`, "TrainingSize" -> 
+              400, "TrainingTime" -> 0.007943282347242814, "TrainingMemory" -> 
+              74040, "ExperimentCount" -> 1, "MeanCrossEntropyHistory" -> {
+                Around[3.0687812140305732`, 0.04454386531189084]}, 
+              "StandardDeviationHistory" -> {
+                Around[5.082409057307941, 0.20389526289065632`]}], 
+             Association[
+             "MeanCrossEntropy" -> 
+              Around[3.0653149883951127`, 0.06194422278492094], 
+              "StandardDeviation" -> 
+              Around[5.073608952623847, 0.2919906741444872], "EvaluationTime" -> 
+              0.000012589254117941663`, "TestSize" -> 200, "ModelMemory" -> 
+              15664, "ModelUtility" -> -2.328657252549965, "TrainingSize" -> 
+              2652, "TrainingTime" -> 0.007943282347242814, "TrainingMemory" -> 
+              208880, "ExperimentCount" -> 1, "MeanCrossEntropyHistory" -> {
+                Around[3.0653149883951127`, 0.06194422278492094]}, 
+              "StandardDeviationHistory" -> {
+                Around[5.073608952623847, 0.2919906741444872]}], 
+             Association[
+             "MeanCrossEntropy" -> 
+              Around[3.1111862215053017`, 0.04307381646625881], 
+              "StandardDeviation" -> 
+              Around[5.05121482741654, 0.13729641035497447`], 
+              "EvaluationTime" -> 7.680930473525929*^-6, "TestSize" -> 2100, 
+              "ModelMemory" -> 15664, "ModelUtility" -> -2.3182106453119227`, 
+              "TrainingSize" -> 70, "TrainingTime" -> 0.007943282347242814, 
+              "TrainingMemory" -> 60280, "ExperimentCount" -> 1, 
+              "MeanCrossEntropyHistory" -> {
+                Around[3.1111862215053017`, 0.030457787714876373`]}, 
+              "StandardDeviationHistory" -> {
+                Around[5.05121482741654, 0.09708322279457338]}]}, 
+           "PredictedPerformances" -> 
+           Association[
+            "EvaluationTime" -> 7.680930473525929*^-6, "ModelMemory" -> 15664,
+              "StandardDeviation" -> 
+             Around[5.05121482741654, 0.13729641035497447`], "TrainingMemory" -> 
+             60280, "TrainingTime" -> 0.2712630921583421], "Index" -> 3], 
+         Association[
+          "Value" -> "LinearRegression", "Options" -> 
+           Association[
+            "L1Regularization" -> Association["Value" -> 0], 
+             "L2Regularization" -> Association["Value" -> 0.00001], 
+             "OptimizationMethod" -> Association["Value" -> Automatic], 
+             MaxIterations -> Association["Value" -> 30]]] -> 
+         Association["Experiments" -> {
+             Association[
+             "MeanCrossEntropy" -> 
+              Around[3.2456852516872736`, 0.13541213498654422`], 
+              "StandardDeviation" -> 
+              Around[5.30399085557448, 0.37295315303869764`], 
+              "EvaluationTime" -> 0.000012589254117941663`, "TestSize" -> 300,
+               "ModelMemory" -> 15664, "ModelUtility" -> -2.3755850998959653`,
+               "TrainingSize" -> 10, "TrainingTime" -> 0.007943282347242814, 
+              "TrainingMemory" -> 57792, "ExperimentCount" -> 1, 
+              "MeanCrossEntropyHistory" -> {
+                Around[3.2456852516872736`, 0.09575083890393356]}, 
+              "StandardDeviationHistory" -> {
+                Around[5.30399085557448, 0.26371770357856733`]}], 
+             Association[
+             "MeanCrossEntropy" -> 
+              Around[3.068779626589767, 0.06299493424706211], 
+              "StandardDeviation" -> 
+              Around[5.082401872096568, 0.2883535383119232], "EvaluationTime" -> 
+              0.000015245015827545809`, "TestSize" -> 400, "ModelMemory" -> 
+              15664, "ModelUtility" -> -2.3302276273650193`, "TrainingSize" -> 
+              400, "TrainingTime" -> 0.007943282347242814, "TrainingMemory" -> 
+              74040, "ExperimentCount" -> 1, "MeanCrossEntropyHistory" -> {
+                Around[3.068779626589767, 0.044544145186498296`]}, 
+              "StandardDeviationHistory" -> {
+                Around[5.082401872096568, 0.2038967423194958]}], 
+             Association[
+             "MeanCrossEntropy" -> 
+              Around[3.053685020097945, 0.039700890406801366`], 
+              "StandardDeviation" -> 
+              Around[5.026391927549225, 0.18886582553056483`], 
+              "EvaluationTime" -> 0.000013675813386831483`, "TestSize" -> 500,
+               "ModelMemory" -> 15664., "ModelUtility" -> -2.315349711398489, 
+              "TrainingSize" -> 2652, "TrainingTime" -> 0.009491939604142432, 
+              "TrainingMemory" -> 208960., "ExperimentCount" -> 2, 
+              "MeanCrossEntropyHistory" -> {
+                Around[3.047017012313142, 0.09309822173388682], 
+                Around[3.0603530278827478`, 0.04313336647701397]}, 
+              "StandardDeviationHistory" -> {
+                Around[4.988283060896595, 0.44467108424583973`], 
+                Around[5.064500794201854, 0.20341751448595038`]}], 
+             Association[
+             "MeanCrossEntropy" -> 
+              Around[3.1852205750253684`, 0.15102186302780912`], 
+              "StandardDeviation" -> 
+              Around[5.241777313076907, 0.46245890719320387`], 
+              "EvaluationTime" -> 0.000014219093021276394`, "TestSize" -> 200,
+               "ModelMemory" -> 15664, "ModelUtility" -> -2.367312299798915, 
+              "TrainingSize" -> 70, "TrainingTime" -> 0.007943282347242814, 
+              "TrainingMemory" -> 60272, "ExperimentCount" -> 1, 
+              "MeanCrossEntropyHistory" -> {
+                Around[3.1852205750253684`, 0.10678858345438977`]}, 
+              "StandardDeviationHistory" -> {
+                Around[5.241777313076907, 0.3270078292964347]}]}, 
+           "PredictedPerformances" -> 
+           Association[
+            "EvaluationTime" -> 0.000014219093021276394`, "ModelMemory" -> 
+             15664, "StandardDeviation" -> 
+             Around[5.241777313076907, 0.46245890719320387`], 
+             "TrainingMemory" -> 60272, "TrainingTime" -> 0.2712630921583421],
+            "Index" -> 4], 
+         Association[
+          "Value" -> "LinearRegression", "Options" -> 
+           Association[
+            "L1Regularization" -> Association["Value" -> 0], 
+             "L2Regularization" -> Association["Value" -> 1.*^-6], 
+             "OptimizationMethod" -> Association["Value" -> Automatic], 
+             MaxIterations -> Association["Value" -> 30]]] -> 
+         Association["Experiments" -> {
+             Association[
+             "MeanCrossEntropy" -> 
+              Around[3.2256934065500413`, 0.16005485271014952`], 
+              "StandardDeviation" -> 
+              Around[5.247768647864411, 0.44602556729405274`], 
+              "EvaluationTime" -> 0.000012589254117941663`, "TestSize" -> 200,
+               "ModelMemory" -> 15664, "ModelUtility" -> -2.367819205734039, 
+              "TrainingSize" -> 10, "TrainingTime" -> 0.007943282347242814, 
+              "TrainingMemory" -> 57728, "ExperimentCount" -> 1, 
+              "MeanCrossEntropyHistory" -> {
+                Around[3.2256934065500413`, 0.11317587171316078`]}, 
+              "StandardDeviationHistory" -> {
+                Around[5.247768647864411, 0.31538770321620146`]}], 
+             Association[
+             "MeanCrossEntropy" -> 
+              Around[3.0724583554439446`, 0.09237675538244436], 
+              "StandardDeviation" -> 
+              Around[5.099728966044928, 0.42075780147509784`], 
+              "EvaluationTime" -> 0.000012589254117941663`, "TestSize" -> 200,
+               "ModelMemory" -> 15664, "ModelUtility" -> -2.3387143369340806`,
+               "TrainingSize" -> 400, "TrainingTime" -> 0.007943282347242814, 
+              "TrainingMemory" -> 74032, "ExperimentCount" -> 1, 
+              "MeanCrossEntropyHistory" -> {
+                Around[3.0724583554439446`, 0.0653202301549373]}, 
+              "StandardDeviationHistory" -> {
+                Around[5.099728966044928, 0.29752069466018477`]}], 
+             Association[
+             "MeanCrossEntropy" -> 
+              Around[3.063757350586464, 0.05030059071995915], 
+              "StandardDeviation" -> 
+              Around[5.066117487562664, 0.23745751740862386`], 
+              "EvaluationTime" -> 0.00001172616941196111, "TestSize" -> 300, 
+              "ModelMemory" -> 15664, "ModelUtility" -> -2.325065839312524, 
+              "TrainingSize" -> 2652, "TrainingTime" -> 0.007943282347242814, 
+              "TrainingMemory" -> 208816, "ExperimentCount" -> 1, 
+              "MeanCrossEntropyHistory" -> {
+                Around[3.063757350586464, 0.05030059071995915]}, 
+              "StandardDeviationHistory" -> {
+                Around[5.066117487562664, 0.23745751740862386`]}], 
+             Association[
+             "MeanCrossEntropy" -> 
+              Around[3.1224977631555273`, 0.037860461351788145`], 
+              "StandardDeviation" -> 
+              Around[5.075389592368507, 0.11961688652367072`], 
+              "EvaluationTime" -> 6.961293896406993*^-6, "TestSize" -> 2900, 
+              "ModelMemory" -> 15664, "ModelUtility" -> -2.322266237965297, 
+              "TrainingSize" -> 70, "TrainingTime" -> 0.007943282347242814, 
+              "TrainingMemory" -> 60272, "ExperimentCount" -> 1, 
+              "MeanCrossEntropyHistory" -> {
+                Around[3.1224977631555273`, 0.026771388960700596`]}, 
+              "StandardDeviationHistory" -> {
+                Around[5.075389592368507, 0.08458191160530931]}]}, 
+           "PredictedPerformances" -> 
+           Association[
+            "EvaluationTime" -> 6.961293896406993*^-6, "ModelMemory" -> 15664,
+              "StandardDeviation" -> 
+             Around[5.075389592368507, 0.11961688652367072`], 
+             "TrainingMemory" -> 60272, "TrainingTime" -> 0.2712630921583421],
+            "Index" -> 5], 
+         Association[
+          "Value" -> "LinearRegression", "Options" -> 
+           Association[
+            "L1Regularization" -> Association["Value" -> 0], 
+             "L2Regularization" -> Association["Value" -> 10000.], 
+             "OptimizationMethod" -> Association["Value" -> Automatic], 
+             MaxIterations -> Association["Value" -> 30]]] -> 
+         Association["Experiments" -> {
+             Association[
+             "MeanCrossEntropy" -> 
+              Around[3.45649411512222, 0.04274765224019516], 
+              "StandardDeviation" -> 
+              Around[7.390978193405116, 0.4209426716129546], "EvaluationTime" -> 
+              0.000015848931924611128`, "TestSize" -> 300, "ModelMemory" -> 
+              15664, "ModelUtility" -> -2.7047468517666253`, "TrainingSize" -> 
+              10, "TrainingTime" -> 0.01, "TrainingMemory" -> 57856, 
+              "ExperimentCount" -> 1, "MeanCrossEntropyHistory" -> {
+                Around[3.45649411512222, 0.030227154778846303`]}, 
+              "StandardDeviationHistory" -> {
+                Around[7.390978193405116, 0.2976514175883022]}], 
+             Association[
+             "MeanCrossEntropy" -> 
+              Around[3.431987921605062, 0.053141634095633064`], 
+              "StandardDeviation" -> 
+              Around[7.261749668673544, 0.3310627417269021], "EvaluationTime" -> 
+              0.000016874854730880543`, "TestSize" -> 400, "ModelMemory" -> 
+              15664, "ModelUtility" -> -2.684857900435853, "TrainingSize" -> 
+              400, "TrainingTime" -> 0.01, "TrainingMemory" -> 73944, 
+              "ExperimentCount" -> 1, "MeanCrossEntropyHistory" -> {
+                Around[3.431987921605062, 0.03757680983235638]}, 
+              "StandardDeviationHistory" -> {
+                Around[7.261749668673544, 0.23409670967330304`]}], 
+             Association[
+             "MeanCrossEntropy" -> 
+              Around[3.33567257255899, 0.03581335006440409], 
+              "StandardDeviation" -> 
+              Around[6.627770929303391, 0.21733595006167192`], 
+              "EvaluationTime" -> 0.000018166415022232294`, "TestSize" -> 400,
+               "ModelMemory" -> 15664, "ModelUtility" -> -2.5909658981295123`,
+               "TrainingSize" -> 2652, "TrainingTime" -> 0.01, 
+              "TrainingMemory" -> 208816, "ExperimentCount" -> 1, 
+              "MeanCrossEntropyHistory" -> {
+                Around[3.33567257255899, 0.03581335006440409]}, 
+              "StandardDeviationHistory" -> {
+                Around[6.627770929303391, 0.21733595006167192`]}]}, 
+           "PredictedPerformances" -> 
+           Association[
+            "EvaluationTime" -> 0.000018166415022232294`, "ModelMemory" -> 
+             15664, "StandardDeviation" -> 
+             Around[6.627770929303391, 0.21733595006167192`], 
+             "TrainingMemory" -> 208816, "TrainingTime" -> 0.0225], "Index" -> 
+           6], Association[
+          "Value" -> "LinearRegression", "Options" -> 
+           Association[
+            "L1Regularization" -> Association["Value" -> 0], 
+             "L2Regularization" -> Association["Value" -> 1.], 
+             "OptimizationMethod" -> Association["Value" -> Automatic], 
+             MaxIterations -> Association["Value" -> 30]]] -> 
+         Association["Experiments" -> {
+             Association[
+             "MeanCrossEntropy" -> 
+              Around[3.1816300862587807`, 0.1500082505249767], 
+              "StandardDeviation" -> 
+              Around[5.231629348768587, 0.4605559289483147], "EvaluationTime" -> 
+              0.000014219093021276394`, "TestSize" -> 200, "ModelMemory" -> 
+              15664, "ModelUtility" -> -2.365336590684642, "TrainingSize" -> 
+              70, "TrainingTime" -> 0.01, "TrainingMemory" -> 60280, 
+              "ExperimentCount" -> 1, "MeanCrossEntropyHistory" -> {
+                Around[3.1816300862587807`, 0.10607185118014151`]}, 
+              "StandardDeviationHistory" -> {
+                Around[5.231629348768587, 0.3256622204750231]}], 
+             Association[
+             "MeanCrossEntropy" -> 
+              Around[3.1775557626882858`, 0.12156561759980943`], 
+              "StandardDeviation" -> 
+              Around[5.152825246569235, 0.35720772084336405`], 
+              "EvaluationTime" -> 0.00001172616941196111, "TestSize" -> 300, 
+              "ModelMemory" -> 15664, "ModelUtility" -> -2.3464748847757226`, 
+              "TrainingSize" -> 10, "TrainingTime" -> 0.007943282347242814, 
+              "TrainingMemory" -> 57856, "ExperimentCount" -> 1, 
+              "MeanCrossEntropyHistory" -> {
+                Around[3.1775557626882858`, 0.08595987256395594]}, 
+              "StandardDeviationHistory" -> {
+                Around[5.152825246569235, 0.25258400170053397`]}], 
+             Association[
+             "MeanCrossEntropy" -> 
+              Around[3.0727485780245227`, 0.0924104673192716], 
+              "StandardDeviation" -> 
+              Around[5.101035959381956, 0.42080004511438296`], 
+              "EvaluationTime" -> 0.000012589254117941663`, "TestSize" -> 200,
+               "ModelMemory" -> 15664, "ModelUtility" -> -2.3389680609899517`,
+               "TrainingSize" -> 400, "TrainingTime" -> 0.007943282347242814, 
+              "TrainingMemory" -> 73880, "ExperimentCount" -> 1, 
+              "MeanCrossEntropyHistory" -> {
+                Around[3.0727485780245227`, 0.06534406809407478]}, 
+              "StandardDeviationHistory" -> {
+                Around[5.101035959381956, 0.2975505654239853]}], 
+             Association[
+             "MeanCrossEntropy" -> 
+              Around[3.0628412323040077`, 0.03548374935981173], 
+              "StandardDeviation" -> 
+              Around[5.06908399917706, 0.16696466528065207`], 
+              "EvaluationTime" -> 0.00001613026973074719, "TestSize" -> 600, 
+              "ModelMemory" -> 15664., "ModelUtility" -> -2.32288652312345, 
+              "TrainingSize" -> 2652, "TrainingTime" -> 0.009314427449080937, 
+              "TrainingMemory" -> 208917.3333333333, "ExperimentCount" -> 2, 
+              "MeanCrossEntropyHistory" -> {
+                Around[3.065343335279973, 0.06194607639865776], 
+                Around[3.060339129328042, 0.04312948605794793]}, 
+              "StandardDeviationHistory" -> {
+                Around[5.073741972532988, 0.29199142009542006`], 
+                Around[5.064426025821131, 0.2034025787941446]}]}, 
+           "PredictedPerformances" -> 
+           Association[
+            "EvaluationTime" -> 0.00001613026973074719, "ModelMemory" -> 
+             15664., "StandardDeviation" -> 
+             Around[5.06908399917706, 0.16696466528065207`], "TrainingMemory" -> 
+             208917.3333333333, "TrainingTime" -> 0.021643034311351173`], 
+           "Index" -> 7], 
+         Association[
+          "Value" -> "LinearRegression", "Options" -> 
+           Association[
+            "L1Regularization" -> Association["Value" -> 0], 
+             "L2Regularization" -> Association["Value" -> 100.], 
+             "OptimizationMethod" -> Association["Value" -> Automatic], 
+             MaxIterations -> Association["Value" -> 30]]] -> 
+         Association["Experiments" -> {
+             Association[
+             "MeanCrossEntropy" -> 
+              Around[3.391808886802282, 0.044521780428218416`], 
+              "StandardDeviation" -> 
+              Around[6.940917171998889, 0.4032605701112036], "EvaluationTime" -> 
+              0.000015848931924611128`, "TestSize" -> 300, "ModelMemory" -> 
+              15664, "ModelUtility" -> -2.642147166098395, "TrainingSize" -> 
+              10, "TrainingTime" -> 0.01, "TrainingMemory" -> 57728, 
+              "ExperimentCount" -> 1, "MeanCrossEntropyHistory" -> {
+                Around[3.391808886802282, 0.03148165285129175]}, 
+              "StandardDeviationHistory" -> {
+                Around[6.940917171998889, 0.2851482837107852]}], 
+             Association[
+             "MeanCrossEntropy" -> 
+              Around[3.1000594065328837`, 0.05946793691895215], 
+              "StandardDeviation" -> 
+              Around[5.235399132906303, 0.27604168161401776`], 
+              "EvaluationTime" -> 0.000015848931924611124`, "TestSize" -> 400,
+               "ModelMemory" -> 15664, "ModelUtility" -> -2.3590935008058977`,
+               "TrainingSize" -> 400, "TrainingTime" -> 0.01, 
+              "TrainingMemory" -> 74032, "ExperimentCount" -> 1, 
+              "MeanCrossEntropyHistory" -> {
+                Around[3.1000594065328837`, 0.04205018145856491]}, 
+              "StandardDeviationHistory" -> {
+                Around[5.235399132906303, 0.19519094495940986`]}], 
+             Association[
+             "MeanCrossEntropy" -> 
+              Around[3.065788663517581, 0.050087727125795484`], 
+              "StandardDeviation" -> 
+              Around[5.076022179229142, 0.23637879710754062`], 
+              "EvaluationTime" -> 0.00001172616941196111, "TestSize" -> 300, 
+              "ModelMemory" -> 15664, "ModelUtility" -> -2.32695878423543, 
+              "TrainingSize" -> 2652, "TrainingTime" -> 0.007943282347242814, 
+              "TrainingMemory" -> 208792, "ExperimentCount" -> 1, 
+              "MeanCrossEntropyHistory" -> {
+                Around[3.065788663517581, 0.050087727125795484`]}, 
+              "StandardDeviationHistory" -> {
+                Around[5.076022179229142, 0.23637879710754062`]}], 
+             Association[
+             "MeanCrossEntropy" -> 
+              Around[3.179311573198819, 0.02838379113929831], 
+              "StandardDeviation" -> 
+              Around[5.6528691517959935`, 0.13717892852179708`], 
+              "EvaluationTime" -> 8.226980961946158*^-6, "TestSize" -> 2100, 
+              "ModelMemory" -> 15664, "ModelUtility" -> -2.430165337875582, 
+              "TrainingSize" -> 70, "TrainingTime" -> 0.01, "TrainingMemory" -> 
+              60216, "ExperimentCount" -> 1, "MeanCrossEntropyHistory" -> {
+                Around[3.179311573198819, 0.020070371190380475`]}, 
+              "StandardDeviationHistory" -> {
+                Around[5.6528691517959935`, 0.09700015059366741]}]}, 
+           "PredictedPerformances" -> 
+           Association[
+            "EvaluationTime" -> 8.226980961946158*^-6, "ModelMemory" -> 15664,
+              "StandardDeviation" -> 
+             Around[5.6528691517959935`, 0.13717892852179708`], 
+             "TrainingMemory" -> 60216, "TrainingTime" -> 0.3415], "Index" -> 
+           8], Association[
+          "Value" -> "LinearRegression", "Options" -> 
+           Association[
+            "L1Regularization" -> Association["Value" -> 0], 
+             "L2Regularization" -> Association["Value" -> 0.001], 
+             "OptimizationMethod" -> Association["Value" -> Automatic], 
+             MaxIterations -> Association["Value" -> 30]]] -> 
+         Association["Experiments" -> {
+             Association[
+             "MeanCrossEntropy" -> 
+              Around[3.1852168836105323`, 0.15102086086408448`], 
+              "StandardDeviation" -> 
+              Around[5.241766437046944, 0.46245692390190274`], 
+              "EvaluationTime" -> 0.00001790077753714996, "TestSize" -> 200, 
+              "ModelMemory" -> 15664, "ModelUtility" -> -2.367310190220107, 
+              "TrainingSize" -> 70, "TrainingTime" -> 0.01, "TrainingMemory" -> 
+              60336, "ExperimentCount" -> 1, "MeanCrossEntropyHistory" -> {
+                Around[3.1852168836105323`, 0.10678787481762421`]}, 
+              "StandardDeviationHistory" -> {
+                Around[5.241766437046944, 0.3270064268977066]}], 
+             Association[
+             "MeanCrossEntropy" -> 
+              Around[3.2456098747825237`, 0.13539979669406407`], 
+              "StandardDeviation" -> 
+              Around[5.3037870359268435`, 0.37293474580145647`], 
+              "EvaluationTime" -> 0.000012589254117941663`, "TestSize" -> 300,
+               "ModelMemory" -> 15664, "ModelUtility" -> -2.375546520003046, 
+              "TrainingSize" -> 10, "TrainingTime" -> 0.007943282347242814, 
+              "TrainingMemory" -> 57672, "ExperimentCount" -> 1, 
+              "MeanCrossEntropyHistory" -> {
+                Around[3.2456098747825237`, 0.09574211441365259]}, 
+              "StandardDeviationHistory" -> {
+                Around[5.3037870359268435`, 0.2637046876962912]}], 
+             Association[
+             "MeanCrossEntropy" -> 
+              Around[3.0724586452915763`, 0.09237678931651241], 
+              "StandardDeviation" -> 
+              Around[5.0997302693342546`, 0.42075784243951136`], 
+              "EvaluationTime" -> 0.0000855392866820265, "TestSize" -> 200, 
+              "ModelMemory" -> 15664, "ModelUtility" -> -2.3387146628764492`, 
+              "TrainingSize" -> 400, "TrainingTime" -> 0.007943282347242814, 
+              "TrainingMemory" -> 74032, "ExperimentCount" -> 1, 
+              "MeanCrossEntropyHistory" -> {
+                Around[3.0724586452915763`, 0.06532025414994694]}, 
+              "StandardDeviationHistory" -> {
+                Around[5.0997302693342546`, 0.29752072362639936`]}], 
+             Association[
+             "MeanCrossEntropy" -> 
+              Around[3.0650916605894896`, 0.032107797590086015`], 
+              "StandardDeviation" -> 
+              Around[5.080456562213904, 0.15142642594386937`], 
+              "EvaluationTime" -> 0.00001241663717674555, "TestSize" -> 800, 
+              "ModelMemory" -> 15664., "ModelUtility" -> -2.3245049938892053`,
+               "TrainingSize" -> 2652, "TrainingTime" -> 0.009314427449080937,
+               "TrainingMemory" -> 208920., "ExperimentCount" -> 2, 
+              "MeanCrossEntropyHistory" -> {
+                Around[3.063757363077215, 0.05030058880578782], 
+                Around[3.0664259581017648`, 0.04165001592824664]}, 
+              "StandardDeviationHistory" -> {
+                Around[5.066117547006521, 0.23745750610510066`], 
+                Around[5.094795577421285, 0.19510283742447995`]}]}, 
+           "PredictedPerformances" -> 
+           Association[
+            "EvaluationTime" -> 0.00001241663717674555, "ModelMemory" -> 
+             15664., "StandardDeviation" -> 
+             Around[5.080456562213904, 0.15142642594386937`], 
+             "TrainingMemory" -> 208920., "TrainingTime" -> 
+             0.021643034311351173`], "Index" -> 9], 
+         Association[
+          "Value" -> "LinearRegression", "Options" -> 
+           Association[
+            "L1Regularization" -> Association["Value" -> 0], 
+             "L2Regularization" -> Association["Value" -> 0.1], 
+             "OptimizationMethod" -> Association["Value" -> Automatic], 
+             MaxIterations -> Association["Value" -> 30]]] -> 
+         Association["Experiments" -> {
+             Association[
+             "MeanCrossEntropy" -> 
+              Around[3.1953112943792727`, 0.12590599912543446`], 
+              "StandardDeviation" -> 
+              Around[5.2718532730209295`, 0.3829979375677396], 
+              "EvaluationTime" -> 0.000015848931924611128`, "TestSize" -> 300,
+               "ModelMemory" -> 15664, "ModelUtility" -> -2.3699677621649435`,
+               "TrainingSize" -> 70, "TrainingTime" -> 0.01, "TrainingMemory" -> 
+              60272, "ExperimentCount" -> 1, "MeanCrossEntropyHistory" -> {
+                Around[3.1953112943792727`, 0.08902898577366222]}, 
+              "StandardDeviationHistory" -> {
+                Around[5.2718532730209295`, 0.2708204388346106]}], 
+             Association[
+             "MeanCrossEntropy" -> 
+              Around[3.2381331281302863`, 0.13414330921791873`], 
+              "StandardDeviation" -> 
+              Around[5.284026986134839, 0.37112346459454604`], 
+              "EvaluationTime" -> 0.000012589254117941663`, "TestSize" -> 300,
+               "ModelMemory" -> 15664, "ModelUtility" -> -2.3717981673598683`,
+               "TrainingSize" -> 10, "TrainingTime" -> 0.007943282347242814, 
+              "TrainingMemory" -> 57792, "ExperimentCount" -> 1, 
+              "MeanCrossEntropyHistory" -> {
+                Around[3.2381331281302863`, 0.09485364359879424]}, 
+              "StandardDeviationHistory" -> {
+                Around[5.284026986134839, 0.26242391847224905`]}], 
+             Association[
+             "MeanCrossEntropy" -> 
+              Around[3.0687955429836005`, 0.06299097133608082], 
+              "StandardDeviation" -> 
+              Around[5.082473934266394, 0.288332599678934], "EvaluationTime" -> 
+              0.000011941940588456246`, "TestSize" -> 400, "ModelMemory" -> 
+              15664, "ModelUtility" -> -2.330240828932895, "TrainingSize" -> 
+              400, "TrainingTime" -> 0.03162277660168379, "TrainingMemory" -> 
+              131480, "ExperimentCount" -> 1, "MeanCrossEntropyHistory" -> {
+                Around[3.0687955429836005`, 0.04454134298527018]}, 
+              "StandardDeviationHistory" -> {
+                Around[5.082473934266394, 0.20388193647012035`]}], 
+             Association[
+             "MeanCrossEntropy" -> 
+              Around[3.0595881160034195`, 0.028436397143242455`], 
+              "StandardDeviation" -> 
+              Around[5.054135242245941, 0.1349810671434517], "EvaluationTime" -> 
+              0.000015848931924611124`, "TestSize" -> 900, "ModelMemory" -> 
+              15664., "ModelUtility" -> -2.3186943923111953`, "TrainingSize" -> 
+              2652, "TrainingTime" -> 0.009999999999999998, "TrainingMemory" -> 
+              208981.3333333333, "ExperimentCount" -> 2, 
+              "MeanCrossEntropyHistory" -> {
+                Around[3.058824600173918, 0.037795084832412486`], 
+                Around[3.060351631832921, 0.04313297856337063]}, 
+              "StandardDeviationHistory" -> {
+                Around[5.043777199382939, 0.17948144458980317`], 
+                Around[5.064493285108943, 0.20341602005934567`]}]}, 
+           "PredictedPerformances" -> 
+           Association[
+            "EvaluationTime" -> 0.000015848931924611124`, "ModelMemory" -> 
+             15664., "StandardDeviation" -> 
+             Around[5.054135242245941, 0.1349810671434517], "TrainingMemory" -> 
+             208981.3333333333, "TrainingTime" -> 0.0225], "Index" -> 10], 
+         Association[
+          "Value" -> "LinearRegression", "Options" -> 
+           Association[
+            "L1Regularization" -> Association["Value" -> 0], 
+             "L2Regularization" -> Association["Value" -> 0.0001], 
+             "OptimizationMethod" -> Association["Value" -> Automatic], 
+             MaxIterations -> Association["Value" -> 30]]] -> 
+         Association["Experiments" -> {
+             Association[
+             "MeanCrossEntropy" -> 
+              Around[3.0687796431227015`, 0.0629949301242086], 
+              "StandardDeviation" -> 
+              Around[5.082401946927068, 0.2883535165172561], "EvaluationTime" -> 
+              0.000012589254117941663`, "TestSize" -> 400, "ModelMemory" -> 
+              15664, "ModelUtility" -> -2.330227638419486, "TrainingSize" -> 
+              400, "TrainingTime" -> 0.007943282347242814, "TrainingMemory" -> 
+              74064, "ExperimentCount" -> 1, "MeanCrossEntropyHistory" -> {
+                Around[3.0687796431227015`, 0.044544142271200626`]}, 
+              "StandardDeviationHistory" -> {
+                Around[5.082401946927068, 0.20389672690833893`]}], 
+             Association[
+             "MeanCrossEntropy" -> 
+              Around[3.056195064269667, 0.049273090416567376`], 
+              "StandardDeviation" -> 
+              Around[5.031730195261403, 0.2344251675174239], "EvaluationTime" -> 
+              0.000012589254117941663`, "TestSize" -> 600, "ModelMemory" -> 
+              15664, "ModelUtility" -> -2.3181990564336195`, "TrainingSize" -> 
+              2652, "TrainingTime" -> 0.007943282347242814, "TrainingMemory" -> 
+              208848, "ExperimentCount" -> 1, "MeanCrossEntropyHistory" -> {
+                Around[3.056195064269667, 0.03484133636357268]}, 
+              "StandardDeviationHistory" -> {
+                Around[5.031730195261403, 0.1657636256323628]}], 
+             Association[
+             "MeanCrossEntropy" -> 
+              Around[3.1156172794206167`, 0.04156188564974016], 
+              "StandardDeviation" -> 
+              Around[5.0612741294460335`, 0.1320329996897985], 
+              "EvaluationTime" -> 7.11307215706322*^-6, "TestSize" -> 2300, 
+              "ModelMemory" -> 15664, "ModelUtility" -> -2.3199824936310103`, 
+              "TrainingSize" -> 70, "TrainingTime" -> 0.007943282347242814, 
+              "TrainingMemory" -> 60152, "ExperimentCount" -> 1, 
+              "MeanCrossEntropyHistory" -> {
+                Around[3.1156172794206167`, 0.02938869118183112]}, 
+              "StandardDeviationHistory" -> {
+                Around[5.0612741294460335`, 0.09336142942105785]}], 
+             Association[
+             "MeanCrossEntropy" -> 
+              Around[3.2456783908845392`, 0.13541101222344717`], 
+              "StandardDeviation" -> 
+              Around[5.303972299967374, 0.3729514774813172], "EvaluationTime" -> 
+              0.000015848931924611128`, "TestSize" -> 300, "ModelMemory" -> 
+              15664, "ModelUtility" -> -2.3755815909374487`, "TrainingSize" -> 
+              10, "TrainingTime" -> 0.01, "TrainingMemory" -> 57672, 
+              "ExperimentCount" -> 1, "MeanCrossEntropyHistory" -> {
+                Around[3.2456783908845392`, 0.09575004499053397]}, 
+              "StandardDeviationHistory" -> {
+                Around[5.303972299967374, 0.26371651878058133`]}]}, 
+           "PredictedPerformances" -> 
+           Association[
+            "EvaluationTime" -> 0.000015848931924611128`, "ModelMemory" -> 
+             15664, "StandardDeviation" -> 
+             Around[5.303972299967374, 0.3729514774813172], "TrainingMemory" -> 
+             57672, "TrainingTime" -> 0.33944328234724286`], "Index" -> 11], 
+         Association[
+          "Value" -> "LinearRegression", "Options" -> 
+           Association[
+            "L1Regularization" -> Association["Value" -> 0], 
+             "L2Regularization" -> Association["Value" -> 100000.], 
+             "OptimizationMethod" -> Association["Value" -> Automatic], 
+             MaxIterations -> Association["Value" -> 30]]] -> 
+         Association["Experiments" -> {
+             Association[
+             "MeanCrossEntropy" -> 
+              Around[3.4494698671910418`, 0.05295515403596262], 
+              "StandardDeviation" -> 
+              Around[7.390021633618961, 0.3356319666366051], "EvaluationTime" -> 
+              0.000015848931924611124`, "TestSize" -> 400, "ModelMemory" -> 
+              15664, "ModelUtility" -> -2.7023334671275827`, "TrainingSize" -> 
+              400, "TrainingTime" -> 0.007943282347242814, "TrainingMemory" -> 
+              73936, "ExperimentCount" -> 1, "MeanCrossEntropyHistory" -> {
+                Around[3.4494698671910418`, 0.03744494851760734]}, 
+              "StandardDeviationHistory" -> {
+                Around[7.390021633618961, 0.2373276395917205]}], 
+             Association[
+             "MeanCrossEntropy" -> 
+              Around[3.420287868816433, 0.031064839319741803`], 
+              "StandardDeviation" -> 
+              Around[7.225214620742263, 0.20899749019864294`], 
+              "EvaluationTime" -> 0.00001207140329435333, "TestSize" -> 500, 
+              "ModelMemory" -> 15664, "ModelUtility" -> -2.676505918743496, 
+              "TrainingSize" -> 2652, "TrainingTime" -> 0.007943282347242814, 
+              "TrainingMemory" -> 208792, "ExperimentCount" -> 1, 
+              "MeanCrossEntropyHistory" -> {
+                Around[3.420287868816433, 0.031064839319741803`]}, 
+              "StandardDeviationHistory" -> {
+                Around[7.225214620742263, 0.20899749019864294`]}], 
+             Association[
+             "MeanCrossEntropy" -> 
+              Around[3.4571358194093698`, 0.042731695584208196`], 
+              "StandardDeviation" -> 
+              Around[7.39561781623312, 0.4211209122589307], "EvaluationTime" -> 
+              0.000012589254117941663`, "TestSize" -> 300, "ModelMemory" -> 
+              15664, "ModelUtility" -> -2.705372093359028, "TrainingSize" -> 
+              10, "TrainingTime" -> 0.007943282347242814, "TrainingMemory" -> 
+              57728, "ExperimentCount" -> 1, "MeanCrossEntropyHistory" -> {
+                Around[3.4571358194093698`, 0.030215871719192863`]}, 
+              "StandardDeviationHistory" -> {
+                Around[7.39561781623312, 0.29777745275775497`]}]}, 
+           "PredictedPerformances" -> 
+           Association[
+            "EvaluationTime" -> 0.000012589254117941663`, "ModelMemory" -> 
+             15664, "StandardDeviation" -> 
+             Around[7.39561781623312, 0.4211209122589307], "TrainingMemory" -> 
+             57728, "TrainingTime" -> 0.2712630921583421], "Index" -> 12]], 
+        TypeSystem`Assoc[
+         TypeSystem`Struct[{"Value", "Options"}, {
+           TypeSystem`Atom[
+            TypeSystem`Enumeration["LinearRegression"]], 
+           TypeSystem`Assoc[TypeSystem`AnyType, 
+            TypeSystem`Struct[{"Value"}, {TypeSystem`AnyType}], 4]}], 
+         TypeSystem`Struct[{"Experiments", "PredictedPerformances", "Index"}, {
+           TypeSystem`Vector[
+            
+            TypeSystem`Struct[{
+             "MeanCrossEntropy", "StandardDeviation", "EvaluationTime", 
+              "TestSize", "ModelMemory", "ModelUtility", "TrainingSize", 
+              "TrainingTime", "TrainingMemory", "ExperimentCount", 
+              "MeanCrossEntropyHistory", "StandardDeviationHistory"}, {
+             TypeSystem`AnyType, TypeSystem`AnyType, 
+              TypeSystem`Atom[Real], 
+              TypeSystem`Atom[Integer], 
+              TypeSystem`Atom[Real], 
+              TypeSystem`Atom[Real], 
+              TypeSystem`Atom[Integer], 
+              TypeSystem`Atom[Real], 
+              TypeSystem`Atom[Real], 
+              TypeSystem`Atom[Integer], 
+              TypeSystem`Vector[TypeSystem`AnyType, TypeSystem`AnyLength], 
+              TypeSystem`Vector[TypeSystem`AnyType, TypeSystem`AnyLength]}], 
+            TypeSystem`AnyLength], 
+           
+           TypeSystem`Struct[{
+            "EvaluationTime", "ModelMemory", "StandardDeviation", 
+             "TrainingMemory", "TrainingTime"}, {
+             TypeSystem`Atom[Real], 
+             TypeSystem`Atom[Real], TypeSystem`AnyType, 
+             TypeSystem`Atom[Real], 
+             TypeSystem`Atom[Real]}], 
+           TypeSystem`Atom[Integer]}], 12], 
+        Association["ID" -> 228093007101167]], "MaxTrainingSize" -> 3315, 
+      "PreprocessorEvaluationTime" -> 6.3173828125`3.*^-6, 
+      "PreprocessorMemory" -> 39264, "InputDimension" -> 1, "OutputDimension" -> 
+      1, "BaselineLogProbability" -> -1.4189385332046727`, "VariableBudget" -> 
+      True, "CheckpointingInfo" -> Association["Checkpointing" -> False], 
+      "UserStop" -> False, "NaturalStop" -> True, "AbortStop" -> False, 
+      "LastReportingTime" -> 3.776435694236396`16.329657083018756*^9, 
+      "RoundPartitioning" -> Dataset[{
+         Association[
+         "TrainingSizes" -> 10, "TimeBudgets" -> 0.2209619720000002, 
+          "ElapsedTimes" -> 0.23080299999999998`, "ExperimentCounts" -> 12], 
+         Association[
+         "TrainingSizes" -> 70, "TimeBudgets" -> 0.31565996000000024`, 
+          "ElapsedTimes" -> 0.667239, "ExperimentCounts" -> 8], 
+         Association[
+         "TrainingSizes" -> 400, "TimeBudgets" -> 0.45094280000000025`, 
+          "ElapsedTimes" -> 0.6390069999999999, "ExperimentCounts" -> 12], 
+         Association[
+         "TrainingSizes" -> 2652, "TimeBudgets" -> 0.6442040000000003, 
+          "ElapsedTimes" -> 0.6391910000000001, "ExperimentCounts" -> 18]}, 
+        TypeSystem`Vector[
+         TypeSystem`Struct[{
+          "TrainingSizes", "TimeBudgets", "ElapsedTimes", 
+           "ExperimentCounts"}, {
+           TypeSystem`Atom[Integer], 
+           TypeSystem`Atom[Real], 
+           TypeSystem`Atom[Real], 
+           TypeSystem`Atom[Integer]}], 4], 
+        Association[
+        "Origin" -> HoldComplete[GeneralUtilities`AssociationTranspose, 
+           Dataset`DatasetHandle[228101597035759]], "ID" -> 
+         228105892003055]]], "Log" -> 
+    Association["Example" -> MachineLearning`MLDataset[
+        Association[
+        "f1" -> Association[
+          "Type" -> "Numerical", "Weight" -> 1, "Values" -> {1987}, "ID" -> 
+           8648384402107197552]], 
+        Association[
+        "ExampleNumber" -> 1, "ExampleWeights" -> 1, "LogDensityRatios" -> 0, 
+         "RawExample" -> False]], "TrainingTime" -> 3.22946, 
+      "MaxTrainingMemory" -> 1071072, "DataMemory" -> 318352, 
+      "FunctionMemory" -> 270880, "LanguageVersion" -> {12., 0}, "Date" -> 
+      DateObject[{2019, 9, 2, 17, 54, 54.774249`8.491151406170346}, "Instant",
+         "Gregorian", -5.], "ProcessorCount" -> 2, "ProcessorType" -> 
+      "x86-64", "OperatingSystem" -> "Unix", "SystemWordLength" -> 64, 
+      "Evaluations" -> {}]]],
+  Editable->False,
+  SelectWithContents->True,
+  Selectable->False]], "Output",
+ CellChangeTimes->{3.776453520947171*^9, 3.776453694796693*^9},
+ CellLabel->
+  "Out[128]=",ExpressionUUID->"a8f2d51e-61a8-460c-8c30-e92e4ba7bbf5"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"p1", " ", "=", " ", 
+   RowBox[{"Show", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"ListPlot", "[", 
+      RowBox[{
+       RowBox[{"List", " ", "@@@", " ", "k8cn2d"}], ",", 
+       RowBox[{"PlotStyle", "\[Rule]", "Blue"}], ",", 
+       RowBox[{"PlotLegends", "\[Rule]", 
+        RowBox[{
+        "{", "\"\<N\[UAcute]mero de cruce \\n por tipo de orden\>\"", "}"}]}],
+        "\[IndentingNewLine]", ",", 
+       RowBox[{"PlotRange", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"1", ",", "3315"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"15", ",", "70"}], "}"}]}], "}"}]}]}], "]"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"ImageSize", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"800", ",", "600"}], "}"}]}]}], "\[IndentingNewLine]", "]"}]}],
+   ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Export", "[", 
+  RowBox[{"\"\<~/exportP1_single.png\>\"", ",", "p1"}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"p2", " ", "=", " ", 
+   RowBox[{"Show", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"ListPlot", "[", 
+      RowBox[{
+       RowBox[{"List", " ", "@@@", " ", "k8cn2d"}], ",", 
+       RowBox[{"PlotStyle", "\[Rule]", "Blue"}], ",", 
+       RowBox[{"PlotLegends", "\[Rule]", 
+        RowBox[{
+        "{", "\"\<N\[UAcute]mero de cruce \\n por tipo de orden\>\"", 
+         "}"}]}]}], "]"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"Plot", "[", 
+      RowBox[{
+       RowBox[{"{", "\[IndentingNewLine]", 
+        RowBox[{"q", "[", "x", "]"}], "\[IndentingNewLine]", "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "1", ",", "3315"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"PlotStyle", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"{", 
+          RowBox[{"Red", ",", "Dashed", ",", 
+           RowBox[{"Thickness", "[", "0.003", "]"}]}], "}"}], "}"}]}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"PlotRange", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"1", ",", "3315"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"15", ",", "70"}], "}"}]}], "}"}]}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Exclusions", "\[Rule]", "False"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"PerformanceGoal", "\[Rule]", "\"\<Quality\>\""}], ",", 
+       RowBox[{"PlotLegends", "\[Rule]", 
+        RowBox[{"{", "\"\<Tendencia\>\"", "}"}]}]}], "\[IndentingNewLine]", 
+      "]"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"ImageSize", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"800", ",", "600"}], "}"}]}]}], "\[IndentingNewLine]", "]"}]}],
+   ";"}], "\n", 
+ RowBox[{"Export", "[", 
+  RowBox[{"\"\<~/exportP2.png\>\"", ",", "p2"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.776452208812868*^9, 3.776452210178442*^9}, {
+   3.776452565237348*^9, 3.776452797572791*^9}, {3.776452838234827*^9, 
+   3.776452845250434*^9}, {3.776452886370129*^9, 3.77645294297917*^9}, {
+   3.776452993645382*^9, 3.776453046449441*^9}, {3.7764531094250727`*^9, 
+   3.776453185957666*^9}, {3.776453218266268*^9, 3.7764534006238537`*^9}, {
+   3.776453474450287*^9, 3.776453474656493*^9}, {3.7764536964970827`*^9, 
+   3.7764537487032213`*^9}, {3.7764538996346416`*^9, 
+   3.7764539293969584`*^9}, {3.776453963196192*^9, 3.776453965192198*^9}, {
+   3.776454060998374*^9, 3.776454121358502*^9}, {3.776454171483727*^9, 
+   3.776454183998411*^9}, {3.7764543216895103`*^9, 3.7764543349341497`*^9}, {
+   3.7764543943215933`*^9, 3.776454409789172*^9}, {3.776454727345972*^9, 
+   3.776454805356686*^9}, {3.7764548596816053`*^9, 3.776454866542789*^9}, {
+   3.7764553973916273`*^9, 3.7764554237831993`*^9}, 3.776455458836741*^9, {
+   3.776455508721303*^9, 3.776455664719871*^9}},
+ CellLabel->
+  "In[203]:=",ExpressionUUID->"eefa331c-df2e-4021-9233-ffa49e30f8a0"],
+
+Cell[BoxData["\<\"~/exportP1_single.png\"\>"], "Output",
+ CellChangeTimes->{{3.776453927005391*^9, 3.7764539389526167`*^9}, {
+   3.7764540868170357`*^9, 3.7764541308400307`*^9}, 3.776454195169427*^9, 
+   3.776454354341641*^9, 3.77645442006947*^9, 3.776454808364482*^9, 
+   3.776454868082473*^9, 3.7764554245716133`*^9, 3.776455461682213*^9, {
+   3.776455521683124*^9, 3.7764555443921843`*^9}, {3.776455581174239*^9, 
+   3.776455665902781*^9}},
+ CellLabel->
+  "Out[204]=",ExpressionUUID->"188a9dd2-306c-449e-82ba-18cc7e638807"],
+
+Cell[BoxData["\<\"~/exportP2.png\"\>"], "Output",
+ CellChangeTimes->{{3.776453927005391*^9, 3.7764539389526167`*^9}, {
+   3.7764540868170357`*^9, 3.7764541308400307`*^9}, 3.776454195169427*^9, 
+   3.776454354341641*^9, 3.77645442006947*^9, 3.776454808364482*^9, 
+   3.776454868082473*^9, 3.7764554245716133`*^9, 3.776455461682213*^9, {
+   3.776455521683124*^9, 3.7764555443921843`*^9}, {3.776455581174239*^9, 
+   3.776455666733747*^9}},
+ CellLabel->
+  "Out[206]=",ExpressionUUID->"568b6966-e666-45c7-9590-dbce77368a6d"]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.776452712154683*^9, 3.776452716085034*^9}},
+ EmphasizeSyntaxErrors->
+  True,ExpressionUUID->"1eece399-560c-4da1-81aa-8528d6527474"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.7764507060993423`*^9, 3.776450716874338*^9}, {
+   3.776450867843088*^9, 3.776450872190778*^9}, {3.77645090767724*^9, 
+   3.7764509786301613`*^9}, {3.77645104143928*^9, 3.776451078543036*^9}, 
+   3.776451125317474*^9, {3.776451195376134*^9, 3.776451338473517*^9}, {
+   3.776451386853001*^9, 3.776451392750177*^9}, {3.776451440527157*^9, 
+   3.776451650074813*^9}, {3.7764516842230997`*^9, 3.776451686986786*^9}, {
+   3.776451726917659*^9, 3.7764517419430523`*^9}, {3.77645178910151*^9, 
+   3.776451822538952*^9}, {3.7764519666928043`*^9, 
+   3.776451969410884*^9}},ExpressionUUID->"c0cdd611-cf9d-4f61-9bf5-\
+3c99802c2930"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.776450754883535*^9, 3.776450756540786*^9}, 
+   3.7764539159253893`*^9},ExpressionUUID->"18e727d1-8759-4d8f-be8f-\
+b3e9dd54b6e0"]
+},
+WindowSize->{1881, 1025},
+WindowMargins->{{0, Automatic}, {0, Automatic}},
+Magnification:>1.1 Inherited,
+FrontEndVersion->"12.0 para Linux x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 316, 7, 36, "Input",ExpressionUUID->"355f97a1-a0b6-400f-aaac-5ff62ebc86cd"],
+Cell[877, 29, 1174, 32, 91, "Input",ExpressionUUID->"3621b1a5-4953-48be-a6d4-969babe0bd1d"],
+Cell[CellGroupData[{
+Cell[2076, 65, 864, 18, 64, InheritFromParent,ExpressionUUID->"fdf644fa-0f73-46c2-8dc0-26669b865daf"],
+Cell[2943, 85, 61650, 1103, 71, "Output",ExpressionUUID->"ba964c1e-013b-4e95-b775-0205836544bf"],
+Cell[64596, 1190, 70912, 1293, 71, "Output",ExpressionUUID->"a8f2d51e-61a8-460c-8c30-e92e4ba7bbf5"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[135545, 2488, 3912, 88, 550, "Input",ExpressionUUID->"eefa331c-df2e-4021-9233-ffa49e30f8a0"],
+Cell[139460, 2578, 526, 8, 40, "Output",ExpressionUUID->"188a9dd2-306c-449e-82ba-18cc7e638807"],
+Cell[139989, 2588, 519, 8, 97, "Output",ExpressionUUID->"568b6966-e666-45c7-9590-dbce77368a6d"]
+}, Open  ]],
+Cell[140523, 2599, 180, 3, 36, "Input",ExpressionUUID->"1eece399-560c-4da1-81aa-8528d6527474"],
+Cell[140706, 2604, 670, 10, 36, "Input",ExpressionUUID->"c0cdd611-cf9d-4f61-9bf5-3c99802c2930"],
+Cell[141379, 2616, 177, 3, 36, InheritFromParent,ExpressionUUID->"18e727d1-8759-4d8f-be8f-b3e9dd54b6e0"]
+}
+]
+*)
+
