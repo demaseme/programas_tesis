@@ -337,9 +337,9 @@ INPUT /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/chapt
 INPUT /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/chapters/abstract.tex
 INPUT /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/chapters/abstract_spa.tex
 INPUT /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/chapters/abstract_spa.tex
-INPUT /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/chapters/dedicatoria.tex
-INPUT /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/chapters/dedicatoria.tex
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti12.tfm
+INPUT /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/chapters/dedicatoria.tex
+INPUT /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/chapters/dedicatoria.tex
 INPUT /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/chapters/gracias.tex
 INPUT /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/chapters/gracias.tex
 INPUT /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/main.toc
@@ -347,6 +347,9 @@ INPUT /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/main.
 OUTPUT /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/main.toc
 INPUT /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/chapters/introduccion.tex
 INPUT /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/chapters/introduccion.tex
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss12.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
 INPUT /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/chapters/antecedentes.tex
 INPUT /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/chapters/antecedentes.tex
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
@@ -355,6 +358,9 @@ INPUT /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/image
 INPUT /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/g5vex.png
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm
@@ -370,9 +376,6 @@ INPUT /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/image
 INPUT /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/exdecom.png
 INPUT /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/exdecom.png
 INPUT /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/exdecom.png
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss12.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
 INPUT /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/exdrawk5.png
 INPUT /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/exdrawk5.png
 INPUT /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/exdrawk5.png
@@ -444,9 +447,6 @@ INPUT /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/image
 INPUT /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/k5coloring.png
 INPUT /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/k5coloring.png
 INPUT /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/k5coloring.png
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss10.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
 INPUT /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/exdoblecadena.png
 INPUT /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/exdoblecadena.png
 INPUT /home/dmerinos/Documents/CINVESTAV/Tesis/programas_tesis/latex/tesis/images/exdoblecadena.png

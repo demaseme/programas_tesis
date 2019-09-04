@@ -1,27 +1,38 @@
-La geometría combinatoria es el área de las matemáticas discretas y de la computación que estudian las
-propiedades combinatorias de objetos geométricos con propiedades discretas (puntos, planos, rectas o
-gráficas geo\hyp métricas). Está envuelta en problemas de coloración, simetría, partición y descomposición de
-dichos objetos geométricos. En este trabajo decimos que un dibujo o gráfica geométrica es un conjunto de
-puntos en el plano y un conjunto de rectas que conectan pares de puntos. Un thrackle es un subconjunto de
-dichas rectas tales que cada par de rectas se cruzan o tienen un extremo en común, un thrackle es máximo
-cuando tiene el máximo número de rectas. Dada una gráfica, si encontramos el número mínimo de thrackles, de
-algún dibujo de la gráfica, tales que cada thrackle tenga aristas únicas y la unión de los thrackles sea la
-gráfica original, habremos encontrado el anti-thickness geométrico de la gráfica dada. Encontrar el
-anti-thickness geométrico de una gráfica es un problema complejo si consideramos que una gráfica tiene un
-número infinito de dibujos. De hecho este problema es equivalente a encontrar el número cromático de una
-gráfica, el cual es un problema $NP$-difícil.
-Actualmente se conoce la cota inferior y la cota superior del anti-thickness
-geométrico para gráficas completas. La cota inferior se basa en contar cuántos thrackles son
-necesarios en un conjunto de tal manera se cumplan las condiciones antes mencionadas y la cota superior se
-basa en encontrar un conjunto de thrackles, que cumplen con las condiciones establecidas para el problema,
-de un dibujo de la gráfica completa cuando sus puntos están en posición convexa. Una cuestión a tomar en
-cuenta con la cota inferior es que asume que cada par de thrackles máximos no tienen aristas en común, lo
-cual no es cierto en posición convexa. En el caso de la cota superior debe notarse que el dibujo con el que
-se dio ese resultado está en posición convexa y esto no nos dice mucho acerca del anti-thickness geométrico
-cuando el dibujo de la gráfica está posición general no convexa. En esta tesis encontramos el
-anti-thickness geométrico exacto para gráficas completas con hasta diez vértices. Usamos algoritmos
-computacionales para buscar thrackles en dibujos de gráficas completas y observamos que cada par de
-thrackles máximos se intersecta en al menos una arista lo que nos permitió probar que la cota inferior no
-es justa para gráficas con hasta diez vértices. Además hicimos observaciones con respecto a otras
-propiedades geométricas de los thrackles y las gráficas completas como el número de cruce y la reflexividad
-de un conjunto de puntos.
+% La geometría combinatoria es el área de las matemáticas discretas y de la computación que estudian las
+% propiedades combinatorias de objetos geométricos con propiedades discretas (puntos, planos, rectas o
+% gráficas geo\hyp métricas). Está envuelta en problemas de coloración, simetría, partición y descomposición
+% de dichos objetos geométricos. En este trabajo decimos que un dibujo o gráfica geométrica es un conjunto de
+% puntos en el plano y un conjunto de rectas que conectan pares de puntos. Un thrackle es un subconjunto de
+% dichas rectas tales que cada par de rectas se cruzan o tienen un extremo en común, un thrackle es máximo
+% cuando tiene el máximo número de rectas. Dada una gráfica, si encontramos el número mínimo de thrackles, de
+% algún dibujo de la gráfica, tales que cada thrackle tenga aristas únicas y la unión de los thrackles sea la
+% gráfica original, habremos encontrado el anti-thickness geométrico de la gráfica dada. Encontrar el
+% anti-thickness geométrico de una gráfica es un problema complejo si consideramos que una gráfica tiene un
+% número infinito de dibujos. De hecho este problema es equivalente a encontrar el número cromático de una
+% gráfica, el cual es un problema $NP$-difícil.
+% Actualmente se conoce la cota inferior y la cota superior del anti-thickness
+% geométrico para gráficas completas. La cota inferior se basa en contar cuántos thrackles son
+% necesarios en un conjunto de tal manera se cumplan las condiciones antes mencionadas y la cota superior se
+% basa en encontrar un conjunto de thrackles, que cumplen con las condiciones establecidas para el problema,
+% de un dibujo de la gráfica completa cuando sus puntos están en posición convexa. Una cuestión a tomar en
+% cuenta con la cota inferior es que asume que cada par de thrackles máximos no tienen aristas en común, lo
+% cual no es cierto en posición convexa. En el caso de la cota superior debe notarse que el dibujo con el que
+% se dio ese resultado está en posición convexa y esto no nos dice mucho acerca del anti-thickness geométrico
+% cuando el dibujo de la gráfica está posición general no convexa. En esta tesis encontramos el
+% anti-thickness geométrico exacto para gráficas completas con hasta diez vértices. Usamos algoritmos
+% computacionales para buscar thrackles en dibujos de gráficas completas y observamos que cada par de
+% thrackles máximos se intersecta en al menos una arista lo que nos permitió probar que la cota inferior no
+% es justa para gráficas con hasta diez vértices. Además hicimos observaciones con respecto a otras
+% propiedades geométricas de los thrackles y las gráficas completas como el número de cruce y la reflexividad
+% de un conjunto de puntos.
+
+Sea $P$ un conjunto de $n$ puntos en el plano. Considere el conjunto $E$ de todos los segmentos de recta
+entre pares de puntos de $P$. Deseamos encontrar el mínimo número de subconjuntos de $E$ tales que cada par
+de segmentos del subconjunto se cruce o comparta un extremo y que además cada segmento pertenezca a
+exactamente un subconjunto. Minimizar el número de subconjuntos con estas condiciones para todos los
+conjuntos de $n$ puntos es un problema abierto en el área de la geometría combinatoria. El parámetro que
+mide dicho número de subsconjuntos se conoce como \emph{anti-thickness geométrico}. Actualmente existen
+cotas para el anti-thickness geométrico de gráficas completas; en este trabajo encontramos el anti-thickness
+geométrico exacto para conjuntos de hasta diez puntos en posición general cuyo valor es \[At_g(K_n) =n - \left\lfloor \sqrt{2n +\frac{1}{4}} - \frac{1}{2}\right\rfloor.\]
+
+Además, exploramos características geométricas de los conjuntos de puntos para encontrar una relación entre estas y el anti-thickness geométrico.

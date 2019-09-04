@@ -30,6 +30,11 @@ Arkin, E.~M., Mitchell, J. S.~B., Fekete, S.~P., Hurtado, F., Noy, M.,
 \newblock Berlin, Heidelberg: Springer Berlin Heidelberg.
 \newline\urlprefix\url{https://doi.org/10.1007/978-3-642-55566-4_6}
 
+\bibitem[{Bulnes(2017)}]{Bulnes2017}
+Bulnes, C. (2017).
+\newblock {\em Búsqueda de Crossing Families para Gráficas Geométricas\/}.
+\newblock mathesis, CINVESTAV.
+
 \bibitem[{Chartrand \& Zhang(2008)}]{Chartrand2008}
 Chartrand, G., \& Zhang, P. (2008).
 \newblock {\em Chromatic Graph Theory\/}.
@@ -41,11 +46,6 @@ Dillencourt, M.~B., Eppstein, D., \& Hirschberg, D.~S. (2004).
 \newblock Geometric thickness of complete graphs.
 \newblock In {\em Graph Algorithms And Applications 2\/}, (pp. 39--51). World
   Scientific.
-
-\bibitem[{Domínguez(2017)}]{Bulnes2017}
-Domínguez, C. A.~B. (2017).
-\newblock {\em Búsqueda de Crossing Families para Gráficas Geométricas\/}.
-\newblock mathesis, CINVESTAV.
 
 \bibitem[{Dujmovic \& Wood(2017)}]{Dujmovic2017}
 Dujmovic, V., \& Wood, D.~R. (2017).
