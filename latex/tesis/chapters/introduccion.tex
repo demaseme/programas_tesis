@@ -1,39 +1,46 @@
-Considere un dibujo de una gráfica o gráfica geométrica $\mathsf{G}$ como el par de conjuntos $P$, que es un conjunto de $n$ puntos en el plano, y el conjunto $E$ de segmentos de recta que conectan pares de puntos en el plano. Si $E$ contiene los segmentos de recta formados a partir de cada par de puntos de $P$ entonces decimos que $\mathsf{G}$ es completa. Un thrackle es un subconjunto de $E$ junto con los vértices correspondientes de cada segmento, tal que cada par de segmentos se cruza o tiene un extremo en común.
+Una gráfica geométrica $\mathsf{G}$ (o un dibujo de una gráfica) es el par de conjuntos $P$, que es un
+conjunto de $n$ puntos en el plano, y el conjunto $E$ de segmentos de recta que conectan pares de puntos de
+$P$. Si $E$ contiene todos los segmentos de recta formados a partir de cada par de puntos de $P$ entonces
+decimos que $\mathsf{G}$ es completa. Un thrackle es un subconjunto de $E$ junto con los puntos extremos
+correspondientes de cada segmento, tal que cada par de segmentos en el subconjunto se cruzan o tienen un
+extremo en común.
 
-El anti-thickness geométrico es el mínimo número de thrackles que existen, para todos los conjuntos posibles de $n$ puntos, de tal manera que cada segmento de $E$ pertenezca a exactamente un thrackle. Este parámetro se denota como $At_g(K_n)$.
+El anti-thickness geométrico es el mínimo número de thrackles que se requieren, para $n$ puntos, de tal
+manera que cada segmento de $E$ pertenezca a exactamente un thrackle. Este parámetro se denota como
+$At_g(K_n)$.
 
-En el trabajo de \cite{Dujmovic2017} se ofrecen varios resultados para distintos dibujos de una gráfica, y
-además las cotas del anti-thickness geométrico para el caso en el que los puntos de la gráfica completa
-están en posición general. Estas cotas son las siguientes:
+En el trabajo de \cite{Dujmovic2017} se ofrecen varios resultados para distintas clases de dibujos
+gráficas, y además  se presentan cotas para el anti-thickness geométrico. Estas cotas son las siguientes:
 \[ \frac{n-1}{2} \leq At_g(K_n) \leq n - \left\lfloor\sqrt{2n + \frac{1}{4}}- \frac{1}{2}\right\rfloor.\]
 
-La cota superior proviene de resultado obtenido para el anti-thickness geométrico cuando los puntos están
-en posición convexa mientras que la cota inferior proviene del hecho de que un thrackle con el máximo
-número de aristas tiene a lo más $n$ aristas. Sin embargo, para dar la cota inferior se asume que cada par
-de thrackles con el máximo número de aristas no comparten ni una arista. Esto no es verdad en posición
-convexa, lo cual da lugar para cuestionarnos si en realidad esta cota es justa para posición general.
-El anti-thickness geométrico ha sido estudiado con anterioridad, para gráficas geométricas completas cuyos
-vértices están en posición convexa, denotamos a esta variación del problema como $At_c(K_n)$. En el trabajo de \cite{Fabila-Monroy2018} prueban que \[At_c(K_n) = n - \left\lfloor\sqrt{2n + \frac{1}{4}}-
-\frac{1}{2}\right\rfloor.\]
+La cota superior proviene de un resultado obtenido para el anti-thickness geométrico cuando los puntos están
+en posición convexa~\cite{Fabila-Monroy2018} mientras que la cota inferior proviene del hecho de que un
+thrackle con el máximo número de aristas tiene a lo más $n$ aristas. Para dar la cota inferior se supuso
+que cada par de thrackles con el máximo número de aristas no comparten aristas. Esto no es verdad en
+posición convexa, lo cual da lugar para cuestionarnos qué tan justa es esta cota. El anti-thickness
+geométrico ha sido estudiado con anterioridad, para gráficas geométricas completas cuyos vértices están en
+posición convexa, denotamos a esta variante del problema como $At_c(K_n)$. En el trabajo de
+\cite{Fabila-Monroy2018} prueban que
+\[At_c(K_n) = n - \left\lfloor\sqrt{2n + \frac{1}{4}}- \frac{1}{2}\right\rfloor.\]
 
-Además, en el trabajo de \cite{Lomeli2018} encuentran el anti-thickness geométrico de una configuración de
-puntos conocida como la doble cadena convexa, este trabajo es interesante ya que trabajan con puntos que no
-están en posición convexa. Ellos denotan la doble cadena convexa como $K_{k,l}$. Los autores
-demuestran que el anti-thickness, $At_g(K_{k,l})$ de la doble cadena convexa es \[ At_g(K_{k,l}) = k+l
--\left\lfloor\sqrt{2l + \frac{1}{4}} -\frac{1}{2}\right\rfloor. \]
+Además, en el trabajo de \cite{Lomeli2018} encuentran el anti-thickness geométrico de una familia de
+configuraciones de puntos conocida como doble cadena convexa. La doble cadena convexa se denota como
+$K_{k,l}$. Los autores demuestran que el anti-thickness de la doble cadena convexa. $At_g(K_{k,l})$, es
+\[ At_g(K_{k,l}) = k+l -\left\lfloor\sqrt{2l + \frac{1}{4}} -\frac{1}{2}\right\rfloor. \]
 
-En esta tesis encontramos que el anti-thickness geométrico $At_g(K_n)$ de una gráfica completa es
-$At_g(K_n) = n - \left\lfloor\sqrt{2n + \frac{1}{4}}- \frac{1}{2}\right\rfloor$ para $n\leq 10$. Nosotros
-analizamos los dibujos rectilíneos con hasta diez puntos para buscar conjuntos de thrackles usando
+En esta tesis encontramos que, para $n\leq 10$, el anti-thickness geométrico $At_g(K_n)$ de una gráfica
+completa es $At_g(K_n) = n - \left\lfloor\sqrt{2n + \frac{1}{4}}- \frac{1}{2}\right\rfloor$ . Nosotros
+analizamos los dibujos rectilíneos con hasta diez puntos para buscar thrackles usando
 algoritmos exhaustivos. También encontramos dibujos rectilíneos cuyos puntos no están en posición convexa
 y cuyo anti-thickness coincide con el anti-thickness convexo. Adicionalmente
-analizamos tres parámetros geométricos de estos dibujos para tratar de clasificarlos. Encontramos una
-relación entre dichos parámetros y el anti-thickness geométrico de la gráfica completa. Asimismo
-encontramos el anti-thickness exacto de dibujos rectilíneos en los que no existen thrackles con $n$ aristas.
+analizamos tres parámetros geométricos de estos dibujos para tratar de entender su estructura. Asimismo
+encontramos el anti-thickness exacto de dibujos rectilíneos en los que no existen thrackles con $n$
+aristas. Para estos dibujos, el anti-thickness es mayor en una unidad que el anti-thickness de $K_n$. Este
+resultado coincide con el anti-thickness de la doble cadena convexa, nótese que la doble cadena convexa con
+$n$ puntos no tiene thrackles con $n$ aristas.
 
 El anti-thickness geométrico ha sido estudiado, como mencionamos anteriormente, para conjuntos en posición
-convexa y para la doble cadena convexa. Las propiedades combinatorias de estas configuraciones no dependen
-de la posición de los puntos sino del tamaño del conjunto. En este sentido, los resultados actuales del
+convexa y para la doble cadena convexa. En este sentido, los resultados actuales del
 anti-thickness geométrico están restringidos a estas dos configuraciones de puntos. Hasta el momento, no
 hay resultados acerca del anti-thickness geométrico en posición general a parte de las cotas mencionadas
 antes. Por ello, resulta interesante estudiar el anti-thickness geométrico para conjuntos de puntos en
@@ -42,8 +49,8 @@ algoritmos exhaustivos. Este enfoque resulta nuevo para este problema ya que no 
 éstas técnicas. Nosotros nos enfocamos en conjuntos con hasta diez puntos ya que los datos que usamos para
 este estudio, proveidos en el trabajo de~\cite{Aichholzer2001}, son para conjuntos con este tamaño como
 máximo. Además, el número de conjuntos de puntos para cada $n$ crece de manera exponencial, examinarlos de
-manera exhaustiva requeriría una amplia cantidad de tiempo de computo. Por ello decidimos restringir la
-búsqueda para conjuntos con hasta diez puntos. Sin embargo, estos resultados podrían clarificar los
+manera exhaustiva requeriría una considerable cantidad de tiempo de computo. Por ello decidimos restringir
+la búsqueda para conjuntos con hasta diez puntos. Sin embargo, estos resultados podrían clarificar los
 resultados acerca del anti-thickness geométrico para valores más grandes de $n$.
 
 % Para dar un resultado acerca de un parámetro como el anti-thickness es necesario encontrar propiedades que
@@ -53,7 +60,7 @@ resultados acerca del anti-thickness geométrico para valores más grandes de $n
 % resulta nuevo para la búsqueda del anti-thickness geométrico ya que, como mencionamos anteriormente, este
 % problema ha sido atacado usando herramientas geométricas. Nuestros resultados, a pesar de que son para
 % conjuntos pequeños de puntos, ayudan a entender cómo se comporta el anti-thickness geométrico para puntos
-% en posición general dando un panorama para conjuntos más grandes de puntos.
+% en posición proveídosando un panorama para conjuntos más grandes de puntos.
 La tesis está organizada de la siguiente manera. En el capítulo 1 se explican
 a detalle y de manera más formal las definiciones que usamos en este trabajo y que
 son necesarias para entender el desarrollo de la tesis. En el capítulo 2 hacemos un recuento de los
