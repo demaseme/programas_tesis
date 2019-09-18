@@ -38,6 +38,8 @@ int main( int argc, char * argv[]){
   for(int i = 0; i < rows; i++) dmatrix[i] = (int *)malloc(cols * sizeof(int));
   load_ot_file(ot_file_name,ordertypes);
   std::chrono::high_resolution_clock::time_point totalt1 = chrono::high_resolution_clock::now();
+  std::ofstream myfile;
+  myfile.open ("example.csv");
   while ( ot_ind < (int)ordertypes.size() ){
       points.resize(n);
       loadPoints(n,ordertypes[ot_ind],points);
@@ -52,14 +54,27 @@ int main( int argc, char * argv[]){
       //for(int i = 0; i < n;i++) startingThrackle.push_back(i);
       //find_next_thrackle(dmatrix,cols,startingThrackle,startingThrackle,n,false);
       //printVectorInt(startingThrackle);
-      exhaustive_at(dmatrix, cols, n, startingThrackle, 0,0);
+      vector<vector<int>>  thrackle_list;
+      exhaustive_at(dmatrix, cols, n, startingThrackle, 0,0,thrackle_list);
+
+      //myfile << "This is the first cell in the first column.\n";
+      myfile << ordertypes[ot_ind] <<",\"";
+      for(int i = 0; i < (int) thrackle_list.size();i++){
+
+          for( int j = 0; j < (int) thrackle_list[i].size() ; j++){
+              myfile << thrackle_list[i][j] << " ";
+          }
+          myfile << "\n";
+      }
+      myfile << "\"\n";
       //printf("AT: %d\n",minAt);
       printf("%d %d %d\n",n,ordertypes[ot_ind],minAt);
       points.clear();
       ot_ind++;
       minAt = 9999;
-      freeMatrix(dmatrix,rows);
+      //freeMatrix(dmatrix,rows);
   }
+  myfile.close();
   std::chrono::high_resolution_clock::time_point totalt2 = chrono::high_resolution_clock::now();
   chrono::duration<double, std::milli> time_span_total = totalt2 - totalt1;
   cout << "It took me " << time_span_total.count() << " milliseconds.\n";

@@ -399,11 +399,11 @@ int readPoints_bin(int n, string file_name, vector<Point> & vPoints, int otypes)
     return 1;
 }
 //Reads a file of binary points and stores it on vector vPoints.
-int readPoints(int n, string file_name, vector<Point> & vPoints){
+/* int readPoints(int n, string file_name, vector<Point> & vPoints){
     ifstream input(file_name, std::ios::binary);
     if(input.fail()) return 1;
     // copies all data into buffer
-    //Stored as unsigned int. Arithmetic operations (+-*/) can be used! :)
+    //Stored as unsigned int. Arithmetic operations (+-* /) can be used! :)
     //Can be treated as signed int or unsigned int.
     vector< unsigned char> buffer (std::istreambuf_iterator<char>(input), {});
     //Copying each pair of binary points to a vector of Point objects
@@ -435,3 +435,4 @@ int readPoints(int n, string file_name, vector<Point> & vPoints){
     // }
     return 0;
 }
+*/
