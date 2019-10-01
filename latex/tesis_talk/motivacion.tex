@@ -77,20 +77,40 @@ Nosotros llamamos gráfica de cruce $E_{pp}(S)$ a la gráfica de adyacencia en l
 \end{frame}
 
 \begin{frame}{Gráficas de adyacencia}
-\begin{figure}
-	\centering
-	\includegraphics[width=0.2\textwidth]{images/K5}%
-	~\vrule
-	\includegraphics[width=0.2\textwidth]{images/K5}%
-	~\vrule
-	\includegraphics[width=0.2\textwidth]{images/K5}%
-\end{figure}
-Existen otras gráficas de adyacencia, si consideramos otro criterio para definir las aristas de la gráfica de adyacencia podemos obtener diferentes resultados.
-\begin{itemize}
-	\item $W(S)$: Existe una arista entre dos vértices si las aristas correspondientes comparten un vértice o son disjuntas. Las clases cromáticas son \emph{crossing families}.
-	\item $I(S)$: Existe una arista entre dos vértices si las aristas correspondientes se intersectan. Las clases cromáticas son \emph{emparejamientos planos}.
-	\item $D(S)$: Existe una arista entre dos vértices si las aristas correspondientes son disjuntas. Las clases cromáticas son \emph{thrackles}.
-\end{itemize}
-
-
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.2\textwidth]{images/K5}%
+		~\vrule
+		\includegraphics[width=0.2\textwidth]{images/K5}%
+		~\vrule
+		\includegraphics[width=0.2\textwidth]{images/K5}%
+	\end{figure}
+	Existen otras gráficas de adyacencia, si consideramos otro criterio para definir las aristas de la gráfica de adyacencia podemos obtener diferentes resultados.
+	\begin{itemize}
+		\item $W(S)$: Existe una arista entre dos vértices si las aristas correspondientes comparten un vértice o son disjuntas. Las clases cromáticas son \emph{crossing families}.
+		\item $I(S)$: Existe una arista entre dos vértices si las aristas correspondientes se intersectan. Las clases cromáticas son \emph{emparejamientos planos}.
+		\item $D(S)$: Existe una arista entre dos vértices si las aristas correspondientes son disjuntas. Las clases cromáticas son \emph{thrackles}.
+	\end{itemize}
 \end{frame}
+\setbeamercovered{invisible}
+\begin{frame}{Descomposiciones de gráficas}
+		En 2005, Urrutia \emph{et al.} estudiaron: \[\max\{\chi(G(S)): S \subset \mathbb{R}^2 \text{ está en posición general, |S|=n} \}\] donde $G(S)$ es cada una de las gráficas $W(S),I(S),D(S)$. Ellos probaron cotas para estos parámetros. En otras palabras buscan el máximo número de crossing families, emparejamientos planos y thrackles necesarios en una descomposición de $K_n$.
+		\pause
+		\\[6pt]
+		Nótese que podemos definir el thickness geométrico como:
+		\[ \min\{ \chi(E_{pp}(S)) : S \subset \mathbb{R}^2 \text{ está en posición general, |S|=n}\} \]
+\end{frame}
+\begin{frame}{Descomposiciones de gráficas (Book thickness)}
+	Una variante del problema del thickness se basa en colocar los puntos de la gráfica completa sobre un espacio geométrico diferente del plano, específicamente sobre una recta que es compartida por un número finito de semiplanos. 
+	\pause
+	\begin{center}
+	\includegraphics[width=0.4\linewidth]{images/book}
+	\pause
+	\quad
+	\includegraphics[width=0.4\linewidth]{images/book-thickness}
+	\end{center}
+\end{frame}
+
+
+
+
