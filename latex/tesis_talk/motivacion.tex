@@ -102,13 +102,47 @@ Nosotros llamamos gráfica de cruce $E_{pp}(S)$ a la gráfica de adyacencia en l
 \end{frame}
 \begin{frame}{Descomposiciones de gráficas (Book thickness)}
 	Una variante del problema del thickness se basa en colocar los puntos de la gráfica completa sobre un espacio geométrico diferente del plano, específicamente sobre una recta que es compartida por un número finito de semiplanos. 
-	\pause
 	\begin{center}
-	\includegraphics[width=0.4\linewidth]{images/book}
-	\pause
-	\quad
-	\includegraphics[width=0.4\linewidth]{images/book-thickness}
+		\only<1-3>{\includegraphics[width=0.4\linewidth]{images/book}}
+		\only<2-3>{\includegraphics[width=0.4\linewidth]{images/book-thickness}}
 	\end{center}
+	\only<3>{
+	\begin{itemize}
+		\item El book-thickness es igual al thickness en posición convexa.
+	\end{itemize}
+	}	
+\end{frame}
+\begin{frame}
+	\frametitle{Otras decomposiciones de gráficas}
+	Solo en el plano:
+	\begin{itemize}
+		\item Bosques
+		\begin{itemize}
+			\item Star arboricity
+			\item Linear arboricity
+		\end{itemize}
+		\item Hamiltoninan decomposition of complete graphs
+		\item Cycle decomposition of complete graphs.
+		\item \emph{Thrackles}
+	\end{itemize}
+	\begin{figure}
+		\centering
+		\includegraphics[width=1\linewidth]{images/other_decompositions}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Anti-thickness geométrico}
+\begin{itemize}
+	\item Un \emph{thrackle geométrico} es un thrackle en el que cada arista es un segmento de recta.
+	\item[] Sea $G$ una gráfica. El \emph{anti-thickness geométrico} mide cuántos thrackles geométricos existen, como mínimo y para todos los dibujos de $G$, en una descomposición por thrackles geométricos de $G$.
+\end{itemize}
+
+\end{frame}
+\begin{frame}{Anti-thickness geométrico y el número cromático}
+Recordemos que $\chi(D(S))$ nos indica cuántos thrackles geométricos hay en una descomposición de la gráfica completa inducida por $S$. 
+\[
+\min\{ \chi(D(S)) : S \subset \mathbb{R}^2, |S| = n \}
+\] nos indica el mínimo numero de thrackles geométricos para todos los dibujos de alguna gráfica inducida por $S$, esto es, el anti-thickness geométrico.
 \end{frame}
 
 
