@@ -68,6 +68,14 @@ aristas entre pares de vértices de $V$.
 	\caption{En esta gráfica geométrica $V=\{p_1,p_2,p_3,p_4,p_5\}$ y $E=\{(p_1,p_2),(p_1,p_3),\dots,(p_4,p_5)\}			$. Esta gráfica geométrica es completa.}
 \end{figure}
 \end{frame}
+\begin{frame}
+\frametitle{Descomposición de una gráfica}
+Una descomposición de una gráfica $G=(V,E)$ es una partición del conjunto de aristas $E$ de $G$, denotado $E(G)$, en un conjunto $\mathcal{D} = \{g_1,g_2,\dots,g_k \}$ de subgráficas de $G$ de tal manera que cada elemento de $E(G)$ está en solamente un elemento de $\mathcal{D}$.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.4\linewidth]{images/decomposition_example}
+\end{figure}
+\end{frame}
 \begin{frame}\frametitle{Thickness Geométrico}
 	\begin{itemize}
 		\item[] Entonces podemos definir el thickness $\theta(G)$ de una gráfica $G$ como el mínimo número de gráficas planares en una descomposición de $G$. 
@@ -185,8 +193,14 @@ Es posible codificar la información de los cruces de las aristas de una gráfic
 \end{frame}
 
 \begin{frame}{Anti-thickness geométrico}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.35\linewidth]{images/thrackle_5}
+	~\vrule~
+	\includegraphics[width=0.3\linewidth]{images/thrackle_9}
+\end{figure}
 \begin{itemize}
-	\item Un \emph{thrackle geométrico} es un thrackle en el que cada arista es un segmento de recta.
+	\item Un \emph{thrackle} es una gráfica geométrica en el que cada par de aristas se cruza o comparten un extremo.
 	\item[] Sea $G$ una gráfica. El \emph{anti-thickness geométrico} mide cuántos thrackles geométricos existen, como mínimo y para todos los dibujos de $G$, en una descomposición por thrackles geométricos de $G$.
 \end{itemize}
 
@@ -194,8 +208,11 @@ Es posible codificar la información de los cruces de las aristas de una gráfic
 \begin{frame}{Anti-thickness geométrico y el número cromático}
 Recordemos que $\chi(D(S))$ nos indica cuántos thrackles geométricos hay en una descomposición de la gráfica completa inducida por $S$. 
 \[
-\min\{ \chi(D(S)) : S \subset \mathbb{R}^2, |S| = n \}
+\min\{ \chi(D(S)) : S \subset \mathbb{R}^2\text{ está en posición general}, |S| = n \}
 \] nos indica el mínimo numero de thrackles geométricos para todos los dibujos de alguna gráfica inducida por $S$, esto es, el anti-thickness geométrico.
+\pause
+\\[10pt]
+Notación de anti-thickness geométrico de $K_n$: $At_g(K_n)$.
 \end{frame}
 
 
