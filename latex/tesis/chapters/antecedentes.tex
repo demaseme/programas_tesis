@@ -1,5 +1,4 @@
-En este capítulo damos algunas definiciones necesarias para presentar lo que
-se conoce como descomposición de gráficas completas en thrackles. Este
+En este capítulo damos algunas definiciones necesarias para presentar la descomposición de gráficas completas en thrackles. Este
 es el principal problema que se trata en esta tesis.
 Empezamos estableciendo conceptos relacionados con gráficas abstractas y después
 hablaremos de gráficas en el plano, posteriormente explicamos el concepto de tipo de orden y cómo
@@ -15,7 +14,7 @@ y por un conjunto $E$, de parejas de elementos de $V$, a los que llamamos \emph{
 a la arista $e$ compuesta por los vértices $u$ y $v$ como $(u,v)$. Para describir a la gráfica $G$
 compuesta por el conjunto $V$ de vértices y el conjunto $E$ de aristas escribimos $G=(V,E)$.
 Para referirnos al conjunto de vértices de $G$ escribimos $V(G)$ y para referirnos
-al conjunto de aristas de $G$ escribimos $E(G)$. En la figura~\ref{fig:g5vex} presentamos
+al conjunto de aristas de $G$ escribimos $E(G)$. En la Figura~\ref{fig:g5vex} presentamos
 un ejemplo de una gráfica.
 
 \begin{figure}[t]
@@ -34,15 +33,15 @@ un ejemplo de una gráfica.
 % \end{figure}
 Decimos que \emph{dos vértices $u,v\in V(G)$ son adyacentes} si existe la arista
 $(u,v)\in E(G)$. Decimos que \emph{dos aristas $e_1,e_2 \in E(G)$ son adyacentes}
-si inciden en el mismo vértice. La figura~\ref{fig:g5vex} ilustra
+si inciden en el mismo vértice. La Figura~\ref{fig:g5vex} ilustra
 un ejemplo de estos conceptos.
 Una gráfica es \emph{completa} si cada pareja de vértices
 en la gráfica es adyacente. Mostramos un ejemplo de adyacencia de
-aristas en la figura~\ref{fig:g5vex} y un ejemplo de una gráfica completa en la figura~\ref{fig:excomplete}.
+aristas en la Figura~\ref{fig:g5vex} y un ejemplo de una gráfica completa en la Figura~\ref{fig:excomplete}.
 Para denotar una gráfica completa con $n$
 vértices escribimos $K_n$. Una gráfica $G$ es \emph{bipartita} si es posible
 dar una partición\footnote{Una partición $P$ de un conjunto $X$ es
-una colección de subconjuntos que cumplen lo siguiente:
+una colección de subconjuntos de $X$ que cumplen lo siguiente:
 \begin{itemize}
 \item Ningún elemento de $P$ es el conjunto vacío.
 \item La unión de todos los elementos de $P$ es exactamente el conjunto $X$.
@@ -50,7 +49,7 @@ una colección de subconjuntos que cumplen lo siguiente:
 \end{itemize} }
 de $V(G)$ en dos subconjuntos $U$ y $W$ de tal manera que cada
 arista de $G$ tenga un extremo en $U$ y otro extremo en $W$. Presentamos
-un ejemplo de gráfica bipartita en la figura~\ref{fig:exbipar}.
+un ejemplo de gráfica bipartita en la Figura~\ref{fig:exbipar}.
 \begin{figure}[htb]
   \centering
   \includegraphics[width=.4\linewidth]{excomplete}
@@ -77,7 +76,7 @@ que $e\in E(G)$.
 
 Nótese que, en otras palabras, las subgráficas de la colección son disjuntas en
 aristas y su unión cubre a $E(G)$.
-La figura~\ref{fig:exdecom} ilustra un ejemplo de una descomposición de la
+La Figura~\ref{fig:exdecom} ilustra un ejemplo de una descomposición de la
 gráfica $K_4$.
 \begin{figure}[htbp]
   \centering
@@ -121,7 +120,7 @@ $E(\mathsf{G})$, y les llamamos aristas.
 Cuando restringimos las curvas que representan a las aristas del dibujo de $G$
 a segmentos de recta, llamamos al dibujo de la gráfica \emph{gráfica
 geométrica}. Una gráfica geométrica es completa si existe un segmento de recta
-entre cada par de vértices de $V(\mathsf{G})$. En la figura~\ref{fig:exdrawk5}
+entre cada par de vértices de $V(\mathsf{G})$. En la Figura~\ref{fig:exdrawk5}
 mostramos un dibujo de $K_5$ y una gráfica geométrica de $K_5$. Sea $S$ un
 conjunto de $n$ puntos en posición general en el plano y sea $\mathsf{G}$
 una gráfica geométrica de $G$. Decimos que $\mathsf{G}$ está definida sobre $S$
@@ -146,7 +145,7 @@ que dos aristas $e_1, e_2 \in E(\mathsf{G})$ son \emph{adyacentes} si comparten
 un vértice. En este trabajo decimos que dos aristas de una gráfica geométrica se
 \emph{intersectan} si son adyacentes o si se cruzan.
 Mostramos un ejemplo de intersección de aristas en la
-figura~\ref{fig:exintersection}.
+Figura~\ref{fig:exintersection}.
 \begin{figure}[htpb]
   \centering
   \includegraphics[width=0.2\linewidth]{exintersection}
@@ -169,12 +168,12 @@ formalmente qué son los thrackles.
 \subsection{Thrackles} \label{seccion_thrackles}
 Sea $\mathsf{G}$ un dibujo de una gráfica $G$. Decimos que $\mathsf{G}$ es un
 \emph{thrackle} si cada par de aristas se intersecta exactamente una vez. La
-figura~\ref{fig:exmaxth} ilustra un ejemplo de thrackle.
+Figura~\ref{fig:exmaxth} ilustra un ejemplo de thrackle.
 Los thrackles fueron definidos por John Conway en la década de
 1960~(\cite{Pach2013}). Conway también conjeturó que el número de aristas en un
 thrackle no puede exceder el número de sus vértices~(\cite{Fulek2011}).
 Un thrackle de $n$ vértices es \emph{máximo} si tiene exactamente
-$n$ aristas. La figura~\ref{fig:exmaxth} muestra un thrackle máximo.
+$n$ aristas. La Figura~\ref{fig:exmaxth} muestra un thrackle máximo.
 
 \begin{figure}[htpb]
   \centering
@@ -197,7 +196,7 @@ $n$ aristas. La figura~\ref{fig:exmaxth} muestra un thrackle máximo.
   \caption{Un thrackle geométrico con cinco vértices.}
   \label{fig:exthgeo}
 \end{subfigure}
-\caption{Ambas figuras ilustran thrackles definidos sobre el mismo conjunto de
+\caption{Ambas Figuras ilustran thrackles definidos sobre el mismo conjunto de
 puntos. En los dos casos el thrackle dibujado es máximo.}
 \label{fig:exthgeotop}
 \end{figure}
@@ -216,7 +215,7 @@ de subgráficas geométricas que cumple con tres condiciones:
 
 Un thrackle en el que todas sus aristas son segmentos de recta es conocido como
 \emph{thrackle geométrico}(\cite{Schaefer2018}). En la
-figura~\ref{fig:exthgeotop} presentamos un ejemplo de thrackle y un ejemplo de
+Figura~\ref{fig:exthgeotop} presentamos un ejemplo de thrackle y un ejemplo de
 thrackle geométrico. En este trabajo nos referimos a los thrackles geométricos
 como thrackles ya que solo estudiamos descomposiciones de gráficas con
 thrackles geométricos.
@@ -231,7 +230,7 @@ Además definimos la intersección entre dos thrackles como sigue:
 \end{definition}
 
 Decimos que dos thrackles $T_i$ y $T_j$ son disjuntos cuando $T_i\cap T_j = \emptyset$. Además, decimos que
-un thrackle $T$ es de \emph{tamaño} $k$ si $E(T)=k$.
+un thrackle $T$ es de \emph{tamaño} $k$ si $|E(T)|=k$.
 
 En este trabajo representamos un thrackle $T$ de tamaño $k$ con una tupla de enteros positivos
 $\{e_1,e_2,\dots,e_k\}$ tales que $e_1 < e_2 < \dots < e_k$. Decimos que $T=\{e_1,e_2,\dots,e_k\}$ tiene a
@@ -268,12 +267,12 @@ derecha del segmento dirigido $\overline{pq}$. Si $w$ está a la izquierda
 de dicho segmento entonces $(p,q,w)$ está orientada en sentido anti-horario.
 Si la tripleta está orientada en sentido horario asignamos a esa tripleta el
 valor $-1$. Si la tripleta está orientada en sentido anti-horario asignamos a
-esa tripleta el valor $+1$. En la figura~\ref{fig:triplet} mostramos un ejemplo
+esa tripleta el valor $+1$. En la Figura~\ref{fig:triplet} mostramos un ejemplo
 de cada orientación posible para una tripleta.
 \begin{figure}[htpb]
   \centering
   \includegraphics[width=0.30\linewidth]{triplet}
-  \caption{Esta figura muestra las posibles orientaciones de una tripleta de
+  \caption{Esta Figura muestra las posibles orientaciones de una tripleta de
   puntos. La tripleta $\{p,q,w\}$ tiene asignado el valor de $(-1)$ porque $w$
   está orientado en sentido horario con respecto del segmento $\overline{pq}$.
   La tripleta $\{p,q,u\}$ tiene asignado el valor de $(+1)$  porque $u$ está
@@ -289,16 +288,16 @@ $\{p_i,p_j,p_k\}$.
 
 %FALTA DISCUTIR LA RELACIÓN DON DESCOMPOSICIONES DE GRÁFICAS GEOMÉTRICAS.
 Decimos que dos conjuntos $S_1$ y $S_2$ son \emph{combinatoriamente
-equivalentes} si tienen el mismo tipo de orden de otra forma, si no son
+equivalentes} si tienen el mismo tipo de orden, si no son
 equivalentes decimos que son \emph{combinatoriamente distintos}. Si $S_1$ y
 $S_2$ son combinatoriamente equivalentes dos segmentos en $S_1$ se cruzan si y
 solo si los segmentos correspondientes en $S_2$ se cruzan. Solo hay una manera
 (combinatoriamente equivalente) de acomodar tres puntos,
 dos maneras de acomodar cuatro puntos y tres maneras de acomodar cinco puntos.
-En la figura~\ref{fig:exotk34} ilustramos los diferentes tipos de orden
-para conjuntos de tres y cuatro puntos. En la figura~\ref{fig:exotk5}
+En la Figura~\ref{fig:exotk34} ilustramos los diferentes tipos de orden
+para conjuntos de tres y cuatro puntos. En la Figura~\ref{fig:exotk5}
 presentamos conjuntos combinatoriamente equivalentes de cinco puntos. En la
-figura~\ref{fig:ot5} mostramos los diferentes tipos de orden para un conjunto
+Figura~\ref{fig:ot5} mostramos los diferentes tipos de orden para un conjunto
 de cinco puntos.
 
 \begin{figure}[htpb]
@@ -321,8 +320,8 @@ de cinco puntos.
   \centering
   \includegraphics[width=0.8\linewidth]{ot5}
   \caption{Las tres maneras diferentes de distribuir 5 puntos en el plano.
-  Cualquier otra configuración es equivalente a alguna de estas tres
-  configuraciones.}
+  Cualquier otra conFiguración es equivalente a alguna de estas tres
+  conFiguraciones.}
   \label{fig:ot5}
 \end{figure}
 
@@ -334,13 +333,13 @@ posición convexa y un punto dentro del $(n-1)$-ágono y evaluar de cuántas
 maneras combinatoriamente distintas es posible colocar un punto dentro del
 polígono. Posteriormente podemos ver que pasa con $n-2$ puntos en posición
 convexa y dos dentro del $(n-2)-$ágono y así sucesivamente hasta que tengamos 3
-puntos en posición convexa y $n-(n-3)$ dentro del triángulo. En la figura
+puntos en posición convexa y $n-(n-3)$ dentro del triángulo. En la Figura
 ~\ref{fig:exotk6} explicamos una parte de este proceso. Usando una técnica
 parecida se sabe que para $n=10$ hay más de 14 millones de tipos de orden.
 \begin{figure}[htpb]
   \centering
   \includegraphics[width=0.5\linewidth]{exotk6}
-  \caption{La figura ilustra las diferentes maneras de colocar un punto
+  \caption{La Figura ilustra las diferentes maneras de colocar un punto
   dentro de un pentágono, para formar un conjunto de 6 puntos en total.
   Hay al menos 3 formas diferentes de colocar dicho punto, 1) es posible
   ponerlo dentro del pentágono pero fuera del polígono en forma de estrella
@@ -391,12 +390,12 @@ Las siguientes definiciones fueron tomadas de~\cite{Dujmovic2017}.
   existe una partición de $E(G)$, de tamaño $k$, en la que cada elemento de la
   partición es una gráfica thrackleable.
 \end{definition}
-La figura~\ref{fig:exantithickness} ilustra un ejemplo del anti-thickness de
+La Figura~\ref{fig:exantithickness} ilustra un ejemplo del anti-thickness de
 $K_5$.
 \begin{figure}[htpb]
   \centering
   \includegraphics[width=0.7\linewidth]{exantithickness}
-  \caption{La figura muestra a $K_5$ a la izquierda y a la derecha dos thrackles
+  \caption{La Figura muestra a $K_5$ a la izquierda y a la derecha dos thrackles
   cuya unión es $K_5$. Consideremos las aristas de la gráfica completa inducida por los vértices $1,2,3,4$,
   estas aristas inducen un thrackle mientras que las aristas con un extremo en el vértice $5$ inducen otro thrackle.
   El anti-thickness de $K_5$ es precisamente igual a dos. Este resultado se discute en el capítulo de resultados.}
@@ -416,13 +415,13 @@ elemento de la partición tiene uno o más dibujos, mientras que en la partició
 que realiza el anti-thickness geométrico de la gráfica, cada elemento es una
 subgráfica geométrica del dibujo original.
 
-En la figura~\ref{fig:exantithicknessgeo} damos un ejemplo del anti-thickness
+En la Figura~\ref{fig:exantithicknessgeo} damos un ejemplo del anti-thickness
 geométrico de $K_5$.
 \begin{figure}[htpb]
   \centering
   \includegraphics[width=0.6\linewidth]{exantithicknessgeo}
-  \caption{En esta figura podemos observar una descomposición de $K_5$ en 3
-  thrackles geométricos. Esta descomposición se muestra en la figura del lado
+  \caption{En esta Figura podemos observar una descomposición de $K_5$ en 3
+  thrackles geométricos. Esta descomposición se muestra en la Figura del lado
   derecho, cada thrackle está dibujado con diferentes patrones de línea. El
   anti-thickness geométrico de $K_5$ es exactamente tres, esto es demostrado en
   la sección de resultados.} %FALTA CITAR <<<<<<<<<<<<<<<<<<<<<<<
@@ -457,8 +456,8 @@ conjunto de vértices de $G$ que tienen el color $i$ asignado, llamamos a $V_i$
 una \emph{clase cromática} de $G$. El conjunto $\{V_1,V_2,\dots,V_k\}$ genera
 una partición en conjuntos independientes de los vértices de $G$.
 
-Una gráfica $G$ es \emph{k-colorable} si existe una coloración propia de $G$ de
-tamaño $k$. El entero positivo $k$ más pequeño para el cual $G$ es
+Una gráfica $G$ es \emph{k-colorable} si existe una coloración propia de $G$ con $k$
+colores. El entero positivo $k$ más pequeño para el cual $G$ es
 $k$-colorable recibe el nombre de \emph{número cromático} de $G$. Lo denotamos
 como $\chi(G)$.
 
@@ -468,15 +467,14 @@ como $\chi(G)$.
 % de $G$ es el mínimo número de conjuntos independientes que pueden existir en una partición
 % de $V(G)$.
 
-La figura~\ref{fig:excoloring} muestra un ejemplo de una coloración propia de
+La Figura~\ref{fig:excoloring} muestra un ejemplo de una coloración propia de
 una gráfica $G$. En este ejemplo ilustramos cada clase cromática dibujando los
 vértices con diferentes colores representados por una cruz, un círculo y un
 cuadrado.
 \begin{figure}[htpb]
   \centering
   \includegraphics[width=0.25\linewidth]{excoloring}
-  \caption{Una coloración propia de una gráfica $G$. Esta coloración es de
-  tamaño 3, por lo tanto decimos que es una 3-coloración de $G$. Para esta
+  \caption{Una coloración propia de una gráfica $G$. Esta coloración usa tres colores, por lo tanto decimos que es una 3-coloración de $G$. Para esta
   gráfica en particular no existe una coloración más pequeña, por lo que su
   número cromático es 3. Nótese que los conjuntos independientes son formados
   por vértices que tienen el mismo color asignado y no son adyacentes entre sí.}

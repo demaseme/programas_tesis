@@ -32,7 +32,7 @@ Finalmente podemos definir el thickness geométrico de una gráfica $G$.
   es : \[ \bar{\theta}(G) = \min\{th(\mathsf{G}): \mathsf{G} \text{ es una gráfica geométrica de G} \} .\]
 \end{definition}
 
-En la figura~\ref{fig:thicknessexample} ilustramos un ejemplo del thickness de
+En la Figura~\ref{fig:thicknessexample} ilustramos un ejemplo del thickness de
 la gráfica completa de 6 vértices.
 \begin{figure}[htb]
   \centering
@@ -50,7 +50,7 @@ la gráfica completa de 6 vértices.
   en dos gráficas geométricas planas.}
   \label{fig:gthk6}
 \end{subfigure}
-\caption{La figura (a) muestra que el thickness de $K_6$ es menor o igual a dos. La figura (b) muestra que el thickness geométrico de $K_6$ es menor o igual a dos. Sin embargo, en general, estos parámetros no coinciden.}
+\caption{La Figura (a) muestra que el thickness de $K_6$ es menor o igual a dos. La Figura (b) muestra que el thickness geométrico de $K_6$ es menor o igual a dos. Sin embargo, en general, estos parámetros no coinciden.}
 \label{fig:thicknessexample}
 \end{figure}
 
@@ -71,7 +71,7 @@ la gráfica completa de 6 vértices.
 % Por otro lado el thickness geométrico $\bar{\theta}(G)$: Mínimo $k$ tal que
 % existe un dibujo geométrico $\mathsf{G}$ de $G$ cuyas aristas pueden ser
 % particionadas en $k$ gráficas planas.
-\cite{Dillencourt2004} demuestran que el thickness geométrico está acotado por:
+\cite{Dillencourt2004} demuestraron que el thickness geométrico está acotado por:
 \[ \left\lceil \frac{n}{5.646} + 0.342 \right\rceil \leq  \bar{\theta}(G) \leq \left\lceil\frac{n}{4}\right\rceil .\]
 
 En el mismo artículo encuentran el valor exacto del thicknes geométrico
@@ -106,7 +106,7 @@ adyacencia} de una gráfica geométrica $\mathsf{G}$ tiene como conjunto de
 vértices a todas las aristas de $\mathsf{G}$ y sus aristas se definen a partir
 del tipo de adyacencia que se considere; se puede definir cuatro diferentes
 gráficas de adyacencia, estas se listan a continuación y se ilustran en la
-figura~\ref{fig:ejemploeppk5}:
+Figura~\ref{fig:ejemploeppk5}:
 \begin{enumerate}
   \item \label{itm:epp}La gráfica de adyacencia en la que existe una arista
   entre dos vértices si las aristas correspondientes en $\mathsf{G}$ se cruzan.
@@ -179,7 +179,7 @@ La gráfica $E_{pp}(S)$ corresponde a la gráfica de adyacencia \ref{itm:epp}.
 \label{fig:ejemploeppk5}
 \end{figure}
 
-En la figura \ref{fig:eppk5} aparece un ejemplo de la gráfica de cruce
+En la Figura \ref{fig:eppk5} aparece un ejemplo de la gráfica de cruce
 $E_{pp}(S)$. Podemos notar que dado que en el dibujo de $K_5$ hay 3 cruces, en
 la gráfica $E_{pp}(S)$ hay 3 aristas.
 % Los conjuntos independientes de $E_{pp}(S)$ corresponden a conjuntos de aristas
@@ -196,7 +196,7 @@ vértices de $E_{pp}(S)$ corresponde a una descomposición de $K_n(S)$ en
 gráficas planas.
 Por lo tanto encontrar el número cromático de la gráfica
 $E_{pp}(S)$ es equivalente a encontrar el thickness geométrico de $K_n(S)$.
-La figura \ref{fig:k5coloring} ilustra esta relación.
+La Figura \ref{fig:k5coloring} ilustra esta relación.
 El thickness geométrico de la gráfica completa de $n$ vértices $K_n$ se puede
 definir en estos términos como sigue:
 \begin{definition}{\emph{Thickness geométrico de una gráfica}.}
@@ -309,7 +309,7 @@ gráficas de adyacencia mencionadas antes.
   \end{tabular}
   \caption{Esta tabla muestra qué representan los conjuntos independientes en
   $K_n(S)$ para cada una de las gráficas definidas en \cite{Araujo2005} y para
-  $E_pp(S)$. Una \emph{crossing familie} es una colección de segmentos
+  $E_pp(S)$. Una \emph{crossing family} es una colección de segmentos
   que se cruzan a pares~\cite{Lara2019}. }
   \label{table:graficasincidencia}
 \end{table}
@@ -325,14 +325,12 @@ siguientes parámetros:
 % en posición convexa como $w_c(n)$, $i_c(n)$ y $d_c(n)$ y demuestran las siguientes cotas:
 Es usual estudiar el dibujo en posición convexa de una gráfica completa ya que
 se pueden explotar ciertas propiedades geométricas cuando se trabaja con un
-conjunto de puntos en posición convexa. Esta configuración es representada por
+conjunto de puntos en posición convexa. Esta conFiguración es representada por
 un solo tipo de orden para cada $n$. Para el caso en el que $S$ está en
 posición convexa se denotan a estos valores como $w_c(n)$, $i_c(n)$ y $d_c(n)$.
 Es importante notar que, por consecuencia de la posición convexa, estos valores
 están definidos para un único tipo de orden. Nótese que $d_c(n)=\chi(D(S))$ para
-el caso en el que $S$ está en posición convexa.
-
-Los autores demuestran las siguientes cotas:
+el caso en el que $S$ está en posición convexa. Los autores demuestran las siguientes cotas:
 \begin{itemize}
   \item $w_c(n) = \Theta(n\log n)$.
   \item $c_1n\log n \leq w(n) \leq c_2 n^2 \frac{\log\log n}{\log n}, \text{ para } c_1,c_2 > 0$.
@@ -353,20 +351,14 @@ De manera análoga si los puntos de $S$ están en posición convexa definimos el
 anti-thickness convexo:
 
 \begin{definition}{\emph{Anti-thickness convexo de una gráfica}.}
-  \[At_c(n) = \chi(D(S)): S\subset \mathbb{R}^2 \text{ está en posición convexa}, |S|=n.\]
+  \[At_c(n) = \min\{\chi(D(S)): S\subset \mathbb{R}^2 \text{ está en posición convexa}, |S|=n\}.\]
 \end{definition}
 
 Como ya mencionamos antes, el anti-thickness convexo de la gráfica completa de $n$ vértices es equivalente a $d_c(n)$. En otras palabras, sea $S$ un conjunto
 de $n$ puntos en posición convexa:
 \begin{align*}
-  At_c(n) &= d_c(n) \\
-  \Rightarrow \chi(D(S)) &= \max\{\chi(D(S))\}
+  At_c(n) &= d_c(n)
 \end{align*}
-Pero como solamente existe un solo dibujo cuando $S$ está en posición convexa,
-entonces:
-\[
-\max\{\chi(D(S))\} = \chi(D(S)).
-\]
 
 A pesar de que en el trabajo de~\cite{Araujo2005} se busca el número cromático
 de la gráfica $D(S)$ y con ello, como mencionamos antes, se busca el
@@ -421,9 +413,9 @@ geométricas de $G$.
 % Como se mencionó anteriormente el anti-thickness está relacionado con la descomposición
 % de una gráfica en sub-gráficas donde siempre ocurren cruces, podemos ver el
 % anti-thickness como el lado opuesto del thickness.
-Los autores de \cite{Dujmovic2017} presentan resultados respecto a el
+\cite{Dujmovic2017} presentan resultados respecto a el
 anti-thickness para familias específicas de gráficas como árboles, gráficas
-outerplanar, y algunos dibujos como 2-tracks, books, k-queues, entre otros.
+outerplanar, y algunos dibujos como 2-tracks, books, $k$-queues, entre otros.
 
 En su trabajo definen en anti-thickness como sigue:
 \begin{definition}{\emph{Anti-thickness de una gráfica.}}
@@ -477,7 +469,7 @@ que el anti-thickness convexo tiene exactamente el siguiente valor:
 A continuación hablamos del trabajo de~\cite{Lomeli2018} en donde encuentran el
 anti-thickness geométrico de una familia de conjuntos conocidos como doble
 cadena convexa. Una doble cadena convexa
-es la configuración de puntos conformada por una $k\text{-}cup$ y una
+es la conFiguración de puntos conformada por una $k\text{-}cup$ y una
 $l\text{-}cap$. Una $k\text{-}cup$ es una cadena de $k$ puntos en posición
 convexa donde la parte superior de su \emph{cierre convexo}\footnote{El cierre
 convexo de un conjunto de puntos es el polígono con área más pequeña que
@@ -491,7 +483,7 @@ segmento. La doble cadena convexa $C_{k,l}$ tiene las siguientes propiedades:
   \item Cada punto de $U$ está por arriba de cada segmento de recta definido por dos puntos de $L$.
 \end{itemize}
 
-La figura \ref{fig:exdoblecadena} muestra un ejemplo de una doble cadena
+La Figura \ref{fig:exdoblecadena} muestra un ejemplo de una doble cadena
 convexa.
 \begin{figure}[htpb]
   \centering
@@ -519,14 +511,14 @@ $K_{l,k}$, es:
  La cota superior se sigue del caso convexo y la cota inferior
  se sigue del hecho de que una gráfica con $n$ vértices
  con anti-thickness geométrico $k$ tiene a lo sumo $kn$ aristas. Discutimos
- estas ideas con más detalle en la sección~\ref{sec:cota_inf} del capítulo~\ref{cap4}.
+ estas ideas con más detalle en la Sección~\ref{sec:cota_inf} del Capítulo~\ref{cap4}.
 
 Los trabajos mencionados en este capítulo muestran cómo el problema original del
 thickness está relacionado con problema del anti-thickness. Mostramos de qué
 manera un problema de descomposición de gráficas geométricas equivale
 a un problema de coloración de gráficas. Los artículos más recientes tratan al
 anti-thickness como un problema de coloración. En este trabajo no construimos la
-gráfica $D(S)$ y no coloreamos ninguna gráfica, uestro enfoque es geométrico
+gráfica $D(S)$ y no coloreamos ninguna gráfica, nuestro enfoque es geométrico
 y computacional.
 
 % Es importante notar que el anti-thickness convexo es acotado examinando el número mínimo

@@ -13,11 +13,11 @@
 \contentsline {section}{\numberline {4.2}Cota superior del anti-thickness geom\IeC {\'e}trico}{51}{section.4.2}
 \contentsline {subsection}{\numberline {4.2.1}N\IeC {\'u}mero de cruce de thrackles m\IeC {\'a}ximos }{59}{subsection.4.2.1}
 \contentsline {section}{\numberline {4.3}Anti-thickness de gr\IeC {\'a}ficas geom\IeC {\'e}tricas sin thrackles m\IeC {\'a}ximos}{63}{section.4.3}
-\contentsline {section}{\numberline {4.4}Intersecci\IeC {\'o}n de thrackles de $K_n$ con $3\leq n \leq 9$.}{66}{section.4.4}
+\contentsline {section}{\numberline {4.4}InterSecci\IeC {\'o}n de thrackles de $K_n$ con $3\leq n \leq 9$.}{66}{section.4.4}
 \contentsline {section}{\numberline {4.5}Algoritmos}{68}{section.4.5}
 \contentsline {subsection}{\numberline {4.5.1}Algoritmo para encontrar thrackles con $k$ aristas}{69}{subsection.4.5.1}
 \contentsline {subsubsection}{An\IeC {\'a}lisis de complejidad}{75}{section*.47}
-\contentsline {subsection}{\numberline {4.5.2}Algoritmo para la intersecci\IeC {\'o}n de dos thrackles}{77}{subsection.4.5.2}
+\contentsline {subsection}{\numberline {4.5.2}Algoritmo para la interSecci\IeC {\'o}n de dos thrackles}{77}{subsection.4.5.2}
 \contentsline {subsection}{\numberline {4.5.3}Algoritmo para encontrar colecciones de thrackles m\IeC {\'a}ximos de $K_n$}{77}{subsection.4.5.3}
 \contentsline {subsubsection}{An\IeC {\'a}lisis de complejidad}{81}{section*.52}
 \contentsline {subsection}{\numberline {4.5.4}Algoritmo para generar particiones gu\IeC {\'\i }a de un entero}{82}{subsection.4.5.4}
