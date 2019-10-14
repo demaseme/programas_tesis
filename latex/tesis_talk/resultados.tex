@@ -106,34 +106,50 @@ exhaustivo que usa \emph{backtracking} para encontrar thrackles de cualquier tam
 %Explicar algoritmo de búsqueda de $k$ thrackles y cómo hacemos la intersección.
 Nosotros representamos un thrackle con una tupla de aristas y cada arista está representada con un entero entre $0$ y $\binom{n}{2}-1$. Por ejemplo, si suponemos que las aristas $1,2,3$ y $8$ se intersectan a pares, entonces podemos definir un 4$-$thrackle, $T=\{1,2,3,8\}$, compuesto por las aristas antes descritas.\\[10pt]
 \end{frame}
-\begin{frame}\frametitle{Algoritmo de búsqueda de $k-$thrackles}
-\begin{itemize}
-	\item Para encontrar un thrackle de 4 aristas, incializamos un \texttt{vector} de tamaño 4. \pause
-	\item Inicializamos la primera posición del vector con un $0$ y las demás con un valor nulo. \item Esto indica que el thrackle que estamos buscando actualmente, contiene a la arista $0$. $T=\{0,\thicksim,\thicksim,\thicksim\}$
-	 \item Como la arista $0$ se intersecta con el resto de las aristas en el thrackle, avanzamos a la segunda posición para aumentar el tamaño del thrackle actual. 
-	 \pause\item La segunda posición es inicializada con el siguiente número inmediato con respecto del contenido de la posición anterior. En este caso la segunda posición tendrá un valor de $1$. $T=\{0,1,\thicksim,\thicksim\}$.
-	 \item Para verificar que la arista $1$ si pertence al thrackle es necesario verificar que esta intersecte a las aristas que ya están establecidas en el thrackle.
-\end{itemize}
+%\begin{frame}\frametitle{Algoritmo de búsqueda de $k-$thrackles}
+%\begin{itemize}
+%	\item Para encontrar un thrackle de 4 aristas, incializamos un \texttt{vector} de tamaño 4. \pause
+%	\item Inicializamos la primera posición del vector con un $0$ y las demás con un valor nulo. \item Esto indica que el thrackle que estamos buscando actualmente, contiene a la arista $0$. $T=\{0,\thicksim,\thicksim,\thicksim\}$
+%	 \item Como la arista $0$ se intersecta con el resto de las aristas en el thrackle, avanzamos a la segunda posición para aumentar el tamaño del thrackle actual. 
+%	 \pause\item La segunda posición es inicializada con el siguiente número inmediato con respecto del contenido de la posición anterior. En este caso la segunda posición tendrá un valor de $1$. $T=\{0,1,\thicksim,\thicksim\}$.
+%	 \item Para verificar que la arista $1$ si pertence al thrackle es necesario verificar que esta intersecte a las aristas que ya están establecidas en el thrackle.
+%\end{itemize}
+%\end{frame}
+%\begin{frame}
+%\begin{itemize}
+%	\item Si la arista 1 no intersecta a la arista 0, entonces el thrackle $T={0,1,..}$ no existe, por lo tanto examinamos la siguiente arista disponible, en este caso $2$. 
+%	Supongamos que este es el caso y que la arista $2$ sí intersecta a la arista $1$. $T=\{0,2,\thicksim,\thicksim\}$.
+%	\item Avanzamos a la siguiente posición y repetimos el proceso anterior. $T=\{0,2,3,\thicksim\}$
+%	\item Si la arista $3$ intersecta a las aristas $0$ y $2$, entonces puede quedarse en el thrackle. En otro caso debemos examinar la arista $4$. 
+%	\item Repetimos este proceso iterativo hasta que lleguemos a la cuarta posición y encontremos una arista que intersecte al resto.
+%\end{itemize}
+%Supongamos que encontramos el thrackle $T=\{0,2,3,5\}$, lo procesamos y ahora tenemos que buscar el siguiente thrackle de tamaño 4. \pause 
+%
+%Para ello, incrementamos el valor de la última posición $T=\{0,2,3,6\}$ y repetimos el proceso para verificar que la arista $6$ intersecte a las aristas $0$,$2$ y $3$.
+%\end{frame}
+%\begin{frame}
+%En caso positivo, repetimos el proceso. En caso negativo, incrementamos el valor de dicha posición. \\[10pt]\pause
+%Si en algún momento, cualquiera de las posiciones alcanza el valor máximo $\binom{n}{2}-1$, entonces hacemos \emph{backtrack}. Regresamos una posición atrás, e incrementamos el valor de esa posición en uno. Esto es porque ya explotamos todas las posibles combinaciones que empiezan, por ejemplo, con $T=\{0,2,3,\thicksim\}$. En este punto el proceso continúa normalmente. $T=\{0,2,4,\thicksim\}$ \\[10pt]
+%¿Condición de paro? Operando de esta manera, el algoritmo encuentra todos los thrackles de 4 aristas, que empiecen con la arista 0, luego todos los que empiecen con la arista 1, los que empiecen con la arista 2, y así sucesivamente. \pause Cuando la primera posición alcance el valor $\binom{n}{2}-1$ el algoritmo intentará hacer backtrack pero no podrá acceder a la posición $-1$, aprovechamos esta característica para detener y finalizar el algoritmo.
+%\end{frame}
+\begin{frame}
+\centering
+\includegraphics[width=0.8\linewidth]{images/example_algoritmo}
 \end{frame}
 \begin{frame}
-\begin{itemize}
-	\item Si la arista 1 no intersecta a la arista 0, entonces el thrackle $T={0,1,..}$ no existe, por lo tanto examinamos la siguiente arista disponible, en este caso $2$. 
-	Supongamos que este es el caso y que la arista $2$ sí intersecta a la arista $1$. $T=\{0,2,\thicksim,\thicksim\}$.
-	\item Avanzamos a la siguiente posición y repetimos el proceso anterior. $T=\{0,2,3,\thicksim\}$
-	\item Si la arista $3$ intersecta a las aristas $0$ y $2$, entonces puede quedarse en el thrackle. En otro caso debemos examinar la arista $4$. 
-	\item Repetimos este proceso iterativo hasta que lleguemos a la cuarta posición y encontremos una arista que intersecte al resto.
-\end{itemize}
-Supongamos que encontramos el thrackle $T=\{0,2,3,5\}$, lo procesamos y ahora tenemos que buscar el siguiente thrackle de tamaño 4. \pause 
-
-Para ello, incrementamos el valor de la última posición $T=\{0,2,3,6\}$ y repetimos el proceso para verificar que la arista $6$ intersecte a las aristas $0$,$2$ y $3$.
+\centering
+\includegraphics[width=0.8\linewidth]{images/example_algoritmo2}
 \end{frame}
 \begin{frame}
-En caso positivo, repetimos el proceso. En caso negativo, incrementamos el valor de dicha posición. \\[10pt]\pause
-Si en algún momento, cualquiera de las posiciones alcanza el valor máximo $\binom{n}{2}-1$, entonces hacemos \emph{backtrack}. Regresamos una posición atrás, e incrementamos el valor de esa posición en uno. Esto es porque ya explotamos todas las posibles combinaciones que empiezan, por ejemplo, con $T=\{0,2,3,\thicksim\}$. En este punto el proceso continúa normalmente. $T=\{0,2,4,\thicksim\}$ \\[10pt]
-¿Condición de paro? Operando de esta manera, el algoritmo encuentra todos los thrackles de 4 aristas, que empiecen con la arista 0, luego todos los que empiecen con la arista 1, los que empiecen con la arista 2, y así sucesivamente. \pause Cuando la primera posición alcance el valor $\binom{n}{2}-1$ el algoritmo intentará hacer backtrack pero no podrá acceder a la posición $-1$, aprovechamos esta característica para detener y finalizar el algoritmo.
+\centering
+\includegraphics[width=0.8\linewidth]{images/example_algoritmo3}
+\end{frame}
+\begin{frame}
+\centering
+\includegraphics[width=0.8\linewidth]{images/example_algoritmo4}
 \end{frame}
 \begin{frame}\frametitle{Costo computacional}
-El peor caso es aquel en el que evaluamos todas las combinaciones de tamaño $t$ con $t \leq k$. Analizar una combinación de tamaño $t$ toma $O(t)$. Además existen $\left(\binom{\binom{n}{2}}{t}\right)$ combinaciones de tamaño $t$. Entonces necesitamos $t\left(\binom{\binom{n}{2}}{t}\right)$ operaciones para evaluar todas las combinaciones de tamaño $t$. En nuestro peor caso, $t\in[1,10]$, por lo que el costo de nuestro algoritmo en el pero caso es:
+El peor caso es aquel en el que evaluamos todas las combinaciones de tamaño $t$ con $t \leq k$. Analizar una combinación de tamaño $t$ toma $O(t)$. Además existen $\displaystyle \binom{\binom{n}{2}}{t}$ combinaciones de tamaño $t$. Entonces necesitamos $\displaystyle t\binom{\binom{n}{2}}{t}$ operaciones para evaluar todas las combinaciones de tamaño $t$. En nuestro peor caso, $t\in[1,10]$, por lo que el costo de nuestro algoritmo en el pero caso es:
 
 \begin{align*}
 	\displaystyle O\left( \sum_{t=1}^{10} t\binom{\binom{n}{2}}{t} \right) &= 
@@ -141,6 +157,16 @@ El peor caso es aquel en el que evaluamos todas las combinaciones de tamaño $t$
 	 O(n^2)+ O(n^4)+ O(n^6) + \dots + O(n^{20}) = \\ &=O(n^{20})
 \end{align*}
 
+\end{frame}
+\begin{frame}\frametitle{Intersección de thrackles.}
+\begin{figure}
+	\centering
+\includegraphics[width=0.2\linewidth]{images/example_inter1}
+\end{figure}
+Con la representación de thrackles como tuplas de enteros, podemos hacer la operación de intersección en tiempo lineal (en el tamaño de los thrackles).
+\includegraphics[width=0.2\linewidth]{images/example_inter2}~\includegraphics[width=0.2\linewidth]{images/example_inter3}~\includegraphics[width=0.2\linewidth]{images/example_inter4}~\includegraphics[width=0.2\linewidth]{images/example_inter5}~\includegraphics[width=0.2\linewidth]{images/example_inter6}
+
+\includegraphics[width=0.2\linewidth]{images/example_inter7}
 \end{frame}
 \begin{frame}
 \frametitle{Costo computacional - tiempos de ejecución}
@@ -253,4 +279,32 @@ Con el resultado anterior y el resultado del estado del arte tenemos que, para $
 Nosotros encontramos dibujos, en posición general no convexa, que tienen anti-thickness igual al anti-thickness del dibujo en posición convexa. Esto lo hicimos para cada $n$ con $3\leq n \leq 10$. Con esto podemos dar el anti-thickness geométrico exacto para $K_n$, con $n$ en el rango antes mencionado. \\[15pt]
 
 Para encontrar estos resultados empleamos un algoritmo exhaustivo que busca descomposiciones por thrackles en la que cada elemento sea un thrackle máximo.
+\end{frame}
+\begin{frame}
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{images/algo_codigo}
+\end{figure}
+\end{frame}
+
+\begin{frame} \frametitle{Análisis de complejidad}
+\begin{table}
+	\centering
+	\begin{tabular}{|c|c|c|l|}
+		\hline
+		$n$ & \makecell{Número máximo de \\ thrackles en un T.O.} &$At_g(K_n)$& \makecell{Número de \\      combinaciones} \\
+		\hline
+		6 & 5 & 3 & 10 \\ \hline
+		7 & 16 & 4 & 1,820 \\\hline
+		8 & 49 & 5 & 1,906,884 \\\hline
+		9 & 134 & 6 & 7,177,979,809 \\\hline
+		10 & 333 & 6 & 1,809,928,822,548 \\ \hline
+	\end{tabular}
+\end{table}
+Sea $x=n - \left\lfloor\sqrt{2n + \frac{1}{4}} - \frac{1}{2}\right\rfloor$ para un tipo de orden válido, es decir, un tipo de orden con al menos $x$ thrackles máximos, de tamaño $n$, con $k$ thrackles máximos, el Algoritmo genera las
+$\binom{k}{x}$ combinaciones y después, para cada una, examina, en tiempo $O(x \cdot n^2)$, si esta cubre o no a las aristas de $K_n$. Este algoritmo tiene complejidad, para un tipo de orden de $n$ puntos:
+\begin{equation*}\displaystyle
+O\left(\binom{k}{x}\cdot x n^2 \right) = O \left( \binom{k}{n} n^3 \right) = O(k^n n^3).
+\label{complejidad_colecciones}
+\end{equation*}
 \end{frame}
