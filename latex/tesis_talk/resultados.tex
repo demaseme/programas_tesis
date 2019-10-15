@@ -301,10 +301,34 @@ Para encontrar estos resultados empleamos un algoritmo exhaustivo que busca desc
 		10 & 333 & 6 & 1,809,928,822,548 \\ \hline
 	\end{tabular}
 \end{table}
-Sea $x=n - \left\lfloor\sqrt{2n + \frac{1}{4}} - \frac{1}{2}\right\rfloor$ para un tipo de orden válido, es decir, un tipo de orden con al menos $x$ thrackles máximos, de tamaño $n$, con $k$ thrackles máximos, el Algoritmo genera las
-$\binom{k}{x}$ combinaciones y después, para cada una, examina, en tiempo $O(x \cdot n^2)$, si esta cubre o no a las aristas de $K_n$. Este algoritmo tiene complejidad, para un tipo de orden de $n$ puntos:
+Sea $c=n - \left\lfloor\sqrt{2n + \frac{1}{4}} - \frac{1}{2}\right\rfloor$ para un tipo de orden válido, es decir, un tipo de orden con al menos $x$ thrackles máximos, de tamaño $n$, con $k$ thrackles máximos, el Algoritmo genera las
+$\binom{k}{c}$ combinaciones y después, para cada una, examina, en tiempo $O(c \cdot n^2)$, si esta cubre o no a las aristas de $K_n$. Este algoritmo tiene complejidad, para un tipo de orden de $n$ puntos:
 \begin{equation*}\displaystyle
-O\left(\binom{k}{x}\cdot x n^2 \right) = O \left( \binom{k}{n} n^3 \right) = O(k^n n^3).
+O\left(\binom{k}{c}\cdot x n^2 \right) = O \left( \binom{k}{n} n^3 \right) = O(k^n n^3).
 \label{complejidad_colecciones}
 \end{equation*}
+\end{frame}
+\begin{frame} \frametitle{Resultados de la ejecución}
+\begin{figure}
+	\includegraphics[width=1\linewidth]{images/descomposiciones}
+\end{figure}
+\end{frame}
+\begin{frame}
+\frametitle{Anti-thickness exacto para $K_n$ con $3 \leq n \leq 10$}
+Con estos dibujos cuyo anti-thickness es igual al anti-thickness de su respectivo dibujo convexo y la cota inferior descrita anteriormente, podemos dar el anti-thickness exacto para $K_n$, con $3 \leq n \leq 10$.
+\begin{table}
+	\centering
+\begin{tabular}{|c|c|}
+	\hline 
+	$n$ & $At_g(K_n)$ \\ \hline
+	3   &  1 \\ \hline
+	4   &  2 \\ \hline
+	5   &  3 \\ \hline 
+	6   &  3 \\ \hline 
+	7   &  4 \\ \hline
+	8   &  5 \\ \hline
+	9   &  6 \\ \hline
+	10  &  6 \\ \hline
+\end{tabular}
+\end{table}
 \end{frame}
