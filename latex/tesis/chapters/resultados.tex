@@ -744,7 +744,8 @@ cruce. Finalmente listamos los algoritmos que utilizamos en este trabajo para da
   Todos los números de tipo de orden de tamaño $n$, para $n \in [3,8]$, para los que se ejecutó el
   algoritmo y el anti-thickness encontrado para cada uno pueden descargarse desde la
   liga~\ref{link-thrWithoutMax-at} del Apéndice~\ref{apendice-ligas}. Con lo anterior demostramos
-  el siguiente teorema.
+  el siguiente teorema. Además las descomposiciones están en la liga~\ref{link-decomposiciones-nomax} en formato \texttt{.csv} donde la primera columna representa el número de tipo de orden y la segunda columna
+  representa la descomposición. Cada renglón de la segunda columna representa el conjunto de aristas del thrackle. Las aristas deben generadas como se describe en el Algoritmo~\ref{seccion_algoritmo_kthrackles}.
   \begin{theorem}
     \label{teo:at_sin_thracklesmax}
     El anti-thickness de los dibujos para los cuales no existen thrackles
@@ -758,8 +759,8 @@ cruce. Finalmente listamos los algoritmos que utilizamos en este trabajo para da
   En la siguiente Sección analizamos, para $3 \leq n \leq 9$, cómo se comporta la intersección de
   thrackles, no necesariamente máximos, de los dibujos de $K_n$.
 
-\section{InterSección de thrackles de $K_n$ con $3\leq n \leq 9$.}\label{secc:interseccion_thrackles}
-    \chaptermark{InterSección de thrackles.}
+\section{Intersección de thrackles de $K_n$ con $3\leq n \leq 9$.}\label{secc:interseccion_thrackles}
+    \chaptermark{Intersección de thrackles.}
 
     El Teorema~\ref{teo:coleccion_optima} establecido en la Sección
     ~\ref{secc:descomposicion_thrackles_maximos} nos indica que no existen colecciones óptimas de
@@ -1242,7 +1243,7 @@ cruce. Finalmente listamos los algoritmos que utilizamos en este trabajo para da
           \textbf{continue}\;
         }
       }
-    \caption{InterSección de dos conjuntos ordenados en tiempo
+    \caption{Intersección de dos conjuntos ordenados en tiempo
     lineal.}
     \label{algo_interseccion}
   \end{algorithm}
