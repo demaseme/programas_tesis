@@ -13,24 +13,32 @@ void printThrackleList(vector<vector<int>> t){
     printVectorInt(t[i]);
   }
 }
-/*
-This is a (very)-brute force algorithm to find the anti-thickness
-of complete graph. Requires the disjointness matrix to be loaded.
-It might take a while to end even for small set of points.
-*/
 void exhaustive_at(int** matrix, int cols, int n, vector<int> current_thrackle, int at, int mode){
+  vector<vector<int>> local_desc;
+  //if (at > lowAt) lowAt = at;
+  //if (mode==1) if( at > 0 && (int)current_thrackle.size() != n - (at-1)) return;
   if( at >= minAt) return;
-
+  //if(at == 1 && (int) current_thrackle.size() < n) return;
+  //cout << " ##### Printing recursion data #####\n";
+  //cout << "[core] current thrackle :"; printVectorInt(current_thrackle);
+  usleep(000000);
+  //cout << " [core] this level at : " << at << endl;
   if ( (int) coveredEdges.size() == cols ) {
     if (at < minAt) minAt = at;
+    //cout << "[core] Current minimal AT: " << minAt << endl;
+    printThrackleList(thrackle_list);
     return;
   }
   else {
-    vector<vector<int>> local_desc;
     while(true){
-
+      //cout << "\t Covered edges "; printVectorInt(coveredEdges);
+      // printf("Local Desc: \n");
+      // printThrackleList(local_desc);
       vector<int> thrackle;
-
+      //if(at<=1) {
+      //     cout << "[core] attemping to find child of ";
+      //     printVectorInt(current_thrackle);
+      // //}
       int val = next(matrix,local_desc,thrackle,current_thrackle,cols,n,at,mode);
       if ( !val ) return;
 
@@ -53,8 +61,7 @@ void exhaustive_at(int** matrix, int cols, int n, vector<int> current_thrackle, 
 and the thrackles in descendants (avoiding them),
 stores result in thrackle, if no thrackle is found NULL is stored in thrackle
 */
-int next(int ** matrix, vector<vector<int>> descendants, vector<int> & thrackle, const vector<int> subroot,
-  int cols, int n, int at, int mode){
+int next(int ** matrix, vector<vector<int>> descendants, vector<int> & thrackle, const vector<int> subroot, int cols, int n, int at, int mode){
   //First step is to define the size of the thrackle to be found.
   vector<int> missing_edges;
   vector<int> local_thrackle;
@@ -94,14 +101,13 @@ int next(int ** matrix, vector<vector<int>> descendants, vector<int> & thrackle,
   }
   //If descendants biggest size is less than k, then set k to this size.
   if ((smallest_desc < k) && (smallest_desc > 0)) k = smallest_desc;
-  //Define where to start.
+
   vector<int> starting_thrackle;
   if ( smallest_desc_ind >= 0 ){ //yes desc
     //Copy from smallest descendant
     starting_thrackle.assign(descendants[smallest_desc_ind].begin(),descendants[smallest_desc_ind].begin()+k);
     flag = false;
-  } else if( (((int)subroot.size() == n) && smallest_desc_ind < 0) || subroot.empty()){
-    //no desc, yes maximal | or root of tree
+  } else if( (((int)subroot.size() == n) && smallest_desc_ind < 0) || subroot.empty()){ //no desc, yes maximal | or root of tree
     //Copy from missing edges
     starting_thrackle.assign(missing_edges.begin(),missing_edges.begin()+k);
   } else if ( ((int) subroot.size() < n) && smallest_desc_ind < 0 && !subroot.empty()){ // no desc, no max
@@ -537,7 +543,6 @@ void printArray(int array[],const int size) {
 }
 
 /*
-This is the algorithm to find all thrackles of size k.
 Uses matrix information to visit all thrackles of size desired_size.
 cols - column number of matrix, it's also the number of segments on the complete graph.
 */
@@ -547,35 +552,46 @@ int get_kthrackles_of_matrix(int ** matrix, const int cols, const int desired_si
   int intersect;
   int i;
   int thrackle_counter = 0;
-
+  // int key,key2;
+  // bool tfound = false;
   vector<int> thracklePositions;
 
   //Start up counters with first 5 edges, not necessary. (Really only need 0 and 1 )
-  for(i = 0; i < 1 ; i++){
+  for(i = 0; i < 2 ; i++){
     counters[i] = i;
   }
-  for(i = 1; i <= desired_size ; i++){
+  for(i = 2; i <= desired_size ; i++){
     counters[i] = 0;
   }
-  current_size = 0;
+  // cout << "Starting algorithm:::::\n" << "cols:" << cols<< " desired size:" << desired_size<< "\ncounters:\n";
+  // printArray(counters,desired_size);
+  current_size = 1;
   while ( counters[0] < cols ){
-    //Finding thrackles starting with counters[0];
+    //cout << "Finding thrackles starting with " << counters[0] << endl;
+    //cin >> key;
     while ( current_size < desired_size ){
       intersect = 1;
       thracklePositions.clear();
+      //cout << "\t [211] Current size: " << current_size << endl;
+      //printArray(counters,desired_size);
+
       if ( counters[current_size] >= cols ){
         current_size--;
-
+        //if (current_size == 0) break;
         if(current_size < 0 ){
-          return thrackle_counter; //  Finished
+          //    current_size = 0;
+          //    continue;
+          //   cout << "####### FINISHED ON LINE 215 ##### \n";
+          return thrackle_counter; // ? Finished?
         }
         counters[current_size]++;
         continue;
       }
-      //Check that current edge intersects all other edges.
+
       for(i = 0; i < current_size ; i++ ){
         intersect &= !matrix[counters[i]][counters[current_size]];
       }
+
       if ( !intersect ) {
         counters[current_size]++;
       } else {
@@ -583,23 +599,32 @@ int get_kthrackles_of_matrix(int ** matrix, const int cols, const int desired_si
 
           thrackle_counter++;
           // cout << "Thrackle found\n\t";
+          // printArray(counters,desired_size);
+          // cin >> key2;
+          // tfound = true;
           for(int p = 0; p < desired_size; p++){
             thracklePositions.push_back(counters[p]);
           }
+          //thracklePositions.insert(thracklePositions.end(), counters[0], counters[desired_size]);
           positions.push_back(thracklePositions);
           counters[current_size]++;
+          //cout << "\t [240] Current size: " << current_size << endl;
           continue;
         }
-        //Increasing thrackle;
+        //cout << "[247] Increasing thrackle!\n";
         counters[current_size + 1] = counters[current_size] + 1;
         current_size++;
       }
     }
     //next round:
-    //"Increasing counters";
+    //nextr:
+    //cout << "Increasing counters[0]\n";
     counters[0]++;
     counters[1] = counters[0] + 1;
-
+    //cout << "Current size: " << current_size << endl;
   }
+  //cout << "##############################Finished##########################################\n";
+
   return thrackle_counter;
+
 }
