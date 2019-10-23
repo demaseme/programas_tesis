@@ -1,15 +1,16 @@
 \section{Resultados}
 \begin{frame}
-\frametitle{Anti-thickness geométrico}
-Para $3 \leq n \leq 10$:
-\[  At_g(K_n) = n - \left\lfloor\sqrt{2n + \frac{1}{4}} - \frac{1}{2} \right\rfloor \]
-\end{frame}
-\begin{frame}
 \frametitle{Estado del arte}
 Para $n \geq 3$:
 \[  \frac{n-1}{2} \leq At_g(K_n) \leq n - \left\lfloor\sqrt{2n + \frac{1}{4}} - \frac{1}{2} \right\rfloor \]
 Para encontrar alguna cota inferior es posible explotar alguna propiedad que se cumpla para todas las gráficas geométricas de $K_n$. Para encontrar una cota superior es posible ofrecer una descomposición de $K_n$ en thrackles.
 \end{frame}
+\begin{frame}
+\frametitle{Anti-thickness geométrico}
+Para $3 \leq n \leq 10$:
+\[  At_g(K_n) = n - \left\lfloor\sqrt{2n + \frac{1}{4}} - \frac{1}{2} \right\rfloor \]
+\end{frame}
+
 \begin{frame}
 \frametitle{Estado del arte : cota inferior}
 Erd\H{o}s \emph{et al.}(1988) probaron que cada gráfica geométrica con $n$ vértices en la cual no existen dos aristas disjuntas tiene a lo sumo $n$ aristas. 
@@ -29,7 +30,8 @@ Si la gráfica completa tiene $\binom{n}{2} = \frac{n(n-1)}{2}$ aristas, ¿cuán
 
 \begin{frame}
 \frametitle{Estado del arte : cota superior}
-Fabila-Monroy \emph{et al.} encuentran el anti-thickness exacto cuando $S$ está en posición convexa. Ellos estudian el problema del anti-thickness desde número cromático de $D(S)$. Para la cota inferior establecen el número mínimo de colores necesarios en una coloración propia de $D(S)$ y para la cota superior dan una coloración propia para cualquier $n$, con $n>3$.
+
+Fabila-Monroy \emph{et al.} encuentran el anti-thickness exacto para $S$ en posición convexa. Para la cota inferior establecen el número mínimo de colores necesarios en una coloración propia de $D(S)$ y para la cota superior dan una coloración propia para cualquier $n$, con $n>3$.
 \pause 
 \\[10pt]
 Ellos establecen que $\chi(D(S)) = n - \left\lfloor\sqrt{2n + \frac{1}{4}} - \frac{1}{2} \right\rfloor, $ cuando $S$ está en posición convexa.
@@ -158,19 +160,25 @@ El peor caso es aquel en el que evaluamos todas las combinaciones de tamaño $t$
 \end{align*}
 
 \end{frame}
-\begin{frame}\frametitle{Intersección de thrackles.}
-\begin{figure}
-	\centering
-\includegraphics[width=0.2\linewidth]{images/example_inter1}
-\end{figure}
-Con la representación de thrackles como tuplas de enteros, podemos hacer la operación de intersección en tiempo lineal (en el tamaño de los thrackles).
-\includegraphics[width=0.2\linewidth]{images/example_inter2}~\includegraphics[width=0.2\linewidth]{images/example_inter3}~\includegraphics[width=0.2\linewidth]{images/example_inter4}~\includegraphics[width=0.2\linewidth]{images/example_inter5}~\includegraphics[width=0.2\linewidth]{images/example_inter6}
-
-\includegraphics[width=0.2\linewidth]{images/example_inter7}
-\end{frame}
+%\begin{frame}\frametitle{Intersección de thrackles.}
+%\begin{figure}
+%	\centering
+%\includegraphics[width=0.2\linewidth]{images/example_inter1}
+%\end{figure}
+%Con la representación de thrackles como tuplas de enteros, podemos hacer la operación de intersección en tiempo lineal (en el tamaño de los thrackles).
+%\includegraphics[width=0.2\linewidth]{images/example_inter2}~\includegraphics[width=0.2\linewidth]{images/example_inter3}~\includegraphics[width=0.2\linewidth]{images/example_inter4}~\includegraphics[width=0.2\linewidth]{images/example_inter5}~\includegraphics[width=0.2\linewidth]{images/example_inter6}
+%
+%\includegraphics[width=0.2\linewidth]{images/example_inter7}
+%\end{frame}
 \begin{frame}
 \frametitle{Costo computacional - tiempos de ejecución}
 En realidad, el algoritmo tomó mucho menos tiempo de lo calculado. Esto es porque el peor caso no ocurre. 
+Características del cluster: 
+\begin{itemize}
+	\item Procesador de 8 núcleos con velocidad de 1.5 GHz.
+	\item Memoria RAM de 64 GB.
+	\item Almacenamiento en disco duro de 128 GB.
+\end{itemize} 
 \begin{table}
 	\centering
 	\begin{tabular}{|c|c|c|}
@@ -301,12 +309,11 @@ Para encontrar estos resultados empleamos un algoritmo exhaustivo que busca desc
 		10 & 333 & 6 & 1,809,928,822,548 \\ \hline
 	\end{tabular}
 \end{table}
-Sea $c=n - \left\lfloor\sqrt{2n + \frac{1}{4}} - \frac{1}{2}\right\rfloor$ para un tipo de orden válido, es decir, un tipo de orden con al menos $x$ thrackles máximos, de tamaño $n$, con $k$ thrackles máximos, el Algoritmo genera las
-$\binom{k}{c}$ combinaciones y después, para cada una, examina, en tiempo $O(c \cdot n^2)$, si esta cubre o no a las aristas de $K_n$. Este algoritmo tiene complejidad, para un tipo de orden de $n$ puntos:
+La complejidad de esta algoritmo es alta, el análisis muestra que se necesitan
 \begin{equation*}\displaystyle
-O\left(\binom{k}{c}\cdot x n^2 \right) = O \left( \binom{k}{n} n^3 \right) = O(k^n n^3).
-\label{complejidad_colecciones}
+O(k^n n^3)
 \end{equation*}
+operaciones.
 \end{frame}
 \begin{frame} \frametitle{Resultados de la ejecución}
 \begin{figure}

@@ -1,5 +1,5 @@
 \section{Contexto Histórico}
-\begin{frame}\frametitle{Thickness}
+\begin{frame}\frametitle{Thickness, un problema opuesto}
 	\begin{figure}
 		\centering
 		\begin{tikzpicture}
@@ -40,7 +40,7 @@
 	\end{figure}
 	En 1961, Harary propone un problema:
 	\begin{quotation}
-		Demuestre la siguiente conjetura: Para cualquier gráfica $G$ con 9 vértices, $G$ o su gráfica complementaria $\overline{G}$\let\thefootnote\relax\footnote{$\overline{G}$:La gráfica inducida resultante de remover todas las aristas de $G$ de $K_n$} es no planar.
+		Demuestre la siguiente conjetura: Para cualquier gráfica $G$ con 9 vértices, $G$ o su gráfica complemento $\overline{G}$\let\thefootnote\relax\footnote{$\overline{G}$:La gráfica inducida resultante de remover todas las aristas de $G$ de $K_n$} es no planar.
 	\end{quotation}
 	Harary, Battle y Kodoma y Tutte probaron, de manera independiente, que $K_9$ no es la unión de dos \emph{gráficas planares} (no es biplanar). En 1963, Tutte definió el \emph{thickness} de una gráfica, generalizando el término de biplanaridad. 
 	\let\thefootnote\svthefootnote
@@ -70,7 +70,7 @@ aristas entre pares de vértices de $V$.
 \end{frame}
 \begin{frame}
 \frametitle{Descomposición de una gráfica}
-Una descomposición de una gráfica $G=(V,E)$ es una partición del conjunto de aristas $E$ de $G$, denotado $E(G)$, en un conjunto $\mathcal{D} = \{g_1,g_2,\dots,g_k \}$ de subgráficas de $G$ de tal manera que cada elemento de $E(G)$ está en solamente un elemento de $\mathcal{D}$.
+Una descomposición de una gráfica $G=(V,E)$ es una partición del conjunto de aristas $E$ de $G$, denotado $E(G)$, en un conjunto $\mathcal{D} = \{g_1,g_2,\dots,g_k \}$ de subgráficas inducidas de $G$ de tal manera que cada elemento de $E(G)$ está en solamente un elemento de $\mathcal{D}$.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.4\linewidth]{images/decomposition_example}
@@ -82,7 +82,7 @@ Una descomposición de una gráfica $G=(V,E)$ es una partición del conjunto de 
 		
 		\item[] Y el thickness geométrico $\bar{\theta}(G)$ como el número mínimo de gráficas \emph{planas} que existen en una descomposición de $G$, para todos los \emph{dibujos geométricos} de $G$.
 		
-		\item[] En el año 2000, Dillencourt \emph{et al.} dan el valor exacto del \emph{thickness geométrico} para gráficas completas.\\[5pt]
+		\item[] En el año 2000, Dillencourt, Eppstein y Hirschberg dieron el valor exacto del \emph{thickness geométrico} para gráficas completas.\\[5pt]
 	\end{itemize}
 	
 \end{frame}
@@ -96,7 +96,7 @@ Una descomposición de una gráfica $G=(V,E)$ es una partición del conjunto de 
 \end{frame}
 
 \begin{frame}\frametitle{Gráfica de cruce}
-Nosotros llamamos gráfica de cruce $E_{pp}(S)$ la gráfica cuyo conjunto de aristas es cada una de las aristas de $K_n(S)$ y cuyo conjunto de aristas contiene la información de los cruces de $K_n(S)$. Es decir, existe una arista entre dos vértices cuando sus aristas correspondientes en $K_n(S)$ se cruzan.
+Nosotros llamamos gráfica de cruce $C(S)$ la gráfica cuyo conjunto de aristas es cada una de las aristas de $K_n(S)$ y cuyo conjunto de aristas contiene la información de los cruces de $K_n(S)$. Es decir, existe una arista entre dos vértices cuando sus aristas correspondientes en $K_n(S)$ se cruzan.
 \end{frame}
 
 \begin{frame}
@@ -120,24 +120,24 @@ Es posible codificar la información de los cruces de las aristas de una gráfic
 	\item Las gráficas de adyacencia tienen como conjunto de vértices a las aristas de la gráfica completa que es inducida por algún conjunto $S$ de $n$ puntos.
 \end{itemize}
 
-	Existen otras gráficas de adyacencia a parte de $C(S)$, si consideramos otro criterio para definir las aristas de cada una podemos obtener diferentes resultados.
+	Existen otras gráficas de adyacencia a parte de $C(S)$, si consideramos otro criterio para definir las aristas de cada una podemos obtener diferente información.
 \end{frame}
 
-\begin{frame}{Gráficas de adyacencia}
-\begin{figure}
-	\centering
-	\includegraphics[width=0.3\textwidth]{images/K5}%
-	~\vrule
-	\includegraphics[width=0.35\textwidth]{images/grafica3k5}%
-	~\vrule
-	\includegraphics[width=0.35\textwidth]{images/grafica3k5_colored}%
-\end{figure}
-
-\begin{itemize}
-\item $I(S)$: Existe una arista entre dos vértices si las aristas correspondientes comparten un vértice o se cruzan. Las clases cromáticas son \emph{emparejamientos planos}.
-
-\end{itemize}
-\end{frame}
+%\begin{frame}{Gráficas de adyacencia}
+%\begin{figure}
+%	\centering
+%	\includegraphics[width=0.3\textwidth]{images/K5}%
+%	~\vrule
+%	\includegraphics[width=0.35\textwidth]{images/grafica3k5}%
+%	~\vrule
+%	\includegraphics[width=0.35\textwidth]{images/grafica3k5_colored}%
+%\end{figure}
+%
+%\begin{itemize}
+%\item $I(S)$: Existe una arista entre dos vértices si las aristas correspondientes comparten un vértice o se cruzan. Las clases cromáticas son \emph{emparejamientos planos}.
+%
+%\end{itemize}
+%\end{frame}
 \begin{frame}{Gráficas de adyacencia}
 \begin{figure}
 	\centering
@@ -159,19 +159,20 @@ Es posible codificar la información de los cruces de las aristas de una gráfic
 		\[ 
 			\min\{ \chi(C(S)): S \subset \mathbb{R}^2,\text{ está en posición general}, |S|=n \}
 		\]
-		En 2005, Urrutia \emph{et al.} estudiaron: \[\max\{\chi(G(S)): S \subset \mathbb{R}^2 \text{ está en posición general, |S|=n} \}\] donde $G(S)$ es cada una de las gráficas $W(S),I(S),D(S)$. Ellos probaron cotas para estos parámetros. En otras palabras buscan el máximo número de crossing families, emparejamientos planos y thrackles necesarios en una descomposición de $K_n$.
+		En 2005, Urrutia \emph{et al.} estudiaron: \[\max\{\chi(G(S)): S \subset \mathbb{R}^2 \text{ está en posición general, |S|=n} \}\] donde $G(S)$ es cada una de las gráficas $W(S),I(S),D(S)$.
+%		 Ellos probaron cotas para estos parámetros. En otras palabras buscan el máximo número de crossing families, emparejamientos planos y thrackles necesarios en una descomposición de $K_n$.
 \end{frame}
 \begin{frame}{Descomposiciones de gráficas (Book thickness)}
 	Una variante del problema del thickness se basa en colocar los puntos de la gráfica completa sobre un espacio geométrico diferente del plano, específicamente sobre una recta que es compartida por un número finito de semiplanos. 
 	\begin{center}
-		\only<1-3>{\includegraphics[width=0.4\linewidth]{images/book}}
-		\only<2-3>{\includegraphics[width=0.4\linewidth]{images/book-thickness}}
+		\includegraphics[width=0.4\linewidth]{images/book}
+		\includegraphics[width=0.4\linewidth]{images/book-thickness}
 	\end{center}
-	\only<3>{
+
 	\begin{itemize}
 		\item El book-thickness es igual al thickness en posición convexa.
 	\end{itemize}
-	}	
+	
 \end{frame}
 \begin{frame}
 	\frametitle{Otras decomposiciones de gráficas}
@@ -206,15 +207,16 @@ Es posible codificar la información de los cruces de las aristas de una gráfic
 
 \end{frame}
 \begin{frame}{Anti-thickness geométrico y el número cromático}
-Recordemos que $\chi(D(S))$ nos indica cuántos thrackles geométricos hay en una descomposición de la gráfica completa inducida por $S$. 
+Recordemos que, si $S$ es fijo, $\chi(D(S))$ es el anti-thickness de una gráfica geométrica, inducida por $S$. Si tomamos todas las gráficas geométricas inducidas por diferentes conjuntos de puntos, y nos quedamos con el que tenga anti-thickness más pequeño, le llamamos anti-thickness geométrico.
 \[
 \min\{ \chi(D(S)) : S \subset \mathbb{R}^2\text{ está en posición general}, |S| = n \}
-\] nos indica el mínimo numero de thrackles geométricos para todos los dibujos de alguna gráfica inducida por $S$, esto es, el anti-thickness geométrico.
+\] 
+%nos indica el mínimo numero de thrackles geométricos para todos los dibujos de alguna gráfica inducida por $S$, esto es, el anti-thickness geométrico.
 \pause
 \\[10pt]
 Notación de anti-thickness geométrico de $K_n$: $At_g(K_n)$.
 
-Observe que $At_g(K_n) = \min\{\chi(D(S)) \} = \max\{\chi(D(S)) \} = d(n)$ cuando $S$ es un conjunto de $n$ vértices en \emph{posición convexa}.
+Observe que, si $S$ está en posición convexa, $At_g(K_n) = \min\{\chi(D(S)) \} = \max\{\chi(D(S)) \} = d(n)$.
 \end{frame}
 
 
