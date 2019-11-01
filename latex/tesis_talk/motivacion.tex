@@ -38,7 +38,7 @@
 		{(p9)--(p\kk)};
 		\end{tikzpicture}
 	\end{figure}
-	En 1961, Harary propone un problema:
+	En 1961, Frank Harary propone un problema:
 	\begin{quotation}
 		Demuestre la siguiente conjetura: Para cualquier gráfica $G$ con 9 vértices, $G$ o su gráfica complemento $\overline{G}$\let\thefootnote\relax\footnote{$\overline{G}$:La gráfica inducida resultante de remover todas las aristas de $G$ de $K_n$} es no planar.
 	\end{quotation}
@@ -96,7 +96,7 @@ Una descomposición de una gráfica $G=(V,E)$ es una partición del conjunto de 
 \end{frame}
 
 \begin{frame}\frametitle{Gráfica de cruce}
-Nosotros llamamos gráfica de cruce $C(S)$ la gráfica cuyo conjunto de aristas es cada una de las aristas de $K_n(S)$ y cuyo conjunto de aristas contiene la información de los cruces de $K_n(S)$. Es decir, existe una arista entre dos vértices cuando sus aristas correspondientes en $K_n(S)$ se cruzan.
+Nosotros llamamos gráfica de cruce $C(S)$ a la gráfica cuyo conjunto de vértices es cada una de las aristas de $K_n(S)$ y cuyo conjunto de aristas contiene la información de los cruces de $K_n(S)$. Es decir, existe una arista entre dos vértices cuando sus aristas correspondientes en $K_n(S)$ se cruzan.
 \end{frame}
 
 \begin{frame}
@@ -110,7 +110,7 @@ Nosotros llamamos gráfica de cruce $C(S)$ la gráfica cuyo conjunto de aristas 
 \end{figure}
 Si encontramos una coloración propia de $C(S)$ las clases cromáticas representan gráficas planas. Luego, el número cromático $\chi(C(S))$\let\thefootnote\relax\footnote{El número cromático, $\chi(G)$, de $G$ es el mínimo número de clases cromáticas en una coloración propia de $G$.} nos dice el mínimo número de gráficas planas que hay en una descomposición de $K_n(S)$.
 
-Por lo tanto: $\overline{\theta}(K_n(S)) = \min\{\chi(E_{pp}(S)) : S \subset \mathbb{R}^2, |S| = n\}$
+Por lo tanto: $\overline{\theta}(K_n(S)) = \min\{\chi(C(S)) : S \subset \mathbb{R}^2, |S| = n\}$
 \end{frame}
 
 \begin{frame}\frametitle{Gráficas de adyacencia}
